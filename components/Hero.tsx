@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="mt-[120px] md:mt-[197px] w-full bg-white">
+    <section className="mt-[92px] md:mt-[197px] w-full bg-white">
       {/* 
         Flex container with gap-1 to create the whitespace. 
         bg-white ensures the gap creates a clean separation line.

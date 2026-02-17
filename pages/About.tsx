@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   return (
-    <div className="mt-[120px] md:mt-[197px] w-full bg-white">
+    <div className="mt-[92px] md:mt-[197px] w-full bg-white">
       
       {/* SECTION 1: HERO BANNER */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">

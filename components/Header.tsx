@@ -69,8 +69,8 @@ const Header: React.FC = () => {
     <header 
       className={`fixed w-full top-0 z-50 bg-white font-sans text-metallo-navy shadow-sm transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
-      {/* Row 1: Top Bar */}
-      <div className="border-b border-gray-100">
+      {/* Row 1: Top Bar - Hidden on mobile */}
+      <div className="border-b border-gray-100 hidden md:block">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-10 text-xs font-medium tracking-wide">
             <div className="flex space-x-6 text-gray-600">

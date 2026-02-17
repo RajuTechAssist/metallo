@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="mt-[120px] md:mt-[197px] w-full bg-white overflow-x-hidden">
+    <div className="mt-[92px] md:mt-[197px] w-full bg-white overflow-x-hidden">
 
       {/* SECTION 1: HERO BANNER */}
       <section className="relative bg-metallo-navy py-20 md:py-28 overflow-hidden">

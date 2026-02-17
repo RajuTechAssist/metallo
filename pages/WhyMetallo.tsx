@@ -115,7 +115,7 @@ const WhyMetallo: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="mt-[120px] md:mt-[197px] w-full bg-white overflow-x-hidden">
+    <div className="mt-[92px] md:mt-[197px] w-full bg-white overflow-x-hidden">
       
       {/* SECTION 0: THE SPECTRUM HERO */}
       <section className="relative w-full h-[80vh] min-h-[500px] bg-gray-900 overflow-hidden flex flex-col md:flex-row">
