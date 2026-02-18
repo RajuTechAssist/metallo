@@ -3,23 +3,27 @@ import React, { useState, useEffect, useRef } from 'react';
 const SLIDES = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1565515267426-9050a631ada0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    alt: "Industrial facility inauguration"
+    image: "/7thGrand_Inaugration.png",
+    alt: "Industrial facility inauguration",
+    headline: "METALLO Electronics\nProudly Inaugurated Its 7th\nManufacturing Facility",
   },
   {
     id: 2,
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    alt: "Advanced manufacturing line"
+    alt: "Advanced manufacturing line",
+    headline: "Advanced Manufacturing\nPowered by Precision\n& Innovation",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1997&q=80",
-    alt: "Steel production sparks"
+    image: "/steelSpark.jpg",
+    alt: "Steel production sparks",
+    headline: "From Raw Steel\nto Finished Product —\nAll Under One Roof",
   },
   {
     id: 4,
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-    alt: "Precision engineering"
+    alt: "Precision engineering",
+    headline: "Engineering Excellence\nThat Drives Industrial\nIndia Forward",
   }
 ];
 
@@ -120,10 +124,10 @@ const Hero: React.FC = () => {
 
           {/* Content */}
           <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8 drop-shadow-2xl max-w-4xl">
-              METALLO Electronics <br/>
-              Proudly Inaugurated Its 7th <br/>
-              Manufacturing Facility
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8 drop-shadow-2xl max-w-4xl transition-opacity duration-700">
+              {SLIDES[currentSlide].headline.split('\n').map((line, i) => (
+                <React.Fragment key={i}>{line}{i < SLIDES[currentSlide].headline.split('\n').length - 1 && <br/>}</React.Fragment>
+              ))}
             </h1>
             
             <button className="w-fit group flex items-center gap-4 text-white text-sm font-bold uppercase tracking-wider hover:text-metallo-gold transition-colors">

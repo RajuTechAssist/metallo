@@ -246,7 +246,7 @@ const About: React.FC = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">Led by Industry Veterans.</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">Led by Industry Experts.</h2>
               <p className="text-gray-600 text-lg max-w-3xl mx-auto">
                 With over 15 years of rigorous experience in high-stakes sectors like Oil & Gas and Infrastructure, our directors built Metallo to solve the problems they faced in the field.
               </p>
@@ -257,7 +257,7 @@ const About: React.FC = () => {
               {/* Leader 1 */}
               <div className="group relative bg-white border border-gray-100 shadow-xl rounded-sm overflow-hidden flex flex-col md:flex-row">
                  <div className="w-full md:w-1/3 bg-gray-200 min-h-[250px] relative overflow-hidden">
-                    <img src="/AnandDirector.png" alt="Anand Kumar" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
+                    <img src="/director.jpg" alt="Anand Kumar" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
                        <h3 className="text-2xl font-bold font-heading text-white">Anand Kumar</h3>
                        <p className="text-xs font-bold uppercase tracking-widest text-white/80">Director</p>
@@ -277,7 +277,7 @@ const About: React.FC = () => {
               {/* Leader 2 */}
               <div className="group relative bg-white border border-gray-100 shadow-xl rounded-sm overflow-hidden flex flex-col md:flex-row">
                  <div className="w-full md:w-1/3 bg-gray-200 min-h-[250px] relative overflow-hidden">
-                    <img src="/AnandDirector.png" alt="Mr. Vinay" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
+                    <img src="/director.jpg" alt="Mr. Vinay" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
                        <h3 className="text-2xl font-bold font-heading text-white">Mr. Vinay</h3>
                        <p className="text-xs font-bold uppercase tracking-widest text-white/80">Director</p>
