@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
         {/* Blueprint pattern background */}
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full hidden lg:block"></div>
-        <div className="absolute top-20 right-20 w-40 h-40 border border-dashed border-metallo-lime/20 rounded-full hidden lg:block"></div>
+        <div className="absolute top-20 right-20 w-40 h-40 border border-dashed border-metallo-gold/20 rounded-full hidden lg:block"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
@@ -153,17 +153,17 @@ const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">How can we help you today?</h2>
-            <div className="w-16 h-1 bg-metallo-lime mx-auto"></div>
+            <div className="w-16 h-1 bg-metallo-gold mx-auto"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Card 1: RFQ */}
             <div
               onClick={scrollToForm}
-              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-lime transition-all duration-300 cursor-pointer relative overflow-hidden"
+              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-gold transition-all duration-300 cursor-pointer relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-lime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors duration-300">
+              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors duration-300">
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">description</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Customers</p>
@@ -171,7 +171,7 @@ const Contact: React.FC = () => {
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Looking for Steel, Cables, or Tools for your project? Get a factory-direct proposal.
               </p>
-              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-lime-hover transition-colors">
+              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-gold-hover transition-colors">
                 Fill Enquiry Form
                 <span className="material-symbols-outlined text-lg ml-1 group-hover:translate-y-1 transition-transform">arrow_downward</span>
               </span>
@@ -180,10 +180,10 @@ const Contact: React.FC = () => {
             {/* Card 2: Vendors */}
             <a
               href="mailto:procurement@metallo.com"
-              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-lime transition-all duration-300 cursor-pointer relative overflow-hidden block"
+              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-gold transition-all duration-300 cursor-pointer relative overflow-hidden block"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-lime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors duration-300">
+              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors duration-300">
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">handshake</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Vendors</p>
@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Supply raw materials or logistics services to the Metallo ecosystem.
               </p>
-              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-lime-hover transition-colors">
+              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-gold-hover transition-colors">
                 procurement@metallo.com
                 <span className="material-symbols-outlined text-lg ml-1">arrow_outward</span>
               </span>
@@ -200,10 +200,10 @@ const Contact: React.FC = () => {
             {/* Card 3: Careers */}
             <a
               href="mailto:hr@metallo.com"
-              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-lime transition-all duration-300 cursor-pointer relative overflow-hidden block"
+              className="group bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-xl hover:border-metallo-gold transition-all duration-300 cursor-pointer relative overflow-hidden block"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-lime scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors duration-300">
+              <div className="absolute top-0 left-0 w-full h-1 bg-metallo-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <div className="w-14 h-14 bg-metallo-navy/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors duration-300">
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">work</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Careers</p>
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Build your career in India's fastest-growing manufacturing platform.
               </p>
-              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-lime-hover transition-colors">
+              <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-gold-hover transition-colors">
                 hr@metallo.com
                 <span className="material-symbols-outlined text-lg ml-1">arrow_outward</span>
               </span>
@@ -231,7 +231,7 @@ const Contact: React.FC = () => {
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Fill the details below and our technical sales team will contact you within <strong className="text-metallo-navy">24 hours</strong>.
               </p>
-              <div className="w-16 h-1 bg-metallo-lime mb-10"></div>
+              <div className="w-16 h-1 bg-metallo-gold mb-10"></div>
 
               {/* Trust Signals */}
               <div className="space-y-6">
@@ -289,7 +289,7 @@ const Contact: React.FC = () => {
                   <p className="text-gray-500 mb-6">Our technical sales team will review your requirements and contact you within 24 hours.</p>
                   <button
                     onClick={() => { setSubmitStatus('idle'); formLoadTime.current = Date.now(); }}
-                    className="text-sm font-bold text-metallo-navy hover:text-metallo-lime-hover transition-colors"
+                    className="text-sm font-bold text-metallo-navy hover:text-metallo-gold-hover transition-colors"
                   >
                     Submit Another Enquiry →
                   </button>
@@ -322,7 +322,7 @@ const Contact: React.FC = () => {
                       name="lookingFor"
                       value={formData.lookingFor}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm text-metallo-navy focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all cursor-pointer"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm text-metallo-navy focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all cursor-pointer"
                       required
                     >
                       <option value="">Select a category...</option>
@@ -346,7 +346,7 @@ const Contact: React.FC = () => {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -358,7 +358,7 @@ const Contact: React.FC = () => {
                         value={formData.companyName}
                         onChange={handleChange}
                         placeholder="Your company"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -374,7 +374,7 @@ const Contact: React.FC = () => {
                         value={formData.workEmail}
                         onChange={handleChange}
                         placeholder="name@company.com"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -386,7 +386,7 @@ const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91-XXXXXXXXXX"
-                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all"
                         required
                       />
                     </div>
@@ -401,7 +401,7 @@ const Contact: React.FC = () => {
                       value={formData.projectLocation}
                       onChange={handleChange}
                       placeholder='e.g., "Gujarat Solar Park"'
-                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all"
                     />
                   </div>
 
@@ -434,7 +434,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       rows={4}
                       placeholder="Tell us about your project requirements, quantities, and timeline..."
-                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent transition-all resize-y"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent transition-all resize-y"
                     />
                   </div>
 
@@ -450,7 +450,7 @@ const Contact: React.FC = () => {
                           value={captchaInput}
                           onChange={(e) => setCaptchaInput(e.target.value)}
                           placeholder="Answer"
-                          className="w-20 px-3 py-2 border border-gray-200 rounded-md text-sm text-center focus:outline-none focus:ring-2 focus:ring-metallo-lime focus:border-transparent"
+                          className="w-20 px-3 py-2 border border-gray-200 rounded-md text-sm text-center focus:outline-none focus:ring-2 focus:ring-metallo-gold focus:border-transparent"
                           required
                         />
                       </div>
@@ -477,7 +477,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={submitStatus === 'submitting'}
-                    className="w-full py-4 bg-metallo-navy text-white font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-lime hover:text-metallo-navy transition-all duration-300 rounded-md shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-metallo-navy text-white font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-gold hover:text-metallo-navy transition-all duration-300 rounded-md shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {submitStatus === 'submitting' ? (
                       <>
@@ -518,14 +518,14 @@ const Contact: React.FC = () => {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <span className="material-symbols-outlined text-5xl text-metallo-lime mb-2 block">location_on</span>
+                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
                     <span className="text-white font-heading font-bold text-xl">NOIDA</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-lime text-lg shrink-0 mt-0.5">factory</span>
+                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">factory</span>
                   <h3 className="text-lg font-bold font-heading text-metallo-navy">Corporate & Manufacturing Hub</h3>
                 </div>
                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Wire & Cable, Tech Products</p>
@@ -546,7 +546,7 @@ const Contact: React.FC = () => {
                     href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-lime-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
                   >
                     View on Google Maps
                     <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
@@ -561,14 +561,14 @@ const Contact: React.FC = () => {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <span className="material-symbols-outlined text-5xl text-metallo-lime mb-2 block">location_on</span>
+                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
                     <span className="text-white font-heading font-bold text-xl">GURGAON</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-lime text-lg shrink-0 mt-0.5">precision_manufacturing</span>
+                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">precision_manufacturing</span>
                   <h3 className="text-lg font-bold font-heading text-metallo-navy">Heavy Engineering Unit</h3>
                 </div>
                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Structural Steel, Die Casting</p>
@@ -589,7 +589,7 @@ const Contact: React.FC = () => {
                     href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-lime-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
                   >
                     View on Google Maps
                     <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
@@ -611,7 +611,7 @@ const Contact: React.FC = () => {
 
           <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg overflow-hidden shadow-sm">
+              <div key={i} className="border border-gray-100 rounded-lg overflow-hidden shadow-sm bg-white">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"

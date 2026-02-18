@@ -18,7 +18,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wide leading-tight">
-            Engineering the <br/><span className="text-metallo-lime">Future of Industry.</span>
+            Engineering the <br/><span className="text-metallo-gold">Future of Industry.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 font-serif max-w-3xl mx-auto">
             We are not just manufacturers. We are the operating system for India's infrastructure growth.
@@ -31,7 +31,7 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="block text-metallo-lime-hover font-bold uppercase tracking-[0.2em] mb-4 text-sm font-heading">Who We Are</span>
+              <span className="block text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-4 text-sm font-heading">Who We Are</span>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-metallo-navy mb-8 leading-none">
                 Rewiring the <br/>Industrial Supply Chain.
               </h2>
@@ -73,7 +73,7 @@ const About: React.FC = () => {
             
             {/* Vision */}
             <div className="pr-0 md:pr-12">
-              <h3 className="text-metallo-lime text-lg font-bold uppercase tracking-widest mb-6 font-heading flex items-center gap-2">
+              <h3 className="text-metallo-gold text-lg font-bold uppercase tracking-widest mb-6 font-heading flex items-center gap-2">
                 <span className="material-symbols-outlined">visibility</span> The Vision
               </h3>
               <p className="text-2xl md:text-3xl font-serif leading-relaxed">
@@ -83,7 +83,7 @@ const About: React.FC = () => {
 
             {/* Mission */}
             <div className="pt-12 md:pt-0 pl-0 md:pl-12">
-              <h3 className="text-metallo-lime text-lg font-bold uppercase tracking-widest mb-6 font-heading flex items-center gap-2">
+              <h3 className="text-metallo-gold text-lg font-bold uppercase tracking-widest mb-6 font-heading flex items-center gap-2">
                 <span className="material-symbols-outlined">flag</span> The Mission
               </h3>
               <p className="text-lg text-gray-300 mb-6">
@@ -91,21 +91,21 @@ const About: React.FC = () => {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-metallo-lime mt-1">shield</span>
+                  <span className="material-symbols-outlined text-metallo-gold mt-1">shield</span>
                   <div>
                     <strong className="text-white block font-heading uppercase">Uncompromising Safety</strong>
                     <span className="text-sm text-gray-400">In our cables, steel, and protective gear.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-metallo-lime mt-1">precision_manufacturing</span>
+                  <span className="material-symbols-outlined text-metallo-gold mt-1">precision_manufacturing</span>
                   <div>
                     <strong className="text-white block font-heading uppercase">Operational Excellence</strong>
                     <span className="text-sm text-gray-400">In our manufacturing processes and logistics.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-metallo-lime mt-1">lightbulb</span>
+                  <span className="material-symbols-outlined text-metallo-gold mt-1">lightbulb</span>
                   <div>
                     <strong className="text-white block font-heading uppercase">Sustainable Innovation</strong>
                     <span className="text-sm text-gray-400">Through our advanced tech products and R&D.</span>
@@ -184,7 +184,7 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
              {/* Card 1 */}
-             <div className="bg-gray-50 p-8 border-b-4 border-metallo-lime hover:-translate-y-2 transition-transform duration-300">
+             <div className="bg-gray-50 p-8 border-b-4 border-metallo-gold hover:-translate-y-2 transition-transform duration-300">
                 <span className="material-symbols-outlined text-5xl text-metallo-navy mb-6">factory</span>
                 <h3 className="text-xl font-bold font-heading text-metallo-navy uppercase mb-3">Strategic Locations</h3>
                 <p className="text-sm text-gray-600">
@@ -200,7 +200,7 @@ const About: React.FC = () => {
                 </p>
              </div>
              {/* Card 3 */}
-             <div className="bg-gray-50 p-8 border-b-4 border-metallo-lime hover:-translate-y-2 transition-transform duration-300">
+             <div className="bg-gray-50 p-8 border-b-4 border-metallo-gold hover:-translate-y-2 transition-transform duration-300">
                 <span className="material-symbols-outlined text-5xl text-metallo-navy mb-6">science</span>
                 <h3 className="text-xl font-bold font-heading text-metallo-navy uppercase mb-3">Quality Labs</h3>
                 <p className="text-sm text-gray-600">
@@ -224,17 +224,17 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
               <div className="flex flex-col items-center md:items-start">
-                 <span className="material-symbols-outlined text-4xl text-metallo-lime mb-4">gavel</span>
+                 <span className="material-symbols-outlined text-4xl text-metallo-gold mb-4">gavel</span>
                  <h3 className="text-xl font-bold font-heading uppercase mb-2">Integrity First</h3>
                  <p className="text-gray-400 text-sm">We deliver what we promise. If we say "Electrolytic Copper," it is 99.9% pure. No compromises.</p>
               </div>
               <div className="flex flex-col items-center md:items-start">
-                 <span className="material-symbols-outlined text-4xl text-metallo-lime mb-4">health_and_safety</span>
+                 <span className="material-symbols-outlined text-4xl text-metallo-gold mb-4">health_and_safety</span>
                  <h3 className="text-xl font-bold font-heading uppercase mb-2">Safety Obsession</h3>
                  <p className="text-gray-400 text-sm">In our business, safety is not a feature; it is a necessity. Our FRLS cables and Safety Tools protect lives.</p>
               </div>
               <div className="flex flex-col items-center md:items-start">
-                 <span className="material-symbols-outlined text-4xl text-metallo-lime mb-4">support_agent</span>
+                 <span className="material-symbols-outlined text-4xl text-metallo-gold mb-4">support_agent</span>
                  <h3 className="text-xl font-bold font-heading uppercase mb-2">Customer Centricity</h3>
                  <p className="text-gray-400 text-sm">We don't just sell products; we solve procurement headaches. Your deadline is our deadline.</p>
               </div>
@@ -299,7 +299,7 @@ const About: React.FC = () => {
       </section>
 
       {/* SECTION 8: BOTTOM CTA */}
-      <section className="bg-metallo-lime py-16 md:py-24 text-metallo-navy">
+      <section className="bg-metallo-gold py-16 md:py-24 text-metallo-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="text-4xl md:text-6xl font-bold font-heading uppercase mb-6">Experience the Power of Integration.</h2>
            <p className="text-xl md:text-2xl font-bold mb-10 max-w-2xl mx-auto">Stop managing 20 vendors. Start building with Metallo.</p>

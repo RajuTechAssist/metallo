@@ -54,7 +54,7 @@ const Industries: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-serif text-metallo-navy mb-4">
             Industries we serve
           </h2>
-          <div className="w-20 h-1 bg-metallo-lime"></div>
+          <div className="w-20 h-1 bg-metallo-gold"></div>
         </div>
 
         {/* 
@@ -87,7 +87,7 @@ const Industries: React.FC = () => {
                   </h3>
                   
                   {/* Arrow Button */}
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-metallo-lime flex items-center justify-center transform transition-all duration-300 group-hover:bg-white group-hover:scale-110">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-metallo-gold flex items-center justify-center transform transition-all duration-300 group-hover:bg-white group-hover:scale-110">
                     <span className="material-symbols-outlined text-metallo-navy text-xl font-bold">navigate_next</span>
                   </div>
                 </div>
@@ -95,11 +95,11 @@ const Industries: React.FC = () => {
                 {/* Hidden Meta Data - Fades in */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 space-y-3 border-t border-white/20 pt-4">
                   <div>
-                    <p className="text-[10px] font-bold text-metallo-lime uppercase tracking-widest mb-1">Context</p>
+                    <p className="text-[10px] font-bold text-metallo-gold uppercase tracking-widest mb-1">Context</p>
                     <p className="text-gray-200 text-sm font-medium leading-snug">{industry.context}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold text-metallo-lime uppercase tracking-widest mb-1">Metallo Supply</p>
+                    <p className="text-[10px] font-bold text-metallo-gold uppercase tracking-widest mb-1">Metallo Supply</p>
                     <p className="text-gray-200 text-sm font-medium leading-snug">{industry.supply}</p>
                   </div>
                 </div>

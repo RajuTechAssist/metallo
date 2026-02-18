@@ -110,7 +110,7 @@ const WorldMap: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">
           Strategic Presence. Limitless Reach.
         </h2>
-        <h3 className="text-lg text-metallo-lime-hover font-bold font-heading uppercase mb-6">
+        <h3 className="text-lg text-metallo-gold-hover font-bold font-heading uppercase mb-6">
           Manufacturing in India, Delivering to the World.
         </h3>
         <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -174,10 +174,10 @@ const WorldMap: React.FC = () => {
                                 transition: "all 250ms"
                                 },
                                 hover: {
-                                fill: isInteractable ? "#d6e600" : "#9CA3AF",
+                                fill: isInteractable ? "#EAB308" : "#9CA3AF",
                                 outline: "none",
                                 cursor: isInteractable ? "pointer" : "default",
-                                stroke: isInteractable ? "#d6e600" : "#FFFFFF",
+                                stroke: isInteractable ? "#EAB308" : "#FFFFFF",
                                 strokeWidth: isInteractable ? 1 : 0.5,
                                 filter: isInteractable ? "drop-shadow(0px 4px 4px rgba(0,0,0,0.25))" : "none"
                                 },
@@ -214,7 +214,7 @@ const WorldMap: React.FC = () => {
             {stats.map((stat, idx) => (
                 <div key={idx} className="text-center p-4 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow bg-gray-50">
                     <div className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-1">{stat.value}</div>
-                    <div className="text-sm font-bold text-metallo-lime-hover uppercase tracking-wider mb-1">{stat.label}</div>
+                    <div className="text-sm font-bold text-metallo-gold-hover uppercase tracking-wider mb-1">{stat.label}</div>
                     <div className="text-xs text-gray-500 font-medium">{stat.sub}</div>
                 </div>
             ))}
@@ -232,7 +232,7 @@ const WorldMap: React.FC = () => {
                             {selectedCountry.status === 'headquarters' && <span className="material-symbols-outlined text-[#00AEEF]">verified</span>}
                             <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${
                                 selectedCountry.status === 'headquarters' ? 'bg-[#00AEEF] text-white' : 
-                                selectedCountry.status === 'operation' ? 'bg-metallo-lime text-metallo-navy' :
+                                selectedCountry.status === 'operation' ? 'bg-metallo-gold text-metallo-navy' :
                                 'bg-gray-200 text-gray-600'
                             }`}>
                                 {selectedCountry.status === 'headquarters' ? 'Global Headquarters' : 
@@ -267,12 +267,12 @@ const WorldMap: React.FC = () => {
                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
                         <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Local Contact</h4>
                         <div className="flex items-center gap-2 text-metallo-navy font-bold font-heading">
-                            <span className="material-symbols-outlined text-metallo-lime-hover">call</span>
+                            <span className="material-symbols-outlined text-metallo-gold-hover">call</span>
                             {selectedCountry.contact}
                         </div>
                     </div>
                     
-                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-lime hover:text-metallo-navy transition-colors">
+                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-gold hover:text-metallo-navy transition-colors">
                         Get Local Quote
                     </button>
                 </div>

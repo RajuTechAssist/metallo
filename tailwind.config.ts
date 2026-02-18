@@ -22,9 +22,22 @@ const config: Config = {
 
       /* ── Brand colours ─────────────────────────── */
       colors: {
-        'metallo-navy': '#071331',
-        'metallo-lime': '#d6e600',
-        'metallo-lime-hover': '#b5c200',
+        'metallo-slate': '#0F172A',
+        'metallo-gold': '#EAB308',
+        'metallo-navy': '#0F172A',
+        'metallo-gold-hover': '#CA8A04',
+        
+        primary: {
+          DEFAULT: '#0F172A',
+          foreground: '#EAB308',
+        },
+        secondary: {
+          DEFAULT: '#EAB308',
+          foreground: '#0F172A',
+        },
+        background: '#F8FAFC',
+        foreground: '#0F172A',
+        muted: '#F1F5F9',
       },
 
       /* ── Animations ────────────────────────────── */

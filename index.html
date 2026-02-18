@@ -13,9 +13,15 @@
         theme: {
           extend: {
             colors: {
-              'metallo-navy': '#071331',
-              'metallo-lime': '#d6e600',
-              'metallo-lime-hover': '#b5c200',
+              'metallo-navy': '#0F172A',
+              'metallo-gold': '#EAB308',
+              'metallo-gold-hover': '#CA8A04',
+              'metallo-slate': '#0F172A',
+              primary: { DEFAULT: '#0F172A', foreground: '#EAB308' },
+              secondary: { DEFAULT: '#EAB308', foreground: '#0F172A' },
+              background: '#F8FAFC',
+              foreground: '#0F172A',
+              muted: '#F1F5F9',
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
@@ -30,6 +36,21 @@
       }
     </script>
     <style>
+      :root {
+        --primary: #0F172A; /* Slate 900 */
+        --secondary: #EAB308; /* Yellow 500 */
+        --background: #F8FAFC; /* Slate 50 */
+        --foreground: #0F172A; /* Slate 900 */
+        --muted: #F1F5F9; /* Slate 100 */
+        
+        --metallo-gold: #EAB308;
+        --metallo-slate: #0F172A;
+      }
+      
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+      }
       /* Custom scrollbar for better aesthetics */
       ::-webkit-scrollbar {
         width: 8px;

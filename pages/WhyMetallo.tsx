@@ -152,7 +152,7 @@ const WhyMetallo: React.FC = () => {
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].name.toUpperCase() : "MAXIMIZE EFFICIENCY."}
               </h1>
-              <h2 className="text-xl md:text-3xl font-heading font-medium text-metallo-lime tracking-widest mb-6 uppercase drop-shadow-lg">
+              <h2 className="text-xl md:text-3xl font-heading font-medium text-metallo-gold tracking-widest mb-6 uppercase drop-shadow-lg">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].cert : "One Platform. Six Verticals. Zero Friction."}
               </h2>
               <div className={`max-w-2xl mx-auto transition-opacity duration-300 ${hoveredIndex !== null ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
@@ -196,7 +196,7 @@ const WhyMetallo: React.FC = () => {
                <div className="relative w-full max-w-md aspect-square">
                   {/* Central Hub */}
                   <div className="absolute inset-0 flex items-center justify-center z-20">
-                     <div className="w-32 h-32 bg-metallo-lime rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(214,230,0,0.3)] animate-pulse p-5">
+                     <div className="w-32 h-32 bg-metallo-gold rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(234,179,8,0.3)] animate-pulse p-5">
                         <img src="/logo-icon.svg" alt="Metallo" className="w-full h-full object-contain animate-spin-slow" />
                      </div>
                   </div>
@@ -268,35 +268,35 @@ const WhyMetallo: React.FC = () => {
             </div>
 
             {/* Metallo Way Card */}
-            <div className="bg-metallo-navy p-8 md:p-12 rounded-lg border-l-4 border-metallo-lime shadow-2xl relative overflow-hidden transform lg:-translate-y-4">
+            <div className="bg-metallo-navy p-8 md:p-12 rounded-lg border-l-4 border-metallo-gold shadow-2xl relative overflow-hidden transform lg:-translate-y-4">
                <div className="absolute top-0 right-0 p-4 opacity-10">
-                 <span className="material-symbols-outlined text-9xl text-metallo-lime">check_circle</span>
+                 <span className="material-symbols-outlined text-9xl text-metallo-gold">check_circle</span>
                </div>
                <h3 className="text-2xl font-bold font-heading text-white mb-8 border-b border-white/10 pb-4">The Metallo Ecosystem</h3>
                <ul className="space-y-8">
                  <li className="flex gap-4">
-                   <span className="material-symbols-outlined text-metallo-lime shrink-0">check</span>
+                   <span className="material-symbols-outlined text-metallo-gold shrink-0">check</span>
                    <div>
                      <strong className="block text-white font-bold mb-1">Unified Procurement</strong>
                      <p className="text-sm text-gray-300">One Purchase Order covers your Steel, Cables, Welding, and Tools. Simplification.</p>
                    </div>
                  </li>
                  <li className="flex gap-4">
-                   <span className="material-symbols-outlined text-metallo-lime shrink-0">check</span>
+                   <span className="material-symbols-outlined text-metallo-gold shrink-0">check</span>
                    <div>
                      <strong className="block text-white font-bold mb-1">Factory-Direct Economics</strong>
                      <p className="text-sm text-gray-300">You buy directly from the manufacturer. Cost Efficiency.</p>
                    </div>
                  </li>
                  <li className="flex gap-4">
-                   <span className="material-symbols-outlined text-metallo-lime shrink-0">check</span>
+                   <span className="material-symbols-outlined text-metallo-gold shrink-0">check</span>
                    <div>
                      <strong className="block text-white font-bold mb-1">Certified Assurance</strong>
                      <p className="text-sm text-gray-300">Every product is IS/ISO certified with 100% traceability. Reliability.</p>
                    </div>
                  </li>
                  <li className="flex gap-4">
-                   <span className="material-symbols-outlined text-metallo-lime shrink-0">check</span>
+                   <span className="material-symbols-outlined text-metallo-gold shrink-0">check</span>
                    <div>
                      <strong className="block text-white font-bold mb-1">Proactive Delivery</strong>
                      <p className="text-sm text-gray-300">Strategic hubs in Noida/Gurgaon ensure Just-in-Time arrival. Velocity.</p>
@@ -315,7 +315,7 @@ const WhyMetallo: React.FC = () => {
               
               {/* Pillar 1 */}
               <div className="group">
-                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
+                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">hub</span>
                  </div>
                  <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">The "Power of One"</h3>
@@ -327,7 +327,7 @@ const WhyMetallo: React.FC = () => {
 
               {/* Pillar 2 */}
               <div className="group">
-                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
+                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">engineering</span>
                  </div>
                  <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">"Mission Critical"</h3>
@@ -339,7 +339,7 @@ const WhyMetallo: React.FC = () => {
 
               {/* Pillar 3 */}
               <div className="group">
-                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
+                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">verified_user</span>
                  </div>
                  <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">The Quality Shield</h3>
@@ -351,7 +351,7 @@ const WhyMetallo: React.FC = () => {
 
               {/* Pillar 4 */}
               <div className="group">
-                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
+                 <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-gold transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">visibility</span>
                  </div>
                  <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">Digital Transparency</h3>
@@ -378,25 +378,25 @@ const WhyMetallo: React.FC = () => {
                <p className="text-gray-300 mb-8">
                  Integration isn't just convenient; it's profitable. See how the Metallo model improves your project ROI.
                </p>
-               <div className="w-20 h-1 bg-metallo-lime mx-auto md:mx-0"></div>
+               <div className="w-20 h-1 bg-metallo-gold mx-auto md:mx-0"></div>
             </div>
 
             <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6">
                {/* Card 1 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">$$$</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-gold mb-2">$$$</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Reduce Costs</h3>
                   <p className="text-sm text-gray-400">By consolidating volume with Metallo, you unlock bulk pricing across verticals.</p>
                </div>
                {/* Card 2 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">-60%</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-gold mb-2">-60%</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Slash Overheads</h3>
                   <p className="text-sm text-gray-400">Reduce man-hours spent chasing vendors and processing invoices by 60%.</p>
                </div>
                {/* Card 3 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">0%</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-gold mb-2">0%</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Zero Downtime</h3>
                   <p className="text-sm text-gray-400">Our Just-in-Time logistics prevent site stoppages caused by material shortage.</p>
                </div>
@@ -413,7 +413,7 @@ const WhyMetallo: React.FC = () => {
            <p className="text-xl text-gray-600 mb-10">50+ EPC Contractors have already upgraded to the Metallo Ecosystem. Are you next?</p>
            <Link 
              to="/contact" 
-             className="inline-block px-10 py-4 bg-metallo-lime text-metallo-navy font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-lime-hover hover:scale-105 transition-all shadow-xl rounded-sm"
+             className="inline-block px-10 py-4 bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-gold-hover hover:scale-105 transition-all shadow-xl rounded-sm"
            >
              Start Your Pilot Order
            </Link>

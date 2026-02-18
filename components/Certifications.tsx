@@ -38,18 +38,18 @@ const Certifications: React.FC = () => {
         {/* Logos Row – scroll on mobile, centered on desktop */}
         <div className="relative">
 
-          {/* Left fade hint */}
+          {/* Left fade hint - Visible on mobile & tablet */}
           <div
-            className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 md:hidden"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 lg:hidden"
             style={{
               opacity: canScrollLeft ? 1 : 0,
               background: 'linear-gradient(to right, rgb(249 250 251), transparent)',
             }}
           />
 
-          {/* Right fade hint + chevron */}
+          {/* Right fade hint + chevron - Visible on mobile & tablet */}
           <div
-            className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 flex items-center justify-end pr-1 transition-opacity duration-300 md:hidden"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 flex items-center justify-end pr-1 transition-opacity duration-300 lg:hidden"
             style={{ opacity: canScrollRight ? 1 : 0 }}
           >
             <div
@@ -65,14 +65,14 @@ const Certifications: React.FC = () => {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="overflow-x-auto md:overflow-x-visible -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+            className="overflow-x-auto lg:overflow-x-visible -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
             {/* Hide webkit scrollbar */}
             <style>{`
               .cert-scroll::-webkit-scrollbar { display: none; }
             `}</style>
-            <div className="cert-scroll flex md:justify-center items-center gap-12 lg:gap-16 min-w-max"
+            <div className="cert-scroll flex lg:justify-center items-center gap-12 lg:gap-16 min-w-max"
               ref={(el) => {
                 // Forward scroll hiding to parent
                 if (el?.parentElement) el.parentElement.classList.add('cert-scroll');

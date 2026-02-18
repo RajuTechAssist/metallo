@@ -113,7 +113,7 @@ const Verticals: React.FC = () => {
 
               {/* Content */}
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2 group-hover:text-metallo-lime-hover transition-colors">{item.title}</h3>
+                <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2 group-hover:text-metallo-gold-hover transition-colors">{item.title}</h3>
                 <p className="text-xs font-bold text-metallo-navy/60 uppercase tracking-widest mb-4 font-heading">{item.subtitle}</p>
                 <p className="text-gray-600 mb-6 flex-grow text-sm leading-relaxed border-b border-gray-100 pb-6">
                   {item.description}
@@ -122,7 +122,7 @@ const Verticals: React.FC = () => {
                 <ul className="text-sm text-gray-500 space-y-2 mb-6">
                   {item.points.map((point, idx) => (
                     <li key={idx} className="flex items-center">
-                      <span className="w-1.5 h-1.5 bg-metallo-lime rounded-full mr-2"></span>
+                      <span className="w-1.5 h-1.5 bg-metallo-gold rounded-full mr-2"></span>
                       {point}
                     </li>
                   ))}
@@ -130,7 +130,7 @@ const Verticals: React.FC = () => {
 
                 <Link 
                   to={item.link} 
-                  className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-lime-hover transition-colors mt-auto group/link"
+                  className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-gold-hover transition-colors mt-auto group/link"
                 >
                   {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`} 
                   <span className="material-symbols-outlined text-sm ml-1 transform group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
