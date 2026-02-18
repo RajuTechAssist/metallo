@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[calc(100vh-176px)] max-h-[900px] gap-1 bg-white">
         
         {/* LEFT SIDE: Hero Image & Text Area */}
-        <div className="relative w-full lg:flex-1 bg-gray-900 overflow-hidden group h-[500px] lg:h-auto">
+        <div className="relative w-full lg:flex-1 bg-gray-900 overflow-hidden group h-[650px] sm:h-[550px] lg:h-auto">
           {/* Background Image */}
           <img 
             alt="Industrial facility inauguration" 
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8 drop-shadow-2xl max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8 drop-shadow-2xl max-w-4xl">
               METALLO Electronics <br/>
               Proudly Inaugurated Its 7th <br/>
               Manufacturing Facility
