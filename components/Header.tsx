@@ -95,7 +95,7 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center group">
-              <img src="/assets/logo.svg" alt="Metallo" className="w-auto" style={{width: '15rem'}} />
+              <img src="/logo.svg" alt="Metallo" className="w-auto" style={{width: '15rem'}} />
             </Link>
 
             {/* CTA Button */}
