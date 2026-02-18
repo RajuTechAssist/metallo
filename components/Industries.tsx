@@ -82,7 +82,7 @@ const Industries: React.FC = () => {
                 
                 {/* Title & Arrow Row */}
                 <div className="flex justify-between items-end mb-4">
-                  <h3 className="text-xl font-bold font-oswald text-white leading-tight max-w-[80%] drop-shadow-md">
+                  <h3 className="text-xl font-bold font-heading text-white leading-tight max-w-[80%] drop-shadow-md">
                     {industry.title}
                   </h3>
                   

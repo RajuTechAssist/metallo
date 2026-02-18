@@ -106,11 +106,11 @@ const WorldMap: React.FC = () => {
   return (
     <section className="py-24 bg-white overflow-hidden" id="world-map">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
-        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-oswald">Global Footprint</h4>
-        <h2 className="text-4xl md:text-5xl font-bold font-oswald text-metallo-navy mb-4">
+        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading">Global Footprint</h4>
+        <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">
           Strategic Presence. Limitless Reach.
         </h2>
-        <h3 className="text-lg text-metallo-lime-hover font-bold font-oswald uppercase mb-6">
+        <h3 className="text-lg text-metallo-lime-hover font-bold font-heading uppercase mb-6">
           Manufacturing in India, Delivering to the World.
         </h3>
         <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -213,7 +213,7 @@ const WorldMap: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
                 <div key={idx} className="text-center p-4 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow bg-gray-50">
-                    <div className="text-4xl md:text-5xl font-bold font-oswald text-metallo-navy mb-1">{stat.value}</div>
+                    <div className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-1">{stat.value}</div>
                     <div className="text-sm font-bold text-metallo-lime-hover uppercase tracking-wider mb-1">{stat.label}</div>
                     <div className="text-xs text-gray-500 font-medium">{stat.sub}</div>
                 </div>
@@ -239,7 +239,7 @@ const WorldMap: React.FC = () => {
                                  selectedCountry.status === 'operation' ? 'Regional Operation' : 'Project Footprint'}
                             </span>
                         </div>
-                        <h3 className="text-2xl font-bold font-oswald text-white">{selectedCountry.name}</h3>
+                        <h3 className="text-2xl font-bold font-heading text-white">{selectedCountry.name}</h3>
                     </div>
                     <button onClick={() => setSelectedCountry(null)} className="text-white/50 hover:text-white transition-colors">
                         <span className="material-symbols-outlined text-3xl">close</span>
@@ -266,13 +266,13 @@ const WorldMap: React.FC = () => {
 
                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
                         <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Local Contact</h4>
-                        <div className="flex items-center gap-2 text-metallo-navy font-bold font-oswald">
+                        <div className="flex items-center gap-2 text-metallo-navy font-bold font-heading">
                             <span className="material-symbols-outlined text-metallo-lime-hover">call</span>
                             {selectedCountry.contact}
                         </div>
                     </div>
                     
-                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-oswald uppercase hover:bg-metallo-lime hover:text-metallo-navy transition-colors">
+                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-lime hover:text-metallo-navy transition-colors">
                         Get Local Quote
                     </button>
                 </div>

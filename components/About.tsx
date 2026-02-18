@@ -8,7 +8,7 @@ const About: React.FC = () => {
           
           {/* Text Content */}
           <div className="order-2 lg:order-1">
-            <h2 className="text-4xl md:text-5xl font-bold font-oswald text-metallo-navy mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-6 leading-tight">
               The Operating System for <span className="text-metallo-lime-hover">Industrial India</span>.
             </h2>
             <h3 className="text-xl font-medium text-gray-500 mb-8 uppercase tracking-wide font-sans">
@@ -26,17 +26,17 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-gray-200">
               <div className="flex flex-col gap-2 group cursor-default">
                 <span className="material-symbols-outlined text-4xl text-metallo-navy group-hover:text-metallo-lime transition-colors">hub</span>
-                <h4 className="text-lg font-bold font-oswald text-metallo-navy">Single-Source Efficiency</h4>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy">Single-Source Efficiency</h4>
                 <p className="text-sm text-gray-600">One partner. Reduce vendor friction by 100%.</p>
               </div>
               <div className="flex flex-col gap-2 group cursor-default">
                 <span className="material-symbols-outlined text-4xl text-metallo-navy group-hover:text-metallo-lime transition-colors">verified_user</span>
-                <h4 className="text-lg font-bold font-oswald text-metallo-navy">Standardized Quality</h4>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy">Standardized Quality</h4>
                 <p className="text-sm text-gray-600">ISO-compliant manufacturing across all verticals.</p>
               </div>
               <div className="flex flex-col gap-2 group cursor-default">
                 <span className="material-symbols-outlined text-4xl text-metallo-navy group-hover:text-metallo-lime transition-colors">engineering</span>
-                <h4 className="text-lg font-bold font-oswald text-metallo-navy">Lifecycle Partner</h4>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy">Lifecycle Partner</h4>
                 <p className="text-sm text-gray-600">From foundation to finishing and operation.</p>
               </div>
             </div>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy/90 via-transparent to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <div className="flex items-center gap-4 text-white">
-                <div className="text-5xl font-bold font-oswald text-metallo-lime">10+</div>
+                <div className="text-5xl font-bold font-heading text-metallo-lime">10+</div>
                 <div className="text-sm uppercase tracking-widest border-l-2 border-metallo-lime pl-4 font-bold">Facilities across<br />India & The Globe</div>
               </div>
             </div>

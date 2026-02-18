@@ -8,12 +8,12 @@ const Footer: React.FC = () => {
       <div className="bg-metallo-lime text-metallo-navy py-12 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
           <div>
-            <h3 className="text-2xl font-bold font-oswald uppercase mb-2">Ready to Consolidate Your Supply Chain?</h3>
+            <h3 className="text-2xl font-bold font-heading uppercase mb-2">Ready to Consolidate Your Supply Chain?</h3>
             <p className="text-metallo-navy/80 font-medium">Get a unified quote for Steel, Cables, Tools, and more today.</p>
           </div>
           <Link 
             to="/contact" 
-            className="px-8 py-3 bg-metallo-navy text-white font-bold font-oswald uppercase tracking-wider hover:bg-opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
+            className="px-8 py-3 bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider hover:bg-opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
           >
             Get Started <span className="material-symbols-outlined ml-2">arrow_forward</span>
           </Link>
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {/* Company Links */}
             <div>
-              <h4 className="text-sm font-bold font-oswald mb-6 uppercase tracking-wider text-white">Company</h4>
+              <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">Company</h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link to="/capabilities" className="hover:text-white transition-colors">Capabilities</Link></li>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
 
             {/* Products */}
             <div>
-              <h4 className="text-sm font-bold font-oswald mb-6 uppercase tracking-wider text-white">Industries</h4>
+              <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">Industries</h4>
               <ul className="space-y-3 text-sm text-gray-400">
                 <li><Link to="/products/steel" className="hover:text-white transition-colors">Steel Solutions</Link></li>
                 <li><Link to="/products/wire-cables" className="hover:text-white transition-colors">Wire & Cables</Link></li>
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
 
             {/* Communication & Address (Spans 2 cols on mobile, 1 col on tablet+) */}
             <div className="col-span-2 md:col-span-1">
-                <h4 className="text-xl font-bold font-oswald mb-4 text-white">Join our communication</h4>
+                <h4 className="text-xl font-bold font-heading mb-4 text-white">Join our communication</h4>
                 <div className="flex flex-col sm:flex-row gap-0 mb-4">
                   <input 
                     type="email" 

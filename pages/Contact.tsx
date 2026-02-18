@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="mt-[92px] md:mt-[197px] w-full bg-white overflow-x-hidden">
+    <div className="mt-[92px] md:mt-[175px] w-full bg-white overflow-x-hidden">
 
       {/* SECTION 1: HERO BANNER */}
       <section className="relative bg-metallo-navy py-20 md:py-28 overflow-hidden">
@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
         <div className="absolute top-20 right-20 w-40 h-40 border border-dashed border-metallo-lime/20 rounded-full hidden lg:block"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-oswald font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
             Let's Build Together.
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-serif italic">
@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-metallo-navy mb-3">How can we help you today?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">How can we help you today?</h2>
             <div className="w-16 h-1 bg-metallo-lime mx-auto"></div>
           </div>
 
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">description</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Customers</p>
-              <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-3">Request a Quote</h3>
+              <h3 className="text-xl font-bold font-heading text-metallo-navy mb-3">Request a Quote</h3>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Looking for Steel, Cables, or Tools for your project? Get a factory-direct proposal.
               </p>
@@ -187,7 +187,7 @@ const Contact: React.FC = () => {
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">handshake</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Vendors</p>
-              <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-3">Become a Partner</h3>
+              <h3 className="text-xl font-bold font-heading text-metallo-navy mb-3">Become a Partner</h3>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Supply raw materials or logistics services to the Metallo ecosystem.
               </p>
@@ -207,7 +207,7 @@ const Contact: React.FC = () => {
                 <span className="material-symbols-outlined text-3xl text-metallo-navy">work</span>
               </div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Careers</p>
-              <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-3">Join the Team</h3>
+              <h3 className="text-xl font-bold font-heading text-metallo-navy mb-3">Join the Team</h3>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 Build your career in India's fastest-growing manufacturing platform.
               </p>
@@ -227,7 +227,7 @@ const Contact: React.FC = () => {
 
             {/* Left: Info */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl md:text-4xl font-oswald font-bold text-metallo-navy mb-4">Start Your Project Enquiry</h2>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-4">Start Your Project Enquiry</h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
                 Fill the details below and our technical sales team will contact you within <strong className="text-metallo-navy">24 hours</strong>.
               </p>
@@ -285,7 +285,7 @@ const Contact: React.FC = () => {
               {submitStatus === 'success' ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-12 text-center">
                   <span className="material-symbols-outlined text-6xl text-green-500 mb-4 block">check_circle</span>
-                  <h3 className="text-2xl font-bold font-oswald text-metallo-navy mb-2">Enquiry Submitted!</h3>
+                  <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2">Enquiry Submitted!</h3>
                   <p className="text-gray-500 mb-6">Our technical sales team will review your requirements and contact you within 24 hours.</p>
                   <button
                     onClick={() => { setSubmitStatus('idle'); formLoadTime.current = Date.now(); }}
@@ -477,7 +477,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={submitStatus === 'submitting'}
-                    className="w-full py-4 bg-metallo-navy text-white font-bold font-oswald uppercase tracking-widest text-lg hover:bg-metallo-lime hover:text-metallo-navy transition-all duration-300 rounded-md shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-metallo-navy text-white font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-lime hover:text-metallo-navy transition-all duration-300 rounded-md shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {submitStatus === 'submitting' ? (
                       <>
@@ -506,7 +506,7 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-metallo-navy mb-3">Visit Our Facilities.</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Visit Our Facilities.</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Strategic manufacturing hubs positioned to serve India's core industrial corridors.</p>
           </div>
 
@@ -519,14 +519,14 @@ const Contact: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <span className="material-symbols-outlined text-5xl text-metallo-lime mb-2 block">location_on</span>
-                    <span className="text-white font-oswald font-bold text-xl">NOIDA</span>
+                    <span className="text-white font-heading font-bold text-xl">NOIDA</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
                   <span className="material-symbols-outlined text-metallo-lime text-lg shrink-0 mt-0.5">factory</span>
-                  <h3 className="text-lg font-bold font-oswald text-metallo-navy">Corporate & Manufacturing Hub</h3>
+                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Corporate & Manufacturing Hub</h3>
                 </div>
                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Wire & Cable, Tech Products</p>
 
@@ -562,14 +562,14 @@ const Contact: React.FC = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <span className="material-symbols-outlined text-5xl text-metallo-lime mb-2 block">location_on</span>
-                    <span className="text-white font-oswald font-bold text-xl">GURGAON</span>
+                    <span className="text-white font-heading font-bold text-xl">GURGAON</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
                   <span className="material-symbols-outlined text-metallo-lime text-lg shrink-0 mt-0.5">precision_manufacturing</span>
-                  <h3 className="text-lg font-bold font-oswald text-metallo-navy">Heavy Engineering Unit</h3>
+                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Heavy Engineering Unit</h3>
                 </div>
                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Structural Steel, Die Casting</p>
 
@@ -605,7 +605,7 @@ const Contact: React.FC = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-oswald font-bold text-metallo-navy mb-3">Common Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Common Questions</h2>
             <p className="text-gray-500">Quick answers about working with Metallo.</p>
           </div>
 

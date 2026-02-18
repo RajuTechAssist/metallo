@@ -80,8 +80,8 @@ const Verticals: React.FC = () => {
     <section className="py-24 bg-gray-50" id="verticals">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-metallo-navy/70 font-bold uppercase tracking-widest text-sm block mb-2 font-oswald">Our Product Spectrum</span>
-          <h2 className="text-4xl md:text-5xl font-bold font-oswald text-metallo-navy mb-4">Complete Industrial Solutions</h2>
+          <span className="text-metallo-navy/70 font-bold uppercase tracking-widest text-sm block mb-2 font-heading">Our Product Spectrum</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">Complete Industrial Solutions</h2>
           <p className="text-gray-600 text-lg">From the foundation to the finishing touches, we manufacture the critical components that power your projects.</p>
         </div>
 
@@ -113,8 +113,8 @@ const Verticals: React.FC = () => {
 
               {/* Content */}
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold font-oswald text-metallo-navy mb-2 group-hover:text-metallo-lime-hover transition-colors">{item.title}</h3>
-                <p className="text-xs font-bold text-metallo-navy/60 uppercase tracking-widest mb-4 font-oswald">{item.subtitle}</p>
+                <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2 group-hover:text-metallo-lime-hover transition-colors">{item.title}</h3>
+                <p className="text-xs font-bold text-metallo-navy/60 uppercase tracking-widest mb-4 font-heading">{item.subtitle}</p>
                 <p className="text-gray-600 mb-6 flex-grow text-sm leading-relaxed border-b border-gray-100 pb-6">
                   {item.description}
                 </p>
@@ -130,7 +130,7 @@ const Verticals: React.FC = () => {
 
                 <Link 
                   to={item.link} 
-                  className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-oswald hover:text-metallo-lime-hover transition-colors mt-auto group/link"
+                  className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-lime-hover transition-colors mt-auto group/link"
                 >
                   {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`} 
                   <span className="material-symbols-outlined text-sm ml-1 transform group-hover/link:translate-x-1 transition-transform">arrow_forward</span>

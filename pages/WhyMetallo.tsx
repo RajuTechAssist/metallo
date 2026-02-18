@@ -115,7 +115,7 @@ const WhyMetallo: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="mt-[92px] md:mt-[197px] w-full bg-white overflow-x-hidden">
+    <div className="mt-[92px] md:mt-[175px] w-full bg-white overflow-x-hidden">
       
       {/* SECTION 0: THE SPECTRUM HERO */}
       <section className="relative w-full h-[80vh] min-h-[500px] bg-gray-900 overflow-hidden flex flex-col md:flex-row">
@@ -149,10 +149,10 @@ const WhyMetallo: React.FC = () => {
         {/* Central Text Overlay */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-20 mix-blend-plus-lighter">
            <div className="transition-all duration-300 transform">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-oswald font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].name.toUpperCase() : "MAXIMIZE EFFICIENCY."}
               </h1>
-              <h2 className="text-xl md:text-3xl font-oswald font-medium text-metallo-lime tracking-widest mb-6 uppercase drop-shadow-lg">
+              <h2 className="text-xl md:text-3xl font-heading font-medium text-metallo-lime tracking-widest mb-6 uppercase drop-shadow-lg">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].cert : "One Platform. Six Verticals. Zero Friction."}
               </h2>
               <div className={`max-w-2xl mx-auto transition-opacity duration-300 ${hoveredIndex !== null ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
@@ -172,8 +172,8 @@ const WhyMetallo: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Text */}
             <div>
-              <span className="text-metallo-navy font-bold uppercase tracking-[0.2em] mb-4 block text-sm font-oswald">The Integrated Advantage</span>
-              <h1 className="text-4xl md:text-6xl font-oswald font-bold mb-6 leading-tight">
+              <span className="text-metallo-navy font-bold uppercase tracking-[0.2em] mb-4 block text-sm font-heading">The Integrated Advantage</span>
+              <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
                 Don't Just Buy Materials. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-metallo-navy to-gray-500">Upgrade Your Supply Chain.</span>
               </h1>
@@ -219,7 +219,7 @@ const WhyMetallo: React.FC = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-oswald font-bold text-metallo-navy mb-4">Old Way vs. Metallo Way</h2>
+            <h2 className="text-4xl font-heading font-bold text-metallo-navy mb-4">Old Way vs. Metallo Way</h2>
             <p className="text-gray-600">See the difference integration makes to your project timeline.</p>
           </div>
 
@@ -234,7 +234,7 @@ const WhyMetallo: React.FC = () => {
                <div className="absolute top-0 right-0 p-4 opacity-10">
                  <span className="material-symbols-outlined text-9xl text-red-900">warning</span>
                </div>
-               <h3 className="text-2xl font-bold font-oswald text-gray-800 mb-8 border-b border-gray-100 pb-4">The Traditional Supply Chain</h3>
+               <h3 className="text-2xl font-bold font-heading text-gray-800 mb-8 border-b border-gray-100 pb-4">The Traditional Supply Chain</h3>
                <ul className="space-y-8">
                  <li className="flex gap-4">
                    <span className="material-symbols-outlined text-red-500 shrink-0">close</span>
@@ -272,7 +272,7 @@ const WhyMetallo: React.FC = () => {
                <div className="absolute top-0 right-0 p-4 opacity-10">
                  <span className="material-symbols-outlined text-9xl text-metallo-lime">check_circle</span>
                </div>
-               <h3 className="text-2xl font-bold font-oswald text-white mb-8 border-b border-white/10 pb-4">The Metallo Ecosystem</h3>
+               <h3 className="text-2xl font-bold font-heading text-white mb-8 border-b border-white/10 pb-4">The Metallo Ecosystem</h3>
                <ul className="space-y-8">
                  <li className="flex gap-4">
                    <span className="material-symbols-outlined text-metallo-lime shrink-0">check</span>
@@ -318,7 +318,7 @@ const WhyMetallo: React.FC = () => {
                  <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">hub</span>
                  </div>
-                 <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-2">The "Power of One"</h3>
+                 <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">The "Power of One"</h3>
                  <p className="text-xs font-bold uppercase text-gray-400 mb-4 tracking-wider">Complete BOM Coverage</p>
                  <p className="text-sm text-gray-600 leading-relaxed">
                    Why fragment your buying power? Whether you need High-Voltage HT Cables or SS 304 Sheets, Metallo delivers it all. We synchronize delivery so your site team has exactly what they need.
@@ -330,7 +330,7 @@ const WhyMetallo: React.FC = () => {
                  <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">engineering</span>
                  </div>
-                 <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-2">"Mission Critical"</h3>
+                 <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">"Mission Critical"</h3>
                  <p className="text-xs font-bold uppercase text-gray-400 mb-4 tracking-wider">Built for Heavy Infra</p>
                  <p className="text-sm text-gray-600 leading-relaxed">
                    Our leadership stems from Oil & Gas sectors where failure is not an option. Our Fire Survival Cables and High-Tensile Steel are engineered to exceed standard safety margins.
@@ -342,7 +342,7 @@ const WhyMetallo: React.FC = () => {
                  <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">verified_user</span>
                  </div>
-                 <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-2">The Quality Shield</h3>
+                 <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">The Quality Shield</h3>
                  <p className="text-xs font-bold uppercase text-gray-400 mb-4 tracking-wider">100% IS/ISO Compliant</p>
                  <p className="text-sm text-gray-600 leading-relaxed">
                    We don't deal in 'unbranded' quality. Steel: IS: 2062. Cables: IS: 7098. Welding: AWS Standards. Every shipment is accompanied by a Mill Test Certificate (MTC).
@@ -354,7 +354,7 @@ const WhyMetallo: React.FC = () => {
                  <div className="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-metallo-lime transition-colors">
                     <span className="material-symbols-outlined text-3xl text-metallo-navy">visibility</span>
                  </div>
-                 <h3 className="text-xl font-bold font-oswald text-metallo-navy mb-2">Digital Transparency</h3>
+                 <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">Digital Transparency</h3>
                  <p className="text-xs font-bold uppercase text-gray-400 mb-4 tracking-wider">Visibility at Every Step</p>
                  <p className="text-sm text-gray-600 leading-relaxed">
                    Metallo brings tech-enabled transparency. Track your order status, access digital test certificates, and manage your inventory through our platform. No more guessing games.
@@ -374,7 +374,7 @@ const WhyMetallo: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             
             <div className="w-full md:w-1/3 text-center md:text-left">
-               <h2 className="text-4xl font-oswald font-bold mb-6">Direct Impact on Your Bottom Line.</h2>
+               <h2 className="text-4xl font-heading font-bold mb-6">Direct Impact on Your Bottom Line.</h2>
                <p className="text-gray-300 mb-8">
                  Integration isn't just convenient; it's profitable. See how the Metallo model improves your project ROI.
                </p>
@@ -384,19 +384,19 @@ const WhyMetallo: React.FC = () => {
             <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6">
                {/* Card 1 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-oswald text-metallo-lime mb-2">$$$</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">$$$</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Reduce Costs</h3>
                   <p className="text-sm text-gray-400">By consolidating volume with Metallo, you unlock bulk pricing across verticals.</p>
                </div>
                {/* Card 2 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-oswald text-metallo-lime mb-2">-60%</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">-60%</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Slash Overheads</h3>
                   <p className="text-sm text-gray-400">Reduce man-hours spent chasing vendors and processing invoices by 60%.</p>
                </div>
                {/* Card 3 */}
                <div className="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="text-4xl font-bold font-oswald text-metallo-lime mb-2">0%</div>
+                  <div className="text-4xl font-bold font-heading text-metallo-lime mb-2">0%</div>
                   <h3 className="text-lg font-bold uppercase mb-3">Zero Downtime</h3>
                   <p className="text-sm text-gray-400">Our Just-in-Time logistics prevent site stoppages caused by material shortage.</p>
                </div>
@@ -409,11 +409,11 @@ const WhyMetallo: React.FC = () => {
       {/* SECTION 5: FINAL CTA */}
       <section className="py-20 md:py-28 bg-white text-center">
         <div className="max-w-4xl mx-auto px-4">
-           <h2 className="text-4xl md:text-5xl font-bold font-oswald text-metallo-navy mb-6">The Smart Choice for Smart Industry.</h2>
+           <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-6">The Smart Choice for Smart Industry.</h2>
            <p className="text-xl text-gray-600 mb-10">50+ EPC Contractors have already upgraded to the Metallo Ecosystem. Are you next?</p>
            <Link 
              to="/contact" 
-             className="inline-block px-10 py-4 bg-metallo-lime text-metallo-navy font-bold font-oswald uppercase tracking-widest text-lg hover:bg-metallo-lime-hover hover:scale-105 transition-all shadow-xl rounded-sm"
+             className="inline-block px-10 py-4 bg-metallo-lime text-metallo-navy font-bold font-heading uppercase tracking-widest text-lg hover:bg-metallo-lime-hover hover:scale-105 transition-all shadow-xl rounded-sm"
            >
              Start Your Pilot Order
            </Link>
