@@ -277,7 +277,7 @@ const About: React.FC = () => {
               {/* Leader 2 */}
               <div className="group relative bg-white border border-gray-100 shadow-xl rounded-sm overflow-hidden flex flex-col md:flex-row">
                  <div className="w-full md:w-1/3 bg-gray-200 min-h-[250px] relative overflow-hidden">
-                    <img src="/director.jpg" alt="Mr. Vinay" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
+                    <img src="/.jpg" alt="Mr. Vinay" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110" />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
                        <h3 className="text-2xl font-bold font-heading text-white">Mr. Vinay</h3>
                        <p className="text-xs font-bold uppercase tracking-widest text-white/80">Director</p>
