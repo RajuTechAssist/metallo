@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface Vertical {
   id: string;
@@ -129,7 +129,7 @@ const Verticals: React.FC = () => {
                 </ul>
 
                 <Link 
-                  to={item.link} 
+                  href={item.link} 
                   className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-gold-hover transition-colors mt-auto group/link"
                 >
                   {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`} 

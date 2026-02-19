@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,7 +77,7 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center h-10 text-xs font-medium tracking-wide">
             <div className="flex space-x-10 text-gray-600">
               {topLinks.map((link) => (
-                <Link key={link.name} to={link.path} className="hover:text-metallo-navy uppercase transition-colors font-sans">
+                <Link key={link.name} href={link.path} className="hover:text-metallo-navy uppercase transition-colors font-sans">
                   {link.name}
                 </Link>
               ))}
@@ -94,13 +96,13 @@ const Header: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group">
               <img src="/logo.svg" alt="Metallo" className="w-auto" style={{width: '15rem'}} />
             </Link>
 
             {/* CTA Button */}
             <Link 
-              to="/contact"
+              href="/contact"
               className="hidden md:inline-flex items-center px-6 py-3 bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-sm uppercase tracking-wide transition-colors rounded-sm"
             >
               Get a Quote Now
@@ -126,7 +128,7 @@ const Header: React.FC = () => {
               {verticals.map((v) => (
                 <Link 
                   key={v.name} 
-                  to={v.path} 
+                  href={v.path} 
                   className="text-xs font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold hover:underline decoration-2 underline-offset-4 transition-all"
                 >
                   {v.name}
@@ -181,7 +183,7 @@ const Header: React.FC = () => {
                       {primaryLinks.map(link => (
                          <Link 
                            key={link.name} 
-                           to={link.path} 
+                           href={link.path} 
                            onClick={() => setIsMenuOpen(false)}
                            className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1"
                          >
@@ -197,7 +199,7 @@ const Header: React.FC = () => {
                          {verticals.map(v => (
                             <Link 
                                key={v.name} 
-                               to={v.path} 
+                               href={v.path} 
                                onClick={() => setIsMenuOpen(false)}
                                className="text-base text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 w-fit block font-sans border-b border-transparent hover:border-metallo-gold pb-1"
                             >
@@ -214,8 +216,8 @@ const Header: React.FC = () => {
             <div className="p-8 md:px-16 border-t border-white/10 mt-auto bg-metallo-navy z-10">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                    <div className="flex gap-6">
-                      <Link to="/csr" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">CSR Policy</Link>
-                      <Link to="/disclosure" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">Disclosure</Link>
+                      <Link href="/csr" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">CSR Policy</Link>
+                      <Link href="/disclosure" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">Disclosure</Link>
                    </div>
                    
                    {/* Social Icons (Copied from Footer) */}

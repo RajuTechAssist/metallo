@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +64,7 @@ const Footer: React.FC = () => {
             <p className="text-metallo-navy/80 font-medium">Get a unified quote for Steel, Cables, Tools, and more today.</p>
           </div>
           <Link 
-            to="/contact" 
+            href="/contact" 
             className="px-8 py-3 bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider hover:bg-opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
           >
             Get Started <span className="material-symbols-outlined ml-2">arrow_forward</span>
@@ -109,11 +111,11 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">Company</h4>
               <ul className="space-y-3 text-sm text-gray-400">
-                <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link to="/capabilities" className="hover:text-white transition-colors">Capabilities</Link></li>
-                <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-                <li><Link to="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/capabilities" className="hover:text-white transition-colors">Capabilities</Link></li>
+                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li><Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
               </ul>
             </div>
 
@@ -121,11 +123,11 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">Industries</h4>
               <ul className="space-y-3 text-sm text-gray-400">
-                <li><Link to="/products/steel" className="hover:text-white transition-colors">Steel Solutions</Link></li>
-                <li><Link to="/products/wire-cables" className="hover:text-white transition-colors">Wire & Cables</Link></li>
-                <li><Link to="/products/welding" className="hover:text-white transition-colors">Welding</Link></li>
-                <li><Link to="/products/tools" className="hover:text-white transition-colors">Tools</Link></li>
-                <li><Link to="/products/die-casting" className="hover:text-white transition-colors">Die Casting</Link></li>
+                <li><Link href="/products/steel" className="hover:text-white transition-colors">Steel Solutions</Link></li>
+                <li><Link href="/products/wire-cables" className="hover:text-white transition-colors">Wire & Cables</Link></li>
+                <li><Link href="/products/welding" className="hover:text-white transition-colors">Welding</Link></li>
+                <li><Link href="/products/tools" className="hover:text-white transition-colors">Tools</Link></li>
+                <li><Link href="/products/die-casting" className="hover:text-white transition-colors">Die Casting</Link></li>
               </ul>
             </div>
 
@@ -198,9 +200,9 @@ const Footer: React.FC = () => {
          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} METALLO</p> 
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/csr" className="hover:text-white transition-colors">CSR Policy</Link> 
-            <Link to="/e-waste" className="hover:text-white transition-colors">E-Waste Management</Link>
-            <Link to="/disclosure" className="hover:text-white transition-colors">Disclosure</Link>
+            <Link href="/csr" className="hover:text-white transition-colors">CSR Policy</Link> 
+            <Link href="/e-waste" className="hover:text-white transition-colors">E-Waste Management</Link>
+            <Link href="/disclosure" className="hover:text-white transition-colors">Disclosure</Link>
           </div>
         </div>
       </div>
