@@ -77,11 +77,9 @@ const Industries: React.FC = () => {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300"></div>
 
-              {/* Content Container - Slides up on hover */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-[calc(100%-80px)] group-hover:translate-y-0 transition-transform duration-500 ease-out bg-gradient-to-t from-black/90 to-transparent">
-                
-                {/* Title & Arrow Row */}
-                <div className="flex justify-between items-end mb-4">
+              {/* Title & Arrow - Always visible at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 z-10">
+                <div className="flex justify-between items-end">
                   <h3 className="text-xl font-bold font-heading text-white leading-tight max-w-[80%] drop-shadow-md">
                     {industry.title}
                   </h3>
@@ -91,9 +89,21 @@ const Industries: React.FC = () => {
                     <span className="material-symbols-outlined text-metallo-navy text-xl font-bold">navigate_next</span>
                   </div>
                 </div>
+              </div>
 
-                {/* Hidden Meta Data - Fades in */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 space-y-3 border-t border-white/20 pt-4">
+              {/* Hidden Meta Data - Slides up on hover */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20 bg-gradient-to-t from-black/95 to-black/80">
+                {/* Title & Arrow (duplicated for hover state) */}
+                <div className="flex justify-between items-end mb-4 pt-6">
+                  <h3 className="text-xl font-bold font-heading text-white leading-tight max-w-[80%] drop-shadow-md">
+                    {industry.title}
+                  </h3>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white flex items-center justify-center scale-110">
+                    <span className="material-symbols-outlined text-metallo-navy text-xl font-bold">navigate_next</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 border-t border-white/20 pt-4">
                   <div>
                     <p className="text-[10px] font-bold text-metallo-gold uppercase tracking-widest mb-1">Context</p>
                     <p className="text-gray-200 text-sm font-medium leading-snug">{industry.context}</p>
@@ -103,7 +113,6 @@ const Industries: React.FC = () => {
                     <p className="text-gray-200 text-sm font-medium leading-snug">{industry.supply}</p>
                   </div>
                 </div>
-
               </div>
             </div>
           ))}
