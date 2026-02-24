@@ -10,15 +10,27 @@ const Header: React.FC = () => {
   const lastScrollY = useRef(0);
   const productsTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const scrollUpDistance = useRef(0);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY < 50) {
+      const delta = lastScrollY.current - currentScrollY; // positive = scrolling up
+
+      if (currentScrollY < 80) {
+        // Always show near the top of page
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
+        scrollUpDistance.current = 0;
+      } else if (delta < 0) {
+        // Scrolling down — hide and reset up-distance
         setIsVisible(false);
+        scrollUpDistance.current = 0;
       } else {
-        setIsVisible(true);
+        // Scrolling up — accumulate distance before revealing
+        scrollUpDistance.current += delta;
+        if (scrollUpDistance.current > 100) {
+          setIsVisible(true);
+        }
       }
       lastScrollY.current = currentScrollY;
     };

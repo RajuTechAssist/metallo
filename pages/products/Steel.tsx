@@ -401,7 +401,7 @@ const Steel: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-slate-50 overflow-x-hidden">
+    <div className="w-full bg-slate-50" style={{ overflowX: 'clip' }}>
 
       {/* ═══ HERO (70vh) ═══════════════════════════════════════ */}
       <section
@@ -453,7 +453,7 @@ const Steel: React.FC = () => {
       </section>
 
       {/* ═══ STICKY CATEGORY NAV (5 categories) ═══════════════ */}
-      <nav className="sticky z-40 bg-white border-b border-slate-200 shadow-sm" style={{ top: '97px' }}>
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-1 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
             {CATEGORIES.map((cat) => (
@@ -529,7 +529,7 @@ const Steel: React.FC = () => {
 
             {/* ── LEFT: MASTER MENU (Vertical Product List) ── */}
             <aside className="hidden md:block w-[280px] lg:w-[320px] shrink-0">
-              <div className="sticky" style={{ top: '153px' }}>
+              <div className="sticky" style={{ top: '64px' }}>
                 <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
                   <span className="material-symbols-outlined text-lg text-yellow-500">
                     {activeCategory.icon}

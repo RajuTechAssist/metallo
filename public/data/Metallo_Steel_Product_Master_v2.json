@@ -284,5 +284,19 @@
     "Type": "",
     "Material": "Viton, Nitrile, or Metal Encapsulated",
     "Application": "Pumps, Valves, Cylinders"
+  },
+  {
+    "id": "custom-piping",
+    "name": "Custom Fabricated Piping & Spools",
+    "desc": "Tailor-made piping solutions engineered to exact client schematics. We provide non-standard outside diameters, heavy-wall thicknesses, and pre-fabricated pipe spools to drastically reduce on-site welding time.",
+    "capabilities": "Precision Bending, End Beveling, Threading, Grooving, Spooling.",
+    "coatings": "3LPE, Fusion Bonded Epoxy (FBE), Hot-Dip Galvanizing, PTFE.",
+    "size_range": "Non-Standard OD & Custom Wall Thickness (SCH)",
+    "applications": [
+      "Modular Process Skids",
+      "Offshore Platforms",
+      "Custom Heat Exchangers",
+      "Heavy Infrastructure"
+    ]
   }
 ]
