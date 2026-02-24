@@ -156,7 +156,7 @@ const Hero: React.FC = () => {
   const slide = SLIDES[current];
 
   return (
-    <section className="relative w-full mt-[97px] h-[calc(100vh-80px)] bg-slate-900 overflow-hidden">
+    <section className="relative w-full h-[calc(100vh-80px)] bg-slate-900 overflow-hidden">
 
       {/* ── Background Images with Ken Burns ── */}
       <AnimatePresence mode="popLayout">
