@@ -62,21 +62,21 @@ const Header: React.FC = () => {
       viewAll: 'View All Pipes',
       viewAllPath: steelPath(['Pipes & Tubes']),
       links: [
-        { name: 'SS Seamless Pipes', spec: 'ASTM A312', path: steelPath(['Pipes & Tubes'], 'p1') },
-        { name: 'SS Welded / ERW Pipes', spec: 'ASTM A312', path: steelPath(['Pipes & Tubes'], 'p2') },
-        { name: 'Instrumentation Tubes', spec: 'ASTM A269', path: steelPath(['Pipes & Tubes'], 'p3') },
-        { name: 'Heat Exchanger U-Tubes', spec: 'ASTM A213', path: steelPath(['Pipes & Tubes'], 'p4') },
+        { name: 'SS Seamless Pipes', spec: 'ASTM A312', path: steelPath(['Pipes & Tubes'], 'ss-seamless-pipe') },
+        { name: 'SS Welded / ERW Pipes', spec: 'ASTM A312', path: steelPath(['Pipes & Tubes'], 'ss-welded-erw-pipe') },
+        { name: 'Instrumentation Tubes', spec: 'ASTM A269', path: steelPath(['Pipes & Tubes'], 'ss-instrumentation-tube') },
+        { name: 'Heat Exchanger U-Tubes', spec: 'ASTM A213', path: steelPath(['Pipes & Tubes'], 'heat-exchanger-u-tube') },
       ],
     },
     {
       title: 'Buttweld Fittings',
       icon: 'hub',
       viewAll: 'View All Fittings',
-      viewAllPath: steelPath(['Fittings']),
+      viewAllPath: steelPath(['Buttweld Fittings']),
       links: [
-        { name: 'Elbows (45° / 90°)', spec: 'ASME B16.9', path: steelPath(['Fittings'], 'ft1') },
-        { name: 'Tees (Equal / Reducing)', spec: 'ASME B16.9', path: steelPath(['Fittings'], 'ft2') },
-        { name: 'Reducers (Conc / Ecc)', spec: 'ASME B16.9', path: steelPath(['Fittings'], 'ft3') },
+        { name: 'Elbows (45° / 90°)', spec: 'ASME B16.9', path: steelPath(['Buttweld Fittings'], '90-45-elbow') },
+        { name: 'Tees (Equal / Reducing)', spec: 'ASME B16.9', path: steelPath(['Buttweld Fittings'], 'equal-reducing-tee') },
+        { name: 'Reducers (Conc / Ecc)', spec: 'ASME B16.9', path: steelPath(['Buttweld Fittings'], 'concentric-eccentric-reducer') },
       ],
     },
     {
@@ -85,27 +85,27 @@ const Header: React.FC = () => {
       viewAll: 'View All Flanges',
       viewAllPath: steelPath(['Flanges']),
       links: [
-        { name: 'Weld Neck Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'f1') },
-        { name: 'Slip-On Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'f2') },
-        { name: 'Blind Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'f3') },
+        { name: 'Weld Neck Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'weld-neck-flange') },
+        { name: 'Slip-On Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'slip-on-flange') },
+        { name: 'Blind Flanges', spec: 'ASME B16.5', path: steelPath(['Flanges'], 'blind-flange') },
       ],
     },
     {
       title: 'Plates & Gaskets',
       icon: 'layers',
       viewAll: 'View All Plates & Gaskets',
-      viewAllPath: steelPath(['Plates & Sheets', 'Gaskets & Seals']),
+      viewAllPath: steelPath(['Sheets & Plates', 'Sealing & Gaskets']),
       featured: {
         badge: 'NEW ARRIVAL',
         name: 'Spiral Wound Gaskets',
         desc: 'SS 304/316 + Graphite Filler, with Inner & Outer Ring. Ready Stock.',
         cta: 'Check Availability',
-        path: steelPath(['Gaskets & Seals'], 'g1'),
+        path: steelPath(['Sealing & Gaskets'], 'spiral-wound-gasket'),
       },
       links: [
-        { name: 'SS HR Plates', spec: 'ASTM A240', path: steelPath(['Plates & Sheets'], 'sp1') },
-        { name: 'SS CR Sheets', spec: 'ASTM A240', path: steelPath(['Plates & Sheets'], 'sp2') },
-        { name: 'SS Coil / Strip', spec: 'ASTM A240', path: steelPath(['Plates & Sheets'], 'sp3') },
+        { name: 'SS HR Plates', spec: 'ASTM A240', path: steelPath(['Sheets & Plates'], 'ss-hr-plate-hot-rolled') },
+        { name: 'SS CR Sheets', spec: 'ASTM A240', path: steelPath(['Sheets & Plates'], 'ss-cr-sheet-cold-rolled') },
+        { name: 'SS Coil / Strip', spec: 'ASTM A240', path: steelPath(['Sheets & Plates'], 'ss-coil-strip') },
       ],
     },
   ];
@@ -309,128 +309,126 @@ const Header: React.FC = () => {
 
   return (
     <>
-    <header 
-      className={`fixed w-full py-2 top-0 z-50 bg-white font-sans text-metallo-navy shadow-sm transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
-    >
-      {/* Single Row: Logo + Navigation + Hamburger */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
-            <img src="/logo.svg" alt="Metallo" className="w-auto" style={{width: '18rem'}} />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10 h-full">
-            <Link 
-              to="/about" 
-              className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
-            >
-              About
+      <header
+        className={`fixed w-full py-2 top-0 z-50 bg-white font-sans text-metallo-navy shadow-sm transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+      >
+        {/* Single Row: Logo + Navigation + Hamburger */}
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center shrink-0">
+              <img src="/logo.svg" alt="Metallo" className="w-auto" style={{ width: '18rem' }} />
             </Link>
 
-            {/* Products with dropdown */}
-            <div 
-              className="relative flex items-center h-full" 
-              onMouseEnter={openProducts} 
-              onMouseLeave={closeProducts}
-            >
-              <button 
-                className={`text-base font-bold font-sans uppercase tracking-wider transition-all inline-flex items-center gap-1 h-full border-b-2 ${isProductsOpen ? 'text-metallo-gold border-metallo-gold' : 'text-metallo-navy border-transparent hover:text-metallo-gold hover:border-metallo-gold'}`}
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-10 h-full">
+              <Link
+                to="/about"
+                className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
               >
-                Products
-                <span className={`material-symbols-outlined text-sm transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                About
+              </Link>
+
+              {/* Products with dropdown */}
+              <div
+                className="relative flex items-center h-full"
+                onMouseEnter={openProducts}
+                onMouseLeave={closeProducts}
+              >
+                <button
+                  className={`text-base font-bold font-sans uppercase tracking-wider transition-all inline-flex items-center gap-1 h-full border-b-2 ${isProductsOpen ? 'text-metallo-gold border-metallo-gold' : 'text-metallo-navy border-transparent hover:text-metallo-gold hover:border-metallo-gold'}`}
+                >
+                  Products
+                  <span className={`material-symbols-outlined text-sm transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                </button>
+              </div>
+
+              <Link
+                to="/why-metallo"
+                className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
+              >
+                Why Metallo
+              </Link>
+
+              <Link
+                to="/contact"
+                className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
+              >
+                Contact Us
+              </Link>
+            </nav>
+
+            {/* Right side: Hamburger (desktop + mobile) */}
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="p-2 hover:bg-gray-50 rounded-full transition-colors flex items-center gap-2 group"
+              >
+                <span className="hidden md:inline text-[10px] font-bold uppercase tracking-widest text-metallo-navy opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0">Menu</span>
+                <span className="material-symbols-outlined text-metallo-navy text-3xl md:text-2xl">menu</span>
               </button>
             </div>
-
-            <Link 
-              to="/why-metallo" 
-              className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
-            >
-              Why Metallo
-            </Link>
-
-            <Link 
-              to="/contact" 
-              className="text-base font-bold font-sans uppercase tracking-wider text-metallo-navy hover:text-metallo-gold transition-colors inline-flex items-center h-full border-b-2 border-transparent hover:border-metallo-gold"
-            >
-              Contact Us
-            </Link>
-          </nav>
-
-          {/* Right side: Hamburger (desktop + mobile) */}
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setIsMenuOpen(true)}
-              className="p-2 hover:bg-gray-50 rounded-full transition-colors flex items-center gap-2 group"
-            >
-              <span className="hidden md:inline text-[10px] font-bold uppercase tracking-widest text-metallo-navy opacity-0 group-hover:opacity-100 transition-opacity translate-x-2 group-hover:translate-x-0">Menu</span>
-              <span className="material-symbols-outlined text-metallo-navy text-3xl md:text-2xl">menu</span>
-            </button>
           </div>
         </div>
-      </div>
 
-      {/* ── TABBED SPLIT-PANE MEGA MENU ── */}
-      <div
-        className={`absolute left-0 right-0 z-40 transition-all duration-200 ease-out ${
-          isProductsOpen
+        {/* ── TABBED SPLIT-PANE MEGA MENU ── */}
+        <div
+          className={`absolute left-0 right-0 z-40 transition-all duration-200 ease-out ${isProductsOpen
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 -translate-y-1 pointer-events-none'
-        }`}
-        onMouseEnter={openProducts}
-        onMouseLeave={closeProducts}
-      >
-        <div className="max-w-5xl mx-auto shadow-2xl rounded-b-xl overflow-hidden flex min-h-[400px]">
-          {/* LEFT PANE — Vertical Tabs */}
-          <div className="w-[250px] bg-slate-900 shrink-0 py-4 flex flex-col">
-            {verticals.map(v => (
-              <button
-                key={v.key}
-                onMouseEnter={() => setActiveTab(v.key)}
-                className={`w-full text-left px-6 py-3.5 flex items-center gap-3 text-sm font-heading font-bold transition-all duration-150 border-l-4 ${
-                  activeTab === v.key
+            }`}
+          onMouseEnter={openProducts}
+          onMouseLeave={closeProducts}
+        >
+          <div className="max-w-5xl mx-auto shadow-2xl rounded-b-xl overflow-hidden flex min-h-[400px]">
+            {/* LEFT PANE — Vertical Tabs */}
+            <div className="w-[250px] bg-slate-900 shrink-0 py-4 flex flex-col">
+              {verticals.map(v => (
+                <button
+                  key={v.key}
+                  onMouseEnter={() => setActiveTab(v.key)}
+                  className={`w-full text-left px-6 py-3.5 flex items-center gap-3 text-sm font-heading font-bold transition-all duration-150 border-l-4 ${activeTab === v.key
                     ? 'bg-slate-800 text-yellow-500 border-yellow-500'
                     : 'text-slate-300 hover:text-white border-transparent'
-                }`}
-              >
-                <span className="material-symbols-outlined text-lg">{v.icon}</span>
-                {v.name}
-              </button>
-            ))}
-            <div className="mt-auto px-6 pt-6 pb-4 border-t border-slate-800">
-              <Link to="/" onClick={closeAllMenus} className="text-[11px] font-bold text-slate-400 hover:text-yellow-500 uppercase tracking-wider font-heading transition-colors inline-flex items-center gap-1">
-                View All Products <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
+                    }`}
+                >
+                  <span className="material-symbols-outlined text-lg">{v.icon}</span>
+                  {v.name}
+                </button>
+              ))}
+              <div className="mt-auto px-6 pt-6 pb-4 border-t border-slate-800">
+                <Link to="/" onClick={closeAllMenus} className="text-[11px] font-bold text-slate-400 hover:text-yellow-500 uppercase tracking-wider font-heading transition-colors inline-flex items-center gap-1">
+                  View All Products <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT PANE — Dynamic Content */}
+            <div className="flex-1 bg-white p-8 overflow-y-auto">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -8 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                >
+                  {renderTabContent()}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
-
-          {/* RIGHT PANE — Dynamic Content */}
-          <div className="flex-1 bg-white p-8 overflow-y-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -8 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
-              >
-                {renderTabContent()}
-              </motion.div>
-            </AnimatePresence>
-          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    {/* BACKDROP */}
-    <div 
-      className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-      onClick={() => setIsMenuOpen(false)}
-    />
+      {/* BACKDROP */}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsMenuOpen(false)}
+      />
 
-    {/* SIDE DRAWER MENU */}
-    <div className={`
+      {/* SIDE DRAWER MENU */}
+      <div className={`
         fixed inset-y-0 z-[100] bg-metallo-navy text-white 
         w-[85vw] md:w-1/2 lg:w-1/2
         shadow-2xl overflow-hidden
@@ -438,82 +436,82 @@ const Header: React.FC = () => {
         left-0 md:left-auto md:right-0
         ${isMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-full'}
       `}>
-        
+
         <div className="flex flex-col h-full">
-            {/* Close Button */}
-            <div className="flex justify-end items-center p-6 md:p-8">
-              <button onClick={() => setIsMenuOpen(false)} className="group p-2">
-                 <span className="material-symbols-outlined text-3xl md:text-4xl text-white group-hover:text-metallo-gold transition-all duration-300">close</span>
-              </button>
-            </div>
+          {/* Close Button */}
+          <div className="flex justify-end items-center p-6 md:p-8">
+            <button onClick={() => setIsMenuOpen(false)} className="group p-2">
+              <span className="material-symbols-outlined text-3xl md:text-4xl text-white group-hover:text-metallo-gold transition-all duration-300">close</span>
+            </button>
+          </div>
 
-            {/* Scrollable Content Area */}
-            <div className="flex-1 px-8 md:px-16 overflow-y-auto">
-                <div className="flex flex-col md:flex-row h-full">
-                   
-                   {/* Left Column: Primary Navigation */}
-                   <div className="flex-1 flex flex-col space-y-8 pt-4 pb-8 md:pb-0 pl-4 md:pl-8">
-                      <Link to="/about" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
-                        About
-                      </Link>
-                      <Link to="/why-metallo" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
-                        Why Metallo
-                      </Link>
-                      <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
-                        Contact Us
-                      </Link>
-                   </div>
+          {/* Scrollable Content Area */}
+          <div className="flex-1 px-8 md:px-16 overflow-y-auto">
+            <div className="flex flex-col md:flex-row h-full">
 
-                   {/* Right Column: Products / Industries */}
-                   <div className="flex-1 md:border-l md:border-white/10 md:pl-16 pl-4 pt-4 pb-8">
-                      <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-8 font-heading">Products</h3>
-                      <div className="flex flex-col space-y-4">
-                         {verticals.map(v => (
-                            <Link 
-                               key={v.name} 
-                               to={v.path} 
-                               onClick={() => setIsMenuOpen(false)}
-                               className="text-base text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 w-fit block font-sans border-b border-transparent hover:border-metallo-gold pb-1"
-                            >
-                               {v.name}
-                            </Link>
-                         ))}
-                      </div>
-                   </div>
+              {/* Left Column: Primary Navigation */}
+              <div className="flex-1 flex flex-col space-y-8 pt-4 pb-8 md:pb-0 pl-4 md:pl-8">
+                <Link to="/about" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
+                  About
+                </Link>
+                <Link to="/why-metallo" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
+                  Why Metallo
+                </Link>
+                <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1">
+                  Contact Us
+                </Link>
+              </div>
 
+              {/* Right Column: Products / Industries */}
+              <div className="flex-1 md:border-l md:border-white/10 md:pl-16 pl-4 pt-4 pb-8">
+                <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-8 font-heading">Products</h3>
+                <div className="flex flex-col space-y-4">
+                  {verticals.map(v => (
+                    <Link
+                      key={v.name}
+                      to={v.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-base text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 w-fit block font-sans border-b border-transparent hover:border-metallo-gold pb-1"
+                    >
+                      {v.name}
+                    </Link>
+                  ))}
                 </div>
-            </div>
+              </div>
 
-            {/* Footer Area inside Drawer */}
-            <div className="p-8 md:px-16 border-t border-white/10 mt-auto bg-metallo-navy z-10">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                   <div className="flex gap-6">
-                      <Link to="/csr" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">CSR Policy</Link>
-                      <Link to="/disclosure" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">Disclosure</Link>
-                   </div>
-                   
-                   {/* Social Icons */}
-                   <div className="flex gap-4 items-center">
-                      <a href="#" className="text-white hover:text-metallo-gold transition-colors">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-                      </a>
-                      <a href="#" className="text-white hover:text-metallo-gold transition-colors">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-                      </a>
-                      <a href="#" className="text-white hover:text-metallo-gold transition-colors">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                      </a>
-                      <a href="#" className="text-white hover:text-metallo-gold transition-colors">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-                      </a>
-                      <a href="#" className="text-white hover:text-metallo-gold transition-colors">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-                      </a>
-                   </div>
-                </div>
             </div>
+          </div>
+
+          {/* Footer Area inside Drawer */}
+          <div className="p-8 md:px-16 border-t border-white/10 mt-auto bg-metallo-navy z-10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="flex gap-6">
+                <Link to="/csr" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">CSR Policy</Link>
+                <Link to="/disclosure" onClick={() => setIsMenuOpen(false)} className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors">Disclosure</Link>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex gap-4 items-center">
+                <a href="#" className="text-white hover:text-metallo-gold transition-colors">
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                </a>
+                <a href="#" className="text-white hover:text-metallo-gold transition-colors">
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                </a>
+                <a href="#" className="text-white hover:text-metallo-gold transition-colors">
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                </a>
+                <a href="#" className="text-white hover:text-metallo-gold transition-colors">
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                </a>
+                <a href="#" className="text-white hover:text-metallo-gold transition-colors">
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </>
   );
 };
