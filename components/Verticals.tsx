@@ -34,6 +34,16 @@ const verticalsData: Vertical[] = [
     link: '/products/wire-cables'
   },
   {
+    id: 'cable-tray',
+    title: 'Cable Tray',
+    subtitle: 'Structured Cable Management',
+    description: 'Engineered cable tray systems for efficient routing, protection, and management of power and data cables across industrial and commercial installations.',
+    icon: 'grid_view',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80&auto=format&fit=crop',
+    points: ['Ladder & Perforated Trays', 'GI / SS / Aluminium Options', 'Custom Sizes & Coatings'],
+    link: '/products/cable-tray'
+  },
+  {
     id: 'welding',
     title: 'Welding (WB Alloys)',
     subtitle: 'The Strength of the Bond',
@@ -85,25 +95,23 @@ const Verticals: React.FC = () => {
           <p className="text-gray-600 text-lg">From the foundation to the finishing touches, we manufacture the critical components that power your projects.</p>
         </div>
 
-        {/* 
-          Mobile: Flex row with overflow-x-auto for horizontal scroll.
-          Desktop: Standard Grid layout.
-        */}
-        <div 
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:pb-0 md:mx-0 md:px-0 md:overflow-visible no-scrollbar" 
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        {/* Horizontally scrollable Verticals section for all devices */}
+        <div
+          className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 no-scrollbar"
+          style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          tabIndex={0}
         >
           {verticalsData.map((item) => (
-            <div 
-              key={item.id} 
-              className="min-w-[85vw] snap-center md:min-w-0 md:w-full group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+            <div
+              key={item.id}
+              className="min-w-[85vw] max-w-[90vw] snap-center group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:min-w-[400px] md:max-w-[420px]"
             >
               {/* Image Header */}
               <div className="h-48 overflow-hidden relative shrink-0">
-                <img 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  src={item.image} 
+                <img
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  src={item.image}
                 />
                 <div className="absolute top-4 right-4 bg-metallo-navy text-white p-2 rounded-full shadow-lg z-10">
                   <span className="material-symbols-outlined">{item.icon}</span>
@@ -118,7 +126,7 @@ const Verticals: React.FC = () => {
                 <p className="text-gray-600 mb-6 flex-grow text-sm leading-relaxed border-b border-gray-100 pb-6">
                   {item.description}
                 </p>
-                
+
                 <ul className="text-sm text-gray-500 space-y-2 mb-6">
                   {item.points.map((point, idx) => (
                     <li key={idx} className="flex items-center">
@@ -128,11 +136,11 @@ const Verticals: React.FC = () => {
                   ))}
                 </ul>
 
-                <Link 
-                  to={item.link} 
+                <Link
+                  to={item.link}
                   className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-gold-hover transition-colors mt-auto group/link"
                 >
-                  {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`} 
+                  {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`}
                   <span className="material-symbols-outlined text-sm ml-1 transform group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                 </Link>
               </div>

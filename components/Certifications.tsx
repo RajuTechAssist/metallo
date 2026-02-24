@@ -19,7 +19,7 @@ const Certifications: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-gray-50 py-20 border-t border-gray-200">
+    <section className="bg-gray-50 py-20 border-t border-gray-200 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Text Data Section */}
@@ -65,7 +65,7 @@ const Certifications: React.FC = () => {
           <div
             ref={scrollRef}
             onScroll={checkScroll}
-            className="overflow-x-auto lg:overflow-x-visible -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+            className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
             {/* Hide webkit scrollbar */}
