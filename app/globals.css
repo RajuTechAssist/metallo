@@ -22,3 +22,6 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.container-lg {
+  width: 92%;
+}
