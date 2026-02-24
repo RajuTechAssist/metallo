@@ -125,6 +125,7 @@ const Footer: React.FC = () => {
                 <li><Link to="/products/wire-cables" className="hover:text-white transition-colors">Wire & Cables</Link></li>
                 <li><Link to="/products/welding" className="hover:text-white transition-colors">Welding</Link></li>
                 <li><Link to="/products/tools" className="hover:text-white transition-colors">Tools</Link></li>
+                <li><Link to="/products/cable-tray" className="hover:text-white transition-colors">Cable Tray</Link></li>
                 <li><Link to="/products/die-casting" className="hover:text-white transition-colors">Die Casting</Link></li>
               </ul>
             </div>
