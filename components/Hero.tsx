@@ -1,291 +1,363 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const SLIDES = [
+/* ═══════════════════════════════════════════════════════════════
+   CINEMATIC HERO SLIDER
+   Full-screen background slider with masked text reveals,
+   Ken Burns effect, and industrial track navigation.
+   ═══════════════════════════════════════════════════════════════ */
+
+const SLIDE_DURATION = 6; // seconds
+
+interface Slide {
+  id: string;
+  category: string;
+  title: string;
+  desc: string;
+  image: string;
+  link: string;
+}
+
+const SLIDES: Slide[] = [
   {
-    id: 1,
-    image: "/7thGrand_Inaugration.png",
-    alt: "Industrial facility inauguration",
-    headline: "METALLO Electronics\nProudly Inaugurated Its 7th\nManufacturing Facility",
+    id: "01",
+    category: "Structural Steel",
+    title: "Forging the Backbone of Infrastructure.",
+    desc: "IS:2062 compliant high-tensile steel for heavy engineering.",
+    image: "/banner1.jpg",
+    link: "/products/steel",
   },
   {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    alt: "Advanced manufacturing line",
-    headline: "Advanced Manufacturing\nPowered by Precision\n& Innovation",
+    id: "02",
+    category: "Wire & Cable",
+    title: "Powering the National Grid.",
+    desc: "Engineered high-voltage transmission up to 33kV. Zero downtime.",
+    image: "/banner2.jpg",
+    link: "/products/wire-cables",
   },
   {
-    id: 3,
-    image: "/steelSpark.jpg",
-    alt: "Steel production sparks",
-    headline: "From Raw Steel\nto Finished Product —\nAll Under One Roof",
+    id: "03",
+    category: "Cable Tray",
+    title: "Structured Cable Management.",
+    desc: "GI, SS & Aluminium cable trays engineered for industrial routing.",
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80&auto=format&fit=crop",
+    link: "/products/cable-tray",
   },
   {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-    alt: "Precision engineering",
-    headline: "Engineering Excellence\nThat Drives Industrial\nIndia Forward",
-  }
+    id: "04",
+    category: "Welding Consumables",
+    title: "Mission-Critical Precision.",
+    desc: "AWS certified alloys for high-stress industrial joints.",
+    image: "/banner3.jpg",
+    link: "/products/welding",
+  },
+  {
+    id: "05",
+    category: "Power Tools",
+    title: "Heavy-Duty Execution.",
+    desc: "Industrial-grade tools built for uncompromising safety and scale.",
+    image: "/banner4.jpg",
+    link: "/products/tools",
+  },
+  {
+    id: "06",
+    category: "Die Casting",
+    title: "Micro-Tolerance Engineering.",
+    desc: "Precision aluminum components for automotive and aerospace.",
+    image:
+      "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920&q=80&auto=format&fit=crop",
+    link: "/products/die-casting",
+  },
+  {
+    id: "07",
+    category: "Industrial Tech",
+    title: "Automating the Future.",
+    desc: "Smart platform integration for seamless supply chain visibility.",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80&auto=format&fit=crop",
+    link: "/products/tech-products",
+  },
 ];
 
-const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  // -- Form State --
-  const [formData, setFormData] = useState({ industry: '', email: '' });
-  const [file, setFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
-  
-  // -- Security State --
-  const [honeypot, setHoneypot] = useState(''); // Hidden field for bots
-  const formLoadTime = useRef(Date.now()); // Time-based bot detection
+const TOTAL = String(SLIDES.length).padStart(2, "0");
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 5000); // Change slide every 5 seconds
-    return () => clearInterval(timer);
+/* ── Animation Variants ── */
+
+const categoryVariants = {
+  initial: { opacity: 0, x: -20 },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+  },
+  exit: { opacity: 0, x: 20, transition: { duration: 0.3 } },
+};
+
+const titleVariants = {
+  initial: { y: "110%" },
+  animate: {
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.15,
+    },
+  },
+  exit: {
+    y: "-110%",
+    transition: { duration: 0.5, ease: [0.55, 0, 1, 0.45] },
+  },
+};
+
+const descVariants = {
+  initial: { opacity: 0, y: 10 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay: 0.55 },
+  },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
+};
+
+const ctaVariants = {
+  initial: { opacity: 0, y: 15 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut", delay: 0.8 },
+  },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+};
+
+const Hero: React.FC = () => {
+  const [current, setCurrent] = useState(0);
+  const [progressKey, setProgressKey] = useState(0);
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrent(index);
+    setProgressKey((k) => k + 1);
   }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selected = e.target.files?.[0];
-    if (selected) {
-      if (selected.size > 10 * 1024 * 1024) {
-        setErrorMsg('File too large (max 10MB)');
-        return;
-      }
-      setFile(selected);
-      setErrorMsg('');
-    }
-  };
+  const next = useCallback(() => {
+    goToSlide((current + 1) % SLIDES.length);
+  }, [current, goToSlide]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Submit clicked"); // Debug
-    
-    // 1. Honeypot Check (Bots fill hidden fields)
-    if (honeypot) {
-      console.log("Bot detected: Honeypot filled");
-      return; 
-    }
+  const prev = useCallback(() => {
+    goToSlide((current - 1 + SLIDES.length) % SLIDES.length);
+  }, [current, goToSlide]);
 
-    // 2. Time-based Bot Check (Too fast = bot)
-    if (Date.now() - formLoadTime.current < 2000) {
-      console.log("Bot detected: Too fast");
-      return; 
-    }
+  /* Auto-advance driven by progress bar duration */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      next();
+    }, SLIDE_DURATION * 1000);
+    return () => clearTimeout(timer);
+  }, [progressKey, next]);
 
-    // 3. Validation
-    if (!formData.industry) {
-      setErrorMsg('Please select an industry');
-      return;
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email || !emailRegex.test(formData.email)) {
-      setErrorMsg('Valid corporate email required');
-      return;
-    }
-
-    setErrorMsg('');
-    setStatus('submitting');
-
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ industry: '', email: '' });
-      setFile(null);
-      // Reset success message after 5s
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
-  };
+  const slide = SLIDES[current];
 
   return (
-    <section className="mt-[92px] md:mt-[175px] w-full bg-white">
-      {/* 
-        Flex container with gap-1 to create the whitespace. 
-        bg-white ensures the gap creates a clean separation line.
-      */}
-      <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[calc(100vh-176px)] max-h-[900px] gap-1 bg-white">
-        
-        {/* LEFT SIDE: Hero Image & Text Area */}
-        <div className="relative w-full lg:flex-1 bg-gray-900 overflow-hidden group h-[650px] sm:h-[550px] lg:h-auto">
-          {/* Background Images - Crossfade Carousel */}
-          {SLIDES.map((slide, index) => (
-            <img 
-              key={slide.id}
-              alt={slide.alt} 
-              className={`absolute inset-0 z-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
-              src={slide.image} 
+    <div className="flex flex-col md:flex-row w-full gap-1 h-full md:h-[calc(80vh-80px)]">
+      {/* ── 80% Slider Column ── */}
+      <section className="relative w-full md:w-[75%] h-full bg-slate-900 overflow-hidden">
+        {/* ── Background Images with Ken Burns ── */}
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={slide.id}
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            <motion.img
+              src={slide.image}
+              alt={slide.category}
+              className="w-full h-full object-cover"
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.08 }}
+              transition={{ duration: SLIDE_DURATION + 1, ease: "linear" }}
             />
-          ))}
-          
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/20"></div>
+          </motion.div>
+        </AnimatePresence>
 
-          {/* Content */}
-          <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8 drop-shadow-2xl max-w-4xl transition-opacity duration-700">
-              {SLIDES[currentSlide].headline.split('\n').map((line, i) => (
-                <React.Fragment key={i}>{line}{i < SLIDES[currentSlide].headline.split('\n').length - 1 && <br/>}</React.Fragment>
-              ))}
-            </h1>
-            
-            <button className="w-fit group flex items-center gap-4 text-white text-sm font-bold uppercase tracking-wider hover:text-metallo-gold transition-colors">
-              <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white text-metallo-navy group-hover:bg-metallo-gold group-hover:text-metallo-navy transition-all shadow-md">
-                <span className="material-symbols-outlined text-3xl ml-1 text-metallo-gold group-hover:text-white">play_arrow</span>
-              </span>
-              <span className="border-b-2 border-transparent group-hover:border-metallo-gold pb-1 transition-all">Watch Film</span>
-            </button>
+        {/* ── Overlay ── */}
+        <div className="absolute inset-0 z-[1] bg-slate-900/60" />
+        {/* Bottom vignette for track nav readability */}
+        <div className="absolute inset-x-0 bottom-0 h-60 z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
-            {/* Carousel Indicators - Right on mobile/tablet, Left on desktop */}
-            <div className="absolute bottom-8 right-6 lg:right-auto lg:left-16 xl:left-24 flex gap-2 z-30">
-               {SLIDES.map((slide, index) => (
-                 <button
-                   key={slide.id}
-                   onClick={() => setCurrentSlide(index)}
-                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                     currentSlide === index ? 'bg-metallo-gold w-6' : 'bg-white/50 hover:bg-white'
-                   }`}
-                   aria-label={`Go to slide ${index + 1}`}
-                 />
-               ))}
+        {/* ── Content ── */}
+        <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-12 lg:px-20 pt-16 pb-40">
+          <div className="max-w-5xl">
+            <AnimatePresence mode="wait">
+              <motion.div key={slide.id}>
+                {/* Category Subtitle */}
+                <motion.div
+                  className="flex items-center gap-3 mb-6"
+                  variants={categoryVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <span className="block w-8 h-px bg-yellow-500" />
+                  <span className="text-xs font-bold font-heading text-yellow-500 uppercase tracking-[0.2em]">
+                    {slide.id} &mdash; {slide.category}
+                  </span>
+                </motion.div>
+
+                {/* Masked Title Reveal */}
+                <div className="overflow-hidden mb-6">
+                  <motion.h1
+                    className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.05] tracking-tight"
+                    variants={titleVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                  >
+                    {slide.title}
+                  </motion.h1>
+                </div>
+
+                {/* Description */}
+                <motion.p
+                  className="text-base md:text-lg text-gray-300 font-sans max-w-xl leading-relaxed mb-10"
+                  variants={descVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  {slide.desc}
+                </motion.p>
+
+                {/* CTA */}
+                <motion.div
+                  variants={ctaVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <Link
+                    to={slide.link}
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-yellow-500 text-slate-900 text-sm font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
+                  >
+                    Explore Capabilities
+                    <span className="material-symbols-outlined text-lg">
+                      arrow_forward
+                    </span>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* ── Industrial Track Navigation ── */}
+        <div className="absolute flex justify-between items-center bottom-0 inset-x-0 z-20 px-6 sm:px-12 lg:px-20 pb-8 md:pb-10">
+          {/* Slide Track Dots */}
+          <div className="flex items-center gap-3">
+            {SLIDES.map((s, i) => (
+              <button
+                key={s.id}
+                onClick={() => goToSlide(i)}
+                className={`h-[2px] transition-all duration-300 ${
+                  i === current
+                    ? "w-10 bg-yellow-500"
+                    : "w-5 bg-white/25 hover:bg-white/50"
+                }`}
+                aria-label={`Go to slide ${s.id}`}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-end justify-between gap-6">
+            {/* Right: Arrow Buttons */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={prev}
+                className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
+                aria-label="Previous slide"
+              >
+                <span className="material-symbols-outlined text-xl">
+                  arrow_back
+                </span>
+              </button>
+              <button
+                onClick={next}
+                className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
+                aria-label="Next slide"
+              >
+                <span className="material-symbols-outlined text-xl">
+                  arrow_forward
+                </span>
+              </button>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* RIGHT SIDE: Quick RFQ Panel (Solid Background) */}
-        {/* Fixed width on desktop to maintain distinct sidebar look */}
-        <div className="relative w-full lg:w-[400px] xl:w-[450px] shrink-0 bg-metallo-navy text-white flex flex-col justify-center p-8 lg:px-8 lg:py-12">
-          
-          <div className="max-w-md mx-auto w-full">
-             <div className="mb-8 border-l-4 border-metallo-gold pl-4">
-                <h4 className="text-metallo-gold text-xs font-bold uppercase tracking-widest mb-2 font-heading">Sourcing Made Simple</h4>
-                <h2 className="text-3xl font-heading font-bold text-white mb-2 leading-none">
-                 Get a Quote <br/> in 24 Hours.
-                </h2>
-             </div>
-             
-             <p className="text-gray-400 text-sm mb-8 font-medium">
-               Upload your BOQ/BOM or tell us your requirement directly.
-             </p>
-
-             {status === 'success' ? (
-                <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-8 text-center animate-fade-in">
-                  <span className="material-symbols-outlined text-green-500 text-5xl mb-4">check_circle</span>
-                  <h3 className="text-xl font-heading font-bold text-white mb-2">Quote Requested!</h3>
-                  <p className="text-gray-400 text-sm">We'll contact <span className="text-white">{formData.email}</span> shortly.</p>
-                </div>
-             ) : (
-             <form className="space-y-4" onSubmit={handleSubmit} noValidate>
-               
-               {/* Hidden Honeypot Field */}
-               <input 
-                 type="text" 
-                 name="website_url" 
-                 style={{ display: 'none' }} 
-                 tabIndex={-1} 
-                 autoComplete="off"
-                 value={honeypot}
-                 onChange={(e) => setHoneypot(e.target.value)}
-               />
-
-               {/* Category Dropdown */}
-               <div className="relative group">
-                 <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block">Industry Vertical *</label>
-                 <div className="relative">
-                   <select 
-                     value={formData.industry}
-                     onChange={(e) => {
-                       setFormData({ ...formData, industry: e.target.value });
-                       setErrorMsg('');
-                     }}
-                     className="w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm focus:ring-1 focus:ring-metallo-gold focus:border-metallo-gold block p-3.5 appearance-none font-medium outline-none transition-all cursor-pointer hover:bg-white/10"
-                   >
-                     <option value="" className="bg-metallo-navy text-gray-400">Select Category</option>
-                     <option value="steel" className="bg-metallo-navy">Steel</option>
-                     <option value="wire" className="bg-metallo-navy">Wire & Cable</option>
-                     <option value="tools" className="bg-metallo-navy">Tools</option>
-                     <option value="welding" className="bg-metallo-navy">Welding</option>
-                     <option value="casting" className="bg-metallo-navy">Die Casting</option>
-                   </select>
-                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-metallo-gold">
-                     <span className="material-symbols-outlined">expand_more</span>
-                   </div>
-                 </div>
-               </div>
-
-               {/* Email Input */}
-               <div>
-                  <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block">Contact Details *</label>
-                  <input 
-                   type="email" 
-                   value={formData.email}
-                   onChange={(e) => {
-                     setFormData({ ...formData, email: e.target.value });
-                     setErrorMsg('');
-                   }}
-                   placeholder="Corporate Email ID" 
-                   className="w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm focus:ring-1 focus:ring-metallo-gold focus:border-metallo-gold block p-3.5 outline-none transition-all placeholder-gray-500"
-                  />
-               </div>
-
-               {/* File Upload Button */}
-               <div className="pt-2">
-                 <div className="relative">
-                   <input 
-                     type="file" 
-                     id="hero-file-upload"
-                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                     onChange={(e) => handleFileChange(e)}
-                     accept=".pdf,.doc,.docx,.xls,.xlsx"
-                   />
-                   <button type="button" className={`w-full flex items-center justify-between bg-white/5 border border-dashed ${file ? 'border-metallo-gold text-metallo-gold' : 'border-gray-600 text-gray-400'} rounded-sm p-4 hover:border-metallo-gold hover:text-metallo-gold hover:bg-white/10 transition-all text-sm font-bold group/upload`}>
-                       <span className="truncate pr-2">{file ? file.name : 'Upload Requirement File'}</span>
-                       <span className={`material-symbols-outlined text-xl transition-transform ${file ? 'text-metallo-gold' : 'group-hover/upload:rotate-12'}`}>
-                         {file ? 'check' : 'attach_file'}
-                       </span>
-                   </button>
-                 </div>
-                 {/* Error Message Display */}
-                 {errorMsg && (
-                   <div className="text-red-400 text-xs mt-2 flex items-center gap-1 animate-pulse">
-                     <span className="material-symbols-outlined text-sm">error</span>
-                     {errorMsg}
-                   </div>
-                 )}
-               </div>
-
-               {/* Main CTA */}
-               <button 
-                 type="submit" 
-                 disabled={status === 'submitting'}
-                 className="w-full bg-metallo-gold hover:bg-white hover:text-metallo-navy text-metallo-navy font-bold py-4 px-4 rounded-sm transition-all duration-300 uppercase tracking-widest text-sm flex items-center justify-between group shadow-lg mt-6 disabled:opacity-70 disabled:cursor-not-allowed"
-               >
-                 {status === 'submitting' ? (
-                   <span className="flex items-center gap-2">
-                     <span className="material-symbols-outlined animate-spin">progress_activity</span>
-                     Processing...
-                   </span>
-                 ) : (
-                   <>
-                     <span>Request Pricing</span>
-                     <span className="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
-                   </>
-                 )}
-               </button>
-
-               {/* Micro-copy */}
-               <div className="flex items-center gap-2 pt-4">
-                 <span className="material-symbols-outlined text-green-500 text-base">check_circle</span>
-                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">100% ISO Compliant Manufacturing</span>
-               </div>
-             </form>
-             )}
-          </div>
+      {/* ── 20% Sidebar Column ── */}
+      <aside className="w-full md:w-[25%] h-[25vh] md:h-full flex gap-1 flex-row md:flex-col">
+        {/* Top Row: Blogs */}
+        <div className="md:h-1/2 h-full bg-metallo-navy relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504711434969-e33886168d4c?w=600&q=80&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/80 transition-colors duration-300" />
+          <Link
+            to="/blogs"
+            className="relative z-10 flex flex-col justify-end h-full p-5 md:p-6"
+          >
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500 text-slate-900 text-[9px] font-bold uppercase tracking-widest rounded-sm w-fit mb-3 font-heading">
+              <span className="material-symbols-outlined text-xs">article</span>
+              Blog
+            </span>
+            <h3 className="text-sm md:text-base font-heading font-extrabold text-white leading-snug mb-2 line-clamp-2 group-hover:text-yellow-500 transition-colors duration-300">
+              How Stainless Steel is Revolutionizing Modern Infrastructure
+            </h3>
+            <p className="text-[11px] text-gray-400 font-sans leading-relaxed mb-3 line-clamp-2 hidden md:block">
+              Exploring the shift towards corrosion-resistant alloys in mega
+              construction projects across India.
+            </p>
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-500 uppercase tracking-wider font-heading group-hover:gap-2.5 transition-all">
+              Read More
+              <span className="material-symbols-outlined text-sm">
+                arrow_forward
+              </span>
+            </span>
+          </Link>
         </div>
 
-      </div>
-    </section>
+        {/* Bottom Row: Press Releases */}
+        <div className="md:h-1/2 h-full bg-slate-800 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&q=80&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/80 transition-colors duration-300" />
+          <Link
+            to="/press"
+            className="relative z-10 flex flex-col justify-end h-full p-5 md:p-6"
+          >
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500 text-slate-900 text-[9px] font-bold uppercase tracking-widest rounded-sm w-fit mb-3 font-heading">
+              <span className="material-symbols-outlined text-xs">
+                newsmode
+              </span>
+              Press Release
+            </span>
+            <h3 className="text-sm md:text-base font-heading font-extrabold text-white leading-snug mb-2 line-clamp-2 group-hover:text-yellow-500 transition-colors duration-300">
+              Metallo Expands Wire & Cable Division with ₹200 Cr Investment
+            </h3>
+            <p className="text-[11px] text-gray-400 font-sans leading-relaxed mb-3 line-clamp-2 hidden md:block">
+              New facility to boost production capacity by 3x, serving India's
+              growing power infrastructure demand.
+            </p>
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-500 uppercase tracking-wider font-heading group-hover:gap-2.5 transition-all">
+              Read More
+              <span className="material-symbols-outlined text-sm">
+                arrow_forward
+              </span>
+            </span>
+          </Link>
+        </div>
+      </aside>
+    </div>
   );
 };
 
