@@ -228,7 +228,7 @@ const Steel: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-slate-50 overflow-x-hidden" style={{ marginTop: '97px' }}>
+    <div className="w-full bg-slate-50 overflow-x-hidden">
 
       {/* ═══ SECTION 1 : CINEMATIC HERO (70vh) ═══════════════ */}
       <section

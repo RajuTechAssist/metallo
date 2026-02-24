@@ -310,7 +310,7 @@ const Header: React.FC = () => {
   return (
     <>
     <header 
-      className={`fixed w-full py-2 top-0 z-50 bg-white font-sans text-metallo-navy shadow-sm transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`w-full py-2 sticky top-0 z-50 bg-white font-sans text-metallo-navy shadow-sm transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       {/* Single Row: Logo + Navigation + Hamburger */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
