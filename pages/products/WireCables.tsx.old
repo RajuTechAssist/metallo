@@ -1,0 +1,1522 @@
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useQuote } from '../../contexts/QuoteContext';
+
+/* ═══════════════════════════════════════════════════════════════
+   WIRE & CABLES — CABLE CONFIGURATOR
+   Premium interactive catalog with sidebar filters, card grid,
+   spec modal, and Add to Quote integration.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero carousel slides ───────────────────────────── */
+const HERO_SLIDES = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80&auto=format&fit=crop',
+    alt: 'Industrial cable manufacturing facility',
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80&auto=format&fit=crop',
+    alt: 'High voltage power cable installation',
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=80&auto=format&fit=crop',
+    alt: 'Wire and cable quality inspection',
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=1600&q=80&auto=format&fit=crop',
+    alt: 'Power distribution cable infrastructure',
+  },
+];
+
+/* ── Cable Product Type ─────────────────────────────── */
+interface CableProduct {
+  id: string;
+  category: string;
+  name: string;
+  voltage: string;
+  conductor: string;
+  insulation: string;
+  armour: string;
+  cores: string;
+  sizes: string;
+  temp: string;
+  standards: string[];
+  description: string;
+  images: string[];
+}
+
+/* ── Category meta ──────────────────────────────────── */
+interface CategoryMeta {
+  id: string;
+  label: string;
+  icon: string;
+}
+
+const CATEGORY_META: CategoryMeta[] = [
+  { id: 'Power Cables (Low Voltage)',      label: 'Low Voltage',       icon: 'bolt' },
+  { id: 'Power Cables (High Voltage)',     label: 'High Voltage',      icon: 'electric_bolt' },
+  { id: 'Power Cables (Extra High Voltage)', label: 'Extra High Voltage', icon: 'offline_bolt' },
+  { id: 'Control & Automation',            label: 'Control & Automation', icon: 'tune' },
+  { id: 'Specialty & Renewables',          label: 'Specialty & Renewables', icon: 'solar_power' },
+  { id: 'Life Safety & Emergency',         label: 'Life Safety',       icon: 'local_fire_department' },
+  { id: 'Heavy Duty & Mining',             label: 'Heavy Duty & Mining', icon: 'construction' },
+  { id: 'Overhead Distribution',           label: 'Overhead Distribution', icon: 'cable' },
+  { id: 'Railway & Infrastructure',        label: 'Railway & Infra',   icon: 'train' },
+  { id: 'Communication & Data',            label: 'Communication & Data', icon: 'lan' },
+];
+
+/* ── Accent color per category ────────────────────── */
+const CATEGORY_COLORS: Record<string, string> = {
+  'Power Cables (Low Voltage)':       '#3B82F6',
+  'Power Cables (High Voltage)':      '#EF4444',
+  'Power Cables (Extra High Voltage)':'#7C3AED',
+  'Control & Automation':             '#06B6D4',
+  'Specialty & Renewables':           '#10B981',
+  'Life Safety & Emergency':          '#F97316',
+  'Heavy Duty & Mining':              '#78716C',
+  'Overhead Distribution':            '#8B5CF6',
+  'Railway & Infrastructure':         '#0EA5E9',
+  'Communication & Data':             '#14B8A6',
+};
+
+const CATEGORY_ICONS: Record<string, string> = {
+  'Power Cables (Low Voltage)':       'bolt',
+  'Power Cables (High Voltage)':      'electric_bolt',
+  'Power Cables (Extra High Voltage)':'offline_bolt',
+  'Control & Automation':             'tune',
+  'Specialty & Renewables':           'solar_power',
+  'Life Safety & Emergency':          'local_fire_department',
+  'Heavy Duty & Mining':              'construction',
+  'Overhead Distribution':            'cable',
+  'Railway & Infrastructure':         'train',
+  'Communication & Data':             'lan',
+};
+
+/* ════════════════════════════════════════════════════════════════
+   CABLE DATA — 15 products across 10 categories
+   ════════════════════════════════════════════════════════════════ */
+
+const CABLE_DATA: CableProduct[] = [
+  {
+    id: 'c1', category: 'Power Cables (Low Voltage)', name: 'LT Single Core Unarmoured Cable',
+    voltage: '1.1 kV', conductor: '99.97% Electrolytic Copper / Aluminum', insulation: 'PVC / XLPE',
+    armour: 'Unarmoured', cores: '1 Core', sizes: '1.0, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500, 630 sq.mm', temp: '70°C (PVC) / 90°C (XLPE)',
+    standards: ['IS 1554 (Part 1)', 'IS 7098 (Part 1)'],
+    description: 'Engineered for high-efficiency power distribution in indoor and conduit applications. Manufactured with 99.97% pure electrolytic grade copper or high-conductivity aluminum, ensuring minimal power loss and voltage drop. Ideal for commercial distribution boards, internal factory wiring, and general electrification.',
+    images: [
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c2', category: 'Power Cables (Low Voltage)', name: 'LT Multi-Core Armoured Cable',
+    voltage: '1.1 kV', conductor: 'Copper / Aluminum', insulation: 'XLPE (Cross-Linked Polyethylene)',
+    armour: 'Galvanized Steel Wire (SWA) / Steel Tape (STA)', cores: '2, 3, 3.5, 4 Core', sizes: '1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400 sq.mm (Available in 2C, 3C, 3.5C, 4C)', temp: '90°C',
+    standards: ['IS 7098 (Part 1)', 'BS 5467'],
+    description: 'The backbone of industrial infrastructure. Heavily armoured with galvanized steel wire or tape, providing exceptional resistance against mechanical impacts, crushing loads, and rodent attacks. Designed for direct burial in underground trenches, cable trays, and heavy-duty industrial plant wiring.',
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c3', category: 'Control & Automation', name: 'LT Control Cables',
+    voltage: '1.1 kV', conductor: 'Stranded Bare Copper', insulation: 'PVC / XLPE / FRLS',
+    armour: 'Unarmoured / Armoured (Steel Wire)', cores: '2 to 61 Cores', sizes: '1.5 sq.mm and 2.5 sq.mm (Available from 2 cores up to 61 cores)', temp: '70°C to 90°C',
+    standards: ['IS 1554 (Part 1)', 'IS 7098'],
+    description: 'Precision-engineered for seamless transmission of control signals in complex industrial automation systems. With up to 61 distinct cores, these cables connect machinery, PLC panels, and measuring instruments with zero signal latency. Color-coded and numbered cores ensure fast, error-free installation.',
+    images: [
+      'https://images.unsplash.com/photo-1601612628452-9e99aa484680?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c4', category: 'Power Cables (High Voltage)', name: 'HT XLPE Power Cable',
+    voltage: '3.3 kV to 33 kV', conductor: 'Aluminum / Copper (Class 2)', insulation: 'XLPE (Dry Cured)',
+    armour: 'Aluminum Wire (1C) / Galvanized Steel (3C)', cores: '1 Core, 3 Core', sizes: '3-Core: 35, 50, 70, 95, 120, 150, 185, 240, 300, 400 sq.mm | 1-Core: 400, 500, 630, 800, 1000 sq.mm', temp: '90°C (Normal) / 250°C (SC)',
+    standards: ['IS 7098 (Part 2)', 'IEC 60502-2'],
+    description: 'Manufactured using advanced triple-extrusion and dry-curing processes to ensure void-free XLPE insulation, drastically reducing risk of electrical breakdown. Designed for primary medium-voltage grid transmission, electrical substations, and powering heavy machinery in steel and cement plants.',
+    images: [
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c5', category: 'Specialty & Renewables', name: 'Solar DC Cable',
+    voltage: '1.5 kV DC', conductor: 'Tinned Copper (Flexible Class 5)', insulation: 'XLPO (Cross-linked Polyolefin)',
+    armour: 'Unarmoured (Heavy Duty Sheath)', cores: '1 Core', sizes: '2.5, 4.0, 6.0, 10.0, 16.0, 25.0 sq.mm', temp: '-40°C to 120°C',
+    standards: ['EN 50618', 'TUV 2PfG 1169'],
+    description: 'Built to survive 25+ years under harshest environmental conditions. Tinned copper conductors prevent oxidation and ensure maximum energy transfer from solar panels to inverters. XLPO insulation provides unmatched resistance to UV radiation, extreme temperatures, ozone, and water ingress.',
+    images: [
+      'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c6', category: 'Life Safety & Emergency', name: 'Fire Survival Cable (FS)',
+    voltage: '1.1 kV', conductor: 'Plain Annealed Copper', insulation: 'Glass Mica Tape + XLPE / LSZH',
+    armour: 'Unarmoured / SWA', cores: '1, 2, 3, 4 Core', sizes: '1.5, 2.5, 4.0, 6.0, 10.0, 16.0 sq.mm (Up to 400 sq.mm for main power lines)', temp: 'Up to 950°C for 3 hrs',
+    standards: ['BS 6387 (CWZ)', 'IEC 60331'],
+    description: 'Maintains continuous electrical supply to critical life-safety equipment—fire alarms, emergency lighting, smoke extraction fans, and sprinkler pumps—even while engulfed in flames up to 950°C. Zero Halogen sheath ensures no toxic smoke is emitted, aiding safe evacuation.',
+    images: [
+      'https://images.unsplash.com/photo-1555587034-58844c6f1d3d?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c7', category: 'Heavy Duty & Mining', name: 'Elastomeric / Rubber Cable',
+    voltage: '1.1 kV to 11 kV', conductor: 'Flexible Bare / Tinned Copper (Class 5)', insulation: 'EPR (Ethylene Propylene Rubber)',
+    armour: 'Heavy Duty Rubber Sheath (PCP/CSP)', cores: '1 to 5 Core', sizes: '1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120 sq.mm (Highly flexible)', temp: '90°C',
+    standards: ['IS 9968', 'BS 6708'],
+    description: 'The ultimate solution for dynamic, heavy-duty applications. Extreme flexibility and resistance to continuous bending—perfect for moving machinery, cranes, hoists, and mining excavation equipment. Rubber compounding provides unparalleled resistance against oil, grease, chemicals, and abrasion.',
+    images: [
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c8', category: 'Control & Automation', name: 'Instrumentation / Screened Cable',
+    voltage: '300 / 500 V', conductor: 'Solid / Stranded Bare Copper', insulation: 'PE / PVC',
+    armour: 'Aluminum Mylar Shield', cores: 'Twisted Pairs / Triads', sizes: '0.5, 0.75, 1.0, 1.5, 2.5 sq.mm', temp: '70°C to 85°C',
+    standards: ['BS 5308', 'EN 50288-7'],
+    description: 'Precision-twisted pairs wrapped in Aluminum Mylar tape shield with tinned copper drain wire to block EMI and RFI. Essential for connecting highly sensitive sensors, transmitters, and DCS systems in oil refineries, chemical plants, and automated manufacturing.',
+    images: [
+      'https://images.unsplash.com/photo-1601612628452-9e99aa484680?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c9', category: 'Overhead Distribution', name: 'Aerial Bunched Cable (ABC)',
+    voltage: '1.1 kV – 33 kV', conductor: 'Hard Drawn Aluminum', insulation: 'XLPE (Carbon Black for UV)',
+    armour: 'Unarmoured (Messenger Wire)', cores: '1 to 3 Phase + Neutral', sizes: '16, 25, 35, 50, 70, 95, 120 sq.mm (Often bundled like 3x35 + 1x25 sq.mm)', temp: '90°C',
+    standards: ['IS 14255'],
+    description: 'Modern replacement for dangerous bare overhead power lines. Insulated phase conductors bundled around high-tensile messenger wire. Eliminates short circuits from falling trees, reduces power theft, and is safer for densely populated urban areas and hilly terrains.',
+    images: [
+      'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c10', category: 'Power Cables (Extra High Voltage)', name: 'EHV Cables (Extra High Voltage)',
+    voltage: '66 kV to 220 kV', conductor: 'Aluminum / Copper', insulation: 'XLPE (Extra Clean)',
+    armour: 'Corrugated Aluminum / Lead Sheath', cores: '1 Core', sizes: '400, 500, 630, 800, 1000, 1200, 1600, 2000 sq.mm', temp: '90°C',
+    standards: ['IS 7098 (Part 3)', 'IEC 60840'],
+    description: 'The arteries of the national power grid. Designed for bulk transmission of power across long distances and connecting major substations. Manufactured in ultra-clean environments with lead or corrugated aluminum sheathing providing an absolute radial moisture barrier.',
+    images: [
+      'https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c11', category: 'Specialty & Renewables', name: 'Submersible Flat Cable',
+    voltage: '1100 V', conductor: 'Flexible Bare Copper (Class 5)', insulation: 'PVC / Rubber',
+    armour: 'Unarmoured (Flat Profile)', cores: '3 Core / 4 Core', sizes: '1.5, 2.5, 4.0, 6.0, 10.0, 16.0, 25.0, 35.0 sq.mm (3-Core / 4-Core)', temp: '70°C',
+    standards: ['IS 694'],
+    description: 'Engineered to power submersible pumps deep underwater in agricultural borewells, municipal water supply, and industrial dewatering. Flat parallel configuration fits narrow boreholes alongside the pump delivery pipe. Water-resistant sheathing prevents moisture ingress over years of continuous submersion.',
+    images: [
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c12', category: 'Railway & Infrastructure', name: 'Railway Signaling Cable',
+    voltage: '1.1 kV', conductor: 'Solid Bare Copper', insulation: 'Specialized PVC',
+    armour: 'Unarmoured / Armoured', cores: 'Multi-core (up to 61)', sizes: '1.5 sq.mm and 2.5 sq.mm (From 2 cores up to 30+ cores)', temp: '70°C',
+    standards: ['RDSO Specifications'],
+    description: 'The critical nervous system of railway networks. Mandated for railway signaling, track circuits, and interlocking systems. Manufactured strictly per RDSO guidelines ensuring absolute reliability and zero-failure transmission of signals governing train movements.',
+    images: [
+      'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c13', category: 'Specialty & Renewables', name: 'EV Charging Cable',
+    voltage: '450 / 750 V', conductor: 'Highly Flexible Copper', insulation: 'TPE / TPU',
+    armour: 'Unarmoured', cores: 'Power + Signal Cores', sizes: 'AC Charging: 2.5, 4, 6, 10 sq.mm | DC Fast Charging: 16, 25, 35, 50, 70 sq.mm', temp: '90°C',
+    standards: ['EN 50620', 'IEC 62893'],
+    description: 'Powering the future of mobility. Combines high-current power cores with pilot/signal cores for smart charging communication. Advanced TPU jacketing provides exceptional resistance to oil, grease, UV rays, and the severe mechanical wear typical in public charging environments.',
+    images: [
+      'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c14', category: 'Communication & Data', name: 'LAN / Ethernet Cable (CAT6)',
+    voltage: 'Low Voltage Data', conductor: 'Solid Bare Copper (23 AWG)', insulation: 'HDPE',
+    armour: 'Unarmoured (PVC / LSZH Jacket)', cores: '4 Twisted Pairs', sizes: '23 AWG or 24 AWG', temp: '60°C',
+    standards: ['ANSI/TIA-568-C.2', 'ISO/IEC 11801'],
+    description: 'Backbone of industrial and commercial networking. Supports Gigabit Ethernet and high-speed data transfer up to 250 MHz. Cross-web separator minimizes cross-talk between twisted pairs for pristine data integrity in server rooms, CCTV IP cameras, and smart building automation.',
+    images: [
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1601612628452-9e99aa484680?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+  {
+    id: 'c15', category: 'Communication & Data', name: 'Coaxial Cable (RG-6, RG-11)',
+    voltage: 'Low Voltage RF', conductor: 'Solid Copper / CCS', insulation: 'Gas Injected Foam PE',
+    armour: 'Aluminum Braid + Foil Shield', cores: 'Single Conductor', sizes: '18 AWG (RG-6), 14 AWG (RG-11)', temp: '70°C',
+    standards: ['MIL-C-17'],
+    description: 'Engineered for high-frequency signal transmission with minimal loss. Gas-injected foam PE dielectric and dense multi-layered shield blocks external EMI. Ideal for broadband internet, HD CCTV systems, and satellite television networks requiring long cable runs.',
+    images: [
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1601612628452-9e99aa484680?w=600&q=80&auto=format&fit=crop',
+    ],
+  },
+];
+
+/* ── Dropdown options per product (for card selectors) ── */
+const CABLE_CORE_OPTIONS: Record<string, string[]> = {
+  c1:  ['1 Core'],
+  c2:  ['2 Core', '3 Core', '3.5 Core', '4 Core'],
+  c3:  ['2 Core', '4 Core', '7 Core', '10 Core', '12 Core', '16 Core', '19 Core', '24 Core', '30 Core'],
+  c4:  ['1 Core', '3 Core'],
+  c5:  ['1 Core'],
+  c6:  ['1 Core', '2 Core', '3 Core', '4 Core'],
+  c7:  ['1 Core', '2 Core', '3 Core', '4 Core', '5 Core'],
+  c8:  ['Twisted Pairs', 'Triads'],
+  c9:  ['1 Phase + Neutral', '3 Phase + Neutral'],
+  c10: ['1 Core'],
+  c11: ['3 Core', '4 Core'],
+  c12: ['2 Core', '4 Core', '7 Core', '12 Core', '19 Core', '24 Core', '30 Core'],
+  c13: ['AC Mode 3', 'DC Mode 4'],
+  c14: ['4 Twisted Pairs'],
+  c15: ['Single Conductor'],
+};
+
+const CABLE_SIZE_OPTIONS: Record<string, string[]> = {
+  c1:  ['1.0 sq.mm', '1.5 sq.mm', '2.5 sq.mm', '4 sq.mm', '6 sq.mm', '10 sq.mm', '16 sq.mm', '25 sq.mm', '35 sq.mm', '50 sq.mm', '70 sq.mm', '95 sq.mm', '120 sq.mm', '150 sq.mm', '185 sq.mm', '240 sq.mm', '300 sq.mm', '400 sq.mm', '500 sq.mm', '630 sq.mm'],
+  c2:  ['1.5 sq.mm', '2.5 sq.mm', '4 sq.mm', '6 sq.mm', '10 sq.mm', '16 sq.mm', '25 sq.mm', '35 sq.mm', '50 sq.mm', '70 sq.mm', '95 sq.mm', '120 sq.mm', '150 sq.mm', '185 sq.mm', '240 sq.mm', '300 sq.mm', '400 sq.mm'],
+  c3:  ['1.5 sq.mm', '2.5 sq.mm'],
+  c4:  ['35 sq.mm', '50 sq.mm', '70 sq.mm', '95 sq.mm', '120 sq.mm', '150 sq.mm', '185 sq.mm', '240 sq.mm', '300 sq.mm', '400 sq.mm', '500 sq.mm', '630 sq.mm', '800 sq.mm', '1000 sq.mm'],
+  c5:  ['2.5 sq.mm', '4.0 sq.mm', '6.0 sq.mm', '10.0 sq.mm', '16.0 sq.mm', '25.0 sq.mm'],
+  c6:  ['1.5 sq.mm', '2.5 sq.mm', '4.0 sq.mm', '6.0 sq.mm', '10.0 sq.mm', '16.0 sq.mm'],
+  c7:  ['1.5 sq.mm', '2.5 sq.mm', '4 sq.mm', '6 sq.mm', '10 sq.mm', '16 sq.mm', '25 sq.mm', '35 sq.mm', '50 sq.mm', '70 sq.mm', '95 sq.mm', '120 sq.mm'],
+  c8:  ['0.5 sq.mm', '0.75 sq.mm', '1.0 sq.mm', '1.5 sq.mm', '2.5 sq.mm'],
+  c9:  ['16 sq.mm', '25 sq.mm', '35 sq.mm', '50 sq.mm', '70 sq.mm', '95 sq.mm', '120 sq.mm'],
+  c10: ['400 sq.mm', '500 sq.mm', '630 sq.mm', '800 sq.mm', '1000 sq.mm', '1200 sq.mm', '1600 sq.mm', '2000 sq.mm'],
+  c11: ['1.5 sq.mm', '2.5 sq.mm', '4.0 sq.mm', '6.0 sq.mm', '10.0 sq.mm', '16.0 sq.mm', '25.0 sq.mm', '35.0 sq.mm'],
+  c12: ['1.5 sq.mm', '2.5 sq.mm'],
+  c13: ['2.5 sq.mm', '4 sq.mm', '6 sq.mm', '10 sq.mm', '16 sq.mm', '25 sq.mm', '35 sq.mm', '50 sq.mm', '70 sq.mm'],
+  c14: ['23 AWG', '24 AWG'],
+  c15: ['18 AWG (RG-6)', '14 AWG (RG-11)'],
+};
+
+/* ── Conductor type extraction ──────────────────────── */
+function hasConductor(cable: CableProduct, type: 'copper' | 'aluminum'): boolean {
+  const c = cable.conductor.toLowerCase();
+  if (type === 'copper') return c.includes('copper') || c.includes('cu');
+  return c.includes('aluminum') || c.includes('al');
+}
+
+/* ── Voltage group mapping ──────────────────────────── */
+function getVoltageGroup(cable: CableProduct): string {
+  const v = cable.voltage.toLowerCase();
+  if (v.includes('low voltage') || v.includes('rf')) return 'Low Voltage / Data';
+  if (v.includes('66 kv') || v.includes('220 kv')) return '66 kV+';
+  if (v.includes('33 kv') || v.includes('11 kv') || v.includes('3.3 kv')) return '3.3 – 33 kV';
+  return '≤ 1.5 kV';
+}
+
+const VOLTAGE_GROUPS = ['≤ 1.5 kV', '3.3 – 33 kV', '66 kV+', 'Low Voltage / Data'];
+
+/* ═══════════════════════════════════════════════════════════════
+   CABLE CARD SUB-COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+
+interface CableCardProps {
+  cable: CableProduct;
+  cardSlideIndex: number;
+  onViewSpecs: () => void;
+  isInQuote: boolean;
+  onAddToQuote: (selectedCore: string, selectedSize: string) => void;
+  isHighlighted?: boolean;
+}
+
+const CableCard: React.FC<CableCardProps> = React.memo(({ cable, cardSlideIndex, onViewSpecs, isInQuote, onAddToQuote, isHighlighted }) => {
+  const catColor = CATEGORY_COLORS[cable.category] || '#94A3B8';
+  const catLabel = CATEGORY_META.find(m => m.id === cable.category)?.label || cable.category;
+
+  /* ── Dropdown option arrays ── */
+  const coreOptions = CABLE_CORE_OPTIONS[cable.id] || [cable.cores];
+  const sizeOptions = CABLE_SIZE_OPTIONS[cable.id] || [cable.sizes];
+  const [selectedCore, setSelectedCore] = useState(coreOptions[0]);
+  const [selectedSize, setSelectedSize] = useState(sizeOptions[0]);
+
+  return (
+    <div id={`cable-${cable.id}`} className={`group bg-white border rounded-xl overflow-hidden hover:shadow-lg hover:border-[#EAB308]/30 transition-all duration-300 ${isHighlighted ? 'border-[#EAB308] ring-2 ring-[#EAB308]/40 shadow-lg' : 'border-[#E2E8F0]'}`}>
+      {/* Product Image Carousel */}
+      <div className="relative h-48 bg-gray-100 overflow-hidden">
+        {cable.images.map((img, imgIdx) => (
+          <img
+            key={imgIdx}
+            src={img}
+            alt={`${cable.name} ${imgIdx + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[800ms] ${
+              cardSlideIndex === imgIdx ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+
+        {/* Category badge */}
+        <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold font-heading uppercase tracking-wider backdrop-blur-sm z-10" style={{ background: `${catColor}cc`, color: '#fff' }}>
+          {catLabel}
+        </span>
+
+        {/* Voltage chip */}
+        <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 bg-[#0F172A]/80 text-white rounded text-[10px] font-bold font-sans tracking-wide backdrop-blur-sm z-10">
+          <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>electric_bolt</span>
+          {cable.voltage}
+        </span>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-2 inset-x-0 flex justify-center gap-1 z-10">
+          {cable.images.map((_, dotIdx) => (
+            <span
+              key={dotIdx}
+              className={`w-1.5 h-1.5 rounded-full transition-all ${
+                cardSlideIndex === dotIdx ? 'bg-[#EAB308] w-4' : 'bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Gradient overlay */}
+        <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Card Body */}
+      <div className="p-5">
+        <h3 className="font-heading text-base font-bold text-[#0F172A] mb-3 leading-snug group-hover:text-[#EAB308] transition-colors">
+          {cable.name}
+        </h3>
+
+        {/* 2×2 Spec Grid */}
+        <div className="grid grid-cols-2 gap-px bg-[#E2E8F0] rounded-lg overflow-hidden mb-4">
+          {[
+            { label: 'Conductor', value: cable.conductor, icon: 'linear_scale' },
+            { label: 'Armour', value: cable.armour, icon: 'shield' },
+            { label: 'Cores', value: cable.cores, icon: 'hub' },
+            { label: 'Max Temp', value: cable.temp, icon: 'thermostat' },
+          ].map(spec => (
+            <div key={spec.label} className="bg-[#F8FAFC] p-3">
+              <div className="flex items-center gap-1 mb-1">
+                <span className="material-symbols-outlined text-[#94A3B8]" style={{ fontSize: '12px' }}>{spec.icon}</span>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[#94A3B8] font-heading">{spec.label}</p>
+              </div>
+              <p className="font-sans text-[11px] font-semibold text-[#0F172A] leading-tight line-clamp-2">{spec.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Standards badges */}
+        <div className="flex flex-wrap gap-1.5">
+          {cable.standards.map(std => (
+            <span key={std} className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#10B981]/10 text-[#10B981] rounded text-[10px] font-sans font-medium">
+              <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>verified</span>
+              {std}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Configuration Section ── */}
+      <div className="bg-[#F8FAFC] border-t border-[#E2E8F0] px-5 py-4">
+        <p className="text-[9px] font-bold uppercase tracking-widest text-[#94A3B8] font-heading mb-2.5">Configure Specification</p>
+        <div className="grid grid-cols-2 gap-2">
+          {/* Core selector */}
+          <div>
+            <label className="text-[10px] font-semibold text-[#64748B] font-sans mb-1 block">Core</label>
+            {coreOptions.length <= 1 ? (
+              <div className="w-full px-3 py-2 bg-white border border-[#CBD5E1] rounded-md text-sm text-[#0F172A] font-sans opacity-70 cursor-default truncate">
+                {coreOptions[0]}
+              </div>
+            ) : (
+              <select
+                value={selectedCore}
+                onChange={e => setSelectedCore(e.target.value)}
+                className="w-full px-3 py-2 bg-white border border-[#CBD5E1] rounded-md text-sm text-[#0F172A] font-sans focus:border-[#EAB308] focus:ring-1 focus:ring-[#EAB308] outline-none transition-colors cursor-pointer"
+              >
+                {coreOptions.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            )}
+          </div>
+          {/* Size selector */}
+          <div>
+            <label className="text-[10px] font-semibold text-[#64748B] font-sans mb-1 block">Size</label>
+            {sizeOptions.length <= 1 ? (
+              <div className="w-full px-3 py-2 bg-white border border-[#CBD5E1] rounded-md text-sm text-[#0F172A] font-sans opacity-70 cursor-default truncate">
+                {sizeOptions[0]}
+              </div>
+            ) : (
+              <select
+                value={selectedSize}
+                onChange={e => setSelectedSize(e.target.value)}
+                className="w-full px-3 py-2 bg-white border border-[#CBD5E1] rounded-md text-sm text-[#0F172A] font-sans focus:border-[#EAB308] focus:ring-1 focus:ring-[#EAB308] outline-none transition-colors cursor-pointer"
+              >
+                {sizeOptions.map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Action Buttons ── */}
+      <div className="px-5 pb-5 pt-3 flex gap-2">
+        <button
+          onClick={onViewSpecs}
+          className="flex-1 py-2.5 border-2 border-[#E2E8F0] text-[#0F172A] font-heading text-[11px] font-bold uppercase tracking-wider rounded-lg hover:border-[#0F172A] transition-colors flex items-center justify-center gap-1.5"
+        >
+          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>description</span>
+          View Specs
+        </button>
+        <button
+          onClick={() => !isInQuote && onAddToQuote(selectedCore, selectedSize)}
+          className={`flex-1 py-2.5 font-heading text-[11px] font-bold uppercase tracking-wider rounded-lg flex items-center justify-center gap-1.5 transition-colors ${
+            isInQuote
+              ? 'bg-[#0F172A] text-white cursor-default'
+              : 'bg-[#EAB308] hover:bg-[#CA8A04] text-[#0F172A]'
+          }`}
+        >
+          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>
+            {isInQuote ? 'check' : 'add_shopping_cart'}
+          </span>
+          {isInQuote ? 'Added ✓' : 'Add to Quote'}
+        </button>
+      </div>
+    </div>
+  );
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+
+const WireCables: React.FC = () => {
+  const quoteCtx = useQuote();
+  const [searchParams] = useSearchParams();
+
+  /* ── Hero carousel state ── */
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide(prev => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  /* ── Filter state ── */
+  const [selectedCategories, setSelectedCategories] = useState<Set<string>>(new Set());
+  const [conductorFilter, setConductorFilter] = useState<'all' | 'copper' | 'aluminum'>('all');
+  const [selectedVoltages, setSelectedVoltages] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState('');
+
+  /* ── Modal state ── */
+  const [selectedCable, setSelectedCable] = useState<CableProduct | null>(null);
+  const [highlightId, setHighlightId] = useState<string | null>(null);
+  const [showGallery, setShowGallery] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryIdx, setGalleryIdx] = useState(0);
+  const [galleryTitle, setGalleryTitle] = useState('');
+
+  /* ── Lock body scroll when spec modal or gallery is open ── */
+  useEffect(() => {
+    if (selectedCable || showGallery) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedCable, showGallery]);
+
+  /* ── Load Calculator state ── */
+  const [calcVoltage, setCalcVoltage] = useState('415');
+  const [calcConductor, setCalcConductor] = useState<'copper' | 'aluminum'>('aluminum');
+  const [calcLoad, setCalcLoad] = useState('');
+  const [calcResult, setCalcResult] = useState<{ size: string; cable: string; note: string } | null>(null);
+
+  /* ── Cable sizing lookup (IEC/IS standard based) ── */
+  const calculateCableSize = useCallback(() => {
+    const amps = parseFloat(calcLoad);
+    if (!amps || amps <= 0) return;
+
+    // Ampacity table: [maxAmps, sizeMM, cableType]
+    const copperTable: [number, string, string][] = [
+      [14, '1.5 sq.mm', 'PVC Insulated'],
+      [19, '2.5 sq.mm', 'PVC Insulated'],
+      [26, '4 sq.mm', 'PVC / XLPE'],
+      [34, '6 sq.mm', 'PVC / XLPE'],
+      [46, '10 sq.mm', 'XLPE Insulated'],
+      [62, '16 sq.mm', 'XLPE Insulated'],
+      [80, '25 sq.mm', 'XLPE Armoured'],
+      [101, '35 sq.mm', 'XLPE Armoured'],
+      [126, '50 sq.mm', 'XLPE Armoured'],
+      [160, '70 sq.mm', 'XLPE Armoured'],
+      [194, '95 sq.mm', 'XLPE Armoured'],
+      [230, '120 sq.mm', 'XLPE Armoured'],
+      [267, '150 sq.mm', 'XLPE Armoured'],
+      [310, '185 sq.mm', 'XLPE Armoured'],
+      [364, '240 sq.mm', 'XLPE Armoured'],
+      [430, '300 sq.mm', 'XLPE Armoured'],
+      [500, '400 sq.mm', 'XLPE Armoured'],
+      [580, '500 sq.mm', 'HT XLPE'],
+      [660, '630 sq.mm', 'HT XLPE'],
+    ];
+    const aluminumTable: [number, string, string][] = [
+      [11, '1.5 sq.mm', 'PVC Insulated'],
+      [15, '2.5 sq.mm', 'PVC Insulated'],
+      [20, '4 sq.mm', 'PVC / XLPE'],
+      [26, '6 sq.mm', 'PVC / XLPE'],
+      [36, '10 sq.mm', 'XLPE Insulated'],
+      [48, '16 sq.mm', 'XLPE Insulated'],
+      [62, '25 sq.mm', 'XLPE Armoured'],
+      [78, '35 sq.mm', 'XLPE Armoured'],
+      [97, '50 sq.mm', 'XLPE Armoured'],
+      [124, '70 sq.mm', 'XLPE Armoured'],
+      [150, '95 sq.mm', 'XLPE Armoured'],
+      [178, '120 sq.mm', 'XLPE Armoured'],
+      [207, '150 sq.mm', 'XLPE Armoured'],
+      [240, '185 sq.mm', 'XLPE Armoured'],
+      [282, '240 sq.mm', 'XLPE Armoured'],
+      [330, '300 sq.mm', 'XLPE Armoured'],
+      [386, '400 sq.mm', 'XLPE Armoured'],
+      [448, '500 sq.mm', 'HT XLPE'],
+      [510, '630 sq.mm', 'HT XLPE'],
+    ];
+
+    const table = calcConductor === 'copper' ? copperTable : aluminumTable;
+    const match = table.find(([maxA]) => amps <= maxA);
+
+    if (match) {
+      const voltLabel = calcVoltage === '415' ? 'LT (415V)' : calcVoltage === '11000' ? 'HT (11kV)' : 'EHV (33kV)';
+      setCalcResult({
+        size: match[1],
+        cable: match[2],
+        note: `Recommended for ${amps}A at ${voltLabel} with ${calcConductor} conductor. Verify with project engineer.`,
+      });
+    } else {
+      setCalcResult({
+        size: 'Parallel run required',
+        cable: 'Multiple cables needed',
+        note: `${amps}A exceeds single-cable capacity. Use parallel cables or consult our engineering team.`,
+      });
+    }
+  }, [calcLoad, calcConductor, calcVoltage]);
+
+  /* ── Image carousel state ── */
+  const [cardSlides, setCardSlides] = useState<Record<string, number>>({});
+  const [modalSlide, setModalSlide] = useState(0);
+  const modalTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Auto-advance card images every 3s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCardSlides(prev => {
+        const next: Record<string, number> = {};
+        CABLE_DATA.forEach(p => {
+          const current = prev[p.id] || 0;
+          next[p.id] = (current + 1) % p.images.length;
+        });
+        return next;
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-advance modal images every 4s
+  useEffect(() => {
+    if (selectedCable) {
+      setModalSlide(0);
+      if (modalTimer.current) clearInterval(modalTimer.current);
+      modalTimer.current = setInterval(() => {
+        setModalSlide(prev => (prev + 1) % (selectedCable?.images.length || 1));
+      }, 4000);
+    }
+    return () => { if (modalTimer.current) clearInterval(modalTimer.current); };
+  }, [selectedCable]);
+
+  const openGallery = useCallback((images: string[], title: string, startIdx = 0) => {
+    setGalleryImages(images);
+    setGalleryTitle(title);
+    setGalleryIdx(startIdx);
+    setShowGallery(true);
+  }, []);
+
+  const closeGallery = useCallback(() => setShowGallery(false), []);
+  const galleryPrev = useCallback(() => setGalleryIdx(i => (i - 1 + galleryImages.length) % galleryImages.length), [galleryImages.length]);
+  const galleryNext = useCallback(() => setGalleryIdx(i => (i + 1) % galleryImages.length), [galleryImages.length]);
+
+  /* ── Pagination state ── */
+  const ITEMS_PER_PAGE = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  /* ── Category counts ── */
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    CABLE_DATA.forEach(c => { counts[c.category] = (counts[c.category] || 0) + 1; });
+    return counts;
+  }, []);
+
+  /* ── Toggle helpers ── */
+  const toggleCategory = useCallback((cat: string) => {
+    setSelectedCategories(prev => {
+      const next = new Set(prev);
+      next.has(cat) ? next.delete(cat) : next.add(cat);
+      return next;
+    });
+  }, []);
+
+  const toggleVoltage = useCallback((v: string) => {
+    setSelectedVoltages(prev => {
+      const next = new Set(prev);
+      next.has(v) ? next.delete(v) : next.add(v);
+      return next;
+    });
+  }, []);
+
+  const clearFilters = useCallback(() => {
+    setSelectedCategories(new Set());
+    setConductorFilter('all');
+    setSelectedVoltages(new Set());
+    setSearchQuery('');
+  }, []);
+
+  /* ── Filtered data ── */
+  const filteredCables = useMemo(() => {
+    return CABLE_DATA.filter(cable => {
+      if (selectedCategories.size > 0 && !selectedCategories.has(cable.category)) return false;
+      if (conductorFilter === 'copper' && !hasConductor(cable, 'copper')) return false;
+      if (conductorFilter === 'aluminum' && !hasConductor(cable, 'aluminum')) return false;
+      if (selectedVoltages.size > 0 && !selectedVoltages.has(getVoltageGroup(cable))) return false;
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const haystack = `${cable.name} ${cable.category} ${cable.conductor} ${cable.insulation} ${cable.armour} ${cable.standards.join(' ')}`.toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [selectedCategories, conductorFilter, selectedVoltages, searchQuery]);
+
+  /* ── Active filter tags ── */
+  const activeFilterTags = useMemo(() => {
+    const tags: { label: string; clear: () => void }[] = [];
+    selectedCategories.forEach(cat => {
+      const meta = CATEGORY_META.find(m => m.id === cat);
+      tags.push({
+        label: meta?.label || cat,
+        clear: () => setSelectedCategories(prev => { const n = new Set(prev); n.delete(cat); return n; }),
+      });
+    });
+    if (conductorFilter !== 'all') {
+      tags.push({
+        label: conductorFilter === 'copper' ? 'Copper' : 'Aluminum',
+        clear: () => setConductorFilter('all'),
+      });
+    }
+    selectedVoltages.forEach(v => {
+      tags.push({
+        label: v,
+        clear: () => setSelectedVoltages(prev => { const n = new Set(prev); n.delete(v); return n; }),
+      });
+    });
+    if (searchQuery.trim()) {
+      tags.push({ label: `"${searchQuery}"`, clear: () => setSearchQuery('') });
+    }
+    return tags;
+  }, [selectedCategories, conductorFilter, selectedVoltages, searchQuery]);
+
+  const hasFilters = activeFilterTags.length > 0;
+
+  /* ── Reset page on filter change ── */
+  useEffect(() => { setCurrentPage(1); }, [selectedCategories, conductorFilter, selectedVoltages, searchQuery]);
+
+  /* ── Read URL params → apply category filters & scroll to product ── */
+  useEffect(() => {
+    const cats = searchParams.getAll('cat');
+    const product = searchParams.get('product');
+
+    if (cats.length > 0) {
+      setSelectedCategories(new Set(cats));
+      setConductorFilter('all');
+      setSelectedVoltages(new Set());
+      setCurrentPage(1);
+    }
+
+    if (product) {
+      setHighlightId(product);
+      const timer = setTimeout(() => {
+        const el = document.getElementById(`cable-${product}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 400);
+      const fade = setTimeout(() => setHighlightId(null), 3500);
+      return () => { clearTimeout(timer); clearTimeout(fade); };
+    }
+  }, [searchParams]);
+
+  /* ── Pagination computed ── */
+  const totalPages = Math.max(1, Math.ceil(filteredCables.length / ITEMS_PER_PAGE));
+  const paginatedCables = filteredCables.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const startItem = filteredCables.length === 0 ? 0 : (currentPage - 1) * ITEMS_PER_PAGE + 1;
+  const endItem = Math.min(currentPage * ITEMS_PER_PAGE, filteredCables.length);
+
+  const goToPage = useCallback((page: number) => {
+    setCurrentPage(page);
+    const el = document.getElementById('cable-catalog-top');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, []);
+
+  const getPageNumbers = (): (number | '...')[] => {
+    if (totalPages <= 5) return Array.from({ length: totalPages }, (_, i) => i + 1);
+    const pages: (number | '...')[] = [1];
+    if (currentPage > 3) pages.push('...');
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+    for (let i = start; i <= end; i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('...');
+    pages.push(totalPages);
+    return pages;
+  };
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDER
+     ═══════════════════════════════════════════════════════════ */
+
+  return (
+    <div className="mt-[92px] md:mt-[175px] w-full bg-white overflow-x-hidden">
+
+      {/* ── HERO BANNER ───────────────────────────────────── */}
+      <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[calc(100vh-176px)] max-h-[900px] gap-1 bg-white">
+        {/* LEFT: Image Carousel + Banner Content */}
+        <div className="relative w-full lg:flex-1 bg-gray-900 overflow-hidden group h-[650px] sm:h-[550px] lg:h-auto">
+          {/* Background Images — Crossfade Carousel */}
+          {HERO_SLIDES.map((slide, index) => (
+            <img
+              key={slide.id}
+              alt={slide.alt}
+              className={`absolute inset-0 z-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === heroSlide ? 'opacity-100' : 'opacity-0'}`}
+              src={slide.image}
+            />
+          ))}
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
+
+          {/* Content */}
+          <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24">
+              <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8 font-sans">
+                <Link to="/" className="hover:text-white transition-colors">Home</Link>
+                <span className="material-symbols-outlined text-xs">chevron_right</span>
+                <span className="text-[#EAB308] font-medium">Wire & Cables</span>
+              </nav>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6 drop-shadow-2xl">
+                Industrial Wire<br />
+                <span className="text-[#EAB308]">& Cable Hub</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 font-sans leading-relaxed">
+                Explore our engineered cabling solutions — from 300 V instrumentation to 220 kV Extra High Voltage. Filter by voltage, core configuration, or application.
+              </p>
+
+              {/* Search bar */}
+              <div className="relative max-w-lg">
+                <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" style={{ fontSize: '20px' }}>search</span>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  placeholder="Search cables, standards, materials…"
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/10 text-white placeholder-gray-500 font-sans text-sm rounded-lg focus:bg-white/15 focus:border-[#EAB308]/50 focus:ring-1 focus:ring-[#EAB308]/30 outline-none transition-all backdrop-blur-sm"
+                />
+                {searchQuery && (
+                  <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>close</span>
+                  </button>
+                )}
+              </div>
+
+              {/* Carousel Indicators */}
+              <div className="absolute bottom-8 right-6 lg:right-auto lg:left-16 xl:left-24 flex gap-2 z-30">
+                {HERO_SLIDES.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    onClick={() => setHeroSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === heroSlide ? 'bg-[#EAB308] w-6' : 'bg-white/50 hover:bg-white'}`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+          </div>
+        </div>
+
+        {/* RIGHT: Quick Load Calculator */}
+        <div className="relative w-full lg:w-[400px] xl:w-[450px] shrink-0 bg-[#0F172A] text-white flex flex-col justify-center p-8 lg:px-8 lg:py-12">
+
+              <div className="max-w-md mx-auto w-full">
+                {/* Header with gold left accent */}
+                <div className="mb-8 border-l-4 border-[#EAB308] pl-4">
+                  <h4 className="text-[#EAB308] text-xs font-bold uppercase tracking-widest mb-2 font-heading">Ampacity Calculator</h4>
+                  <h2 className="text-3xl font-heading font-bold text-white leading-none">
+                    Not sure which<br />size you need?
+                  </h2>
+                </div>
+
+                <p className="text-gray-400 text-sm mb-8 font-medium">
+                  Use our Ampacity Calculator to find the right cable for your load requirements.
+                </p>
+
+                {calcResult ? (
+                  /* ── Result State ── */
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-center animate-fade-in">
+                    <span className="material-symbols-outlined text-green-500 text-5xl mb-3">check_circle</span>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-green-500 font-heading mb-2">Recommended Size</p>
+                    <p className="font-heading text-3xl font-extrabold text-white mb-1">{calcResult.size}</p>
+                    <p className="font-sans text-sm font-semibold text-gray-300 mb-3">{calcResult.cable}</p>
+                    <p className="font-sans text-[11px] text-gray-500 leading-relaxed mb-5">{calcResult.note}</p>
+                    <button
+                      onClick={() => setCalcResult(null)}
+                      className="text-[#EAB308] text-xs font-bold uppercase tracking-wider hover:underline font-heading"
+                    >
+                      ← Calculate Again
+                    </button>
+                  </div>
+                ) : (
+                  /* ── Calculator Form ── */
+                  <div className="space-y-4">
+                    {/* System Voltage */}
+                    <div className="relative group">
+                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block font-heading">System Voltage *</label>
+                      <div className="relative">
+                        <select
+                          value={calcVoltage}
+                          onChange={e => setCalcVoltage(e.target.value)}
+                          className="w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm focus:ring-1 focus:ring-[#EAB308] focus:border-[#EAB308] block p-3.5 appearance-none font-medium outline-none transition-all cursor-pointer hover:bg-white/10"
+                        >
+                          <option value="415" className="bg-[#0F172A]">415V (LT)</option>
+                          <option value="11000" className="bg-[#0F172A]">11kV (HT)</option>
+                          <option value="33000" className="bg-[#0F172A]">33kV (HT)</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#EAB308]">
+                          <span className="material-symbols-outlined">expand_more</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Conductor Material */}
+                    <div className="relative group">
+                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block font-heading">Conductor Material *</label>
+                      <div className="relative">
+                        <select
+                          value={calcConductor}
+                          onChange={e => setCalcConductor(e.target.value as 'copper' | 'aluminum')}
+                          className="w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm focus:ring-1 focus:ring-[#EAB308] focus:border-[#EAB308] block p-3.5 appearance-none font-medium outline-none transition-all cursor-pointer hover:bg-white/10"
+                        >
+                          <option value="aluminum" className="bg-[#0F172A]">Aluminum</option>
+                          <option value="copper" className="bg-[#0F172A]">Copper</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#EAB308]">
+                          <span className="material-symbols-outlined">expand_more</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Load Current */}
+                    <div>
+                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 block font-heading">Load Current (Amps) *</label>
+                      <div className="relative">
+                        <input
+                          type="number"
+                          value={calcLoad}
+                          onChange={e => setCalcLoad(e.target.value)}
+                          onKeyDown={e => { if (e.key === 'Enter') calculateCableSize(); }}
+                          placeholder="Enter load (e.g. 500)"
+                          className="w-full bg-white/5 border border-white/10 text-white text-sm rounded-sm focus:ring-1 focus:ring-[#EAB308] focus:border-[#EAB308] block p-3.5 pr-10 outline-none transition-all placeholder-gray-500"
+                        />
+                        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#EAB308] text-xs font-bold font-heading">A</span>
+                      </div>
+                    </div>
+
+                    {/* Calculate Button */}
+                    <div className="pt-2">
+                      <button
+                        onClick={calculateCableSize}
+                        disabled={!calcLoad || parseFloat(calcLoad) <= 0}
+                        className="w-full py-4 bg-[#EAB308] hover:bg-[#CA8A04] disabled:bg-white/10 disabled:text-gray-500 text-[#0F172A] font-heading text-sm font-extrabold uppercase tracking-wider rounded-sm flex items-center justify-between px-6 transition-all"
+                      >
+                        Calculate Size
+                        <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_forward</span>
+                      </button>
+                    </div>
+
+                    {/* Trust Badge */}
+                    <div className="flex items-center gap-2 pt-2">
+                      <span className="material-symbols-outlined text-green-500" style={{ fontSize: '16px' }}>verified</span>
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider font-heading">IEC / IS Standard Based Sizing</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+      </div>
+
+      {/* ── MAIN CONTENT: SIDEBAR + GRID ────────────────── */}
+      <section className="bg-[#F8FAFC] min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <div className="flex flex-col lg:flex-row gap-8">
+
+            {/* ═══════ SIDEBAR FILTERS ═══════ */}
+            <aside className="w-full lg:w-72 shrink-0">
+              <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 sticky top-[200px]">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-heading text-sm font-bold uppercase tracking-widest text-[#0F172A]">Filters</h3>
+                  {hasFilters && (
+                    <button onClick={clearFilters} className="text-[10px] font-bold uppercase tracking-wider text-red-500 hover:text-red-700 font-heading transition-colors">
+                      Reset All
+                    </button>
+                  )}
+                </div>
+
+                {/* Category Checkboxes */}
+                <div className="mb-6">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#94A3B8] mb-3 font-heading">Category</p>
+                  <div className="space-y-2 max-h-[280px] overflow-y-auto pr-1">
+                    {CATEGORY_META.map(cat => {
+                      const count = categoryCounts[cat.id] || 0;
+                      if (count === 0) return null;
+                      const checked = selectedCategories.has(cat.id);
+                      return (
+                        <label
+                          key={cat.id}
+                          className={`flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer transition-colors ${
+                            checked ? 'bg-[#EAB308]/10' : 'hover:bg-[#F1F5F9]'
+                          }`}
+                        >
+                          <input type="checkbox" checked={checked} onChange={() => toggleCategory(cat.id)} className="sr-only" />
+                          <div className={`w-4 h-4 border-2 rounded flex items-center justify-center shrink-0 transition-colors ${
+                            checked ? 'bg-[#EAB308] border-[#EAB308]' : 'border-[#E2E8F0]'
+                          }`}>
+                            {checked && <span className="material-symbols-outlined text-white" style={{ fontSize: '12px' }}>check</span>}
+                          </div>
+                          <span className="material-symbols-outlined text-[#94A3B8] shrink-0" style={{ fontSize: '16px' }}>{cat.icon}</span>
+                          <span className="font-sans text-xs text-[#0F172A] flex-1 leading-tight">{cat.label}</span>
+                          <span className="text-[10px] text-[#94A3B8] font-sans tabular-nums">{count}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Conductor Material */}
+                <div className="mb-6">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#94A3B8] mb-3 font-heading">Conductor</p>
+                  <div className="flex gap-2">
+                    {(['all', 'copper', 'aluminum'] as const).map(type => (
+                      <button
+                        key={type}
+                        onClick={() => setConductorFilter(type)}
+                        className={`flex-1 py-2 px-3 rounded-lg font-heading text-[10px] font-bold uppercase tracking-wider transition-all border ${
+                          conductorFilter === type
+                            ? 'bg-[#0F172A] text-white border-[#0F172A]'
+                            : 'bg-white text-[#475569] border-[#E2E8F0] hover:border-[#EAB308]'
+                        }`}
+                      >
+                        {type === 'all' ? 'All' : type === 'copper' ? 'Cu' : 'Al'}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Voltage Rating */}
+                <div className="mb-2">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#94A3B8] mb-3 font-heading">Voltage Rating</p>
+                  <div className="space-y-1.5">
+                    {VOLTAGE_GROUPS.map(v => {
+                      const active = selectedVoltages.has(v);
+                      return (
+                        <button
+                          key={v}
+                          onClick={() => toggleVoltage(v)}
+                          className={`w-full text-left px-3 py-2 rounded-lg font-sans text-xs transition-all border ${
+                            active
+                              ? 'bg-[#EAB308]/10 border-[#EAB308]/30 text-[#0F172A] font-bold'
+                              : 'bg-white border-transparent text-[#475569] hover:bg-[#F1F5F9]'
+                          }`}
+                        >
+                          <span className="material-symbols-outlined text-[#EAB308] align-middle mr-1.5" style={{ fontSize: '14px' }}>
+                            {active ? 'radio_button_checked' : 'radio_button_unchecked'}
+                          </span>
+                          {v}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Results count */}
+                <div className="mt-6 pt-5 border-t border-[#E2E8F0]">
+                  <p className="font-sans text-xs text-[#94A3B8] text-center">
+                    <span className="font-bold text-[#0F172A]">{filteredCables.length}</span> of {CABLE_DATA.length} cables
+                  </p>
+                </div>
+              </div>
+            </aside>
+
+            {/* ═══════ CONTENT AREA ═══════ */}
+            <div className="flex-1 min-w-0">
+
+              {/* Results count bar */}
+              <div id="cable-catalog-top" className="flex items-center justify-between mb-5">
+                <p className="text-sm text-[#94A3B8] font-sans">
+                  Showing <span className="font-bold text-[#0F172A]">{startItem}–{endItem}</span> of {filteredCables.length} cables
+                </p>
+                {hasFilters && (
+                  <button onClick={clearFilters} className="text-xs text-[#EAB308] hover:text-[#CA8A04] font-bold uppercase tracking-wide font-heading lg:hidden transition-colors">
+                    Clear Filters
+                  </button>
+                )}
+              </div>
+
+              {/* Active Filter Tags */}
+              {hasFilters && (
+                <div className="flex flex-wrap items-center gap-2 mb-5">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#94A3B8] font-heading mr-1">Active:</span>
+                  {activeFilterTags.map((tag, i) => (
+                    <span key={i} className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#0F172A] text-white rounded-full text-[11px] font-sans font-medium">
+                      {tag.label}
+                      <button onClick={tag.clear} className="ml-0.5 hover:text-[#EAB308] transition-colors">
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>close</span>
+                      </button>
+                    </span>
+                  ))}
+                  <button onClick={clearFilters} className="text-[11px] text-red-500 hover:text-red-700 font-heading font-bold uppercase tracking-wider ml-1 transition-colors">
+                    Clear All
+                  </button>
+                </div>
+              )}
+
+              {/* Product Grid */}
+              {filteredCables.length > 0 ? (
+                <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {paginatedCables.map(cable => (
+                    <CableCard
+                      key={cable.id}
+                      cable={cable}
+                      cardSlideIndex={cardSlides[cable.id] || 0}
+                      onViewSpecs={() => setSelectedCable(cable)}
+                      isInQuote={quoteCtx.isInQuote(cable.id)}
+                      isHighlighted={highlightId === cable.id}
+                      onAddToQuote={(selectedCore, selectedSize) => quoteCtx.addToQuote({
+                        id: cable.id,
+                        name: cable.name,
+                        category: cable.category,
+                        image: cable.images[0] || '',
+                        grades: [`${selectedCore} × ${selectedSize}`],
+                        specs: cable.standards,
+                        standard: `${selectedCore} × ${selectedSize}`,
+                      })}
+                    />
+                  ))}
+                </div>
+
+                {/* ── Pagination Controls ── */}
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-10">
+                    {/* Prev */}
+                    <button
+                      onClick={() => goToPage(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className={`w-10 h-10 flex items-center justify-center border rounded-lg transition-colors font-sans text-sm ${
+                        currentPage === 1
+                          ? 'border-[#E2E8F0] text-[#E2E8F0] cursor-not-allowed'
+                          : 'border-[#E2E8F0] text-[#0F172A] hover:border-[#EAB308] hover:text-[#EAB308]'
+                      }`}
+                    >
+                      <span className="material-symbols-outlined text-lg">chevron_left</span>
+                    </button>
+
+                    {/* Page numbers */}
+                    {getPageNumbers().map((pg, idx) =>
+                      pg === '...' ? (
+                        <span key={`dots-${idx}`} className="w-10 h-10 flex items-center justify-center text-[#94A3B8] font-sans text-sm">…</span>
+                      ) : (
+                        <button
+                          key={pg}
+                          onClick={() => goToPage(pg)}
+                          className={`w-10 h-10 flex items-center justify-center border rounded-lg font-bold font-sans text-sm transition-colors ${
+                            currentPage === pg
+                              ? 'bg-[#EAB308] border-[#EAB308] text-[#0F172A]'
+                              : 'border-[#E2E8F0] text-[#0F172A] hover:border-[#EAB308] hover:text-[#EAB308]'
+                          }`}
+                        >
+                          {pg}
+                        </button>
+                      )
+                    )}
+
+                    {/* Next */}
+                    <button
+                      onClick={() => goToPage(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className={`w-10 h-10 flex items-center justify-center border rounded-lg transition-colors font-sans text-sm ${
+                        currentPage === totalPages
+                          ? 'border-[#E2E8F0] text-[#E2E8F0] cursor-not-allowed'
+                          : 'border-[#E2E8F0] text-[#0F172A] hover:border-[#EAB308] hover:text-[#EAB308]'
+                      }`}
+                    >
+                      <span className="material-symbols-outlined text-lg">chevron_right</span>
+                    </button>
+                  </div>
+                )}
+                </>
+              ) : (
+                <div className="py-20 text-center">
+                  <span className="material-symbols-outlined text-[#E2E8F0] mb-4" style={{ fontSize: '64px' }}>search_off</span>
+                  <h3 className="font-heading text-lg font-bold text-[#0F172A] mb-2">No cables match your filters</h3>
+                  <p className="font-sans text-sm text-[#94A3B8] mb-4">Try adjusting or clearing your filters to see more results.</p>
+                  <button onClick={clearFilters} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#EAB308] hover:bg-[#CA8A04] text-[#0F172A] font-heading text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">
+                    Clear All Filters
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STANDARDS SECTION ­─────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-[#CA8A04] font-bold uppercase tracking-[0.2em] text-sm font-heading">Compliance</span>
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-[#0F172A] mt-3">Standards & Certifications</h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto font-sans">
+              Every cable is manufactured, tested, and certified in accordance with Indian and International standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { code: 'IS 7098', title: 'XLPE Insulated Power Cables', scope: 'LV & HV XLPE cable manufacturing' },
+              { code: 'IS 1554', title: 'PVC Insulated Cables', scope: 'LV PVC cable manufacturing' },
+              { code: 'IS 8130', title: 'Conductors for Cables', scope: 'Conductor material & resistance' },
+              { code: 'IEC 60502', title: 'Power Cables 1 kV – 30 kV', scope: 'International design & testing' },
+              { code: 'IEC 60332', title: 'Fire Performance', scope: 'Flame retardancy & propagation' },
+              { code: 'BS 6387', title: 'Fire Resistance', scope: 'Circuit integrity under fire' },
+            ].map((s, i) => (
+              <div key={i} className="group flex items-start gap-4 p-5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl hover:border-[#EAB308]/40 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-[#EAB308]/10 flex items-center justify-center shrink-0 group-hover:bg-[#EAB308] transition-colors">
+                  <span className="material-symbols-outlined text-[#EAB308] group-hover:text-white transition-colors" style={{ fontSize: '18px' }}>verified</span>
+                </div>
+                <div>
+                  <p className="font-heading text-sm font-bold text-[#0F172A]">{s.code}</p>
+                  <p className="font-sans text-xs text-[#475569] mt-0.5">{s.title}</p>
+                  <p className="font-sans text-[11px] text-[#94A3B8] mt-1">{s.scope}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── LEAD GEN CTA ────────────────────────────────── */}
+      <section className="relative bg-[#0F172A] overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl text-center lg:text-left">
+              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+                Need a Custom <span className="text-[#EAB308]">Cable Schedule?</span>
+              </h2>
+              <p className="text-lg text-gray-300 font-sans leading-relaxed">
+                Upload your BOQ or Cable Schedule for a fast factory-direct quote. Our engineering team will respond within 24 hours with pricing, lead times, and certification documentation.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#EAB308] text-[#0F172A] font-bold font-heading uppercase tracking-wider text-sm hover:bg-[#CA8A04] transition-colors shadow-lg">
+                <span className="material-symbols-outlined text-xl">upload_file</span>
+                Upload BOQ
+              </Link>
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-bold font-heading uppercase tracking-wider text-sm hover:bg-white hover:text-[#0F172A] transition-all">
+                <span className="material-symbols-outlined text-xl">call</span>
+                Talk to an Engineer
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#EAB308] via-[#EAB308]/60 to-transparent" />
+      </section>
+
+      {/* ════════════════════════════════════════════════════
+         SPEC MODAL
+         ════════════════════════════════════════════════════ */}
+      {selectedCable && (
+        <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setSelectedCable(null)}
+          />
+
+          {/* Modal */}
+          <div className="relative bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl z-10">
+            {/* Image carousel */}
+            <div className="relative h-44 sm:h-52 bg-gray-900 overflow-hidden">
+              {selectedCable.images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`${selectedCable.name} ${i + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[800ms] ${
+                    modalSlide === i ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              ))}
+              {/* Gradient overlay */}
+              <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-metallo-navy to-transparent"></div>
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedCable(null)}
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-white/20 text-white rounded-full backdrop-blur-sm transition-colors z-20"
+              >
+                <span className="material-symbols-outlined text-lg">close</span>
+              </button>
+              {/* Fullscreen button */}
+              <button
+                onClick={() => openGallery(selectedCable.images, selectedCable.name, modalSlide)}
+                className="absolute top-3 right-14 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-metallo-gold text-white hover:text-metallo-navy rounded-full backdrop-blur-sm transition-all z-20"
+                title="View in full screen"
+              >
+                <span className="material-symbols-outlined text-lg">fullscreen</span>
+              </button>
+              {/* Prev/Next */}
+              <button
+                onClick={() => setModalSlide(i => (i - 1 + selectedCable.images.length) % selectedCable.images.length)}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-metallo-gold text-white hover:text-metallo-navy rounded-full transition-all z-20"
+              >
+                <span className="material-symbols-outlined text-lg">chevron_left</span>
+              </button>
+              <button
+                onClick={() => setModalSlide(i => (i + 1) % selectedCable.images.length)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/40 hover:bg-metallo-gold text-white hover:text-metallo-navy rounded-full transition-all z-20"
+              >
+                <span className="material-symbols-outlined text-lg">chevron_right</span>
+              </button>
+              {/* Dots */}
+              <div className="absolute bottom-3 inset-x-0 flex justify-center gap-1.5 z-20">
+                {selectedCable.images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setModalSlide(i)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      modalSlide === i ? 'bg-metallo-gold w-5' : 'bg-white/50 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
+              {/* Image counter */}
+              <span className="absolute bottom-3 right-3 text-[10px] text-white/70 font-sans z-20">
+                {modalSlide + 1}/{selectedCable.images.length}
+              </span>
+            </div>
+
+            {/* Header with gradient */}
+            <div className="relative bg-metallo-navy px-6 sm:px-8 pb-6 pt-3">
+              <span className="inline-block px-2.5 py-0.5 bg-metallo-gold text-metallo-navy text-[10px] font-bold uppercase tracking-wider rounded-sm mb-3 font-sans">
+                {selectedCable.category}
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white leading-tight">
+                {selectedCable.name}
+              </h2>
+              <p className="text-sm text-gray-300 mt-2 font-sans">{selectedCable.voltage}</p>
+            </div>
+
+            {/* Body */}
+            <div className="p-6 sm:p-8 space-y-6">
+              {/* Description */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 font-heading">Description</h4>
+                <p className="text-sm text-gray-700 leading-relaxed font-sans">{selectedCable.description}</p>
+              </div>
+
+              {/* Spec Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { label: 'Voltage Rating', value: selectedCable.voltage, icon: 'electric_bolt' },
+                  { label: 'Conductor', value: selectedCable.conductor, icon: 'linear_scale' },
+                  { label: 'Insulation', value: selectedCable.insulation, icon: 'layers' },
+                  { label: 'Armour', value: selectedCable.armour, icon: 'shield' },
+                  { label: 'Core Config', value: selectedCable.cores, icon: 'hub' },
+                  { label: 'Max Temp', value: selectedCable.temp, icon: 'thermostat' },
+                ].map(spec => (
+                  <div key={spec.label} className="bg-gray-50 border border-gray-100 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="material-symbols-outlined text-metallo-gold text-lg">{spec.icon}</span>
+                      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider font-heading">{spec.label}</h4>
+                    </div>
+                    <p className="text-sm font-bold text-metallo-navy font-sans">{spec.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Standard Sizes */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 font-heading">Standard Sizes</h4>
+                <div className="bg-metallo-gold/10 border border-metallo-gold/20 rounded-lg p-4">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-metallo-gold text-lg">straighten</span>
+                    <p className="text-sm font-bold text-metallo-navy font-sans">{selectedCable.sizes}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Applicable Standards */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 font-heading">Applicable Standards</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedCable.standards.map(std => (
+                    <span key={std} className="px-3 py-1.5 bg-metallo-gold/10 border border-metallo-gold/20 text-sm font-bold text-metallo-navy font-heading uppercase tracking-wider">
+                      {std}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-gray-100"></div>
+
+              {/* Actions */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                {quoteCtx.isInQuote(selectedCable.id) ? (
+                  <button
+                    onClick={() => { setSelectedCable(null); quoteCtx.openBasket(); }}
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider text-sm transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                    View Inquiry Basket
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      quoteCtx.addToQuote({
+                        id: selectedCable.id,
+                        name: selectedCable.name,
+                        category: selectedCable.category,
+                        image: selectedCable.images[0] || '',
+                        grades: [selectedCable.conductor],
+                        specs: selectedCable.standards,
+                        standard: selectedCable.standards[0] || '',
+                      });
+                      setSelectedCable(null);
+                    }}
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-wider text-sm hover:bg-metallo-gold-hover transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-lg">add_shopping_cart</span>
+                    Add to Quote
+                  </button>
+                )}
+                <button
+                  onClick={() => setSelectedCable(null)}
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border-2 border-gray-200 text-gray-600 font-bold font-heading uppercase tracking-wider text-sm hover:border-metallo-navy hover:text-metallo-navy transition-colors"
+                >
+                  <span className="material-symbols-outlined text-lg">close</span>
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ═══ FULLSCREEN IMAGE GALLERY ═══════════════════════════ */}
+      {showGallery && galleryImages.length > 0 && (
+        <div className="fixed inset-0 z-[400] bg-black flex flex-col">
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-4 sm:px-8 py-4 bg-black/80 backdrop-blur-sm border-b border-white/10 shrink-0">
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-metallo-gold text-xl">photo_library</span>
+              <span className="text-white font-heading font-bold text-sm uppercase tracking-wider">{galleryTitle}</span>
+              <span className="text-white/40 font-sans text-xs ml-2">{galleryIdx + 1} / {galleryImages.length}</span>
+            </div>
+            <button
+              onClick={closeGallery}
+              className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+            >
+              <span className="material-symbols-outlined text-2xl">close</span>
+            </button>
+          </div>
+
+          {/* Main image */}
+          <div className="flex-1 relative flex items-center justify-center overflow-hidden">
+            {galleryImages.map((img, i) => (
+              <img
+                key={i}
+                src={img.replace('w=600', 'w=1920')}
+                alt={`${galleryTitle} ${i + 1}`}
+                className={`absolute max-w-[90vw] max-h-[75vh] object-contain transition-all duration-500 ${
+                  galleryIdx === i
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-95 pointer-events-none'
+                }`}
+              />
+            ))}
+
+            {/* Prev / Next */}
+            <button
+              onClick={galleryPrev}
+              className="absolute left-4 sm:left-8 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-metallo-gold text-white hover:text-metallo-navy rounded-full backdrop-blur-sm transition-all"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_left</span>
+            </button>
+            <button
+              onClick={galleryNext}
+              className="absolute right-4 sm:right-8 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-metallo-gold text-white hover:text-metallo-navy rounded-full backdrop-blur-sm transition-all"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_right</span>
+            </button>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div className="flex items-center justify-center gap-2 px-4 py-4 bg-black/80 border-t border-white/10 overflow-x-auto shrink-0">
+            {galleryImages.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setGalleryIdx(i)}
+                className={`relative w-20 h-14 sm:w-24 sm:h-16 rounded overflow-hidden shrink-0 border-2 transition-all ${
+                  galleryIdx === i
+                    ? 'border-metallo-gold ring-1 ring-metallo-gold/50'
+                    : 'border-white/10 hover:border-white/30 opacity-60 hover:opacity-100'
+                }`}
+              >
+                <img src={img} alt={`${galleryTitle} ${i + 1}`} className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default WireCables;
