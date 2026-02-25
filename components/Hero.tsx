@@ -159,205 +159,141 @@ const Hero: React.FC = () => {
   const slide = SLIDES[current];
 
   return (
-    <div className="flex flex-col md:flex-row w-full gap-1 h-full md:h-[calc(80vh-80px)]">
-      {/* ── 80% Slider Column ── */}
-      <section className="relative w-full md:w-[75%] h-full bg-slate-900 overflow-hidden">
-        {/* ── Background Images with Ken Burns ── */}
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={slide.id}
-            className="absolute inset-0 z-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-          >
-            <motion.img
-              src={slide.image}
-              alt={slide.category}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1 }}
-              animate={{ scale: 1.08 }}
-              transition={{ duration: SLIDE_DURATION + 1, ease: "linear" }}
-            />
-          </motion.div>
-        </AnimatePresence>
+    <section className="relative w-full bg-slate-900 overflow-hidden h-full md:h-[calc(80vh-80px)]">
+      {/* ── Background Images with Ken Burns ── */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={slide.id}
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+        >
+          <motion.img
+            src={slide.image}
+            alt={slide.category}
+            className="w-full h-full object-cover"
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.08 }}
+            transition={{ duration: SLIDE_DURATION + 1, ease: "linear" }}
+          />
+        </motion.div>
+      </AnimatePresence>
 
-        {/* ── Overlay ── */}
-        <div className="absolute inset-0 z-[1] bg-slate-900/60" />
-        {/* Bottom vignette for track nav readability */}
-        <div className="absolute inset-x-0 bottom-0 h-60 z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+      {/* ── Overlay ── */}
+      <div className="absolute inset-0 z-[1] bg-slate-900/60" />
+      {/* Bottom vignette for track nav readability */}
+      <div className="absolute inset-x-0 bottom-0 h-60 z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
-        {/* ── Content ── */}
-        <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-12 lg:px-20 pt-16 pb-40">
-          <div className="max-w-5xl">
-            <AnimatePresence mode="wait">
-              <motion.div key={slide.id}>
-                {/* Category Subtitle */}
-                <motion.div
-                  className="flex items-center gap-3 mb-6"
-                  variants={categoryVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                >
-                  <span className="block w-8 h-px bg-yellow-500" />
-                  <span className="text-xs font-bold font-heading text-yellow-500 uppercase tracking-[0.2em]">
-                    {slide.id} &mdash; {slide.category}
-                  </span>
-                </motion.div>
-
-                {/* Masked Title Reveal */}
-                <div className="overflow-hidden mb-6">
-                  <motion.h1
-                    className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.05] tracking-tight"
-                    variants={titleVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                  >
-                    {slide.title}
-                  </motion.h1>
-                </div>
-
-                {/* Description */}
-                <motion.p
-                  className="text-base md:text-lg text-gray-300 font-sans max-w-xl leading-relaxed mb-10"
-                  variants={descVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                >
-                  {slide.desc}
-                </motion.p>
-
-                {/* CTA */}
-                <motion.div
-                  variants={ctaVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                >
-                  <Link
-                    to={slide.link}
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-yellow-500 text-slate-900 text-sm font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
-                  >
-                    Explore Capabilities
-                    <span className="material-symbols-outlined text-lg">
-                      arrow_forward
-                    </span>
-                  </Link>
-                </motion.div>
+      {/* ── Content ── */}
+      <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-12 lg:px-20 pt-16 pb-40">
+        <div className="max-w-5xl">
+          <AnimatePresence mode="wait">
+            <motion.div key={slide.id}>
+              {/* Category Subtitle */}
+              <motion.div
+                className="flex items-center gap-3 mb-6"
+                variants={categoryVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <span className="block w-8 h-px bg-yellow-500" />
+                <span className="text-xs font-bold font-heading text-yellow-500 uppercase tracking-[0.2em]">
+                  {slide.id} &mdash; {slide.category}
+                </span>
               </motion.div>
-            </AnimatePresence>
-          </div>
+
+              {/* Masked Title Reveal */}
+              <div className="overflow-hidden mb-6">
+                <motion.h1
+                  className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.05] tracking-tight"
+                  variants={titleVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  {slide.title}
+                </motion.h1>
+              </div>
+
+              {/* Description */}
+              <motion.p
+                className="text-base md:text-lg text-gray-300 font-sans max-w-xl leading-relaxed mb-10"
+                variants={descVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                {slide.desc}
+              </motion.p>
+
+              {/* CTA */}
+              <motion.div
+                variants={ctaVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <Link
+                  to={slide.link}
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-yellow-500 text-slate-900 text-sm font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
+                >
+                  Explore Capabilities
+                  <span className="material-symbols-outlined text-lg">
+                    arrow_forward
+                  </span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* ── Industrial Track Navigation ── */}
+      <div className="absolute flex justify-between items-center bottom-0 inset-x-0 z-20 px-6 sm:px-12 lg:px-20 pb-8 md:pb-10">
+        {/* Slide Track Dots */}
+        <div className="flex items-center gap-3">
+          {SLIDES.map((s, i) => (
+            <button
+              key={s.id}
+              onClick={() => goToSlide(i)}
+              className={`h-[2px] transition-all duration-300 ${
+                i === current
+                  ? "w-10 bg-yellow-500"
+                  : "w-5 bg-white/25 hover:bg-white/50"
+              }`}
+              aria-label={`Go to slide ${s.id}`}
+            />
+          ))}
         </div>
 
-        {/* ── Industrial Track Navigation ── */}
-        <div className="absolute flex justify-between items-center bottom-0 inset-x-0 z-20 px-6 sm:px-12 lg:px-20 pb-8 md:pb-10">
-          {/* Slide Track Dots */}
-          <div className="flex items-center gap-3">
-            {SLIDES.map((s, i) => (
-              <button
-                key={s.id}
-                onClick={() => goToSlide(i)}
-                className={`h-[2px] transition-all duration-300 ${
-                  i === current
-                    ? "w-10 bg-yellow-500"
-                    : "w-5 bg-white/25 hover:bg-white/50"
-                }`}
-                aria-label={`Go to slide ${s.id}`}
-              />
-            ))}
-          </div>
-
-          <div className="flex items-end justify-between gap-6">
-            {/* Right: Arrow Buttons */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prev}
-                className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
-                aria-label="Previous slide"
-              >
-                <span className="material-symbols-outlined text-xl">
-                  arrow_back
-                </span>
-              </button>
-              <button
-                onClick={next}
-                className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
-                aria-label="Next slide"
-              >
-                <span className="material-symbols-outlined text-xl">
-                  arrow_forward
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 20% Sidebar Column ── */}
-      <aside className="w-full md:w-[25%] h-[25vh] md:h-full flex gap-1 flex-row md:flex-col">
-        {/* Top Row: Blogs */}
-        <div className="md:h-1/2 h-full bg-metallo-navy relative overflow-hidden group">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504711434969-e33886168d4c?w=600&q=80&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/80 transition-colors duration-300" />
-          <Link
-            to="/blogs"
-            className="relative z-10 flex flex-col justify-end h-full p-5 md:p-6"
-          >
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500 text-slate-900 text-[9px] font-bold uppercase tracking-widest rounded-sm w-fit mb-3 font-heading">
-              <span className="material-symbols-outlined text-xs">article</span>
-              Blog
-            </span>
-            <h3 className="text-sm md:text-base font-heading font-extrabold text-white leading-snug mb-2 line-clamp-2 group-hover:text-yellow-500 transition-colors duration-300">
-              How Stainless Steel is Revolutionizing Modern Infrastructure
-            </h3>
-            <p className="text-[11px] text-gray-400 font-sans leading-relaxed mb-3 line-clamp-2 hidden md:block">
-              Exploring the shift towards corrosion-resistant alloys in mega
-              construction projects across India.
-            </p>
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-500 uppercase tracking-wider font-heading group-hover:gap-2.5 transition-all">
-              Read More
-              <span className="material-symbols-outlined text-sm">
+        <div className="flex items-end justify-between gap-6">
+          {/* Right: Arrow Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={prev}
+              className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
+              aria-label="Previous slide"
+            >
+              <span className="material-symbols-outlined text-xl">
+                arrow_back
+              </span>
+            </button>
+            <button
+              onClick={next}
+              className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"
+              aria-label="Next slide"
+            >
+              <span className="material-symbols-outlined text-xl">
                 arrow_forward
               </span>
-            </span>
-          </Link>
+            </button>
+          </div>
         </div>
-
-        {/* Bottom Row: Press Releases */}
-        <div className="md:h-1/2 h-full bg-slate-800 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&q=80&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/80 transition-colors duration-300" />
-          <Link
-            to="/press"
-            className="relative z-10 flex flex-col justify-end h-full p-5 md:p-6"
-          >
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500 text-slate-900 text-[9px] font-bold uppercase tracking-widest rounded-sm w-fit mb-3 font-heading">
-              <span className="material-symbols-outlined text-xs">
-                newsmode
-              </span>
-              Press Release
-            </span>
-            <h3 className="text-sm md:text-base font-heading font-extrabold text-white leading-snug mb-2 line-clamp-2 group-hover:text-yellow-500 transition-colors duration-300">
-              Metallo Expands Wire & Cable Division with ₹200 Cr Investment
-            </h3>
-            <p className="text-[11px] text-gray-400 font-sans leading-relaxed mb-3 line-clamp-2 hidden md:block">
-              New facility to boost production capacity by 3x, serving India's
-              growing power infrastructure demand.
-            </p>
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-yellow-500 uppercase tracking-wider font-heading group-hover:gap-2.5 transition-all">
-              Read More
-              <span className="material-symbols-outlined text-sm">
-                arrow_forward
-              </span>
-            </span>
-          </Link>
-        </div>
-      </aside>
-    </div>
+      </div>
+    </section>
   );
 };
 

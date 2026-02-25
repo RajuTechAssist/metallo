@@ -672,7 +672,7 @@ const Header: React.FC = () => {
                 to="/contact"
                 className="hidden md:inline-flex items-center px-6 py-3 bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-sm uppercase tracking-wide transition-colors rounded-sm"
               >
-                Get a Quote Now
+                Contact Us
                 <span className="material-symbols-outlined ml-2 text-lg">
                   arrow_forward
                 </span>
