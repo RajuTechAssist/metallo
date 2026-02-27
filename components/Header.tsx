@@ -10,15 +10,26 @@ const Header: React.FC = () => {
   const lastScrollY = useRef(0);
   const productsTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const scrollUpDistance = useRef(0);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY < 50) {
+      const delta = lastScrollY.current - currentScrollY; // positive = scrolling up
+
+      if (currentScrollY < 80) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
+        scrollUpDistance.current = 0;
+      } else if (delta < 0) {
+        // Scrolling down — hide and reset
         setIsVisible(false);
+        scrollUpDistance.current = 100;
       } else {
-        setIsVisible(true);
+        // Scrolling up — accumulate before revealing
+        scrollUpDistance.current += delta;
+        if (scrollUpDistance.current > 80) {
+          setIsVisible(true);
+        }
       }
       lastScrollY.current = currentScrollY;
     };
@@ -336,86 +347,86 @@ const Header: React.FC = () => {
   ];
 
   const placeholderTabs: Record<string, { title: string; links: string[] }[]> =
-    {
-      welding: [
-        {
-          title: "Arc Welding",
-          links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
-        },
-        {
-          title: "MIG / MAG",
-          links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
-        },
-        {
-          title: "TIG & Specialty",
-          links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
-        },
-      ],
-      tools: [
-        {
-          title: "Power Tools",
-          links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
-        },
-        {
-          title: "Cutting Tools",
-          links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
-        },
-        {
-          title: "Hand Tools",
-          links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
-        },
-      ],
-      cabletray: [
-        {
-          title: "Ladder Type",
-          links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
-        },
-        {
-          title: "Perforated Type",
-          links: [
-            "GI Perforated Tray",
-            "SS Perforated Tray",
-            "Powder Coated Tray",
-          ],
-        },
-        {
-          title: "Accessories",
-          links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
-        },
-      ],
-      casting: [
-        {
-          title: "Aluminium Die Cast",
-          links: [
-            "Gravity Casting",
-            "Pressure Die Casting",
-            "Low Pressure Casting",
-          ],
-        },
-        {
-          title: "Zinc Die Cast",
-          links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
-        },
-        {
-          title: "Finishing",
-          links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
-        },
-      ],
-      tech: [
-        {
-          title: "Automation",
-          links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
-        },
-        {
-          title: "Drives & Motors",
-          links: ["VFD Drives", "Servo Motors", "Soft Starters"],
-        },
-        {
-          title: "Sensors & IoT",
-          links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
-        },
-      ],
-    };
+  {
+    welding: [
+      {
+        title: "Arc Welding",
+        links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
+      },
+      {
+        title: "MIG / MAG",
+        links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
+      },
+      {
+        title: "TIG & Specialty",
+        links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
+      },
+    ],
+    tools: [
+      {
+        title: "Power Tools",
+        links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
+      },
+      {
+        title: "Cutting Tools",
+        links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
+      },
+      {
+        title: "Hand Tools",
+        links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
+      },
+    ],
+    cabletray: [
+      {
+        title: "Ladder Type",
+        links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
+      },
+      {
+        title: "Perforated Type",
+        links: [
+          "GI Perforated Tray",
+          "SS Perforated Tray",
+          "Powder Coated Tray",
+        ],
+      },
+      {
+        title: "Accessories",
+        links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
+      },
+    ],
+    casting: [
+      {
+        title: "Aluminium Die Cast",
+        links: [
+          "Gravity Casting",
+          "Pressure Die Casting",
+          "Low Pressure Casting",
+        ],
+      },
+      {
+        title: "Zinc Die Cast",
+        links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
+      },
+      {
+        title: "Finishing",
+        links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
+      },
+    ],
+    tech: [
+      {
+        title: "Automation",
+        links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
+      },
+      {
+        title: "Drives & Motors",
+        links: ["VFD Drives", "Servo Motors", "Soft Starters"],
+      },
+      {
+        title: "Sensors & IoT",
+        links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
+      },
+    ],
+  };
 
   const renderTabContent = () => {
     const currentVertical = verticals.find((v) => v.key === activeTab);
@@ -719,11 +730,10 @@ const Header: React.FC = () => {
 
         {/* ── TABBED SPLIT-PANE MEGA MENU ── */}
         <div
-          className={`absolute left-0 right-0 z-40 transition-all duration-200 ease-out ${
-            isProductsOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-1 pointer-events-none"
-          }`}
+          className={`absolute left-0 right-0 z-40 transition-all duration-200 ease-out ${isProductsOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-1 pointer-events-none"
+            }`}
           onMouseEnter={openProducts}
           onMouseLeave={closeProducts}
         >
@@ -734,11 +744,10 @@ const Header: React.FC = () => {
                 <button
                   key={v.key}
                   onMouseEnter={() => setActiveTab(v.key)}
-                  className={`w-full text-left px-6 py-3.5 flex items-center gap-3 text-sm font-heading font-bold transition-all duration-150 border-l-4 ${
-                    activeTab === v.key
-                      ? "bg-slate-800 text-yellow-500 border-yellow-500"
-                      : "text-slate-300 hover:text-white border-transparent"
-                  }`}
+                  className={`w-full text-left px-6 py-3.5 flex items-center gap-3 text-sm font-heading font-bold transition-all duration-150 border-l-4 ${activeTab === v.key
+                    ? "bg-slate-800 text-yellow-500 border-yellow-500"
+                    : "text-slate-300 hover:text-white border-transparent"
+                    }`}
                 >
                   <span className="material-symbols-outlined text-lg">
                     {v.icon}

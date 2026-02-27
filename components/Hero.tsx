@@ -23,61 +23,58 @@ const SLIDES: Slide[] = [
   {
     id: "01",
     category: "Structural Steel",
-    title: "Forging the Backbone of Infrastructure.",
-    desc: "IS:2062 compliant high-tensile steel for heavy engineering.",
-    image: "/banner1.jpg",
+    title: "Infinite Capacity. Standardized Quality.",
+    desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
+    image: "/Steel/structural_steel_beam.jpg",
     link: "/products/steel",
   },
   {
     id: "02",
     category: "Wire & Cable",
     title: "Powering the National Grid.",
-    desc: "Engineered high-voltage transmission up to 33kV. Zero downtime.",
-    image: "/banner2.jpg",
+    desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
+    image: "/wire&cable/bg_hero_high_voltage_cables_v2.png",
     link: "/products/wire-cables",
   },
   {
     id: "03",
-    category: "Cable Tray",
-    title: "Structured Cable Management.",
-    desc: "GI, SS & Aluminium cable trays engineered for industrial routing.",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80&auto=format&fit=crop",
-    link: "/products/cable-tray",
+    category: "Cable Trays",
+    title: "Structural Routing Systems",
+    desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
+    image: "../cable Trays/cableTrays1.jpg",
+    link: "/products/cable-trays",
   },
   {
     id: "04",
     category: "Welding Consumables",
     title: "Mission-Critical Precision.",
-    desc: "AWS certified alloys for high-stress industrial joints.",
-    image: "/banner3.jpg",
+    desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
+    image: "public/Welding Consumables/pipeline.jpg",
     link: "/products/welding",
   },
   {
     id: "05",
     category: "Power Tools",
-    title: "Heavy-Duty Execution.",
-    desc: "Industrial-grade tools built for uncompromising safety and scale.",
-    image: "/banner4.jpg",
+    title: "Heavy-Duty Execution at Scale.",
+    desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
+    image: "public/powerTools/powerTool.jpg",
     link: "/products/tools",
   },
   {
     id: "06",
     category: "Die Casting",
     title: "Micro-Tolerance Engineering.",
-    desc: "Precision aluminum components for automotive and aerospace.",
-    image:
-      "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920&q=80&auto=format&fit=crop",
+    desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
+    image: "public/diecasting/die-casting-process-foundry.jpg",
     link: "/products/die-casting",
   },
   {
     id: "07",
     category: "Industrial Tech",
-    title: "Automating the Future.",
-    desc: "Smart platform integration for seamless supply chain visibility.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80&auto=format&fit=crop",
-    link: "/products/tech-products",
+    title: "The Operating System for Infrastructure.",
+    desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
+    image: "public/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
+    link: "/products/tech",
   },
 ];
 
@@ -259,11 +256,10 @@ const Hero: React.FC = () => {
             <button
               key={s.id}
               onClick={() => goToSlide(i)}
-              className={`h-[2px] transition-all duration-300 ${
-                i === current
-                  ? "w-10 bg-yellow-500"
-                  : "w-5 bg-white/25 hover:bg-white/50"
-              }`}
+              className={`h-[2px] transition-all duration-300 ${i === current
+                ? "w-10 bg-yellow-500"
+                : "w-5 bg-white/25 hover:bg-white/50"
+                }`}
               aria-label={`Go to slide ${s.id}`}
             />
           ))}

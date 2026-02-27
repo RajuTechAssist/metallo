@@ -21,7 +21,7 @@ const Certifications: React.FC = () => {
   return (
     <section className="bg-gray-50 py-20 border-t border-gray-200 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Text Data Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading">
@@ -31,7 +31,7 @@ const Certifications: React.FC = () => {
             Quality is not just a promise; it is a certified standard.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            At Metallo, compliance is non-negotiable. Our manufacturing facilities are ISO certified, and our products undergo rigorous testing to meet Bureau of Indian Standards (BIS) and international safety norms.
+            Our Distributed Manufacturing OS is built on absolute trust and traceability. Every facility in our network is strictly audited, and every production batch passes through our Central QC Hub with full Material Testing Certificates (MTC) to meet the most demanding Tier-1 EPC standards.
           </p>
         </div>
 
@@ -78,41 +78,41 @@ const Certifications: React.FC = () => {
                 if (el?.parentElement) el.parentElement.classList.add('cert-scroll');
               }}
             >
-            
+
               {/* ISO */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/iso.svg" alt="ISO 9001:2015" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ISO 9001:2015</span>
+                <img src="/iso.svg" alt="ISO 9001:2015" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ISO 9001:2015</span>
               </div>
 
               {/* Indian Railways */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/india-railways.svg" alt="Indian Railways" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">Indian Railways</span>
+                <img src="/india-railways.svg" alt="Indian Railways" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">Indian Railways</span>
               </div>
 
               {/* NPC */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/npc.svg" alt="NPC" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NPC</span>
+                <img src="/npc.svg" alt="NPC" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NPC</span>
               </div>
 
               {/* NTPC */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/ntpc-1.svg" alt="NTPC" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NTPC</span>
+                <img src="/ntpc-1.svg" alt="NTPC" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NTPC</span>
               </div>
 
               {/* EIL */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/eil.svg" alt="EIL" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">EIL</span>
+                <img src="/eil.svg" alt="EIL" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">EIL</span>
               </div>
 
               {/* ASME */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                  <img src="/asme-logo-two.svg" alt="ASME" className="h-20 w-auto object-contain" />
-                  <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ASME</span>
+                <img src="/asme-logo-two.svg" alt="ASME" className="h-20 w-auto object-contain" />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ASME</span>
               </div>
 
             </div>

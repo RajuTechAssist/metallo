@@ -11,9 +11,9 @@ const Home: React.FC = () => {
     <>
       <Hero />
       <About />
+      <Industries />
       <Verticals />
       <WorldMap />
-      <Industries />
       <Certifications />
     </>
   );

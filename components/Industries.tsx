@@ -63,17 +63,17 @@ const Industries: React.FC = () => {
         */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 md:gap-4 md:pb-0 md:mx-0 md:px-0 md:overflow-visible no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {industriesData.map((industry, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group relative h-[480px] min-w-[85vw] md:min-w-0 md:w-full snap-center overflow-hidden cursor-pointer bg-gray-900 rounded-sm"
             >
               {/* Background Image */}
-              <img 
-                src={industry.image} 
-                alt={industry.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90" 
+              <img
+                src={industry.image}
+                alt={industry.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90"
               />
-              
+
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300"></div>
 
@@ -83,7 +83,7 @@ const Industries: React.FC = () => {
                   <h3 className="text-xl font-bold font-heading text-white leading-tight max-w-[80%] drop-shadow-md">
                     {industry.title}
                   </h3>
-                  
+
                   {/* Arrow Button */}
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-metallo-gold flex items-center justify-center transform transition-all duration-300 group-hover:bg-white group-hover:scale-110">
                     <span className="material-symbols-outlined text-metallo-navy text-xl font-bold">navigate_next</span>
