@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 interface Vertical {
@@ -85,67 +85,184 @@ const verticalsData: Vertical[] = [
   }
 ];
 
+/* ─── Card component (shared between grid and scroll views) ─── */
+const VerticalCard: React.FC<{ item: Vertical; className?: string }> = ({ item, className = '' }) => (
+  <div
+    className={`group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${className}`}
+  >
+    {/* Image Header */}
+    <div className="h-48 overflow-hidden relative shrink-0">
+      <img
+        alt={item.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        src={item.image}
+      />
+      <div className="absolute top-4 right-4 bg-metallo-navy text-white p-2 rounded-full shadow-lg z-10">
+        <span className="material-symbols-outlined">{item.icon}</span>
+      </div>
+      <div className="absolute inset-0 bg-metallo-navy/0 group-hover:bg-metallo-navy/10 transition-colors duration-300"></div>
+    </div>
+
+    {/* Content */}
+    <div className="p-8 flex flex-col flex-grow">
+      <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2 group-hover:text-metallo-gold-hover transition-colors">{item.title}</h3>
+      <p className="text-xs font-bold text-metallo-navy/60 uppercase tracking-widest mb-4 font-heading">{item.subtitle}</p>
+      <p className="text-gray-600 mb-6 flex-grow text-sm leading-relaxed border-b border-gray-100 pb-6">
+        {item.description}
+      </p>
+
+      <ul className="text-sm text-gray-500 space-y-2 mb-6">
+        {item.points.map((point, idx) => (
+          <li key={idx} className="flex items-center">
+            <span className="w-1.5 h-1.5 bg-metallo-gold rounded-full mr-2"></span>
+            {point}
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        to={item.link}
+        className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-gold-hover transition-colors mt-auto group/link"
+      >
+        {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`}
+        <span className="material-symbols-outlined text-sm ml-1 transform group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+      </Link>
+    </div>
+  </div>
+);
+
 const Verticals: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [totalDots, setTotalDots] = useState(1);
+
+  const updateDots = useCallback(() => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollLeft = container.scrollLeft;
+    const scrollWidth = container.scrollWidth;
+    const clientWidth = container.clientWidth;
+
+    if (scrollWidth <= clientWidth) {
+      setTotalDots(1);
+      setActiveIndex(0);
+      return;
+    }
+
+    const cards = container.querySelectorAll('[data-card]');
+    if (cards.length === 0) return;
+    const cardEl = cards[0] as HTMLElement;
+    const cardWidth = cardEl.offsetWidth + 16;
+    const visibleCards = Math.round(clientWidth / cardWidth);
+    const pages = Math.ceil(cards.length / visibleCards);
+    setTotalDots(pages);
+
+    const maxScroll = scrollWidth - clientWidth;
+    const progress = scrollLeft / maxScroll;
+    const idx = Math.round(progress * (pages - 1));
+    setActiveIndex(Math.min(idx, pages - 1));
+  }, []);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    updateDots();
+    container.addEventListener('scroll', updateDots, { passive: true });
+    window.addEventListener('resize', updateDots);
+    return () => {
+      container.removeEventListener('scroll', updateDots);
+      window.removeEventListener('resize', updateDots);
+    };
+  }, [updateDots]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const card = scrollRef.current.querySelector('[data-card]') as HTMLElement;
+    const cardWidth = card?.offsetWidth || 400;
+    const gap = 16;
+    const scrollAmount = cardWidth + gap;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
+  const goToDot = (index: number) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const targetScroll = totalDots <= 1 ? 0 : (index / (totalDots - 1)) * maxScroll;
+    container.scrollTo({ left: targetScroll, behavior: 'smooth' });
+  };
+
   return (
     <section className="py-24 bg-gray-50" id="verticals">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
           <span className="text-metallo-navy/70 font-bold uppercase tracking-widest text-sm block mb-2 font-heading">Our Product Spectrum</span>
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">Complete Industrial Solutions</h2>
-          <p className="text-gray-600 text-lg">From the foundation to the finishing touches, we manufacture the critical components that power your projects.</p>
+          <p className="text-gray-600 text-lg max-w-3xl">From the foundation to the finishing touches, we manufacture the critical components that power your projects.</p>
         </div>
 
-        {/* Horizontally scrollable Verticals section for all devices */}
-        <div
-          className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 no-scrollbar"
-          style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          tabIndex={0}
-        >
-          {verticalsData.map((item) => (
-            <div
+        {/* ── Desktop xl+: Grid layout (same as Industries: 4+3) ── */}
+        <div className="hidden xl:grid xl:grid-cols-12 xl:gap-4">
+          {verticalsData.map((item, index) => (
+            <VerticalCard
               key={item.id}
-              className="min-w-[85vw] max-w-[90vw] snap-center group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 md:min-w-[400px] md:max-w-[420px]"
-            >
-              {/* Image Header */}
-              <div className="h-48 overflow-hidden relative shrink-0">
-                <img
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  src={item.image}
-                />
-                <div className="absolute top-4 right-4 bg-metallo-navy text-white p-2 rounded-full shadow-lg z-10">
-                  <span className="material-symbols-outlined">{item.icon}</span>
-                </div>
-                <div className="absolute inset-0 bg-metallo-navy/0 group-hover:bg-metallo-navy/10 transition-colors duration-300"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold font-heading text-metallo-navy mb-2 group-hover:text-metallo-gold-hover transition-colors">{item.title}</h3>
-                <p className="text-xs font-bold text-metallo-navy/60 uppercase tracking-widest mb-4 font-heading">{item.subtitle}</p>
-                <p className="text-gray-600 mb-6 flex-grow text-sm leading-relaxed border-b border-gray-100 pb-6">
-                  {item.description}
-                </p>
-
-                <ul className="text-sm text-gray-500 space-y-2 mb-6">
-                  {item.points.map((point, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <span className="w-1.5 h-1.5 bg-metallo-gold rounded-full mr-2"></span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to={item.link}
-                  className="inline-flex items-center text-metallo-navy font-bold uppercase text-sm font-heading hover:text-metallo-gold-hover transition-colors mt-auto group/link"
-                >
-                  {item.id === 'die-casting' ? 'Explore Capabilities' : item.id === 'tech' ? 'Discover Tech' : `View ${item.title.split(' ')[0]} Catalog`}
-                  <span className="material-symbols-outlined text-sm ml-1 transform group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                </Link>
-              </div>
-            </div>
+              item={item}
+              className={index < 4 ? 'xl:col-span-3' : 'xl:col-span-4'}
+            />
           ))}
+        </div>
+
+        {/* ── Mobile / Tablet: Horizontal scroll with side arrows ── */}
+        <div className="xl:hidden relative">
+
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-metallo-navy hover:text-white hover:border-metallo-navy transition-all duration-300 text-metallo-navy"
+            aria-label="Scroll left"
+          >
+            <span className="material-symbols-outlined text-xl">chevron_left</span>
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-20 w-11 h-11 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-metallo-navy hover:text-white hover:border-metallo-navy transition-all duration-300 text-metallo-navy"
+            aria-label="Scroll right"
+          >
+            <span className="material-symbols-outlined text-xl">chevron_right</span>
+          </button>
+
+          {/* Scrollable cards */}
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory gap-4 pb-2 -mx-4 px-4 no-scrollbar"
+            style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {verticalsData.map((item) => (
+              <div key={item.id} data-card className="min-w-[85vw] max-w-[90vw] sm:min-w-[60vw] sm:max-w-[65vw] md:min-w-[45vw] md:max-w-[48vw] lg:min-w-[30vw] lg:max-w-[33vw] snap-center shrink-0">
+                <VerticalCard item={item} className="h-full" />
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: totalDots }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToDot(i)}
+                aria-label={`Go to page ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${i === activeIndex
+                    ? 'w-8 h-2.5 bg-metallo-navy'
+                    : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
