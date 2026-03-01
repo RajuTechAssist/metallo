@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Industry {
   title: string;
   context: string;
   supply: string;
   image: string;
+  slug: string;
 }
 
 const industriesData: Industry[] = [
@@ -12,60 +14,111 @@ const industriesData: Industry[] = [
     title: "Infrastructure & Construction",
     context: "Highways, Bridges, Metros.",
     supply: "TMT Bars, Structural Steel, Welding Consumables.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi",
+    slug: "/industries/infrastructure",
   },
   {
     title: "Power & Transmission",
     context: "Substations, Power Grids, Solar Parks.",
     supply: "HT/LT Cables, Transformers (Tech Products), Conductors.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBDZjVbwQlrHRd6tRUogRI_cXM6vV-f54c71VgTeceUIEGedcTl_LKDQV4qw1XdT_Fxvt4M_BE3bKJ53rI3IT3bYIZvEWUdLBMuiGCmNWg5JRcHUSrwUPwx4yPdCESaoIM-Pq05ife-3USdw9u4cZVo_Y2hN00koG3kCxK7jMvgzYjstw7QcHz_Ygzdz5nM46pQlvW6L-PzIxgsfTwf9DkQ3C98THO019yg5QRv9VVh433yNPzhRril8pV0_BG9dlP4bgvfYyGYXSYw"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBDZjVbwQlrHRd6tRUogRI_cXM6vV-f54c71VgTeceUIEGedcTl_LKDQV4qw1XdT_Fxvt4M_BE3bKJ53rI3IT3bYIZvEWUdLBMuiGCmNWg5JRcHUSrwUPwx4yPdCESaoIM-Pq05ife-3USdw9u4cZVo_Y2hN00koG3kCxK7jMvgzYjstw7QcHz_Ygzdz5nM46pQlvW6L-PzIxgsfTwf9DkQ3C98THO019yg5QRv9VVh433yNPzhRril8pV0_BG9dlP4bgvfYyGYXSYw",
+    slug: "/industries/power-transmission",
+  },
+  {
+    title: "Oil & Gas / Process Industries",
+    context: "Refineries, Pipelines, Chemical Plants.",
+    supply: "SS Pipes & Fittings, Modular Skids, Valves, Industrial Fabrications.",
+    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80&auto=format&fit=crop",
+    slug: "/industries/oil-gas",
   },
   {
     title: "Automotive & Mobility",
     context: "EV Plants, Auto-ancillaries.",
     supply: "Die Casting Components, Precision Tools, Fasteners.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtBtj4Jf7u_tz6kK5SdwAJWl9rKn31fEry9IW7eoAA4QwOwaLOYxwhoBwCB-c7oEy5nAp9sFCJzggt6AsvurszNzL44FAv3HZirh-pQp8_FxH8ffcOt2nlyOnaMxeebdk_V2Tll0IFOHpAsZ4dAJKDTswFf5QfxtixK4o_SgyfsWTwEa-ti5tiVxBnUzXiaoyVTv47YLnnYjxjQtrmiwDHdeloHfhbDsqhqAUS7B9wgSpVg9jrn_NoAoIHaT9g6YKCc67jwJCU9jH_"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtBtj4Jf7u_tz6kK5SdwAJWl9rKn31fEry9IW7eoAA4QwOwaLOYxwhoBwCB-c7oEy5nAp9sFCJzggt6AsvurszNzL44FAv3HZirh-pQp8_FxH8ffcOt2nlyOnaMxeebdk_V2Tll0IFOHpAsZ4dAJKDTswFf5QfxtixK4o_SgyfsWTwEa-ti5tiVxBnUzXiaoyVTv47YLnnYjxjQtrmiwDHdeloHfhbDsqhqAUS7B9wgSpVg9jrn_NoAoIHaT9g6YKCc67jwJCU9jH_",
+    slug: "/industries/automotive",
   },
   {
     title: "Heavy Engineering",
     context: "Steel Plants, Refineries, Cement Factories.",
     supply: "Welding Electrodes, Industrial Safety Gear, Grinding Wheels.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC61PXpZxOKywjlGmchQoyvj5kxgg74AzQNjsM6IlELg8WD9q08FA7iHgfgxPrbktiBFAYaAPpf4vj0SJSRdHT31rrDtKVgL7eI18czoXfNIzjCyUCgO9cDnjvEK4tI5nqXvzEzHpqdE0ljEyvtKhEa3a74QbVMgDkYuIRPaE-XbjlpGJ8mNwKNg8DayJN3fdXT9R-MQlt4xj5UGenHE1ZjK_nIm9ILPWm_f3pI6Wazz4P_5xt2LTjKqGly9KeXo5xQ91z7R087khNz"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC61PXpZxOKywjlGmchQoyvj5kxgg74AzQNjsM6IlELg8WD9q08FA7iHgfgxPrbktiBFAYaAPpf4vj0SJSRdHT31rrDtKVgL7eI18czoXfNIzjCyUCgO9cDnjvEK4tI5nqXvzEzHpqdE0ljEyvtKhEa3a74QbVMgDkYuIRPaE-XbjlpGJ8mNwKNg8DayJN3fdXT9R-MQlt4xj5UGenHE1ZjK_nIm9ILPWm_f3pI6Wazz4P_5xt2LTjKqGly9KeXo5xQ91z7R087khNz",
+    slug: "/industries/heavy-engineering",
   },
   {
     title: "Railways & Defence",
     context: "Tracks, Wagons, Ordnance Factories.",
     supply: "Signaling Cables, Special Alloy Steel, Maintenance Tools.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8Bz4tUWnHbL1aZBaCZsnkfKCLZdFuqi4f8jGamOr53cDK4Qc2_T5RGGPBpJamlx4NFiBwQVVCuLrYT4XsLB8LJmBo0peB4I0P0pkFe3r9RNiq8to5H4wMzD-jvpey1495Rk7q6tivph2aPiZre2fF6ytxuWSwy8f6n15hAbaGXke_mmjPx6YaM1ORY8hRQvnYb7ey-z9RyEtL-9qO9p2P4r8GzP-bhloXjkYnK8gINFDmRZ9j2kiPcawcl_nyDVYgJPjjk_wpzChU"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8Bz4tUWnHbL1aZBaCZsnkfKCLZdFuqi4f8jGamOr53cDK4Qc2_T5RGGPBpJamlx4NFiBwQVVCuLrYT4XsLB8LJmBo0peB4I0P0pkFe3r9RNiq8to5H4wMzD-jvpey1495Rk7q6tivph2aPiZre2fF6ytxuWSwy8f6n15hAbaGXke_mmjPx6YaM1ORY8hRQvnYb7ey-z9RyEtL-9qO9p2P4r8GzP-bhloXjkYnK8gINFDmRZ9j2kiPcawcl_nyDVYgJPjjk_wpzChU",
+    slug: "/industries/railways-defence",
   },
   {
     title: "Smart Cities & Urban Development",
     context: "Commercial Complexes, IT Parks.",
     supply: "Control & Instrumentation Cables, Plumbing/Piping, Fire Safety Systems.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKs8siiRfxuZGeiEFtUE_A5slo4Zb--Ajw56FSrLeWu0wPS0jO7N_lxWhfBV3l_TolzB4tdvCqejo8lIP_8e1ftTiEoVfcipEdiStFi3PV2oxt5LqkcCQBsLGA6R7TjsBdyDnBEQGYQFctOBCWnHkVh_1h0GsK9sYpDT4jGUFUbgPaUtNsQPsNQ9RMDMg4OJk6nUH436NqG2SkVUFWy74kmIQ8gTKezMor_vxRLgXBsu-DbzVwm6Saf4uRNOhtyNSpPIlhNsxcd1UK"
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKs8siiRfxuZGeiEFtUE_A5slo4Zb--Ajw56FSrLeWu0wPS0jO7N_lxWhfBV3l_TolzB4tdvCqejo8lIP_8e1ftTiEoVfcipEdiStFi3PV2oxt5LqkcCQBsLGA6R7TjsBdyDnBEQGYQFctOBCWnHkVh_1h0GsK9sYpDT4jGUFUbgPaUtNsQPsNQ9RMDMg4OJk6nUH436NqG2SkVUFWy74kmIQ8gTKezMor_vxRLgXBsu-DbzVwm6Saf4uRNOhtyNSpPIlhNsxcd1UK",
+    slug: "/industries/smart-cities",
   }
 ];
 
 const Industries: React.FC = () => {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.querySelector('a')?.offsetWidth || 300;
+    const gap = 16;
+    const scrollAmount = cardWidth + gap;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className="py-24 bg-white border-t border-gray-100">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif text-metallo-navy mb-4">
-            Industries we serve
-          </h2>
-          <div className="w-20 h-1 bg-metallo-gold"></div>
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif text-metallo-navy mb-4">
+              Industries we serve
+            </h2>
+            <div className="w-20 h-1 bg-metallo-gold"></div>
+          </div>
+
+          {/* Scroll arrows — visible below xl */}
+          <div className="flex gap-2 xl:hidden">
+            <button
+              onClick={() => scroll('left')}
+              className="w-10 h-10 rounded-full border-2 border-metallo-navy/20 flex items-center justify-center hover:bg-metallo-navy hover:text-white hover:border-metallo-navy transition-all duration-300 text-metallo-navy"
+              aria-label="Scroll left"
+            >
+              <span className="material-symbols-outlined text-xl">chevron_left</span>
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="w-10 h-10 rounded-full border-2 border-metallo-navy/20 flex items-center justify-center hover:bg-metallo-navy hover:text-white hover:border-metallo-navy transition-all duration-300 text-metallo-navy"
+              aria-label="Scroll right"
+            >
+              <span className="material-symbols-outlined text-xl">chevron_right</span>
+            </button>
+          </div>
         </div>
 
         {/* 
-          Mobile: Flex row with overflow-x-auto for horizontal scroll.
-          Desktop: Standard Grid layout.
+          Mobile / Tablet (< xl): Horizontal scroll carousel.
+          Desktop xl+: 12-col CSS Grid (4+3 balanced rows).
         */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 md:gap-4 md:pb-0 md:mx-0 md:px-0 md:overflow-visible no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 xl:grid xl:grid-cols-12 xl:gap-4 xl:pb-0 xl:mx-0 xl:px-0 xl:overflow-visible no-scrollbar"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {industriesData.map((industry, index) => (
-            <div
+            <Link
+              to={industry.slug}
               key={index}
-              className="group relative h-[480px] min-w-[85vw] md:min-w-0 md:w-full snap-center overflow-hidden cursor-pointer bg-gray-900 rounded-sm"
+              className={`group relative h-[480px] min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] lg:min-w-[30vw] xl:min-w-0 snap-center overflow-hidden cursor-pointer bg-gray-900 rounded-sm block ${index < 4 ? 'xl:col-span-3' : 'xl:col-span-4'}`}
             >
               {/* Background Image */}
               <img
@@ -114,7 +167,7 @@ const Industries: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

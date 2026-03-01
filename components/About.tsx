@@ -7,7 +7,7 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* Text Content */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-6 leading-tight">
               The Distributed Manufacturing OS for <span className="text-metallo-gold-hover">Industrial India</span>.
             </h2>
@@ -49,36 +49,63 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* Image Card */}
-          <div className="order-1 flex flex-col gap-6">
-            <div className="group relative h-full min-h-[350px] w-full bg-gray-100 rounded-lg overflow-hidden shadow-2xl">
+          {/* Image Cards — Zetwerk-style */}
+          <div className="order-2 flex flex-col gap-6">
+
+            {/* Card 1 — India Entry for Global Manufacturers */}
+            <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <img
-                alt="Industrial Construction Site"
+                alt="India Entry for Global Manufacturers"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=85&auto=format&fit=crop"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy/90 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-4 text-white">
-                  <div className="text-5xl font-bold font-heading text-metallo-gold">10+</div>
-                  <div className="text-sm uppercase tracking-widest border-l-2 border-metallo-gold pl-4 font-bold">Facilities across<br />India & The Globe</div>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
+
+              {/* Top Headline */}
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+                <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
+                  Your Single Gateway<br />Into Indian Manufacturing
+                </h3>
+                <p className="text-sm font-sans text-metallo-gold-hover mt-2 tracking-wide">
+                  Audited local capacity, global standards, faster market entry.
+                </p>
+              </div>
+
+              {/* Bottom Description */}
+              <div className="absolute bottom-0 left-0 right-0 p-7">
+                <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
+                  Skip the complexity of India's fragmented supply base. Metallo's Manufacturing OS connects you to 500+ audited MSME facilities with standardized SOPs, Central QC Hub testing, and full MTC traceability—production-ready from day one.
+                </p>
               </div>
             </div>
-            <div className="group relative h-full min-h-[350px] w-full bg-gray-100 rounded-lg overflow-hidden shadow-2xl">
+
+            {/* Card 2 — Global Expansion for Indian Manufacturers */}
+            <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <img
-                alt="Industrial Construction Site"
+                alt="Global Expansion for Indian Manufacturers"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi"
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=85&auto=format&fit=crop"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy/90 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-4 text-white">
-                  <div className="text-5xl font-bold font-heading text-metallo-gold">10+</div>
-                  <div className="text-sm uppercase tracking-widest border-l-2 border-metallo-gold pl-4 font-bold">Facilities across<br />India & The Globe</div>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
+
+              {/* Top Headline */}
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+                <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
+                  From India to the World,<br />Built to Spec
+                </h3>
+                <p className="text-sm font-sans text-metallo-gold-hover overlay-black mt-2 tracking-wide">
+                  Export‑grade processes, unified QA, faster go‑to‑market.
+                </p>
+              </div>
+
+              {/* Bottom Description */}
+              <div className="absolute bottom-0 left-0 right-0 p-7">
+                <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
+                  Metallo converts your idle capacity into export‑grade output. We handle unified BOMs, procurement, and quality traceability across your MSME network—so you win international tenders in the Middle East, Africa, and beyond without adding CAPEX.
+                </p>
               </div>
             </div>
+
           </div>
 
         </div>
