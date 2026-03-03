@@ -57,7 +57,7 @@ const SLIDES: Slide[] = [
     category: "Power Tools",
     title: "Heavy-Duty Execution at Scale.",
     desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
-    image: "public/powerTools/powerTool.jpg",
+    image: "/powerTools/powerTool.jpg",
     link: "/products/tools",
   },
   {
@@ -65,7 +65,7 @@ const SLIDES: Slide[] = [
     category: "Die Casting",
     title: "Micro-Tolerance Engineering.",
     desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
-    image: "public/diecasting/die-casting-process-foundry.jpg",
+    image: "/diecasting/die-casting-process-foundry.jpg",
     link: "/products/die-casting",
   },
   {
@@ -73,7 +73,7 @@ const SLIDES: Slide[] = [
     category: "Industrial Tech",
     title: "The Operating System for Infrastructure.",
     desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
-    image: "public/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
+    image: "/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
     link: "/products/tech",
   },
 ];
