@@ -49,7 +49,7 @@ const SLIDES: Slide[] = [
     category: "Welding Consumables",
     title: "Mission-Critical Precision.",
     desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
-    image: "public/Welding Consumables/pipeline.jpg",
+    image: "/Welding Consumables/pipeline.jpg",
     link: "/products/welding",
   },
   {

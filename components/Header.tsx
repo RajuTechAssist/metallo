@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [activeTab, setActiveTab] = useState("steel");
+  const [hoveredVertical, setHoveredVertical] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const lastScrollY = useRef(0);
-  const productsTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scrollUpDistance = useRef(0);
 
@@ -428,208 +428,33 @@ const Header: React.FC = () => {
     ],
   };
 
-  const renderTabContent = () => {
-    const currentVertical = verticals.find((v) => v.key === activeTab);
-    switch (activeTab) {
-      case "steel":
-        return (
-          <>
-            <div className="grid grid-cols-4 gap-6">
-              {steelMegaMenu.map((col) => (
-                <div key={col.title}>
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="material-symbols-outlined text-metallo-gold text-lg">
-                      {col.icon}
-                    </span>
-                    <h4 className="text-xs font-heading font-bold text-metallo-navy uppercase tracking-wider">
-                      {col.title}
-                    </h4>
-                  </div>
-                  {"featured" in col && col.featured && (
-                    <div className="mb-4 bg-metallo-gold/5 border border-metallo-gold/20 rounded-lg p-3">
-                      <span className="inline-block px-2 py-0.5 bg-metallo-gold text-metallo-navy text-[9px] font-bold uppercase tracking-wider rounded-sm mb-1.5 font-sans">
-                        {col.featured.badge}
-                      </span>
-                      <h5 className="text-[13px] font-heading font-bold text-metallo-navy mb-0.5">
-                        {col.featured.name}
-                      </h5>
-                      <p className="text-[11px] text-gray-500 font-sans leading-relaxed mb-2">
-                        {col.featured.desc}
-                      </p>
-                      <Link
-                        to={col.featured.path || "/products/steel"}
-                        onClick={closeAllMenus}
-                        className="inline-flex items-center gap-1 text-[11px] font-bold text-metallo-gold hover:text-metallo-gold-hover transition-colors font-sans"
-                      >
-                        {col.featured.cta}{" "}
-                        <span className="material-symbols-outlined text-sm">
-                          arrow_forward
-                        </span>
-                      </Link>
-                    </div>
-                  )}
-                  <div className="space-y-0">
-                    {col.links.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        onClick={closeAllMenus}
-                        className="flex items-center justify-between py-2 group border-b border-gray-100 last:border-b-0 transition-all"
-                      >
-                        <span className="text-[13px] text-gray-600 group-hover:text-metallo-navy group-hover:translate-x-1 transition-all duration-200 font-sans">
-                          {link.name}
-                        </span>
-                        {"spec" in link && link.spec && (
-                          <span className="text-[9px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded font-sans tracking-wide group-hover:text-metallo-navy group-hover:bg-metallo-gold/10 transition-colors">
-                            {link.spec}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                  {"viewAll" in col && col.viewAll && (
-                    <Link
-                      to={
-                        "viewAllPath" in col
-                          ? col.viewAllPath
-                          : "/products/steel"
-                      }
-                      onClick={closeAllMenus}
-                      className="inline-flex items-center gap-1 mt-3 text-[11px] font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-sans transition-colors"
-                    >
-                      {col.viewAll}{" "}
-                      <span className="material-symbols-outlined text-sm">
-                        arrow_forward
-                      </span>
-                    </Link>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <p className="text-[11px] text-gray-400 font-sans">
-                <span className="font-bold text-metallo-navy">
-                  16+ product lines
-                </span>{" "}
-                — ASTM & ASME certified, factory-direct.
-              </p>
-              <Link
-                to="/products/steel"
-                onClick={closeAllMenus}
-                className="inline-flex items-center gap-1 text-[11px] font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-heading transition-colors"
-              >
-                View All Steel Products{" "}
-                <span className="material-symbols-outlined text-sm">
-                  arrow_forward
-                </span>
-              </Link>
-            </div>
-          </>
-        );
-      case "cables":
-        return (
-          <div className="flex gap-6">
-            <div className="flex-1 grid grid-cols-4 gap-5">
-              {cableColumns.map((col) => (
-                <div key={col.title}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="material-symbols-outlined text-metallo-gold text-base">
-                      {col.icon}
-                    </span>
-                    <h4 className="text-[11px] font-heading font-bold text-metallo-navy uppercase tracking-wider">
-                      {col.title}
-                    </h4>
-                  </div>
-                  <div className="space-y-0">
-                    {col.links.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        onClick={closeAllMenus}
-                        className="flex items-center justify-between py-1.5 group border-b border-gray-100 last:border-b-0 transition-all"
-                      >
-                        <span className="text-xs text-gray-600 group-hover:text-metallo-navy group-hover:translate-x-1 transition-all duration-200 font-sans">
-                          {link.name}
-                        </span>
-                        <span className="text-[8px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded font-sans tracking-wide group-hover:text-metallo-navy group-hover:bg-metallo-gold/10 transition-colors">
-                          {link.spec}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                  <Link
-                    to={col.viewAllPath}
-                    onClick={closeAllMenus}
-                    className="inline-flex items-center gap-1 mt-2 text-[10px] font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-sans transition-colors"
-                  >
-                    {col.viewAll}{" "}
-                    <span className="material-symbols-outlined text-sm">
-                      arrow_forward
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-            <div className="w-[170px] shrink-0 bg-slate-50 rounded-lg p-4 flex flex-col items-center text-center">
-              <span className="material-symbols-outlined text-metallo-gold text-3xl mb-2">
-                calculate
-              </span>
-              <h5 className="text-xs font-heading font-bold text-metallo-navy mb-1">
-                Ampacity Calculator
-              </h5>
-              <p className="text-[10px] text-gray-500 font-sans mb-3">
-                Find the right cable size for your load.
-              </p>
-              <Link
-                to="/products/wire-cables"
-                onClick={closeAllMenus}
-                className="text-[10px] font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-sans transition-colors"
-              >
-                Open Tool →
-              </Link>
-            </div>
-          </div>
-        );
-      default: {
-        const tabs = placeholderTabs[activeTab] || [];
-        return (
-          <div className="grid grid-cols-3 gap-8">
-            {tabs.map((group) => (
-              <div key={group.title}>
-                <h4 className="text-xs font-heading font-bold text-metallo-navy uppercase tracking-wider mb-4">
-                  {group.title}
-                </h4>
-                <div className="space-y-0">
-                  {group.links.map((linkName) => (
-                    <Link
-                      key={linkName}
-                      to={currentVertical?.path || "/"}
-                      onClick={closeAllMenus}
-                      className="block py-2 text-[13px] text-gray-600 hover:text-metallo-navy hover:translate-x-1 transition-all duration-200 font-sans border-b border-gray-100 last:border-b-0"
-                    >
-                      {linkName}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        );
-      }
-    }
+  /* ────── Cascading dropdown data per vertical ────── */
+  const verticalMenuData: Record<string, { title: string; icon: string; viewAllPath: string; links: { name: string; spec?: string; path: string }[] }[]> = {
+    steel: steelMegaMenu,
+    cables: cableColumns,
+    welding: placeholderTabs.welding?.map(g => ({ title: g.title, icon: 'whatshot', viewAllPath: '/products/welding', links: g.links.map(l => ({ name: l, path: '/products/welding' })) })) || [],
+    tools: placeholderTabs.tools?.map(g => ({ title: g.title, icon: 'construction', viewAllPath: '/products/tools', links: g.links.map(l => ({ name: l, path: '/products/tools' })) })) || [],
+    cabletray: placeholderTabs.cabletray?.map(g => ({ title: g.title, icon: 'grid_view', viewAllPath: '/products/cable-tray', links: g.links.map(l => ({ name: l, path: '/products/cable-tray' })) })) || [],
+    casting: placeholderTabs.casting?.map(g => ({ title: g.title, icon: 'precision_manufacturing', viewAllPath: '/products/die-casting', links: g.links.map(l => ({ name: l, path: '/products/die-casting' })) })) || [],
+    tech: placeholderTabs.tech?.map(g => ({ title: g.title, icon: 'memory', viewAllPath: '/products/tech-products', links: g.links.map(l => ({ name: l, path: '/products/tech-products' })) })) || [],
   };
 
-  const openProducts = () => {
-    if (productsTimeout.current) clearTimeout(productsTimeout.current);
-    setIsProductsOpen(true);
+  const openNav = (key: string) => {
+    if (navTimeout.current) clearTimeout(navTimeout.current);
+    setHoveredVertical(key);
+    // Auto-select first category
+    const cats = verticalMenuData[key];
+    if (cats && cats.length > 0) setHoveredCategory(cats[0].title);
   };
-  const closeProducts = () => {
-    productsTimeout.current = setTimeout(() => {
-      setIsProductsOpen(false);
-    }, 250);
+  const closeNav = () => {
+    navTimeout.current = setTimeout(() => {
+      setHoveredVertical(null);
+      setHoveredCategory(null);
+    }, 200);
   };
   const closeAllMenus = () => {
-    setIsProductsOpen(false);
+    setHoveredVertical(null);
+    setHoveredCategory(null);
   };
 
   return (
@@ -699,7 +524,7 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Row 3: Verticals Navigation */}
+          {/* Row 3: Verticals Navigation — Simple Links (mega menu deactivated) */}
           <div className="hidden md:block bg-white">
             <div className="flex justify-between items-center h-14">
               <nav className="flex space-x-12">
@@ -724,64 +549,6 @@ const Header: React.FC = () => {
                   menu
                 </span>
               </button>
-            </div>
-          </div>
-        </div>
-
-        {/* ── TABBED SPLIT-PANE MEGA MENU ── */}
-        <div
-          className={`absolute left-0 right-0 z-40 transition-all duration-200 ease-out ${isProductsOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-1 pointer-events-none"
-            }`}
-          onMouseEnter={openProducts}
-          onMouseLeave={closeProducts}
-        >
-          <div className="max-w-5xl mx-auto shadow-2xl rounded-b-xl overflow-hidden flex min-h-[400px]">
-            {/* LEFT PANE — Vertical Tabs */}
-            <div className="w-[250px] bg-slate-900 shrink-0 py-4 flex flex-col">
-              {verticals.map((v) => (
-                <button
-                  key={v.key}
-                  onMouseEnter={() => setActiveTab(v.key)}
-                  className={`w-full text-left px-6 py-3.5 flex items-center gap-3 text-sm font-heading font-bold transition-all duration-150 border-l-4 ${activeTab === v.key
-                    ? "bg-slate-800 text-yellow-500 border-yellow-500"
-                    : "text-slate-300 hover:text-white border-transparent"
-                    }`}
-                >
-                  <span className="material-symbols-outlined text-lg">
-                    {v.icon}
-                  </span>
-                  {v.name}
-                </button>
-              ))}
-              <div className="mt-auto px-6 pt-6 pb-4 border-t border-slate-800">
-                <Link
-                  to="/"
-                  onClick={closeAllMenus}
-                  className="text-[11px] font-bold text-slate-400 hover:text-yellow-500 uppercase tracking-wider font-heading transition-colors inline-flex items-center gap-1"
-                >
-                  View All Products{" "}
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT PANE — Dynamic Content */}
-            <div className="flex-1 bg-white p-8 overflow-y-auto">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, x: 8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -8 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                >
-                  {renderTabContent()}
-                </motion.div>
-              </AnimatePresence>
             </div>
           </div>
         </div>

@@ -23,6 +23,21 @@ interface SteelProduct {
   Material: string;
   Application: string;
   thumbnail: string;
+  /* ── NEW: Dimensions ── */
+  OD?: string;
+  WallThickness?: string;
+  Length?: string;
+  EndFinish?: string;
+  SurfaceFinish?: string;
+  /* ── NEW: Mechanical Properties ── */
+  TensileStrength?: string;
+  YieldStrength?: string;
+  Elongation?: string;
+  /* ── NEW: Quality ── */
+  Testing?: string;
+  Applications?: string[];
+  /* ── NEW: Application Image ── */
+  applicationImage?: string;
 }
 
 const PRODUCTS: SteelProduct[] = [
@@ -38,9 +53,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Refineries, boiler tubes, heat exchangers, chemical processing, high-pressure fluid transport",
     thumbnail:
-      "https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=120&q=80&auto=format&fit=crop",
+      "/Steel/seamless-pipe.png",
+    OD: "6.00 mm – 610 mm (¼\" NB – 24\" NB)",
+    WallThickness: "SCH 5S, 10S, 40S, 80S, 160, XXS",
+    Length: "Up to 12m (random or fixed cut)",
+    EndFinish: "Plain End / Beveled",
+    SurfaceFinish: "2B, BA, Pickled & Annealed",
+    TensileStrength: "515 MPa min (75,000 PSI)",
+    YieldStrength: "205 MPa min (30,000 PSI)",
+    Elongation: "≥ 35% (in 50mm)",
+    Testing: "PMI, Hydrostatic, Eddy Current, UT",
+    Applications: ["Oil & Gas", "Chemical Processing", "Power Plants", "Boilers & Heat Exchangers"],
+    applicationImage: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -54,9 +80,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Water treatment, food processing, structural framing, architectural, general piping",
     thumbnail:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=120&q=80&auto=format&fit=crop",
+    OD: "6.00 mm – 114.30 mm",
+    WallThickness: "0.5 mm – 6.00 mm",
+    Length: "Up to 30m",
+    EndFinish: "Plain End / Beveled",
+    SurfaceFinish: "2B, No.4, Mirror, Polished",
+    TensileStrength: "515 MPa min",
+    YieldStrength: "205 MPa min",
+    Elongation: "≥ 35%",
+    Testing: "PMI, Hydrostatic, Eddy Current",
+    Applications: ["Water Treatment", "Food & Dairy", "Structural", "Architectural"],
+    applicationImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -70,9 +107,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "High-pressure hydraulic lines, instrumentation, analytical instruments, chromatography",
     thumbnail:
       "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=120&q=80&auto=format&fit=crop",
+    OD: "3.18 mm – 25.40 mm (⅛\" – 1\")",
+    WallThickness: "0.5 mm – 3.05 mm",
+    Length: "Up to 24m (coiled or straight)",
+    EndFinish: "Plain End",
+    SurfaceFinish: "Bright Annealed (BA), Electropolished",
+    TensileStrength: "515 MPa min",
+    YieldStrength: "205 MPa min",
+    Elongation: "≥ 35%",
+    Testing: "PMI, Hydrostatic, Eddy Current, Flaring",
+    Applications: ["Instrumentation", "Hydraulic Systems", "Analytical Equipment", "Offshore"],
+    applicationImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -86,9 +134,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Shell & tube heat exchangers, boilers, superheaters, condensers",
     thumbnail:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=120&q=80&auto=format&fit=crop",
+    OD: "6.00 mm – 76.20 mm",
+    WallThickness: "0.5 mm – 4.00 mm",
+    Length: "Leg length up to 10m",
+    EndFinish: "U-bend radius as per spec",
+    SurfaceFinish: "Bright Annealed, Pickled",
+    TensileStrength: "515 MPa min",
+    YieldStrength: "205 MPa min",
+    Elongation: "≥ 35%",
+    Testing: "PMI, Hydrostatic, Eddy Current, Flattening",
+    Applications: ["Heat Exchangers", "Boilers", "Condensers", "Power Generation"],
+    applicationImage: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -102,9 +161,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "High-pressure steam lines, boilers, refineries, power plants, process piping",
     thumbnail:
       "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=120&q=80&auto=format&fit=crop",
+    OD: "21.3 mm – 610 mm (½\" NB – 24\" NB)",
+    WallThickness: "SCH 40, 80, 120, 160, XXS",
+    Length: "5.8m – 12m (random or fixed)",
+    EndFinish: "Plain End / Beveled / Threaded",
+    SurfaceFinish: "Black, Oiled, Varnished",
+    TensileStrength: "415 MPa min (60,000 PSI)",
+    YieldStrength: "240 MPa min (35,000 PSI)",
+    Elongation: "≥ 30%",
+    Testing: "Hydrostatic, Flattening, Tensile, Hardness",
+    Applications: ["Boilers", "Refineries", "Steam Lines", "Power Plants"],
+    applicationImage: "https://images.unsplash.com/photo-1611273426858-450d8e80e916?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -118,9 +188,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "General pipelines, structural, piling, water transmission",
     thumbnail:
       "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=120&q=80&auto=format&fit=crop",
+    OD: "21.3 mm – 1220 mm",
+    WallThickness: "1.8 mm – 25 mm",
+    Length: "6m – 12m",
+    EndFinish: "Plain End / Beveled",
+    SurfaceFinish: "Black, Galvanised, 3LPE",
+    TensileStrength: "330 MPa min",
+    YieldStrength: "205 MPa min",
+    Elongation: "≥ 25%",
+    Testing: "Hydrostatic, Tensile, Flattening",
+    Applications: ["Pipelines", "Structural", "Piling", "Water Transmission"],
+    applicationImage: "https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -135,9 +216,17 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Water lines, fire-fighting, structural, scaffolding, plumbing",
     thumbnail:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=120&q=80&auto=format&fit=crop",
+    OD: "15 mm – 200 mm NB",
+    WallThickness: "Light / Medium / Heavy",
+    Length: "6m standard",
+    EndFinish: "Plain End / Threaded & Coupled",
+    SurfaceFinish: "Black, Galvanised",
+    Testing: "Hydrostatic, Bend, Flattening",
+    Applications: ["Water Lines", "Fire Fighting", "Scaffolding", "Plumbing"],
+    applicationImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -151,9 +240,17 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Water supply, irrigation, fencing, fire fighting, agriculture",
     thumbnail:
       "https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=120&q=80&auto=format&fit=crop",
+    OD: "15 mm – 150 mm NB",
+    WallThickness: "Light / Medium / Heavy",
+    Length: "6m standard",
+    EndFinish: "Threaded & Coupled / Plain End",
+    SurfaceFinish: "Hot-dip Galvanised (Zinc Coated)",
+    Testing: "Hydrostatic, Zinc Coating Weight, Bend",
+    Applications: ["Water Supply", "Irrigation", "Fencing", "Fire Fighting"],
+    applicationImage: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -167,9 +264,20 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Municipal waterworks, piling, oil & gas transmission, large pipelines",
     thumbnail:
       "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=120&q=80&auto=format&fit=crop",
+    OD: "219 mm – 3000 mm (8\" – 120\")",
+    WallThickness: "5 mm – 25 mm",
+    Length: "6m – 18m",
+    EndFinish: "Plain End / Beveled",
+    SurfaceFinish: "Black, 3LPE, FBE, Epoxy",
+    TensileStrength: "415 MPa min (Gr. B)",
+    YieldStrength: "245 MPa min",
+    Elongation: "≥ 22%",
+    Testing: "UT, RT, Hydrostatic, Impact",
+    Applications: ["Municipal Water", "Oil & Gas", "Piling", "Large Infrastructure"],
+    applicationImage: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Pipes & Tubes",
@@ -183,9 +291,17 @@ const PRODUCTS: SteelProduct[] = [
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Custom OD/WT, special coatings, non-standard sizes for EPC projects",
     thumbnail:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=120&q=80&auto=format&fit=crop",
+    OD: "As per customer spec",
+    WallThickness: "As per customer spec",
+    Length: "As per customer spec",
+    EndFinish: "Plain / Beveled / Threaded (per spec)",
+    SurfaceFinish: "3LPE, FBE, Epoxy, Galvanised",
+    Testing: "Per client specification",
+    Applications: ["EPC Projects", "Custom Infrastructure", "Special Applications"],
+    applicationImage: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sheets & Plates",
@@ -194,14 +310,21 @@ const PRODUCTS: SteelProduct[] = [
     Description:
       "Thick steel plates used for making tanks, vessel bodies, and heavy structures.",
     Grades: "304, 316L, 310S",
-    Standards: "",
+    Standards: "ASTM A240",
     Thickness: "5mm - 100mm",
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Pressure vessels, tank bodies, heavy structural, shipbuilding",
     thumbnail:
       "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=120&q=80&auto=format&fit=crop",
+    SurfaceFinish: "No.1, 2D, Pickled",
+    TensileStrength: "515 MPa min",
+    YieldStrength: "205 MPa min",
+    Elongation: "≥ 40%",
+    Testing: "PMI, UT, Tensile, Bend",
+    Applications: ["Pressure Vessels", "Tank Bodies", "Structural", "Shipbuilding"],
+    applicationImage: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sheets & Plates",
@@ -210,14 +333,18 @@ const PRODUCTS: SteelProduct[] = [
     Description:
       "Thinner, smoother, and shinier sheets used for kitchen equipment, cladding, and elevators.",
     Grades: "304, 430, 202",
-    Standards: "",
+    Standards: "ASTM A240, JIS G4305",
     Thickness: "0.5mm - 6mm",
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Kitchen equipment, elevators, architectural cladding, signage, automobile trim",
     thumbnail:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=120&q=80&auto=format&fit=crop",
+    SurfaceFinish: "2B, BA, No.4, Mirror (8K), Hairline",
+    Testing: "PMI, Tensile, Hardness, Bend",
+    Applications: ["Kitchen Equipment", "Elevators", "Cladding", "Signage"],
+    applicationImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sheets & Plates",
@@ -227,13 +354,17 @@ const PRODUCTS: SteelProduct[] = [
       "Long continuous rolls of thin steel. Used for mass production of parts.",
     Grades: "304, 316L",
     Standards: "ASTM A240",
-    Thickness: "",
+    Thickness: "0.3mm - 6mm",
     "Pressure Class": "",
     Type: "",
     Material: "",
-    Application: "",
+    Application: "Pipe manufacturing, auto components, stamping, deep drawing, appliances",
     thumbnail:
       "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=120&q=80&auto=format&fit=crop",
+    SurfaceFinish: "2B, BA, No.4",
+    Testing: "PMI, Tensile, Width Tolerance",
+    Applications: ["Pipe Manufacturing", "Auto Components", "Stamping", "Appliances"],
+    applicationImage: "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Flanges",
@@ -241,15 +372,20 @@ const PRODUCTS: SteelProduct[] = [
     "Product Name": "Weld Neck Flange",
     Description:
       "Has a long tapered hub. Welded directly to the pipe. Best for high pressure.",
-    Grades: "",
-    Standards: "ASME B16.5",
+    Grades: "F304, F316, F304L, F316L, A105",
+    Standards: "ASME B16.5, ASME B16.47",
     Thickness: "",
     "Pressure Class": "150# - 2500#",
     Type: "",
-    Material: "",
-    Application: "",
+    Material: "Forged Stainless / Carbon Steel",
+    Application: "High-pressure piping, refineries, offshore platforms, power stations",
     thumbnail:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    SurfaceFinish: "RF (Raised Face) / RTJ",
+    Testing: "PMI, Dimensional, Hardness, UT",
+    Applications: ["Refineries", "Offshore", "Power Stations", "High-Pressure Piping"],
+    applicationImage: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Flanges",
@@ -257,75 +393,100 @@ const PRODUCTS: SteelProduct[] = [
     "Product Name": "Slip-On Flange",
     Description:
       "Slips over the pipe and is welded inside and out. Easier to align but weaker than Weld Neck.",
-    Grades: "",
+    Grades: "F304, F316, A105",
     Standards: "ASME B16.5",
     Thickness: "",
     "Pressure Class": "150# - 300#",
     Type: "",
-    Material: "",
-    Application: "",
+    Material: "Forged Stainless / Carbon Steel",
+    Application: "Low-pressure piping, HVAC, water systems, general utility",
     thumbnail:
       "https://images.unsplash.com/photo-1590846458616-10c42ee47da8?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    SurfaceFinish: "RF (Raised Face)",
+    Testing: "PMI, Dimensional, Hardness",
+    Applications: ["Low-Pressure Piping", "HVAC", "Water Systems", "Utility"],
+    applicationImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Flanges",
     "Sub-Category": "Blind",
     "Product Name": "Blind Flange",
     Description: "A solid disk used to block off the end of a piping system.",
-    Grades: "",
+    Grades: "F304, F316L, A105",
     Standards: "ASME B16.5",
     Thickness: "",
     "Pressure Class": "150# - 2500#",
     Type: "",
-    Material: "",
-    Application: "",
+    Material: "Forged Stainless / Carbon Steel",
+    Application: "Dead-end closure, pipeline isolation, pressure testing",
     thumbnail:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    SurfaceFinish: "RF / RTJ",
+    Testing: "PMI, Dimensional, Hardness, UT",
+    Applications: ["Pipeline Isolation", "Pressure Testing", "Dead-End Closure"],
+    applicationImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Buttweld Fittings",
     "Sub-Category": "Elbows",
     "Product Name": "90° / 45° Elbow",
     Description: "Used to change the direction of flow.",
-    Grades: "",
+    Grades: "304, 316L, A234 WPB",
     Standards: "ASME B16.9",
     Thickness: "",
     "Pressure Class": "",
     Type: "Seamless / Welded",
-    Material: "",
-    Application: "",
+    Material: "Stainless / Carbon Steel",
+    Application: "Direction change in process piping, oil & gas, chemical plants",
     thumbnail:
       "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    WallThickness: "SCH 10S – SCH 80S",
+    Testing: "PMI, Dimensional, Visual",
+    Applications: ["Process Piping", "Oil & Gas", "Chemical Plants", "Power"],
+    applicationImage: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Buttweld Fittings",
     "Sub-Category": "Tees",
     "Product Name": "Equal / Reducing Tee",
     Description: "Used to split the flow into two directions.",
-    Grades: "",
+    Grades: "304, 316L, A234 WPB",
     Standards: "ASME B16.9",
     Thickness: "",
     "Pressure Class": "",
     Type: "Seamless / Welded",
-    Material: "",
-    Application: "",
+    Material: "Stainless / Carbon Steel",
+    Application: "Branch connections in piping, distribution systems",
     thumbnail:
       "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    WallThickness: "SCH 10S – SCH 80S",
+    Testing: "PMI, Dimensional, Visual",
+    Applications: ["Branch Connections", "Distribution Systems", "Process Piping"],
+    applicationImage: "https://images.unsplash.com/photo-1611273426858-450d8e80e916?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Buttweld Fittings",
     "Sub-Category": "Reducers",
     "Product Name": "Concentric / Eccentric Reducer",
     Description: "Connects a large pipe to a smaller pipe.",
-    Grades: "",
+    Grades: "304, 316L, A234 WPB",
     Standards: "ASME B16.9",
     Thickness: "",
     "Pressure Class": "",
     Type: "Seamless / Welded",
-    Material: "",
-    Application: "",
+    Material: "Stainless / Carbon Steel",
+    Application: "Pipe size transitions, pump connections, process lines",
     thumbnail:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=120&q=80&auto=format&fit=crop",
+    OD: "1\" × ½\" NB – 24\" × 20\" NB",
+    WallThickness: "SCH 10S – SCH 80S",
+    Testing: "PMI, Dimensional, Visual",
+    Applications: ["Pipe Transitions", "Pump Connections", "Process Lines"],
+    applicationImage: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sealing & Gaskets",
@@ -336,12 +497,16 @@ const PRODUCTS: SteelProduct[] = [
     Grades: "",
     Standards: "ASME B16.20",
     Thickness: "",
-    "Pressure Class": "",
+    "Pressure Class": "150# - 2500#",
     Type: "",
     Material: "SS 304/316 + Graphite",
-    Application: "",
+    Application: "Flange sealing in refineries, petrochemical, process piping",
     thumbnail:
       "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=120&q=80&auto=format&fit=crop",
+    OD: "½\" NB – 24\" NB",
+    Testing: "Dimensional, Compression Recovery",
+    Applications: ["Refineries", "Petrochemical", "Process Piping", "Power Plants"],
+    applicationImage: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sealing & Gaskets",
@@ -350,14 +515,17 @@ const PRODUCTS: SteelProduct[] = [
     Description:
       "Solid metal oval/octagonal ring used in very high-pressure oil & gas flanges.",
     Grades: "",
-    Standards: "API 6A",
+    Standards: "API 6A, ASME B16.20",
     Thickness: "",
-    "Pressure Class": "",
-    Type: "",
+    "Pressure Class": "2000# - 20000#",
+    Type: "Oval / Octagonal",
     Material: "Soft Iron, SS 304, SS 316",
-    Application: "",
+    Application: "Wellhead, Christmas tree, high-pressure oil & gas flanges",
     thumbnail:
       "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=120&q=80&auto=format&fit=crop",
+    Testing: "Dimensional, Hardness, Surface Finish",
+    Applications: ["Oil & Gas Wellheads", "High-Pressure Flanges", "Subsea"],
+    applicationImage: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=900&q=85&auto=format&fit=crop",
   },
   {
     Category: "Sealing & Gaskets",
@@ -366,14 +534,17 @@ const PRODUCTS: SteelProduct[] = [
     Description:
       "A simple rubber or metal loop sitting in a groove to seal a connection.",
     Grades: "",
-    Standards: "",
+    Standards: "AS 568, ISO 3601",
     Thickness: "",
     "Pressure Class": "",
     Type: "",
     Material: "Viton, Nitrile, or Metal Encapsulated",
-    Application: "Pumps, Valves, Cylinders",
+    Application: "Pumps, valves, cylinders, hydraulic systems",
     thumbnail:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=120&q=80&auto=format&fit=crop",
+    Testing: "Shore Hardness, Compression Set",
+    Applications: ["Pumps", "Valves", "Cylinders", "Hydraulic Systems"],
+    applicationImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=85&auto=format&fit=crop",
   },
 ];
 
@@ -423,10 +594,16 @@ const SPEC_FIELDS: { key: keyof SteelProduct; label: string; icon: string }[] =
     { key: "Sub-Category", label: "Sub-Category", icon: "category" },
     { key: "Grades", label: "Grades", icon: "science" },
     { key: "Standards", label: "Standards", icon: "verified" },
+    { key: "OD", label: "Outer Diameter (OD)", icon: "radio_button_checked" },
+    { key: "WallThickness", label: "Wall Thickness / Schedule", icon: "straighten" },
+    { key: "Length", label: "Length", icon: "swap_horiz" },
     { key: "Thickness", label: "Thickness", icon: "straighten" },
+    { key: "EndFinish", label: "End Finish", icon: "carpenter" },
+    { key: "SurfaceFinish", label: "Surface Finish", icon: "auto_awesome" },
     { key: "Pressure Class", label: "Pressure Class", icon: "speed" },
     { key: "Type", label: "Type", icon: "build" },
     { key: "Material", label: "Material", icon: "diamond" },
+    { key: "Testing", label: "Testing & QC", icon: "biotech" },
     { key: "Application", label: "Application", icon: "factory" },
   ];
 
@@ -616,11 +793,10 @@ const Steel: React.FC = () => {
               <button
                 key={cat.key}
                 onClick={() => selectCategory(cat.key)}
-                className={`relative whitespace-nowrap px-4 lg:px-5 py-4 text-sm font-heading font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-2 ${
-                  activeCategoryKey === cat.key
-                    ? "text-yellow-600 border-b-2 border-yellow-500"
-                    : "text-slate-500 hover:text-slate-900"
-                }`}
+                className={`relative whitespace-nowrap px-4 lg:px-5 py-4 text-sm font-heading font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-2 ${activeCategoryKey === cat.key
+                  ? "text-yellow-600 border-b-2 border-yellow-500"
+                  : "text-slate-500 hover:text-slate-900"
+                  }`}
               >
                 <span className="material-symbols-outlined text-base hidden sm:inline">
                   {cat.icon}
@@ -670,18 +846,16 @@ const Steel: React.FC = () => {
                   <button
                     key={idx}
                     onClick={() => selectProduct(product)}
-                    className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${
-                      activeProductIdx === idx
-                        ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
-                        : "text-slate-600 hover:bg-slate-50"
-                    }`}
+                    className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${activeProductIdx === idx
+                      ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
+                      : "text-slate-600 hover:bg-slate-50"
+                      }`}
                   >
                     <div
-                      className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${
-                        activeProductIdx === idx
-                          ? "border-yellow-500/40"
-                          : "border-slate-200"
-                      }`}
+                      className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${activeProductIdx === idx
+                        ? "border-yellow-500/40"
+                        : "border-slate-200"
+                        }`}
                     >
                       <img
                         src={product.thumbnail}
@@ -724,19 +898,17 @@ const Steel: React.FC = () => {
                     <button
                       key={idx}
                       onClick={() => selectProduct(product)}
-                      className={`text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${
-                        activeProductIdx === idx
-                          ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
-                          : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
-                      }`}
+                      className={`text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${activeProductIdx === idx
+                        ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
+                        : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
+                        }`}
                     >
                       {/* Product Thumbnail */}
                       <div
-                        className={`w-12 h-12 shrink-0 rounded-sm overflow-hidden border ${
-                          activeProductIdx === idx
-                            ? "border-yellow-500/40"
-                            : "border-slate-200"
-                        }`}
+                        className={`w-12 h-12 shrink-0 rounded-sm overflow-hidden border ${activeProductIdx === idx
+                          ? "border-yellow-500/40"
+                          : "border-slate-200"
+                          }`}
                       >
                         <img
                           src={product.thumbnail}
@@ -748,20 +920,18 @@ const Steel: React.FC = () => {
                       {/* Product Info */}
                       <div className="min-w-0 flex-1">
                         <span
-                          className={`block text-sm font-heading leading-tight truncate ${
-                            activeProductIdx === idx
-                              ? "font-bold"
-                              : "font-semibold"
-                          }`}
+                          className={`block text-sm font-heading leading-tight truncate ${activeProductIdx === idx
+                            ? "font-bold"
+                            : "font-semibold"
+                            }`}
                         >
                           {product["Product Name"]}
                         </span>
                         <span
-                          className={`block text-[11px] mt-0.5 ${
-                            activeProductIdx === idx
-                              ? "text-slate-300"
-                              : "text-slate-400"
-                          }`}
+                          className={`block text-[11px] mt-0.5 ${activeProductIdx === idx
+                            ? "text-slate-300"
+                            : "text-slate-400"
+                            }`}
                         >
                           {product["Sub-Category"]}
                         </span>
@@ -857,19 +1027,122 @@ const Steel: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Engineering Diagram Placeholder */}
-                    <div className="bg-slate-50 border border-slate-200 rounded-sm aspect-video flex flex-col items-center justify-center text-slate-300 group hover:border-slate-300 transition-colors">
-                      <span className="material-symbols-outlined text-6xl mb-4 group-hover:text-yellow-500/40 transition-colors">
-                        {CATEGORY_DETAIL_ICON[activeProduct.Category] ||
-                          "precision_manufacturing"}
-                      </span>
-                      <p className="text-xs font-heading font-bold uppercase tracking-widest text-slate-400">
-                        Engineering Diagram
-                      </p>
-                      <p className="text-xs font-sans text-slate-400 mt-1">
-                        Technical drawing for {activeProduct["Product Name"]}
-                      </p>
+                    {/* ── Mechanical Properties ── */}
+                    {(activeProduct.TensileStrength || activeProduct.YieldStrength || activeProduct.Elongation) && (
+                      <div className="mb-10">
+                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                          <span className="material-symbols-outlined text-sm text-yellow-500">
+                            fitness_center
+                          </span>
+                          Mechanical Properties
+                        </h3>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          {activeProduct.TensileStrength && (
+                            <div className="bg-slate-900 text-white p-5 rounded-sm text-center">
+                              <span className="material-symbols-outlined text-2xl text-yellow-500 mb-2 block">expand</span>
+                              <p className="text-xl font-heading font-extrabold">{activeProduct.TensileStrength}</p>
+                              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-slate-400 mt-2">Tensile Strength</p>
+                            </div>
+                          )}
+                          {activeProduct.YieldStrength && (
+                            <div className="bg-slate-900 text-white p-5 rounded-sm text-center">
+                              <span className="material-symbols-outlined text-2xl text-yellow-500 mb-2 block">compress</span>
+                              <p className="text-xl font-heading font-extrabold">{activeProduct.YieldStrength}</p>
+                              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-slate-400 mt-2">Yield Strength</p>
+                            </div>
+                          )}
+                          {activeProduct.Elongation && (
+                            <div className="bg-slate-900 text-white p-5 rounded-sm text-center">
+                              <span className="material-symbols-outlined text-2xl text-yellow-500 mb-2 block">straighten</span>
+                              <p className="text-xl font-heading font-extrabold">{activeProduct.Elongation}</p>
+                              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-slate-400 mt-2">Elongation</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* ── Application Tags ── */}
+                    {activeProduct.Applications && activeProduct.Applications.length > 0 && (
+                      <div className="mb-10">
+                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                          <span className="material-symbols-outlined text-sm text-yellow-500">
+                            factory
+                          </span>
+                          Key Industries & Applications
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {activeProduct.Applications.map((app, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors"
+                            >
+                              <span className="material-symbols-outlined text-sm">check_circle</span>
+                              {app}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* ── Action Buttons ── */}
+                    <div className="flex flex-wrap gap-3 mb-10">
+                      <button className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-sm">
+                        <span className="material-symbols-outlined text-lg">download</span>
+                        Download Datasheet
+                      </button>
+                      <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 text-xs font-heading font-bold uppercase tracking-wider hover:border-slate-900 hover:bg-slate-900 hover:text-white transition-all">
+                        <span className="material-symbols-outlined text-lg">description</span>
+                        Request MTC
+                      </button>
+                      <Link
+                        to="/contact"
+                        className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 text-xs font-heading font-bold uppercase tracking-wider hover:border-yellow-500 hover:bg-yellow-50 transition-all"
+                      >
+                        <span className="material-symbols-outlined text-lg">request_quote</span>
+                        Get Quote
+                      </Link>
                     </div>
+
+                    {/* ── Application Image ── */}
+                    {activeProduct.applicationImage ? (
+                      <div className="mb-4">
+                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                          <span className="material-symbols-outlined text-sm text-yellow-500">
+                            image
+                          </span>
+                          Application in Action
+                        </h3>
+                        <div className="relative overflow-hidden rounded-sm h-[260px] lg:h-[340px] group">
+                          <img
+                            src={activeProduct.applicationImage}
+                            alt={`${activeProduct["Product Name"]} application`}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-5">
+                            <span className="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-white/90 bg-slate-900/50 backdrop-blur-sm px-3 py-1.5 rounded-sm">
+                              <span className="material-symbols-outlined text-sm text-yellow-500">factory</span>
+                              {activeProduct.Application?.split(",")[0]?.trim() || "Industrial Application"}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="bg-slate-50 border border-slate-200 rounded-sm h-[260px] flex flex-col items-center justify-center text-slate-300 group hover:border-slate-300 transition-colors">
+                        <span className="material-symbols-outlined text-6xl mb-4 group-hover:text-yellow-500/40 transition-colors">
+                          {CATEGORY_DETAIL_ICON[activeProduct.Category] ||
+                            "precision_manufacturing"}
+                        </span>
+                        <p className="text-xs font-heading font-bold uppercase tracking-widest text-slate-400">
+                          Application Image
+                        </p>
+                        <p className="text-xs font-sans text-slate-400 mt-1">
+                          {activeProduct["Product Name"]}
+                        </p>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
