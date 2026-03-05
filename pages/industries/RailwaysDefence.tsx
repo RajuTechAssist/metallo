@@ -140,7 +140,7 @@ const RailwaysDefence: React.FC = () => {
         <div className="w-full bg-white">
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
-            <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: '85vh', minHeight: '600px' }}>
+            <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 350px)', minHeight: '500px' }}>
                 <motion.img
                     src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1400&q=85&auto=format&fit=crop"
                     alt="Railway coach manufacturing in an industrial facility"
