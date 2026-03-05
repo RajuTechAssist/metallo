@@ -22,7 +22,7 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     id: "01",
-    category: "Structural Steel",
+    category: "Steel",
     title: "Infinite Capacity. Standardized Quality.",
     desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
     image: "/Steel/structural_steel_beam.jpg",
