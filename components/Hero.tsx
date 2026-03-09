@@ -203,9 +203,9 @@ const Hero: React.FC = () => {
               </motion.div>
 
               {/* Masked Title Reveal */}
-              <div className="overflow-hidden mb-6">
+              <div className="overflow-hidden mb-6 pb-2">
                 <motion.h1
-                  className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.05] tracking-tight"
+                  className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.15] tracking-tight"
                   variants={titleVariants}
                   initial="initial"
                   animate="animate"
