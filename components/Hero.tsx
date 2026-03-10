@@ -25,7 +25,7 @@ const SLIDES: Slide[] = [
     category: "Steel",
     title: "Infinite Capacity. Standardized Quality.",
     desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
-    image: "/Steel/structural_steel_beam.jpg",
+    image: "/Steel/oil_industry1.jpg",
     link: "/products/steel",
   },
   {
@@ -33,7 +33,7 @@ const SLIDES: Slide[] = [
     category: "Wire & Cable",
     title: "Powering the National Grid.",
     desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
-    image: "/wire&cable/bg_hero_high_voltage_cables_v2.png",
+    image: "/wire&cable/wireCables.jpg",
     link: "/products/wire-cables",
   },
   {
@@ -41,7 +41,7 @@ const SLIDES: Slide[] = [
     category: "Cable Trays",
     title: "Structural Routing Systems",
     desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
-    image: "../cable Trays/cableTrays1.jpg",
+    image: "../cable Trays/cableTrays2.jpg",
     link: "/products/cable-trays",
   },
   {
@@ -49,7 +49,7 @@ const SLIDES: Slide[] = [
     category: "Welding Consumables",
     title: "Mission-Critical Precision.",
     desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
-    image: "/Welding Consumables/pipeline.jpg",
+    image: "/Welding Consumables/welding_consumables.jpg",
     link: "/products/welding",
   },
   {
