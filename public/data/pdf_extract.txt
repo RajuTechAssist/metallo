@@ -1,0 +1,147 @@
+Pages: 5
+
+===== PAGE 1 =====
+Metallo_Steel_Product_Master_v2 Master Product List
+Basic Identification Technical Specifications Mechanical Properties
+End finish (plain Quality &
+Outer Diameter Length
+Category Material Type Sub-Category Product Name Grades Standards Wall thickness end, beveled, Tensile strength (PSI / MPa) Yield strength Elongation % Hardness (Brinell/Rockwell) Certification Application Description
+(OD) range (random/fixed)
+threaded) Details
+MS ERW (Electric Resistance Welded) Made from a solid round steel 'billet' which is heated and pushed or pulled
+Pipes & Tubes Mild Steel (MS)
+Pipe over a form until the steel is shaped into a hollow tube. No weld seam.
+Pipes & Tubes MS Seamless (SMLS) Pipe Made by rolling a steel plate/sheet into a cylinder and welding the seam. Cheaper than seamless.
+Pipes & Tubes MS Hollow Sections (SHS, RHS, CHS) Smaller, thinner, and more precise than pipes. Used for high-pressure hydraulic lines.
+Pipes & Tubes MS LSAW / Spiral Pipe Welded U-shaped tubes used in boilers and heat exchangers to cool or heat fluids.
+Extruded from a solid carbon steel billet with no weld seam. Ideal for
+Pipes & Tubes Stainless Steel Austenitic (300 Series) SS 304 ERW/Welded
+high-pressure and high-temperature fluid/gas transport.
+1
+
+--- TABLE 1 on page 1 ---
+ |  |  | Basic Identification |  |  | Technical Specifications |  |  |  | Mechanical Properties |  |  |  |  |  |  | 
+Category | Material Type | Sub-Category | Product Name | Grades | Standards | Outer Diameter
+(OD) range | Wall thickness | Length
+(random/fixed) | End finish (plain
+end, beveled,
+threaded) | Tensile strength (PSI / MPa) | Yield strength | Elongation % | Hardness (Brinell/Rockwell) | Quality &
+Certification
+Details | Application | Description | 
+Pipes & Tubes | Mild Steel (MS) |  | MS ERW (Electric Resistance Welded)
+Pipe |  |  |  |  |  |  |  |  |  |  |  |  | Made from a solid round steel 'billet' which is heated and pushed or pulled
+over a form until the steel is shaped into a hollow tube. No weld seam. | 
+Pipes & Tubes |  |  | MS Seamless (SMLS) Pipe |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  | MS Hollow Sections (SHS, RHS, CHS) |  |  |  |  |  |  |  |  |  |  |  |  | Smaller, thinner, and more precise than pipes. Used for high-pressure hydraulic lines. | 
+Pipes & Tubes |  |  | MS LSAW / Spiral Pipe Welded |  |  |  |  |  |  |  |  |  |  |  |  | U-shaped tubes used in boilers and heat exchangers to cool or heat fluids. | 
+Pipes & Tubes | Stainless Steel | Austenitic (300 Series) | SS 304 ERW/Welded |  |  |  |  |  |  |  |  |  |  |  |  | Extruded from a solid carbon steel billet with no weld seam. Ideal for
+high-pressure and high-temperature fluid/gas transport. | 
+
+===== PAGE 2 =====
+Metallo_Steel_Product_Master_v2 Master Product List
+Formed from rolled carbon steel plates with a welded longitudinal seam.
+Pipes & Tubes SS 316 ERW/Welded
+Used for general pipelines, structural setups, and piling.
+Low-carbon Electric Resistance Welded pipes. Highly economical and
+Pipes & Tubes SS 304/316 Seamless
+extensively used for water lines, fire-fighting, and structural purposes.
+Mild steel pipes hot-dip coated with a protective layer of zinc to prevent
+Pipes & Tubes Ferritic (400 Series) SS 409/430 Tubes
+rust and corrosion. Widely used for water supply, agriculture, and fencing.
+Manufactured by helically welding steel strips (HSAW). Allows for very large
+Pipes & Tubes Duplex SS 2205/2507 Tubes
+diameters; used in municipal waterworks, structural piling, and oil/gas pipelines.
+Pipes & Tubes Precipitation Hardening 17‑4PH; 15‑5PH
+Pipes & Tubes Carbon Steel Low Carbon CS Seamless (ASTM A106 Gr. B)
+Pipes & Tubes CS Welded (ASTM A53)
+Pipes & Tubes CS Line Pipe (API 5L)
+2
+
+--- TABLE 1 on page 2 ---
+Pipes & Tubes |  |  | SS 316 ERW/Welded |  |  |  |  |  |  |  |  |  |  |  |  | Formed from rolled carbon steel plates with a welded longitudinal seam.
+Used for general pipelines, structural setups, and piling. | 
+Pipes & Tubes |  |  | SS 304/316 Seamless |  |  |  |  |  |  |  |  |  |  |  |  | Low-carbon Electric Resistance Welded pipes. Highly economical and
+extensively used for water lines, fire-fighting, and structural purposes. | 
+Pipes & Tubes |  | Ferritic (400 Series) | SS 409/430 Tubes |  |  |  |  |  |  |  |  |  |  |  |  | Mild steel pipes hot-dip coated with a protective layer of zinc to prevent
+rust and corrosion. Widely used for water supply, agriculture, and fencing. | 
+Pipes & Tubes |  | Duplex | SS 2205/2507 Tubes |  |  |  |  |  |  |  |  |  |  |  |  | Manufactured by helically welding steel strips (HSAW). Allows for very large
+diameters; used in municipal waterworks, structural piling, and oil/gas pipelines. | 
+Pipes & Tubes |  | Precipitation Hardening | 17‑4PH; 15‑5PH |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes | Carbon Steel | Low Carbon | CS Seamless (ASTM A106 Gr. B) |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  | CS Welded (ASTM A53) |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  | CS Line Pipe (API 5L) |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+
+===== PAGE 3 =====
+Metallo_Steel_Product_Master_v2 Master Product List
+Pipes & Tubes Medium Carbon
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes & Tubes
+Pipes manufactured to specific client requirements, including non-standard
+Pipes & Tubes Custom Pipes Customised Steel Pipe As per Customer Requirement Client Specifications
+outer diameters (OD), specific wall thicknesses, or special coatings (3LPE, Epoxy).
+3
+
+--- TABLE 1 on page 3 ---
+Pipes & Tubes |  | Medium Carbon |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+Pipes & Tubes | Custom Pipes |  | Customised Steel Pipe | As per Customer Requirement | Client Specifications |  |  |  |  |  |  |  |  |  |  | Pipes manufactured to specific client requirements, including non-standard
+outer diameters (OD), specific wall thicknesses, or special coatings (3LPE, Epoxy). | 
+
+===== PAGE 4 =====
+Metallo_Steel_Product_Master_v2 Master Product List
+Sheets & Plates Plates SS HR Plate (Hot Rolled) 304, 316L, 310S Thick steel plates used for making tanks, vessel bodies, and heavy structures.
+Sheets & Plates Sheets SS CR Sheet (Cold Rolled) 304, 430, 202 Thinner, smoother, and shinier sheets used for kitchen equipment, cladding, and elevators.
+Sheets & Plates Coils SS Coil / Strip 304, 316L ASTM A240 Long continuous rolls of thin steel. Used for mass production of parts.
+Flanges Weld Neck Weld Neck Flange ASME B16.5 Has a long tapered hub. Welded directly to the pipe. Best for high pressure.
+Flanges Slip On Slip-On Flange ASME B16.5 Slips over the pipe and is welded inside and out. Easier to align but weaker than Weld Neck.
+Flanges Blind Blind Flange ASME B16.5 A solid disk used to block off the end of a piping system.
+Buttweld Fittings Elbows 90° / 45° Elbow ASME B16.9 Used to change the direction of flow.
+Buttweld Fittings Tees Equal / Reducing Tee ASME B16.9 Used to split the flow into two directions.
+Buttweld Fittings Reducers Concentric / Eccentric Reducer ASME B16.9 Connects a large pipe to a smaller pipe.
+Sealing & Gaskets Gaskets Spiral Wound Gasket ASME B16.20 A mix of metal wire and filler (graphite/teflon). Placed between two flanges to prevent leakage.
+Sealing & Gaskets Gaskets Ring Joint Gasket (RTJ) API 6A Solid metal oval/octagonal ring used in very high-pressure oil & gas flanges.
+4
+
+--- TABLE 1 on page 4 ---
+Sheets & Plates | Plates |  | SS HR Plate (Hot Rolled) | 304, 316L, 310S |  |  |  |  |  |  |  |  |  |  |  | Thick steel plates used for making tanks, vessel bodies, and heavy structures. | 
+Sheets & Plates | Sheets |  | SS CR Sheet (Cold Rolled) | 304, 430, 202 |  |  |  |  |  |  |  |  |  |  |  | Thinner, smoother, and shinier sheets used for kitchen equipment, cladding, and elevators. | 
+Sheets & Plates | Coils |  | SS Coil / Strip | 304, 316L | ASTM A240 |  |  |  |  |  |  |  |  |  |  | Long continuous rolls of thin steel. Used for mass production of parts. | 
+Flanges | Weld Neck |  | Weld Neck Flange |  | ASME B16.5 |  |  |  |  |  |  |  |  |  |  | Has a long tapered hub. Welded directly to the pipe. Best for high pressure. | 
+Flanges | Slip On |  | Slip-On Flange |  | ASME B16.5 |  |  |  |  |  |  |  |  |  |  | Slips over the pipe and is welded inside and out. Easier to align but weaker than Weld Neck. | 
+Flanges | Blind |  | Blind Flange |  | ASME B16.5 |  |  |  |  |  |  |  |  |  |  | A solid disk used to block off the end of a piping system. | 
+Buttweld Fittings | Elbows |  | 90° / 45° Elbow |  | ASME B16.9 |  |  |  |  |  |  |  |  |  |  | Used to change the direction of flow. | 
+Buttweld Fittings | Tees |  | Equal / Reducing Tee |  | ASME B16.9 |  |  |  |  |  |  |  |  |  |  | Used to split the flow into two directions. | 
+Buttweld Fittings | Reducers |  | Concentric / Eccentric Reducer |  | ASME B16.9 |  |  |  |  |  |  |  |  |  |  | Connects a large pipe to a smaller pipe. | 
+Sealing & Gaskets | Gaskets |  | Spiral Wound Gasket |  | ASME B16.20 |  |  |  |  |  |  |  |  |  |  | A mix of metal wire and filler (graphite/teflon). Placed between two flanges to prevent leakage. | 
+Sealing & Gaskets | Gaskets |  | Ring Joint Gasket (RTJ) |  | API 6A |  |  |  |  |  |  |  |  |  |  | Solid metal oval/octagonal ring used in very high-pressure oil & gas flanges. | 
+
+===== PAGE 5 =====
+Metallo_Steel_Product_Master_v2 Master Product List
+Sealing & Gaskets O-Rings O-Ring Seal Pumps, Valves, Cylinders A simple rubber or metal loop sitting in a groove to seal a connection.
+Custom Tailor-made piping solutions engineered to exact client schematics. We provide non-standard
+Fabricated outside diameters, heavy-wall thicknesses, and pre-fabricated
+Piping & Spools pipe spools to drastically reduce on-site welding time.
+5
+
+--- TABLE 1 on page 5 ---
+Sealing & Gaskets | O-Rings |  | O-Ring Seal |  |  |  |  |  |  |  |  |  |  |  | Pumps, Valves, Cylinders | A simple rubber or metal loop sitting in a groove to seal a connection. | 
+Custom
+Fabricated
+Piping & Spools |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Tailor-made piping solutions engineered to exact client schematics. We provide non-standard
+outside diameters, heavy-wall thicknesses, and pre-fabricated
+pipe spools to drastically reduce on-site welding time. | 

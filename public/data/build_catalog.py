@@ -1,0 +1,721 @@
+"""Build complete Power_Tools_data.json from scraped catalog data."""
+import json
+
+data = [
+    {
+        "category": "CORDLESS 12V",
+        "tools": [
+            {
+                "model_number": "SCH10",
+                "product_name": "12V Max Hammer Drill Driver",
+                "features": [
+                    "Improved torque, durability and reduced vibration for higher productivity",
+                    "Lightweight tower-up battery pack designed for maximum comfort",
+                    "30Nm max torque delivering class leading controlled performance",
+                    "Rubber overmould handle for increased comfort",
+                    "20 torque positions & 2 speed selector for precision in multiple applications",
+                    "Battery status indicator lets you know battery status to work efficiently",
+                    "LED light to perform jobs efficiently in low-light spaces",
+                    "Improved 2.0Ah battery for +33% longer runtime"
+                ],
+                "specifications": {
+                    "voltage": "12V Max", "motor_type": "Brushed",
+                    "no_load_speed": "0-400/0-1500 rpm", "impact_rate": "0-6000/0-22500 bpm",
+                    "rated_max_torque": "30 Nm", "chuck_type": "Single Sleeve / 10mm",
+                    "led_light": "Yes", "battery_indicator": "Yes", "cell_capacity": "2.0 Ah"
+                },
+                "variants": [{"product_code": "SCH10", "tool_type": "Hammer Drill Driver", "battery_config": "1 x 2.0Ah", "storage": "Kit Box"}]
+            },
+            {
+                "model_number": "SCD10",
+                "product_name": "12V Max Drill Driver",
+                "features": [
+                    "Improved torque, durability and reduced vibration for higher productivity",
+                    "Lightweight tower-up battery pack designed for maximum comfort",
+                    "30Nm max torque delivering class leading controlled performance",
+                    "20 torque positions & 2 speed selector for precision in multiple applications",
+                    "LED light to perform jobs efficiently in low-light spaces"
+                ],
+                "specifications": {
+                    "voltage": "12V Max", "motor_type": "Brushed",
+                    "no_load_speed": "0-400/0-1500 rpm", "rated_max_torque": "30 Nm",
+                    "chuck_type": "Single Sleeve / 10mm", "led_light": "Yes", "cell_capacity": "2.0 Ah"
+                },
+                "variants": [{"product_code": "SCD10", "tool_type": "Drill Driver", "battery_config": "1 x 2.0Ah", "storage": "Kit Box"}]
+            }
+        ]
+    },
+    {
+        "category": "V20 CORDLESS RANGE",
+        "sub_categories": [
+            {
+                "name": "BATTERIES & CHARGERS",
+                "products": [
+                    {"model_number": "SBA100", "product_name": "20V MAX* V20 ADAPTOR", "description": "Converts 20V MAX* V20 2.0Ah batteries for use with older 18V cordless power tools."},
+                    {"name": "V20 BATTERIES", "models": [
+                        {"product_code": "SB201", "capacity": "1.5Ah"}, {"product_code": "SB202", "capacity": "2.0Ah"},
+                        {"product_code": "SB204", "capacity": "4.0Ah"}, {"product_code": "SB206", "capacity": "6.0Ah"}
+                    ]},
+                    {"name": "V20 CHARGERS", "models": [
+                        {"product_code": "SC125", "current": "1.25A"}, {"product_code": "SC200", "current": "2.0A"},
+                        {"product_code": "SC400/401", "current": "4.0A"}
+                    ]}
+                ]
+            },
+            {
+                "name": "DRILL DRIVERS",
+                "products": [
+                    {
+                        "model_number": "SCD700", "product_name": "20V MAX* V20 DRILL DRIVER",
+                        "features": ["Integral battery state of charge indicator", "1,500 RPM and 50Nm torque", "24 clutch settings", "2-Speed gearbox (0-400/0-1,500 RPM)", "LED worklight", "Keyless chuck"],
+                        "specs": {"rpm": "1,500", "torque": "50 NM", "battery_ah": "2.0 Ah"},
+                        "variants": [
+                            {"product_code": "SCD700D2K", "tool_type": "Brushed Drill Driver", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"},
+                            {"product_code": "SCD700D1KA", "tool_type": "Brushed Drill Driver", "battery_config": "1 x 2.0Ah", "storage": "Kitbox & 100pcs accessories"}
+                        ]
+                    },
+                    {
+                        "model_number": "SBD710", "product_name": "20V MAX* V20 BRUSHLESS DRILL DRIVER",
+                        "features": ["Brushless motor for improved efficiency", "1,900 RPM and 60Nm torque", "15 clutch settings", "2-Speed gearbox (0-600/0-1,900 RPM)", "LED worklight"],
+                        "specs": {"rpm": "1,900", "torque": "60 NM", "battery_ah": "2.0 Ah"},
+                        "variants": [{"product_code": "SBD710D2K", "tool_type": "Brushless Drill Driver", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"}]
+                    },
+                    {
+                        "model_number": "SBD720", "product_name": "20V MAX* V20 BRUSHLESS DRILL DRIVER",
+                        "features": ["Brushless motor for improved efficiency", "2,100 RPM and 80Nm torque", "15 clutch settings", "2-Speed gearbox (0-600/0-2,100 RPM)", "LED worklight"],
+                        "specs": {"rpm": "2,100", "torque": "80 NM", "battery_ah": "4.0 Ah"},
+                        "variants": [
+                            {"product_code": "SBD720K", "tool_type": "Brushless Drill Driver Bare", "battery_config": "N/A", "storage": "-"},
+                            {"product_code": "SBD720M2K", "tool_type": "Brushless Drill Driver", "battery_config": "2 x 4.0Ah", "storage": "Kit Box"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "HAMMER DRILLS",
+                "products": [
+                    {
+                        "model_number": "SCD711", "product_name": "20V MAX* V20 HAMMER DRILL",
+                        "features": ["25,500 BPM hammer action", "1,500 RPM and 50Nm torque", "24 clutch settings", "2-Speed gearbox", "LED worklight"],
+                        "specs": {"bpm": "25,500", "torque": "50 NM", "battery_ah": "1.5/2.0 Ah"},
+                        "variants": [
+                            {"product_code": "SCD711C2K", "tool_type": "Brushed Hammer Drill", "battery_config": "2 x 1.5Ah", "storage": "Kit Box"},
+                            {"product_code": "SCD711D2K", "tool_type": "Brushed Hammer Drill", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"},
+                            {"product_code": "SCD711C1H", "tool_type": "Brushed Hammer Drill", "battery_config": "1 x 1.5Ah", "storage": "19\" Tool Box + 119 EA Acc"},
+                            {"product_code": "SCD711D2KA", "tool_type": "Brushed Hammer Drill", "battery_config": "2 x 2.0Ah", "storage": "Crystal Kitbox w/ 100EA Acc"},
+                            {"product_code": "SCD711D1K1", "tool_type": "Brushed Hammer Drill", "battery_config": "1 x 2.0Ah", "storage": "Crystal Kitbox w/ 100EA Acc"}
+                        ]
+                    },
+                    {
+                        "model_number": "SBD715", "product_name": "20V MAX* V20 BRUSHLESS HAMMER DRILL",
+                        "features": ["Brushless motor", "32,300 BPM", "1,900 RPM and 60Nm torque", "15 clutch settings", "2-Speed gearbox"],
+                        "specs": {"bpm": "32,300", "torque": "60 NM", "battery_ah": "2.0 Ah"},
+                        "variants": [
+                            {"product_code": "SBD715D2K", "tool_type": "Brushless Hammer Drill", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"},
+                            {"product_code": "SBD715D2KA", "tool_type": "Brushless Hammer Drill", "battery_config": "2 x 2.0Ah", "storage": "Crystal Kitbox w/ 100EA Acc"}
+                        ]
+                    },
+                    {
+                        "model_number": "SBD721", "product_name": "20V MAX* V20 BRUSHLESS HAMMER DRILL",
+                        "features": ["Brushless motor", "35,700 BPM", "2,100 RPM and 80Nm torque", "15 clutch settings"],
+                        "specs": {"bpm": "35,700", "torque": "80 NM", "battery_ah": "4.0 Ah"},
+                        "variants": [
+                            {"product_code": "SBD721", "tool_type": "Brushless Hammer Drill Bare", "battery_config": "N/A", "storage": "-"},
+                            {"product_code": "SBD721M2K", "tool_type": "Brushless Hammer Drill", "battery_config": "2 x 4.0Ah", "storage": "Kit Box"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "IMPACT DRIVERS",
+                "products": [
+                    {
+                        "model_number": "SBI810", "product_name": "20V MAX* V20 BRUSHLESS IMPACT DRIVER",
+                        "features": ["Brushless motor", "2,800 RPM, 3,500 BPM, 170Nm torque", "Quick release chuck", "LED worklight"],
+                        "specs": {"rpm": "2,800", "bpm": "3,500", "torque": "180 NM", "battery_ah": "2.0 Ah"},
+                        "variants": [{"product_code": "SBI810D2K", "tool_type": "Brushless Impact Driver", "battery_config": "2.0Ah", "storage": "Kit Box"}]
+                    },
+                    {
+                        "model_number": "SBI820", "product_name": "20V MAX* V20 BRUSHLESS 3 SPEED IMPACT DRIVER",
+                        "features": ["Brushless motor", "2,900 RPM, 3,800 BPM, 190Nm torque", "3-Speed gearbox", "Quick release chuck"],
+                        "specs": {"rpm": "2,900", "bpm": "3,800", "torque": "190 NM", "battery_ah": "4.0 Ah"},
+                        "variants": [
+                            {"product_code": "SBI820K", "tool_type": "Brushless Impact Driver Bare", "battery_config": "N/A", "storage": "-"},
+                            {"product_code": "SBI820M2K", "tool_type": "Brushless Impact Driver", "battery_config": "4.0Ah", "storage": "Kit Box"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "IMPACT WRENCHES",
+                "products": [
+                    {
+                        "model_number": "SBW910", "product_name": "20V MAX* V20 BRUSHLESS IMPACT WRENCH",
+                        "features": ["Brushless motor", "3,500 IPM, 280Nm torque", "1/2 inch hog ring anvil", "LED worklight"],
+                        "specs": {"rpm": "0-2,800", "ipm": "3,500", "torque": "280 NM", "battery_ah": "4.0 Ah"},
+                        "variants": [{"product_code": "SBW910M2K", "tool_type": "Brushless Impact Wrench", "battery_config": "4.0Ah", "storage": "Kit Box"}]
+                    },
+                    {
+                        "model_number": "SBW920", "product_name": "20V MAX* V20 BRUSHLESS IMPACT WRENCH",
+                        "features": ["Brushless motor", "3,100 IPM, 370Nm torque", "2-Speed gearbox", "1/2 inch hog ring anvil"],
+                        "specs": {"ipm": "3,100", "torque": "370 NM", "battery_ah": "4.0 Ah"},
+                        "variants": [{"product_code": "SBW920M2K", "tool_type": "Brushless Impact Wrench", "battery_config": "4.0Ah", "storage": "Kit Box"}]
+                    }
+                ]
+            },
+            {
+                "name": "SDS PLUS HAMMER",
+                "products": [{
+                    "model_number": "SBH900", "product_name": "20V MAX* V20 BRUSHLESS SDS PLUS HAMMER",
+                    "features": ["Brushless motor", "5,500 BPM", "2.0J impact energy", "3 modes (hammer, chisel, rotary)", "Variable speed", "Depth guide"],
+                    "specs": {"rpm": "1,500", "impact_energy": "2.0 Joules", "battery_ah": "4.0 Ah"},
+                    "variants": [{"product_code": "SBH900M2K", "tool_type": "SDS Plus 22mm Brushless Hammer", "battery_config": "2 x 4.0Ah", "storage": "Kit Box"}]
+                }]
+            },
+            {
+                "name": "ANGLE GRINDERS (CORDLESS)",
+                "products": [
+                    {
+                        "model_number": "SCG400", "product_name": "20V MAX* V20 SMALL ANGLE GRINDER",
+                        "features": ["9,000 RPM", "Cast metal gear housing", "3-position handle", "Lock-on switch", "100/125mm disc"],
+                        "specs": {"rpm": "9,000", "disc_diameter": "100/125 mm"},
+                        "variants": [
+                            {"product_code": "SCG400", "tool_type": "Brushed Small Angle Grinder Bare", "battery_config": "N/A", "storage": "-"},
+                            {"product_code": "SCG400M2K", "tool_type": "Brushed Small Angle Grinder", "battery_config": "2 x 4.0Ah", "storage": "Kit Box"}
+                        ]
+                    },
+                    {
+                        "model_number": "SBG700", "product_name": "20V MAX* V20 BRUSHLESS ANGLE GRINDER",
+                        "features": ["8,000 RPM", "Electronic brake (3 sec)", "Side handle with service key", "Keyless safety guard", "65% more power than brushed"],
+                        "specs": {"rpm": "8,000", "disc_diameter": "125 mm"},
+                        "variants": [
+                            {"product_code": "SBT510D2K", "tool_type": "Brushless Grinder Kit", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"},
+                            {"product_code": "SBG700", "tool_type": "Brushless Grinder Bare", "battery_config": "N/A", "storage": "-"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "MULTI TOOLS",
+                "products": [
+                    {
+                        "model_number": "SCT500", "product_name": "20V MAX* V20 MULTI TOOL",
+                        "features": ["8,000-18,000 RPM", "Tool-Free accessory system", "Variable speed", "LED worklight"],
+                        "specs": {"rpm": "8,000-18,000", "tool_free": "Yes", "variable_speed": "Yes"},
+                        "variants": [{"product_code": "SCT500D2K", "tool_type": "Multitool Kit", "battery_config": "2 x 2.0Ah", "storage": "Kit Box"}]
+                    },
+                    {
+                        "model_number": "SBT510", "product_name": "20V V20 BRUSHLESS OSCILLATING MULTI-TOOL",
+                        "features": ["0-1,800 RPM", "Variable speed paddle switch", "Tool-Free accessory system", "Universal adaptor", "LED work light"],
+                        "specs": {"rpm": "0-1,800", "tool_free": "Yes"},
+                        "variants": [{"product_code": "SBT510M2K", "tool_type": "Brushless Oscillating Tool", "battery_config": "2.0Ah", "storage": "Kitbox"}]
+                    }
+                ]
+            },
+            {
+                "name": "JIGSAWS (CORDLESS)",
+                "products": [
+                    {
+                        "model_number": "SCJ600", "product_name": "20V MAX* JIGSAW",
+                        "features": ["0-2,500 SPM", "3 cut settings", "45° bevel", "Tool-free blade change (T & U blades)"],
+                        "specs": {"spm": "2,500", "tool_free": "Yes"},
+                        "variants": [{"product_code": "SCJ600", "tool_type": "Brushed Jig Saw Bare", "battery_config": "N/A", "storage": "-"}]
+                    },
+                    {
+                        "model_number": "SBJ650", "product_name": "20V MAX* V20 BRUSHLESS JIG SAW",
+                        "features": ["0-3,200 SPM", "Tool-free blade change", "4 cut settings", "45° bevel both directions", "LED work light", "Dust blower"],
+                        "specs": {"spm": "0-3,200", "tool_free": "Yes"},
+                        "variants": [{"product_code": "SBJ650", "tool_type": "Brushless Jig Saw Bare", "battery_config": "N/A", "storage": "-"}]
+                    }
+                ]
+            },
+            {
+                "name": "RECIPROCATING SAWS (CORDLESS)",
+                "products": [
+                    {
+                        "model_number": "SCR300", "product_name": "20V MAX* V20 RECIPROCATING SAW",
+                        "features": ["3,000 SPM", "Variable speed", "Tool-free blade change", "Compact & lightweight"],
+                        "specs": {"spm": "3,000", "tool_free": "Yes"},
+                        "variants": [{"product_code": "SCR300", "tool_type": "Brushed Reciprocating Saw Bare", "battery_config": "N/A", "storage": "-"}]
+                    },
+                    {
+                        "model_number": "SBR310", "product_name": "20V MAX* V20 BRUSHLESS RECIPROCATING SAW",
+                        "features": ["2-speed selection", "29mm stroke length", "Pivoting shoe", "LED work light"],
+                        "specs": {"rpm": "0-2,300/3,200", "stroke_length": "29 mm"},
+                        "variants": [{"product_code": "SBR310", "tool_type": "Brushless Reciprocating Saw Bare", "battery_config": "N/A", "storage": "-"}]
+                    },
+                    {
+                        "model_number": "SBR305", "product_name": "20V V20 BRUSHLESS ONE HAND RECIPSAW",
+                        "features": ["0-2,800 SPM", "Variable speed", "Tool-free blade change", "LED work light", "Compact one-hand design"],
+                        "specs": {"rpm": "0-2,800", "stroke_length": "19 mm"},
+                        "variants": [
+                            {"product_code": "SBR305M2S", "tool_type": "Brushless One Hand Recipsaw", "battery_config": "2 x 4.0Ah", "storage": "Soft Bag"},
+                            {"product_code": "SBR305", "tool_type": "Brushless One Hand Recipsaw Bare", "battery_config": "N/A", "storage": "-"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "CIRCULAR & MITRE SAWS (CORDLESS)",
+                "products": [
+                    {
+                        "model_number": "SCC500", "product_name": "20V MAX* V20 CIRCULAR SAW",
+                        "features": ["4,000 RPM", "Tool-free bevel up to 50°", "Compact & lightweight"],
+                        "specs": {"rpm": "4,000", "blade_diameter": "165 mm"},
+                        "variants": [{"product_code": "SCC500", "tool_type": "Brushed 165mm Circular Saw Bare", "battery_config": "N/A", "storage": "-"}]
+                    },
+                    {
+                        "model_number": "SBC550", "product_name": "20V MAX* V20 185MM BRUSHLESS CIRCULAR SAW",
+                        "features": ["5,000 RPM", "Bevel up to 56°", "Electronic brake", "LED work light", "Dust port"],
+                        "specs": {"rpm": "5,000", "blade_diameter": "185 mm"},
+                        "variants": [
+                            {"product_code": "SBC550M2K", "tool_type": "Brushless Circular Saw Kit", "battery_config": "2 x 4.0Ah", "storage": "Kit Box"},
+                            {"product_code": "SBC550", "tool_type": "Brushless Circular Saw Bare", "battery_config": "N/A", "storage": "-"}
+                        ]
+                    },
+                    {
+                        "model_number": "SCM701", "product_name": "20V MAX* V20 185MM MITRE SAW",
+                        "features": ["3,800 RPM", "Shadow-cut line system", "90°/47°/45° cuts", "Lightweight & portable", "Dust extraction"],
+                        "specs": {"rpm": "3,800", "bevel": "45°", "blade_diameter": "185 mm"},
+                        "variants": [
+                            {"product_code": "SCM701M2", "tool_type": "185mm Mitre Saw", "battery_config": "2 x 4.0Ah", "storage": "Unit Carton"},
+                            {"product_code": "SCM701", "tool_type": "185mm Mitre Saw Bare", "battery_config": "N/A", "storage": "-"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "OTHER V20 TOOLS",
+                "products": [{
+                    "model_number": "SCE520", "product_name": "20V MAX* V20 INFLATOR",
+                    "features": ["2 flow settings", "3 power sources (20V/12V/AC)", "Pre-set pressure function", "LED screen"],
+                    "specs": {"max_pressure": "160 PSI", "voltage": "20V/12V/AC", "weight": "2.7 kg"},
+                    "variants": [{"product_code": "SCE520", "tool_type": "Inflator Bare", "battery_config": "N/A", "storage": "-"}]
+                }]
+            }
+        ]
+    },
+    {
+        "category": "DRILLING & FASTENING (CORDED)",
+        "sub_categories": [
+            {
+                "name": "ROTARY DRILLS",
+                "products": [
+                    {
+                        "model_number": "SDR3006-B1", "product_name": "6mm 300W Rotary Drill",
+                        "features": ["High performance motor delivering 0-4,500 RPM", "Best in class durability", "Compact design & lightweight", "Variable speed with reverse & forward function"],
+                        "specifications": {
+                            "power_input": "300 W", "chuck_capacity": "6 mm", "no_load_speed": "0-4,500 Rpm",
+                            "variable_speed": "Yes", "lock_on_switch": "Yes", "cable_length": "2 m",
+                            "drilling_capacity": "Wood 15mm, Steel 6.5mm", "weight": "0.95 Kg",
+                            "dimensions": "200 x 165 x 60 mm", "packaging": "Carton"
+                        }
+                    },
+                    {
+                        "model_number": "STEL101-B1", "product_name": "10mm 400W Rotary Drill",
+                        "features": ["High performance motor delivering 0-2,700 RPM", "Best in class durability", "Compact design & light weight for optimum handling"],
+                        "specifications": {
+                            "power_input": "400 W", "chuck_capacity": "10 mm", "no_load_speed": "0-2,700 Rpm",
+                            "variable_speed": "Yes", "lock_on_switch": "Yes", "cable_length": "2 m",
+                            "drilling_capacity": "Wood 20mm", "weight": "1.0 Kg",
+                            "dimensions": "200 x 165 x 60 mm", "packaging": "Carton"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "PERCUSSION DRILLS",
+                "products": [
+                    {
+                        "model_number": "SDH600-B1", "product_name": "13mm 600W Percussion Drill",
+                        "features": ["Best in class rotary & impact rate", "Lightweight and compact & ergonomic design", "Speed dial for consistent torque/speed", "Lock-on switch for one hand control"],
+                        "specifications": {
+                            "power_input": "600 W", "chuck_capacity": "13 mm", "no_load_speed": "0-2,900 Rpm",
+                            "impact_rate": "0-49,300 Bpm", "forward_and_reverse": "Yes", "speed_dial": "Yes",
+                            "chuck": "Keyed & Keyless", "drilling_capacity": "Wood 25mm, Concrete 13mm, Steel 13mm",
+                            "weight": "1.75 Kg", "packaging": "Carton"
+                        }
+                    },
+                    {
+                        "model_number": "SDH600KM-B1", "product_name": "13mm 600W Hammer Drill with 120pcs Mechanic Set",
+                        "features": ["600W powerful motor", "Fast rotary and impact speed", "Compact and ergonomic design", "Speed dial for consistent torque and speed"],
+                        "specifications": {
+                            "power_input": "600 W", "chuck_capacity": "1.5-13 mm", "no_load_speed": "0-2,900 Rpm",
+                            "impact_rate": "0-49,300 Bpm", "forward_and_reverse": "Yes", "speed_dial": "Yes",
+                            "chuck": "Keyed & Keyless", "drilling_capacity": "Wood 25mm, Concrete 13mm, Steel 13mm",
+                            "weight": "1.8 Kg", "packaging": "Kit Box"
+                        }
+                    },
+                    {
+                        "model_number": "SDH600KP-B1", "product_name": "13mm 600W Hammer Drill with 120pcs Acc Set",
+                        "features": ["Includes 120pcs accessories", "600W motor", "Keyed & Keyless chuck"],
+                        "specifications": {
+                            "power_input": "600 W", "chuck_capacity": "1.5-13 mm", "no_load_speed": "0-2,900 Rpm",
+                            "impact_rate": "0-49,300 Bpm", "forward_and_reverse": "Yes", "speed_dial": "Yes",
+                            "weight": "1.8 Kg", "packaging": "Kit Box"
+                        },
+                        "included_accessories": ["60mm Magnetic extension bar", "4pcs wood drill 4/5/6/8mm", "5pcs masonry drill 4/5/6/8/10mm", "4pcs metal drill 2/3/4/5/6mm", "9pcs 25MM Screwdriver bits + 1Pc Adaptor", "Screw set", "3m tape measure", "Art Knife", "Hammer", "Pincer plier", "8pcs hex wrench"]
+                    },
+                    {
+                        "model_number": "SDH600KV-B1", "product_name": "13mm 600W Percussion Drill Value Pack",
+                        "features": ["Value pack with SDH600 + accessories"],
+                        "specifications": {
+                            "power_input": "600 W", "chuck_capacity": "1.5-13 mm", "no_load_speed": "0-2,900 Rpm",
+                            "impact_rate": "0-49,300 Bpm", "weight": "1.8 Kg", "packaging": "Kit Box"
+                        },
+                        "included_accessories": ["SDH600", "Cross Screwdriver", "Pincer Plier", "Hammer", "Art Knife", "Metal/Masonry/Wood drill bits"]
+                    },
+                    {
+                        "model_number": "SDH700KV0-B1", "product_name": "13mm 700W Percussion Drill Value Pack",
+                        "specifications": {
+                            "power_input": "700 W", "chuck_capacity": "1.5-13 mm", "no_load_speed": "0-2,900 Rpm",
+                            "impact_rate": "0-49,300 Bpm", "forward_and_reverse": "Yes", "speed_dial": "Yes",
+                            "chuck": "Keyed & Keyless", "drilling_capacity": "Wood 25mm, Concrete 13mm, Steel 13mm",
+                            "weight": "1.8 Kg", "packaging": "Kit Box"
+                        }
+                    },
+                    {
+                        "model_number": "STDH7213-B1", "product_name": "13mm 720W Percussion Drill",
+                        "features": ["Robust 720W motor", "High working efficiency due to excellent rotary & impact speed", "Durable metal gear housing for long unit life", "Speed dial for all different applications"],
+                        "specifications": {
+                            "power_input": "720 W", "chuck_capacity": "13 mm", "no_load_speed": "0-3,000 Rpm",
+                            "speed_dial": "Yes", "chuck": "Keyed", "reverse_mode": "Yes",
+                            "drilling_capacity": "Wood 32mm, Concrete 13mm, Steel 13mm",
+                            "weight": "2.5 Kg", "packaging": "Carton"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "MUD MIXER",
+                "products": [{
+                    "model_number": "SDR1400-B1", "product_name": "1400W Mud Mixer",
+                    "features": ["2 speed variable speed with soft start", "Appropriate motor torque", "Multi-use for tradesman environment", "D-shape twin-handle design & lightweight"],
+                    "specifications": {
+                        "power_input": "1,400 W", "speed_mode": "2 Speed", "no_load_speed": "0-480, 0-800 Rpm",
+                        "variable_speed": "Yes", "tool_fitting": "M14 x 2", "mixing_paddle": "140 mm",
+                        "mixture_volume": "120 L", "cable_length": "2 m", "soft_start_function": "Yes",
+                        "soft_grip_on_handle": "Yes", "accessories": "1pc two-section paddle, 2pcs 22# wrench",
+                        "weight": "3.5 Kg", "packaging": "Carton"
+                    }
+                }]
+            }
+        ]
+    },
+    {
+        "category": "CONCRETE WORKING",
+        "tools": [
+            {
+                "model_number": "SHR264KA-B1", "product_name": "26mm 2Kg Rotary Hammer Quick Change Chuck",
+                "features": ["High performance 800W motor", "QCC SDS-Plus chuck", "3 modes: Hammer Drill, Rotary Drill & Chipping", "Variable speed", "Lock-on switch"],
+                "specifications": {
+                    "power_input": "800 W", "chuck_capacity": "26 mm", "chuck_type": "QCC SDS-Plus",
+                    "no_load_speed": "0-1,250 Rpm", "drilling_mode": "Hammer Drill, Rotary Drill, & Chipping",
+                    "impact_energy": "3.4 J", "impact_rate": "0-4,670 Bpm", "quick_change_chuck": "Yes",
+                    "variable_speed": "Yes", "lock_on_switch": "Yes", "weight": "2.7 Kg", "packaging": "Kit Box"
+                },
+                "included_accessories": ["STA5002 SDS Hammer 5mm x 110mm x1", "STA5012 SDS Hammer 6mm x 110mm x2", "STA5022 SDS Hammer 8mm x 110mm x1", "STA5027 SDS Hammer 10mm x 110mm x1", "STA5401 SDS PLUS POINT chisel 14mm x 250mm x1", "6 pcs Stanley SDS-Plus Bits"]
+            },
+            {
+                "model_number": "SHR263KA-B1", "product_name": "26mm 3 Mode SDS-Plus Hammer with 6 Stanley Bits",
+                "features": ["800W motor", "3 modes: Hammer Drill, Rotary Drill & Chipping", "Variable speed", "Lock-on switch", "Kit box includes 6 Stanley bits"],
+                "specifications": {
+                    "power_input": "800 W", "chuck_capacity": "26 mm", "chuck_type": "SDS-Plus",
+                    "no_load_speed": "0-1,150 Rpm", "drilling_mode": "Hammer Drill, Rotary Drill, & Chipping",
+                    "impact_energy": "3.4 J", "impact_rate": "0-4,300 Bpm",
+                    "variable_speed": "Yes", "lock_on_switch": "Yes", "weight": "2.6 Kg", "packaging": "Kit Box"
+                }
+            },
+            {
+                "model_number": "STHM5KHV-B1", "product_name": "17mm HEX 5Kg Demolition Hammer",
+                "features": ["1010W Powerful Motor for outstanding chipping and chiseling", "Anti-vibration system for low vibration and more comfort", "Rubber coated back handle for improved comfort in use"],
+                "specifications": {
+                    "power_input": "1,010 W", "chuck_capacity": "17 mm", "chuck_type": "HEX",
+                    "impact_energy": "8.5 J", "impact_rate": "0-2,900 Bpm",
+                    "anti_vibration_handle": "Yes", "cable_length": "3.5 m",
+                    "weight": "6.1 Kg", "packaging": "Kit Box"
+                }
+            },
+            {
+                "model_number": "STHM10K-B1", "product_name": "10Kg SDS-Max Demolition Hammer",
+                "features": ["Powerful 1600W motor for light-heavy duty demolition", "Chipping & chiseling applications", "SDS Max chuck for easy accessory availability", "Rubber grip for comfortable long duration usage"],
+                "specifications": {
+                    "power_input": "1,600 W", "chuck_type": "SDS-Max", "impact_energy": "25 J",
+                    "impact_rate": "900-1,890 Bpm", "lock_on_switch": "Yes", "switch_type": "Trigger",
+                    "chisel_positions": "12", "weight": "10.5 Kg", "packaging": "Kit Box"
+                }
+            },
+            {
+                "model_number": "STSP125A-B1", "product_name": "1320W 125mm Tile Cutter",
+                "features": ["Powerful 1320W motor for highest working efficiency", "Optimized 13000 RPM for high cutting efficiency", "125mm capacity guard for all job-site applications", "Optimized gear set for less vibration, lower noise & longer life span"],
+                "specifications": {
+                    "power_input": "1,320 W", "wheel_diameter": "125 mm", "no_load_speed": "13,000 Rpm",
+                    "max_depth_of_cut": "41 mm", "cable_length": "2.5 m",
+                    "weight": "3.1 Kg", "packaging": "Carton"
+                }
+            }
+        ]
+    },
+    {
+        "category": "METAL WORKING",
+        "tools": [
+            {
+                "model_number": "SG7100-B1", "product_name": "100mm 750W Slimline Small Angle Grinder",
+                "features": ["Super slim body just 179mm gripping girth", "Steel cut gear set ensures premium noise and vibration level", "Powerful motor with higher output", "Higher load bearing to prevent tool damage"],
+                "specifications": {
+                    "power_input": "750 W", "disc_diameter": "100 mm", "tool_girth": "179 mm",
+                    "no_load_speed": "12,000 Rpm", "cable_length": "2.5 m", "weight": "1.3 Kg"
+                }
+            },
+            {
+                "model_number": "SG5100-B1", "product_name": "100mm 580W Slimline Small Angle Grinder",
+                "features": ["Super slim body just 179mm gripping girth", "Steel cut gear set ensures premium noise and vibration level", "Powerful motor with higher output", "Higher load bearing to prevent tool damage"],
+                "specifications": {
+                    "power_input": "580 W", "disc_diameter": "100 mm", "tool_girth": "179 mm",
+                    "no_load_speed": "12,000 Rpm", "cable_length": "2.1 m", "weight": "1.3 Kg"
+                }
+            },
+            {
+                "model_number": "SSC22-B1", "product_name": "2200W Chop Saw",
+                "features": ["2200W powerful motor with high working efficiency", "Heavy duty guard for durability and user protection", "Horizontal handle for better comfort"],
+                "specifications": {
+                    "power_input": "2,200 W", "no_load_speed": "3,800 Rpm",
+                    "max_disc_diameter": "355 mm", "lock_on_switch": "Yes",
+                    "guard": "Half / Full", "weight": "15.5 Kg"
+                }
+            },
+            {
+                "model_number": "STEL861", "product_name": "500W Die Grinder",
+                "features": ["500W Motor", "On/Off Switch", "Easy access to brushes for quick replacement", "Rubber coated for longer useful life"],
+                "specifications": {
+                    "power_input": "500 W", "no_load_speed": "27,000 Rpm", "switch_type": "Toggle",
+                    "spindle_size": "M15", "collet_size": "6 mm",
+                    "cable_length": "3 m", "weight": "2 Kg"
+                }
+            },
+            {
+                "model_number": "SP137-B1", "product_name": "1300W 180mm Polishing Machine",
+                "features": ["Constant speed module with soft-start for smooth polish", "Powerful 1300W motor for auto detailer applications", "15% more compact and 10% lighter than current polisher", "Over 200 hours working life, 2x durable"],
+                "specifications": {
+                    "power_input": "1,300 W", "diameter": "180 mm",
+                    "no_load_speed": "500-3,600 Rpm", "speed_control": "Variable Speed",
+                    "handle": "D type", "turning_disc_type": "Hook and Loop Fasteners",
+                    "machine_length": "40 mm", "weight": "3.2 Kg"
+                }
+            }
+        ]
+    },
+    {
+        "category": "CONSTRUCTION SAW & WOOD WORKING",
+        "sub_categories": [
+            {
+                "name": "SAWS",
+                "products": [
+                    {
+                        "model_number": "SM16-B1", "product_name": "254mm 1650W Mitre Saw",
+                        "features": ["1650W motor for heavy duty application on wood & aluminium cutting", "Precise design and manufacture offer excellent accuracy", "Durable motor keeps long term application use", "Compact size and lightweight easy to transport"],
+                        "specifications": {
+                            "power_input": "1,650 W", "no_load_speed": "4,800 Rpm",
+                            "max_blade_diameter": "254 mm", "max_diameter": "140x70 mm",
+                            "weight": "10.5 Kg", "cut_line_guidance": "LED Shadow",
+                            "mitre_max_positions": "L-47° R-52°",
+                            "cross_cut": "H75 x W140mm", "mitre_cut": "H75 x W95mm",
+                            "bevel_cut": "H48 x W140mm", "compound": "H48 x W95mm"
+                        }
+                    },
+                    {
+                        "model_number": "SM18-B1", "product_name": "254mm 1800W Sliding Mitre Saw",
+                        "features": ["LED shadow cut line for accurate cut & better illumination", "Double bevel design for cutting 2 beveled edges by flipping the saw", "Strong sliding rail structure with dustproof feature", "Lock-on button"],
+                        "specifications": {
+                            "power_input": "1,800 W", "no_load_speed": "4,800 Rpm",
+                            "max_blade_diameter": "254 mm", "cut_line_guidance": "LED Shadow",
+                            "bevel_cut_range": "Double Bevel",
+                            "miter_cut_range": "Left 0°-47° Right 0°-52°",
+                            "lock_on_button": "Yes", "weight": "18.6 Kg", "brake_time": "< 5 Seconds"
+                        }
+                    },
+                    {
+                        "model_number": "SST1801-B1", "product_name": "254mm 1800W Table Saw with Frame Stand",
+                        "features": ["Self-aligning fence design for high cut accuracy", "Dovetail shape fence slot prevents deviation", "Smart bi-scale reading", "Tool free extensible table", "Over 150 hours consistent durable heavy load life"],
+                        "specifications": {
+                            "power_input": "1,800 W", "no_load_speed": "4,800 Rpm",
+                            "max_blade_size": "254 mm", "max_bench_size": "560x680 mm",
+                            "max_extension_bench_size": "560x1,040 mm", "rip_capacity": "660 mm",
+                            "max_cutting_depth_90_45": "80 / 50 mm", "parallel_guide": "Self Aligning",
+                            "stand_type": "Frame", "weight": "27.2 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "SC16-B1", "product_name": "1600W 190mm Circular Saw",
+                        "features": ["Best-in-class 1600W motor with optimized transmission", "State-of-art design, compact size and light weight", "Robust & optimized design ensures 2x durability"],
+                        "specifications": {
+                            "power_input": "1,600 W", "no_load_speed": "5,500 Rpm",
+                            "max_disc_diameter": "190 mm", "max_cutting_depth": "65 mm",
+                            "max_bevel": "45°", "weight": "3.3 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "SJ45-B1", "product_name": "450W Jig Saw",
+                        "features": ["Powerful 450W motor with high efficiency", "Robust & optimized design ensures best-in-class durability", "Compact tool size and excellent power to weight ratio"],
+                        "specifications": {
+                            "power_input": "450 W", "variable_speed": "500-3,000 Spm/min",
+                            "max_cutting": "65 mm", "pendulum": "No",
+                            "stroke_length": "19 mm", "blade_clamp": "Keyed",
+                            "blade_type": "T-Shank", "bevel_cutting": "± 45 degree",
+                            "weight": "1.8 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "SJ60-B1", "product_name": "600W Variable Speed Jigsaw",
+                        "features": ["Powerful 600W motor with high efficiency", "Robust & optimized design ensures best-in-class durability", "Compact tool size and excellent power to weight ratio"],
+                        "specifications": {
+                            "power_input": "600 W", "variable_speed": "500-3,000 Spm/min",
+                            "max_cutting": "75 mm", "pendulum": "Yes",
+                            "stroke_length": "19 mm", "blade_clamp": "Keyless",
+                            "blade_type": "T-Shank", "bevel_cutting": "± 45 degree",
+                            "weight": "1.9 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "STEL365-B1", "product_name": "900W Reciprocating Saw",
+                        "features": ["Tooled shoe adjustment for depth adjustment and extended blade life", "Twist lock tool free blade change", "Variable speed trigger", "Heavy duty motor"],
+                        "specifications": {
+                            "power_input": "900 W", "strokes_min": "0-3,200 Spm/min",
+                            "stroke_length": "148 mm",
+                            "max_cutting": "Wood 305mm / Steel 75mm / PVC 306mm",
+                            "weight": "3.2 Kg"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "WOODWORKING",
+                "products": [
+                    {
+                        "model_number": "STP18-B1", "product_name": "1800W Thickness Planer",
+                        "features": ["Powerful 1800W motor", "High durability re-sharpenable HSS blades", "Large capacity up to 12.5\" planing width", "Precision cutting 0.4-1.6mm depth adjustment", "Easy to read dual metric & imperial markings"],
+                        "specifications": {
+                            "power_input": "1,800 W", "voltage": "220-240 V",
+                            "frequency": "50/60 Hz", "no_load_speed": "10,000 Rpm",
+                            "feed_speed": "7.9 m/min", "cutting_height": "152 mm",
+                            "planning_width": "318 mm",
+                            "maximum_cutting_depth": "3.2 mm",
+                            "weight": "27 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "ST55-B1", "product_name": "550W Laminate Trimmer",
+                        "features": ["35,000 RPM optimized speed and high torque for quick task completion", "550W powerful motor with up to 700W max output", "High grade collet material for accurate trimming", "Flat head design for convenience", "Transparent base and blow feature for working visibility"],
+                        "specifications": {
+                            "rated_power": "550 W", "no_load_speed": "35,000 Rpm",
+                            "collet_dimension": "6.35mm & 6mm", "soft_gel": "Yes",
+                            "blow_feature": "Yes", "weight": "1.4 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "STEL630-B1", "product_name": "750W Planer",
+                        "features": ["Left or right chip ejection", "Suitable for both right or left handed usage", "0.2mm depth of cut setting for increased accuracy", "3 different sized chamfer grooves", "12mm maximum rebate depth"],
+                        "specifications": {
+                            "power_input": "750 W", "no_load_speed": "16,500 Rpm",
+                            "planing_width": "82 mm", "planing_depth": "1.6 mm",
+                            "rebating_depth": "12 mm", "weight": "2.7 Kg"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "SANDERS",
+                "products": [
+                    {
+                        "model_number": "SS24-B1", "product_name": "240W 1/4 Inch Sheet Sander",
+                        "features": ["240W motor with higher sanding efficiency", "16000/min higher speed with low vibration", "Compact design with lower height for better balance", "Longer hanging life and first brush life"],
+                        "specifications": {
+                            "power_input": "240 W", "orbit_strokes": "16,000 Opm",
+                            "voltage_rating": "220-240 V", "orbital_diameter": "1.4 mm",
+                            "sanding_pad_size": "110 x 104 mm", "sanding_paper_size": "140 x 115 mm"
+                        }
+                    },
+                    {
+                        "model_number": "SS28-B1", "product_name": "280W 1/3 Inch Sheet Sander",
+                        "features": ["280W motor with higher sanding efficiency", "14000/min higher speed with low vibration", "Two finger trigger switch with lock-on button"],
+                        "specifications": {
+                            "power_input": "280 W", "no_load_speed": "14,000 Opm",
+                            "orbital_diameter": "2 mm", "sanding_pad_size": "91 x 185 mm",
+                            "sanding_paper_size": "93 x 230 mm", "two_finger_switch": "Yes",
+                            "lock_on_button": "Yes", "weight": "1.5 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "SSS310-B1", "product_name": "310W 1/2 Inch Sheet Sander",
+                        "features": ["310W durable motor for tradesman market performance", "2mm orbit diameter for all general sanding applications", "Thumb lever clamping system holds paper for fast sanding", "Dust extraction bag"],
+                        "specifications": {
+                            "power_input": "310 W", "no_load_speed": "6,000-10,000 Opm",
+                            "eccentricity": "1 mm", "orbit_diameter": "2 mm",
+                            "paper_size": "115 x 280 mm", "platten_size": "115 x 230 mm",
+                            "paper_attachment": "Thumb level clamping system"
+                        }
+                    },
+                    {
+                        "model_number": "SS30-B1", "product_name": "300W Random Orbital Sander Variable Speed",
+                        "features": ["300W motor with higher efficiency", "0-13000/min variable speed with extreme low vibration", "Longer product hanging life (>650hrs) and first brush life (>300hrs)", "Compact design with lower height"],
+                        "specifications": {
+                            "power_input": "300 W", "no_load_speed": "0-13,000 Opm",
+                            "orbital_diameter": "2 mm", "sanding_pad_size": "125mm / 5\"",
+                            "dust_sealed_switch": "Yes", "dust_extraction": "Yes",
+                            "brake_function": "Yes", "weight": "1.4 Kg"
+                        }
+                    },
+                    {
+                        "model_number": "SB90-B1", "product_name": "900W Belt Sander Variable Speed",
+                        "features": ["900W motor with higher efficiency for fast material removal", "Longer product hanging life (>500hrs) and first brush life (>150hrs)", "Two finger trigger switch with lock-on button"],
+                        "specifications": {
+                            "power_input": "900 W", "no_load_speed": "240-380 Rpm",
+                            "sanding_belt_size": "76 x 533 mm", "sanding_area": "76 x 130 mm",
+                            "two_finger_switch": "Yes", "lock_on_button": "Yes",
+                            "weight": "2.76 Kg"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "SPECIALITY",
+        "tools": [
+            {
+                "model_number": "STEL670-B1", "product_name": "2000W Heatgun",
+                "features": ["Spherical nozzle", "Two air flow stages, variable temperature settings", "Designed for free-standing base"],
+                "specifications": {
+                    "power_input": "2,000 W", "heat_setting": "Variable",
+                    "switch_control": "2 Stages", "temperature": "50-450 / 90-600 °C",
+                    "air_flow": "300/500 L/min", "cable_length": "3 m"
+                }
+            },
+            {
+                "model_number": "STPT600-B1", "product_name": "600W Blower",
+                "features": ["Enhanced airflow for high working efficiency", "Variable speed and light weight suitable for all applications", "Longer durability to reduce idle time"],
+                "specifications": {
+                    "power_input": "600 W", "no_load_speed": "0-16,000 Rpm",
+                    "air_volume": "3,500 L/min", "cable_length": "3 m",
+                    "weight": "1.6 Kg"
+                }
+            }
+        ]
+    }
+]
+
+# Write the JSON file
+output_path = r'd:\metallo-industrial\public\data\Power_Tools_data.json'
+with open(output_path, 'w', encoding='utf-8') as f:
+    json.dump(data, f, indent=4, ensure_ascii=False)
+
+print(f"Written {len(data)} categories to {output_path}")
+for item in data:
+    cat = item.get('category', 'Unknown')
+    tools = item.get('tools', [])
+    subs = item.get('sub_categories', [])
+    if tools:
+        print(f"  {cat}: {len(tools)} products")
+    elif subs:
+        total = sum(len(s.get('products', [])) for s in subs)
+        print(f"  {cat}: {len(subs)} sub-categories, {total} products total")

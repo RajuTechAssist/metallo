@@ -1,0 +1,595 @@
+"""
+Rebuild Metallo_Steel_Product_Master_v2.json to exactly match
+the PDF Master Product List structure and product names.
+"""
+import json
+
+# PDF schema: Category | Material Type | Sub-Category | Product Name | Grades | Standards
+#   | OD range | Wall thickness | Length | End finish | Tensile | Yield | Elongation
+#   | Hardness | Certification | Application | Description
+
+products = [
+    # ==========================================
+    # PIPES & TUBES — MILD STEEL
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Mild Steel (MS)",
+        "Sub_Category": "",
+        "Product_Name": "MS ERW (Electric Resistance Welded) Pipe",
+        "Grades": "IS 1239 Class A (Light), Class B (Medium), Class C (Heavy), Fe 330, Fe 410",
+        "Standards": "IS 1239, IS 3589, BS 1387",
+        "OD_Range": "15mm to 150mm NB (21.3mm to 168.3mm OD)",
+        "Wall_Thickness": "Class A: 2.0-3.6mm, Class B: 2.3-4.5mm, Class C: 2.6-5.0mm",
+        "Length": "Single Random (5-7m), Double Random (10-12m)",
+        "End_Finish": "Plain End, Beveled, Threaded & Coupled",
+        "Tensile_Strength": "≥ 330 MPa (Fe 330), ≥ 410 MPa (Fe 410)",
+        "Yield_Strength": "≥ 210 MPa (Fe 330), ≥ 250 MPa (Fe 410)",
+        "Elongation": "≥ 20%",
+        "Hardness": "",
+        "Certification": "IS, BIS, ISI marked",
+        "Application": "Water Supply, Fire Fighting, Structural, Scaffolding, Fencing, Agriculture",
+        "Description": "Low-carbon Electric Resistance Welded pipes. Highly economical and extensively used for water lines, fire-fighting, and structural purposes."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Mild Steel (MS)",
+        "Sub_Category": "",
+        "Product_Name": "MS Seamless (SMLS) Pipe",
+        "Grades": "ASTM A106 Gr. A/B, ASTM A53 Gr. A/B, IS 1239",
+        "Standards": "ASTM A106, ASTM A53, IS 1239",
+        "OD_Range": "1/2\" to 24\" NB (21.3mm to 609.6mm OD)",
+        "Wall_Thickness": "SCH 40, SCH 80, SCH 160, SCH XXS",
+        "Length": "Single Random (5-7m), Double Random (10-12m)",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 330 MPa",
+        "Yield_Strength": "≥ 205 MPa",
+        "Elongation": "≥ 25%",
+        "Hardness": "",
+        "Certification": "Mill Test Certificate (MTC) as per EN 10204 3.1",
+        "Application": "High Pressure, High Temperature, Boiler, Heat Exchanger, Oil & Gas",
+        "Description": "Made from a solid round steel billet which is heated and pushed or pulled over a form until the steel is shaped into a hollow tube. No weld seam."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Mild Steel (MS)",
+        "Sub_Category": "",
+        "Product_Name": "MS Hollow Sections (SHS, RHS, CHS)",
+        "Grades": "YSt 210, YSt 240, YSt 310, E250 (Fe 410W)",
+        "Standards": "IS 4923, EN 10210, EN 10219, ASTM A500",
+        "OD_Range": "SHS: 25x25 to 250x250mm, RHS: 40x20 to 300x200mm, CHS: 21.3 to 355.6mm",
+        "Wall_Thickness": "1.6mm to 12.5mm",
+        "Length": "6m, 9m, 12m standard",
+        "End_Finish": "Plain End",
+        "Tensile_Strength": "≥ 410 MPa (E250)",
+        "Yield_Strength": "≥ 250 MPa (E250)",
+        "Elongation": "≥ 23%",
+        "Hardness": "",
+        "Certification": "ISI, Mill TC",
+        "Application": "Structural, Construction, Framework, Columns, Beams, Trusses",
+        "Description": "Square (SHS), Rectangular (RHS), and Circular (CHS) hollow structural sections for load-bearing and architectural applications."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Mild Steel (MS)",
+        "Sub_Category": "",
+        "Product_Name": "MS LSAW / Spiral Pipe Welded",
+        "Grades": "API 5L Gr. B to X70, ASTM A252, S355",
+        "Standards": "API 5L, ASTM A252, EN 10219",
+        "OD_Range": "16\" to 120\" OD (406mm to 3048mm)",
+        "Wall_Thickness": "6mm to 25mm",
+        "Length": "6m to 18m",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 415 MPa (Gr. B), ≥ 570 MPa (X70)",
+        "Yield_Strength": "≥ 245 MPa (Gr. B), ≥ 485 MPa (X70)",
+        "Elongation": "≥ 21%",
+        "Hardness": "",
+        "Certification": "API Monogram, ISO 3183, MTC",
+        "Application": "Municipal Waterworks, Oil & Gas Pipelines, Structural Piling, Infrastructure",
+        "Description": "Large-diameter pipes manufactured by LSAW (Longitudinal Submerged Arc Welding) or HSAW (Helical/Spiral) welding of steel strips."
+    },
+    # ==========================================
+    # PIPES & TUBES — STAINLESS STEEL AUSTENITIC
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Austenitic (300 Series)",
+        "Product_Name": "SS 304 ERW/Welded",
+        "Grades": "SS 304, 304L, 304H",
+        "Standards": "ASTM A312, ASTM A358, ASTM A249",
+        "OD_Range": "6.0mm to 609.6mm OD (1/8\" to 24\" NB)",
+        "Wall_Thickness": "0.5mm to 6.0mm (Welded), SCH5S to SCH80S (Pipe)",
+        "Length": "Up to 30m (Welded), Single/Double Random",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 515 MPa (75,000 PSI)",
+        "Yield_Strength": "≥ 205 MPa (30,000 PSI)",
+        "Elongation": "≥ 35%",
+        "Hardness": "≤ 201 HB / ≤ 92 HRB",
+        "Certification": "MTC EN 10204 3.1, PED, NACE MR0175",
+        "Application": "Chemical Processing, Food & Beverage, Pharmaceutical, Dairy, Water Treatment",
+        "Description": "Austenitic stainless steel ERW/welded pipes with excellent corrosion resistance and formability. Grade 304 is the most widely used stainless steel."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Austenitic (300 Series)",
+        "Product_Name": "SS 316 ERW/Welded",
+        "Grades": "SS 316, 316L, 316H, 316Ti",
+        "Standards": "ASTM A312, ASTM A358, ASTM A249",
+        "OD_Range": "6.0mm to 609.6mm OD (1/8\" to 24\" NB)",
+        "Wall_Thickness": "0.5mm to 6.0mm (Welded), SCH5S to SCH80S (Pipe)",
+        "Length": "Up to 30m (Welded), Single/Double Random",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 515 MPa (75,000 PSI)",
+        "Yield_Strength": "≥ 205 MPa (30,000 PSI)",
+        "Elongation": "≥ 35%",
+        "Hardness": "≤ 217 HB / ≤ 95 HRB",
+        "Certification": "MTC EN 10204 3.1, PED, NACE MR0175",
+        "Application": "Marine, Chemical, Petrochemical, Pharmaceutical, Oil & Gas, Desalination",
+        "Description": "Austenitic stainless steel with added molybdenum for superior corrosion resistance, especially against chlorides and marine environments."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Austenitic (300 Series)",
+        "Product_Name": "SS 304/316 Seamless",
+        "Grades": "SS 304, 304L, 316, 316L, 321, 347, 904L",
+        "Standards": "ASTM A312, ASTM A213, ASTM A269",
+        "OD_Range": "1/4\" NB to 24\" NB (13.7mm to 609.6mm OD)",
+        "Wall_Thickness": "SCH5S, 10S, 40S, 80S, SCH160, SCH XXS",
+        "Length": "Up to 15m, Single/Double Random",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 515 MPa (75,000 PSI)",
+        "Yield_Strength": "≥ 205 MPa (30,000 PSI)",
+        "Elongation": "≥ 35%",
+        "Hardness": "≤ 201 HB / ≤ 92 HRB",
+        "Certification": "MTC EN 10204 3.1, PED, NACE, IBR",
+        "Application": "High Pressure, Process Piping, Heat Exchangers, Instrumentation, Oil & Gas",
+        "Description": "Seamless stainless steel pipes/tubes made by extrusion with no weld seam. Superior for high-pressure and high-temperature applications."
+    },
+    # ==========================================
+    # PIPES & TUBES — STAINLESS STEEL FERRITIC
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Ferritic (400 Series)",
+        "Product_Name": "SS 409/430 Tubes",
+        "Grades": "SS 409, 409L, 410, 430, 439, 441",
+        "Standards": "ASTM A268, ASTM A803",
+        "OD_Range": "6.0mm to 168.3mm OD",
+        "Wall_Thickness": "0.5mm to 4.0mm",
+        "Length": "Up to 12m",
+        "End_Finish": "Plain End",
+        "Tensile_Strength": "≥ 380 MPa (409), ≥ 450 MPa (430)",
+        "Yield_Strength": "≥ 170 MPa (409), ≥ 205 MPa (430)",
+        "Elongation": "≥ 20%",
+        "Hardness": "≤ 179 HB (409), ≤ 183 HB (430)",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Automotive Exhaust, Heat Exchangers, Kitchen Equipment, Architectural",
+        "Description": "Ferritic stainless steel tubes with good corrosion resistance at lower cost than austenitic grades. Magnetic and not hardenable by heat treatment."
+    },
+    # ==========================================
+    # PIPES & TUBES — STAINLESS STEEL DUPLEX
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Duplex",
+        "Product_Name": "SS 2205/2507 Tubes",
+        "Grades": "SS 2205 (UNS S31803/S32205), 2507 (UNS S32750)",
+        "Standards": "ASTM A789, ASTM A790, ASTM A928",
+        "OD_Range": "6.0mm to 323.9mm OD",
+        "Wall_Thickness": "SCH5S to SCH160",
+        "Length": "Up to 12m",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 620 MPa (2205), ≥ 795 MPa (2507)",
+        "Yield_Strength": "≥ 450 MPa (2205), ≥ 550 MPa (2507)",
+        "Elongation": "≥ 25% (2205), ≥ 15% (2507)",
+        "Hardness": "≤ 293 HB (2205), ≤ 310 HB (2507)",
+        "Certification": "MTC EN 10204 3.1, NACE MR0175, PED",
+        "Application": "Oil & Gas (Subsea), Chemical Tankers, Desalination, Pulp & Paper, Marine",
+        "Description": "Duplex stainless steel with a mixed austenitic-ferritic microstructure providing high strength and excellent resistance to stress corrosion cracking and pitting."
+    },
+    # ==========================================
+    # PIPES & TUBES — PRECIPITATION HARDENING
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Precipitation Hardening",
+        "Product_Name": "17-4PH; 15-5PH",
+        "Grades": "17-4PH (UNS S17400), 15-5PH (UNS S15500)",
+        "Standards": "ASTM A564, AMS 5643/5659",
+        "OD_Range": "6.0mm to 168.3mm OD",
+        "Wall_Thickness": "SCH5S to SCH80S",
+        "Length": "Up to 6m",
+        "End_Finish": "Plain End",
+        "Tensile_Strength": "≥ 1070 MPa (Condition H900)",
+        "Yield_Strength": "≥ 1000 MPa (Condition H900)",
+        "Elongation": "≥ 10%",
+        "Hardness": "≤ 388 HB (H900)",
+        "Certification": "MTC EN 10204 3.1, AMS certified",
+        "Application": "Aerospace, Nuclear, Chemical Processing, Food Processing, Marine Hardware",
+        "Description": "Precipitation hardening stainless steels that can be heat-treated to very high strength levels while maintaining corrosion resistance."
+    },
+    # ==========================================
+    # PIPES & TUBES — CARBON STEEL
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Carbon Steel",
+        "Sub_Category": "Low Carbon",
+        "Product_Name": "CS Seamless (ASTM A106 Gr. B)",
+        "Grades": "ASTM A106 Gr. A/B/C",
+        "Standards": "ASTM A106, ASME SA106",
+        "OD_Range": "1/2\" to 24\" NB (21.3mm to 609.6mm OD)",
+        "Wall_Thickness": "SCH 40, SCH 80, SCH 120, SCH 160, SCH XXS",
+        "Length": "Single Random (5-7m), Double Random (10-12m)",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 415 MPa (Gr. B)",
+        "Yield_Strength": "≥ 240 MPa (Gr. B)",
+        "Elongation": "≥ 30%",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1, IBR approved",
+        "Application": "Boilers, Superheaters, Heat Exchangers, High Temperature Service, Refineries",
+        "Description": "Carbon steel seamless pipe for high-temperature service. Intended for bending, flanging, and similar forming operations."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Carbon Steel",
+        "Sub_Category": "Low Carbon",
+        "Product_Name": "CS Welded (ASTM A53)",
+        "Grades": "ASTM A53 Gr. A/B",
+        "Standards": "ASTM A53, ASME SA53",
+        "OD_Range": "1/2\" to 26\" NB",
+        "Wall_Thickness": "SCH STD, SCH 40, SCH 80",
+        "Length": "Single/Double Random",
+        "End_Finish": "Plain End, Beveled, Threaded & Coupled",
+        "Tensile_Strength": "≥ 330 MPa (Gr. A), ≥ 415 MPa (Gr. B)",
+        "Yield_Strength": "≥ 205 MPa (Gr. A), ≥ 240 MPa (Gr. B)",
+        "Elongation": "Varies by wall thickness",
+        "Hardness": "",
+        "Certification": "MTC, Hydrostatic tested",
+        "Application": "General Purpose Piping, Mechanical, Pressure, Steam, Water, Gas, Air Lines",
+        "Description": "Black and hot-dipped zinc-coated welded and seamless carbon steel pipe for general structural and pressure applications."
+    },
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Carbon Steel",
+        "Sub_Category": "Low Carbon",
+        "Product_Name": "CS Line Pipe (API 5L)",
+        "Grades": "API 5L Gr. B, X42, X46, X52, X56, X60, X65, X70",
+        "Standards": "API 5L, ISO 3183",
+        "OD_Range": "1/2\" to 48\" NB (21.3mm to 1219mm OD)",
+        "Wall_Thickness": "SCH 20 to SCH XXS, Custom WT",
+        "Length": "Single/Double Random, Cut to Length",
+        "End_Finish": "Plain End, Beveled",
+        "Tensile_Strength": "≥ 415 MPa (Gr. B) to ≥ 570 MPa (X70)",
+        "Yield_Strength": "≥ 245 MPa (Gr. B) to ≥ 485 MPa (X70)",
+        "Elongation": "Varies by grade",
+        "Hardness": "",
+        "Certification": "API Monogram, ISO 3183, MTC, NACE, HIC/SSC Tested",
+        "Application": "Oil & Gas Transport, Cross-Country Pipelines, Offshore, Upstream/Downstream",
+        "Description": "Carbon steel line pipes for conveying gas, water, and oil in the petroleum and natural gas industries."
+    },
+    # ==========================================
+    # PIPES & TUBES — CUSTOM
+    # ==========================================
+    {
+        "Category": "Pipes & Tubes",
+        "Material_Type": "Custom",
+        "Sub_Category": "Custom Pipes",
+        "Product_Name": "Customised Steel Pipe",
+        "Grades": "As per Customer Requirement",
+        "Standards": "Client Specifications",
+        "OD_Range": "Non-Standard OD & Custom Wall Thickness",
+        "Wall_Thickness": "Custom (Non-Standard SCH)",
+        "Length": "As per drawing",
+        "End_Finish": "As per spec (Plain, Beveled, Threaded, Grooved)",
+        "Tensile_Strength": "As per material grade",
+        "Yield_Strength": "As per material grade",
+        "Elongation": "As per material grade",
+        "Hardness": "",
+        "Certification": "As required (MTC, IBR, PED, NACE)",
+        "Application": "Modular Process Skids, Offshore Platforms, Custom Heat Exchangers, Heavy Infrastructure",
+        "Description": "Pipes manufactured to specific client requirements, including non-standard outer diameters (OD), specific wall thicknesses, or special coatings (3LPE, Epoxy)."
+    },
+    # ==========================================
+    # SHEETS & PLATES
+    # ==========================================
+    {
+        "Category": "Sheets & Plates",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Plates",
+        "Product_Name": "SS HR Plate (Hot Rolled)",
+        "Grades": "304, 316L, 310S, 321, 904L",
+        "Standards": "ASTM A240, ASME SA240",
+        "OD_Range": "1000x2000mm to 2000x6000mm",
+        "Wall_Thickness": "5mm - 100mm",
+        "Length": "",
+        "End_Finish": "Mill Edge / Slit Edge",
+        "Tensile_Strength": "≥ 515 MPa (304)",
+        "Yield_Strength": "≥ 205 MPa (304)",
+        "Elongation": "≥ 40%",
+        "Hardness": "≤ 201 HB",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Pressure Vessels, Tanks, Structural Fabrication, Chemical Equipment",
+        "Description": "Thick steel plates used for making tanks, vessel bodies, and heavy structures."
+    },
+    {
+        "Category": "Sheets & Plates",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Sheets",
+        "Product_Name": "SS CR Sheet (Cold Rolled)",
+        "Grades": "304, 430, 202, 316L",
+        "Standards": "ASTM A240, ASME SA240",
+        "OD_Range": "1000x2000mm to 1500x3000mm",
+        "Wall_Thickness": "0.5mm - 6mm",
+        "Length": "",
+        "End_Finish": "2B, BA, No.4, Mirror, Hairline",
+        "Tensile_Strength": "≥ 515 MPa (304)",
+        "Yield_Strength": "≥ 205 MPa (304)",
+        "Elongation": "≥ 40%",
+        "Hardness": "≤ 201 HB",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Kitchen Equipment, Elevator Panels, Cladding, Decorative, Automotive",
+        "Description": "Thinner, smoother, and shinier sheets used for kitchen equipment, cladding, and elevators."
+    },
+    {
+        "Category": "Sheets & Plates",
+        "Material_Type": "Stainless Steel",
+        "Sub_Category": "Coils",
+        "Product_Name": "SS Coil / Strip",
+        "Grades": "304, 316L, 430, 202",
+        "Standards": "ASTM A240, ASME SA240",
+        "OD_Range": "Width: 10mm to 2000mm",
+        "Wall_Thickness": "0.3mm - 6mm",
+        "Length": "Coil (continuous)",
+        "End_Finish": "2B, BA, No.4",
+        "Tensile_Strength": "≥ 515 MPa (304)",
+        "Yield_Strength": "≥ 205 MPa (304)",
+        "Elongation": "≥ 40%",
+        "Hardness": "≤ 201 HB",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Stamping, Banding, Springs, Precision Parts, Mass Production Components",
+        "Description": "Long continuous rolls of thin steel. Used for mass production of parts."
+    },
+    # ==========================================
+    # FLANGES
+    # ==========================================
+    {
+        "Category": "Flanges",
+        "Material_Type": "Stainless Steel / Carbon Steel / Alloy Steel",
+        "Sub_Category": "Weld Neck",
+        "Product_Name": "Weld Neck Flange",
+        "Grades": "SS F304/F316, CS A105, Alloy F11/F22",
+        "Standards": "ASME B16.5, ASME B16.47",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "",
+        "Length": "",
+        "End_Finish": "Raised Face (RF), Ring Type Joint (RTJ), Flat Face (FF)",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1, PED, NACE",
+        "Application": "High Pressure Piping, Oil & Gas, Chemical Plants, Power Plants",
+        "Description": "Has a long tapered hub. Welded directly to the pipe. Best for high pressure.",
+        "Pressure_Class": "150# to 2500#"
+    },
+    {
+        "Category": "Flanges",
+        "Material_Type": "Stainless Steel / Carbon Steel",
+        "Sub_Category": "Slip On",
+        "Product_Name": "Slip-On Flange",
+        "Grades": "SS F304/F316, CS A105",
+        "Standards": "ASME B16.5",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "",
+        "Length": "",
+        "End_Finish": "Raised Face (RF), Flat Face (FF)",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC",
+        "Application": "Low/Medium Pressure Piping, Water Treatment, General Industrial",
+        "Description": "Slips over the pipe and is welded inside and out. Easier to align but weaker than Weld Neck.",
+        "Pressure_Class": "150# to 300#"
+    },
+    {
+        "Category": "Flanges",
+        "Material_Type": "Stainless Steel / Carbon Steel / Alloy Steel",
+        "Sub_Category": "Blind",
+        "Product_Name": "Blind Flange",
+        "Grades": "SS F304/F316, CS A105, Alloy F11/F22",
+        "Standards": "ASME B16.5, ASME B16.47",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "",
+        "Length": "",
+        "End_Finish": "Raised Face (RF), Ring Type Joint (RTJ), Flat Face (FF)",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Dead-ends, Inspection Ports, Pressure Testing, Isolation",
+        "Description": "A solid disk used to block off the end of a piping system.",
+        "Pressure_Class": "150# to 2500#"
+    },
+    # ==========================================
+    # BUTTWELD FITTINGS
+    # ==========================================
+    {
+        "Category": "Buttweld Fittings",
+        "Material_Type": "Stainless Steel / Carbon Steel / Alloy Steel",
+        "Sub_Category": "Elbows",
+        "Product_Name": "90° / 45° Elbow",
+        "Grades": "SS 304/316L, CS ASTM A234 WPB, Alloy WP11/WP22",
+        "Standards": "ASME B16.9",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "SCH5S to SCH XXS",
+        "Length": "",
+        "End_Finish": "Beveled",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Process Piping, Oil & Gas, Chemical Plants, Power Plants",
+        "Description": "Used to change the direction of flow.",
+        "Type": "Seamless / Welded, Long Radius (LR) / Short Radius (SR)"
+    },
+    {
+        "Category": "Buttweld Fittings",
+        "Material_Type": "Stainless Steel / Carbon Steel / Alloy Steel",
+        "Sub_Category": "Tees",
+        "Product_Name": "Equal / Reducing Tee",
+        "Grades": "SS 304/316L, CS ASTM A234 WPB, Alloy WP11/WP22",
+        "Standards": "ASME B16.9",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "SCH5S to SCH XXS",
+        "Length": "",
+        "End_Finish": "Beveled",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Branch Connections, Process Piping, Oil & Gas",
+        "Description": "Used to split the flow into two directions.",
+        "Type": "Seamless / Welded, Equal / Reducing"
+    },
+    {
+        "Category": "Buttweld Fittings",
+        "Material_Type": "Stainless Steel / Carbon Steel / Alloy Steel",
+        "Sub_Category": "Reducers",
+        "Product_Name": "Concentric / Eccentric Reducer",
+        "Grades": "SS 304/316L, CS ASTM A234 WPB, Alloy WP11/WP22",
+        "Standards": "ASME B16.9",
+        "OD_Range": "1/2\" x 3/8\" to 48\" x 46\"",
+        "Wall_Thickness": "SCH5S to SCH XXS",
+        "Length": "",
+        "End_Finish": "Beveled",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "MTC EN 10204 3.1",
+        "Application": "Pipe Size Transition, Process Piping, Pump Suction/Discharge",
+        "Description": "Connects a large pipe to a smaller pipe.",
+        "Type": "Seamless / Welded, Concentric / Eccentric"
+    },
+    # ==========================================
+    # SEALING & GASKETS
+    # ==========================================
+    {
+        "Category": "Sealing & Gaskets",
+        "Material_Type": "Metal + Filler",
+        "Sub_Category": "Gaskets",
+        "Product_Name": "Spiral Wound Gasket",
+        "Grades": "",
+        "Standards": "ASME B16.20, ASME B16.21",
+        "OD_Range": "1/2\" to 48\" NB",
+        "Wall_Thickness": "",
+        "Length": "",
+        "End_Finish": "",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "",
+        "Application": "Flange Joints, Pressure Vessels, Heat Exchangers, Piping Systems",
+        "Description": "A mix of metal wire and filler (graphite/teflon). Placed between two flanges to prevent leakage.",
+        "Material": "SS 304/316 + Graphite/PTFE, Inner/Outer Ring: CS/SS"
+    },
+    {
+        "Category": "Sealing & Gaskets",
+        "Material_Type": "Solid Metal",
+        "Sub_Category": "Gaskets",
+        "Product_Name": "Ring Joint Gasket (RTJ)",
+        "Grades": "R, RX, BX Types",
+        "Standards": "API 6A, ASME B16.20",
+        "OD_Range": "Per API Ring Number (R11 to R105)",
+        "Wall_Thickness": "",
+        "Length": "",
+        "End_Finish": "Oval / Octagonal",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "",
+        "Certification": "API 6A certified",
+        "Application": "High Pressure Oil & Gas Flanges, Wellhead Equipment, BOP",
+        "Description": "Solid metal oval/octagonal ring used in very high-pressure oil & gas flanges.",
+        "Material": "Soft Iron, SS 304, SS 316, Inconel 625, Monel 400"
+    },
+    {
+        "Category": "Sealing & Gaskets",
+        "Material_Type": "Elastomer / Metal",
+        "Sub_Category": "O-Rings",
+        "Product_Name": "O-Ring Seal",
+        "Grades": "",
+        "Standards": "AS 568, ISO 3601",
+        "OD_Range": "2mm to 500mm ID",
+        "Wall_Thickness": "1.5mm to 7mm cross-section",
+        "Length": "",
+        "End_Finish": "",
+        "Tensile_Strength": "",
+        "Yield_Strength": "",
+        "Elongation": "",
+        "Hardness": "50-90 Shore A (elastomers)",
+        "Certification": "",
+        "Application": "Pumps, Valves, Cylinders, Hydraulic Systems, Pneumatic Systems",
+        "Description": "A simple rubber or metal loop sitting in a groove to seal a connection.",
+        "Material": "Viton, Nitrile (NBR), EPDM, Silicone, PTFE, Metal Encapsulated"
+    },
+    # ==========================================
+    # CUSTOM FABRICATED PIPING & SPOOLS
+    # ==========================================
+    {
+        "Category": "Custom Fabricated Piping & Spools",
+        "Material_Type": "SS / CS / Alloy (As per requirement)",
+        "Sub_Category": "",
+        "Product_Name": "Custom Fabricated Piping & Spools",
+        "Grades": "As per design",
+        "Standards": "Client Specifications, ASME B31.1/B31.3",
+        "OD_Range": "As per isometric drawing",
+        "Wall_Thickness": "As per design/P&ID",
+        "Length": "As per spool drawing",
+        "End_Finish": "Beveled, Flanged, Threaded, Grooved",
+        "Tensile_Strength": "As per material grade",
+        "Yield_Strength": "As per material grade",
+        "Elongation": "As per material grade",
+        "Hardness": "",
+        "Certification": "MTC, Weld Radiography, PWHT, Hydro Test Reports",
+        "Application": "Modular Process Skids, Offshore Platforms, Custom Heat Exchangers, Heavy Infrastructure",
+        "Description": "Tailor-made piping solutions engineered to exact client schematics. We provide non-standard outside diameters, heavy-wall thicknesses, and pre-fabricated pipe spools to drastically reduce on-site welding time.",
+        "Capabilities": "Precision Bending, End Beveling, Threading, Grooving, Spooling",
+        "Coatings": "3LPE, Fusion Bonded Epoxy (FBE), Hot-Dip Galvanizing, PTFE"
+    }
+]
+
+# Write output
+output_path = r'd:\metallo-industrial\public\data\Metallo_Steel_Product_Master_v2.json'
+with open(output_path, 'w', encoding='utf-8') as f:
+    json.dump(products, f, indent=2, ensure_ascii=False)
+
+# Report
+cats = {}
+for p in products:
+    c = p['Category']
+    cats[c] = cats.get(c, 0) + 1
+
+print(f"Total products: {len(products)}")
+for c, n in cats.items():
+    print(f"  {c}: {n}")
+
+# Check field coverage
+all_keys = ['Category','Material_Type','Sub_Category','Product_Name','Grades','Standards',
+            'OD_Range','Wall_Thickness','Length','End_Finish','Tensile_Strength',
+            'Yield_Strength','Elongation','Hardness','Certification','Application','Description']
+filled = sum(1 for p in products for k in all_keys if p.get(k))
+total = len(products) * len(all_keys)
+print(f"\nField coverage: {filled}/{total} ({filled/total*100:.0f}%)")

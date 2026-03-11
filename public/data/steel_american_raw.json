@@ -1,0 +1,422 @@
+{
+  "products": [
+    {
+      "source": "american_stainless",
+      "category": "Pipes & Tubes",
+      "sub_types": [
+        "Seamless Pipes",
+        "Welded Pipes",
+        "ERW Pipes"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Pipes": "Specifications",
+        "Types": "Round, Square, Rectangular, Hydraulic Etc",
+        "Size": "OD",
+        "ERW Pipes & Tubes": "1/2\" NB - 24\"NB",
+        "EFW Pipes & Tubes": "6\"NB - 100\" NB",
+        "Pipe & Tubes": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal.",
+        "Nominal Pipe Size": "Outside Diameter",
+        "mm": "inch",
+        "3": "1/8",
+        "6": "1/4",
+        "10": "3/8",
+        "15": "1/2",
+        "20": "3/4",
+        "25": "1",
+        "32": "1.1/4",
+        "40": "1.1/2",
+        "50": "2",
+        "65": "2.1/2",
+        "80": "3",
+        "100": "4",
+        "125": "5",
+        "150": "6",
+        "200": "8",
+        "250": "10",
+        "300": "12",
+        "350": "14",
+        "400": "16",
+        "450": "18",
+        "500": "20",
+        "600": "24",
+        "Dimension": "10 SWG (3.2 MM)",
+        "1/2\"": "12.7",
+        "5/8\"": "15.875",
+        "3/4\"": "19.05",
+        "1\"": "25.4",
+        "1 1/4\"": "31.75",
+        "1 1/2\"": "38.1",
+        "2\"": "50.8",
+        "2 1/2\"": "63.5",
+        "3\"": "76.2",
+        "3 1/2\"": "88.9",
+        "4\"": "101.6",
+        "Grade": "Tensile Strength Mpa, (Min)",
+        "BHN": "Rb",
+        "301": "515",
+        "304": "515",
+        "304L": "485",
+        "310S": "515",
+        "316": "515",
+        "316L": "485",
+        "317": "515",
+        "317L": "515",
+        "321": "515",
+        "347": "515",
+        "409": "380",
+        "409M": "430",
+        "410S": "415",
+        "410": "450",
+        "420": "700( max )",
+        "430": "450",
+        "JSL AUS": "515",
+        "JS- 203": "515",
+        "301M": "515"
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Flanges",
+      "sub_types": [
+        "Weld Neck Flange",
+        "Slip On Flange",
+        "Blind Flange",
+        "Threaded Flange",
+        "Socket Weld Flange",
+        "Lap Joint Flange"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASME B16.5",
+        "BS 10",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Flanges": "Specifications",
+        "Standards": "ANSI/ASME B16.5, B16.47 Series A & B, B16.48, BS4504, BS 10, EN-1092, DIN, ANSI Flanges, ASME Flanges, BS Flanges, DIN Flanges, EN Flanges, GOST Flange, ASME/ANSI B16.5/16.36/16.47A/16.47B, MSS S44, ISO70051, JISB2220, BS1560-3.1, API7S-15, API7S-43, API605, EN1092",
+        "Size": "1/2\" (15NB) to 48\" (1200NB) DN10 - DN5000",
+        "Types": "Flanges - SWRF",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Buttweld Fittings",
+      "sub_types": [
+        "90\u00b0 Elbow",
+        "45\u00b0 Elbow",
+        "Equal Tee",
+        "Reducing Tee",
+        "Concentric Reducer",
+        "Eccentric Reducer",
+        "Stub End",
+        "Pipe Cap"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Buttweld Fittings": "Specifications",
+        "Specialized in": "Large Diameter Size",
+        "Schedule": "SCH5, SCH10, SCH20, SCH30, SCH40, Std, SCH80, XS, SCH60, SCH80, SCH120, SCH140, SCH160, XXS",
+        "Type": "Seamless / ERW / Welded / Fabricated / LSAW Buttwelds",
+        "Form": "Round, Square, Rectangular, Hydraulic etc.",
+        "Length": "Single Random, Double Random & Cut Length",
+        "End": "Plain End, Beveled End, Threaded",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Forged Fittings",
+      "sub_types": [
+        "Socket Weld Elbow",
+        "Threaded Elbow",
+        "Socket Weld Tee",
+        "Threaded Tee",
+        "Union",
+        "Coupling",
+        "Half Coupling",
+        "Cross",
+        "Bushing"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Forged Fittings": "Specifications",
+        "Type": "Rounded, Square Hollow Plllished",
+        "Size": "1/8\" to 24\"NB & 1/4\" OD to 24\" OD AND 6.35mm to 254mm OD Thickness: 0.6mm to 20mm",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Fasteners",
+      "sub_types": [
+        "Hex Bolt",
+        "Stud Bolt",
+        "Hex Nut",
+        "Washer",
+        "Anchor Bolt",
+        "Threaded Rod"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Fasteners": "Specifications",
+        "Size": "M5 - M50",
+        "Types": "Bolt, Nuts, Washers, Threaded Rods, Screw, and Rings.",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Sheet, Plate & Coil",
+      "sub_types": [
+        "HR Plate",
+        "CR Sheet",
+        "Coil/Strip",
+        "Chequered Plate",
+        "Perforated Sheet"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Sheet, Plate & Coil": "Specifications",
+        "Size": "0.1 mm to 100 mm thick upto 2500 mm width & upto 8000 mm length available with NACE MR 01-75s.",
+        "Types": "2B, D, BA, NO. 1, NO. 4, NO. 8, 8K Mirror, Checkered, Embossed, Hair Line, Sand Blast, Brush, Etching",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    },
+    {
+      "source": "american_stainless",
+      "category": "Round Bar",
+      "sub_types": [
+        "Round Bar",
+        "Flat Bar",
+        "Hex Bar",
+        "Square Bar",
+        "Hollow Bar"
+      ],
+      "materials": [
+        "Stainless Steel",
+        "Carbon Steel",
+        "Alloy Steel",
+        "Nickel Alloy",
+        "Inconel",
+        "Monel",
+        "Hastelloy",
+        "Titanium",
+        "Copper"
+      ],
+      "standards": [
+        "ASTM A335",
+        "ASTM A106"
+      ],
+      "specifications": {
+        "Round Bar": "Specifications",
+        "Size": "2mm to 500 mm Long DIA. & Above",
+        "Types": "Bright, Black, Polish, Export Bright",
+        "Stainless Steel": "ASTM A 312, A 213, A 213, A 249, A 269, A 358, A 240, A 276 Type: 202, 304, 304L, 304, 304H, 316, 316L, 316Ti, 321, 321H, 317, 317L, 310, 310S, 409, 410, 420, 430 etc.",
+        "Carbon Steel": "ASTM A106, A 53, API A 5L Gr. A, B, C, ASTM A 333 Gr. 1 to 6 (IBR & NON IBR).",
+        "Alloy Steel": "ASTM A335 ,GR P1, P2, P5, P9, P11, P22 ,P91.",
+        "Nickel Alloys": "Monel 400 & 500, Inconel 600 & 625, Incolloy 800, 825, Hastelloy 904, TItanium, Tungston, Silver Nickle, Zirconium, palladium, vanadium etc.",
+        "Copper Alloy": "Aluminium , Copper , Brass & Gunmetal."
+      },
+      "applications": [
+        "Oil and Gas",
+        "Power Plant",
+        "Automotive",
+        "Pharmaceutical",
+        "Sugar",
+        "Pulp & Paper",
+        "Refining",
+        "Shipbuilding",
+        "Aerospace"
+      ]
+    }
+  ],
+  "material_grades": {
+    "Stainless Steel": [
+      "ASTM A240"
+    ],
+    "Carbon Steel": [
+      "ASTM A240",
+      "ASTM A106"
+    ],
+    "Alloy Steel": [
+      "ASTM A240",
+      "ASTM A335"
+    ],
+    "Nickel Alloy": [
+      "ASTM A240"
+    ]
+  }
+}

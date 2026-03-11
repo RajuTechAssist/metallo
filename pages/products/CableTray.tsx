@@ -86,49 +86,62 @@ const TRAY_INDUSTRIES = [
 
 const CableTray: React.FC = () => {
   return (
-    <div className="font-sans text-metallo-navy">
-      {/*  HERO  */}
-      <section className="relative bg-metallo-navy overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80&auto=format&fit=crop"
-            alt="Cable tray systems"
-            className="w-full h-full object-cover opacity-25"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-metallo-navy via-metallo-navy/95 to-metallo-navy/70" />
-        </div>
+    <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
+      {/* ═══ HERO (70vh) ═══════════════════════════════════════ */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ height: "70vh", minHeight: "500px" }}
+      >
+        <img
+          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80&auto=format&fit=crop"
+          alt="Cable tray manufacturing"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-900/80" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)",
+          }}
+        />
 
-        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="material-symbols-outlined text-metallo-gold text-3xl">grid_view</span>
-              <span className="text-xs font-bold text-metallo-gold uppercase tracking-widest font-sans">Cable Tray Division</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight mb-6">
-              Cable Tray Systems<br />
-              <span className="text-metallo-gold">Engineered Cable Management</span>
-            </h1>
-            <p className="text-lg text-gray-300 font-sans leading-relaxed mb-10 max-w-xl">
-              From ladder trays to wire mesh systems — GI, SS & aluminium cable trays designed for power plants, data centres, and industrial installations. IS/IEC certified and custom fabricated.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-sm uppercase tracking-wide transition-colors rounded-sm"
-              >
-                Request a Quote
-                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+        <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
+              <Link to="/" className="hover:text-white transition-colors">
+                Home
               </Link>
-              <a
-                href="#categories"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/20 hover:border-white/40 text-white font-bold text-sm uppercase tracking-wide transition-colors rounded-sm"
-              >
-                Explore Range
-                <span className="material-symbols-outlined text-lg">expand_more</span>
-              </a>
-            </div>
+              <span className="material-symbols-outlined text-xs">
+                chevron_right
+              </span>
+              <span className="text-yellow-500 font-medium">
+                Cable Tray
+              </span>
+            </nav>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
+              Cable Tray Systems
+              <br />
+              <span className="text-yellow-500">Engineered Cable Management.</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-12 font-sans leading-relaxed">
+              From ladder trays to wire mesh systems — GI, SS &amp; aluminium
+              cable trays designed for power plants, data centres, and
+              industrial installations. IS/IEC certified and custom fabricated.
+            </p>
+
+            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
+              <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">
+                download
+              </span>
+              Download Cable Tray Catalog
+            </button>
           </div>
         </div>
+
+        <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
       </section>
 
       {/*  CAPABILITIES STRIP  */}
