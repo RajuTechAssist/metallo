@@ -96,7 +96,7 @@ const Verticals: React.FC = () => {
             <Link
               to={item.link}
               key={item.id}
-              className="group relative flex-shrink-0 w-[160px] h-[240px] md:w-[180px] md:h-[260px] xl:w-auto xl:h-[280px] rounded-md overflow-hidden cursor-pointer block"
+              className="group relative flex-shrink-0 w-[160px] h-[240px] md:w-[180px] md:h-[296px] xl:w-auto rounded-md overflow-hidden cursor-pointer block"
             >
               {/* Background Image */}
               <img

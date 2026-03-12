@@ -14,8 +14,8 @@ const config: Config = {
       center: true,
       padding: "1rem",
       screens: {
-        default: "90vw",
-      }
+        default: "100vw",
+      },
     },
     extend: {
       /* ── Typography ──────────────────────────────

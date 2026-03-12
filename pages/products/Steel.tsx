@@ -818,8 +818,71 @@ const Steel: React.FC = () => {
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero backgroundImage="/Steel/oil_industry.jpg" title="High-Performance" subtitle="Industrial Steel." description="ASTM / ASME / API compliant Stainless, Carbon, Mild & Alloy Steel — engineered for critical infrastructure, oil & gas, and heavy engineering across 6 product families." breadcrumbLabel="Steel Products" ctaLabel="Download Complete Technical Catalog" />
-      <ProductCategoryNav categories={CATEGORIES} activeKey={activeCategoryKey} onSelect={selectCategory} certBadge="ASTM / ASME / API Certified" />
+      {/* ═══ HERO (70vh) ═══════════════════════════════════════ */}
+      <section className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
+        <img src="/Steel/oil_industry.jpg" alt="Steel manufacturing plant" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-slate-900/50" />
+
+        <div className="relative z-10 flex flex-col justify-center h-full container">
+          <div className="max-w-3xl">
+            <nav className="flex items-center gap-2 text-sm text-slate-200 mb-8 font-sans">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="material-symbols-outlined text-xs">chevron_right</span>
+              <span className="text-yellow-500 font-medium">Steel Products</span>
+            </nav>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-4 md:mb-6">
+              High-Performance<br />
+              <span className="text-yellow-500">Industrial Steel.</span>
+            </h1>
+
+            <p className="text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl mb-6 lg:mb-8 font-sans leading-relaxed">
+              ASTM / ASME / API compliant Stainless, Carbon, Mild &amp; Alloy Steel — engineered for
+              critical infrastructure, oil &amp; gas, and heavy engineering across 6 product families.
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6 lg:mb-10">
+              {["Mild Steel", "Stainless Steel", "Carbon Steel", "Alloy Steel", "Duplex", "Nickel Alloys"].map((m) => (
+                <span key={m} className="px-3 py-1.5 border border-white/20 text-white/70 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:border-yellow-500/50 hover:text-yellow-500 transition-all cursor-default">
+                  {m}
+                </span>
+              ))}
+            </div>
+
+            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
+              <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">download</span>
+              Download Complete Technical Catalog
+            </button>
+          </div>
+        </div>
+        <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
+      </section>
+
+      {/* ═══ STICKY CATEGORY NAV (6 categories) ═══════════════ */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-1 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => selectCategory(cat.key)}
+                className={`relative whitespace-nowrap px-3 lg:px-4 py-4 text-[13px] font-heading font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-1.5 ${
+                  activeCategoryKey === cat.key
+                    ? "text-yellow-600 border-b-2 border-yellow-500"
+                    : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                <span className="material-symbols-outlined text-base hidden sm:inline">{cat.icon}</span>
+                {cat.label}
+              </button>
+            ))}
+            <div className="ml-auto hidden lg:flex items-center gap-2 text-xs text-slate-400 font-sans shrink-0 pl-4">
+              <span className="material-symbols-outlined text-sm text-yellow-500">verified</span>
+              ASTM / ASME / API Certified
+            </div>
+          </div>
+        </div>
+      </nav>
 
       {/* ═══ MASTER-DETAIL BODY ═══════════════════════════════ */}
       <section className="bg-white border-b border-slate-100">

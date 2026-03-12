@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [honeypot, setHoneypot] = useState("");
   const formLoadTime = useRef(Date.now());
 
   // Reset form load time on mount
@@ -19,7 +21,7 @@ const Footer: React.FC = () => {
     // 1. Honeypot check
     if (honeypot) {
       console.warn("Bot detected: Honeypot filled");
-      return; 
+      return;
     }
 
     // 2. Time-based check (< 2 seconds is suspicious)
@@ -35,22 +37,72 @@ const Footer: React.FC = () => {
     }
 
     if (!consent) {
-        alert("Please confirm your consent to receive communications.");
-        return;
+      alert("Please confirm your consent to receive communications.");
+      return;
     }
 
-    setStatus('submitting');
-    
+    setStatus("submitting");
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setStatus('success');
-    setEmail('');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    setStatus("success");
+    setEmail("");
     setConsent(false);
-    
+
     // Reset status after 5 seconds
-    setTimeout(() => setStatus('idle'), 5000);
+    setTimeout(() => setStatus("idle"), 5000);
   };
+  const topLinks = [
+    { name: "About Us", path: "/about" },
+    { name: "Why Metallo", path: "/why-metallo" },
+    { name: "Careers", path: "/careers" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+  const verticals = [
+    {
+      key: "steel",
+      name: "Steel",
+      path: "/products/steel",
+      icon: "foundation",
+    },
+    {
+      key: "cables",
+      name: "Wire & Cables",
+      path: "/products/wire-cables",
+      icon: "electrical_services",
+    },
+    {
+      key: "cabletray",
+      name: "Cable Tray",
+      path: "/products/cable-tray",
+      icon: "grid_view",
+    },
+    {
+      key: "welding",
+      name: "Welding Consumables",
+      path: "/products/welding",
+      icon: "whatshot",
+    },
+    {
+      key: "tools",
+      name: "Power Tools",
+      path: "/products/tools",
+      icon: "construction",
+    },
+    {
+      key: "casting",
+      name: "Die Casting",
+      path: "/products/die-casting",
+      icon: "precision_manufacturing",
+    },
+    {
+      key: "tech",
+      name: "Industrial Tech",
+      path: "/products/tech-products",
+      icon: "memory",
+    },
+  ];
 
   return (
     <footer className="bg-metallo-navy text-white mt-auto">
@@ -140,116 +192,10 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* 3-Column Layout on Tablet/Desktop: Company | Industries | Communication */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-          {/* Company Links */}
-          <div>
-            <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">
-              Company
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-white transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/capabilities"
-                  className="hover:text-white transition-colors"
-                >
-                  Capabilities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/careers"
-                  className="hover:text-white transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-white transition-colors"
-                >
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/sitemap"
-                  className="hover:text-white transition-colors"
-                >
-                  Sitemap
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h4 className="text-sm font-bold font-heading mb-6 uppercase tracking-wider text-white">
-              Industries
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li>
-                <Link
-                  to="/products/steel"
-                  className="hover:text-white transition-colors"
-                >
-                  Steel Solutions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/wire-cables"
-                  className="hover:text-white transition-colors"
-                >
-                  Wire & Cables
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/welding"
-                  className="hover:text-white transition-colors"
-                >
-                  Welding
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/tools"
-                  className="hover:text-white transition-colors"
-                >
-                  Tools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/cable-tray"
-                  className="hover:text-white transition-colors"
-                >
-                  Cable Tray
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/die-casting"
-                  className="hover:text-white transition-colors"
-                >
-                  Die Casting
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Communication & Address (Spans 2 cols on mobile, 1 col on tablet+) */}
-          <div className="col-span-2 md:col-span-1">
+        {/* 3-Column Layout on Tablet/Desktop: Communication | Company | Industries */}
+        <div className="flex flex-col md:flex-row gap-10 justify-between">
+          {/* Communication */}
+          <div className="w-full lg:max-w-[35%] mb-12 md:mb-0">
             <h4 className="text-xl font-bold font-heading mb-4 text-white">
               Join our communication
             </h4>
@@ -265,7 +211,6 @@ const Footer: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubscribe} noValidate>
-                {/* Hidden Honeypot */}
                 <input
                   type="text"
                   name="website_url"
@@ -299,6 +244,7 @@ const Footer: React.FC = () => {
                     )}
                   </button>
                 </div>
+
                 <div className="flex items-start gap-3 mb-8">
                   <input
                     type="checkbox"
@@ -319,11 +265,49 @@ const Footer: React.FC = () => {
               </form>
             )}
 
-            {/* Address Block */}
             <div className="text-sm text-gray-400">
               <p className="font-bold text-white mb-1">Registered Office:</p>
               <p>712, Tower A, Emaar Digital Greens,</p>
               <p>Sector 61, Gurgaon, Haryana, India, 122101</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-20">
+            {/* Manufacturer & Supplier of */}
+            <div>
+              <h4 className="text-sm lg:text-lg font-bold font-heading mb-6 uppercase tracking-wider text-white">
+                Manufacturer & Supplier of
+              </h4>
+              <ul className="space-y-3 text-sm lg:text-base text-gray-400">
+                {verticals.map((vertical) => (
+                  <li key={vertical.key}>
+                    <Link
+                      to={vertical.path}
+                      className="hover:text-white transition-colors"
+                    >
+                      {vertical.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm lg:text-lg font-bold font-heading mb-6 uppercase tracking-wider text-white">
+                Quick Links
+              </h4>
+              <ul className="space-y-3 text-sm lg:text-base text-gray-400">
+                {topLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
