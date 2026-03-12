@@ -20,8 +20,7 @@ const Certifications: React.FC = () => {
 
   return (
     <section className="bg-gray-50 py-20 border-t border-gray-200 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-
+      <div className="container">
         {/* Text Data Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading">
@@ -31,19 +30,23 @@ const Certifications: React.FC = () => {
             Quality is not just a promise; it is a certified standard.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Our Distributed Manufacturing OS is built on absolute trust and traceability. Every facility in our network is strictly audited, and every production batch passes through our Central QC Hub with full Material Testing Certificates (MTC) to meet the most demanding Tier-1 EPC standards.
+            Our Distributed Manufacturing OS is built on absolute trust and
+            traceability. Every facility in our network is strictly audited, and
+            every production batch passes through our Central QC Hub with full
+            Material Testing Certificates (MTC) to meet the most demanding
+            Tier-1 EPC standards.
           </p>
         </div>
 
         {/* Logos Row – scroll on mobile, centered on desktop */}
         <div className="relative">
-
           {/* Left fade hint - Visible on mobile & tablet */}
           <div
             className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 lg:hidden"
             style={{
               opacity: canScrollLeft ? 1 : 0,
-              background: 'linear-gradient(to right, rgb(249 250 251), transparent)',
+              background:
+                "linear-gradient(to right, rgb(249 250 251), transparent)",
             }}
           />
 
@@ -54,7 +57,10 @@ const Certifications: React.FC = () => {
           >
             <div
               className="absolute inset-0"
-              style={{ background: 'linear-gradient(to left, rgb(249 250 251), transparent)' }}
+              style={{
+                background:
+                  "linear-gradient(to left, rgb(249 250 251), transparent)",
+              }}
             />
             <span className="material-symbols-outlined relative text-metallo-navy/40 text-2xl animate-pulse">
               chevron_right
@@ -66,55 +72,95 @@ const Certifications: React.FC = () => {
             ref={scrollRef}
             onScroll={checkScroll}
             className="overflow-x-auto -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
           >
             {/* Hide webkit scrollbar */}
             <style>{`
               .cert-scroll::-webkit-scrollbar { display: none; }
             `}</style>
-            <div className="cert-scroll flex lg:justify-center items-center gap-12 lg:gap-16 min-w-max"
+            <div
+              className="cert-scroll flex lg:justify-center items-center gap-12 lg:gap-16 min-w-max"
               ref={(el) => {
                 // Forward scroll hiding to parent
-                if (el?.parentElement) el.parentElement.classList.add('cert-scroll');
+                if (el?.parentElement)
+                  el.parentElement.classList.add("cert-scroll");
               }}
             >
-
               {/* ISO */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/iso.svg" alt="ISO 9001:2015" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ISO 9001:2015</span>
+                <img
+                  src="/iso.svg"
+                  alt="ISO 9001:2015"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  ISO 9001:2015
+                </span>
               </div>
 
               {/* Indian Railways */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/india-railways.svg" alt="Indian Railways" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">Indian Railways</span>
+                <img
+                  src="/india-railways.svg"
+                  alt="Indian Railways"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  Indian Railways
+                </span>
               </div>
 
               {/* NPC */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/npc.svg" alt="NPC" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NPC</span>
+                <img
+                  src="/npc.svg"
+                  alt="NPC"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  NPC
+                </span>
               </div>
 
               {/* NTPC */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/ntpc-1.svg" alt="NTPC" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">NTPC</span>
+                <img
+                  src="/ntpc-1.svg"
+                  alt="NTPC"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  NTPC
+                </span>
               </div>
 
               {/* EIL */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/eil.svg" alt="EIL" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">EIL</span>
+                <img
+                  src="/eil.svg"
+                  alt="EIL"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  EIL
+                </span>
               </div>
 
               {/* ASME */}
               <div className="flex flex-col items-center gap-3 group cursor-pointer hover:-translate-y-1 transition-all duration-300 shrink-0">
-                <img src="/asme-logo-two.svg" alt="ASME" className="h-20 w-auto object-contain" />
-                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">ASME</span>
+                <img
+                  src="/asme-logo-two.svg"
+                  alt="ASME"
+                  className="h-20 w-auto object-contain"
+                />
+                <span className="block text-xs font-bold text-gray-500 uppercase tracking-wide whitespace-nowrap">
+                  ASME
+                </span>
               </div>
-
             </div>
           </div>
         </div>

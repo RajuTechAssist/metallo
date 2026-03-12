@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
       <AnimatePresence mode="popLayout">
         <motion.div
           key={slide.id}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-x-0 bottom-0 h-60 z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-12 lg:px-20 pt-16 pb-40">
+      <div className="relative container z-10 flex flex-col justify-center h-full pt-16 pb-40">
         <div className="max-w-5xl">
           <AnimatePresence mode="wait">
             <motion.div key={slide.id}>
@@ -249,17 +249,18 @@ const Hero: React.FC = () => {
       </div>
 
       {/* ── Industrial Track Navigation ── */}
-      <div className="absolute flex justify-between items-center bottom-0 inset-x-0 z-20 px-6 sm:px-12 lg:px-20 pb-8 md:pb-10">
+      <div className="absolute container flex justify-between items-center bottom-0 inset-x-0 z-20 pb-8 md:pb-10">
         {/* Slide Track Dots */}
         <div className="flex items-center gap-3">
           {SLIDES.map((s, i) => (
             <button
               key={s.id}
               onClick={() => goToSlide(i)}
-              className={`h-[2px] transition-all duration-300 ${i === current
-                ? "w-10 bg-yellow-500"
-                : "w-5 bg-white/25 hover:bg-white/50"
-                }`}
+              className={`h-[2px] transition-all duration-300 ${
+                i === current
+                  ? "w-10 bg-yellow-500"
+                  : "w-5 bg-white/25 hover:bg-white/50"
+              }`}
               aria-label={`Go to slide ${s.id}`}
             />
           ))}

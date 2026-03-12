@@ -830,9 +830,9 @@ const Steel: React.FC = () => {
         <img src="/Steel/oil_industry.jpg" alt="Steel manufacturing plant" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-slate-900/50" />
 
-        <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex flex-col justify-center h-full container">
           <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
+            <nav className="flex items-center gap-2 text-sm text-slate-200 mb-8 font-sans">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span className="material-symbols-outlined text-xs">chevron_right</span>
               <span className="text-yellow-500 font-medium">Steel Products</span>
