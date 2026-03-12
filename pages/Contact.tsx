@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { CONTAINER } from '../components/product/productLayout';
 
 // Simple math CAPTCHA for form security
 const generateCaptcha = () => {
@@ -138,8 +139,8 @@ const Contact: React.FC = () => {
         <div className="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full hidden lg:block"></div>
         <div className="absolute top-20 right-20 w-40 h-40 border border-dashed border-metallo-gold/20 rounded-full hidden lg:block"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+        <div className={`${CONTAINER} relative z-10 text-center`}>
+          <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
             Let's Build Together.
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-serif italic">
@@ -150,7 +151,7 @@ const Contact: React.FC = () => {
 
       {/* SECTION 2: ROUTING GRID */}
       <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={CONTAINER}>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">How can we help you today?</h2>
             <div className="w-16 h-1 bg-metallo-gold mx-auto"></div>
@@ -222,7 +223,7 @@ const Contact: React.FC = () => {
 
       {/* SECTION 3: INQUIRY FORM */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={CONTAINER}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
 
             {/* Left: Info */}
@@ -504,7 +505,7 @@ const Contact: React.FC = () => {
 
       {/* SECTION 4: MANUFACTURING HUBS */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={CONTAINER}>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Visit Our Facilities.</h2>
             <p className="text-gray-500 max-w-xl mx-auto">Strategic manufacturing hubs positioned to serve India's core industrial corridors.</p>

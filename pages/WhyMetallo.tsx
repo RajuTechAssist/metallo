@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CONTAINER } from '../components/product/productLayout';
 
 const convergingItems = [
   { deg: 0, icon: 'foundation', label: 'Steel' },
@@ -149,10 +150,10 @@ const WhyMetallo: React.FC = () => {
         {/* Central Text Overlay */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-20 mix-blend-plus-lighter">
            <div className="transition-all duration-300 transform">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-2 tracking-tight drop-shadow-2xl">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].name.toUpperCase() : "MAXIMIZE EFFICIENCY."}
               </h1>
-              <h2 className="text-xl md:text-3xl font-heading font-medium text-metallo-gold tracking-widest mb-6 uppercase drop-shadow-lg">
+              <h2 className="text-lg md:text-2xl font-heading font-medium text-metallo-gold tracking-widest mb-6 uppercase drop-shadow-lg">
                  {hoveredIndex !== null ? spectrumVerticals[hoveredIndex].cert : "One Platform. Six Verticals. Zero Friction."}
               </h2>
               <div className={`max-w-2xl mx-auto transition-opacity duration-300 ${hoveredIndex !== null ? 'opacity-0 h-0' : 'opacity-100 h-auto'}`}>
@@ -168,12 +169,12 @@ const WhyMetallo: React.FC = () => {
       <section className="bg-white text-metallo-navy py-20 md:py-28 relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gray-50 transform -skew-x-12 translate-x-1/4 z-0 hidden lg:block"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className={`${CONTAINER} relative z-10`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Text */}
             <div>
               <span className="text-metallo-navy font-bold uppercase tracking-[0.2em] mb-4 block text-sm font-heading">The Integrated Advantage</span>
-              <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 leading-tight">
                 Don't Just Buy Materials. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-metallo-navy to-gray-500">Upgrade Your Supply Chain.</span>
               </h1>
@@ -217,9 +218,9 @@ const WhyMetallo: React.FC = () => {
 
       {/* SECTION 2: OLD WAY VS METALLO WAY */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={CONTAINER}>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading font-bold text-metallo-navy mb-4">Old Way vs. Metallo Way</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-4">Old Way vs. Metallo Way</h2>
             <p className="text-gray-600">See the difference integration makes to your project timeline.</p>
           </div>
 
@@ -310,7 +311,7 @@ const WhyMetallo: React.FC = () => {
 
       {/* SECTION 3: STRATEGIC PILLARS */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={CONTAINER}>
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               
               {/* Pillar 1 */}
@@ -370,11 +371,11 @@ const WhyMetallo: React.FC = () => {
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className={`${CONTAINER} relative z-10`}>
           <div className="flex flex-col md:flex-row items-center gap-12">
             
             <div className="w-full md:w-1/3 text-center md:text-left">
-               <h2 className="text-4xl font-heading font-bold mb-6">Direct Impact on Your Bottom Line.</h2>
+               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">Direct Impact on Your Bottom Line.</h2>
                <p className="text-gray-300 mb-8">
                  Integration isn't just convenient; it's profitable. See how the Metallo model improves your project ROI.
                </p>
@@ -409,7 +410,7 @@ const WhyMetallo: React.FC = () => {
       {/* SECTION 5: FINAL CTA */}
       <section className="py-20 md:py-28 bg-white text-center">
         <div className="max-w-4xl mx-auto px-4">
-           <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-6">The Smart Choice for Smart Industry.</h2>
+           <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">The Smart Choice for Smart Industry.</h2>
            <p className="text-xl text-gray-600 mb-10">50+ EPC Contractors have already upgraded to the Metallo Ecosystem. Are you next?</p>
            <Link 
              to="/contact" 
