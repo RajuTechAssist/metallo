@@ -463,8 +463,8 @@ const Header: React.FC = () => {
         className={`w-full sticky top-0 z-50 bg-white font-sans text-metallo-navy transition-transform duration-300 ease-in-out ${isVisible ? "translate-y-0 shadow-lg" : "-translate-y-full shadow-sm"}`}
       >
         {/* Row 1: Top Bar - Hidden on mobile */}
-        <div className="border-b border-gray-300 py-3 hidden md:block">
-          <div className="mx-auto container-lg px-4">
+        <div className="w-full border-b border-gray-300 py-3 hidden md:block">
+          <div className="mx-auto container px-4">
             <div className="flex justify-between items-center text-xs font-medium font-serif text-gray-600 tracking-wide">
               <div className="flex space-x-10">
                 {topLinks.map((link) => (
@@ -489,7 +489,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto container-lg px-4">
+        <div className="mx-auto container px-4">
           {/* Row 2: Logo & CTA */}
           <div className="py-4 bg-white">
             <div className="flex justify-between items-center">

@@ -5,68 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>METALLO — Powering Industrial India</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@200;300;400;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet" />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'metallo-navy': '#0F172A',
-              'metallo-gold': '#EAB308',
-              'metallo-gold-hover': '#CA8A04',
-              'metallo-slate': '#0F172A',
-              primary: { DEFAULT: '#0F172A', foreground: '#EAB308' },
-              secondary: { DEFAULT: '#EAB308', foreground: '#0F172A' },
-              background: '#F8FAFC',
-              foreground: '#0F172A',
-              muted: '#F1F5F9',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              heading: ['Manrope', 'sans-serif'],
-              serif: ['Merriweather', 'serif'],
-            },
-            animation: {
-              'spin-slow': 'spin 10s linear infinite',
-            }
-          },
-        },
-      }
-    </script>
-    <style>
-      :root {
-        --primary: #0F172A; /* Slate 900 */
-        --secondary: #EAB308; /* Yellow 500 */
-        --background: #F8FAFC; /* Slate 50 */
-        --foreground: #0F172A; /* Slate 900 */
-        --muted: #F1F5F9; /* Slate 100 */
-        
-        --metallo-gold: #EAB308;
-        --metallo-slate: #0F172A;
-      }
-      
-      body {
-        background-color: var(--background);
-        color: var(--foreground);
-      }
-      /* Custom scrollbar for better aesthetics */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #071331;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #0a1e4a;
-      }
-    </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
     "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
@@ -81,9 +22,8 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-white">
+  <body class="bg-background text-foreground">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

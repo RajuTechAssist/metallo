@@ -42,8 +42,8 @@ const industriesData: Industry[] = [
 
 const Industries: React.FC = () => {
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-24 bg-white border-t border-gray-100">
+      <div className="container">
         <div className="mb-10">
           <h2 className="text-3xl md:text-4xl font-serif text-metallo-navy mb-3">
             Industries we serve

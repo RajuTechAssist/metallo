@@ -79,8 +79,8 @@ const verticalsData: Vertical[] = [
 
 const Verticals: React.FC = () => {
   return (
-    <section className="py-24 bg-gray-50" id="verticals">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gray-50 w-full" id="verticals">
+      <div className="container">
         <div className="mb-10">
           <span className="text-metallo-navy/70 font-bold uppercase tracking-widest text-sm block mb-2 font-heading">Our Product Spectrum</span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-3">Complete Industrial Solutions</h2>

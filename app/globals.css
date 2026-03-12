@@ -1,17 +1,20 @@
-:root {
-  --primary: #0F172A;
-  --secondary: #EAB308;
-  --background: #F8FAFC;
-  --foreground: #0F172A;
-  --muted: #F1F5F9;
-  
-  --font-inter: 'Inter', sans-serif;
-  --font-manrope: 'Manrope', sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #071331;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0a1e4a;
 }
 
 /* Hide scrollbar for Verticals horizontal scroll */
@@ -21,7 +24,4 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-.container-lg {
-  width: 92%;
 }
