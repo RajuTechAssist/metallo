@@ -54,13 +54,13 @@ const Industries: React.FC = () => {
         {/* Compact Zetwerk-style image cards — single row, horizontally scrollable */}
         <div
           className="flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:pb-0"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {industriesData.map((industry, index) => (
             <Link
               to={industry.slug}
               key={index}
-              className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[260px] rounded-md overflow-hidden cursor-pointer block"
+              className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >
               <img
                 src={industry.image}
@@ -69,9 +69,14 @@ const Industries: React.FC = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-3">
-                <h3 className="text-sm font-bold font-heading text-white leading-tight">{industry.title}</h3>
-                <span className="inline-flex items-center mt-1.5 text-metallo-gold text-xs font-bold">
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <h3 className="text-base font-bold font-heading text-white leading-tight">
+                  {industry.title}
+                </h3>
+                <span className="inline-flex items-center text-metallo-gold text-xs font-bold font-heading">
+                  Explore{" "}
+                  <span className="material-symbols-outlined text-sm ml-0.5">
+                    arrow_forward
+                  </span>
                 </span>
               </div>
             </Link>

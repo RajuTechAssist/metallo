@@ -4,37 +4,42 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVerticalNavPinned, setIsVerticalNavPinned] = useState(false);
   const [hoveredVertical, setHoveredVertical] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-  const lastScrollY = useRef(0);
   const navTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const scrollUpDistance = useRef(0);
+  const verticalNavMarkerRef = useRef<HTMLDivElement | null>(null);
+  const verticalNavRef = useRef<HTMLDivElement | null>(null);
+  const verticalNavTop = useRef(0);
+  const [verticalNavHeight, setVerticalNavHeight] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const delta = lastScrollY.current - currentScrollY; // positive = scrolling up
-
-      if (currentScrollY < 80) {
-        setIsVisible(true);
-        scrollUpDistance.current = 0;
-      } else if (delta < 0) {
-        // Scrolling down — hide and reset
-        setIsVisible(false);
-        scrollUpDistance.current = 100;
-      } else {
-        // Scrolling up — accumulate before revealing
-        scrollUpDistance.current += delta;
-        if (scrollUpDistance.current > 80) {
-          setIsVisible(true);
-        }
+    const measureVerticalNav = () => {
+      if (verticalNavMarkerRef.current) {
+        verticalNavTop.current =
+          verticalNavMarkerRef.current.getBoundingClientRect().top +
+          window.scrollY;
       }
-      lastScrollY.current = currentScrollY;
+
+      if (verticalNavRef.current) {
+        setVerticalNavHeight(verticalNavRef.current.offsetHeight);
+      }
+
+      setIsVerticalNavPinned(window.scrollY >= verticalNavTop.current);
     };
+
+    const handleScroll = () => {
+      setIsVerticalNavPinned(window.scrollY >= verticalNavTop.current);
+    };
+
+    measureVerticalNav();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", measureVerticalNav);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", measureVerticalNav);
+    };
   }, []);
 
   useEffect(() => {
@@ -50,15 +55,7 @@ const Header: React.FC = () => {
 
   // Top bar links
   const topLinks = [
-    { name: "About", path: "/about" },
-    { name: "Careers", path: "/careers" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Why Metallo", path: "/why-metallo" },
-  ];
-
-  // Primary Navigation for Drawer (Left Column)
-  const primaryLinks = [
-    { name: "About", path: "/about" },
+    { name: "About Us", path: "/about" },
     { name: "Why Metallo", path: "/why-metallo" },
     { name: "Careers", path: "/careers" },
     { name: "Contact Us", path: "/contact" },
@@ -347,96 +344,137 @@ const Header: React.FC = () => {
   ];
 
   const placeholderTabs: Record<string, { title: string; links: string[] }[]> =
-  {
-    welding: [
-      {
-        title: "Arc Welding",
-        links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
-      },
-      {
-        title: "MIG / MAG",
-        links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
-      },
-      {
-        title: "TIG & Specialty",
-        links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
-      },
-    ],
-    tools: [
-      {
-        title: "Power Tools",
-        links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
-      },
-      {
-        title: "Cutting Tools",
-        links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
-      },
-      {
-        title: "Hand Tools",
-        links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
-      },
-    ],
-    cabletray: [
-      {
-        title: "Ladder Type",
-        links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
-      },
-      {
-        title: "Perforated Type",
-        links: [
-          "GI Perforated Tray",
-          "SS Perforated Tray",
-          "Powder Coated Tray",
-        ],
-      },
-      {
-        title: "Accessories",
-        links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
-      },
-    ],
-    casting: [
-      {
-        title: "Aluminium Die Cast",
-        links: [
-          "Gravity Casting",
-          "Pressure Die Casting",
-          "Low Pressure Casting",
-        ],
-      },
-      {
-        title: "Zinc Die Cast",
-        links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
-      },
-      {
-        title: "Finishing",
-        links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
-      },
-    ],
-    tech: [
-      {
-        title: "Automation",
-        links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
-      },
-      {
-        title: "Drives & Motors",
-        links: ["VFD Drives", "Servo Motors", "Soft Starters"],
-      },
-      {
-        title: "Sensors & IoT",
-        links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
-      },
-    ],
-  };
+    {
+      welding: [
+        {
+          title: "Arc Welding",
+          links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
+        },
+        {
+          title: "MIG / MAG",
+          links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
+        },
+        {
+          title: "TIG & Specialty",
+          links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
+        },
+      ],
+      tools: [
+        {
+          title: "Power Tools",
+          links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
+        },
+        {
+          title: "Cutting Tools",
+          links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
+        },
+        {
+          title: "Hand Tools",
+          links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
+        },
+      ],
+      cabletray: [
+        {
+          title: "Ladder Type",
+          links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
+        },
+        {
+          title: "Perforated Type",
+          links: [
+            "GI Perforated Tray",
+            "SS Perforated Tray",
+            "Powder Coated Tray",
+          ],
+        },
+        {
+          title: "Accessories",
+          links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
+        },
+      ],
+      casting: [
+        {
+          title: "Aluminium Die Cast",
+          links: [
+            "Gravity Casting",
+            "Pressure Die Casting",
+            "Low Pressure Casting",
+          ],
+        },
+        {
+          title: "Zinc Die Cast",
+          links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
+        },
+        {
+          title: "Finishing",
+          links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
+        },
+      ],
+      tech: [
+        {
+          title: "Automation",
+          links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
+        },
+        {
+          title: "Drives & Motors",
+          links: ["VFD Drives", "Servo Motors", "Soft Starters"],
+        },
+        {
+          title: "Sensors & IoT",
+          links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
+        },
+      ],
+    };
 
   /* ────── Cascading dropdown data per vertical ────── */
-  const verticalMenuData: Record<string, { title: string; icon: string; viewAllPath: string; links: { name: string; spec?: string; path: string }[] }[]> = {
+  const verticalMenuData: Record<
+    string,
+    {
+      title: string;
+      icon: string;
+      viewAllPath: string;
+      links: { name: string; spec?: string; path: string }[];
+    }[]
+  > = {
     steel: steelMegaMenu,
     cables: cableColumns,
-    welding: placeholderTabs.welding?.map(g => ({ title: g.title, icon: 'whatshot', viewAllPath: '/products/welding', links: g.links.map(l => ({ name: l, path: '/products/welding' })) })) || [],
-    tools: placeholderTabs.tools?.map(g => ({ title: g.title, icon: 'construction', viewAllPath: '/products/tools', links: g.links.map(l => ({ name: l, path: '/products/tools' })) })) || [],
-    cabletray: placeholderTabs.cabletray?.map(g => ({ title: g.title, icon: 'grid_view', viewAllPath: '/products/cable-tray', links: g.links.map(l => ({ name: l, path: '/products/cable-tray' })) })) || [],
-    casting: placeholderTabs.casting?.map(g => ({ title: g.title, icon: 'precision_manufacturing', viewAllPath: '/products/die-casting', links: g.links.map(l => ({ name: l, path: '/products/die-casting' })) })) || [],
-    tech: placeholderTabs.tech?.map(g => ({ title: g.title, icon: 'memory', viewAllPath: '/products/tech-products', links: g.links.map(l => ({ name: l, path: '/products/tech-products' })) })) || [],
+    welding:
+      placeholderTabs.welding?.map((g) => ({
+        title: g.title,
+        icon: "whatshot",
+        viewAllPath: "/products/welding",
+        links: g.links.map((l) => ({ name: l, path: "/products/welding" })),
+      })) || [],
+    tools:
+      placeholderTabs.tools?.map((g) => ({
+        title: g.title,
+        icon: "construction",
+        viewAllPath: "/products/tools",
+        links: g.links.map((l) => ({ name: l, path: "/products/tools" })),
+      })) || [],
+    cabletray:
+      placeholderTabs.cabletray?.map((g) => ({
+        title: g.title,
+        icon: "grid_view",
+        viewAllPath: "/products/cable-tray",
+        links: g.links.map((l) => ({ name: l, path: "/products/cable-tray" })),
+      })) || [],
+    casting:
+      placeholderTabs.casting?.map((g) => ({
+        title: g.title,
+        icon: "precision_manufacturing",
+        viewAllPath: "/products/die-casting",
+        links: g.links.map((l) => ({ name: l, path: "/products/die-casting" })),
+      })) || [],
+    tech:
+      placeholderTabs.tech?.map((g) => ({
+        title: g.title,
+        icon: "memory",
+        viewAllPath: "/products/tech-products",
+        links: g.links.map((l) => ({
+          name: l,
+          path: "/products/tech-products",
+        })),
+      })) || [],
   };
 
   const openNav = (key: string) => {
@@ -459,12 +497,10 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header
-        className={`w-full sticky top-0 z-50 bg-white font-sans text-metallo-navy transition-transform duration-300 ease-in-out ${isVisible ? "translate-y-0 shadow-lg" : "-translate-y-full shadow-sm"}`}
-      >
+      <header className="w-full bg-white font-sans text-metallo-navy shadow-sm">
         {/* Row 1: Top Bar - Hidden on mobile */}
         <div className="w-full border-b border-gray-300 py-3 hidden md:block">
-          <div className="mx-auto container px-4">
+          <div className="container">
             <div className="flex justify-between items-center text-xs font-medium font-serif text-gray-600 tracking-wide">
               <div className="flex space-x-10">
                 {topLinks.map((link) => (
@@ -489,9 +525,9 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto container px-4">
-          {/* Row 2: Logo & CTA */}
+        <div className="container">
           <div className="py-4 bg-white">
+            {/* Row 2: Logo & CTA */}
             <div className="flex justify-between items-center">
               {/* Logo */}
               <Link to="/" className="flex items-center group">
@@ -523,9 +559,25 @@ const Header: React.FC = () => {
               </button>
             </div>
           </div>
-
-          {/* Row 3: Verticals Navigation — Simple Links (mega menu deactivated) */}
-          <div className="hidden md:block bg-white">
+        </div>
+        {/* Row 3: Verticals Navigation — Simple Links (mega menu deactivated) */}
+        <div ref={verticalNavMarkerRef} className="hidden md:block" />
+        {isVerticalNavPinned ? (
+          <div
+            aria-hidden="true"
+            className="hidden md:block"
+            style={{ height: verticalNavHeight }}
+          />
+        ) : null}
+        <div
+          ref={verticalNavRef}
+          className={`hidden md:block w-full bg-white transition-all ${
+            isVerticalNavPinned
+              ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
+              : "relative"
+          }`}
+        >
+          <div className="container">
             <div className="flex justify-between items-center h-14">
               <nav className="flex space-x-12">
                 {verticals.map((v) => (
@@ -586,7 +638,7 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row h-full">
               {/* Left Column: Primary Navigation */}
               <div className="flex-1 flex flex-col space-y-8 pt-4 pb-8 md:pb-0 pl-4 md:pl-8">
-                {primaryLinks.map((link) => (
+                {topLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.path}

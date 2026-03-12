@@ -51,3 +51,10 @@ footer p {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* For md devices container width  */
+@media (min-width: 768px) {
+  .container {
+    max-width: 90vw;
+  }
+}
