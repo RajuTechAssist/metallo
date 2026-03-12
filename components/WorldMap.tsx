@@ -105,15 +105,15 @@ const WorldMap: React.FC = () => {
 
   return (
     <section className="py-24 bg-white overflow-hidden" id="world-map">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
-        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading">Global Footprint</h4>
+      <div className="mx-auto container px-4 mb-10">
+        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Global Footprint</h4>
         <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">
           Strategic Presence. Limitless Reach.
         </h2>
         <h3 className="text-lg text-metallo-gold-hover font-bold font-heading uppercase mb-6">
           Manufacturing in India, Delivering to the World.
         </h3>
-        <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-gray-500 leading-relaxed">
           Metallo operates at the intersection of local manufacturing excellence and global supply chain efficiency. With our state-of-the-art manufacturing hubs in Noida and Gurgaon, and a robust logistics network, we ensure time-critical delivery of heavy industrial materials to project sites across the geography. Whether it’s a smart city project in Gujarat, a port in Chennai, or an export order to the Middle East, Metallo’s supply chain is built for speed and scale.
         </p>
       </div>

@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL TEXT JUSTIFICATION
+   Applies text-align: justify to all body paragraphs, prose
+   elements, and descriptive list items across the entire site.
+   Change this ONCE to update every page automatically (DRY).
+   ═══════════════════════════════════════════════════════════ */
+
+/* Body paragraphs inside sections (exclude nav, footer copyright, hero overlay) */
+section p,
+.prose p,
+section li {
+  text-align: justify;
+}
+
+/* Keep headings, labels, buttons, and nav items left-aligned */
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6,
+nav p,
+footer p {
+  text-align: left;
+}
+
 /* Custom scrollbar for better aesthetics */
 ::-webkit-scrollbar {
   width: 8px;

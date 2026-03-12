@@ -139,13 +139,15 @@ const Contact: React.FC = () => {
         <div className="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full hidden lg:block"></div>
         <div className="absolute top-20 right-20 w-40 h-40 border border-dashed border-metallo-gold/20 rounded-full hidden lg:block"></div>
 
-        <div className={`${CONTAINER} relative z-10 text-center`}>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
-            Let's Build Together.
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-serif italic">
-            Have a project in mind? Our engineering team is ready to assist with your Bill of Materials (BOM).
-          </p>
+        <div className={`${CONTAINER} relative z-10`}>
+          <div className="max-w-2xl">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
+              Let's Build Together.
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 font-serif italic">
+              Have a project in mind? Our engineering team is ready to assist with your Bill of Materials (BOM).
+            </p>
+          </div>
         </div>
       </section>
 

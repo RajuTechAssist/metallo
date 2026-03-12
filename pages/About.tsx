@@ -87,14 +87,14 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white overflow-hidden">
         <div className={CONTAINER}>
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">The Metallo Symbol</span>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-2">The Unbroken Loop of Progress</h2>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-16">
+          <div className="flex flex-col md:flex-row items-center gap-16 justify-between">
             {/* Globe "O" Symbol from Logo */}
-            <div className="flex-shrink-0 relative group flex flex-col items-center">
+            <div className="flex-shrink-0 relative group flex flex-col items-center md:items-start lg:ml-12">
               <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
                 <img src="/logo-icon.svg" alt="Metallo Globe Symbol" className="w-full h-full object-contain animate-spin-slow" />
               </div>
@@ -143,7 +143,7 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-gray-50">
         <div className={CONTAINER}>
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">The Metallo Platform Advantage</span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">
               Distributed Manufacturing. Scalable Industrial Capacity.
@@ -191,8 +191,8 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-lg font-bold text-metallo-navy font-heading bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+          <div className="text-left mt-12 bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+            <p className="text-lg font-bold text-metallo-navy font-heading">
               Metallo transforms fragmented industrial capacity into a unified, scalable manufacturing platform.
             </p>
           </div>
@@ -204,7 +204,7 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white">
         <div className={CONTAINER}>
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Engineering Precision & Quality Assurance</span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">
               A Rigorous 3-Layer Quality Assurance System
@@ -291,8 +291,8 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-lg font-bold text-metallo-navy font-heading bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+          <div className="text-left mt-12 bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+            <p className="text-lg font-bold text-metallo-navy font-heading">
               Quality is not inspected into our products—it is engineered into every stage of production.
             </p>
           </div>
@@ -304,7 +304,7 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-gray-50">
         <div className={CONTAINER}>
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Global Supply Chain & Project Delivery</span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">
               Delivering Metal Solutions — Globally and Locally
@@ -359,8 +359,8 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="text-center">
-            <p className="text-lg font-bold text-metallo-navy font-heading bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+          <div className="text-left mt-12 bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+            <p className="text-lg font-bold text-metallo-navy font-heading">
               From raw material sourcing to global project delivery, Metallo ensures your supply chain moves without interruption.
             </p>
           </div>
@@ -435,7 +435,7 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white">
         <div className={CONTAINER}>
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Why Industry Leaders Choose Metallo</span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">
               Engineering Precision. Scalable Manufacturing. Reliable Delivery.
@@ -476,8 +476,8 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-lg font-bold text-metallo-navy font-heading bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+          <div className="text-left mt-12 bg-metallo-gold/10 inline-block px-8 py-4 border-l-4 border-metallo-gold">
+            <p className="text-lg font-bold text-metallo-navy font-heading">
               Metallo delivers engineering-grade reliability across every stage of the industrial supply chain.
             </p>
           </div>
@@ -494,7 +494,7 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-4">
               Supporting Critical Infrastructure & Industrial Development
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed max-w-3xl">
+            <p className="text-gray-600 text-base leading-relaxed">
               Metallo's engineered metal solutions are designed to support mission-critical infrastructure, manufacturing, and energy projects across a wide range of industrial sectors. Our products are built to perform in demanding environments where durability, reliability, and engineering precision are essential.
             </p>
           </div>
@@ -626,13 +626,13 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 bg-white">
         <div className={CONTAINER}>
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Leadership</span>
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-4">Led by Industry Experts</h2>
-            <p className="text-gray-600 text-lg max-w-4xl mx-auto mb-4">
+            <p className="text-gray-600 text-lg mb-4">
               Metallo is guided by leaders with extensive experience across heavy infrastructure, energy systems, and industrial manufacturing. Having worked directly within high-stakes industries where reliability and precision are critical, our directors built Metallo to solve real supply chain challenges faced by engineers, contractors, and infrastructure developers.
             </p>
-            <p className="text-gray-600 text-lg max-w-4xl mx-auto">
+            <p className="text-gray-600 text-lg">
               Their combined expertise in engineering, project execution, and industrial procurement shapes Metallo's mission to deliver dependable metal solutions for global infrastructure and manufacturing projects.
             </p>
           </div>
