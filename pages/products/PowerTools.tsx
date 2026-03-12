@@ -1,11 +1,20 @@
 import React, { useState, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  ProductHero,
+  ProductCategoryNav,
+  ProductSidebar,
+  ProductMobileMenu,
+  ProductQABanner,
+  ProductCTA,
+  CONTAINER,
+  DETAIL_VARIANTS,
+  slugify,
+} from "../../components/product";
 
 /* ═══════════════════════════════════════════════════════════════
-   POWER TOOLS — MASTER-DETAIL INTERFACE
-   Left: Product Sidebar  |  Right: Detailed Specs & Features
-   Data sourced from Power_Tools_data.json
+   POWER TOOLS — PRODUCT DATA
    ═══════════════════════════════════════════════════════════════ */
 
 interface ToolProduct {
@@ -337,7 +346,9 @@ const QA_ITEMS = [
   { icon: "local_shipping",  title: "Pan-India Service",       desc: "Nationwide service network & spare parts support." },
 ];
 
-/* ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
 
 const PowerTools: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -360,129 +371,67 @@ const PowerTools: React.FC = () => {
 
   const activeProduct = categoryProducts[activeProductIdx] || categoryProducts[0];
 
-  function slugify(n: string) { return n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
-  function selectCategory(key: CategoryKey) { setSearchParams({ category: key }); setMobileMenuOpen(false); }
-  function selectProduct(p: ToolProduct) { setSearchParams({ category: activeCategoryKey, product: slugify(p["Product Name"]) }); setMobileMenuOpen(false); }
+  function selectCategory(key: string) { setSearchParams({ category: key }); setMobileMenuOpen(false); }
+  function selectProduct(idx: number) {
+    const p = categoryProducts[idx];
+    if (p) setSearchParams({ category: activeCategoryKey, product: slugify(p["Product Name"]) });
+    setMobileMenuOpen(false);
+  }
 
   const specEntries = useMemo(() => {
     if (!activeProduct) return [];
     return Object.entries(activeProduct.Specs);
   }, [activeProduct]);
 
-  const detailVariants = { initial: { opacity: 0, x: 16 }, animate: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" } }, exit: { opacity: 0, x: -12, transition: { duration: 0.15 } } };
+  const sidebarProducts = useMemo(() => categoryProducts.map((p) => ({
+    name: p["Product Name"],
+    subLabel: p.Model,
+    thumbnail: p.thumbnail,
+  })), [categoryProducts]);
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      {/* ═══ HERO ═══ */}
-      <section className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-        <img src="/powerTools/powerTool.jpg" alt="Power tools" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-slate-900/50" />
-        <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <span className="material-symbols-outlined text-xs">chevron_right</span>
-              <span className="text-yellow-500 font-medium">Power Tools</span>
-            </nav>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-4 md:mb-6">
-              Power Tools<br /><span className="text-yellow-500">Built for the Job Site.</span>
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl mb-8 lg:mb-12 font-sans leading-relaxed">
-              Professional-grade cordless &amp; corded power tools — drills, grinders, hammers, saws &amp; specialty tools — backed by nationwide service and V20 battery interchangeability.
-            </p>
-            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
-              <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">download</span>
-              Download Power Tools Catalog
-            </button>
-          </div>
-        </div>
-        <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
-      </section>
+      <ProductHero
+        backgroundImage="/powerTools/powerTool.jpg"
+        title="Power Tools"
+        subtitle="Built for the Job Site."
+        description="Professional-grade cordless & corded power tools — drills, grinders, hammers, saws & specialty tools — backed by nationwide service and V20 battery interchangeability."
+        breadcrumbLabel="Power Tools"
+        ctaLabel="Download Power Tools Catalog"
+      />
 
-      {/* ═══ STICKY CATEGORY NAV ═══ */}
-      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-1 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            {CATEGORIES.map((cat) => (
-              <button key={cat.key} onClick={() => selectCategory(cat.key)}
-                className={`relative whitespace-nowrap px-3 lg:px-4 py-4 text-[13px] font-heading font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-1.5 ${
-                  activeCategoryKey === cat.key ? "text-yellow-600 border-b-2 border-yellow-500" : "text-slate-500 hover:text-slate-900"
-                }`}>
-                <span className="material-symbols-outlined text-base hidden sm:inline">{cat.icon}</span>
-                {cat.label}
-              </button>
-            ))}
-            <div className="ml-auto hidden lg:flex items-center gap-2 text-xs text-slate-400 font-sans shrink-0 pl-4">
-              <span className="material-symbols-outlined text-sm text-yellow-500">verified</span>
-              IEC / IS Certified
-            </div>
-          </div>
-        </div>
-      </nav>
+      <ProductCategoryNav
+        categories={CATEGORIES}
+        activeKey={activeCategoryKey}
+        onSelect={selectCategory}
+        certBadge="IEC / IS Certified"
+      />
 
       {/* ═══ MASTER-DETAIL BODY ═══ */}
       <section className="bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12">
-          {/* Mobile */}
-          <div className="lg:hidden mb-6">
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-slate-900 text-white text-sm font-heading font-bold uppercase tracking-wider">
-              <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-lg text-yellow-500">menu</span>
-                {activeProduct ? activeProduct["Product Name"] : "Select Tool"}
-              </span>
-              <span className={`material-symbols-outlined text-lg transition-transform ${mobileMenuOpen ? "rotate-180" : ""}`}>expand_more</span>
-            </button>
-            {mobileMenuOpen && (
-              <div className="border border-slate-200 border-t-0 bg-white max-h-80 overflow-y-auto">
-                {categoryProducts.map((product, idx) => (
-                  <button key={idx} onClick={() => selectProduct(product)}
-                    className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 ${
-                      activeProductIdx === idx ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500" : "text-slate-600 hover:bg-slate-50"
-                    }`}>
-                    <span className="block font-heading font-semibold truncate">{product["Product Name"]}</span>
-                    <span className="block text-xs opacity-60 mt-0.5">{product.Model}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+        <div className={`${CONTAINER} py-6 md:py-8 lg:py-12`}>
+          <ProductMobileMenu
+            open={mobileMenuOpen}
+            toggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+            activeLabel={activeProduct ? activeProduct["Product Name"] : "Select Tool"}
+            products={sidebarProducts}
+            activeIdx={activeProductIdx}
+            onSelect={selectProduct}
+          />
 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            {/* LEFT: SIDEBAR */}
-            <aside className="hidden lg:block w-[260px] xl:w-[300px] shrink-0">
-              <div className="sticky" style={{ top: "64px" }}>
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
-                  <span className="material-symbols-outlined text-lg text-yellow-500">{activeCategory.icon}</span>
-                  <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400">{activeCategory.label}</h3>
-                  <span className="ml-auto text-[10px] font-bold font-heading bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full uppercase">{categoryProducts.length} tools</span>
-                </div>
-                <div className="flex flex-col space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-1" style={{ scrollbarWidth: "thin" }}>
-                  {categoryProducts.map((product, idx) => (
-                    <button key={product.Model} onClick={() => selectProduct(product)}
-                      className={`w-full text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${
-                        activeProductIdx === idx
-                          ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
-                          : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
-                      }`}>
-                      <div className={`w-10 h-10 shrink-0 rounded-sm flex items-center justify-center ${activeProductIdx === idx ? "bg-yellow-500/20" : "bg-slate-100"}`}>
-                        <span className={`material-symbols-outlined text-lg ${activeProductIdx === idx ? "text-yellow-500" : "text-slate-400"}`}>build</span>
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <span className={`block text-[13px] font-heading leading-tight truncate ${activeProductIdx === idx ? "font-bold" : "font-semibold"}`}>{product["Product Name"]}</span>
-                        <span className={`block text-[10px] mt-0.5 ${activeProductIdx === idx ? "text-slate-300" : "text-slate-400"}`}>{product.Model}</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </aside>
+            <ProductSidebar
+              activeCategory={activeCategory}
+              products={sidebarProducts}
+              activeIdx={activeProductIdx}
+              onSelect={selectProduct}
+            />
 
             {/* RIGHT: DETAIL */}
             <div className="flex-1 min-w-0">
               <AnimatePresence mode="wait">
                 {activeProduct && (
-                  <motion.div key={activeProduct.Model} variants={detailVariants} initial="initial" animate="animate" exit="exit">
+                  <motion.div key={activeProduct.Model} variants={DETAIL_VARIANTS} initial="initial" animate="animate" exit="exit">
                     <div className="mb-8">
                       <div className="flex items-center gap-2 mb-3 flex-wrap">
                         <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">{activeProduct["Sub-Category"]}</span>
@@ -600,50 +549,13 @@ const PowerTools: React.FC = () => {
         </div>
       </section>
 
-      {/* ═══ QA BANNER ═══ */}
-      <section className="bg-slate-900 text-white py-12 md:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="block w-10 h-[2px] bg-yellow-500" /><span className="text-xs font-bold font-heading uppercase tracking-[0.2em] text-yellow-500">Quality Assurance</span><span className="block w-10 h-[2px] bg-yellow-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white">Professional Power Tools</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-            {QA_ITEMS.map((item) => (
-              <div key={item.title} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-5 rounded-full border-2 border-yellow-500/30 flex items-center justify-center group-hover:border-yellow-500 group-hover:bg-yellow-500/10 transition-all duration-300">
-                  <span className="material-symbols-outlined text-2xl text-yellow-500">{item.icon}</span>
-                </div>
-                <h3 className="text-base font-heading font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h3>
-                <p className="text-sm text-slate-400 font-sans leading-relaxed max-w-[250px] mx-auto">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProductQABanner title="Professional Power Tools" items={QA_ITEMS} />
 
-      {/* ═══ CTA ═══ */}
-      <section className="bg-slate-50 py-12 md:py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-slate-200 rounded-sm p-6 sm:p-8 md:p-10 lg:p-14 border-l-4 border-l-yellow-500 shadow-sm">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
-              <div className="w-16 h-16 shrink-0 bg-yellow-500/10 rounded-full flex items-center justify-center">
-                <span className="material-symbols-outlined text-3xl text-yellow-600">assignment</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-slate-900 mb-3">Need Bulk Power Tool Orders?</h3>
-                <p className="text-base text-slate-500 font-sans leading-relaxed">
-                  Corporate and project-level pricing available on bulk tool orders. Contact our team for fleet pricing, service agreements, and custom kit configurations.
-                </p>
-              </div>
-              <Link to="/contact" className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-slate-900 text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-md hover:shadow-lg">
-                <span className="material-symbols-outlined text-xl">request_quote</span>Request Quote
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductCTA
+        title="Need Bulk Power Tool Orders?"
+        description="Corporate and project-level pricing available on bulk tool orders. Contact our team for fleet pricing, service agreements, and custom kit configurations."
+        ctaLabel="Request Quote"
+      />
     </div>
   );
 };
