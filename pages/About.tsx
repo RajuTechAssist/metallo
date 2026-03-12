@@ -68,14 +68,14 @@ const About: React.FC = () => {
             <div className="relative h-full min-h-[400px]">
               <div className="absolute top-0 right-0 w-4/5 h-4/5 bg-gray-100 rounded-tr-[4rem] -z-10"></div>
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi"
+                src="/Steel/oil_industry1.jpg"
                 alt="Industrial Construction"
                 className="rounded-lg shadow-2xl w-full h-full object-cover"
               />
-              <div className="absolute -bottom-8 -left-8 bg-metallo-navy p-8 text-white max-w-xs shadow-xl hidden md:block">
-                <p className="font-heading text-2xl font-bold mb-2">Since 2008</p>
+              {/* <div className="absolute -bottom-8 -left-8 bg-metallo-navy p-8 text-white max-w-xs shadow-xl hidden md:block">
+                <p className="font-heading text-2xl font-bold mb-2">Since 2026</p>
                 <p className="text-sm opacity-80">Solving complex procurement challenges for Global EPCs.</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

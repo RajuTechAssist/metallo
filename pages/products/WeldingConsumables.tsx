@@ -1,245 +1,604 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════════════════
-   WELDING CONSUMABLES — Product Hub
+   WELDING CONSUMABLES — MASTER-DETAIL INTERFACE
+   Left: Vertical Product Menu  |  Right: Detailed Specifications
    ═══════════════════════════════════════════════════════════════ */
 
-const WELDING_CATEGORIES = [
-    {
-        id: "smaw",
-        title: "SMAW Electrodes (Stick Welding)",
-        icon: "whatshot",
-        image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80&auto=format&fit=crop",
-        description:
-            "General purpose and low-hydrogen stick electrodes for structural steel, pressure vessels, and maintenance welding. Available in E6013, E7018, E7016 and specialty grades.",
-        standards: ["AWS A5.1", "IS 814", "EN ISO 2560"],
-        products: ["E6013 Mild Steel Electrode", "E7018 Low Hydrogen Electrode", "E7016 High Cellulose Electrode", "E309L / E316L SS Electrode"],
-    },
-    {
-        id: "mig",
-        title: "MIG / MAG Welding Wire",
-        icon: "cable",
-        image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80&auto=format&fit=crop",
-        description:
-            "Solid and flux-cored MIG wires for semi-automatic and robotic welding. ER70S-6 copper-coated, stainless, and aluminium filler wires available in standard spool sizes.",
-        standards: ["AWS A5.18", "AWS A5.9", "IS 6419"],
-        products: ["ER70S-6 Mild Steel Wire", "E71T-1 Flux Cored Wire", "ER308L / ER316L SS Wire", "ER4043 Aluminium Wire"],
-    },
-    {
-        id: "tig",
-        title: "TIG Filler Rods & Specialty",
-        icon: "auto_fix_high",
-        image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80&auto=format&fit=crop",
-        description:
-            "Precision TIG filler rods for critical joints — stainless steel, aluminium, and nickel alloys. Also includes submerged arc wire/flux combinations for heavy fabrication.",
-        standards: ["AWS A5.9", "AWS A5.14", "IS 6419"],
-        products: ["ER308L TIG Rod", "ER316L TIG Rod", "ER5356 Aluminium Rod", "Submerged Arc Wire & Flux"],
-    },
-    {
-        id: "brazing",
-        title: "Brazing & Soldering Alloys",
-        icon: "science",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&auto=format&fit=crop",
-        description:
-            "Silver brazing alloys, copper-phosphorus rods, and lead-free soldering materials for HVAC, plumbing, electrical, and precision assembly applications.",
-        standards: ["AWS A5.8", "IS 3557", "EN ISO 17672"],
-        products: ["Silver Brazing Alloy (BAg)", "Copper-Phosphorus Rod (BCuP)", "Lead-Free Solder Wire", "Flux Pastes & Powders"],
-    },
-    {
-        id: "accessories",
-        title: "Welding Accessories",
-        icon: "build",
-        image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80&auto=format&fit=crop",
-        description:
-            "Complete range of welding accessories — electrode holders, ground clamps, welding cables, gas regulators, nozzles, and contact tips for MIG/TIG torches.",
-        standards: ["IS 9968", "EN 60974"],
-        products: ["Electrode Holders", "Ground Clamps", "MIG Torch Consumables", "Gas Regulators & Flow Meters"],
-    },
+interface WeldingProduct {
+  Category: string;
+  "Sub-Category": string;
+  "Product Name": string;
+  Description: string;
+  Material: string;
+  Standards: string;
+  Application: string;
+  thumbnail: string;
+  Classification?: string;
+  Diameter?: string;
+  Length?: string;
+  Packaging?: string;
+  Current?: string;
+  Position?: string;
+  ShieldingGas?: string;
+  Coating?: string;
+  Composition?: string;
+  Applications?: string[];
+  applicationImage?: string;
+}
+
+const PRODUCTS: WeldingProduct[] = [
+  /* ── SMAW Electrodes ───────────────────────────────────────── */
+  {
+    Category: "SMAW Electrodes", "Sub-Category": "E6013 Mild Steel",
+    "Product Name": "E6013 General Purpose Electrode",
+    Description: "All-position, rutile-coated mild steel electrode for general fabrication, maintenance, and repair work. Easy arc striking, smooth bead profile, and moderate penetration make it ideal for thin-to-medium gauge steel.",
+    Material: "Mild Steel Core Wire, Rutile Coating",
+    Standards: "AWS A5.1, IS 814, EN ISO 2560",
+    Application: "General fabrication, maintenance & repair, structural steel, sheet metal work",
+    thumbnail: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+    Classification: "E6013 (AWS) / E4113 (IS 814)",
+    Diameter: "2.5mm, 3.15mm, 4.0mm, 5.0mm",
+    Length: "350mm / 450mm",
+    Packaging: "5 kg / 20 kg hermetically sealed",
+    Current: "AC / DC ±",
+    Position: "All positions (F, V, OH, H)",
+    Coating: "Rutile (High Titania)",
+    Applications: ["General Fabrication", "Maintenance & Repair", "Structural Steel", "Sheet Metal"],
+    applicationImage: "/Welding Consumables/welding-consumables-and-material-handling-ikp.webp",
+  },
+  {
+    Category: "SMAW Electrodes", "Sub-Category": "E7018 Low Hydrogen",
+    "Product Name": "E7018 Low Hydrogen Electrode",
+    Description: "Low-hydrogen, iron-powder coated electrode for critical structural joints, pressure vessels, and heavy plate fabrication. Superior crack resistance and excellent X-ray quality welds on medium-to-high carbon steels.",
+    Material: "Mild Steel Core Wire, Low Hydrogen Iron Powder Coating",
+    Standards: "AWS A5.1, IS 814, EN ISO 2560",
+    Application: "Pressure vessels, structural steel, bridges, heavy plate fabrication",
+    thumbnail: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+    Classification: "E7018 (AWS) / E5118 (IS 814)",
+    Diameter: "2.5mm, 3.15mm, 4.0mm, 5.0mm",
+    Length: "350mm / 450mm",
+    Packaging: "5 kg / 20 kg vacuum sealed",
+    Current: "AC / DC +",
+    Position: "All positions (F, V, OH, H)",
+    Coating: "Basic Low Hydrogen (Iron Powder)",
+    Applications: ["Pressure Vessels", "Bridges", "Structural Steel", "Heavy Fabrication"],
+    applicationImage: "/Welding Consumables/pipeline.jpg",
+  },
+  {
+    Category: "SMAW Electrodes", "Sub-Category": "E309L / E316L SS",
+    "Product Name": "Stainless Steel Coated Electrode",
+    Description: "Austenitic stainless steel electrodes for welding SS 304, 316, and dissimilar joints. Low carbon variants prevent intergranular corrosion in service. Smooth arc with minimal spatter.",
+    Material: "Stainless Steel Core Wire (309L / 316L)",
+    Standards: "AWS A5.4, IS 5206, EN ISO 3581",
+    Application: "SS fabrication, food processing equipment, chemical plant piping, pharma vessels",
+    thumbnail: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+    Classification: "E309L-16 / E316L-16 (AWS)",
+    Diameter: "2.5mm, 3.15mm, 4.0mm",
+    Length: "350mm",
+    Packaging: "5 kg vacuum sealed packs",
+    Current: "AC / DC +",
+    Position: "All positions",
+    Coating: "Rutile-Basic",
+    Composition: "Cr 23% / Ni 12% (309L) | Cr 18% / Ni 12% / Mo 2.5% (316L)",
+    Applications: ["SS Fabrication", "Food Processing", "Chemical Plants", "Pharma"],
+    applicationImage: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+  },
+
+  /* ── MIG / MAG Wire ────────────────────────────────────────── */
+  {
+    Category: "MIG / MAG Wire", "Sub-Category": "ER70S-6 Mild Steel",
+    "Product Name": "ER70S-6 Copper Coated MIG Wire",
+    Description: "Premium copper-coated mild steel MIG wire with excellent feedability and consistent arc performance. High deoxidiser content produces clean, porosity-free welds on semi-auto and robotic welding systems.",
+    Material: "Mild Steel, Copper Coated",
+    Standards: "AWS A5.18, IS 6419, EN ISO 14341",
+    Application: "Semi-automatic & robotic welding, structural fabrication, automotive",
+    thumbnail: "/Welding Consumables/other-welding-wire.jpg",
+    Classification: "ER70S-6 (AWS) / S3 (IS 6419)",
+    Diameter: "0.8mm, 1.0mm, 1.2mm, 1.6mm",
+    Packaging: "5 kg / 15 kg spools, 250 kg drums",
+    ShieldingGas: "CO₂ or Ar + CO₂ (80/20)",
+    Current: "DC + (DCEP)",
+    Position: "All positions",
+    Composition: "C 0.06–0.15%, Mn 1.4–1.85%, Si 0.8–1.15%",
+    Applications: ["Structural Fabrication", "Automotive", "Robotic Welding", "Shipbuilding"],
+    applicationImage: "/Welding Consumables/welding-consumables-and-material-handling-ikp.webp",
+  },
+  {
+    Category: "MIG / MAG Wire", "Sub-Category": "E71T-1 Flux Cored",
+    "Product Name": "E71T-1 Flux Cored Arc Wire (FCAW)",
+    Description: "All-position flux-cored wire for high deposition rate welding. Self-shielding or gas-shielded versions available. Excellent for thick section welding in construction and shipbuilding.",
+    Material: "Mild Steel Sheath, Flux Core",
+    Standards: "AWS A5.20, IS 12444, EN ISO 17632",
+    Application: "Heavy fabrication, shipbuilding, structural steel, bridge construction",
+    thumbnail: "/Welding Consumables/duplex--super-duplex-steel-flux-core.jpg",
+    Classification: "E71T-1C / E71T-1M (AWS)",
+    Diameter: "1.2mm, 1.6mm",
+    Packaging: "15 kg spools, 200 kg drums",
+    ShieldingGas: "CO₂ or Ar + CO₂ (75/25)",
+    Current: "DC + (DCEP)",
+    Position: "All positions",
+    Applications: ["Heavy Fabrication", "Shipbuilding", "Bridge Construction", "Offshore"],
+    applicationImage: "/Welding Consumables/duplex--super-duplex-steel-flux-core.jpg",
+  },
+  {
+    Category: "MIG / MAG Wire", "Sub-Category": "SS MIG Wire",
+    "Product Name": "ER308L / ER316L SS MIG Wire",
+    Description: "Stainless steel MIG wire for welding austenitic SS grades. Low carbon versions prevent carbide precipitation. Smooth arc, low spatter, and excellent corrosion resistance in the weld deposit.",
+    Material: "Stainless Steel 308L / 316L",
+    Standards: "AWS A5.9, IS 6419, EN ISO 14343",
+    Application: "SS fabrication, food & beverage, pharma, chemical processing",
+    thumbnail: "/Welding Consumables/other-welding-wire.jpg",
+    Classification: "ER308L / ER316L (AWS)",
+    Diameter: "0.8mm, 1.0mm, 1.2mm",
+    Packaging: "5 kg / 12.5 kg spools",
+    ShieldingGas: "Ar + 2% CO₂ or Pure Argon",
+    Current: "DC + (DCEP)",
+    Position: "All positions",
+    Applications: ["SS Fabrication", "Food & Beverage", "Pharma", "Chemical Processing"],
+    applicationImage: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+  },
+  {
+    Category: "MIG / MAG Wire", "Sub-Category": "Aluminium MIG Wire",
+    "Product Name": "ER4043 / ER5356 Aluminium MIG Wire",
+    Description: "Aluminium MIG filler wire for joining aluminium alloys in automotive, marine, and structural applications. ER4043 for 6xxx series; ER5356 for 5xxx series and marine grades.",
+    Material: "Aluminium Alloy 4043 / 5356",
+    Standards: "AWS A5.10, EN ISO 18273",
+    Application: "Automotive, marine, structural aluminium, HVAC ducting",
+    thumbnail: "/Welding Consumables/aluminum-mig-tig.jpg",
+    Classification: "ER4043 / ER5356 (AWS)",
+    Diameter: "0.8mm, 1.0mm, 1.2mm, 1.6mm",
+    Packaging: "2 kg / 7 kg spools",
+    ShieldingGas: "Pure Argon (99.99%)",
+    Current: "DC + (DCEP)",
+    Position: "All positions",
+    Applications: ["Automotive", "Marine", "Structural Aluminium", "HVAC"],
+    applicationImage: "/Welding Consumables/aluminum-mig-tig.jpg",
+  },
+
+  /* ── TIG Filler Rods ───────────────────────────────────────── */
+  {
+    Category: "TIG Filler Rods", "Sub-Category": "SS TIG Rod",
+    "Product Name": "ER308L / ER316L TIG Filler Rod",
+    Description: "Precision TIG filler rods for critical stainless steel joints in pharma, food processing, and chemical industries. Controlled chemistry ensures low ferrite and superior corrosion resistance.",
+    Material: "Stainless Steel 308L / 316L",
+    Standards: "AWS A5.9, IS 6419, EN ISO 14343",
+    Application: "Pharma piping, food processing, chemical vessels, architectural SS",
+    thumbnail: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+    Classification: "ER308L / ER316L (AWS)",
+    Diameter: "1.6mm, 2.0mm, 2.4mm, 3.15mm",
+    Length: "1000mm straight rods",
+    Packaging: "5 kg packs",
+    ShieldingGas: "Pure Argon",
+    Current: "DC − (DCEN)",
+    Position: "All positions",
+    Applications: ["Pharma Piping", "Food Processing", "Chemical Vessels", "Architectural SS"],
+    applicationImage: "/Welding Consumables/stainless-steel-coated-electrodes.jpg",
+  },
+  {
+    Category: "TIG Filler Rods", "Sub-Category": "Aluminium TIG Rod",
+    "Product Name": "ER4043 / ER5356 Aluminium TIG Rod",
+    Description: "High-purity aluminium TIG filler rods for precision welding of aluminium components. ER5356 offers higher strength and better colour match after anodising.",
+    Material: "Aluminium Alloy 4043 / 5356",
+    Standards: "AWS A5.10, EN ISO 18273",
+    Application: "Aerospace, automotive, marine, architectural aluminium",
+    thumbnail: "/Welding Consumables/aluminum-mig-tig.jpg",
+    Classification: "ER4043 / ER5356 (AWS)",
+    Diameter: "1.6mm, 2.4mm, 3.15mm",
+    Length: "1000mm straight rods",
+    Packaging: "2.5 kg / 5 kg packs",
+    ShieldingGas: "Pure Argon",
+    Current: "AC (for Al) / DC − (DCEN)",
+    Position: "All positions",
+    Applications: ["Aerospace", "Automotive", "Marine", "Architectural"],
+    applicationImage: "/Welding Consumables/aluminum-mig-tig.jpg",
+  },
+  {
+    Category: "TIG Filler Rods", "Sub-Category": "SAW Wire & Flux",
+    "Product Name": "Submerged Arc Wire & Flux (SAW)",
+    Description: "Wire-flux combinations for high-productivity submerged arc welding of thick plates. Used in pressure vessel longitudinal seams, pipe mills, and heavy structural fabrication.",
+    Material: "Mild Steel / Low Alloy Steel Wire + Agglomerated Flux",
+    Standards: "AWS A5.17, IS 7280, EN ISO 14171",
+    Application: "Pressure vessel seams, pipe mills, heavy structural, wind tower fabrication",
+    thumbnail: "/Welding Consumables/pipeline.jpg",
+    Classification: "EL12 / EM12K Wire + F7A2 Flux (AWS)",
+    Diameter: "2.0mm, 2.4mm, 3.15mm, 4.0mm wire",
+    Packaging: "25 kg coils (wire) / 25 kg bags (flux)",
+    Current: "DC + (DCEP) / AC",
+    Position: "Flat & Horizontal fillet",
+    Applications: ["Pressure Vessels", "Pipe Mills", "Wind Towers", "Heavy Structural"],
+    applicationImage: "/Welding Consumables/pipeline.jpg",
+  },
+
+  /* ── Brazing & Soldering ───────────────────────────────────── */
+  {
+    Category: "Brazing & Soldering", "Sub-Category": "Silver Brazing Alloy",
+    "Product Name": "Silver Brazing Alloy (BAg Series)",
+    Description: "Cadmium-free silver brazing alloys for joining copper, brass, steel, and dissimilar metals. Low melting point ensures minimal base metal distortion. Used in HVAC, electrical, and precision assemblies.",
+    Material: "Silver-Copper-Zinc-Tin Alloy",
+    Standards: "AWS A5.8, IS 3557, EN ISO 17672",
+    Application: "HVAC, electrical contacts, precision assemblies, plumbing",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "BAg-5 / BAg-7 / BAg-34 (AWS)",
+    Composition: "Ag 30–56%, Cu 20–40%, Zn 15–30%",
+    Diameter: "1.0mm, 1.5mm, 2.0mm rod; 0.1mm–0.5mm strip",
+    Packaging: "100g / 500g / 1 kg packs",
+    Applications: ["HVAC", "Electrical Contacts", "Precision Assemblies", "Plumbing"],
+    applicationImage: "/Welding Consumables/welding_consumables.jpg",
+  },
+  {
+    Category: "Brazing & Soldering", "Sub-Category": "CuP Rod",
+    "Product Name": "Copper-Phosphorus Brazing Rod (BCuP)",
+    Description: "Self-fluxing brazing alloy for copper-to-copper joints. No flux required on copper, making it the preferred choice for refrigeration, air conditioning, and plumbing connections.",
+    Material: "Copper-Phosphorus Alloy (with/without Silver)",
+    Standards: "AWS A5.8, IS 3557, EN ISO 17672",
+    Application: "Refrigeration, air conditioning, copper plumbing, heat exchangers",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "BCuP-2 / BCuP-5 / BCuP-6 (AWS)",
+    Composition: "Cu 80–93%, P 5–7.5%, Ag 0–15%",
+    Diameter: "1.5mm, 2.0mm, 3.0mm rod",
+    Packaging: "500g / 1 kg packs",
+    Applications: ["Refrigeration", "Air Conditioning", "Copper Plumbing", "Heat Exchangers"],
+    applicationImage: "/Welding Consumables/welding_consumables.jpg",
+  },
+  {
+    Category: "Brazing & Soldering", "Sub-Category": "Lead-Free Solder",
+    "Product Name": "Lead-Free Solder Wire & Bar",
+    Description: "RoHS-compliant lead-free solder for electronics, PCB assembly, and electrical connections. Tin-silver-copper (SAC) alloys provide excellent wetting and reliability.",
+    Material: "Sn-Ag-Cu (SAC305 / SAC387)",
+    Standards: "IPC J-STD-006, EN ISO 9453, RoHS Compliant",
+    Application: "Electronics assembly, PCB soldering, electrical connections, instrumentation",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "SAC305 / SAC387 / Sn99.3Cu0.7",
+    Composition: "Sn 96–99%, Ag 0–3.5%, Cu 0.5–0.7%",
+    Diameter: "0.5mm, 0.8mm, 1.0mm, 1.5mm wire; bar/stick",
+    Packaging: "100g / 250g / 500g / 1 kg spools",
+    Applications: ["Electronics", "PCB Assembly", "Electrical Connections", "Instrumentation"],
+    applicationImage: "/Welding Consumables/Welding-Consumables-Advantages.webp",
+  },
+
+  /* ── Accessories ───────────────────────────────────────────── */
+  {
+    Category: "Welding Accessories", "Sub-Category": "Electrode Holders",
+    "Product Name": "Electrode Holders & Ground Clamps",
+    Description: "Heavy-duty electrode holders (200A–600A) and brass ground clamps for SMAW welding. Fully insulated, spring-loaded jaw design for secure electrode grip and quick change.",
+    Material: "Brass Jaw, Fibreglass / Nylon Handle",
+    Standards: "IS 9968, EN 60974-11",
+    Application: "SMAW welding, all fabrication workshops",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "200A / 300A / 400A / 600A rated",
+    Applications: ["SMAW Welding", "Fabrication Workshops", "Site Welding", "Maintenance"],
+    applicationImage: "/Welding Consumables/welding-consumables-and-material-handling-ikp.webp",
+  },
+  {
+    Category: "Welding Accessories", "Sub-Category": "MIG Torch Consumables",
+    "Product Name": "MIG Torch Contact Tips & Nozzles",
+    Description: "Precision-machined copper contact tips, gas nozzles, diffusers, and liners for all major MIG torch brands. Available for MB15, MB25, MB36, and Binzel-type torches.",
+    Material: "Copper (Contact Tips), Brass (Nozzles), Steel (Liners)",
+    Standards: "EN 60974",
+    Application: "MIG/MAG welding torch maintenance and consumable replacement",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "Contact Tips: 0.8mm, 1.0mm, 1.2mm, 1.6mm",
+    Applications: ["MIG Welding", "Robotic Welding", "Workshop", "Production Lines"],
+    applicationImage: "/Welding Consumables/welding-consumables-and-material-handling-ikp.webp",
+  },
+  {
+    Category: "Welding Accessories", "Sub-Category": "Gas Regulators",
+    "Product Name": "Gas Regulators & Flow Meters",
+    Description: "Single and dual-stage gas regulators for Argon, CO₂, and mixed shielding gases. Pre-set and adjustable flow meters for precise gas control in MIG/TIG welding.",
+    Material: "Brass Body, Stainless Steel Internals",
+    Standards: "IS 6901, EN ISO 2503",
+    Application: "Gas supply regulation for MIG/TIG welding, gas cutting, brazing",
+    thumbnail: "/Welding Consumables/welding_consumables.jpg",
+    Classification: "Argon / CO₂ / Mixed Gas Regulators",
+    Applications: ["MIG Welding", "TIG Welding", "Gas Cutting", "Brazing"],
+    applicationImage: "/Welding Consumables/Welding-Consumables-Advantages.webp",
+  },
 ];
 
-const WELDING_CAPABILITIES = [
-    { icon: "verified", label: "AWS / IS Certified", desc: "Compliant with AWS & IS welding standards" },
-    { icon: "thermostat", label: "All-Position Welding", desc: "Electrodes rated for all welding positions" },
-    { icon: "straighten", label: "Custom Packaging", desc: "5kg, 20kg hermetically sealed packs" },
-    { icon: "local_shipping", label: "Pan-India Delivery", desc: "Warehouse stock + direct mill dispatch" },
+/* ── Categories ──────────────────────────────────────────────── */
+
+const CATEGORIES = [
+  { key: "smaw",      label: "SMAW Electrodes",     icon: "whatshot",       match: "SMAW Electrodes" },
+  { key: "mig",       label: "MIG / MAG Wire",      icon: "cable",          match: "MIG / MAG Wire" },
+  { key: "tig",       label: "TIG Filler Rods",     icon: "auto_fix_high",  match: "TIG Filler Rods" },
+  { key: "brazing",   label: "Brazing & Soldering",  icon: "science",       match: "Brazing & Soldering" },
+  { key: "accessories", label: "Accessories",        icon: "build",          match: "Welding Accessories" },
+] as const;
+
+type CategoryKey = (typeof CATEGORIES)[number]["key"];
+
+/* ── Spec Fields ─────────────────────────────────────────────── */
+
+const SPEC_FIELDS: { key: keyof WeldingProduct; label: string; icon: string }[] = [
+  { key: "Sub-Category",  label: "Sub-Category",    icon: "category" },
+  { key: "Material",      label: "Material",        icon: "diamond" },
+  { key: "Classification", label: "Classification", icon: "label" },
+  { key: "Standards",     label: "Standards",       icon: "verified" },
+  { key: "Diameter",      label: "Diameter / Size",  icon: "straighten" },
+  { key: "Length",        label: "Length",           icon: "straighten" },
+  { key: "Packaging",     label: "Packaging",       icon: "inventory_2" },
+  { key: "Current",       label: "Welding Current", icon: "bolt" },
+  { key: "Position",      label: "Weld Position",   icon: "swap_vert" },
+  { key: "ShieldingGas",  label: "Shielding Gas",   icon: "air" },
+  { key: "Coating",       label: "Coating / Flux",  icon: "auto_awesome" },
+  { key: "Composition",   label: "Composition",     icon: "science" },
+  { key: "Application",   label: "Application",     icon: "factory" },
 ];
 
-const WELDING_INDUSTRIES = [
-    { icon: "factory", name: "Fabrication" },
-    { icon: "oil_barrel", name: "Oil & Gas" },
-    { icon: "apartment", name: "Construction" },
-    { icon: "directions_boat", name: "Shipbuilding" },
-    { icon: "bolt", name: "Power Plants" },
-    { icon: "precision_manufacturing", name: "Heavy Engineering" },
+/* ── QA Items ────────────────────────────────────────────────── */
+
+const QA_ITEMS = [
+  { icon: "verified",      title: "AWS / IS Certified",    desc: "All products comply with AWS, IS, and EN welding standards." },
+  { icon: "thermostat",    title: "All-Position Rated",    desc: "Electrodes & wires tested for F, V, OH, H positions." },
+  { icon: "science",       title: "Chemistry Controlled",  desc: "Controlled composition with batch-wise test certificates." },
+  { icon: "local_shipping", title: "Pan-India Supply",     desc: "Warehouse stock + project-direct despatch." },
 ];
+
+/* ═══════════════════════════════════════════════════════════════ */
 
 const WeldingConsumables: React.FC = () => {
-    return (
-        <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-            {/* ═══ HERO (70vh) ═══════════════════════════════════════ */}
-            <section
-                className="relative w-full overflow-hidden"
-                style={{ height: "70vh", minHeight: "500px" }}
-            >
-                <img
-                    src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80&auto=format&fit=crop"
-                    alt="Welding manufacturing"
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-slate-900/80" />
-                <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                        backgroundImage:
-                            "repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)",
-                    }}
-                />
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-                <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl">
-                        <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
-                            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-                            <span className="material-symbols-outlined text-xs">chevron_right</span>
-                            <span className="text-yellow-500 font-medium">Welding Consumables</span>
-                        </nav>
+  const activeCategoryKey: CategoryKey = useMemo(() => {
+    const c = searchParams.get("category");
+    if (c) { const found = CATEGORIES.find((cat) => cat.key === c); if (found) return found.key; }
+    return "smaw";
+  }, [searchParams]);
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
-                            Welding Consumables
-                            <br />
-                            <span className="text-yellow-500">Precision Joins. Every Time.</span>
-                        </h1>
+  const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey)!;
+  const categoryProducts = useMemo(() => PRODUCTS.filter((p) => p.Category === activeCategory.match), [activeCategory]);
 
-                        <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-12 font-sans leading-relaxed">
-                            AWS &amp; IS certified electrodes, MIG/TIG wires, and brazing alloys
-                            engineered for structural fabrication, pressure vessels, and
-                            critical industrial applications.
-                        </p>
+  const activeProductIdx = useMemo(() => {
+    const param = searchParams.get("product");
+    if (param) { const idx = categoryProducts.findIndex((p) => slugify(p["Product Name"]) === param); if (idx >= 0) return idx; }
+    return 0;
+  }, [searchParams, categoryProducts]);
 
-                        <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
-                            <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">download</span>
-                            Download Welding Catalog
-                        </button>
-                    </div>
-                </div>
+  const activeProduct = categoryProducts[activeProductIdx] || categoryProducts[0];
 
-                <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
-            </section>
+  function slugify(n: string) { return n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
+  function selectCategory(key: CategoryKey) { setSearchParams({ category: key }); setMobileMenuOpen(false); }
+  function selectProduct(p: WeldingProduct) { setSearchParams({ category: activeCategoryKey, product: slugify(p["Product Name"]) }); setMobileMenuOpen(false); }
 
-            {/* ═══ CAPABILITIES STRIP ════════════════════════════════ */}
-            <section className="bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {WELDING_CAPABILITIES.map((cap) => (
-                            <div key={cap.label} className="flex items-start gap-4">
-                                <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0">
-                                    <span className="material-symbols-outlined text-yellow-500 text-xl">{cap.icon}</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-sm font-bold text-slate-900 font-heading">{cap.label}</h3>
-                                    <p className="text-xs text-slate-500 font-sans mt-0.5">{cap.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+  const activeSpecs = useMemo(() => {
+    if (!activeProduct) return [];
+    return SPEC_FIELDS.filter((f) => { const v = activeProduct[f.key]; return typeof v === "string" && v.trim().length > 0; });
+  }, [activeProduct]);
 
-            {/* ═══ PRODUCT CATEGORIES GRID ═══════════════════════════ */}
-            <section id="categories" className="bg-slate-50 py-20 lg:py-28">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="text-xs font-bold text-yellow-600 uppercase tracking-widest font-sans">Our Range</span>
-                        <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-3">
-                            Welding Product Categories
-                        </h2>
-                        <p className="text-slate-500 mt-4 max-w-xl mx-auto font-sans">
-                            Complete range of welding consumables — electrodes, MIG/TIG wires, brazing alloys, and accessories — all certified and backed by test certificates.
-                        </p>
-                    </div>
+  const detailVariants = { initial: { opacity: 0, x: 16 }, animate: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" } }, exit: { opacity: 0, x: -12, transition: { duration: 0.15 } } };
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {WELDING_CATEGORIES.map((cat) => (
-                            <div
-                                key={cat.id}
-                                className="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200"
-                            >
-                                <div className="relative h-52 overflow-hidden">
-                                    <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                                    <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                                        <span className="material-symbols-outlined text-yellow-500 text-2xl">{cat.icon}</span>
-                                        <h3 className="text-lg font-heading font-bold text-white">{cat.title}</h3>
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">{cat.description}</p>
-                                    <div className="flex flex-wrap gap-2 mb-5">
-                                        {cat.standards.map((std) => (
-                                            <span key={std} className="text-[10px] font-bold text-slate-700 bg-yellow-50 px-2.5 py-1 rounded font-sans tracking-wide">{std}</span>
-                                        ))}
-                                    </div>
-                                    <div className="space-y-2 mb-6">
-                                        {cat.products.map((product) => (
-                                            <div key={product} className="flex items-center gap-2 text-sm text-slate-500 font-sans">
-                                                <span className="material-symbols-outlined text-yellow-500 text-xs">check_circle</span>
-                                                {product}
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <Link to="/contact" className="inline-flex items-center gap-1 text-xs font-bold text-yellow-600 hover:text-yellow-500 uppercase tracking-wider font-sans transition-colors group/link">
-                                        Enquire Now
-                                        <span className="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══ INDUSTRIES ════════════════════════════════════════ */}
-            <section className="bg-white py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <span className="text-xs font-bold text-yellow-600 uppercase tracking-widest font-sans">Trusted Across</span>
-                        <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-3">Industries We Serve</h2>
-                    </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-                        {WELDING_INDUSTRIES.map((ind) => (
-                            <div key={ind.name} className="flex flex-col items-center gap-3 p-6 rounded-sm bg-slate-50 hover:bg-yellow-50 border border-slate-200 hover:border-yellow-200 transition-all group">
-                                <span className="material-symbols-outlined text-3xl text-slate-400 group-hover:text-yellow-500 transition-colors">{ind.icon}</span>
-                                <span className="text-xs font-bold text-slate-900 uppercase tracking-wider text-center font-heading">{ind.name}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══ CTA BANNER ════════════════════════════════════════ */}
-            <section className="bg-slate-900 py-20 lg:py-24">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-slate-800 border border-slate-700 rounded-sm p-10 md:p-14 border-l-4 border-l-yellow-500 shadow-sm">
-                        <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                            <div className="w-16 h-16 shrink-0 bg-yellow-500/10 rounded-full flex items-center justify-center">
-                                <span className="material-symbols-outlined text-3xl text-yellow-500">assignment</span>
-                            </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-white mb-3">Need Bulk Welding Consumables?</h3>
-                                <p className="text-base text-slate-400 font-sans leading-relaxed">
-                                    Submit your project requirements for competitive pricing on bulk orders. Our team provides grade-specific availability and delivery timelines within 24 hours.
-                                </p>
-                            </div>
-                            <Link to="/contact" className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-slate-900 text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-md hover:shadow-lg">
-                                <span className="material-symbols-outlined text-xl">request_quote</span>
-                                Request Quote
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
+      {/* ═══ HERO ═══ */}
+      <section className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
+        <img src="/Welding Consumables/welding_consumables.jpg" alt="Welding consumables" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-slate-900/50" />
+        <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span className="material-symbols-outlined text-xs">chevron_right</span>
+              <span className="text-yellow-500 font-medium">Welding Consumables</span>
+            </nav>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-4 md:mb-6">
+              Welding Consumables<br /><span className="text-yellow-500">Precision Joins. Every Time.</span>
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl mb-8 lg:mb-12 font-sans leading-relaxed">
+              AWS &amp; IS certified electrodes, MIG/TIG wires, brazing alloys &amp; accessories — engineered for structural fabrication, pressure vessels, and critical industrial applications.
+            </p>
+            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
+              <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">download</span>
+              Download Welding Catalog
+            </button>
+          </div>
         </div>
-    );
+        <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
+      </section>
+
+      {/* ═══ STICKY CATEGORY NAV ═══ */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-1 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+            {CATEGORIES.map((cat) => (
+              <button key={cat.key} onClick={() => selectCategory(cat.key)}
+                className={`relative whitespace-nowrap px-3 lg:px-4 py-4 text-[13px] font-heading font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-1.5 ${
+                  activeCategoryKey === cat.key ? "text-yellow-600 border-b-2 border-yellow-500" : "text-slate-500 hover:text-slate-900"
+                }`}>
+                <span className="material-symbols-outlined text-base hidden sm:inline">{cat.icon}</span>
+                {cat.label}
+              </button>
+            ))}
+            <div className="ml-auto hidden lg:flex items-center gap-2 text-xs text-slate-400 font-sans shrink-0 pl-4">
+              <span className="material-symbols-outlined text-sm text-yellow-500">verified</span>
+              AWS / IS / EN Certified
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* ═══ MASTER-DETAIL BODY ═══ */}
+      <section className="bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12">
+          {/* Mobile */}
+          <div className="lg:hidden mb-6">
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-slate-900 text-white text-sm font-heading font-bold uppercase tracking-wider">
+              <span className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-lg text-yellow-500">menu</span>
+                {activeProduct ? activeProduct["Product Name"] : "Select Product"}
+              </span>
+              <span className={`material-symbols-outlined text-lg transition-transform ${mobileMenuOpen ? "rotate-180" : ""}`}>expand_more</span>
+            </button>
+            {mobileMenuOpen && (
+              <div className="border border-slate-200 border-t-0 bg-white max-h-80 overflow-y-auto">
+                {categoryProducts.map((product, idx) => (
+                  <button key={idx} onClick={() => selectProduct(product)}
+                    className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 ${
+                      activeProductIdx === idx ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500" : "text-slate-600 hover:bg-slate-50"
+                    }`}>
+                    <span className="block font-heading font-semibold truncate">{product["Product Name"]}</span>
+                    <span className="block text-xs opacity-60 mt-0.5">{product["Sub-Category"]}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* LEFT: SIDEBAR */}
+            <aside className="hidden lg:block w-[260px] xl:w-[300px] shrink-0">
+              <div className="sticky" style={{ top: "64px" }}>
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
+                  <span className="material-symbols-outlined text-lg text-yellow-500">{activeCategory.icon}</span>
+                  <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400">{activeCategory.label}</h3>
+                  <span className="ml-auto text-[10px] font-bold font-heading bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full uppercase">{categoryProducts.length} items</span>
+                </div>
+                <div className="flex flex-col space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-1" style={{ scrollbarWidth: "thin" }}>
+                  {categoryProducts.map((product, idx) => (
+                    <button key={product["Product Name"]} onClick={() => selectProduct(product)}
+                      className={`w-full text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${
+                        activeProductIdx === idx
+                          ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
+                          : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
+                      }`}>
+                      <div className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${activeProductIdx === idx ? "border-yellow-500/40" : "border-slate-200"}`}>
+                        <img src={product.thumbnail} alt={product["Product Name"]} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className={`block text-[13px] font-heading leading-tight truncate ${activeProductIdx === idx ? "font-bold" : "font-semibold"}`}>{product["Product Name"]}</span>
+                        <span className={`block text-[10px] mt-0.5 ${activeProductIdx === idx ? "text-slate-300" : "text-slate-400"}`}>{product["Sub-Category"]}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </aside>
+
+            {/* RIGHT: DETAIL */}
+            <div className="flex-1 min-w-0">
+              <AnimatePresence mode="wait">
+                {activeProduct && (
+                  <motion.div key={activeProduct["Product Name"]} variants={detailVariants} initial="initial" animate="animate" exit="exit">
+                    <div className="mb-8">
+                      <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">{activeProduct["Sub-Category"]}</span>
+                      <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 leading-tight mt-3">{activeProduct["Product Name"]}</h2>
+                      <div className="w-16 h-1 bg-yellow-500 mt-4 rounded-full" />
+                    </div>
+
+                    <div className="relative overflow-hidden rounded-sm mb-8 h-[200px] md:h-[240px] lg:h-[280px] xl:h-[340px] group">
+                      <img src={activeProduct.applicationImage || activeProduct.thumbnail} alt={activeProduct["Product Name"]} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+                      <div className="absolute bottom-4 left-5 right-5">
+                        <span className="text-xs font-heading font-bold uppercase tracking-widest text-white/80">{activeProduct["Product Name"]}</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-10">
+                      <p className="text-lg text-slate-600 font-sans leading-relaxed max-w-3xl">{activeProduct.Description}</p>
+                    </div>
+
+                    {activeSpecs.length > 0 && (
+                      <div className="mb-10">
+                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                          <span className="material-symbols-outlined text-sm text-yellow-500">engineering</span>
+                          Technical Specifications
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {activeSpecs.map((spec) => (
+                            <div key={spec.key} className="bg-white border border-slate-200 p-5 rounded-sm hover:border-slate-300 hover:shadow-sm transition-all group">
+                              <div className="flex items-center gap-2 mb-2.5">
+                                <span className="material-symbols-outlined text-base text-yellow-500 group-hover:text-yellow-600 transition-colors">{spec.icon}</span>
+                                <span className="text-[11px] font-heading font-bold uppercase tracking-widest text-slate-400">{spec.label}</span>
+                              </div>
+                              <p className="text-sm font-sans text-slate-800 leading-relaxed font-medium">{activeProduct[spec.key] as string}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {activeProduct.Applications && activeProduct.Applications.length > 0 && (
+                      <div className="mb-10">
+                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                          <span className="material-symbols-outlined text-sm text-yellow-500">factory</span>
+                          Key Industries & Applications
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {activeProduct.Applications.map((app, idx) => (
+                            <span key={idx} className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors">
+                              <span className="material-symbols-outlined text-sm">check_circle</span>{app}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap gap-3 mb-10">
+                      <button className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-sm">
+                        <span className="material-symbols-outlined text-lg">download</span>Download Datasheet
+                      </button>
+                      <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 text-xs font-heading font-bold uppercase tracking-wider hover:border-yellow-500 hover:bg-yellow-50 transition-all">
+                        <span className="material-symbols-outlined text-lg">request_quote</span>Get Quote
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ QA BANNER ═══ */}
+      <section className="bg-slate-900 text-white py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="block w-10 h-[2px] bg-yellow-500" /><span className="text-xs font-bold font-heading uppercase tracking-[0.2em] text-yellow-500">Quality Assurance</span><span className="block w-10 h-[2px] bg-yellow-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white">Certified Welding Consumables</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+            {QA_ITEMS.map((item) => (
+              <div key={item.title} className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-5 rounded-full border-2 border-yellow-500/30 flex items-center justify-center group-hover:border-yellow-500 group-hover:bg-yellow-500/10 transition-all duration-300">
+                  <span className="material-symbols-outlined text-2xl text-yellow-500">{item.icon}</span>
+                </div>
+                <h3 className="text-base font-heading font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h3>
+                <p className="text-sm text-slate-400 font-sans leading-relaxed max-w-[250px] mx-auto">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CTA ═══ */}
+      <section className="bg-slate-50 py-12 md:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white border border-slate-200 rounded-sm p-6 sm:p-8 md:p-10 lg:p-14 border-l-4 border-l-yellow-500 shadow-sm">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+              <div className="w-16 h-16 shrink-0 bg-yellow-500/10 rounded-full flex items-center justify-center">
+                <span className="material-symbols-outlined text-3xl text-yellow-600">assignment</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-slate-900 mb-3">Need Bulk Welding Consumables?</h3>
+                <p className="text-base text-slate-500 font-sans leading-relaxed">
+                  Submit your project requirements for competitive pricing on bulk orders. Our team provides grade-specific availability and delivery timelines within 24 hours.
+                </p>
+              </div>
+              <Link to="/contact" className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-slate-900 text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-md hover:shadow-lg">
+                <span className="material-symbols-outlined text-xl">request_quote</span>Request Quote
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default WeldingConsumables;

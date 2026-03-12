@@ -52,12 +52,12 @@ const PRODUCTS: CableProduct[] = [
     Armouring: "GI Wire Armoured (Round) / GI Strip Armoured (Flat)",
     TempRating: "70°C (conductor), 160°C (short-circuit)",
     Application: "Underground LT distribution, industrial plants, power substations, building risers",
-    thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=120&q=80&auto=format&fit=crop",
+    thumbnail: "/wire&cable/bg_hero_high_voltage_cables_v2.png",
     CurrentRating: "Per IS 3961 / IEC 60364 (derated per installation)",
     BendingRadius: "12× OD (armoured), 8× OD (unarmoured)",
     Testing: "HV Test (3.5 kV/5 min), IR Test, Conductor Resistance, Spark Test",
     Applications: ["Underground Distribution", "Industrial Plants", "Substations", "Building Risers"],
-    applicationImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&q=85&auto=format&fit=crop",
+    applicationImage: "/wire&cable/R.jpg",
   },
   {
     Category: "Power Cables",
@@ -527,21 +527,14 @@ const WireCables: React.FC = () => {
       {/* ═══ HERO (70vh) ═══════════════════════════════════════ */}
       <section
         className="relative w-full overflow-hidden"
-        style={{ height: "70vh", minHeight: "500px" }}
+        style={{ height: "clamp(400px, 60vh, 700px)" }}
       >
         <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80&auto=format&fit=crop"
+          src="/wire&cable/wireCables.jpg"
           alt="Wire & Cable manufacturing"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-slate-900/80" />
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)",
-          }}
-        />
+        <div className="absolute inset-0 bg-slate-900/50" />
 
         <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -557,13 +550,13 @@ const WireCables: React.FC = () => {
               </span>
             </nav>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-4 md:mb-6">
               Wire & Cables
               <br />
               <span className="text-yellow-500">Powering Every Project.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-12 font-sans leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-slate-300 max-w-2xl mb-8 lg:mb-12 font-sans leading-relaxed">
               From low-voltage building wires to 220 kV EHV power cables —
               BIS certified, fire-rated, and engineered for India&apos;s most
               critical infrastructure.
@@ -616,9 +609,9 @@ const WireCables: React.FC = () => {
 
       {/* ═══ MASTER-DETAIL BODY ═══════════════════════════════ */}
       <section className="bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12">
           {/* Mobile: product selector toggle */}
-          <div className="md:hidden mb-6">
+          <div className="lg:hidden mb-6">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-full flex items-center justify-between px-4 py-3 bg-slate-900 text-white text-sm font-heading font-bold uppercase tracking-wider"
@@ -676,9 +669,9 @@ const WireCables: React.FC = () => {
             )}
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* ── LEFT: MASTER MENU (Vertical Product List) ── */}
-            <aside className="hidden md:block w-[280px] lg:w-[320px] shrink-0">
+            <aside className="hidden lg:block w-[260px] xl:w-[300px] shrink-0">
               <div className="sticky" style={{ top: "64px" }}>
                 <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
                   <span className="material-symbols-outlined text-lg text-yellow-500">
@@ -770,7 +763,7 @@ const WireCables: React.FC = () => {
                     </div>
 
                     {/* Product Image */}
-                    <div className="relative overflow-hidden rounded-sm mb-8 h-[280px] lg:h-[340px] group">
+                    <div className="relative overflow-hidden rounded-sm mb-8 h-[200px] md:h-[240px] lg:h-[280px] xl:h-[340px] group">
                       <img
                         src={activeProduct.thumbnail
                           .replace("w=120", "w=900")
@@ -877,7 +870,7 @@ const WireCables: React.FC = () => {
                           </span>
                           Application in Action
                         </h3>
-                        <div className="relative overflow-hidden rounded-sm h-[260px] lg:h-[340px] group">
+                        <div className="relative overflow-hidden rounded-sm h-[200px] md:h-[220px] lg:h-[260px] xl:h-[340px] group">
                           <img
                             src={activeProduct.applicationImage}
                             alt={`${activeProduct["Product Name"]} application`}
@@ -893,7 +886,7 @@ const WireCables: React.FC = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="bg-slate-50 border border-slate-200 rounded-sm h-[260px] flex flex-col items-center justify-center text-slate-300 group hover:border-slate-300 transition-colors">
+                      <div className="bg-slate-50 border border-slate-200 rounded-sm h-[200px] md:h-[220px] lg:h-[260px] flex flex-col items-center justify-center text-slate-300 group hover:border-slate-300 transition-colors">
                         <span className="material-symbols-outlined text-6xl mb-4 group-hover:text-yellow-500/40 transition-colors">
                           cable
                         </span>
@@ -914,9 +907,9 @@ const WireCables: React.FC = () => {
       </section>
 
       {/* ═══ QUALITY ASSURANCE BANNER ═════════════════════════ */}
-      <section className="bg-slate-900 text-white py-20 lg:py-24">
+      <section className="bg-slate-900 text-white py-12 md:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="block w-10 h-[2px] bg-yellow-500" />
               <span className="text-xs font-bold font-heading uppercase tracking-[0.2em] text-yellow-500">
@@ -950,10 +943,10 @@ const WireCables: React.FC = () => {
       </section>
 
       {/* ═══ ENTERPRISE CTA ══════════════════════════════════ */}
-      <section className="bg-slate-50 py-20 lg:py-24">
+      <section className="bg-slate-50 py-12 md:py-16 lg:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-slate-200 rounded-sm p-10 md:p-14 border-l-4 border-l-yellow-500 shadow-sm">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
+          <div className="bg-white border border-slate-200 rounded-sm p-6 sm:p-8 md:p-10 lg:p-14 border-l-4 border-l-yellow-500 shadow-sm">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
               <div className="w-16 h-16 shrink-0 bg-yellow-500/10 rounded-full flex items-center justify-center">
                 <span className="material-symbols-outlined text-3xl text-yellow-600">
                   assignment
