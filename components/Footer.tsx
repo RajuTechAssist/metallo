@@ -193,9 +193,9 @@ const Footer: React.FC = () => {
         </div>
 
         {/* 3-Column Layout on Tablet/Desktop: Communication | Company | Industries */}
-        <div className="flex flex-col md:flex-row gap-10 justify-between">
+        <div className="flex flex-col-reverse md:flex-row gap-10 justify-between">
           {/* Communication */}
-          <div className="w-full lg:max-w-[35%] mb-12 md:mb-0">
+          <div className="w-full lg:max-w-[35%] mb-8 md:mb-0">
             <h4 className="text-xl font-bold font-heading mb-4 text-white">
               Join our communication
             </h4>
@@ -271,7 +271,7 @@ const Footer: React.FC = () => {
               <p>Sector 61, Gurgaon, Haryana, India, 122101</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-20">
+          <div className="grid grid-cols-2 gap-12 justify-between md:gap-20">
             {/* Manufacturer & Supplier of */}
             <div>
               <h4 className="text-sm lg:text-lg font-bold font-heading mb-6 uppercase tracking-wider text-white">
