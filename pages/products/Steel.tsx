@@ -1108,16 +1108,14 @@ const Steel: React.FC = () => {
   }> = ({ product, idx, isActive }) => (
     <button
       onClick={() => selectProduct(product)}
-      className={`w-full text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${
-        isActive
+      className={`w-full text-left p-2.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${isActive
           ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
           : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
-      }`}
+        }`}
     >
       <div
-        className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${
-          isActive ? "border-yellow-500/40" : "border-slate-200"
-        }`}
+        className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${isActive ? "border-yellow-500/40" : "border-slate-200"
+          }`}
       >
         <img
           src={product.thumbnail}
@@ -1184,72 +1182,70 @@ const Steel: React.FC = () => {
               <div className="border border-slate-200 border-t-0 bg-white max-h-80 overflow-y-auto">
                 {activeCategoryKey === "pipes" && groupedProducts
                   ? MAT_ORDER.map((gKey) => {
-                      const items = groupedProducts[gKey];
-                      if (!items?.length) return null;
-                      return (
-                        <div key={gKey}>
-                          <button
-                            onClick={() =>
-                              setOpenAccordion(
-                                openAccordion === gKey ? "" : gKey,
-                              )
-                            }
-                            className="w-full flex items-center justify-between px-4 py-2.5 bg-slate-50 border-b border-slate-100 text-xs font-heading font-bold uppercase tracking-widest text-slate-500 hover:text-slate-800 transition-colors"
+                    const items = groupedProducts[gKey];
+                    if (!items?.length) return null;
+                    return (
+                      <div key={gKey}>
+                        <button
+                          onClick={() =>
+                            setOpenAccordion(
+                              openAccordion === gKey ? "" : gKey,
+                            )
+                          }
+                          className="w-full flex items-center justify-between px-4 py-2.5 bg-slate-50 border-b border-slate-100 text-xs font-heading font-bold uppercase tracking-widest text-slate-500 hover:text-slate-800 transition-colors"
+                        >
+                          {MAT_LABEL[gKey]}
+                          <span
+                            className={`material-symbols-outlined text-sm transition-transform ${openAccordion === gKey ? "rotate-180" : ""}`}
                           >
-                            {MAT_LABEL[gKey]}
-                            <span
-                              className={`material-symbols-outlined text-sm transition-transform ${openAccordion === gKey ? "rotate-180" : ""}`}
-                            >
-                              expand_more
-                            </span>
-                          </button>
-                          {openAccordion === gKey &&
-                            items.map((product) => {
-                              const idx = filteredProducts.indexOf(product);
-                              return (
-                                <button
-                                  key={product["Product Name"]}
-                                  onClick={() => selectProduct(product)}
-                                  className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${
-                                    activeProductIdx === idx
-                                      ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
-                                      : "text-slate-600 hover:bg-slate-50"
+                            expand_more
+                          </span>
+                        </button>
+                        {openAccordion === gKey &&
+                          items.map((product) => {
+                            const idx = filteredProducts.indexOf(product);
+                            return (
+                              <button
+                                key={product["Product Name"]}
+                                onClick={() => selectProduct(product)}
+                                className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${activeProductIdx === idx
+                                    ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
+                                    : "text-slate-600 hover:bg-slate-50"
                                   }`}
-                                >
-                                  <div className="min-w-0 flex-1">
-                                    <span className="block font-heading font-semibold truncate">
-                                      {product["Product Name"]}
-                                    </span>
-                                    <span className="block text-xs opacity-60 mt-0.5">
-                                      {product["Sub-Category"]}
-                                    </span>
-                                  </div>
-                                </button>
-                              );
-                            })}
-                        </div>
-                      );
-                    })
+                              >
+                                <div className="min-w-0 flex-1">
+                                  <span className="block font-heading font-semibold truncate">
+                                    {product["Product Name"]}
+                                  </span>
+                                  <span className="block text-xs opacity-60 mt-0.5">
+                                    {product["Sub-Category"]}
+                                  </span>
+                                </div>
+                              </button>
+                            );
+                          })}
+                      </div>
+                    );
+                  })
                   : filteredProducts.map((product, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => selectProduct(product)}
-                        className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${
-                          activeProductIdx === idx
-                            ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
-                            : "text-slate-600 hover:bg-slate-50"
+                    <button
+                      key={idx}
+                      onClick={() => selectProduct(product)}
+                      className={`w-full text-left px-4 py-3 text-sm font-sans transition-colors border-b border-slate-50 flex items-center gap-3 ${activeProductIdx === idx
+                          ? "bg-slate-900 text-white font-bold border-l-4 border-l-yellow-500"
+                          : "text-slate-600 hover:bg-slate-50"
                         }`}
-                      >
-                        <div className="min-w-0 flex-1">
-                          <span className="block font-heading font-semibold truncate">
-                            {product["Product Name"]}
-                          </span>
-                          <span className="block text-xs opacity-60 mt-0.5">
-                            {product["Sub-Category"]}
-                          </span>
-                        </div>
-                      </button>
-                    ))}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className="block font-heading font-semibold truncate">
+                          {product["Product Name"]}
+                        </span>
+                        <span className="block text-xs opacity-60 mt-0.5">
+                          {product["Sub-Category"]}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
               </div>
             )}
           </div>
@@ -1286,22 +1282,20 @@ const Steel: React.FC = () => {
                         >
                           <button
                             onClick={() => setOpenAccordion(isOpen ? "" : gKey)}
-                            className={`w-full flex items-center justify-between px-3 py-3 transition-colors ${
-                              isOpen
+                            className={`w-full flex items-center justify-between px-3 py-3 transition-colors ${isOpen
                                 ? "bg-slate-900 text-white"
                                 : "bg-slate-50 text-slate-600 hover:bg-slate-100"
-                            }`}
+                              }`}
                           >
                             <span className="text-[11px] font-heading font-bold uppercase tracking-widest">
                               {MAT_LABEL[gKey]}
                             </span>
                             <div className="flex items-center gap-2">
                               <span
-                                className={`text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${
-                                  isOpen
+                                className={`text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${isOpen
                                     ? "bg-yellow-500 text-slate-900"
                                     : "bg-slate-200 text-slate-500"
-                                }`}
+                                  }`}
                               >
                                 {items.length}
                               </span>
@@ -1365,15 +1359,14 @@ const Steel: React.FC = () => {
                         </span>
                         {activeProduct.materialGroup && (
                           <span
-                            className={`inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm border ${
-                              activeProduct.materialGroup === "ms"
+                            className={`inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm border ${activeProduct.materialGroup === "ms"
                                 ? "text-amber-700 bg-amber-50 border-amber-200"
                                 : activeProduct.materialGroup === "ss"
                                   ? "text-blue-700 bg-blue-50 border-blue-200"
                                   : activeProduct.materialGroup === "cs"
                                     ? "text-slate-700 bg-slate-50 border-slate-200"
                                     : "text-violet-700 bg-violet-50 border-violet-200"
-                            }`}
+                              }`}
                           >
                             <span
                               className={`w-1.5 h-1.5 rounded-full ${MAT_COLOR[activeProduct.materialGroup]}`}

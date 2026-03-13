@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
   const [isVerticalNavPinned, setIsVerticalNavPinned] = useState(false);
   const [hoveredVertical, setHoveredVertical] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
@@ -503,15 +504,20 @@ const Header: React.FC = () => {
           <div className="container">
             <div className="flex justify-between items-center text-xs font-medium font-serif text-gray-600 tracking-wide">
               <div className="flex space-x-10">
-                {topLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className="hover:text-metallo-navy uppercase transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {topLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      className={`uppercase transition-colors ${
+                        isActive ? "text-metallo-navy font-bold" : "hover:text-metallo-navy"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
               <div className="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-metallo-navy">
                 <span className="material-symbols-outlined text-lg">
@@ -580,15 +586,22 @@ const Header: React.FC = () => {
           <div className="container">
             <div className="flex justify-between items-center h-14">
               <nav className="flex space-x-12">
-                {verticals.map((v) => (
-                  <Link
-                    key={v.name}
-                    to={v.path}
-                    className="text-xs font-extrabold font-serif uppercase tracking-wider text-metallo-navy hover:text-metallo-gold hover:underline decoration-2 underline-offset-4 transition-all"
-                  >
-                    {v.name}
-                  </Link>
-                ))}
+                {verticals.map((v) => {
+                  const isActive = location.pathname.startsWith(v.path);
+                  return (
+                    <Link
+                      key={v.name}
+                      to={v.path}
+                      className={`text-xs font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${
+                        isActive
+                          ? "text-metallo-gold underline"
+                          : "text-metallo-navy hover:text-metallo-gold hover:underline"
+                      }`}
+                    >
+                      {v.name}
+                    </Link>
+                  );
+                })}
               </nav>
               <button
                 onClick={() => setIsMenuOpen(true)}
@@ -638,16 +651,23 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row h-full">
               {/* Left Column: Primary Navigation */}
               <div className="flex-1 flex flex-col space-y-8 pt-4 pb-8 md:pb-0 pl-4 md:pl-8">
-                {topLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-xl md:text-2xl font-bold font-heading text-white hover:text-metallo-gold transition-colors uppercase tracking-wide w-fit border-b-2 border-transparent hover:border-metallo-gold pb-1"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {topLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-xl md:text-2xl font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${
+                        isActive
+                          ? "text-metallo-gold border-b-2 border-metallo-gold"
+                          : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
 
               {/* Right Column: Industries */}
@@ -656,16 +676,23 @@ const Header: React.FC = () => {
                   Product
                 </h3>
                 <div className="flex flex-col space-y-4">
-                  {verticals.map((v) => (
-                    <Link
-                      key={v.name}
-                      to={v.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-base text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 w-fit block font-sans border-b border-transparent hover:border-metallo-gold pb-1"
-                    >
-                      {v.name}
-                    </Link>
-                  ))}
+                  {verticals.map((v) => {
+                    const isActive = location.pathname.startsWith(v.path);
+                    return (
+                      <Link
+                        key={v.name}
+                        to={v.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${
+                          isActive
+                            ? "text-metallo-gold border-metallo-gold"
+                            : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
+                        }`}
+                      >
+                        {v.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ const ProductCategoryNav: React.FC<ProductCategoryNavProps> = ({
   onSelect,
   certBadge,
 }) => (
-  <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+  <nav className="sticky top-0 md:top-14 z-40 bg-white border-b border-slate-200 shadow-sm">
     <div className={CONTAINER}>
       <div
         className="flex items-center gap-1 overflow-x-auto"

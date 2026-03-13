@@ -22,6 +22,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { QuoteProvider } from './contexts/QuoteContext';
 import InquiryBasket from './components/InquiryBasket';
+import SocialSidebar from './components/SocialSidebar';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -66,6 +67,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
           <InquiryBasket />
+          <SocialSidebar />
         </div>
       </QuoteProvider>
     </HashRouter>

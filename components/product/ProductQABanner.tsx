@@ -30,8 +30,8 @@ const ProductQABanner: React.FC<ProductQABannerProps> = ({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
         {items.map((item) => (
-          <div key={item.title} className="text-center group">
-            <div className="w-16 h-16 mx-auto mb-5 rounded-full border-2 border-yellow-500/30 flex items-center justify-center group-hover:border-yellow-500 group-hover:bg-yellow-500/10 transition-all duration-300">
+          <div key={item.title} className="group flex flex-col items-start">
+            <div className="w-16 h-16 mb-5 rounded-full border-2 border-yellow-500/30 flex items-center justify-center group-hover:border-yellow-500 group-hover:bg-yellow-500/10 transition-all duration-300">
               <span className="material-symbols-outlined text-2xl text-yellow-500">
                 {item.icon}
               </span>
@@ -39,7 +39,7 @@ const ProductQABanner: React.FC<ProductQABannerProps> = ({
             <h3 className="text-base font-heading font-bold text-white mb-2 uppercase tracking-wide">
               {item.title}
             </h3>
-            <p className="text-sm text-slate-400 font-sans leading-relaxed max-w-[250px] mx-auto">
+            <p className="text-sm text-slate-400 font-sans leading-relaxed max-w-[280px] !text-left">
               {item.desc}
             </p>
           </div>

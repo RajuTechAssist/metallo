@@ -1,100 +1,20 @@
 import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
-
-// --- Types ---
-interface CountryDetail {
-  name: string;
-  projects: string;
-  contact: string;
-  services: string[];
-  status: 'headquarters' | 'operation' | 'footprint';
-}
+import { HUBS, HubDetail, resolveCountryData } from '../utils/mapConstants';
 
 // --- Constants ---
 const GEO_URL = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
-// Mapping ISO-3 Numeric Codes to Data (Key Operations)
-const COUNTRY_DATA: Record<string, CountryDetail> = {
-  "840": { // United States
-    name: "United States",
-    status: 'operation',
-    projects: "Texas Gigafactory Structure (50k MT), Nevada Solar Grid",
-    contact: "+1 202-555-0123 | usa@metallo.com",
-    services: ["Structural Steel Supply", "Heavy Machinery Tools", "Site Logistics"]
-  },
-  "076": { // Brazil
-    name: "Brazil",
-    status: 'operation',
-    projects: "Amazon Hydroelectric Dam Upgrade",
-    contact: "+55 11 99999-9999 | latam@metallo.com",
-    services: ["High-Voltage Cabling", "Die Casting Components", "Welding Alloys"]
-  },
-  "348": { // Hungary
-    name: "Hungary (Europe Operations)",
-    status: 'operation',
-    projects: "Pan-European Rail Electrification",
-    contact: "+36 1 123 4567 | eu@metallo.com",
-    services: ["Railway Signalling Cables", "Precision Tools", "Automotive Casting"]
-  },
-  "710": { // South Africa
-    name: "South Africa",
-    status: 'operation',
-    projects: "Gold Mine Infrastructure Renewal",
-    contact: "+27 11 123 4567 | africa@metallo.com",
-    services: ["Mining Tools", "Conveyor Steel Structures", "Safety Gear"]
-  },
-  "356": { // India
-    name: "India (Global HQ)",
-    status: 'headquarters',
-    projects: "Mumbai Trans Harbour Link, Delhi Metro Phase IV",
-    contact: "+91 22 1234 5678 | hq@metallo.com",
-    services: ["Global R&D Center", "Full Product Spectrum", "Turnkey Project Management"]
-  },
-  "036": { // Australia
-    name: "Australia",
-    status: 'operation',
-    projects: "NSW Solar Farm Grid Integration",
-    contact: "+61 2 1234 5678 | apac@metallo.com",
-    services: ["Solar Cabling", "Mounting Structures", "Remote Site Tools"]
-  }
-};
-
-// Additional Countries with Project Footprint (ISO-3 Codes)
-const PRESENCE_COUNTRIES = [
-  "124", "484", // NA: Canada, Mexico
-  "032", "152", "604", "170", "862", "218", "600", // SA: Argentina, Chile, Peru, Colombia, Venezuela, Ecuador, Paraguay
-  "826", "276", "250", "380", "724", "616", "528", "056", "752", "578", "246", "208", "756", "040", "203", "642", "372", "620", "300", "070", "191", // Europe
-  "792", "784", "682", "634", "414", "512", "376", "400", "422", // ME/Turkey
-  "156", "392", "410", "360", "458", "702", "764", "704", "608", "050", "144", "116", "524", "104", // Asia
-  "818", "566", "404", "288", "504", "012", "024", "834", "788", "800", // Africa
-  "554", "242" // Oceania: NZ, Fiji
-];
-
 const stats = [
   { value: "3", label: "Manufacturing Units", sub: "Noida, Gurgaon & Punjab" },
-  { value: "20+", label: "Countries Covered", sub: "Global Export Network" },
-  { value: "500+", label: "Active Distributors", sub: "Pan-India Reach" },
+  { value: "6+", label: "Global Hubs", sub: "Strategic Contact Points" },
+  { value: "100%", label: "Global Coverage", sub: "Regional Routing Logic" },
   { value: "100%", label: "On-Time Delivery", sub: "Track Record" },
 ];
 
 const WorldMap: React.FC = () => {
   const [tooltipContent, setTooltipContent] = useState<string>("");
-  const [selectedCountry, setSelectedCountry] = useState<CountryDetail | null>(null);
-
-  const getCountryData = (geo: any): CountryDetail | null => {
-    const code = geo.id;
-    if (COUNTRY_DATA[code]) return COUNTRY_DATA[code];
-    if (PRESENCE_COUNTRIES.includes(code)) {
-        return {
-            name: geo.properties.name || "Metallo Presence",
-            status: 'footprint',
-            projects: "Active infrastructure supply chain & strategic distribution sites.",
-            contact: "Global HQ (India) | +91 22 1234 5678",
-            services: ["Material Supply", "Logistics Coordination", "Project Support"]
-        };
-    }
-    return null;
-  };
+  const [selectedCountry, setSelectedCountry] = useState<HubDetail | null>(null);
 
   const LegendItem = ({ color, text, pulse }: { color: string, text: string, pulse?: boolean }) => (
       <div className="flex items-center gap-2">
@@ -113,8 +33,8 @@ const WorldMap: React.FC = () => {
         <h3 className="text-lg text-metallo-gold-hover font-bold font-heading uppercase mb-6">
           Manufacturing in India, Delivering to the World.
         </h3>
-        <p className="text-gray-500 leading-relaxed">
-          Metallo operates at the intersection of local manufacturing excellence and global supply chain efficiency. With our state-of-the-art manufacturing hubs in Noida and Gurgaon, and a robust logistics network, we ensure time-critical delivery of heavy industrial materials to project sites across the geography. Whether it’s a smart city project in Gujarat, a port in Chennai, or an export order to the Middle East, Metallo’s supply chain is built for speed and scale.
+        <p className="text-gray-500 leading-relaxed max-w-4xl">
+          Metallo operates at the intersection of local manufacturing excellence and global supply chain efficiency. With our state-of-the-art manufacturing hubs in India and global contact points in Europe, Middle East, and beyond, we ensure time-critical delivery of heavy industrial materials globally.
         </p>
       </div>
 
@@ -123,8 +43,10 @@ const WorldMap: React.FC = () => {
          {/* Floating Legend - Top on Mobile, Bottom-Left on Desktop */}
          <div className="absolute top-4 left-4 right-4 sm:top-auto sm:bottom-4 sm:left-4 sm:right-auto z-10 bg-white/90 backdrop-blur rounded-lg shadow-md p-3 sm:p-4 border border-gray-100 flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start sm:w-auto">
             <LegendItem color="#00AEEF" text="Global HQ" pulse />
-            <LegendItem color="#071331" text="Key Operations" />
-            <LegendItem color="#64748B" text="Project Footprint" />
+            <LegendItem color="#071331" text="Sales / Trade Office" />
+            <LegendItem color="#64748B" text="Fabrication Unit" />
+            <LegendItem color="#9CA3AF" text="Regional Coverage" />
+            <LegendItem color="#D1D5DB" text="Global Reach" />
         </div>
 
         {/* Map Container */}
@@ -140,24 +62,23 @@ const WorldMap: React.FC = () => {
                         geographies.map((geo) => {
                         if (geo.id === "010") return null;
 
-                        const countryData = COUNTRY_DATA[geo.id];
-                        const isPresence = PRESENCE_COUNTRIES.includes(geo.id);
-                        const isHQ = countryData?.status === 'headquarters';
-                        
-                        const interactableData = getCountryData(geo);
+                        const interactableData = resolveCountryData(geo.id, geo.properties.name);
                         const isInteractable = !!interactableData;
 
-                        let fillColor = "#D1D5DB";
-                        if (isHQ) fillColor = "#00AEEF";
-                        else if (countryData) fillColor = "#071331";
-                        else if (isPresence) fillColor = "#64748B";
+                        let fillColor = "#E5E7EB"; // Default / Unmapped
+                        
+                        if (interactableData?.status === 'headquarters') fillColor = "#00AEEF";
+                        else if (interactableData?.status === 'sale_office' || interactableData?.status === 'trade_office') fillColor = "#071331";
+                        else if (interactableData?.status === 'fabrication_unit') fillColor = "#64748B";
+                        else if (interactableData?.status === 'region_contact') fillColor = "#9CA3AF"; // Highlighting ME/Africa/Europe
+                        else if (interactableData?.status === 'global_coverage') fillColor = "#D1D5DB"; // Rest of world
 
                         return (
                             <Geography
                             key={geo.rsmKey}
                             geography={geo}
                             onMouseEnter={() => {
-                                setTooltipContent(interactableData ? interactableData.name : geo.properties.name);
+                                setTooltipContent(interactableData ? interactableData.name.replace('\n', ' - ') : geo.properties.name);
                             }}
                             onMouseLeave={() => {
                                 setTooltipContent("");
@@ -192,6 +113,7 @@ const WorldMap: React.FC = () => {
                     }
                     </Geographies>
                     
+                    {/* India HQ Marker Example (If desired, could map over HUBS that are main nodes and supply coords. Keeping static for visual flair) */}
                     <Marker coordinates={[78.9629, 20.5937]}>
                         <circle r={4} fill="#FFFFFF" />
                         <circle r={2} fill="#00AEEF" />
@@ -202,7 +124,7 @@ const WorldMap: React.FC = () => {
 
         {/* Tooltip */}
         {tooltipContent && (
-            <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 bg-metallo-navy text-white text-sm font-bold px-4 py-2 rounded-full shadow-xl pointer-events-none uppercase tracking-wide z-20 transition-opacity whitespace-nowrap">
+            <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 bg-metallo-navy text-white text-sm font-bold px-4 py-2 rounded-full shadow-xl pointer-events-none uppercase tracking-wide z-20 transition-opacity whitespace-nowrap whitespace-pre-line text-center">
                 {tooltipContent}
             </div>
         )}
@@ -232,14 +154,13 @@ const WorldMap: React.FC = () => {
                             {selectedCountry.status === 'headquarters' && <span className="material-symbols-outlined text-[#00AEEF]">verified</span>}
                             <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${
                                 selectedCountry.status === 'headquarters' ? 'bg-[#00AEEF] text-white' : 
-                                selectedCountry.status === 'operation' ? 'bg-metallo-gold text-metallo-navy' :
-                                'bg-gray-200 text-gray-600'
+                                selectedCountry.status === 'region_contact' ? 'bg-gray-200 text-gray-600' :
+                                'bg-metallo-gold text-metallo-navy'
                             }`}>
-                                {selectedCountry.status === 'headquarters' ? 'Global Headquarters' : 
-                                 selectedCountry.status === 'operation' ? 'Regional Operation' : 'Project Footprint'}
+                                {selectedCountry.typeLabel}
                             </span>
                         </div>
-                        <h3 className="text-2xl font-bold font-heading text-white">{selectedCountry.name}</h3>
+                        <h3 className="text-2xl font-bold font-heading text-white whitespace-pre-line">{selectedCountry.name}</h3>
                     </div>
                     <button onClick={() => setSelectedCountry(null)} className="text-white/50 hover:text-white transition-colors">
                         <span className="material-symbols-outlined text-3xl">close</span>
@@ -249,31 +170,20 @@ const WorldMap: React.FC = () => {
                 {/* Body */}
                 <div className="p-6 space-y-6">
                     <div>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Key Projects</h4>
-                        <p className="text-metallo-navy font-medium leading-relaxed">{selectedCountry.projects}</p>
-                    </div>
-
-                    <div>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Services Offered</h4>
-                        <div className="flex flex-wrap gap-2">
-                            {selectedCountry.services.map((service, i) => (
-                                <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full border border-gray-200">
-                                    {service}
-                                </span>
-                            ))}
-                        </div>
+                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Location & Address</h4>
+                        <p className="text-metallo-navy font-medium leading-relaxed">{selectedCountry.address}</p>
                     </div>
 
                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
                         <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Local Contact</h4>
                         <div className="flex items-center gap-2 text-metallo-navy font-bold font-heading">
-                            <span className="material-symbols-outlined text-metallo-gold-hover">call</span>
-                            {selectedCountry.contact}
+                            <span className="material-symbols-outlined text-metallo-gold-hover">mail</span>
+                            Contact your regional Metallo representative for inquiries.
                         </div>
                     </div>
                     
-                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-gold hover:text-metallo-navy transition-colors">
-                        Get Local Quote
+                    <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-gold hover:text-metallo-navy transition-colors" onClick={() => setSelectedCountry(null)}>
+                        Close Details
                     </button>
                 </div>
             </div>
