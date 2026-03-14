@@ -10,7 +10,7 @@ interface Industry {
 const industriesData: Industry[] = [
   {
     title: "Infrastructure & Construction",
-    image: "/industries/infrastructure&Construction.jpg",
+    image: "/industries/infrastructure-construction.jpg",
     slug: "/industries/infrastructure",
   },
   {
@@ -20,7 +20,7 @@ const industriesData: Industry[] = [
   },
   {
     title: "Oil & Gas / Process Industries",
-    image: "/industries/oil&gas.jpg",
+    image: "/industries/oil-gas.jpg",
     slug: "/industries/oil-gas",
   },
   {

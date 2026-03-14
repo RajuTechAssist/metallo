@@ -142,7 +142,7 @@ const OilGasProcessIndustries: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <motion.video
-                    src="/industries/oil&gas.mp4"
+                    src="/industries/oil-gas.mp4"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ y: heroY }}
                     autoPlay

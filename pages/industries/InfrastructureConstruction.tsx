@@ -140,7 +140,7 @@ const InfrastructureConstruction: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <motion.video
-                    src="/industries/infrastructure&Construction.mp4"
+                    src="/industries/infrastructure-construction.mp4"
                     autoPlay
                     loop
                     muted
