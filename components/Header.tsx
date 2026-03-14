@@ -585,7 +585,7 @@ const Header: React.FC = () => {
         >
           <div className="container">
             <div className="flex justify-between items-center h-14">
-              <nav className="flex space-x-12">
+              <nav className="flex space-x-3 md:space-x-6 xl:space-x-12">
                 {verticals.map((v) => {
                   const isActive = location.pathname.startsWith(v.path);
                   return (
