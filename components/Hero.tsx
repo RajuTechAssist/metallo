@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -80,35 +80,39 @@ const SLIDES: Slide[] = [
 
 const TOTAL = String(SLIDES.length).padStart(2, "0");
 
+const EASE_STANDARD: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
+const EASE_IN: [number, number, number, number] = [0.55, 0, 1, 0.45];
+
 /* ── Animation Variants ── */
 
-const categoryVariants = {
+const categoryVariants: Variants = {
   initial: { opacity: 0, x: -20 },
   animate: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.5, ease: EASE_STANDARD },
   },
   exit: { opacity: 0, x: 20, transition: { duration: 0.3 } },
 };
 
-const titleVariants = {
+const titleVariants: Variants = {
   initial: { y: "110%" },
   animate: {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1],
+      ease: EASE_OUT,
       delay: 0.15,
     },
   },
   exit: {
     y: "-110%",
-    transition: { duration: 0.5, ease: [0.55, 0, 1, 0.45] },
+    transition: { duration: 0.5, ease: EASE_IN },
   },
 };
 
-const descVariants = {
+const descVariants: Variants = {
   initial: { opacity: 0, y: 10 },
   animate: {
     opacity: 1,
@@ -118,7 +122,7 @@ const descVariants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
 };
 
-const ctaVariants = {
+const ctaVariants: Variants = {
   initial: { opacity: 0, y: 15 },
   animate: {
     opacity: 1,
@@ -156,7 +160,7 @@ const Hero: React.FC = () => {
   const slide = SLIDES[current];
 
   return (
-    <section className="relative w-full bg-slate-900 overflow-hidden h-full md:h-[calc(80vh-80px)]">
+    <section className="relative w-full bg-slate-900 overflow-hidden h-[50dvh] md:h-[calc(80vh-80px)] min-h-[400px] md:min-h-[500px]">
       {/* ── Background Images with Ken Burns ── */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -181,16 +185,16 @@ const Hero: React.FC = () => {
       {/* ── Overlay ── */}
       <div className="absolute inset-0 z-[1] bg-slate-900/60" />
       {/* Bottom vignette for track nav readability */}
-      <div className="absolute inset-x-0 bottom-0 h-60 z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
       {/* ── Content ── */}
-      <div className="relative container z-10 flex flex-col justify-center h-full pt-16 pb-40">
+      <div className="relative container z-10 flex flex-col justify-center h-full pt-[5%] pb-[10%]">
         <div className="max-w-5xl">
           <AnimatePresence mode="wait">
             <motion.div key={slide.id}>
               {/* Category Subtitle */}
               <motion.div
-                className="flex items-center gap-3 mb-6"
+                className="flex items-center gap-[clamp(0.5rem,1.5%,0.75rem)] mb-[clamp(0.75rem,2%,1.5rem)]"
                 variants={categoryVariants}
                 initial="initial"
                 animate="animate"
@@ -203,9 +207,9 @@ const Hero: React.FC = () => {
               </motion.div>
 
               {/* Masked Title Reveal */}
-              <div className="overflow-hidden mb-6 pb-2">
+              <div className="overflow-hidden mb-[clamp(0.75rem,2%,1.5rem)] pb-2">
                 <motion.h1
-                  className="text-5xl md:text-6xl font-heading font-extrabold text-white leading-[1.15] tracking-tight"
+                  className="text-[clamp(2rem,5vw,3.75rem)] font-heading font-extrabold text-white leading-[1.15] tracking-tight"
                   variants={titleVariants}
                   initial="initial"
                   animate="animate"
@@ -217,7 +221,7 @@ const Hero: React.FC = () => {
 
               {/* Description */}
               <motion.p
-                className="text-base md:text-lg text-gray-300 font-sans max-w-xl leading-relaxed mb-10"
+                className="text-[clamp(0.875rem,1.2vw,1.125rem)] text-gray-300 font-sans max-w-xl leading-relaxed mb-[clamp(1.5rem,4%,2.5rem)]"
                 variants={descVariants}
                 initial="initial"
                 animate="animate"
@@ -235,7 +239,7 @@ const Hero: React.FC = () => {
               >
                 <Link
                   to={slide.link}
-                  className="inline-flex items-center gap-3 px-6 py-3 bg-yellow-500 text-slate-900 text-sm font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
+                  className="inline-flex items-center gap-[clamp(0.5rem,1%,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] bg-yellow-500 text-slate-900 text-[clamp(0.75rem,0.9vw,0.875rem)] font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
                 >
                   Explore Capabilities
                   <span className="material-symbols-outlined text-lg">
@@ -249,18 +253,17 @@ const Hero: React.FC = () => {
       </div>
 
       {/* ── Industrial Track Navigation ── */}
-      <div className="absolute container flex justify-between items-center bottom-0 inset-x-0 z-20 pb-8 md:pb-10">
+      <div className="absolute container flex justify-between items-center bottom-0 inset-x-0 z-20 pb-[3%]">
         {/* Slide Track Dots */}
         <div className="flex items-center gap-3">
           {SLIDES.map((s, i) => (
             <button
               key={s.id}
               onClick={() => goToSlide(i)}
-              className={`h-[2px] transition-all duration-300 ${
-                i === current
-                  ? "w-10 bg-yellow-500"
-                  : "w-5 bg-white/25 hover:bg-white/50"
-              }`}
+              className={`h-[2px] transition-all duration-300 ${i === current
+                ? "w-10 bg-yellow-500"
+                : "w-5 bg-white/25 hover:bg-white/50"
+                }`}
               aria-label={`Go to slide ${s.id}`}
             />
           ))}

@@ -345,86 +345,86 @@ const Header: React.FC = () => {
   ];
 
   const placeholderTabs: Record<string, { title: string; links: string[] }[]> =
-    {
-      welding: [
-        {
-          title: "Arc Welding",
-          links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
-        },
-        {
-          title: "MIG / MAG",
-          links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
-        },
-        {
-          title: "TIG & Specialty",
-          links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
-        },
-      ],
-      tools: [
-        {
-          title: "Power Tools",
-          links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
-        },
-        {
-          title: "Cutting Tools",
-          links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
-        },
-        {
-          title: "Hand Tools",
-          links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
-        },
-      ],
-      cabletray: [
-        {
-          title: "Ladder Type",
-          links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
-        },
-        {
-          title: "Perforated Type",
-          links: [
-            "GI Perforated Tray",
-            "SS Perforated Tray",
-            "Powder Coated Tray",
-          ],
-        },
-        {
-          title: "Accessories",
-          links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
-        },
-      ],
-      casting: [
-        {
-          title: "Aluminium Die Cast",
-          links: [
-            "Gravity Casting",
-            "Pressure Die Casting",
-            "Low Pressure Casting",
-          ],
-        },
-        {
-          title: "Zinc Die Cast",
-          links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
-        },
-        {
-          title: "Finishing",
-          links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
-        },
-      ],
-      tech: [
-        {
-          title: "Automation",
-          links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
-        },
-        {
-          title: "Drives & Motors",
-          links: ["VFD Drives", "Servo Motors", "Soft Starters"],
-        },
-        {
-          title: "Sensors & IoT",
-          links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
-        },
-      ],
-    };
+  {
+    welding: [
+      {
+        title: "Arc Welding",
+        links: ["SMAW Electrodes", "E6013 / E7018", "Low Hydrogen Rods"],
+      },
+      {
+        title: "MIG / MAG",
+        links: ["ER70S-6 Wire", "Flux Cored Wire", "CO₂ Welding Wire"],
+      },
+      {
+        title: "TIG & Specialty",
+        links: ["TIG Filler Rods", "Submerged Arc Wire", "Brazing Alloys"],
+      },
+    ],
+    tools: [
+      {
+        title: "Power Tools",
+        links: ["Angle Grinders", "Impact Drills", "Rotary Hammers"],
+      },
+      {
+        title: "Cutting Tools",
+        links: ["Cut-Off Machines", "Circular Saws", "Jigsaw Machines"],
+      },
+      {
+        title: "Hand Tools",
+        links: ["Spanners & Wrenches", "Pliers & Cutters", "Measuring Tools"],
+      },
+    ],
+    cabletray: [
+      {
+        title: "Ladder Type",
+        links: ["GI Ladder Tray", "SS Ladder Tray", "Aluminium Ladder Tray"],
+      },
+      {
+        title: "Perforated Type",
+        links: [
+          "GI Perforated Tray",
+          "SS Perforated Tray",
+          "Powder Coated Tray",
+        ],
+      },
+      {
+        title: "Accessories",
+        links: ["Tray Covers", "Bends & Tees", "Reducers & Couplers"],
+      },
+    ],
+    casting: [
+      {
+        title: "Aluminium Die Cast",
+        links: [
+          "Gravity Casting",
+          "Pressure Die Casting",
+          "Low Pressure Casting",
+        ],
+      },
+      {
+        title: "Zinc Die Cast",
+        links: ["Hot Chamber Parts", "Zamak Alloys", "Miniature Components"],
+      },
+      {
+        title: "Finishing",
+        links: ["CNC Machining", "Surface Treatment", "Quality Testing"],
+      },
+    ],
+    tech: [
+      {
+        title: "Automation",
+        links: ["PLC Systems", "SCADA Panels", "HMI Displays"],
+      },
+      {
+        title: "Drives & Motors",
+        links: ["VFD Drives", "Servo Motors", "Soft Starters"],
+      },
+      {
+        title: "Sensors & IoT",
+        links: ["Proximity Sensors", "IoT Gateways", "Smart Meters"],
+      },
+    ],
+  };
 
   /* ────── Cascading dropdown data per vertical ────── */
   const verticalMenuData: Record<
@@ -500,19 +500,18 @@ const Header: React.FC = () => {
     <>
       <header className="w-full bg-white font-sans text-metallo-navy shadow-sm">
         {/* Row 1: Top Bar - Hidden on mobile */}
-        <div className="w-full border-b border-gray-300 py-3 hidden md:block">
+        <div className="w-full border-b border-gray-300 py-[clamp(0.5rem,0.82vw,0.80rem)] hidden md:block">
           <div className="container">
-            <div className="flex justify-between items-center text-xs font-medium font-serif text-gray-600 tracking-wide">
-              <div className="flex space-x-10">
+            <div className="flex justify-between items-center text-[clamp(0.625rem,0.78vw,0.8rem)] font-medium font-serif text-gray-600 tracking-wide">
+              <div className="flex space-x-[clamp(1rem,2.57vw,2.6rem)]">
                 {topLinks.map((link) => {
                   const isActive = location.pathname === link.path;
                   return (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className={`uppercase transition-colors ${
-                        isActive ? "text-metallo-navy font-bold" : "hover:text-metallo-navy"
-                      }`}
+                      className={`uppercase transition-colors ${isActive ? "text-metallo-navy font-bold" : "hover:text-metallo-navy"
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -520,11 +519,11 @@ const Header: React.FC = () => {
                 })}
               </div>
               <div className="flex items-center space-x-2 text-gray-600 cursor-pointer hover:text-metallo-navy">
-                <span className="material-symbols-outlined text-lg">
+                <span className="material-symbols-outlined text-[clamp(0.875rem,1.1vw,1.125rem)]">
                   language
                 </span>
                 <span>Global</span>
-                <span className="material-symbols-outlined text-sm">
+                <span className="material-symbols-outlined text-[clamp(0.75rem,0.9vw,0.875rem)]">
                   arrow_drop_down
                 </span>
               </div>
@@ -532,7 +531,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="container">
-          <div className="py-4 bg-white">
+          <div className="py-[clamp(0.5rem,1vw,1rem)] bg-white">
             {/* Row 2: Logo & CTA */}
             <div className="flex justify-between items-center">
               {/* Logo */}
@@ -541,17 +540,17 @@ const Header: React.FC = () => {
                   src="/logo.svg"
                   alt="Metallo"
                   className="w-auto"
-                  style={{ width: "15rem" }}
+                  style={{ width: "clamp(10rem, 16vw, 15rem)" }}
                 />
               </Link>
 
               {/* CTA Button */}
               <Link
                 to="/contact"
-                className="hidden md:inline-flex items-center px-6 py-3 bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-sm uppercase tracking-wide transition-colors rounded-sm"
+                className="hidden md:inline-flex items-center px-[clamp(1rem,1.5vw,1.5rem)] py-[clamp(0.5rem,0.8vw,0.75rem)] bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-[clamp(0.7rem,0.85vw,0.875rem)] uppercase tracking-wide transition-colors rounded-sm"
               >
                 Contact Us
-                <span className="material-symbols-outlined ml-2 text-lg">
+                <span className="material-symbols-outlined ml-[clamp(0.25rem,0.5vw,0.5rem)] text-[clamp(0.875rem,1.1vw,1.125rem)]">
                   arrow_forward
                 </span>
               </Link>
@@ -577,26 +576,24 @@ const Header: React.FC = () => {
         ) : null}
         <div
           ref={verticalNavRef}
-          className={`hidden md:block w-full bg-white transition-all ${
-            isVerticalNavPinned
+          className={`hidden md:block w-full bg-white transition-all ${isVerticalNavPinned
               ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
               : "relative"
-          }`}
+            }`}
         >
           <div className="container">
-            <div className="flex justify-between items-center h-14">
-              <nav className="flex space-x-12">
+            <div className="flex justify-between items-center h-[clamp(2.5rem,4vw,3.5rem)]">
+              <nav className="flex space-x-[clamp(0.75rem,2vw,3rem)]">
                 {verticals.map((v) => {
                   const isActive = location.pathname.startsWith(v.path);
                   return (
                     <Link
                       key={v.name}
                       to={v.path}
-                      className={`text-xs font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${
-                        isActive
+                      className={`text-[clamp(0.6rem,0.78vw,0.75rem)] font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${isActive
                           ? "text-metallo-gold underline"
                           : "text-metallo-navy hover:text-metallo-gold hover:underline"
-                      }`}
+                        }`}
                     >
                       {v.name}
                     </Link>
@@ -638,19 +635,19 @@ const Header: React.FC = () => {
       >
         <div className="flex flex-col h-full">
           {/* Close Button Header */}
-          <div className="flex justify-end items-center p-6 md:p-8">
+          <div className="flex justify-end items-center p-[clamp(1rem,3vw,1.5rem)] md:p-[clamp(1.5rem,3vw,2rem)]">
             <button onClick={() => setIsMenuOpen(false)} className="group p-2">
-              <span className="material-symbols-outlined text-3xl md:text-4xl text-white group-hover:text-metallo-gold transition-all duration-300">
+              <span className="material-symbols-outlined text-[clamp(1.5rem,3vw,2rem)] md:text-[clamp(1.75rem,3vw,2.25rem)] text-white group-hover:text-metallo-gold transition-all duration-300">
                 close
               </span>
             </button>
           </div>
 
           {/* Scrollable Content Area */}
-          <div className="flex-1 px-8 md:px-16 overflow-y-auto">
+          <div className="flex-1 px-[clamp(1.5rem,5vw,2rem)] md:px-[clamp(2rem,5vw,4rem)] overflow-y-auto">
             <div className="flex flex-col md:flex-row h-full">
               {/* Left Column: Primary Navigation */}
-              <div className="flex-1 flex flex-col space-y-8 pt-4 pb-8 md:pb-0 pl-4 md:pl-8">
+              <div className="flex-1 flex flex-col space-y-[clamp(1rem,3vw,2rem)] pt-[clamp(0.5rem,1.5vw,1rem)] pb-[clamp(1rem,3vw,2rem)] md:pb-0 pl-[clamp(0.5rem,2vw,1rem)] md:pl-[clamp(1rem,3vw,2rem)]">
                 {topLinks.map((link) => {
                   const isActive = location.pathname === link.path;
                   return (
@@ -658,11 +655,10 @@ const Header: React.FC = () => {
                       key={link.name}
                       to={link.path}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`text-xl md:text-2xl font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${
-                        isActive
+                      className={`text-[clamp(1rem,2.5vw,1.25rem)] md:text-[clamp(1.25rem,2vw,1.5rem)] font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${isActive
                           ? "text-metallo-gold border-b-2 border-metallo-gold"
                           : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -671,11 +667,11 @@ const Header: React.FC = () => {
               </div>
 
               {/* Right Column: Industries */}
-              <div className="flex-1 md:border-l md:border-white/10 md:pl-16 pl-4 pt-4 pb-8">
-                <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-8 font-heading">
+              <div className="flex-1 md:border-l md:border-white/10 md:pl-[clamp(2rem,5vw,4rem)] pl-[clamp(0.5rem,2vw,1rem)] pt-[clamp(0.5rem,1.5vw,1rem)] pb-[clamp(1rem,3vw,2rem)]">
+                <h3 className="text-[clamp(0.625rem,0.9vw,0.75rem)] font-bold text-white uppercase tracking-wider mb-[clamp(1rem,3vw,2rem)] font-heading">
                   Product
                 </h3>
-                <div className="flex flex-col space-y-4">
+                <div className="flex flex-col space-y-[clamp(0.5rem,1.5vw,1rem)]">
                   {verticals.map((v) => {
                     const isActive = location.pathname.startsWith(v.path);
                     return (
@@ -683,11 +679,10 @@ const Header: React.FC = () => {
                         key={v.name}
                         to={v.path}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${
-                          isActive
+                        className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${isActive
                             ? "text-metallo-gold border-metallo-gold"
                             : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
-                        }`}
+                          }`}
                       >
                         {v.name}
                       </Link>
@@ -699,9 +694,9 @@ const Header: React.FC = () => {
           </div>
 
           {/* Footer Area inside Drawer */}
-          <div className="p-8 md:px-16 border-t border-white/10 mt-auto bg-metallo-navy z-10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="flex gap-6">
+          <div className="p-[clamp(1rem,3vw,2rem)] md:px-[clamp(2rem,5vw,4rem)] border-t border-white/10 mt-auto bg-metallo-navy z-10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
+              <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
                 <Link
                   to="/csr"
                   onClick={() => setIsMenuOpen(false)}
@@ -719,7 +714,7 @@ const Header: React.FC = () => {
               </div>
 
               {/* Social Icons */}
-              <div className="flex gap-4 items-center">
+              <div className="flex gap-[clamp(0.5rem,1.5vw,1rem)] items-center">
                 {/* X (Twitter) */}
                 <a
                   href="#"

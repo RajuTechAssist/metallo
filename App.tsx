@@ -67,7 +67,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
           <InquiryBasket />
-          <SocialSidebar />
+          {/* <SocialSidebar /> */}
         </div>
       </QuoteProvider>
     </HashRouter>
