@@ -84,7 +84,7 @@ const Header: React.FC = () => {
     },
     {
       key: "welding",
-      name: "Welding Consumables",
+      name: "Welding & Allied",
       path: "/products/welding",
       icon: "whatshot",
     },
@@ -94,18 +94,18 @@ const Header: React.FC = () => {
       path: "/products/tools",
       icon: "construction",
     },
-    {
-      key: "casting",
-      name: "Die Casting",
-      path: "/products/die-casting",
-      icon: "precision_manufacturing",
-    },
-    {
-      key: "tech",
-      name: "Industrial Tech",
-      path: "/products/tech-products",
-      icon: "memory",
-    },
+    // {
+    //   key: "casting",
+    //   name: "Die Casting",
+    //   path: "/products/die-casting",
+    //   icon: "precision_manufacturing",
+    // },
+    // {
+    //   key: "tech",
+    //   name: "Industrial Tech",
+    //   path: "/products/tech-products",
+    //   icon: "memory",
+    // },
   ];
 
   // Helper: build steel page path with category filter & optional product scroll
@@ -577,8 +577,8 @@ const Header: React.FC = () => {
         <div
           ref={verticalNavRef}
           className={`hidden md:block w-full bg-white transition-all ${isVerticalNavPinned
-              ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
-              : "relative"
+            ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
+            : "relative"
             }`}
         >
           <div className="container">
@@ -591,8 +591,8 @@ const Header: React.FC = () => {
                       key={v.name}
                       to={v.path}
                       className={`text-[clamp(0.6rem,0.78vw,0.75rem)] font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${isActive
-                          ? "text-metallo-gold underline"
-                          : "text-metallo-navy hover:text-metallo-gold hover:underline"
+                        ? "text-metallo-gold underline"
+                        : "text-metallo-navy hover:text-metallo-gold hover:underline"
                         }`}
                     >
                       {v.name}
@@ -656,8 +656,8 @@ const Header: React.FC = () => {
                       to={link.path}
                       onClick={() => setIsMenuOpen(false)}
                       className={`text-[clamp(1rem,2.5vw,1.25rem)] md:text-[clamp(1.25rem,2vw,1.5rem)] font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${isActive
-                          ? "text-metallo-gold border-b-2 border-metallo-gold"
-                          : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
+                        ? "text-metallo-gold border-b-2 border-metallo-gold"
+                        : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
                         }`}
                     >
                       {link.name}
@@ -680,8 +680,8 @@ const Header: React.FC = () => {
                         to={v.path}
                         onClick={() => setIsMenuOpen(false)}
                         className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${isActive
-                            ? "text-metallo-gold border-metallo-gold"
-                            : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
+                          ? "text-metallo-gold border-metallo-gold"
+                          : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
                           }`}
                       >
                         {v.name}

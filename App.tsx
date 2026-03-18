@@ -52,8 +52,8 @@ const App: React.FC = () => {
               <Route path="/products/cable-tray" element={<CableTray />} />
               <Route path="/products/welding" element={<WeldingConsumables />} />
               <Route path="/products/tools" element={<PowerTools />} />
-              <Route path="/products/die-casting" element={<DieCasting />} />
-              <Route path="/products/tech-products" element={<IndustrialTech />} />
+              {/* <Route path="/products/die-casting" element={<DieCasting />} /> */}
+              {/* <Route path="/products/tech-products" element={<IndustrialTech />} /> */}
               <Route path="/industries/infrastructure" element={<InfrastructureConstruction />} />
               <Route path="/industries/power-transmission" element={<PowerTransmission />} />
               <Route path="/industries/oil-gas" element={<OilGasProcessIndustries />} />
@@ -67,7 +67,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
           <InquiryBasket />
-          {/* <SocialSidebar /> */}
+          <SocialSidebar />
         </div>
       </QuoteProvider>
     </HashRouter>
