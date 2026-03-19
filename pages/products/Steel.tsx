@@ -298,7 +298,6 @@ const Steel: React.FC = () => {
         subtitle="Industrial Steel."
         description="IS / BIS / ISI Marked / ASTM / MTC EN compliant Stainless, Carbon, Mild & Alloy Steel — engineered for critical infrastructure, oil & gas, and heavy engineering across 6 product families."
         breadcrumbLabel="Steel Products"
-        ctaLabel="Download Complete Technical Catalog"
       />
       <ProductCategoryNav
         categories={CATEGORIES}
@@ -417,17 +416,25 @@ const Steel: React.FC = () => {
             {/* ── RIGHT: PRODUCT CARDS ── */}
             <div className="flex-1 min-w-0">
               {/* Category/group heading */}
-              <div className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
-                  {activeCategoryKey === "pipes"
-                    ? MAT_LABEL[activeGroup]
-                    : activeCategory.label}
-                </h2>
-                <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
-                  {displayedProducts.length} product
-                  {displayedProducts.length !== 1 ? "s" : ""} available
-                </p>
-                <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+              <div className="mb-6 flex flex-col sm:flex-row justify-between items-start gap-4">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
+                    {activeCategoryKey === "pipes"
+                      ? MAT_LABEL[activeGroup]
+                      : activeCategory.label}
+                  </h2>
+                  <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
+                    {displayedProducts.length} product
+                    {displayedProducts.length !== 1 ? "s" : ""} available
+                  </p>
+                  <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+                </div>
+                <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
+                  <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
+                    download
+                  </span>
+                  Download Complete Technical Catalog
+                </button>
               </div>
 
               <AnimatePresence mode="wait">

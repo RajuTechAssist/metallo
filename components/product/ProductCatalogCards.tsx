@@ -29,6 +29,8 @@ interface ProductCatalogCardsProps<T> {
   renderExtraSection?: (product: T) => React.ReactNode;
   emptyStateTitle?: string;
   emptyStateDescription?: string;
+  ctaLabel?: string;
+  ctaIcon?: string;
 }
 
 const BADGE_TONE: Record<NonNullable<ProductBadgeItem["tone"]>, string> = {
@@ -231,18 +233,30 @@ function ProductCatalogCards<T>({
   emptyStateTitle = "No products available",
   emptyStateDescription =
     "Please select a different category to view available products.",
+  ctaLabel,
+  ctaIcon = "download",
 }: ProductCatalogCardsProps<T>) {
   return (
     <section className="bg-white border-b border-slate-100">
       <div className={`${CONTAINER} py-6 md:py-8 lg:py-12`}>
-        <div className="mb-6">
-          <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
-            {sectionHeading}
-          </h2>
-          <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
-            {products.length} product{products.length !== 1 ? "s" : ""} available
-          </p>
-          <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+        <div className="mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-8">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
+              {sectionHeading}
+            </h2>
+            <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
+              {products.length} product{products.length !== 1 ? "s" : ""} available
+            </p>
+            <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+          </div>
+          {ctaLabel && (
+            <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
+              <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
+                {ctaIcon}
+              </span>
+              {ctaLabel}
+            </button>
+          )}
         </div>
 
         {products.length === 0 ? (

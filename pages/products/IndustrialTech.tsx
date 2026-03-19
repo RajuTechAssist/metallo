@@ -40,7 +40,7 @@ const IndustrialTech: React.FC = () => {
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero backgroundImage="/industrialTech/Automation-Technologies.jpg" title="Industrial Tech" subtitle="Smart Automation Solutions." description="PLC systems, VFD drives, sensors, switchgear, and IoT platforms — complete automation and power distribution solutions for Industry 4.0." breadcrumbLabel="Industrial Tech" ctaLabel="Download Product Guide" />
+      <ProductHero backgroundImage="/industrialTech/Automation-Technologies.jpg" title="Industrial Tech" subtitle="Smart Automation Solutions." description="PLC systems, VFD drives, sensors, switchgear, and IoT platforms — complete automation and power distribution solutions for Industry 4.0." breadcrumbLabel="Industrial Tech" />
       <ProductCategoryNav categories={CATEGORIES} activeKey={activeCategoryKey} onSelect={selectCategory} certBadge="Authorised Partner" />
 
       <section className="bg-white border-b border-slate-100">
@@ -53,12 +53,22 @@ const IndustrialTech: React.FC = () => {
                 {activeProduct && (
                   <motion.div key={activeProduct["Product Name"]} variants={DETAIL_VARIANTS} initial="initial" animate="animate" exit="exit">
                     <div className="mb-8">
-                      <div className="flex items-center gap-2 mb-3 flex-wrap">
-                        <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">{activeProduct.Category}</span>
-                        <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-slate-500 bg-slate-100 px-3 py-1 rounded-sm">{activeProduct["Sub-Category"]}</span>
+                      <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div>
+                          <div className="flex items-center gap-2 mb-3 flex-wrap">
+                            <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">{activeProduct.Category}</span>
+                            <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-slate-500 bg-slate-100 px-3 py-1 rounded-sm">{activeProduct["Sub-Category"]}</span>
+                          </div>
+                          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 leading-tight">{activeProduct["Product Name"]}</h2>
+                          <div className="w-16 h-1 bg-yellow-500 mt-4 rounded-full" />
+                        </div>
+                        <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-slate-900 hover:text-white transition-all duration-300 group shrink-0">
+                          <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
+                            download
+                          </span>
+                          Download Product Guide
+                        </button>
                       </div>
-                      <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 leading-tight">{activeProduct["Product Name"]}</h2>
-                      <div className="w-16 h-1 bg-yellow-500 mt-4 rounded-full" />
                     </div>
 
                     <div className="mb-10"><p className="text-lg text-slate-600 font-sans leading-relaxed max-w-3xl">{activeProduct.Description}</p></div>

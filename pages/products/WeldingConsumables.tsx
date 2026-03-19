@@ -26,7 +26,7 @@ const WeldingConsumables: React.FC = () => {
       const found = CATEGORIES.find((item) => item.key === category);
       if (found) return found.key;
     }
-    return "smaw";
+    return "consumables";
   }, [searchParams]);
 
   const activeCategory = CATEGORIES.find((item) => item.key === activeCategoryKey)!;
@@ -55,7 +55,6 @@ const WeldingConsumables: React.FC = () => {
         subtitle="Precision Joins. Every Time."
         description="AWS and IS certified electrodes, MIG/TIG wires, brazing alloys, and accessories engineered for structural fabrication, pressure vessels, and critical industrial applications."
         breadcrumbLabel="Welding & Allied"
-        ctaLabel="Download Welding Catalog"
       />
 
       <ProductCategoryNav
@@ -76,6 +75,7 @@ const WeldingConsumables: React.FC = () => {
         getImage={(product) => product.applicationImage || product.thumbnail}
         getSpecifications={getProductSpecs}
         getApplications={(product) => product.Applications}
+        ctaLabel="Download Welding Catalog"
         getBadges={(product) =>
           product.Classification
             ? [{ label: product.Classification, tone: "neutral" }]

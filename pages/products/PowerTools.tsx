@@ -152,7 +152,6 @@ const PowerTools: React.FC = () => {
         subtitle="Built for the Job Site."
         description="Professional-grade cordless and corded power tools - drills, grinders, hammers, saws, and specialty tools - backed by nationwide service and V20 battery interchangeability."
         breadcrumbLabel="Power Tools"
-        ctaLabel="Download Power Tools Catalog"
       />
 
       <ProductCategoryNav
@@ -174,6 +173,7 @@ const PowerTools: React.FC = () => {
         getSpecifications={getToolSpecs}
         getBadges={(product) => [{ label: product.Model, tone: "neutral" }]}
         renderExtraSection={renderToolExtraSection}
+        ctaLabel="Download Power Tools Catalog"
       />
 
       <ProductQABanner title="Professional Power Tools" items={QA_ITEMS} />

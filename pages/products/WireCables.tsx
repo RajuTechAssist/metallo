@@ -55,7 +55,6 @@ const WireCables: React.FC = () => {
         subtitle="Powering Every Project."
         description="From low-voltage building wires to 220 kV EHV power cables - BIS certified, fire-rated, and engineered for India's most critical infrastructure."
         breadcrumbLabel="Wire & Cables"
-        ctaLabel="Download Complete Cable Catalog"
       />
 
       <ProductCategoryNav
@@ -76,6 +75,7 @@ const WireCables: React.FC = () => {
         getImage={(product) => product.applicationImage || product.thumbnail}
         getSpecifications={getProductSpecs}
         getApplications={(product) => product.Applications}
+        ctaLabel="Download Complete Cable Catalog"
       />
 
       <ProductQABanner

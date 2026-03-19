@@ -55,7 +55,6 @@ const CableTray: React.FC = () => {
         subtitle="Engineered Cable Management."
         description="GI, stainless steel and aluminium cable trays - ladder, perforated, mesh, and solid bottom - IS/IEC certified and custom fabricated for power plants, data centres, and industrial installations."
         breadcrumbLabel="Cable Tray Systems"
-        ctaLabel="Download Cable Tray Catalog"
       />
 
       <ProductCategoryNav
@@ -76,6 +75,7 @@ const CableTray: React.FC = () => {
         getImage={(product) => product.applicationImage || product.thumbnail}
         getSpecifications={getProductSpecs}
         getApplications={(product) => product.Applications}
+        ctaLabel="Download Cable Tray Catalog"
       />
 
       <ProductQABanner title="Certified Cable Management Systems" items={QA_ITEMS} />

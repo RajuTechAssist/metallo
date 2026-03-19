@@ -8,8 +8,6 @@ interface ProductHeroProps {
   subtitle: string;
   description: string;
   breadcrumbLabel: string;
-  ctaLabel: string;
-  ctaIcon?: string;
 }
 
 const ProductHero: React.FC<ProductHeroProps> = ({
@@ -18,8 +16,6 @@ const ProductHero: React.FC<ProductHeroProps> = ({
   subtitle,
   description,
   breadcrumbLabel,
-  ctaLabel,
-  ctaIcon = "download",
 }) => (
   <section
     className="relative w-full overflow-hidden"
@@ -59,13 +55,6 @@ const ProductHero: React.FC<ProductHeroProps> = ({
           {description}
         </p>
 
-        {/* CTA Button */}
-        <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white text-sm font-heading font-bold uppercase tracking-wider hover:bg-white hover:text-slate-900 transition-all duration-300 group">
-          <span className="material-symbols-outlined text-xl group-hover:translate-y-[1px] transition-transform">
-            {ctaIcon}
-          </span>
-          {ctaLabel}
-        </button>
       </div>
     </div>
 
