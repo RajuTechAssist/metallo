@@ -6,6 +6,7 @@ export { default as ProductSidebar } from "./ProductSidebar";
 export { default as ProductMobileMenu } from "./ProductMobileMenu";
 export { default as ProductQABanner } from "./ProductQABanner";
 export { default as ProductCTA } from "./ProductCTA";
+export { default as ConfigurableProductPage } from "./ConfigurableProductPage";
 export {
   CONTAINER,
   DETAIL_VARIANTS,
@@ -14,3 +15,12 @@ export {
   type CategoryConfig,
   type QAItem,
 } from "./productLayout";
+export type {
+  ProductSpecItem,
+  ProductBadgeItem,
+  ProductCatalogItem,
+  ProductHeroConfig,
+  ProductCTAConfig,
+  ProductQABannerConfig,
+  ConfigurableProductPageData,
+} from "./productTypes";

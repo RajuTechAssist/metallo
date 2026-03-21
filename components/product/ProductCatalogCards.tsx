@@ -2,17 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { CONTAINER, DETAIL_VARIANTS } from "./productLayout";
-
-export interface ProductSpecItem {
-  label: string;
-  value: string;
-  icon?: string;
-}
-
-export interface ProductBadgeItem {
-  label: string;
-  tone?: "accent" | "neutral";
-}
+import type { ProductSpecItem, ProductBadgeItem } from "./productTypes";
 
 interface ProductCatalogCardsProps<T> {
   animationKey: string;

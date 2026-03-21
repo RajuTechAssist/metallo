@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { PRODUCT_VERTICALS } from "../utils/productVerticals";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -58,50 +59,6 @@ const Footer: React.FC = () => {
     { name: "Why Metallo", path: "/why-metallo" },
     { name: "Careers", path: "/careers" },
     { name: "Contact Us", path: "/contact" },
-  ];
-  const verticals = [
-    {
-      key: "steel",
-      name: "Steel",
-      path: "/products/steel",
-      icon: "foundation",
-    },
-    {
-      key: "cables",
-      name: "Wire & Cables",
-      path: "/products/wire-cables",
-      icon: "electrical_services",
-    },
-    {
-      key: "cabletray",
-      name: "Cable Tray",
-      path: "/products/cable-tray",
-      icon: "grid_view",
-    },
-    {
-      key: "welding",
-      name: "Welding Consumables",
-      path: "/products/welding",
-      icon: "whatshot",
-    },
-    {
-      key: "tools",
-      name: "Power Tools",
-      path: "/products/tools",
-      icon: "construction",
-    },
-    {
-      key: "casting",
-      name: "Die Casting",
-      path: "/products/die-casting",
-      icon: "precision_manufacturing",
-    },
-    {
-      key: "tech",
-      name: "Industrial Tech",
-      path: "/products/tech-products",
-      icon: "memory",
-    },
   ];
 
   return (
@@ -278,7 +235,7 @@ const Footer: React.FC = () => {
                 Manufacturer & Supplier of
               </h4>
               <ul className="space-y-3 text-sm lg:text-base text-gray-400">
-                {verticals.map((vertical) => (
+                {PRODUCT_VERTICALS.map((vertical) => (
                   <li key={vertical.key}>
                     <Link
                       to={vertical.path}

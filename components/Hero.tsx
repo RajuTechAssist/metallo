@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
+import { PRODUCT_VERTICAL_BY_KEY } from "../utils/productVerticals";
 
 /* ═══════════════════════════════════════════════════════════════
    CINEMATIC HERO SLIDER
@@ -26,7 +27,7 @@ const SLIDES: Slide[] = [
     title: "Infinite Capacity. Standardized Quality.",
     desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
     image: "/Steel/oil_industry1.jpg",
-    link: "/products/steel",
+    link: PRODUCT_VERTICAL_BY_KEY.steel.path,
   },
   {
     id: "02",
@@ -34,15 +35,15 @@ const SLIDES: Slide[] = [
     title: "Powering the National Grid.",
     desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
     image: "/wire&cable/wireCables.jpg",
-    link: "/products/wire-cables",
+    link: PRODUCT_VERTICAL_BY_KEY.cables.path,
   },
   {
     id: "03",
     category: "Cable Trays",
     title: "Structural Routing Systems",
     desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
-    image: "../cable Trays/cableTrays2.jpg",
-    link: "/products/cable-trays",
+    image: "/cable Trays/cableTrays2.jpg",
+    link: PRODUCT_VERTICAL_BY_KEY.cabletray.path,
   },
   {
     id: "04",
@@ -50,7 +51,7 @@ const SLIDES: Slide[] = [
     title: "Mission-Critical Precision.",
     desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
     image: "/Welding Consumables/welding_consumables.jpg",
-    link: "/products/welding",
+    link: PRODUCT_VERTICAL_BY_KEY.welding.path,
   },
   {
     id: "05",
@@ -58,7 +59,7 @@ const SLIDES: Slide[] = [
     title: "Heavy-Duty Execution at Scale.",
     desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
     image: "/powerTools/powerTool.jpg",
-    link: "/products/tools",
+    link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
   {
     id: "06",
@@ -66,7 +67,7 @@ const SLIDES: Slide[] = [
     title: "Micro-Tolerance Engineering.",
     desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
     image: "/diecasting/die-casting-process-foundry.jpg",
-    link: "/products/die-casting",
+    link: PRODUCT_VERTICAL_BY_KEY.casting.path,
   },
   {
     id: "07",
@@ -74,7 +75,7 @@ const SLIDES: Slide[] = [
     title: "The Operating System for Infrastructure.",
     desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
     image: "/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
-    link: "/products/tech",
+    link: PRODUCT_VERTICAL_BY_KEY.tech.path,
   },
 ];
 
