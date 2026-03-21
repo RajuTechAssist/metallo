@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ProductHero,
+  SteelHero,
   ProductCategoryNav,
   ProductQABanner,
   ProductCTA,
@@ -142,15 +142,14 @@ const Steel: React.FC = () => {
               </span>
               {product.materialGroup && (
                 <span
-                  className={`inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm border ${
-                    product.materialGroup === "ss"
-                      ? "text-blue-700 bg-blue-50 border-blue-200"
-                      : product.materialGroup === "gi"
-                        ? "text-teal-700 bg-teal-50 border-teal-200"
-                        : product.materialGroup === "ms"
-                          ? "text-amber-700 bg-amber-50 border-amber-200"
-                          : "text-violet-700 bg-violet-50 border-violet-200"
-                  }`}
+                  className={`inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm border ${product.materialGroup === "ss"
+                    ? "text-blue-700 bg-blue-50 border-blue-200"
+                    : product.materialGroup === "gi"
+                      ? "text-teal-700 bg-teal-50 border-teal-200"
+                      : product.materialGroup === "ms"
+                        ? "text-amber-700 bg-amber-50 border-amber-200"
+                        : "text-violet-700 bg-violet-50 border-violet-200"
+                    }`}
                 >
                   {MAT_LABEL[product.materialGroup]}
                 </span>
@@ -292,11 +291,10 @@ const Steel: React.FC = () => {
   /* ─────────────────────────────────────────────────────────── */
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero
-        backgroundImage="/Steel/oil_industry.jpg"
+      <SteelHero
         title="High-Performance"
         subtitle="Industrial Steel."
-        description="IS / BIS / ISI Marked / ASTM / MTC EN compliant Stainless, Carbon, Mild & Alloy Steel — engineered for critical infrastructure, oil & gas, and heavy engineering across 6 product families."
+        description="IS / BIS / ISI Marked / ASTM / MTC EN compliant Stainless, Carbon, Mild & Alloy Steel — engineered for critical infrastructure, oil & gas, and heavy engineering across 8 product families."
         breadcrumbLabel="Steel Products"
       />
       <ProductCategoryNav
@@ -338,20 +336,18 @@ const Steel: React.FC = () => {
                       <button
                         key={gKey}
                         onClick={() => selectGroup(gKey)}
-                        className={`w-full text-left px-4 py-3 text-sm font-heading font-bold uppercase tracking-wider border-b border-slate-50 flex items-center gap-3 transition-colors ${
-                          isActive
-                            ? "bg-slate-900 text-white border-l-4 border-l-yellow-500"
-                            : "text-slate-600 hover:bg-slate-50"
-                        }`}
+                        className={`w-full text-left px-4 py-3 text-sm font-heading font-bold uppercase tracking-wider border-b border-slate-50 flex items-center gap-3 transition-colors ${isActive
+                          ? "bg-slate-900 text-white border-l-4 border-l-yellow-500"
+                          : "text-slate-600 hover:bg-slate-50"
+                          }`}
                       >
 
                         {MAT_LABEL[gKey]}
                         <span
-                          className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                            isActive
-                              ? "bg-yellow-500 text-slate-900"
-                              : "bg-slate-200 text-slate-500"
-                          }`}
+                          className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${isActive
+                            ? "bg-yellow-500 text-slate-900"
+                            : "bg-slate-200 text-slate-500"
+                            }`}
                         >
                           {items.length}
                         </span>
@@ -386,22 +382,20 @@ const Steel: React.FC = () => {
                         <button
                           key={gKey}
                           onClick={() => selectGroup(gKey)}
-                          className={`w-full text-left px-4 py-3.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${
-                            isActive
-                              ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
-                              : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
-                          }`}
+                          className={`w-full text-left px-4 py-3.5 transition-all duration-200 rounded-sm flex items-center gap-3 ${isActive
+                            ? "bg-slate-900 text-white border-l-4 border-l-yellow-500 font-bold shadow-md"
+                            : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-l-4 border-l-transparent cursor-pointer"
+                            }`}
                         >
 
                           <span className="text-[13px] font-heading font-bold leading-tight">
                             {MAT_LABEL[gKey]}
                           </span>
                           <span
-                            className={`ml-auto text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${
-                              isActive
-                                ? "bg-yellow-500 text-slate-900"
-                                : "bg-slate-200 text-slate-500"
-                            }`}
+                            className={`ml-auto text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${isActive
+                              ? "bg-yellow-500 text-slate-900"
+                              : "bg-slate-200 text-slate-500"
+                              }`}
                           >
                             {items.length}
                           </span>
@@ -433,7 +427,7 @@ const Steel: React.FC = () => {
                   <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
                     download
                   </span>
-                  Download Complete Technical Catalog
+                  Download Technical Catalog
                 </button>
               </div>
 

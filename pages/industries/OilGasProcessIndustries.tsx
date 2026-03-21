@@ -141,15 +141,12 @@ const OilGasProcessIndustries: React.FC = () => {
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-                <motion.video
-                    src="/industries/oil-gas.mp4"
+                <motion.img
+                    src="/industries/oil-gas2.png"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ y: heroY }}
-                    autoPlay
-                    loop
-                    muted
                 />
-                <div className="absolute inset-0 bg-slate-900/60" />
+                <div className="absolute" />
 
                 <motion.div
                     className="relative z-10 flex flex-col justify-center h-full container"
@@ -165,7 +162,7 @@ const OilGasProcessIndustries: React.FC = () => {
                             <span className="text-yellow-500 font-medium">Oil & Gas / Process Industries</span>
                         </nav>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
+                        <h1 className="text-xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.05] mb-6">
                             Process‑Grade Supply,<br />
                             <span className="text-yellow-500">Certified & Traceable.</span>
                         </h1>
@@ -175,7 +172,7 @@ const OilGasProcessIndustries: React.FC = () => {
                         </p>
 
                         {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                        {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
                             <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 group">
                                 <span className="material-symbols-outlined text-xl">request_quote</span>
                                 Get a Project Quote
@@ -184,7 +181,7 @@ const OilGasProcessIndustries: React.FC = () => {
                                 <span className="material-symbols-outlined text-xl">fact_check</span>
                                 Request Vendor Audit
                             </button>
-                        </div>
+                        </div> */}
 
                         {/* Microcopy */}
                         <div className="flex items-center gap-2 text-xs text-slate-400 font-sans">

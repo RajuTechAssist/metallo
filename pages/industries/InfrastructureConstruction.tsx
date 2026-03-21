@@ -139,32 +139,28 @@ const InfrastructureConstruction: React.FC = () => {
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-                <motion.video
-                    src="/industries/infrastructure-construction.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <motion.img
+                    src="/industries/infrastructure-construction.png"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ y: heroY }}
                 />
-                <div className="absolute inset-0 bg-slate-900/60" />
+                <div className="absolute" />
 
                 <motion.div
                     className="relative z-10 flex flex-col justify-center h-full container"
                     style={{ opacity: heroOpacity }}
                 >
-                    <div className="max-w-3xl">
+                    <div className="max-w-4xl inset-0 bg-slate-900/45 pl-10 pt-10 pb-10">
                         {/* Breadcrumb */}
                         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
                             <Link to="/" className="hover:text-white transition-colors">Home</Link>
                             <span className="material-symbols-outlined text-xs">chevron_right</span>
                             <Link to="/" className="hover:text-white transition-colors">Industries</Link>
                             <span className="material-symbols-outlined text-xs">chevron_right</span>
-                            <span className="text-yellow-500 font-medium">Infrastructure & Construction</span>
+                            <span className="text-yellow-500 font-medium ">Infrastructure & Construction</span>
                         </nav>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
+                        <h1 className="text-xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.05] mb-6">
                             Infrastructure‑Grade<br />
                             <span className="text-yellow-500">Materials, at Scale.</span>
                         </h1>
@@ -174,7 +170,7 @@ const InfrastructureConstruction: React.FC = () => {
                         </p>
 
                         {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                        {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
                             <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 group">
                                 <span className="material-symbols-outlined text-xl">request_quote</span>
                                 Get a Project Quote
@@ -183,7 +179,7 @@ const InfrastructureConstruction: React.FC = () => {
                                 <span className="material-symbols-outlined text-xl">fact_check</span>
                                 Request Vendor Audit
                             </button>
-                        </div>
+                        </div> */}
 
                         {/* Microcopy */}
                         <div className="flex items-center gap-2 text-xs text-slate-400 font-sans">

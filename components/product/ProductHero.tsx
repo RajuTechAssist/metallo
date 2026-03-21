@@ -26,7 +26,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
       alt={breadcrumbLabel}
       className="absolute inset-0 w-full h-full object-cover"
     />
-    <div className="absolute inset-0 bg-slate-900/60" />
+    <div className="absolute" />
 
     <div
       className={`relative z-10 flex flex-col justify-center h-full ${CONTAINER}`}

@@ -1,4 +1,5 @@
 export { default as ProductHero } from "./ProductHero";
+export { default as SteelHero } from "./SteelHero";
 export { default as ProductCategoryNav } from "./ProductCategoryNav";
 export { default as ProductCatalogCards } from "./ProductCatalogCards";
 export { default as ProductSidebar } from "./ProductSidebar";
