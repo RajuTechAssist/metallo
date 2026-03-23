@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React, { useState, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   SteelHero,
@@ -27,6 +27,44 @@ import {
    Left:  Material-group labels (Pipes & Tubes only)
    Right: All products of selected group as stacked cards
    ═══════════════════════════════════════════════════════════════ */
+
+interface AccordionSectionProps {
+  title: string;
+  icon: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+  className?: string;
+}
+
+const AccordionSection: React.FC<AccordionSectionProps> = ({
+  title,
+  icon,
+  open,
+  onToggle,
+  children,
+  className = "px-6 md:px-8 pb-2",
+}) => (
+  <div className={className}>
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between py-4 border-t border-slate-200 cursor-pointer group"
+    >
+      <h4 className="text-[13px] font-heading font-bold uppercase tracking-[0.15em] text-slate-900 flex items-center gap-2">
+        <span className="material-symbols-outlined text-sm text-yellow-500">
+          {icon}
+        </span>
+        {title}
+      </h4>
+      <span
+        className={`material-symbols-outlined text-lg text-slate-400 group-hover:text-slate-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      >
+        expand_more
+      </span>
+    </button>
+    {open && children}
+  </div>
+);
 
 const Steel: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -111,7 +149,16 @@ const Steel: React.FC = () => {
   }) => {
     const specs = getProductSpecs(product);
     const [specsOpen, setSpecsOpen] = useState(false);
-    const certifications = STEEL_CORE_CERTIFICATIONS;
+    const [typesOpen, setTypesOpen] = useState(false);
+    const certifications =
+      product.Certification && product.Certification.length > 0
+        ? product.Certification
+        : STEEL_CORE_CERTIFICATIONS;
+    const descriptionParagraphs =
+      product.descriptionParagraphs && product.descriptionParagraphs.length > 0
+        ? product.descriptionParagraphs
+        : [product.Description];
+    const typeGallery = product.typeGallery;
     return (
       <motion.div
         variants={DETAIL_VARIANTS}
@@ -163,9 +210,16 @@ const Steel: React.FC = () => {
             <div className="w-12 h-1 bg-yellow-500 rounded-full mb-4" />
 
             {/* Description */}
-            <p className="text-base text-slate-600 font-sans leading-relaxed mb-6">
-              {product.Description}
-            </p>
+            <div className="mb-6 space-y-4">
+              {descriptionParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-base text-slate-600 font-sans leading-relaxed text-justify"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             {/* Certification Badges */}
             {certifications.length > 0 && (
@@ -221,45 +275,72 @@ const Steel: React.FC = () => {
 
         {/* Technical Specifications — Collapsible */}
         {specs.length > 0 && (
-          <div className="px-6 md:px-8 pb-2">
-            <button
-              onClick={() => setSpecsOpen(!specsOpen)}
-              className="w-full flex items-center justify-between py-4 border-t border-slate-200 cursor-pointer group"
-            >
-              <h4 className="text-[13px] font-heading font-bold uppercase tracking-[0.15em] text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-yellow-500">
-                  engineering
-                </span>
-                Technical Specifications
-              </h4>
-              <span
-                className={`material-symbols-outlined text-lg text-slate-400 group-hover:text-slate-600 transition-transform duration-200 ${specsOpen ? "rotate-180" : ""}`}
-              >
-                expand_more
+          <AccordionSection
+            title="Technical Specifications"
+            icon="engineering"
+            open={specsOpen}
+            onToggle={() => setSpecsOpen((open) => !open)}
+          >
+            <div className="overflow-x-auto pb-4">
+              <table className="w-full border-collapse text-sm">
+                <tbody>
+                  {specs.map((spec, idx) => (
+                    <tr
+                      key={spec.key}
+                      className={idx % 2 === 0 ? "bg-slate-50" : "bg-white"}
+                    >
+                      <td className="px-4 py-3 font-heading font-bold text-slate-500 uppercase text-[11px] tracking-wider w-[200px] border border-slate-200 whitespace-nowrap">
+                        {spec.label}
+                      </td>
+                      <td className="px-4 py-3 text-slate-800 font-medium font-sans border border-slate-200">
+                        {product[spec.key] as string}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </AccordionSection>
+        )}
+
+        {typeGallery && typeGallery.items.length > 0 && (
+          <AccordionSection
+            title={typeGallery.title}
+            icon="grid_view"
+            open={typesOpen}
+            onToggle={() => setTypesOpen((open) => !open)}
+            className="px-6 md:px-8 pb-6"
+          >
+            <div className="pb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-yellow-200 bg-yellow-50 text-yellow-700 text-[11px] font-heading font-bold uppercase tracking-[0.18em]">
+                Types
               </span>
-            </button>
-            {specsOpen && (
-              <div className="overflow-x-auto pb-4">
-                <table className="w-full border-collapse text-sm">
-                  <tbody>
-                    {specs.map((spec, idx) => (
-                      <tr
-                        key={spec.key}
-                        className={idx % 2 === 0 ? "bg-slate-50" : "bg-white"}
-                      >
-                        <td className="px-4 py-3 font-heading font-bold text-slate-500 uppercase text-[11px] tracking-wider w-[200px] border border-slate-200 whitespace-nowrap">
-                          {spec.label}
-                        </td>
-                        <td className="px-4 py-3 text-slate-800 font-medium font-sans border border-slate-200">
-                          {product[spec.key] as string}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+              <p className="mt-4 text-sm md:text-base text-slate-600 font-sans leading-relaxed text-justify max-w-4xl">
+                {typeGallery.intro}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 pb-2">
+              {typeGallery.items.map((item) => (
+                <div
+                  key={`${product["Product Name"]}-${item.name}`}
+                  className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+                >
+                  <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="px-4 py-4 border-t border-slate-200">
+                    <p className="text-sm font-heading font-bold text-slate-900 text-center leading-snug">
+                      {item.name}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AccordionSection>
         )}
 
         {/* Action Buttons */}

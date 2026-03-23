@@ -12,8 +12,8 @@ interface SteelHeroProps {
 const panels = [
   { name: "", img: "/Steel/pipes&tubes1.png" },
   { name: "", img: "/Steel/SHEETS&PLATES.png" },
-  { name: "", img: "/Steel/flanges.png" },
-  { name: "", img: "/Steel/pipe-fittings2.png" },
+  { name: "", img: "/Steel/flanges1.png" },
+  { name: "", img: "/Steel/pipe-fittings3.png" },
   { name: "", img: "/Steel/Fasteners & Bars.png" },
   { name: "", img: "/Steel/gaskets1.png" },
 ];
