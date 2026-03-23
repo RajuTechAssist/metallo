@@ -2,7 +2,7 @@ import type { ConfigurableProductPageData } from "../../../components/product";
 
 export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
   hero: {
-    backgroundImage: "/fabricated-structures/hero.jpeg",
+    backgroundImage: "/fabricated-structures/fabricated-structures.png",
     title: "Metallo Fabricated Structures",
     subtitle: "Engineered Steel Systems.",
     description:
@@ -342,6 +342,8 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         "https://supertechindia.com/specialised-structural-steel-fabrication/",
     },
   ],
+  catalogCtaLabel: "Download Fabricated Structures Catalog",
+  catalogCtaIcon: "download",
   qaBanner: {
     sectionLabel: "Execution Standards",
     title: "Configured for Steel Buildings, Frames, and Envelope Systems",

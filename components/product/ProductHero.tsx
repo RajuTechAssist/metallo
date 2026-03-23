@@ -31,7 +31,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     <div
       className={`relative z-10 flex flex-col justify-center h-full ${CONTAINER}`}
     >
-      <div className="max-w-3xl">
+      <div className="max-w-3xl inset-0 bg-slate-900/60 pt-10 pb-10 pl-10 pr-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6 font-sans">
           <Link to="/" className="hover:text-white transition-colors">

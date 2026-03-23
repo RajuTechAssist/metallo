@@ -370,6 +370,8 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       sourceUrl: "https://www.deepiping.com/packaging-shipping.php",
     },
   ],
+  catalogCtaLabel: "Download Pipes Catalog",
+  catalogCtaIcon: "download",
   qaBanner: {
     sectionLabel: "Delivery Readiness",
     title: "Process Piping Backed by Engineering and Quality",

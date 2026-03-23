@@ -60,8 +60,8 @@ const App: React.FC = () => {
                 path={PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path}
                 element={<FabricatedStructures />}
               />
-              <Route path={PRODUCT_VERTICAL_BY_KEY.casting.path} element={<DieCasting />} />
-              <Route path={PRODUCT_VERTICAL_BY_KEY.tech.path} element={<IndustrialTech />} />
+              {/* <Route path={PRODUCT_VERTICAL_BY_KEY.casting.path} element={<DieCasting />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.tech.path} element={<IndustrialTech />} /> */}
               <Route path="/industries/infrastructure" element={<InfrastructureConstruction />} />
               <Route path="/industries/power-transmission" element={<PowerTransmission />} />
               <Route path="/industries/oil-gas" element={<OilGasProcessIndustries />} />

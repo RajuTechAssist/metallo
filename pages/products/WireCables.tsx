@@ -75,7 +75,7 @@ const WireCables: React.FC = () => {
         getImage={(product) => product.applicationImage || product.thumbnail}
         getSpecifications={getProductSpecs}
         getApplications={(product) => product.Applications}
-        ctaLabel="Download Complete Cable Catalog"
+        ctaLabel="Download Cable Catalog"
       />
 
       <ProductQABanner

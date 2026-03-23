@@ -226,7 +226,7 @@ const Steel: React.FC = () => {
               onClick={() => setSpecsOpen(!specsOpen)}
               className="w-full flex items-center justify-between py-4 border-t border-slate-200 cursor-pointer group"
             >
-              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-2">
+              <h4 className="text-[13px] font-heading font-bold uppercase tracking-[0.15em] text-slate-900 flex items-center gap-2">
                 <span className="material-symbols-outlined text-sm text-yellow-500">
                   engineering
                 </span>
@@ -263,7 +263,7 @@ const Steel: React.FC = () => {
         )}
 
         {/* Action Buttons */}
-        <div className="px-6 md:px-8 pb-8">
+        {/* <div className="px-6 md:px-8 pb-8">
           <div className="flex flex-wrap gap-3 pt-4">
             <button className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-sm">
               <span className="material-symbols-outlined text-lg">
@@ -281,7 +281,7 @@ const Steel: React.FC = () => {
               Get Quote
             </Link>
           </div>
-        </div>
+        </div> */}
       </motion.div>
     );
   };

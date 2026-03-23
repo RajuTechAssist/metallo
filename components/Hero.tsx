@@ -61,22 +61,22 @@ const SLIDES: Slide[] = [
     image: "/powerTools/powerTool.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
-  {
-    id: "06",
-    category: "Die Casting",
-    title: "Micro-Tolerance Engineering.",
-    desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
-    image: "/diecasting/die-casting-process-foundry.jpg",
-    link: PRODUCT_VERTICAL_BY_KEY.casting.path,
-  },
-  {
-    id: "07",
-    category: "Industrial Tech",
-    title: "The Operating System for Infrastructure.",
-    desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
-    image: "/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
-    link: PRODUCT_VERTICAL_BY_KEY.tech.path,
-  },
+  // {
+  //   id: "06",
+  //   category: "Die Casting",
+  //   title: "Micro-Tolerance Engineering.",
+  //   desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
+  //   image: "/diecasting/die-casting-process-foundry.jpg",
+  //   link: PRODUCT_VERTICAL_BY_KEY.casting.path,
+  // },
+  // {
+  //   id: "07",
+  //   category: "Industrial Tech",
+  //   title: "The Operating System for Infrastructure.",
+  //   desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
+  //   image: "/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
+  //   link: PRODUCT_VERTICAL_BY_KEY.tech.path,
+  // },
 ];
 
 const TOTAL = String(SLIDES.length).padStart(2, "0");

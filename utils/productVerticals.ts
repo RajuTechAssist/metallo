@@ -129,40 +129,40 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
       "Workshop Structural Fabrication",
     ],
   },
-  {
-    key: "casting",
-    name: "Die Casting",
-    path: "/products/die-casting",
-    icon: "precision_manufacturing",
-    showInHeader: false,
-    showInShowcase: true,
-    showcaseTitle: "Precision Die Casting",
-    showcaseSubtitle: "Micro-Tolerance",
-    showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDtBtj4Jf7u_tz6kK5SdwAJWl9rKn31fEry9IW7eoAA4QwOwaLOYxwhoBwCB-c7oEy5nAp9sFCJzggt6AsvurszNzL44FAv3HZirh-pQp8_FxH8ffcOt2nlyOnaMxeebdk_V2Tll0IFOHpAsZ4dAJKDTswFf5QfxtixK4o_SgyfsWTwEa-ti5tiVxBnUzXiaoyVTv47YLnnYjxjQtrmiwDHdeloHfhbDsqhqAUS7B9wgSpVg9jrn_NoAoIHaT9g6YKCc67jwJCU9jH_",
-    showcasePoints: [
-      "Automotive & Aerospace",
-      "CNC Integrated",
-      "Rapid Scaling",
-    ],
-  },
-  {
-    key: "tech",
-    name: "Tech Products",
-    path: "/products/tech-products",
-    icon: "memory",
-    showInHeader: false,
-    showInShowcase: true,
-    showcaseTitle: "Tech Products",
-    showcaseSubtitle: "Infrastructure OS",
-    showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDKs8siiRfxuZGeiEFtUE_A5slo4Zb--Ajw56FSrLeWu0wPS0jO7N_lxWhfBV3l_TolzB4tdvCqejo8lIP_8e1ftTiEoVfcipEdiStFi3PV2oxt5LqkcCQBsLGA6R7TjsBdyDnBEQGYQFctOBCWnHkVh_1h0GsK9sYpDT4jGUFUbgPaUtNsQPsNQ9RMDMg4OJk6nUH436NqG2SkVUFWy74kmIQ8gTKezMor_vxRLgXBsu-DbzVwm6Saf4uRNOhtyNSpPIlhNsxcd1UK",
-    showcasePoints: [
-      "Production Tracking",
-      "BOM Procurement",
-      "Digital QC Traceability",
-    ],
-  },
+  // {
+  //   key: "casting",
+  //   name: "Die Casting",
+  //   path: "/products/die-casting",
+  //   icon: "precision_manufacturing",
+  //   showInHeader: false,
+  //   showInShowcase: true,
+  //   showcaseTitle: "Precision Die Casting",
+  //   showcaseSubtitle: "Micro-Tolerance",
+  //   showcaseImage:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuDtBtj4Jf7u_tz6kK5SdwAJWl9rKn31fEry9IW7eoAA4QwOwaLOYxwhoBwCB-c7oEy5nAp9sFCJzggt6AsvurszNzL44FAv3HZirh-pQp8_FxH8ffcOt2nlyOnaMxeebdk_V2Tll0IFOHpAsZ4dAJKDTswFf5QfxtixK4o_SgyfsWTwEa-ti5tiVxBnUzXiaoyVTv47YLnnYjxjQtrmiwDHdeloHfhbDsqhqAUS7B9wgSpVg9jrn_NoAoIHaT9g6YKCc67jwJCU9jH_",
+  //   showcasePoints: [
+  //     "Automotive & Aerospace",
+  //     "CNC Integrated",
+  //     "Rapid Scaling",
+  //   ],
+  // },
+  // {
+  //   key: "tech",
+  //   name: "Tech Products",
+  //   path: "/products/tech-products",
+  //   icon: "memory",
+  //   showInHeader: false,
+  //   showInShowcase: true,
+  //   showcaseTitle: "Tech Products",
+  //   showcaseSubtitle: "Infrastructure OS",
+  //   showcaseImage:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuDKs8siiRfxuZGeiEFtUE_A5slo4Zb--Ajw56FSrLeWu0wPS0jO7N_lxWhfBV3l_TolzB4tdvCqejo8lIP_8e1ftTiEoVfcipEdiStFi3PV2oxt5LqkcCQBsLGA6R7TjsBdyDnBEQGYQFctOBCWnHkVh_1h0GsK9sYpDT4jGUFUbgPaUtNsQPsNQ9RMDMg4OJk6nUH436NqG2SkVUFWy74kmIQ8gTKezMor_vxRLgXBsu-DbzVwm6Saf4uRNOhtyNSpPIlhNsxcd1UK",
+  //   showcasePoints: [
+  //     "Production Tracking",
+  //     "BOM Procurement",
+  //     "Digital QC Traceability",
+  //   ],
+  // },
 ];
 
 export const HEADER_PRODUCT_VERTICALS = PRODUCT_VERTICALS.filter(
