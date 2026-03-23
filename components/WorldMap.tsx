@@ -26,7 +26,6 @@ const COLOR_MAP = {
 const WorldMap: React.FC = () => {
   const [tooltipContent, setTooltipContent] = useState<string>("");
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
   const [isSmallDevice, setIsSmallDevice] = useState(false);
   // const [selectedCountry, setSelectedCountry] = useState<HubDetail | null>(null);
 
@@ -62,7 +61,9 @@ const WorldMap: React.FC = () => {
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto container">
-        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">Global Footprint</h4>
+        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">
+          Global Footprint
+        </h4>
         <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">
           Strategic Presence. Limitless Reach.
         </h2>
@@ -70,16 +71,15 @@ const WorldMap: React.FC = () => {
           Manufacturing in India, Delivering to the World.
         </h3>
         <p className="text-gray-500 leading-relaxed max-w-4xl">
-          Metallo operates at the intersection of local manufacturing excellence and global supply chain efficiency. With our state-of-the-art manufacturing hubs in India and global contact points in Europe, Middle East, and beyond, we ensure time-critical delivery of heavy industrial materials globally.
+          Metallo operates at the intersection of local manufacturing excellence
+          and global supply chain efficiency. With our state-of-the-art
+          manufacturing hubs in India and global contact points in Europe,
+          Middle East, and beyond, we ensure time-critical delivery of heavy
+          industrial materials globally.
         </p>
         <div
-          className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:h-[70vh] overflow-hidden mt-5 lg:mt-10 cursor-grab"
-          onPointerDown={() => setIsDragging(true)}
-          onPointerUp={() => setIsDragging(false)}
-          onPointerLeave={() => setIsDragging(false)}
-          onPointerCancel={() => setIsDragging(false)}
+          className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:h-[70vh] overflow-hidden mt-5 lg:mt-10 cursor-grab active:cursor-grabbing select-none"
         >
-
           {/* Floating Legend - Top on Mobile, Bottom-Left on Desktop */}
           <div className="absolute bottom-0 lg:bottom-10 z-10 bg-white/90 backdrop-blur rounded-lg shadow-md p-3 sm:p-4 border border-gray-100 flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start sm:w-auto">
             <LegendItem color={COLOR_MAP.headquarters} text="Global HQ" pulse />
@@ -92,8 +92,12 @@ const WorldMap: React.FC = () => {
           {/* Map Container */}
           <ComposableMap
             projection="geoEqualEarth"
+            draggable={false}
             // projectionConfig={{ scale: 205, center: [0, 0] }}
-            style={{ width: "100%", height: "100%", cursor: isDragging ? "grabbing" : "grab" }}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
           >
             <ZoomableGroup
               zoom={defaultMapView.zoom}
@@ -109,11 +113,14 @@ const WorldMap: React.FC = () => {
                     if (EXCLUDED_REGIONS.includes(geo.id)) return null;
                     const hub = HUBS[geo.id];
 
-
                     let fillColor = COLOR_MAP.default;
 
-                    if (hub?.status === "headquarters") fillColor = COLOR_MAP.headquarters;
-                    else if (hub?.status === "sale_office" || hub?.status === "trade_office")
+                    if (hub?.status === "headquarters")
+                      fillColor = COLOR_MAP.headquarters;
+                    else if (
+                      hub?.status === "sale_office" ||
+                      hub?.status === "trade_office"
+                    )
                       fillColor = COLOR_MAP.office;
                     else if (hub?.status === "fabrication_unit")
                       fillColor = COLOR_MAP.fabrication;
@@ -121,6 +128,7 @@ const WorldMap: React.FC = () => {
                     return (
                       <Geography
                         key={geo.rsmKey}
+                        tabIndex={-1}
                         geography={geo}
                         fill={fillColor}
                         stroke="#FFFFFF"
@@ -129,11 +137,13 @@ const WorldMap: React.FC = () => {
                           if (hub) {
                             setTooltipContent(hub.name.replace("\n", " - "));
                             setTooltipPos({ x: e.clientX, y: e.clientY });
-
                           }
                         }}
                         onMouseLeave={() => setTooltipContent("")}
                         style={{
+                          default: {
+                            outline: "none",
+                          },
                           hover: {
                             fill: hub ? COLOR_MAP.hover : COLOR_MAP.default,
                             outline: "none",
@@ -195,15 +205,23 @@ const WorldMap: React.FC = () => {
         </div>
       </div>
 
-
       {/* Key Stats Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
-            <div key={idx} className="text-center p-4 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow bg-gray-50">
-              <div className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-1">{stat.value}</div>
-              <div className="text-sm font-bold text-metallo-gold-hover uppercase tracking-wider mb-1">{stat.label}</div>
-              <div className="text-xs text-gray-500 font-medium">{stat.sub}</div>
+            <div
+              key={idx}
+              className="text-center p-4 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow bg-gray-50"
+            >
+              <div className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-1">
+                {stat.value}
+              </div>
+              <div className="text-sm font-bold text-metallo-gold-hover uppercase tracking-wider mb-1">
+                {stat.label}
+              </div>
+              <div className="text-xs text-gray-500 font-medium">
+                {stat.sub}
+              </div>
             </div>
           ))}
         </div>
