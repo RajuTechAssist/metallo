@@ -24,7 +24,7 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     <img
       src={backgroundImage}
       alt={breadcrumbLabel}
-      className="absolute inset-0 w-full h-full object-cover"
+      className="absolute w-full h-full object-cover"
     />
     <div className="absolute" />
 
