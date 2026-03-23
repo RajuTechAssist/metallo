@@ -22,7 +22,7 @@ const Certifications: React.FC = () => {
     <section className="bg-gray-50 py-20 border-t border-gray-200 overflow-hidden">
       <div className="container">
         {/* Text Data Section */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="text-center mb-16">
           <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading">
             Benchmarks of Excellence
           </h4>
