@@ -20,7 +20,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInHeader: true,
     showInShowcase: true,
     showcaseTitle: "Metallo Steel",
-    showcaseSubtitle: "The Structural Foundation",
+    showcaseSubtitle: "Structural Foundation",
     showcaseImage:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAZmT_s2B9dm9-HBV823d6vMwXy9qsBMMQ3nGKJIKyS5fwDMVAFQfixx0y-sygCvmnG896hpbtiT4P0lI2r8wkCf2rvSOk6ngn7p0c0saTngyDwhMAJzTZ-oEfN69XK8hppDwDyF7vllPZmXYfvr1eo7o9qkdYxatryE1B-qzerwAsDc1GC0HLRmt55olsDJKVaIX-cEz-tNZCRpo8bR3tbk6Pq2kql-1SxTkbOZSj2TmdmFqPcWsv5yo3-v2lBhvJGy391-zatHuy8",
     showcasePoints: [
@@ -122,7 +122,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Fabricated Structures",
     showcaseSubtitle: "Engineered Steel Systems",
-    showcaseImage: "/fabricated-structures/hero.jpeg",
+    showcaseImage: "/fabricated-structures/fabricated-structures.png",
     showcasePoints: [
       "PEB & Framing Systems",
       "Roofing, Cladding & Decking",

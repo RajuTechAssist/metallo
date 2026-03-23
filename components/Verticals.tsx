@@ -20,14 +20,14 @@ const Verticals: React.FC = () => {
         </div>
 
         <div
-          className="flex gap-4 overflow-x-auto pb-4 no-scrollbar"
+          className="flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:grid lg:grid-cols-3 xl:grid-cols-7 lg:gap-4 lg:overflow-visible lg:pb-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {SHOWCASE_PRODUCT_VERTICALS.map((item) => (
             <Link
               to={item.path}
               key={item.key}
-              className="group relative flex-shrink-0 w-[160px] h-[240px] md:w-[180px] md:h-[296px] rounded-md overflow-hidden cursor-pointer block"
+              className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >
               <img
                 src={item.showcaseImage}
@@ -37,7 +37,7 @@ const Verticals: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
               <div className="absolute top-3 right-3 bg-metallo-navy/80 text-white p-1.5 rounded-full z-10">
-                <span className="material-symbols-outlined text-base">{item.icon}</span>
+                <span className="material-symbols-outlined text-base flex justify-center items-center w-5 h-5">{item.icon}</span>
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-3">
@@ -49,8 +49,8 @@ const Verticals: React.FC = () => {
                 </p>
 
                 <ul className="space-y-0.5 mb-2">
-                  {(item.showcasePoints || []).map((point) => (
-                    <li key={point} className="flex items-center text-[10px] text-gray-200">
+                  {(item.showcasePoints || []).map((point, idx) => (
+                    <li key={idx} className="flex items-center text-[10px] text-gray-200">
                       <span className="w-1 h-1 bg-metallo-gold rounded-full mr-1.5 flex-shrink-0" />
                       {point}
                     </li>
