@@ -226,7 +226,7 @@ const WhyMetallo: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 relative">
             {/* VS Badge */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white border-4 border-gray-100 rounded-full flex items-center justify-center z-10 font-black text-xl text-gray-300 shadow-xl hidden lg:flex">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white border-4 border-gray-100 rounded-full md:flex items-center justify-center z-10 font-black text-xl text-gray-300 shadow-xl hidden lg:flex">
               VS
             </div>
 

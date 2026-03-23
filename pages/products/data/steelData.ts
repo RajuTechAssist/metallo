@@ -72,7 +72,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Pharmaceutical",
       "Marine",
     ],
-    applicationImage: "/Steel/industry.jpg",
+    applicationImage: "/Steel/SS-304-pipe.png",
   },
   {
     Category: "Pipes & Tubes",
@@ -103,7 +103,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Power Plants",
       "Boilers & Heat Exchangers",
     ],
-    applicationImage: "/Steel/oil_industry.jpg",
+    applicationImage: "/Steel/SS-Seamless-Pipe.png",
   },
   {
     Category: "Pipes & Tubes",
@@ -134,7 +134,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Analytical Equipment",
       "Offshore",
     ],
-    applicationImage: "/Steel/oil_industry1.jpg",
+    applicationImage: "/Steel/SS-Instrumentation-Tube.png",
   },
   {
     Category: "Pipes & Tubes",
@@ -165,7 +165,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Condensers",
       "Power Generation",
     ],
-    applicationImage: "/Steel/industry.jpg",
+    applicationImage: "/Steel/heat-ex-u-tube.webp",
   },
   {
     Category: "Pipes & Tubes",
@@ -195,7 +195,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Kitchen Equipment",
       "Architectural",
     ],
-    applicationImage: "/Steel/industry.jpg",
+    applicationImage: "/Steel/SS-Ferritic-409-430-Tubes.png",
   },
   {
     Category: "Pipes & Tubes",
@@ -225,7 +225,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Desalination",
       "Marine & Offshore",
     ],
-    applicationImage: "/Steel/oil_industry.jpg",
+    applicationImage: "/Steel/Super-Duplex-2507.png",
   },
 
   /* ──────────── PIPES & TUBES: GALVANIZED (gi) ────────────── */
@@ -249,7 +249,7 @@ export const PRODUCTS: SteelProduct[] = [
     Certification: ["ISI", "BIS", "ASTM", "EN"],
     Testing: "Hydrostatic, Zinc Coating Weight, Bend",
     Applications: ["Water Supply", "Irrigation", "Fencing", "Fire Fighting"],
-    applicationImage: "/Steel/industry.jpg",
+    applicationImage: "/Steel/Galvanised-Iron-Pipe.png",
   },
 
   /* ──────────── PIPES & TUBES: CARBON STEEL / MILD STEEL (ms) */
@@ -482,7 +482,15 @@ export const PRODUCTS: SteelProduct[] = [
     Length: "As per drawing",
     EndFinish: "As per spec (Plain, Beveled, Threaded, Grooved)",
     SurfaceFinish: "3LPE, Fusion Bonded Epoxy (FBE), Hot-Dip Galvanizing, PTFE",
-    Certification: ["MTC", "IBR", "PED", "NACE", "Weld Radiography", "ASTM", "EN"],
+    Certification: [
+      "MTC",
+      "IBR",
+      "PED",
+      "NACE",
+      "Weld Radiography",
+      "ASTM",
+      "EN",
+    ],
     Testing: "Per client specification, PWHT, Hydro Test",
     Applications: [
       "EPC Projects",
@@ -490,7 +498,7 @@ export const PRODUCTS: SteelProduct[] = [
       "Modular Skids",
       "Custom Infrastructure",
     ],
-    applicationImage: "/Steel/oil_industry.jpg",
+    applicationImage: "/Steel/Customised-Steel-Pipe.png",
   },
 
   /* ──────────── SHEETS & PLATES ────────────────────────────── */

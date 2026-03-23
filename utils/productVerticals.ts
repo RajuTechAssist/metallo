@@ -21,8 +21,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Steel",
     showcaseSubtitle: "Structural Foundation",
-    showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAZmT_s2B9dm9-HBV823d6vMwXy9qsBMMQ3nGKJIKyS5fwDMVAFQfixx0y-sygCvmnG896hpbtiT4P0lI2r8wkCf2rvSOk6ngn7p0c0saTngyDwhMAJzTZ-oEfN69XK8hppDwDyF7vllPZmXYfvr1eo7o9qkdYxatryE1B-qzerwAsDc1GC0HLRmt55olsDJKVaIX-cEz-tNZCRpo8bR3tbk6Pq2kql-1SxTkbOZSj2TmdmFqPcWsv5yo3-v2lBhvJGy391-zatHuy8",
+    showcaseImage: "/industrialTech/steel.png",
     showcasePoints: [
       "IS:2062 & ASTM Compliant",
       "Custom Fabricated Spools",
@@ -39,7 +38,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseTitle: "Wire & Cable",
     showcaseSubtitle: "Powering the Grid",
     showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBDZjVbwQlrHRd6tRUogRI_cXM6vV-f54c71VgTeceUIEGedcTl_LKDQV4qw1XdT_Fxvt4M_BE3bKJ53rI3IT3bYIZvEWUdLBMuiGCmNWg5JRcHUSrwUPwx4yPdCESaoIM-Pq05ife-3USdw9u4cZVo_Y2hN00koG3kCxK7jMvgzYjstw7QcHz_Ygzdz5nM46pQlvW6L-PzIxgsfTwf9DkQ3C98THO019yg5QRv9VVh433yNPzhRril8pV0_BG9dlP4bgvfYyGYXSYw",
+      "/industrialTech/wire.png",
     showcasePoints: [
       "LT & HT Power Cables",
       "Specialty Industrial Cables",
@@ -56,7 +55,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseTitle: "Cable Trays",
     showcaseSubtitle: "Cable Management",
     showcaseImage:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80&auto=format&fit=crop",
+      "/industrialTech/cable-tray.png",
     showcasePoints: [
       "Ladder & Perforated Trays",
       "GI / SS / Aluminium",
@@ -73,7 +72,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseTitle: "Welding Consumables",
     showcaseSubtitle: "Critical Joints",
     showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBTKZDAZ60J7WpIg7ouo1Jps0Oz0Z5zjXbRSoOqY_dxldAvPOLnuIUxrDX5Fvtqqniw2pTiHM96nzYOy-r3pOyo1SG_bOt73KZFtrtYOt9Slreqz4wWZwqgFRd9pyq0dPWIb7fWhnh6N7vCiGR1GSv7tRoRojZXrnDF3BfAKEhiZsLELM-MBsNpyeU1nETZOpedd5Wabsgw3aPWytCDpfy0mpocjz0e2gtvGrGOWLB-oMLv7ADKp5sobK1tYD-cMdvEENRr22ZwSSJ-",
+      "/industrialTech/welding.png",
     showcasePoints: [
       "AWS & ASME Certified",
       "Standardized SOPs",
@@ -90,7 +89,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseTitle: "Industrial Tools",
     showcaseSubtitle: "Heavy-Duty Execution",
     showcaseImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB8Bz4tUWnHbL1aZBaCZsnkfKCLZdFuqi4f8jGamOr53cDK4Qc2_T5RGGPBpJamlx4NFiBwQVVCuLrYT4XsLB8LJmBo0peB4I0P0pkFe3r9RNiq8to5H4wMzD-jvpey1495Rk7q6tivph2aPiZre2fF6ytxuWSwy8f6n15hAbaGXke_mmjPx6YaM1ORY8hRQvnYb7ey-z9RyEtL-9qO9p2P4r8GzP-bhloXjkYnK8gINFDmRZ9j2kiPcawcl_nyDVYgJPjjk_wpzChU",
+      "/industrialTech/industrial.png",
     showcasePoints: [
       "Industrial Motors",
       "Safety Standards",
@@ -106,7 +105,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Pipes",
     showcaseSubtitle: "Process Flow Systems",
-    showcaseImage: "/pipes/shop-fabricated-piping.jpg",
+    showcaseImage: "/industrialTech/pipes.png",
     showcasePoints: [
       "Fabricated Piping Packages",
       "Modular Skids & Bends",
@@ -122,7 +121,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Fabricated Structures",
     showcaseSubtitle: "Engineered Steel Systems",
-    showcaseImage: "/fabricated-structures/fabricated-structures.png",
+    showcaseImage: "/industrialTech/Fabricated.png",
     showcasePoints: [
       "PEB & Framing Systems",
       "Roofing, Cladding & Decking",

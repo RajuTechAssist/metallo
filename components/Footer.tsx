@@ -271,19 +271,19 @@ const Footer: React.FC = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wider">
-          <p>&copy; {new Date().getFullYear()} METALLO</p>
+          <p>&copy; {new Date().getFullYear()} METALLO All Rights Reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/csr" className="hover:text-white transition-colors">
-              CSR Policy
-            </Link>
-            <Link to="/e-waste" className="hover:text-white transition-colors">
-              E-Waste Management
+            <Link to="/about" className="hover:text-white transition-colors">
+              About Us
             </Link>
             <Link
-              to="/disclosure"
+              to="/why-metallo"
               className="hover:text-white transition-colors"
             >
-              Disclosure
+              why metallo
+            </Link>
+            <Link to="/careers" className="hover:text-white transition-colors">
+              Careers
             </Link>
           </div>
         </div>
