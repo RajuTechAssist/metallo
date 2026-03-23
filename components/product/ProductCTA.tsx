@@ -23,7 +23,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
           <div className="w-16 h-16 shrink-0 bg-yellow-500/10 rounded-full flex items-center justify-center">
             <span className="material-symbols-outlined text-3xl text-yellow-600">
-              assignment
+              {ctaIcon}
             </span>
           </div>
           <div className="flex-1">

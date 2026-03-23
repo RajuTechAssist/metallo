@@ -33,6 +33,16 @@ export interface CategoryConfig {
   match: string | readonly string[];
 }
 
+/** Match a product category value against configured category patterns */
+export function matchesCategory(
+  match: CategoryConfig["match"],
+  category: string,
+): boolean {
+  return Array.isArray(match)
+    ? match.includes(category)
+    : match === category;
+}
+
 /** QA item type used by all pages */
 export interface QAItem {
   icon: string;

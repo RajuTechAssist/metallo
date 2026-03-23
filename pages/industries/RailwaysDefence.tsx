@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -70,7 +70,7 @@ const BENEFITS = [
 ];
 
 /* ─── ANIMATION VARIANTS ────────────────────────────────────── */
-const fadeUp = {
+const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
         opacity: 1,
@@ -137,30 +137,22 @@ const RailwaysDefence: React.FC = () => {
     };
 
     return (
-        <div className="w-full bg-white">
+        <div className="w-full bg-white global-justify-wrapper">
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
-            <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 350px)', minHeight: '500px' }}>
+            <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <motion.img
-                    src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1400&q=85&auto=format&fit=crop"
-                    alt="Railway coach manufacturing in an industrial facility"
+                    src="/industries/railway-defense.png"
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ y: heroY }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-metallo-navy/90 via-metallo-navy/70 to-transparent" />
-                <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                        backgroundImage:
-                            'repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)',
-                    }}
-                />
+                <div className="absolute" />
 
                 <motion.div
-                    className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+                    className="relative z-10 flex flex-col justify-center h-full container"
                     style={{ opacity: heroOpacity }}
                 >
-                    <div className="max-w-3xl">
+                    <div className="max-w-3xl inset-0 bg-slate-900/60 pt-10 pb-10 pl-10 pr-10">
                         {/* Breadcrumb */}
                         <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
                             <Link to="/" className="hover:text-white transition-colors">Home</Link>
@@ -170,17 +162,17 @@ const RailwaysDefence: React.FC = () => {
                             <span className="text-yellow-500 font-medium">Railways &amp; Defence</span>
                         </nav>
 
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-[1.05] mb-6">
+                        <h1 className="text-xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.05] mb-6">
                             Railways &amp; Defence<br />
                             <span className="text-yellow-500">Manufacturing, Certified.</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
+                        <p className="text-lg md:text-lg text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
                             RDSO‑ and DRDO‑aligned manufacturing from India's audited MSME network — structural steel, signal cables, cable trays, welding consumables, and precision die‑cast components with Central QC, NDT, and full MTC traceability.
                         </p>
 
                         {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                        {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
                             <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 group">
                                 <span className="material-symbols-outlined text-xl">description</span>
                                 Request a Rail / Defence Quote
@@ -189,7 +181,7 @@ const RailwaysDefence: React.FC = () => {
                                 <span className="material-symbols-outlined text-xl">fact_check</span>
                                 Schedule Vendor Audit
                             </button>
-                        </div>
+                        </div> */}
 
                         {/* Microcopy */}
                         <div className="flex items-center gap-2 text-xs text-slate-400 font-sans">
@@ -204,7 +196,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ STICKY SECTION NAV ══════════════════════════════════ */}
             <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="flex items-center gap-0 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
                         {NAV_ITEMS.map((item) => (
                             <button
@@ -227,8 +219,8 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 2. OVERVIEW ═══════════════════════════════════════════ */}
             <AnimatedSection id="overview" className="py-20 lg:py-24 bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
+                <div className="container">
+                    <div className="w-full">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-4">Overview</p>
                         <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-metallo-navy leading-tight mb-8">
                             Metallo for Railways &amp; Defence
@@ -317,7 +309,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 3. VALUE PROPOSITION ══════════════════════════════════ */}
             <AnimatedSection id="why-metallo" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="text-center mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Why Metallo for Railways &amp; Defence</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">
@@ -355,7 +347,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 3b. AUDIENCE SEGMENTS ══════════════════════════════════ */}
             <AnimatedSection id="audiences" className="py-20 lg:py-28 bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Who We Serve</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">
@@ -425,7 +417,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 4. PRODUCT BLOCKS ══════════════════════════════════════ */}
             <AnimatedSection id="products" className="py-20 lg:py-28 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">What We Supply</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">
@@ -495,7 +487,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 5. PROCESS TIMELINE ═════════════════════════════════════ */}
             <AnimatedSection id="how-it-works" className="py-20 lg:py-28 bg-metallo-navy">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="text-center mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-500 mb-3">How It Works</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-tight">
@@ -561,7 +553,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 6. TECHNICAL HIGHLIGHTS ═════════════════════════════════ */}
             <AnimatedSection id="technical" className="py-20 lg:py-28 bg-slate-50 border-b border-slate-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="text-center mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Technical &amp; Compliance</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">
@@ -616,7 +608,7 @@ const RailwaysDefence: React.FC = () => {
 
             {/* ═══ 7. BENEFITS & ROI ═══════════════════════════════════════ */}
             <AnimatedSection id="benefits" className="py-20 lg:py-28 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container">
                     <div className="text-center mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Benefits &amp; ROI</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">

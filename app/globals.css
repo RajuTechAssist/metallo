@@ -16,6 +16,12 @@ section li {
   text-align: justify;
 }
 
+/* Enhanced Industry Pages Justification */
+.global-justify-wrapper .leading-relaxed {
+  text-align: justify;
+  hyphens: auto;
+}
+
 /* Keep headings, labels, buttons, and nav items left-aligned */
 section h1,
 section h2,

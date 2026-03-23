@@ -11,6 +11,8 @@ import WeldingConsumables from './pages/products/WeldingConsumables';
 import PowerTools from './pages/products/PowerTools';
 import DieCasting from './pages/products/DieCasting';
 import IndustrialTech from './pages/products/IndustrialTech';
+import Pipes from './pages/products/Pipes';
+import FabricatedStructures from './pages/products/FabricatedStructures';
 import InfrastructureConstruction from './pages/industries/InfrastructureConstruction';
 import PowerTransmission from './pages/industries/PowerTransmission';
 import OilGasProcessIndustries from './pages/industries/OilGasProcessIndustries';
@@ -23,6 +25,7 @@ import Footer from './components/Footer';
 import { QuoteProvider } from './contexts/QuoteContext';
 import InquiryBasket from './components/InquiryBasket';
 import SocialSidebar from './components/SocialSidebar';
+import { PRODUCT_VERTICAL_BY_KEY } from './utils/productVerticals';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -47,13 +50,18 @@ const App: React.FC = () => {
               <Route path="/about" element={<About />} />
               <Route path="/why-metallo" element={<WhyMetallo />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/products/wire-cables" element={<WireCables />} />
-              <Route path="/products/steel" element={<Steel />} />
-              <Route path="/products/cable-tray" element={<CableTray />} />
-              <Route path="/products/welding" element={<WeldingConsumables />} />
-              <Route path="/products/tools" element={<PowerTools />} />
-              <Route path="/products/die-casting" element={<DieCasting />} />
-              <Route path="/products/tech-products" element={<IndustrialTech />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.cables.path} element={<WireCables />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.steel.path} element={<Steel />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.cabletray.path} element={<CableTray />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.welding.path} element={<WeldingConsumables />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.tools.path} element={<PowerTools />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.pipes.path} element={<Pipes />} />
+              <Route
+                path={PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path}
+                element={<FabricatedStructures />}
+              />
+              {/* <Route path={PRODUCT_VERTICAL_BY_KEY.casting.path} element={<DieCasting />} />
+              <Route path={PRODUCT_VERTICAL_BY_KEY.tech.path} element={<IndustrialTech />} /> */}
               <Route path="/industries/infrastructure" element={<InfrastructureConstruction />} />
               <Route path="/industries/power-transmission" element={<PowerTransmission />} />
               <Route path="/industries/oil-gas" element={<OilGasProcessIndustries />} />
@@ -67,7 +75,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
           <InquiryBasket />
-          {/* <SocialSidebar /> */}
+          <SocialSidebar />
         </div>
       </QuoteProvider>
     </HashRouter>
