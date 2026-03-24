@@ -12,6 +12,7 @@ interface ProductCatalogCardsProps<T> {
   getProductName: (product: T) => string;
   getSubCategory?: (product: T) => string | undefined;
   getDescription: (product: T) => string;
+  getDescriptionParagraphs?: (product: T) => string[] | undefined;
   getImage: (product: T) => string;
   getSpecifications: (product: T) => ProductSpecItem[];
   getApplications?: (product: T) => string[] | undefined;
@@ -36,6 +37,7 @@ interface CatalogCardProps<T> {
   getProductName: (product: T) => string;
   getSubCategory?: (product: T) => string | undefined;
   getDescription: (product: T) => string;
+  getDescriptionParagraphs?: (product: T) => string[] | undefined;
   getImage: (product: T) => string;
   getSpecifications: (product: T) => ProductSpecItem[];
   getApplications?: (product: T) => string[] | undefined;
@@ -49,6 +51,7 @@ function ProductCatalogCard<T>({
   getProductName,
   getSubCategory,
   getDescription,
+  getDescriptionParagraphs,
   getImage,
   getSpecifications,
   getApplications,
@@ -60,6 +63,9 @@ function ProductCatalogCard<T>({
   const applications = getApplications?.(product) || [];
   const badges = getBadges?.(product) || [];
   const subCategory = getSubCategory?.(product);
+  const descriptionParagraphs =
+    getDescriptionParagraphs?.(product)?.filter((paragraph) => paragraph.trim().length > 0) ||
+    [getDescription(product)];
 
   return (
     <motion.div
@@ -106,9 +112,16 @@ function ProductCatalogCard<T>({
           </h3>
           <div className="w-12 h-1 bg-yellow-500 rounded-full mb-4" />
 
-          <p className="text-base text-slate-600 font-sans leading-relaxed mb-6 text-justify">
-            {getDescription(product)}
-          </p>
+          <div className="mb-6 space-y-4">
+            {descriptionParagraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="text-base text-slate-600 font-sans leading-relaxed text-justify"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
           {renderExtraSection?.(product)}
 
@@ -215,6 +228,7 @@ function ProductCatalogCards<T>({
   getProductName,
   getSubCategory,
   getDescription,
+  getDescriptionParagraphs,
   getImage,
   getSpecifications,
   getApplications,
@@ -275,6 +289,7 @@ function ProductCatalogCards<T>({
                   getProductName={getProductName}
                   getSubCategory={getSubCategory}
                   getDescription={getDescription}
+                  getDescriptionParagraphs={getDescriptionParagraphs}
                   getImage={getImage}
                   getSpecifications={getSpecifications}
                   getApplications={getApplications}

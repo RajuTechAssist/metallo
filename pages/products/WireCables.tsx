@@ -53,7 +53,7 @@ const WireCables: React.FC = () => {
         backgroundImage="/wire&cable/wireCables.jpg"
         title="Wire & Cables"
         subtitle="Powering Every Project."
-        description="From low-voltage building wires to 220 kV EHV power cables - BIS certified, fire-rated, and engineered for India's most critical infrastructure."
+        description="From LT and screened MV power cables to solar, control, fire-survival, and overhead bundled systems, Metallo supports utilities, process plants, buildings, and infrastructure with source-backed industrial cable families."
         breadcrumbLabel="Wire & Cables"
       />
 
@@ -72,6 +72,7 @@ const WireCables: React.FC = () => {
         getProductName={(product) => product["Product Name"]}
         getSubCategory={(product) => product["Sub-Category"]}
         getDescription={(product) => product.Description}
+        getDescriptionParagraphs={(product) => product.descriptionParagraphs}
         getImage={(product) => product.applicationImage || product.thumbnail}
         getSpecifications={getProductSpecs}
         getApplications={(product) => product.Applications}
