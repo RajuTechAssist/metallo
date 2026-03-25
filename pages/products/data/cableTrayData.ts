@@ -7,6 +7,8 @@ import type {
 } from "../../../components/product";
 import { slugify } from "../../../components/product";
 import type {
+  CableTrayAccessoryGallery,
+  CableTrayAccessoryItem,
   CableTrayRangeTable,
   CableTrayTypeGallery,
   CableTrayTypeGalleryItem,
@@ -62,6 +64,31 @@ const typeGallery = (
   items,
 });
 
+const accessoryItem = (
+  name: string,
+  image: string,
+  description?: string,
+): CableTrayAccessoryItem => ({
+  name,
+  image,
+  description,
+});
+
+const accessoryGallery = (
+  title: string,
+  intro: string,
+  items: CableTrayAccessoryItem[],
+): CableTrayAccessoryGallery => ({
+  title,
+  intro,
+  items,
+});
+
+const INDIANA_SOURCE = {
+  label: "Indiana Group catalogue",
+  url: "https://www.indianagroup.com",
+} as const;
+
 interface TrayProductInput {
   category: string;
   subCategory: string;
@@ -73,7 +100,9 @@ interface TrayProductInput {
   applications?: string[];
   rangeTables?: CableTrayRangeTable[];
   typeGallery?: CableTrayTypeGallery;
+  accessoryGallery?: CableTrayAccessoryGallery;
   sourceUrl: string;
+  sourceLabel?: string;
 }
 
 const createTrayProduct = (input: TrayProductInput): TrayProduct => ({
@@ -90,7 +119,8 @@ const createTrayProduct = (input: TrayProductInput): TrayProduct => ({
   applications: input.applications,
   rangeTables: input.rangeTables,
   typeGallery: input.typeGallery,
-  sourceLabel: DUDHAT_SOURCE.label,
+  accessoryGallery: input.accessoryGallery,
+  sourceLabel: input.sourceLabel || DUDHAT_SOURCE.label,
   sourceUrl: input.sourceUrl,
 });
 
@@ -153,10 +183,22 @@ export const CATEGORIES: readonly CategoryConfig[] = [
     match: "Ladder Trays",
   },
   {
-    key: "frp",
-    label: "FRP Systems",
-    icon: "blur_on",
-    match: "FRP Systems",
+    key: "embossed",
+    label: "Embossed Trays",
+    icon: "texture",
+    match: "Embossed Trays",
+  },
+  {
+    key: "covers",
+    label: "Tray Covers",
+    icon: "roofing",
+    match: "Tray Covers",
+  },
+  {
+    key: "trunking",
+    label: "Floor Trunking",
+    icon: "space_bar",
+    match: "Floor Trunking",
   },
   {
     key: "wiremesh",
@@ -165,22 +207,16 @@ export const CATEGORIES: readonly CategoryConfig[] = [
     match: "Wire Mesh",
   },
   {
-    key: "raceway",
-    label: "Raceway & Ducts",
-    icon: "route",
-    match: "Raceway & Ducts",
+    key: "frp",
+    label: "FRP Systems",
+    icon: "blur_on",
+    match: "FRP Systems",
   },
   {
-    key: "supports",
-    label: "Support Systems",
-    icon: "construction",
-    match: "Support Systems",
-  },
-  {
-    key: "accessories",
-    label: "Accessories",
-    icon: "extension",
-    match: "Accessories",
+    key: "earthing",
+    label: "Earthing",
+    icon: "bolt",
+    match: "Earthing",
   },
   {
     key: "finishing",
@@ -268,6 +304,48 @@ export const PRODUCTS: TrayProduct[] = [
         RANGE_NOTES_STANDARD,
       ),
     ],
+    typeGallery: typeGallery(
+      "Perforated Cable Tray Flange Types",
+      "The Indiana Group catalogue defines three standard flange profiles for perforated cable trays. Each profile provides different edge stiffness and cable protection characteristics.",
+      [
+        galleryItem(
+          "ST00 — Straight Type",
+          trayImage("perforated-tray.webp"),
+          "Standard straight flange edge, the base profile for all perforated trays.",
+        ),
+        galleryItem(
+          "RF15 — Return Flange (15 mm)",
+          trayImage("perforated-tray.webp"),
+          "15 mm return flange along the top edge for added lateral stiffness and cable retention.",
+        ),
+        galleryItem(
+          "IB15 — Inward Bend (15 mm)",
+          trayImage("perforated-tray.webp"),
+          "15 mm inward bend at top edge for enhanced edge protection and structural strength.",
+        ),
+      ],
+    ),
+    accessoryGallery: accessoryGallery(
+      "Perforated Cable Tray Accessories",
+      "Indiana Group catalogues a full set of field-routing accessories for perforated tray systems, covering horizontal and vertical direction changes, branching, width transitions, and section joining.",
+      [
+        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90°, 60°, 45°, and 30° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90°, 60°, 45°, and 30° for non-radial direction changes."),
+        accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("c-channel-for-hanging.webp"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("c-channel-for-hanging.webp"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Non-Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
+        accessoryItem("Horizontal Cross (Radial)", accessoryImage("junction-box.webp"), "Four-way radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Cross (Non-Radial)", accessoryImage("junction-box.webp"), "Four-way non-radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Tee (Radial)", accessoryImage("junction-box.webp"), "Equal radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee (Non-Radial)", accessoryImage("junction-box.webp"), "Equal non-radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("junction-box.webp"), "Radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("junction-box.webp"), "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Vertical Tee (Radial)", accessoryImage("junction-box.webp"), "Radial vertical T-branch for combined horizontal and vertical routing."),
+        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting — available in left, right, and center alignment."),
+        accessoryItem("Coupler Plate", accessoryImage("jointing-plate.webp"), "Straight coupling plate for joining two tray sections end-to-end."),
+      ],
+    ),
     sourceUrl: PERFORATED_SOURCE_URL,
   }),
   createTrayProduct({
@@ -328,6 +406,53 @@ export const PRODUCTS: TrayProduct[] = [
         RANGE_NOTES_STANDARD,
       ),
     ],
+    typeGallery: typeGallery(
+      "Ladder Cable Tray Profile Types",
+      "The Indiana Group catalogue defines four side-rail profiles and multiple rung configurations for ladder cable tray systems.",
+      [
+        galleryItem(
+          "IB00 — Inner Bend",
+          trayImage("ladder-tray.webp"),
+          "Side rail with inward-facing bend for cable protection and structural integrity.",
+        ),
+        galleryItem(
+          "OB00 — Outer Bend",
+          trayImage("ladder-tray.webp"),
+          "Side rail with outward-facing bend for easier cable loading from the top.",
+        ),
+        galleryItem(
+          "IU00 — Inner U-Bend",
+          trayImage("ladder-tray.webp"),
+          "U-shaped inward profile for enhanced edge stiffness and cable retention.",
+        ),
+        galleryItem(
+          "OU00 — Outer U-Bend",
+          trayImage("ladder-tray.webp"),
+          "U-shaped outward profile for maximum load distribution and cover compatibility.",
+        ),
+      ],
+    ),
+    accessoryGallery: accessoryGallery(
+      "Ladder Cable Tray Accessories",
+      "Indiana Group provides a complete set of ladder tray accessories for direction changes, branching, width transitions, and section joining — matching the same routing families available for perforated trays.",
+      [
+        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90°, 60°, 45°, and 30° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90°, 60°, 45°, and 30° for non-radial direction changes."),
+        accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("c-channel-for-hanging.webp"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("c-channel-for-hanging.webp"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Non-Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
+        accessoryItem("Horizontal Cross (Radial)", accessoryImage("junction-box.webp"), "Four-way radial intersection fitting."),
+        accessoryItem("Horizontal Cross (Non-Radial)", accessoryImage("junction-box.webp"), "Four-way non-radial intersection fitting."),
+        accessoryItem("Horizontal Tee (Radial)", accessoryImage("junction-box.webp"), "Equal radial T-branch for three-way junction routing."),
+        accessoryItem("Horizontal Tee (Non-Radial)", accessoryImage("junction-box.webp"), "Equal non-radial T-branch for three-way junction routing."),
+        accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("junction-box.webp"), "Radial T-branch with different width on the branch leg."),
+        accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("junction-box.webp"), "Non-radial T-branch with different width on the branch leg."),
+        accessoryItem("Vertical Tee (Radial)", accessoryImage("junction-box.webp"), "Radial vertical T-branch for combined horizontal and vertical routing."),
+        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting — available in left, right, and center alignment."),
+        accessoryItem("Coupler Plate", accessoryImage("jointing-plate.webp"), "End-to-end tray section joining plate."),
+      ],
+    ),
     sourceUrl: LADDER_SOURCE_URL,
   }),
   createTrayProduct({
@@ -632,5 +757,238 @@ export const PRODUCTS: TrayProduct[] = [
       ],
     ),
     sourceUrl: FINISHING_SOURCE_URL,
+  }),
+  createTrayProduct({
+    category: "Embossed Trays",
+    subCategory: "Embossed Metallic Tray",
+    name: "Embossed Cable Tray & Accessories",
+    descriptionParagraphs: [
+      "Metallo's embossed cable tray program follows the Indiana Group catalogue range for installations where longitudinal embossing on the tray base delivers higher load-carrying capacity and a cleaner decorative finish compared to standard perforated or plain trays.",
+      "The Indiana catalogue lists ST (straight), UT (U-flange), RF15 (return flange), and IB15 (inward bend) profiles with widths from 150 mm to 600 mm, heights from 25 mm through 150 mm, and thickness options from 1.0 mm to 2.0 mm in 2500 mm, 3000 mm, and 6000 mm lengths.",
+    ],
+    thumbnail: trayImage("embossed-cable-tray.png"),
+    technicalSpecifications: [
+      spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
+      spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
+      spec("Profile Types", "ST (Straight), UT (U-flange), RF15 (Return Flange 15 mm), IB15 (Inward Bend 15 mm)", "build"),
+      spec("Width Coverage", "150 mm to 600 mm", "swap_horiz"),
+      spec("Height Coverage", "25 / 50 / 75 / 100 / 150 mm", "height"),
+      spec("Thickness", "1.0 / 1.2 / 1.5 / 2.0 mm", "straighten"),
+      spec("Length Coverage", "2500 / 3000 / 6000 mm", "straighten"),
+    ],
+    features: [
+      "High Load-Carrying Capacity",
+      "Longitudinal Embossing Pattern",
+      "Decorative Finish",
+      "Strength & Rigidity",
+      "Ease of Installation",
+      "Multiple Flange Options",
+    ],
+    rangeTables: [
+      rangeTable(
+        "Embossed Tray Product Range",
+        ["Width", "Height", "Thickness", "Length"],
+        [
+          ["150", "25 / 50 / 75 / 100", "1.0 / 1.2 / 1.5 / 2.0", "2500 / 3000 / 6000"],
+          ["200", "25 / 50 / 75 / 100", "1.0 / 1.2 / 1.5 / 2.0", "2500 / 3000 / 6000"],
+          ["300", "50 / 75 / 100 / 150", "1.0 / 1.2 / 1.5 / 2.0", "2500 / 3000 / 6000"],
+          ["450", "50 / 75 / 100 / 150", "1.2 / 1.5 / 2.0", "2500 / 3000 / 6000"],
+          ["600", "50 / 75 / 100 / 150", "1.2 / 1.5 / 2.0", "2500 / 3000 / 6000"],
+        ],
+        RANGE_NOTES_STANDARD,
+      ),
+    ],
+    typeGallery: typeGallery(
+      "Embossed Cable Tray Profile Types",
+      "The Indiana Group catalogue lists four profile types for embossed trays, each providing different edge treatment for varying load and coverage requirements.",
+      [
+        galleryItem("ST — Straight Type", trayImage("embossed-cable-tray.png"), "Standard straight edge profile for embossed cable trays."),
+        galleryItem("UT — U-Flange Type", trayImage("embossed-cable-tray.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
+        galleryItem("RF15 — Return Flange (15 mm)", trayImage("embossed-cable-tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
+        galleryItem("IB15 — Inward Bend (15 mm)", trayImage("embossed-cable-tray.png"), "Inward bend at top edge for edge protection and structural strength."),
+      ],
+    ),
+    accessoryGallery: accessoryGallery(
+      "Embossed Cable Tray Accessories",
+      "Indiana Group provides dedicated accessories for the embossed tray family, including press-fit covers and coupling plates.",
+      [
+        accessoryItem("Press Fit Cover", accessoryImage("cable-tray-cover.webp"), "Quick-assembly snap-on cover designed specifically for embossed tray profiles."),
+        accessoryItem("Straight Coupler Plate (STC)", accessoryImage("jointing-plate.webp"), "End-to-end joining plate for embossed tray sections."),
+        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Direction-change fitting at 90°, 60°, 45°, and 30° angles."),
+        accessoryItem("Vertical Inside Bend (VIB)", accessoryImage("c-channel-for-hanging.webp"), "Vertical rise fitting for elevation changes."),
+        accessoryItem("Reducer (REDC)", accessoryImage("jointing-plate.webp"), "Width transition fitting for changing tray sizes."),
+      ],
+    ),
+    sourceUrl: INDIANA_SOURCE.url,
+    sourceLabel: INDIANA_SOURCE.label,
+  }),
+  createTrayProduct({
+    category: "Tray Covers",
+    subCategory: "Cable Tray Cover Systems",
+    name: "Tray Cover & Cover Accessories",
+    descriptionParagraphs: [
+      "Metallo's tray cover program follows the Indiana Group catalogue range for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. The catalogue defines five cover profiles — plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
+      "Standard cover widths match the tray range from 50 mm to 900 mm with a 15 mm cover height and thicknesses from 1.0 mm to 3.0 mm. Cover accessories include bend covers, tee covers, cross covers, and reducer covers to protect the full routing system.",
+    ],
+    thumbnail: trayImage("tray-cover.png"),
+    technicalSpecifications: [
+      spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
+      spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
+      spec("Cover Types", "PT00 (Plain), VT00 (Ventilated), LT00 (Louvre), DF00 (Dome Faced), DS00 (Dome Faced with spacing)", "build"),
+      spec("Width Coverage", "50 mm to 900 mm", "swap_horiz"),
+      spec("Height", "15 mm", "height"),
+      spec("Thickness", "1.0 / 1.2 / 1.5 / 2.0 / 2.5 / 3.0 mm", "straighten"),
+      spec("Length Coverage", "2500 / 3000 mm", "straighten"),
+    ],
+    features: [
+      "Cable Protection",
+      "Dust & Debris Shielding",
+      "Multiple Ventilation Options",
+      "Easy Access & Installation",
+      "Full System Coverage",
+      "Press-Fit Compatibility",
+    ],
+    rangeTables: [
+      rangeTable(
+        "Tray Cover Product Range",
+        ["Width", "Height", "Thickness", "Length"],
+        [
+          ["50", "15", "1.0 / 1.2 / 1.5", "2500 / 3000"],
+          ["100", "15", "1.0 / 1.2 / 1.5", "2500 / 3000"],
+          ["150", "15", "1.0 / 1.2 / 1.5", "2500 / 3000"],
+          ["200", "15", "1.0 / 1.2 / 1.5 / 2.0", "2500 / 3000"],
+          ["300", "15", "1.2 / 1.5 / 2.0", "2500 / 3000"],
+          ["450", "15", "1.2 / 1.5 / 2.0 / 2.5", "2500 / 3000"],
+          ["600", "15", "1.5 / 2.0 / 2.5", "2500 / 3000"],
+          ["750", "15", "1.5 / 2.0 / 2.5 / 3.0", "2500 / 3000"],
+          ["900", "15", "2.0 / 2.5 / 3.0", "2500 / 3000"],
+        ],
+        RANGE_NOTES_STANDARD,
+      ),
+    ],
+    typeGallery: typeGallery(
+      "Tray Cover Profile Types",
+      "The Indiana Group catalogue defines five cover profiles, each offering different ventilation and protection characteristics for cable tray systems.",
+      [
+        galleryItem("PT00 — Plain Type", trayImage("tray-cover.png"), "Solid flat cover for maximum cable protection from dust and debris."),
+        galleryItem("VT00 — Ventilated Type", trayImage("tray-cover.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
+        galleryItem("LT00 — Louvre Type", trayImage("tray-cover.png"), "Angled louvre slots for directional airflow and water drainage."),
+        galleryItem("DF00 — Dome Faced", trayImage("tray-cover.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
+        galleryItem("DS00 — Dome Faced with Spacing", trayImage("tray-cover.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
+      ],
+    ),
+    accessoryGallery: accessoryGallery(
+      "Tray Cover Accessories",
+      "Indiana Group provides matching cover accessories so the entire cable routing system stays protected at direction changes, branches, and transitions.",
+      [
+        accessoryItem("Bend Cover", accessoryImage("cable-tray-cover.webp"), "Covers for horizontal and vertical bend fittings."),
+        accessoryItem("Tee Cover", accessoryImage("cable-tray-cover.webp"), "Covers for T-junction branching points."),
+        accessoryItem("Cross Cover", accessoryImage("cable-tray-cover.webp"), "Covers for four-way intersection fittings."),
+        accessoryItem("Reducer Cover", accessoryImage("cable-tray-cover.webp"), "Covers for width-transition reducer fittings."),
+        accessoryItem("Press Fit Cover (Embossed)", accessoryImage("cable-tray-cover.webp"), "Snap-on cover for embossed cable tray systems."),
+      ],
+    ),
+    sourceUrl: INDIANA_SOURCE.url,
+    sourceLabel: INDIANA_SOURCE.label,
+  }),
+  createTrayProduct({
+    category: "Floor Trunking",
+    subCategory: "Industrial Floor Duct",
+    name: "Industrial Floor Trunking & Accessories",
+    descriptionParagraphs: [
+      "Metallo's industrial floor trunking program is based on the Indiana Group catalogue for floor-level cable routing installations where cables need to be run under floors or along floor surfaces with maximum protection and compartmentalized routing options.",
+      "The Indiana catalogue uses an IB00 (inward bend with 15 mm flange) profile with widths from 100 mm to 600 mm, heights of 35 mm, 75 mm, and 100 mm, thickness from 1.5 mm to 3.0 mm, and optional longitudinal dividers for separating power and data cables within a single trunking run.",
+    ],
+    thumbnail: trayImage("floor-trunking.png"),
+    technicalSpecifications: [
+      spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
+      spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
+      spec("Profile Type", "IB00 — Inward Bend (15 mm flange)", "build"),
+      spec("Width Coverage", "100 mm to 600 mm", "swap_horiz"),
+      spec("Height Coverage", "35 / 75 / 100 mm", "height"),
+      spec("Thickness", "1.5 / 2.0 / 2.5 / 3.0 mm", "straighten"),
+      spec("Length Coverage", "2500 / 3000 mm", "straighten"),
+      spec("Configuration", "Available with longitudinal dividers for cable separation", "view_stream"),
+    ],
+    features: [
+      "Floor-Level Cable Protection",
+      "Compartmentalized Routing",
+      "Optional Dividers",
+      "Inward-Bend Flange Design",
+      "Dust & Impact Protection",
+      "Easy Floor Installation",
+    ],
+    rangeTables: [
+      rangeTable(
+        "Floor Trunking Product Range",
+        ["Width", "Height", "Thickness", "Length"],
+        [
+          ["100", "35 / 75 / 100", "1.5 / 2.0 / 2.5", "2500 / 3000"],
+          ["150", "35 / 75 / 100", "1.5 / 2.0 / 2.5", "2500 / 3000"],
+          ["200", "35 / 75 / 100", "1.5 / 2.0 / 2.5", "2500 / 3000"],
+          ["300", "35 / 75 / 100", "1.5 / 2.0 / 2.5 / 3.0", "2500 / 3000"],
+          ["400", "75 / 100", "2.0 / 2.5 / 3.0", "2500 / 3000"],
+          ["450", "75 / 100", "2.0 / 2.5 / 3.0", "2500 / 3000"],
+          ["600", "75 / 100", "2.0 / 2.5 / 3.0", "2500 / 3000"],
+        ],
+        RANGE_NOTES_STANDARD,
+      ),
+    ],
+    accessoryGallery: accessoryGallery(
+      "Floor Trunking Accessories",
+      "Indiana Group provides dedicated floor-compatible accessories for trunking systems, covering direction changes, branching, and divider integration.",
+      [
+        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Floor-compatible bend fittings at 90° and 45° angles."),
+        accessoryItem("Floor Tee (RTEE)", accessoryImage("junction-box.webp"), "T-junction fitting for floor-level branching."),
+        accessoryItem("Floor Cross (CR)", accessoryImage("junction-box.webp"), "Four-way floor crossing fitting."),
+        accessoryItem("Reducer (REDC)", accessoryImage("jointing-plate.webp"), "Width transition fitting for floor trunking."),
+        accessoryItem("Longitudinal Divider", accessoryImage("cable-tray-cover.webp"), "Internal divider for separating power and data cables."),
+        accessoryItem("Coupler Plate (STC)", accessoryImage("jointing-plate.webp"), "End-to-end section joining for floor trunking runs."),
+      ],
+    ),
+    sourceUrl: INDIANA_SOURCE.url,
+    sourceLabel: INDIANA_SOURCE.label,
+  }),
+  createTrayProduct({
+    category: "Earthing",
+    subCategory: "Earthing & Grounding Materials",
+    name: "Earthing Material & Components",
+    descriptionParagraphs: [
+      "Metallo's earthing material program is based on the Indiana Group catalogue for the complete grounding and bonding scope that pairs with the cable tray infrastructure. The range covers GI wire, copper conductors, rigid and flexible conduits, earth electrodes, terminal lugs, flat bars, and bonding jumpers.",
+      "These earthing components are catalogued alongside the cable management system so project teams can source the full installation scope — tray, accessories, support, finishing, and grounding — through a single coordinated supply chain rather than splitting earthing across a separate, disconnected inventory.",
+    ],
+    thumbnail: trayImage("earthing-material.png"),
+    technicalSpecifications: [
+      spec("Coverage", "GI wire, copper conductors, conduits, earth electrodes, lugs, flat bars, bonding jumpers", "category"),
+      spec("Conductor Types", "GI wire and copper conductors in various gauges and configurations", "cable"),
+      spec("Conduit Types", "Rigid and flexible conduits for cable protection", "route"),
+      spec("Earth Electrodes", "Copper and CU solid rod electrodes for ground connections", "grounding"),
+      spec("Terminal Lugs", "Various lug types for secure electrical terminations", "power"),
+      spec("Standards", "IS 2629, ASTM A123, AS 4680, BS EN ISO 1461 for galvanizing", "verified"),
+    ],
+    features: [
+      "Complete Grounding Scope",
+      "GI Wire & Copper Conductors",
+      "Rigid & Flexible Conduits",
+      "Earth Electrodes",
+      "Terminal Lugs & Connectors",
+      "Bonding Jumpers & Flat Bars",
+    ],
+    typeGallery: typeGallery(
+      "Earthing Material Range",
+      "The Indiana Group catalogue presents the earthing material family as a visual product grid covering wire, conduit, conductor, and electrode categories.",
+      [
+        galleryItem("GI Wire", trayImage("earthing-material.png"), "Galvanized iron wire for earthing connections and bonding."),
+        galleryItem("Flexible Conduit", trayImage("earthing-material.png"), "Flexible protective conduit for cable routing in tight spaces."),
+        galleryItem("Rigid Conduit", trayImage("earthing-material.png"), "Steel rigid conduit for fixed cable protection runs."),
+        galleryItem("Copper Conductor", trayImage("earthing-material.png"), "Copper conductor cables for high-conductivity grounding."),
+        galleryItem("Earth Electrode (CU Rod)", trayImage("earthing-material.png"), "Copper solid rod electrode for ground connections."),
+        galleryItem("Terminal Lugs", trayImage("earthing-material.png"), "Various terminal lug types for secure electrical terminations."),
+        galleryItem("Flat Bars", trayImage("earthing-material.png"), "Flat copper or GI bars for busbar and bonding applications."),
+        galleryItem("Bonding Jumpers", trayImage("earthing-material.png"), "Pre-formed jumpers for bonding cable tray sections."),
+      ],
+    ),
+    sourceUrl: INDIANA_SOURCE.url,
+    sourceLabel: INDIANA_SOURCE.label,
   }),
 ];

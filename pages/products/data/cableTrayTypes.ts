@@ -19,6 +19,18 @@ export interface CableTrayTypeGallery {
   items: CableTrayTypeGalleryItem[];
 }
 
+export interface CableTrayAccessoryItem {
+  name: string;
+  image: string;
+  description?: string;
+}
+
+export interface CableTrayAccessoryGallery {
+  title: string;
+  intro: string;
+  items: CableTrayAccessoryItem[];
+}
+
 export interface TrayProduct {
   id: string;
   Category: string;
@@ -33,6 +45,7 @@ export interface TrayProduct {
   applications?: string[];
   rangeTables?: CableTrayRangeTable[];
   typeGallery?: CableTrayTypeGallery;
+  accessoryGallery?: CableTrayAccessoryGallery;
   sourceLabel?: string;
   sourceUrl?: string;
 }

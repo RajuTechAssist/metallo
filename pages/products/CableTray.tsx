@@ -126,6 +126,7 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
   const [specsOpen, setSpecsOpen] = useState(false);
   const [rangeOpen, setRangeOpen] = useState(false);
   const [typesOpen, setTypesOpen] = useState(false);
+  const [accessoriesOpen, setAccessoriesOpen] = useState(false);
 
   return (
     <motion.div
@@ -227,25 +228,6 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
         </AccordionSection>
       )}
 
-      {product.rangeTables && product.rangeTables.length > 0 && (
-        <AccordionSection
-          title="Product Range"
-          icon="table_chart"
-          open={rangeOpen}
-          onToggle={() => setRangeOpen((open) => !open)}
-          className="px-6 md:px-8 pb-4"
-        >
-          <div className="space-y-8">
-            {product.rangeTables.map((table) => (
-              <RangeTableSection
-                key={`${product.id}-${table.title}`}
-                table={table}
-              />
-            ))}
-          </div>
-        </AccordionSection>
-      )}
-
       {product.typeGallery && product.typeGallery.items.length > 0 && (
         <AccordionSection
           title={product.typeGallery.title}
@@ -286,6 +268,70 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
                   )}
                 </div>
               </div>
+            ))}
+          </div>
+        </AccordionSection>
+      )}
+
+      {product.accessoryGallery && product.accessoryGallery.items.length > 0 && (
+        <AccordionSection
+          title={product.accessoryGallery.title}
+          icon="extension"
+          open={accessoriesOpen}
+          onToggle={() => setAccessoriesOpen((open) => !open)}
+          className="px-6 md:px-8 pb-6"
+        >
+          <div className="pb-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-[11px] font-heading font-bold uppercase tracking-[0.18em]">
+              Accessories
+            </span>
+            <p className="mt-4 text-sm md:text-base text-slate-600 font-sans leading-relaxed text-justify max-w-4xl">
+              {product.accessoryGallery.intro}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-2">
+            {product.accessoryGallery.items.map((item) => (
+              <div
+                key={`${product.id}-acc-${item.name}`}
+                className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="px-4 py-4 border-t border-slate-200">
+                  <p className="text-sm font-heading font-bold text-slate-900 text-center leading-snug">
+                    {item.name}
+                  </p>
+                  {item.description && (
+                    <p className="mt-2 text-xs text-slate-500 text-center leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </AccordionSection>
+      )}
+
+      {product.rangeTables && product.rangeTables.length > 0 && (
+        <AccordionSection
+          title="Product Range"
+          icon="table_chart"
+          open={rangeOpen}
+          onToggle={() => setRangeOpen((open) => !open)}
+          className="px-6 md:px-8 pb-4"
+        >
+          <div className="space-y-8">
+            {product.rangeTables.map((table) => (
+              <RangeTableSection
+                key={`${product.id}-${table.title}`}
+                table={table}
+              />
             ))}
           </div>
         </AccordionSection>
@@ -346,9 +392,9 @@ const CableTray: React.FC = () => {
             </div>
             <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider bg-white">
               <span className="material-symbols-outlined text-lg">
-                image_search
+                download
               </span>
-              View Source-Backed Range
+              Download Catalogue
             </div>
           </div>
 
