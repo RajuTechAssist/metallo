@@ -40,9 +40,9 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseImage:
       "/industrialTech/wire.png",
     showcasePoints: [
-      "LT & HT Power Cables",
-      "Specialty Industrial Cables",
-      "Control & Instrumentation",
+      "LT Power & Control",
+      "HT Power Cable",
+      "Industrial Selection Support",
     ],
   },
   {

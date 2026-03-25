@@ -15,10 +15,24 @@ import type {
   TrayProduct,
 } from "./cableTrayTypes";
 
-const DUDHAT_SOURCE = {
-  label: "Dudhat product catalogue",
-  url: "https://dudhat.in/products.php",
-} as const;
+const CABLE_TRAY_CERTIFICATIONS = [
+  "IS 14753",
+  "IEC 61537",
+  "NEMA VE 1",
+  "UL Listed",
+  "ASTM A123 (HDG)",
+];
+
+const CABLE_TRAY_INDUSTRIES = [
+  "Oil & Gas",
+  "Power & Energy",
+  "Petrochemical",
+  "Data Centres",
+  "Pharmaceuticals",
+  "Infrastructure",
+  "Manufacturing",
+  "Commercial Buildings",
+];
 
 const trayImage = (asset: string) => `/cable Trays/dudhat/${asset}`;
 const accessoryImage = (asset: string) => trayImage(`accessories/${asset}`);
@@ -98,11 +112,11 @@ interface TrayProductInput {
   technicalSpecifications: ProductSpecItem[];
   features?: string[];
   applications?: string[];
+  certifications?: string[];
+  industries?: string[];
   rangeTables?: CableTrayRangeTable[];
   typeGallery?: CableTrayTypeGallery;
   accessoryGallery?: CableTrayAccessoryGallery;
-  sourceUrl: string;
-  sourceLabel?: string;
 }
 
 const createTrayProduct = (input: TrayProductInput): TrayProduct => ({
@@ -117,47 +131,47 @@ const createTrayProduct = (input: TrayProductInput): TrayProduct => ({
   technicalSpecifications: input.technicalSpecifications,
   features: input.features,
   applications: input.applications,
+  certifications: input.certifications || CABLE_TRAY_CERTIFICATIONS,
+  industries: input.industries || CABLE_TRAY_INDUSTRIES,
   rangeTables: input.rangeTables,
   typeGallery: input.typeGallery,
   accessoryGallery: input.accessoryGallery,
-  sourceLabel: input.sourceLabel || DUDHAT_SOURCE.label,
-  sourceUrl: input.sourceUrl,
 });
 
 export const HERO: ProductHeroConfig = {
-  backgroundImage: trayImage("ladder-tray.webp"),
+  backgroundImage: trayImage("cableTrayHeroSection.png"),
   title: "Industrial Cable",
   subtitle: "Tray Systems.",
   description:
-    "Metallo's cable tray program is rebuilt from live sourced product data, covering perforated, ladder, FRP, wire-mesh, raceway, support, accessory, and finishing systems through a single coordinated layout.",
+    "Metalloâ€™s cable tray program covers perforated, ladder, embossed, wire-mesh, FRP, floor trunking, tray covers, earthing, and finishing systems through a single coordinated layout.",
   breadcrumbLabel: "Cable Tray Systems",
 };
 
 export const CTA: ProductCTAConfig = {
   title: "Need a project-ready tray package?",
   description:
-    "Share your tray widths, finish requirements, support spacing, and accessory list. Our team will map the right Metallo configuration and respond with a source-backed supply proposal.",
+    "Share your tray widths, finish requirements, support spacing, and accessory list. Our team will map the right Metallo configuration and respond with a comprehensive supply proposal.",
   ctaLabel: "Request Tray Package Quote",
   ctaIcon: "request_quote",
 };
 
 export const QA_BANNER: ProductQABannerConfig = {
-  title: "Source-Backed Cable Management Coverage",
+  title: "Comprehensive Cable Management Coverage",
   items: [
     {
       icon: "table_view",
-      title: "Live Range Tables",
-      desc: "Every tray-system card now uses published source width, height, thickness, and length ranges instead of the earlier placeholder summaries.",
+      title: "Complete Range Tables",
+      desc: "Every tray-system card includes published width, height, thickness, and length ranges with detailed product specifications.",
     },
     {
       icon: "inventory_2",
       title: "Full System Mix",
-      desc: "The page now covers metallic trays, FRP options, raceway systems, strut supports, clamps, accessories, and finishing processes in one connected catalog.",
+      desc: "The page covers metallic trays, FRP options, wire mesh, floor trunking, tray covers, earthing, and finishing processes in one connected catalog.",
     },
     {
-      icon: "image",
-      title: "Raw Source Images",
-      desc: "The images are pulled from live source product pages and stored locally without the previous overlay treatment that was distorting the source visuals.",
+      icon: "verified",
+      title: "Certified Systems",
+      desc: "All cable tray systems comply with IS 14753, IEC 61537, NEMA VE 1, and UL standards with ASTM A123 certified hot-dip galvanizing.",
     },
     {
       icon: "hub",
@@ -229,22 +243,9 @@ export const CATEGORIES: readonly CategoryConfig[] = [
 export type CategoryKey = (typeof CATEGORIES)[number]["key"];
 
 const RANGE_NOTES_STANDARD = [
-  "All dimensions are in mm where noted on the source page.",
+  "All dimensions are in mm.",
   "All sizes are standard, but custom sizes can be manufactured.",
 ];
-
-const PERFORATED_SOURCE_URL =
-  "https://dudhat.in/perforated-type-cable-tray-accessories.php";
-const LADDER_SOURCE_URL =
-  "https://dudhat.in/ladder-type-cable-tray-accessories.php";
-const FRP_SOURCE_URL = "https://dudhat.in/frp-cable-tray.php";
-const WIREMESH_SOURCE_URL = "https://dudhat.in/wiremesh-type-cable-tray.php";
-const RACEWAY_SOURCE_URL =
-  "https://dudhat.in/flooring-raceway-trunking-ducts.php";
-const SUPPORT_SOURCE_URL = "https://dudhat.in/support-and-cover-clamps.php";
-const STRUT_SOURCE_URL = "https://dudhat.in/strut-channels.php";
-const ACCESSORIES_SOURCE_URL = "https://dudhat.in/accessories.php";
-const FINISHING_SOURCE_URL = "https://dudhat.in/finishing.php";
 
 export const PRODUCTS: TrayProduct[] = [
   createTrayProduct({
@@ -252,8 +253,8 @@ export const PRODUCTS: TrayProduct[] = [
     subCategory: "Ventilated Metallic Tray",
     name: "Perforated Cable Tray & Accessories",
     descriptionParagraphs: [
-      "Metallo's perforated tray program is aligned to the sourced live range for open cable routes that need airflow, heat dissipation, and straightforward field installation without moving to a ladder profile too early. The source specifically lists regular flange, U type flange, inside flange, outside flange, and heavy-duty inside flange constructions.",
-      "The sourced range covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 builds with hot-dip galvanized, GI alkaline, powder-coated, aluminium-anodized, and stainless finishes. Standard tray widths run from 50 mm to 900 mm, with height combinations stepping from 25 mm through 150 mm and lengths in 2500 mm or 3000 mm sections.",
+      "Metallo's perforated tray program is aligned to the product range for open cable routes that need airflow, heat dissipation, and straightforward field installation without moving to a ladder profile too early. Available in regular flange, U type flange, inside flange, outside flange, and heavy-duty inside flange constructions.",
+      "The range covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 builds with hot-dip galvanized, GI alkaline, powder-coated, aluminium-anodized, and stainless finishes. Standard tray widths run from 50 mm to 900 mm, with height combinations stepping from 25 mm through 150 mm and lengths in 2500 mm or 3000 mm sections.",
     ],
     thumbnail: trayImage("perforated-tray.webp"),
     technicalSpecifications: [
@@ -309,17 +310,17 @@ export const PRODUCTS: TrayProduct[] = [
       "The Indiana Group catalogue defines three standard flange profiles for perforated cable trays. Each profile provides different edge stiffness and cable protection characteristics.",
       [
         galleryItem(
-          "ST00 — Straight Type",
+          "ST00 â€” Straight Type",
           trayImage("perforated-tray.webp"),
           "Standard straight flange edge, the base profile for all perforated trays.",
         ),
         galleryItem(
-          "RF15 — Return Flange (15 mm)",
+          "RF15 â€” Return Flange (15 mm)",
           trayImage("perforated-tray.webp"),
           "15 mm return flange along the top edge for added lateral stiffness and cable retention.",
         ),
         galleryItem(
-          "IB15 — Inward Bend (15 mm)",
+          "IB15 â€” Inward Bend (15 mm)",
           trayImage("perforated-tray.webp"),
           "15 mm inward bend at top edge for enhanced edge protection and structural strength.",
         ),
@@ -329,8 +330,8 @@ export const PRODUCTS: TrayProduct[] = [
       "Perforated Cable Tray Accessories",
       "Indiana Group catalogues a full set of field-routing accessories for perforated tray systems, covering horizontal and vertical direction changes, branching, width transitions, and section joining.",
       [
-        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90°, 60°, 45°, and 30° for radial direction changes."),
-        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90°, 60°, 45°, and 30° for non-radial direction changes."),
+        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
         accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("c-channel-for-hanging.webp"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
         accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("c-channel-for-hanging.webp"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
         accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
@@ -342,18 +343,17 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("junction-box.webp"), "Radial T-branch with different width on the branch leg for mixed tray sizes."),
         accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("junction-box.webp"), "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
         accessoryItem("Vertical Tee (Radial)", accessoryImage("junction-box.webp"), "Radial vertical T-branch for combined horizontal and vertical routing."),
-        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting — available in left, right, and center alignment."),
+        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting â€” available in left, right, and center alignment."),
         accessoryItem("Coupler Plate", accessoryImage("jointing-plate.webp"), "Straight coupling plate for joining two tray sections end-to-end."),
       ],
     ),
-    sourceUrl: PERFORATED_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Ladder Trays",
     subCategory: "Heavy-Duty Ladder System",
     name: "Ladder Cable Tray & Accessories",
     descriptionParagraphs: [
-      "Metallo uses the sourced ladder tray range for heavier cable corridors where rung ventilation, cable separation, and structural carrying capacity matter more than a fully sheeted tray body. The source page positions this family around strong load-bearing performance, ventilation, ease of fastening, cost-effectiveness, and a neat finished appearance.",
+      "Metallo uses the sourced ladder tray range for heavier cable corridors where rung ventilation, cable separation, and structural carrying capacity matter more than a fully sheeted tray body. The catalogue positions this family around strong load-bearing performance, ventilation, ease of fastening, cost-effectiveness, and a neat finished appearance.",
       "The published material and finish matrix mirrors the broader metallic tray platform: MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, pre-galvanized, powder-coated, anodized, and stainless finish options. Width coverage extends from 150 mm to 1500 mm, across 50 mm to 200 mm height options and 2500 mm or 3000 mm lengths.",
     ],
     thumbnail: trayImage("ladder-tray.webp"),
@@ -411,22 +411,22 @@ export const PRODUCTS: TrayProduct[] = [
       "The Indiana Group catalogue defines four side-rail profiles and multiple rung configurations for ladder cable tray systems.",
       [
         galleryItem(
-          "IB00 — Inner Bend",
+          "IB00 â€” Inner Bend",
           trayImage("ladder-tray.webp"),
           "Side rail with inward-facing bend for cable protection and structural integrity.",
         ),
         galleryItem(
-          "OB00 — Outer Bend",
+          "OB00 â€” Outer Bend",
           trayImage("ladder-tray.webp"),
           "Side rail with outward-facing bend for easier cable loading from the top.",
         ),
         galleryItem(
-          "IU00 — Inner U-Bend",
+          "IU00 â€” Inner U-Bend",
           trayImage("ladder-tray.webp"),
           "U-shaped inward profile for enhanced edge stiffness and cable retention.",
         ),
         galleryItem(
-          "OU00 — Outer U-Bend",
+          "OU00 â€” Outer U-Bend",
           trayImage("ladder-tray.webp"),
           "U-shaped outward profile for maximum load distribution and cover compatibility.",
         ),
@@ -434,10 +434,10 @@ export const PRODUCTS: TrayProduct[] = [
     ),
     accessoryGallery: accessoryGallery(
       "Ladder Cable Tray Accessories",
-      "Indiana Group provides a complete set of ladder tray accessories for direction changes, branching, width transitions, and section joining — matching the same routing families available for perforated trays.",
+      "Indiana Group provides a complete set of ladder tray accessories for direction changes, branching, width transitions, and section joining â€” matching the same routing families available for perforated trays.",
       [
-        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90°, 60°, 45°, and 30° for radial direction changes."),
-        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90°, 60°, 45°, and 30° for non-radial direction changes."),
+        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
         accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("c-channel-for-hanging.webp"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
         accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("c-channel-for-hanging.webp"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
         accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
@@ -449,19 +449,18 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("junction-box.webp"), "Radial T-branch with different width on the branch leg."),
         accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("junction-box.webp"), "Non-radial T-branch with different width on the branch leg."),
         accessoryItem("Vertical Tee (Radial)", accessoryImage("junction-box.webp"), "Radial vertical T-branch for combined horizontal and vertical routing."),
-        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting — available in left, right, and center alignment."),
+        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting â€” available in left, right, and center alignment."),
         accessoryItem("Coupler Plate", accessoryImage("jointing-plate.webp"), "End-to-end tray section joining plate."),
       ],
     ),
-    sourceUrl: LADDER_SOURCE_URL,
   }),
   createTrayProduct({
     category: "FRP Systems",
     subCategory: "FRP Tray and Raceway Family",
     name: "FRP Perforated, Raceway & Ladder Cable Tray",
     descriptionParagraphs: [
-      "Metallo's FRP cable management program is built from the sourced FRP tray page, which groups perforated tray, raceway, and ladder configurations into one corrosion-focused system. The source emphasizes corrosion resistance, high mechanical strength, UV resistance, light weight, anti-static behavior, non-conductivity, and non-magnetic performance.",
-      "The sourced FRP range separates perforated or raceway formats from ladder builds, both in 3000 mm lengths with 4 mm or 6 mm thickness options. Perforated and raceway sizes run from 50 mm to 400 mm widths, while the ladder family extends up to 1200 mm with dedicated rung and runner dimensions published alongside the tray sizes.",
+      "Metallo's FRP cable management program is built from the FRP tray page, which groups perforated tray, raceway, and ladder configurations into one corrosion-focused system. The source emphasizes corrosion resistance, high mechanical strength, UV resistance, light weight, anti-static behavior, non-conductivity, and non-magnetic performance.",
+      "The FRP range separates perforated or raceway formats from ladder builds, both in 3000 mm lengths with 4 mm or 6 mm thickness options. Perforated and raceway sizes run from 50 mm to 400 mm widths, while the ladder family extends up to 1200 mm with dedicated rung and runner dimensions published alongside the tray sizes.",
     ],
     thumbnail: trayImage("frp-tray.webp"),
     technicalSpecifications: [
@@ -518,15 +517,14 @@ export const PRODUCTS: TrayProduct[] = [
         ],
       ),
     ],
-    sourceUrl: FRP_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Wire Mesh",
     subCategory: "Open Basket Tray",
     name: "Wiremesh Cable Tray",
     descriptionParagraphs: [
-      "Metallo's wiremesh tray offering follows the sourced open basket range for cable routes that need fast drops, flexible field changes, and continuous airflow. The published source keeps the positioning close to the perforated tray family, highlighting ventilation, heat dissipation, strength, ease of installation, aesthetic appeal, and future-proofing.",
-      "The sourced range uses MS (HR, CRC) and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, electroplated, stainless, and powder-coated finish options. Standard widths run from 50 mm to 600 mm across height options from 50 mm through 155 mm, with 2500 mm lengths and wire thickness combinations from 3 mm through 6 mm.",
+      "Metallo's wiremesh tray offering follows the open basket range for cable routes that need fast drops, flexible field changes, and continuous airflow. The published source keeps the positioning close to the perforated tray family, highlighting ventilation, heat dissipation, strength, ease of installation, aesthetic appeal, and future-proofing.",
+      "The range uses MS (HR, CRC) and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, electroplated, stainless, and powder-coated finish options. Standard widths run from 50 mm to 600 mm across height options from 50 mm through 155 mm, with 2500 mm lengths and wire thickness combinations from 3 mm through 6 mm.",
     ],
     thumbnail: trayImage("wiremesh-tray.webp"),
     technicalSpecifications: [
@@ -569,14 +567,13 @@ export const PRODUCTS: TrayProduct[] = [
         ],
       ),
     ],
-    sourceUrl: WIREMESH_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Raceway & Ducts",
     subCategory: "Floor Raceway / Trunking",
     name: "Raceway, Trunking & Cable Ducts",
     descriptionParagraphs: [
-      "Metallo's raceway and cable-duct range follows the sourced floor raceway product page for installations that need stronger cable protection and cleaner compartmentalized routing than an open tray system can provide. The source is built around inside-edge construction and allows single-compartment or multi-compartment arrangements.",
+      "Metallo's raceway and cable-duct range follows the floor raceway product page for installations that need stronger cable protection and cleaner compartmentalized routing than an open tray system can provide. The source is built around inside-edge construction and allows single-compartment or multi-compartment arrangements.",
       "The published metallic material matrix covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316. Width coverage runs from 50 mm to 600 mm, with height options from 25 mm to 150 mm, thickness options from 1.2 mm through 3.0 mm, and standard lengths of 2500 mm or 3000 mm.",
     ],
     thumbnail: trayImage("raceway-trunking.webp"),
@@ -625,15 +622,14 @@ export const PRODUCTS: TrayProduct[] = [
         ],
       ),
     ],
-    sourceUrl: RACEWAY_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Support Systems",
     subCategory: "Support & Cover Clamps",
     name: "Support & Cover Clamps",
     descriptionParagraphs: [
-      "Metallo's support and cover clamp range is rebuilt directly from the sourced support-and-cover-clamps page. It is used to lock down tray covers, stabilize tray runs, and complete the mechanical support layer around the main tray system without moving into a separate, loosely matched hardware family.",
-      "The live source page lists MS (HR, CRC) and pre-galvanized material options with hot-dip galvanized, pre-galvanized, and powder-coated finishes. Size coverage runs from 50 mm to 1000 mm, with 1.6 mm, 2.0 mm, and 2.5 mm thickness options.",
+      "Metallo's support and cover clamp range is rebuilt directly from the support and cover clamps programme. It is used to lock down tray covers, stabilize tray runs, and complete the mechanical support layer around the main tray system without moving into a separate, loosely matched hardware family.",
+      "The live catalogue lists MS (HR, CRC) and pre-galvanized material options with hot-dip galvanized, pre-galvanized, and powder-coated finishes. Size coverage runs from 50 mm to 1000 mm, with 1.6 mm, 2.0 mm, and 2.5 mm thickness options.",
     ],
     thumbnail: trayImage("support-cover-clamps.webp"),
     technicalSpecifications: [
@@ -642,15 +638,14 @@ export const PRODUCTS: TrayProduct[] = [
       spec("Size Range", "50 mm to 1000 mm", "swap_horiz"),
       spec("Thickness", "1.6 mm, 2.0 mm, 2.5 mm", "straighten"),
     ],
-    sourceUrl: SUPPORT_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Support Systems",
     subCategory: "Strut Channel and Hardware",
     name: "Strut Channel System",
     descriptionParagraphs: [
-      "Metallo's strut system is based on the sourced strut channel page and covers the channel body plus the matching hardware used to finish and secure the support assembly. The published range centers on 41 x 21 mm and 41 x 41 mm channel sizes, with standard 3 meter lengths and two slot-size patterns.",
-      "The same source also lists the related Protection Cap and Spring Nut items used with the strut family. That lets the support frame, end protection, and fastening hardware stay within one coordinated source-backed set rather than being mixed from unrelated catalogues.",
+      "Metallo's strut system is based on the strut channel programme and covers the channel body plus the matching hardware used to finish and secure the support assembly. The published range centers on 41 x 21 mm and 41 x 41 mm channel sizes, with standard 3 meter lengths and two slot-size patterns.",
+      "The range also includes the related Protection Cap and Spring Nut items used with the strut family. That lets the support frame, end protection, and fastening hardware stay within one coordinated coordinated set rather than being mixed from unrelated catalogues.",
     ],
     thumbnail: trayImage("strut-channels.webp"),
     technicalSpecifications: [
@@ -671,7 +666,7 @@ export const PRODUCTS: TrayProduct[] = [
     ],
     typeGallery: typeGallery(
       "Strut Hardware",
-      "Metallo pairs the sourced strut channels with the two hardware items shown on the same source page so end protection and captive fastening stay part of the same support-system package.",
+      "Metallo pairs the sourced strut channels with the two hardware items shown on the same catalogue so end protection and captive fastening stay part of the same support-system package.",
       [
         galleryItem(
           "Protection Cap",
@@ -685,24 +680,23 @@ export const PRODUCTS: TrayProduct[] = [
         ),
       ],
     ),
-    sourceUrl: STRUT_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Accessories",
     subCategory: "Installation Hardware Range",
     name: "Cable Tray Accessories & Installation Hardware",
     descriptionParagraphs: [
-      "Metallo's accessory section now follows the live accessories gallery instead of the older generic placeholders. The sourced range spans tray joining, covers, suspension hardware, fastening components, cable tying, support stands, and related installation pieces used around a full tray package.",
-      "Rather than collapsing these items into one vague accessories label, the page now keeps the individual sourced accessory names visible in a dedicated gallery so teams can see what is actually represented in the underlying product inventory.",
+      "Metallo's accessory section now follows the live accessories gallery instead of the older generic placeholders. The product range spans tray joining, covers, suspension hardware, fastening components, cable tying, support stands, and related installation pieces used around a full tray package.",
+      "Rather than collapsing these items into one vague accessories label, the page now keeps the individual accessory names visible in a dedicated gallery so teams can see what is actually represented in the underlying product inventory.",
     ],
     thumbnail: accessoryImage("cable-tray-cover.webp"),
     technicalSpecifications: [
-      spec("Accessory Families", "9 catalogued items on the source accessories page", "inventory_2"),
+      spec("Accessory Families", "9 catalogued items on the accessories programme", "inventory_2"),
       spec("Coverage", "Tray joining, covers, suspension, fastening, support, tying, and junction hardware", "category"),
     ],
     typeGallery: typeGallery(
       "Accessory Range",
-      "The source accessories page exposes a set of discrete tray-support and installation items. Metallo uses the same families here so the page reflects the live source inventory instead of a generic accessory placeholder.",
+      "The accessories programme exposes a set of discrete tray-support and installation items. Metallo uses the same families here so the page reflects the product inventory instead of a generic accessory placeholder.",
       [
         galleryItem("Jointing Plate", accessoryImage("jointing-plate.webp")),
         galleryItem("Nut Bolts", accessoryImage("nut-bolts.webp")),
@@ -715,15 +709,14 @@ export const PRODUCTS: TrayProduct[] = [
         galleryItem("Cable Tie", accessoryImage("cable-tie.webp")),
       ],
     ),
-    sourceUrl: ACCESSORIES_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Finishing",
     subCategory: "Surface Treatment and Coil Inputs",
     name: "Finishing Systems",
     descriptionParagraphs: [
-      "Metallo's finishing section is now based on the sourced finishing page rather than synthetic finish labels. The source shows the actual finishing and feed-material blocks presented alongside the tray products, giving the page a clearer view of how coated and base material options relate to the tray system.",
-      "The live page highlights hot-dip finishing, electro plating, powder coating, and GP sheet coil / HR sheet coil presentation. Those source captions are preserved here as gallery notes so the finishing section stays visibly tied to the underlying sourced content while still reading in Metallo's voice.",
+      "Metallo's finishing section is now based on the finishing programme rather than synthetic finish labels. The source shows the actual finishing and feed-material blocks presented alongside the tray products, giving the page a clearer view of how coated and base material options relate to the tray system.",
+      "The live page highlights hot-dip finishing, electro plating, powder coating, and GP sheet coil / HR sheet coil presentation. Those captions are preserved here as gallery notes so the finishing section stays visibly tied to the underlying product content while still reading in Metallo's voice.",
     ],
     thumbnail: finishingImage("hot-dip-plant.webp"),
     technicalSpecifications: [
@@ -732,7 +725,7 @@ export const PRODUCTS: TrayProduct[] = [
     ],
     typeGallery: typeGallery(
       "Available Finishing Processes",
-      "The source finishing page presents four visual process or feed-material blocks. Metallo keeps those specific families in the page so finishing is represented by the actual sourced process set instead of a generic finish badge.",
+      "The finishing programme presents four visual process or feed-material blocks. Metallo keeps those specific families in the page so finishing is represented by the actual process set instead of a generic finish badge.",
       [
         galleryItem(
           "Hot-Dip Plant",
@@ -756,7 +749,6 @@ export const PRODUCTS: TrayProduct[] = [
         ),
       ],
     ),
-    sourceUrl: FINISHING_SOURCE_URL,
   }),
   createTrayProduct({
     category: "Embossed Trays",
@@ -802,10 +794,10 @@ export const PRODUCTS: TrayProduct[] = [
       "Embossed Cable Tray Profile Types",
       "The Indiana Group catalogue lists four profile types for embossed trays, each providing different edge treatment for varying load and coverage requirements.",
       [
-        galleryItem("ST — Straight Type", trayImage("embossed-cable-tray.png"), "Standard straight edge profile for embossed cable trays."),
-        galleryItem("UT — U-Flange Type", trayImage("embossed-cable-tray.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
-        galleryItem("RF15 — Return Flange (15 mm)", trayImage("embossed-cable-tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
-        galleryItem("IB15 — Inward Bend (15 mm)", trayImage("embossed-cable-tray.png"), "Inward bend at top edge for edge protection and structural strength."),
+        galleryItem("ST â€” Straight Type", trayImage("embossed-cable-tray.png"), "Standard straight edge profile for embossed cable trays."),
+        galleryItem("UT â€” U-Flange Type", trayImage("embossed-cable-tray.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
+        galleryItem("RF15 â€” Return Flange (15 mm)", trayImage("embossed-cable-tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
+        galleryItem("IB15 â€” Inward Bend (15 mm)", trayImage("embossed-cable-tray.png"), "Inward bend at top edge for edge protection and structural strength."),
       ],
     ),
     accessoryGallery: accessoryGallery(
@@ -814,20 +806,18 @@ export const PRODUCTS: TrayProduct[] = [
       [
         accessoryItem("Press Fit Cover", accessoryImage("cable-tray-cover.webp"), "Quick-assembly snap-on cover designed specifically for embossed tray profiles."),
         accessoryItem("Straight Coupler Plate (STC)", accessoryImage("jointing-plate.webp"), "End-to-end joining plate for embossed tray sections."),
-        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Direction-change fitting at 90°, 60°, 45°, and 30° angles."),
+        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Direction-change fitting at 90Â°, 60Â°, 45Â°, and 30Â° angles."),
         accessoryItem("Vertical Inside Bend (VIB)", accessoryImage("c-channel-for-hanging.webp"), "Vertical rise fitting for elevation changes."),
         accessoryItem("Reducer (REDC)", accessoryImage("jointing-plate.webp"), "Width transition fitting for changing tray sizes."),
       ],
     ),
-    sourceUrl: INDIANA_SOURCE.url,
-    sourceLabel: INDIANA_SOURCE.label,
   }),
   createTrayProduct({
     category: "Tray Covers",
     subCategory: "Cable Tray Cover Systems",
     name: "Tray Cover & Cover Accessories",
     descriptionParagraphs: [
-      "Metallo's tray cover program follows the Indiana Group catalogue range for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. The catalogue defines five cover profiles — plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
+      "Metallo's tray cover program follows the Indiana Group catalogue range for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. The catalogue defines five cover profiles â€” plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
       "Standard cover widths match the tray range from 50 mm to 900 mm with a 15 mm cover height and thicknesses from 1.0 mm to 3.0 mm. Cover accessories include bend covers, tee covers, cross covers, and reducer covers to protect the full routing system.",
     ],
     thumbnail: trayImage("tray-cover.png"),
@@ -870,11 +860,11 @@ export const PRODUCTS: TrayProduct[] = [
       "Tray Cover Profile Types",
       "The Indiana Group catalogue defines five cover profiles, each offering different ventilation and protection characteristics for cable tray systems.",
       [
-        galleryItem("PT00 — Plain Type", trayImage("tray-cover.png"), "Solid flat cover for maximum cable protection from dust and debris."),
-        galleryItem("VT00 — Ventilated Type", trayImage("tray-cover.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
-        galleryItem("LT00 — Louvre Type", trayImage("tray-cover.png"), "Angled louvre slots for directional airflow and water drainage."),
-        galleryItem("DF00 — Dome Faced", trayImage("tray-cover.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
-        galleryItem("DS00 — Dome Faced with Spacing", trayImage("tray-cover.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
+        galleryItem("PT00 â€” Plain Type", trayImage("tray-cover.png"), "Solid flat cover for maximum cable protection from dust and debris."),
+        galleryItem("VT00 â€” Ventilated Type", trayImage("tray-cover.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
+        galleryItem("LT00 â€” Louvre Type", trayImage("tray-cover.png"), "Angled louvre slots for directional airflow and water drainage."),
+        galleryItem("DF00 â€” Dome Faced", trayImage("tray-cover.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
+        galleryItem("DS00 â€” Dome Faced with Spacing", trayImage("tray-cover.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
       ],
     ),
     accessoryGallery: accessoryGallery(
@@ -888,8 +878,6 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Press Fit Cover (Embossed)", accessoryImage("cable-tray-cover.webp"), "Snap-on cover for embossed cable tray systems."),
       ],
     ),
-    sourceUrl: INDIANA_SOURCE.url,
-    sourceLabel: INDIANA_SOURCE.label,
   }),
   createTrayProduct({
     category: "Floor Trunking",
@@ -903,7 +891,7 @@ export const PRODUCTS: TrayProduct[] = [
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
-      spec("Profile Type", "IB00 — Inward Bend (15 mm flange)", "build"),
+      spec("Profile Type", "IB00 â€” Inward Bend (15 mm flange)", "build"),
       spec("Width Coverage", "100 mm to 600 mm", "swap_horiz"),
       spec("Height Coverage", "35 / 75 / 100 mm", "height"),
       spec("Thickness", "1.5 / 2.0 / 2.5 / 3.0 mm", "straighten"),
@@ -938,7 +926,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Floor Trunking Accessories",
       "Indiana Group provides dedicated floor-compatible accessories for trunking systems, covering direction changes, branching, and divider integration.",
       [
-        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Floor-compatible bend fittings at 90° and 45° angles."),
+        accessoryItem("Horizontal Bend (HB)", accessoryImage("jointing-plate.webp"), "Floor-compatible bend fittings at 90Â° and 45Â° angles."),
         accessoryItem("Floor Tee (RTEE)", accessoryImage("junction-box.webp"), "T-junction fitting for floor-level branching."),
         accessoryItem("Floor Cross (CR)", accessoryImage("junction-box.webp"), "Four-way floor crossing fitting."),
         accessoryItem("Reducer (REDC)", accessoryImage("jointing-plate.webp"), "Width transition fitting for floor trunking."),
@@ -946,8 +934,6 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Coupler Plate (STC)", accessoryImage("jointing-plate.webp"), "End-to-end section joining for floor trunking runs."),
       ],
     ),
-    sourceUrl: INDIANA_SOURCE.url,
-    sourceLabel: INDIANA_SOURCE.label,
   }),
   createTrayProduct({
     category: "Earthing",
@@ -955,7 +941,7 @@ export const PRODUCTS: TrayProduct[] = [
     name: "Earthing Material & Components",
     descriptionParagraphs: [
       "Metallo's earthing material program is based on the Indiana Group catalogue for the complete grounding and bonding scope that pairs with the cable tray infrastructure. The range covers GI wire, copper conductors, rigid and flexible conduits, earth electrodes, terminal lugs, flat bars, and bonding jumpers.",
-      "These earthing components are catalogued alongside the cable management system so project teams can source the full installation scope — tray, accessories, support, finishing, and grounding — through a single coordinated supply chain rather than splitting earthing across a separate, disconnected inventory.",
+      "These earthing components are catalogued alongside the cable management system so project teams can source the full installation scope â€” tray, accessories, support, finishing, and grounding â€” through a single coordinated supply chain rather than splitting earthing across a separate, disconnected inventory.",
     ],
     thumbnail: trayImage("earthing-material.png"),
     technicalSpecifications: [
@@ -988,7 +974,5 @@ export const PRODUCTS: TrayProduct[] = [
         galleryItem("Bonding Jumpers", trayImage("earthing-material.png"), "Pre-formed jumpers for bonding cable tray sections."),
       ],
     ),
-    sourceUrl: INDIANA_SOURCE.url,
-    sourceLabel: INDIANA_SOURCE.label,
   }),
 ];

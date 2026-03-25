@@ -43,9 +43,9 @@ export interface TrayProduct {
   technicalSpecifications: ProductSpecItem[];
   features?: string[];
   applications?: string[];
+  certifications?: string[];
+  industries?: string[];
   rangeTables?: CableTrayRangeTable[];
   typeGallery?: CableTrayTypeGallery;
   accessoryGallery?: CableTrayAccessoryGallery;
-  sourceLabel?: string;
-  sourceUrl?: string;
 }
