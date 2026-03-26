@@ -386,6 +386,7 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
 };
 
 const CableTray: React.FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const activeCategoryKey: CategoryKey = useMemo(() => {
