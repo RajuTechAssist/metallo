@@ -450,15 +450,7 @@ const Steel: React.FC = () => {
                         }`}
                       >
                         {MAT_LABEL[gKey]}
-                        <span
-                          className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                            isActive
-                              ? "bg-yellow-500 text-slate-900"
-                              : "bg-slate-200 text-slate-500"
-                          }`}
-                        >
-                          {items.length}
-                        </span>
+
                       </button>
                     );
                   })}
@@ -498,15 +490,7 @@ const Steel: React.FC = () => {
                           <span className="text-[13px] font-heading font-bold leading-tight">
                             {MAT_LABEL[gKey]}
                           </span>
-                          <span
-                            className={`ml-auto text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${
-                              isActive
-                                ? "bg-yellow-500 text-slate-900"
-                                : "bg-slate-200 text-slate-500"
-                            }`}
-                          >
-                            {items.length}
-                          </span>
+
                         </button>
                       );
                     })}
@@ -523,10 +507,7 @@ const Steel: React.FC = () => {
                       ? MAT_LABEL[activeGroup]
                       : activeCategory.label}
                   </h2>
-                  <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
-                    {displayedProducts.length} product
-                    {displayedProducts.length !== 1 ? "s" : ""} available
-                  </p>
+
                   <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
                 </div>
                 <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
