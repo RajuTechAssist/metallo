@@ -152,9 +152,6 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
             <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">
               {product["Sub-Category"]}
             </span>
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm border text-slate-700 bg-slate-50 border-slate-200">
-              Source-backed data
-            </span>
           </div>
 
           <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight mb-3">
@@ -173,13 +170,61 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
             ))}
           </div>
 
+          {product.certifications && product.certifications.length > 0 && (
+            <div className="mb-6">
+              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-3 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-yellow-500">
+                  shield
+                </span>
+                Certifications & Compliance
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {product.certifications.map((cert) => (
+                  <span
+                    key={`${product.id}-cert-${cert}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-heading font-bold uppercase tracking-wider rounded-sm"
+                  >
+                    <span className="material-symbols-outlined text-xs">
+                      verified
+                    </span>
+                    {cert}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {product.industries && product.industries.length > 0 && (
+            <div className="mb-6">
+              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-yellow-500">
+                  factory
+                </span>
+                Key Industries & Applications
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {product.industries.map((industry) => (
+                  <span
+                    key={`${product.id}-ind-${industry}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-sm">
+                      check_circle
+                    </span>
+                    {industry}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {product.features && product.features.length > 0 && (
             <div>
               <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-4 flex items-center gap-2">
                 <span className="material-symbols-outlined text-sm text-yellow-500">
                   bolt
                 </span>
-                Key Source Features
+                Key Features
               </h4>
               <div className="flex flex-wrap gap-2">
                 {product.features.map((feature) => (
