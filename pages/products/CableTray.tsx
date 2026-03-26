@@ -66,9 +66,8 @@ const QA_ITEMS = [
   { icon: "local_shipping", title: "Pan-India Supply", desc: "Warehouse stock + project-direct dispatch." },
 ];
 
-const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
 const CableTray: React.FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const activeCategoryKey: CategoryKey = useMemo(() => {
