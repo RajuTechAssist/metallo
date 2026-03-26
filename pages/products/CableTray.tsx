@@ -430,10 +430,6 @@ const CableTray: React.FC = () => {
               <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
                 {activeCategory.label}
               </h2>
-              <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
-                {displayedProducts.length} product
-                {displayedProducts.length !== 1 ? "s" : ""} available
-              </p>
               <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
             </div>
             <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider bg-white">

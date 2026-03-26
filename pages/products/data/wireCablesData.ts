@@ -13,11 +13,6 @@ const HT_CATEGORY = "HT Power Cable";
 
 const wireImage = (asset: string) => `/wire&cable/${asset}`;
 export const CATALOGUE_DOWNLOAD = "/Wire_Cables_Power_Control_Catalogue.pdf";
-const havellsCropImage = (asset: string) =>
-  new URL(
-    `../../../scraped-sources/wire-cables/generated-crops/${asset}.png`,
-    import.meta.url,
-  ).href;
 
 const spec = (
   label: string,
@@ -38,6 +33,7 @@ interface WireCableProductInput {
   name: string;
   descriptionParagraphs: string[];
   panelImage: string;
+  thumbnail?: string;
   technicalSpecifications: ProductSpecItem[];
   constructionSpecifications: ProductSpecItem[];
   applicableStandards: string[];
@@ -45,6 +41,7 @@ interface WireCableProductInput {
   industries: string[];
   certifications: string[];
   rangeNotes?: string[];
+  voltageVariants?: { voltage: string; details?: string }[];
 }
 
 interface LTPowerProductOptions {
@@ -62,6 +59,7 @@ interface LTPowerProductOptions {
   constructionSpecifications: ProductSpecItem[];
   insulatedMaterials: string[];
   industries?: string[];
+  voltageVariants?: { voltage: string; details?: string }[];
 }
 
 interface LTControlProductOptions {
@@ -86,6 +84,7 @@ interface HTProductOptions {
   coreFamily: string;
   constructionSpecifications: ProductSpecItem[];
   insulatedMaterials: string[];
+  voltageVariants?: { voltage: string; details?: string }[];
 }
 
 const createProduct = (input: WireCableProductInput): WireCableProduct => ({
@@ -95,7 +94,7 @@ const createProduct = (input: WireCableProductInput): WireCableProduct => ({
   "Product Name": input.name,
   Description: input.descriptionParagraphs[0],
   descriptionParagraphs: input.descriptionParagraphs,
-  thumbnail: input.panelImage,
+  thumbnail: input.thumbnail || input.panelImage,
   panelImage: input.panelImage,
   technicalSpecifications: input.technicalSpecifications,
   constructionSpecifications: input.constructionSpecifications,
@@ -104,6 +103,7 @@ const createProduct = (input: WireCableProductInput): WireCableProduct => ({
   industries: input.industries,
   certifications: input.certifications,
   rangeNotes: input.rangeNotes,
+  voltageVariants: input.voltageVariants,
 });
 
 const technicalDetails = (input: {
@@ -219,7 +219,8 @@ const ltPowerProduct = (input: LTPowerProductOptions): WireCableProduct =>
       routeText: input.routeText,
       protectionText: input.protectionText,
     }),
-    panelImage: havellsCropImage(input.image),
+    panelImage: `/wire&cable/metallo_cables/${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
+    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: input.ratedVoltage,
@@ -233,6 +234,7 @@ const ltPowerProduct = (input: LTPowerProductOptions): WireCableProduct =>
     insulatedMaterials: input.insulatedMaterials,
     industries: input.industries || LT_POWER_INDUSTRIES,
     certifications: LT_POWER_COMPLIANCE,
+    voltageVariants: input.voltageVariants,
   });
 
 const ltControlProduct = (input: LTControlProductOptions): WireCableProduct =>
@@ -244,7 +246,8 @@ const ltControlProduct = (input: LTControlProductOptions): WireCableProduct =>
       conductorSize: input.conductorSize,
       armoured: input.armoured,
     }),
-    panelImage: havellsCropImage(input.image),
+    panelImage: `/wire&cable/metallo_cables/${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
+    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: "0.6/1 kV",
@@ -273,7 +276,8 @@ const htProduct = (input: HTProductOptions): WireCableProduct =>
       ratedVoltage: input.ratedVoltage,
       coreFamily: input.coreFamily,
     }),
-    panelImage: havellsCropImage(input.image),
+    panelImage: `/wire&cable/metallo_cables/${input.name.replace(/ /g, "_")}.png`,
+    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: input.ratedVoltage,
@@ -287,6 +291,7 @@ const htProduct = (input: HTProductOptions): WireCableProduct =>
     insulatedMaterials: input.insulatedMaterials,
     industries: HT_INDUSTRIES,
     certifications: HT_POWER_COMPLIANCE,
+    voltageVariants: input.voltageVariants,
   });
 
 export const HERO: ProductHeroConfig = {
@@ -384,12 +389,12 @@ export const PRODUCTS: WireCableProduct[] = [
     insulatedMaterials: ["XLPE insulation", "PVC sheath"],
   }),
   ltPowerProduct({
-    subCategory: "0.6/1 kV | Single Core",
+    subCategory: "Armoured Single Core",
     name: "XLPE Insulated Armoured Single Core Cable",
     image: "lt-single-core-armoured",
     typeOfCable: "N2XRaY/NA2XRaY",
-    ratedVoltage: "0.6/1 kV",
-    sizeRange: "6 to 1000 sq mm",
+    ratedVoltage: "0.6/1 kV up to 1.8/3.0 (3.6) kV",
+    sizeRange: "6 to 1000 sq mm (varies by voltage)",
     application:
       "Indoor and outdoor installation direct burial where mechanical stress must be envisaged",
     identification: "Natural",
@@ -405,6 +410,10 @@ export const PRODUCTS: WireCableProduct[] = [
       spec("Outer Sheath", "Extruded PVC", "shield"),
     ],
     insulatedMaterials: ["XLPE insulation", "PVC outer sheath"],
+    voltageVariants: [
+      { voltage: "0.6/1 kV", details: "Size Range: 6 to 1000 sq mm" },
+      { voltage: "1.8/3.0 (3.6) kV", details: "Size Range: 25 to 630 sq mm" }
+    ]
   }),
   ltPowerProduct({
     subCategory: "0.6/1 kV | Two Core",
@@ -474,12 +483,12 @@ export const PRODUCTS: WireCableProduct[] = [
     insulatedMaterials: ["XLPE insulation", "PVC inner sheath", "PVC outer sheath"],
   }),
   ltPowerProduct({
-    subCategory: "0.6/1 kV | Three Core",
+    subCategory: "Armoured Three Core",
     name: "XLPE Insulated Armoured Three Core Cable",
     image: "lt-three-core-armoured",
     typeOfCable: "N2XRY/NA2XRY",
-    ratedVoltage: "0.6/1 kV",
-    sizeRange: "4 to 400 sq mm",
+    ratedVoltage: "0.6/1 kV up to 1.8/3.0 (3.6) kV",
+    sizeRange: "4 to 400 sq mm (varies by voltage)",
     application: "For Electric Power Circuit",
     identification: "Red, Yellow & Blue",
     familyLabel: "three-core XLPE power cable",
@@ -495,6 +504,10 @@ export const PRODUCTS: WireCableProduct[] = [
       spec("Outer Sheath", "Extruded PVC", "shield"),
     ],
     insulatedMaterials: ["XLPE insulation", "PVC inner sheath", "PVC outer sheath"],
+    voltageVariants: [
+      { voltage: "0.6/1 kV", details: "Size Range: 4 to 400 sq mm" },
+      { voltage: "1.8/3.0 (3.6) kV", details: "Size Range: 25 to 400 sq mm" }
+    ]
   }),
   ltPowerProduct({
     subCategory: "0.6/1 kV | Three & half Core",
@@ -648,61 +661,14 @@ export const PRODUCTS: WireCableProduct[] = [
       spec("Outer Sheath", "Extruded PVC", "shield"),
     ],
   }),
-  ltPowerProduct({
-    subCategory: "1.8/3.0 (3.6) kV | Single Core",
-    name: "XLPE Insulated Armoured Single Core Cable",
-    image: "lt-1-8-single-core-armoured",
-    typeOfCable: "N2XRaY/NA2XRaY",
-    ratedVoltage: "1.8/3.0 (3.6) kV",
-    sizeRange: "25 to 630 sq mm",
-    application:
-      "Indoor and outdoor installation direct burial where mechanical stress must be envisaged",
-    identification: "Natural",
-    familyLabel: "single-core intermediate-voltage power cable",
-    routeText:
-      "projects that need a step above conventional LT feeder duty while retaining armoured single-core construction",
-    protectionText:
-      "This 1.8/3.0 (3.6) kV build bridges the gap between standard low-voltage feeders and screened HT systems for heavier industrial distribution duties.",
-    constructionSpecifications: [
-      spec("Conductor", "Annealed Copper/Aluminium", "settings_input_component"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Armouring", "Round Aluminium Wire", "shield"),
-      spec("Outer Sheath", "Extruded PVC", "shield"),
-    ],
-    insulatedMaterials: ["XLPE insulation", "PVC outer sheath"],
-    industries: LT_INTERMEDIATE_INDUSTRIES,
-  }),
-  ltPowerProduct({
-    subCategory: "1.8/3.0 (3.6) kV | Three Core",
-    name: "XLPE Insulated Armoured Three Core Cable",
-    image: "lt-1-8-three-core-armoured",
-    typeOfCable: "N2XRY/NA2XRY",
-    ratedVoltage: "1.8/3.0 (3.6) kV",
-    sizeRange: "25 to 400 sq mm",
-    application: "For Electric Power Circuit",
-    identification: "Red, Yellow & Blue",
-    familyLabel: "three-core intermediate-voltage power cable",
-    routeText:
-      "higher-duty industrial distribution circuits that need three-core construction with mechanical protection",
-    protectionText:
-      "Galvanized round steel wire armouring supports heavier industrial routes while the 1.8/3.0 (3.6) kV grade gives additional voltage headroom for plant distribution packages.",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Inner Sheath", "Extruded PVC", "shield"),
-      spec("Armouring", "Galvanized Round Steel Wire", "shield"),
-      spec("Outer Sheath", "Extruded PVC", "shield"),
-    ],
-    insulatedMaterials: ["XLPE insulation", "PVC inner sheath", "PVC outer sheath"],
-    industries: LT_INTERMEDIATE_INDUSTRIES,
-  }),
+
   htProduct({
-    subCategory: "3.6/6.0 (7.2) kV | Single Core",
+    subCategory: "Single Core",
     name: "XLPE Insulated Armoured Single Core HT Cable",
     image: "ht-single-core-3-6",
     typeOfCable: "N2XHSYRaY/NA2XHSYRaY",
-    ratedVoltage: "3.6/6.0 (7.2) kV",
-    sizeRange: "25 to 1000 sq mm",
+    ratedVoltage: "3.6/6.0 (7.2) kV up to 18/30 (36) kV",
+    sizeRange: "25 to 1000 sq mm (varies by voltage)",
     identification: "Natural",
     coreFamily: "single-core cable",
     constructionSpecifications: [
@@ -712,7 +678,7 @@ export const PRODUCTS: WireCableProduct[] = [
       spec("Insulation Screen", "Semi-conducting", "layers"),
       spec("Metallic Screen", "Included", "shield"),
       spec("Separation Sheath", "PVC", "shield"),
-      spec("Armouring", "Aluminium Round Wire", "shield"),
+      spec("Armouring", "Round Aluminium Wire", "shield"),
       spec("Outer Sheath", "PVC", "shield"),
     ],
     insulatedMaterials: [
@@ -722,14 +688,21 @@ export const PRODUCTS: WireCableProduct[] = [
       "PVC separation sheath",
       "PVC outer sheath",
     ],
+    voltageVariants: [
+      { voltage: "3.6/6.0 (7.2) kV", details: "Size Range: 25 to 1000 sq mm" },
+      { voltage: "6/10 (12) kV", details: "Size Range: 25 to 1000 sq mm" },
+      { voltage: "8.7/15 (17.5) kV", details: "Size Range: 25 to 1000 sq mm" },
+      { voltage: "12/20 (24) kV", details: "Size Range: 25 to 1000 sq mm" },
+      { voltage: "18/30 (36) kV", details: "Size Range: 50 to 1000 sq mm" },
+    ],
   }),
   htProduct({
-    subCategory: "3.6/6.0 (7.2) kV | Three Core",
+    subCategory: "Three Core",
     name: "XLPE Insulated Armoured Three Core HT Cable",
     image: "ht-three-core-3-6",
     typeOfCable: "N2XSEYRY/NA2XSEYRY",
-    ratedVoltage: "3.6/6.0 (7.2) kV",
-    sizeRange: "25 to 400 sq mm",
+    ratedVoltage: "3.6/6.0 (7.2) kV up to 18/30 (36) kV",
+    sizeRange: "25 to 400 sq mm (varies by voltage)",
     identification: "Red, Yellow & Blue",
     coreFamily: "three-core cable",
     constructionSpecifications: [
@@ -750,225 +723,12 @@ export const PRODUCTS: WireCableProduct[] = [
       "PVC inner covering",
       "PVC outer sheath",
     ],
-  }),
-  htProduct({
-    subCategory: "6/10 (12) kV | Single Core",
-    name: "XLPE Insulated Armoured Single Core HT Cable",
-    image: "ht-single-core-6-10",
-    typeOfCable: "N2XHSYRaY/NA2XHSYRaY",
-    ratedVoltage: "6/10 (12) kV",
-    sizeRange: "25 to 1000 sq mm",
-    identification: "Natural",
-    coreFamily: "single-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Separation Sheath", "PVC", "shield"),
-      spec("Armouring", "Round Aluminium Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC separation sheath",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "6/10 (12) kV | Three Core",
-    name: "XLPE Insulated Armoured Three Core HT Cable",
-    image: "ht-three-core-6-10",
-    typeOfCable: "N2XSEYRY/NA2XSEYRY",
-    ratedVoltage: "6/10 (12) kV",
-    sizeRange: "25 to 400 sq mm",
-    identification: "Red, Yellow & Blue",
-    coreFamily: "three-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Filler", "Included", "category"),
-      spec("Inner Covering", "Included", "shield"),
-      spec("Armouring", "Galvanized Steel Round Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC inner covering",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "8.7/15 (17.5) kV | Single Core",
-    name: "XLPE Insulated Armoured Single Core HT Cable",
-    image: "ht-single-core-8-7-15",
-    typeOfCable: "N2XHSYRaY/NA2XHSYRaY",
-    ratedVoltage: "8.7/15 (17.5) kV",
-    sizeRange: "25 to 1000 sq mm",
-    identification: "Natural",
-    coreFamily: "single-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Separation Sheath", "PVC", "shield"),
-      spec("Armouring", "Round Aluminium Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC separation sheath",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "8.7/15 (17.5) kV | Three Core",
-    name: "XLPE Insulated Armoured Three Core HT Cable",
-    image: "ht-three-core-8-7-15",
-    typeOfCable: "N2XSEYRY/NA2XSEYRY",
-    ratedVoltage: "8.7/15 (17.5) kV",
-    sizeRange: "25 to 300 sq mm",
-    identification: "Red, Yellow & Blue",
-    coreFamily: "three-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Filler", "Included", "category"),
-      spec("Inner Covering", "Included", "shield"),
-      spec("Armouring", "Galvanized Steel Round Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC inner covering",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "12/20 (24) kV | Single Core",
-    name: "XLPE Insulated Armoured Single Core HT Cable",
-    image: "ht-single-core-12-20",
-    typeOfCable: "N2XHSYRaY/NA2XHSYRaY",
-    ratedVoltage: "12/20 (24) kV",
-    sizeRange: "25 to 1000 sq mm",
-    identification: "Natural",
-    coreFamily: "single-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Separation Sheath", "PVC", "shield"),
-      spec("Armouring", "Round Aluminium Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC separation sheath",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "12/20 (24) kV | Three Core",
-    name: "XLPE Insulated Armoured Three Core HT Cable",
-    image: "ht-three-core-12-20",
-    typeOfCable: "N2XSEYRY/NA2XSEYRY",
-    ratedVoltage: "12/20 (24) kV",
-    sizeRange: "35 to 300 sq mm",
-    identification: "Red, Yellow & Blue",
-    coreFamily: "three-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Filler", "Included", "category"),
-      spec("Inner Covering", "Included", "shield"),
-      spec("Armouring", "Galvanized Steel Round Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC inner covering",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "18/30 (36) kV | Single Core",
-    name: "XLPE Insulated Armoured Single Core HT Cable",
-    image: "ht-single-core-18-30",
-    typeOfCable: "N2XHSYRaY/NA2XHSYRaY",
-    ratedVoltage: "18/30 (36) kV",
-    sizeRange: "50 to 1000 sq mm",
-    identification: "Natural",
-    coreFamily: "single-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Separation Sheath", "PVC", "shield"),
-      spec("Armouring", "Round Aluminium Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC separation sheath",
-      "PVC outer sheath",
-    ],
-  }),
-  htProduct({
-    subCategory: "18/30 (36) kV | Three Core",
-    name: "XLPE Insulated Armoured Three Core HT Cable",
-    image: "ht-three-core-18-30",
-    typeOfCable: "N2XSEYRY/NA2XSEYRY",
-    ratedVoltage: "18/30 (36) kV",
-    sizeRange: "50 to 300 sq mm",
-    identification: "Red, Yellow & Blue",
-    coreFamily: "three-core cable",
-    constructionSpecifications: [
-      spec("Conductor", "Copper/Aluminium", "settings_input_component"),
-      spec("Conductor Screen", "Semi-conducting", "layers"),
-      spec("Insulation", "XLPE", "layers"),
-      spec("Insulation Screen", "Semi-conducting", "layers"),
-      spec("Metallic Screen", "Included", "shield"),
-      spec("Filler", "Included", "category"),
-      spec("Inner Covering", "Included", "shield"),
-      spec("Armouring", "Galvanized Steel Round Wire", "shield"),
-      spec("Outer Sheath", "PVC", "shield"),
-    ],
-    insulatedMaterials: [
-      "XLPE insulation",
-      "Semi-conducting conductor screen",
-      "Semi-conducting insulation screen",
-      "PVC inner covering",
-      "PVC outer sheath",
+    voltageVariants: [
+      { voltage: "3.6/6.0 (7.2) kV", details: "Size Range: 25 to 400 sq mm" },
+      { voltage: "6/10 (12) kV", details: "Size Range: 25 to 400 sq mm" },
+      { voltage: "8.7/15 (17.5) kV", details: "Size Range: 25 to 300 sq mm" },
+      { voltage: "12/20 (24) kV", details: "Size Range: 35 to 300 sq mm" },
+      { voltage: "18/30 (36) kV", details: "Size Range: 50 to 300 sq mm" },
     ],
   }),
 ];

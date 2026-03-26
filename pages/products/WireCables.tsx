@@ -180,9 +180,9 @@ const WireCableProductCard: React.FC<{
         {!detailsOpen && (
           <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-sm border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
             <img
-              src={product.panelImage || product.thumbnail}
+              src={product.thumbnail || product.panelImage}
               alt={product["Product Name"]}
-              className="w-full h-full object-contain p-2"
+              className="w-full h-full object-cover"
             />
           </div>
         )}
@@ -216,7 +216,7 @@ const WireCableProductCard: React.FC<{
                   <img
                     src={product.panelImage || product.thumbnail}
                     alt={product["Product Name"]}
-                    className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
@@ -252,6 +252,31 @@ const WireCableProductCard: React.FC<{
                     items={product.applicableStandards}
                     tone="slate"
                   />
+                  {product.voltageVariants && product.voltageVariants.length > 0 && (
+                    <div className="mb-6">
+                      <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-3 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-sm text-yellow-500">
+                          bolt
+                        </span>
+                        Available Related Voltage Variants
+                      </h4>
+                      <div className="flex flex-col gap-2">
+                        {product.voltageVariants.map((variant) => (
+                          <div
+                            key={variant.voltage}
+                            className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 px-3 py-2.5 border border-slate-200 bg-slate-50 rounded-sm text-sm font-sans text-slate-700"
+                          >
+                            <span className="font-heading font-bold uppercase tracking-wider text-slate-900 border-b sm:border-b-0 sm:border-r border-slate-200 pb-1.5 sm:pb-0 sm:pr-3 text-[12px]">
+                              {variant.voltage}
+                            </span>
+                            {variant.details && (
+                              <span className="text-slate-500 text-[13px]">{variant.details}</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   <ChipRow
                     title="Insulated Material"
                     icon="layers"
@@ -410,15 +435,7 @@ const WireCables: React.FC = () => {
                       }`}
                     >
                       {group.label}
-                      <span
-                        className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                          isActive
-                            ? "bg-yellow-500 text-slate-900"
-                            : "bg-slate-200 text-slate-500"
-                        }`}
-                      >
-                        {groupCounts[group.key]}
-                      </span>
+
                     </button>
                   );
                 })}
@@ -454,15 +471,7 @@ const WireCables: React.FC = () => {
                         <span className="text-[13px] font-heading font-bold leading-tight">
                           {group.label}
                         </span>
-                        <span
-                          className={`ml-auto text-[10px] font-bold font-heading px-1.5 py-0.5 rounded-full ${
-                            isActive
-                              ? "bg-yellow-500 text-slate-900"
-                              : "bg-slate-200 text-slate-500"
-                          }`}
-                        >
-                          {groupCounts[group.key]}
-                        </span>
+
                       </button>
                     );
                   })}
@@ -476,10 +485,7 @@ const WireCables: React.FC = () => {
                   <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
                     {activeGroup.label}
                   </h2>
-                  <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
-                    {displayedProducts.length} product
-                    {displayedProducts.length !== 1 ? "s" : ""} available
-                  </p>
+
                   <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
                 </div>
                 <a

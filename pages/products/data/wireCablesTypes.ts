@@ -18,4 +18,5 @@ export interface WireCableProduct {
   industries?: string[];
   certifications?: string[];
   rangeNotes?: string[];
+  voltageVariants?: { voltage: string; details?: string }[];
 }
