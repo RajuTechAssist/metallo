@@ -1,182 +1,476 @@
-import React, { useState, useMemo } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ProductHero, ProductCategoryNav, ProductSidebar, ProductMobileMenu,
-  ProductQABanner, ProductCTA, CONTAINER, DETAIL_VARIANTS, slugify,
+  CONTAINER,
+  DETAIL_VARIANTS,
+  ProductCategoryNav,
+  ProductCTA,
+  ProductHero,
+  ProductQABanner,
+  matchesCategory,
 } from "../../components/product";
+import {
+  CATEGORIES,
+  CERT_BADGE,
+  CTA,
+  HERO,
+  PRODUCTS,
+  QA_BANNER,
+  type CategoryKey,
+} from "./data/cableTrayData";
+import type {
+  CableTrayRangeTable,
+  TrayProduct,
+} from "./data/cableTrayTypes";
 
-/* ═══════════════════════════════════════════════════════════════
-   CABLE TRAY — PRODUCT DATA
-   ═══════════════════════════════════════════════════════════════ */
-
-interface TrayProduct {
-  Category: string; "Sub-Category": string; "Product Name": string; Description: string;
-  Material: string; Standards: string; Application: string; thumbnail: string;
-  Finish?: string; Width?: string; Height?: string; Thickness?: string; Length?: string;
-  LoadCapacity?: string; Coating?: string; Type?: string;
-  Applications?: string[]; applicationImage?: string;
+interface AccordionSectionProps {
+  title: string;
+  icon: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+  className?: string;
 }
 
-const PRODUCTS: TrayProduct[] = [
-  { Category: "Ladder Trays", "Sub-Category": "GI Ladder Tray", "Product Name": "GI Ladder Type Cable Tray", Description: "Heavy-duty hot-dip galvanised ladder trays with side rails and rungs. Ideal for long straight runs carrying heavy power cables. Excellent ventilation and heat dissipation for high-current applications.", Material: "Galvanised Iron (GI), MS Hot-Dip Galvanised", Standards: "IEC 61537, IS 16230, NEMA VE-1", Application: "Power plants, petrochemical, heavy industrial cable routing", thumbnail: "/cable Trays/Cable_Trays.jpg", Width: "50mm to 900mm", Height: "25mm to 150mm", Thickness: "1.2mm to 3.0mm (Sheet Metal)", Length: "2.4m / 3.0m standard, custom lengths", LoadCapacity: "Up to 150 kg/m (based on span & width)", Coating: "Hot-Dip Galvanised (HDG) per IS 2629 / ISO 1461", Applications: ["Power Plants", "Oil & Gas", "Heavy Industry", "Substations"], applicationImage: "/cable Trays/cable-trays-power-plants-energy-facilities.webp" },
-  { Category: "Ladder Trays", "Sub-Category": "SS Ladder Tray", "Product Name": "SS 304/316 Ladder Tray", Description: "Stainless steel ladder trays for corrosive environments — chemical plants, marine installations, and food processing areas. Grade 316 provides superior chloride resistance.", Material: "SS 304 / SS 316 / SS 316L", Standards: "IEC 61537, IS 16230, NEMA VE-1", Application: "Chemical plants, marine/offshore, food processing, pharma clean rooms", thumbnail: "/cable Trays/Cable_Trays.jpg", Width: "50mm to 600mm", Height: "25mm to 100mm", Thickness: "1.2mm to 2.0mm", Length: "2.4m / 3.0m standard", Coating: "Mill Finish / Electropolished", Applications: ["Chemical Plants", "Marine & Offshore", "Food Processing", "Pharma"], applicationImage: "/cable Trays/cable-trays-power-plants-energy-facilities.webp" },
-  { Category: "Ladder Trays", "Sub-Category": "Aluminium Ladder Tray", "Product Name": "Aluminium Ladder Tray", Description: "Lightweight aluminium ladder trays for environments requiring light weight and corrosion resistance — petrochemical, data centres, and commercial buildings.", Material: "Aluminium Alloy 6063 / 6061", Standards: "IEC 61537, NEMA VE-1", Application: "Petrochemical, data centres, commercial buildings, marine", thumbnail: "/cable Trays/Cable_Trays.jpg", Width: "100mm to 600mm", Height: "25mm to 100mm", Thickness: "1.5mm to 2.5mm", Length: "3.0m standard", Coating: "Anodised / Mill Finish", Applications: ["Data Centres", "Petrochemical", "Commercial Buildings", "Marine"], applicationImage: "/cable Trays/cable-trays-data-centres-IT-infrastructure.webp" },
-  { Category: "Perforated Trays", "Sub-Category": "GI Perforated", "Product Name": "GI Perforated Cable Tray", Description: "Ventilated trough-style trays with perforated bottom providing continuous cable support with adequate airflow. Perfect for control and instrumentation cable routing.", Material: "Galvanised Iron (GI)", Standards: "IEC 61537, IS 16230, UL 2533", Application: "Control cable routing, instrumentation, commercial buildings, panel rooms", thumbnail: "/cable Trays/Cable-Tray-Perforated.jpg", Width: "50mm to 900mm", Height: "25mm to 100mm", Thickness: "1.2mm to 2.0mm", Length: "2.4m / 3.0m standard", Coating: "Hot-Dip Galvanised / Pre-Galvanised / Powder Coated", Applications: ["Panel Rooms", "Instrumentation", "Commercial Buildings", "IT Infrastructure"], applicationImage: "/cable Trays/cable-trays-data-centres-IT-infrastructure.webp" },
-  { Category: "Perforated Trays", "Sub-Category": "SS Perforated", "Product Name": "SS Perforated Cable Tray", Description: "Stainless steel perforated trays for clean environments. Offers cable support with ventilation in pharmaceutical, food, and chemical processing facilities.", Material: "SS 304 / SS 316", Standards: "IEC 61537, IS 16230", Application: "Pharma, food processing, chemical plants, clean rooms", thumbnail: "/cable Trays/Cable-Tray-Perforated.jpg", Width: "50mm to 600mm", Height: "25mm to 75mm", Thickness: "1.2mm to 2.0mm", Length: "2.4m / 3.0m", Coating: "Mill Finish / Electropolished", Applications: ["Pharma", "Food Processing", "Chemical Plants", "Clean Rooms"], applicationImage: "/cable Trays/cable-trays-power-plants-energy-facilities.webp" },
-  { Category: "Wire Mesh Trays", "Sub-Category": "Mesh Tray", "Product Name": "Wire Mesh Cable Tray", Description: "Lightweight, open-weave mesh trays for data centres, commercial buildings, and telecom applications. Easy cable drop-outs and rapid installation with snap-on accessories.", Material: "Electro-Zinc / SS 304 / Epoxy Coated Steel", Standards: "IEC 61537, NEMA VE-1, UL 2533", Application: "Data centres, telecom, commercial offices, server rooms", thumbnail: "/cable Trays/cableTrays1.jpg", Width: "50mm to 600mm", Height: "25mm to 100mm", Thickness: "4mm / 5mm / 6mm wire diameter", Length: "3.0m standard", Coating: "Electro-Zinc / Hot-Dip Galvanised / Epoxy Coated", Type: "Basket Tray / Wire Mesh", Applications: ["Data Centres", "Telecom", "Commercial Offices", "Server Rooms"], applicationImage: "/cable Trays/cable-trays-data-centres-IT-infrastructure.webp" },
-  { Category: "Solid & Channel Trays", "Sub-Category": "Solid Bottom", "Product Name": "Solid Bottom Cable Tray", Description: "Fully enclosed solid-bottom trays for sensitive cables requiring EMI/RFI shielding. Used in pharmaceutical plants, data centres, and clean-room environments.", Material: "Galvanised Iron (GI) / SS 304", Standards: "IEC 61537, IS 16230, NEMA VE-1", Application: "Pharma clean rooms, data centres, EMI/RFI sensitive areas, control rooms", thumbnail: "/cable Trays/cableTrays2.jpg", Width: "50mm to 600mm", Height: "25mm to 100mm", Thickness: "1.2mm to 2.0mm", Length: "2.4m / 3.0m standard", Coating: "Hot-Dip Galvanised / Powder Coated", Applications: ["Clean Rooms", "Data Centres", "Control Rooms", "Pharma"], applicationImage: "/cable Trays/cable-trays-data-centres-IT-infrastructure.webp" },
-  { Category: "Fittings & Accessories", "Sub-Category": "Horizontal Bends", "Product Name": "Cable Tray Bends (30°/45°/60°/90°)", Description: "Pre-fabricated horizontal and vertical bends for direction changes in cable tray runs. Available in all tray types — ladder, perforated, and solid bottom.", Material: "GI / SS 304 / Aluminium (matching tray material)", Standards: "IEC 61537, IS 16230", Application: "Direction changes in cable routing, riser connections", thumbnail: "/cable Trays/cableTrays1.jpg", Width: "Matching tray width (50mm to 900mm)", Type: "Horizontal Bend, Vertical Bend (Inside/Outside), Riser", Coating: "Matching tray finish (HDG / SS / Powder Coated)", Applications: ["Cable Routing", "Direction Changes", "Riser Connections"], applicationImage: "/cable Trays/Cabletrays.jpeg" },
-  { Category: "Fittings & Accessories", "Sub-Category": "Tees & Crosses", "Product Name": "Tee & Cross Fittings", Description: "Branch-off fittings for splitting cable tray runs. Available in equal and unequal configurations for all tray types.", Material: "GI / SS 304 / Aluminium", Standards: "IEC 61537, IS 16230", Application: "Branch connections, distribution points", thumbnail: "/cable Trays/cableTrays1.jpg", Width: "Matching tray width", Type: "Equal Tee, Unequal Tee, Cross", Coating: "Matching tray finish", Applications: ["Branch Connections", "Distribution Points", "Junction Points"], applicationImage: "/cable Trays/Cabletrays.jpeg" },
-  { Category: "Fittings & Accessories", "Sub-Category": "Reducers & Couplers", "Product Name": "Reducers, Couplers & Covers", Description: "Reducers for transitioning between tray widths, couplers for joining tray sections, and covers for protection from dust and debris.", Material: "GI / SS 304 / Aluminium", Standards: "IEC 61537, IS 16230", Application: "Tray width transitions, section joining, cable protection", thumbnail: "/cable Trays/cableTrays2.jpg", Type: "Centre Reducer, Left/Right Reducer, Coupler, Tray Cover", Coating: "Matching tray finish", Applications: ["Width Transitions", "Section Joining", "Cable Protection"], applicationImage: "/cable Trays/Cabletrays.jpeg" },
-  { Category: "Fittings & Accessories", "Sub-Category": "Supports & Brackets", "Product Name": "Support Brackets & Clamps", Description: "Wall brackets, cantilever arms, ceiling hangers, channel supports (Unistrut), and tray clamps for secure cable tray installation.", Material: "MS Hot-Dip Galvanised / SS 304", Standards: "IEC 61537, IS 16230", Application: "Wall mounting, ceiling suspension, channel support systems", thumbnail: "/cable Trays/cableTrays2.jpg", Type: "Wall Bracket, Cantilever Arm, Ceiling Hanger, Channel (Unistrut), Tray Clamp", Coating: "Hot-Dip Galvanised / Powder Coated", Applications: ["Wall Mounting", "Ceiling Suspension", "Channel Support"], applicationImage: "/cable Trays/Cabletrays.jpeg" },
-  { Category: "Raceways & Ducts", "Sub-Category": "Cable Raceways", "Product Name": "Cable Raceways & Trunking", Description: "Slotted and solid wall cable raceways for clean, concealed cable routing in commercial interiors, control panels, and industrial switchgear rooms.", Material: "PVC / GI / Aluminium", Standards: "UL 5A, IEC 61084, IS 16230", Application: "Control panels, switchgear rooms, commercial interiors", thumbnail: "/cable Trays/galvanized-earthing-strips-and-flats.webp", Width: "25mm to 150mm", Height: "25mm to 100mm", Length: "2.0m standard", Type: "Slotted Duct, Solid Duct, Wire Duct, Perforated Raceway", Coating: "UV Resistant (PVC), Galvanised (GI), Anodised (Al)", Applications: ["Control Panels", "Switchgear Rooms", "Commercial Interiors", "IT Wiring"], applicationImage: "/cable Trays/cable-trays-data-centres-IT-infrastructure.webp" },
-  { Category: "Raceways & Ducts", "Sub-Category": "Earthing Strips", "Product Name": "GI Earthing Strips & Flats", Description: "Galvanised iron earthing strips and flats for grounding and bonding of cable tray systems. Essential for electrical safety and lightning protection.", Material: "GI Flat / GI Strip / Copper Bonded", Standards: "IS 3043, IEC 62305, IEEE 80", Application: "Earthing, grounding, bonding, lightning protection", thumbnail: "/cable Trays/galvanized-earthing-strips-and-flats.webp", Width: "12mm to 75mm", Thickness: "3mm to 10mm", Length: "3.0m / 6.0m standard", Coating: "Hot-Dip Galvanised", Applications: ["Earthing", "Grounding", "Bonding", "Lightning Protection"], applicationImage: "/cable Trays/cable-trays-power-plants-energy-facilities.webp" },
-];
+const AccordionSection: React.FC<AccordionSectionProps> = ({
+  title,
+  icon,
+  open,
+  onToggle,
+  children,
+  className = "px-6 md:px-8 pb-2",
+}) => (
+  <div className={className}>
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between py-4 border-t border-slate-200 cursor-pointer group"
+    >
+      <h4 className="text-[13px] font-heading font-bold uppercase tracking-[0.15em] text-slate-900 flex items-center gap-2">
+        <span className="material-symbols-outlined text-sm text-yellow-500">
+          {icon}
+        </span>
+        {title}
+      </h4>
+      <span
+        className={`material-symbols-outlined text-lg text-slate-400 group-hover:text-slate-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      >
+        expand_more
+      </span>
+    </button>
+    {open && children}
+  </div>
+);
 
-const CATEGORIES = [
-  { key: "ladder", label: "Ladder Trays", icon: "grid_view", match: "Ladder Trays" },
-  { key: "perforated", label: "Perforated Trays", icon: "view_comfy", match: "Perforated Trays" },
-  { key: "mesh", label: "Wire Mesh Trays", icon: "grid_on", match: "Wire Mesh Trays" },
-  { key: "solid", label: "Solid & Channel", icon: "view_stream", match: "Solid & Channel Trays" },
-  { key: "fittings", label: "Fittings & Accessories", icon: "settings", match: "Fittings & Accessories" },
-  { key: "raceways", label: "Raceways & Ducts", icon: "route", match: "Raceways & Ducts" },
-] as const;
+const RangeTableSection: React.FC<{ table: CableTrayRangeTable }> = ({
+  table,
+}) => (
+  <div className="space-y-4 pb-4">
+    <div>
+      <h5 className="text-sm font-heading font-bold uppercase tracking-[0.14em] text-slate-700">
+        {table.title}
+      </h5>
+      {table.notes && table.notes.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {table.notes.map((note) => (
+            <span
+              key={`${table.title}-${note}`}
+              className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-[11px] font-heading font-bold uppercase tracking-[0.14em] text-slate-500"
+            >
+              {note}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr className="bg-slate-900">
+            {table.columns.map((column) => (
+              <th
+                key={`${table.title}-${column}`}
+                className="px-4 py-3 text-left font-heading font-bold uppercase text-[11px] tracking-wider text-white border border-slate-800 whitespace-nowrap"
+              >
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, rowIndex) => (
+            <tr
+              key={`${table.title}-${row.join("-")}`}
+              className={rowIndex % 2 === 0 ? "bg-slate-50" : "bg-white"}
+            >
+              {row.map((value, columnIndex) => (
+                <td
+                  key={`${table.title}-${rowIndex}-${columnIndex}`}
+                  className="px-4 py-3 text-slate-700 font-medium font-sans border border-slate-200 whitespace-nowrap"
+                >
+                  {value}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
 
-type CategoryKey = (typeof CATEGORIES)[number]["key"];
+const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
+  product,
+  index,
+}) => {
+  const [specsOpen, setSpecsOpen] = useState(false);
+  const [rangeOpen, setRangeOpen] = useState(false);
+  const [typesOpen, setTypesOpen] = useState(false);
+  const [accessoriesOpen, setAccessoriesOpen] = useState(false);
 
-const SPEC_FIELDS: { key: keyof TrayProduct; label: string; icon: string }[] = [
-  { key: "Sub-Category", label: "Sub-Category", icon: "category" },
-  { key: "Material", label: "Material", icon: "diamond" },
-  { key: "Standards", label: "Standards", icon: "verified" },
-  { key: "Width", label: "Width", icon: "swap_horiz" },
-  { key: "Height", label: "Height", icon: "height" },
-  { key: "Thickness", label: "Thickness", icon: "straighten" },
-  { key: "Length", label: "Length", icon: "straighten" },
-  { key: "LoadCapacity", label: "Load Capacity", icon: "fitness_center" },
-  { key: "Coating", label: "Coating / Finish", icon: "auto_awesome" },
-  { key: "Type", label: "Type / Variant", icon: "build" },
-  { key: "Application", label: "Application", icon: "factory" },
-];
+  return (
+    <motion.div
+      variants={DETAIL_VARIANTS}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ delay: index * 0.05 }}
+      className="bg-white border border-slate-200 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+    >
+      <div className="flex flex-col md:flex-row">
+        <div className="relative w-full md:w-[320px] lg:w-[380px] shrink-0 h-[220px] md:h-auto overflow-hidden group bg-slate-100">
+          <img
+            src={product.applicationImage || product.thumbnail}
+            alt={product["Product Name"]}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-transparent to-transparent" />
+        </div>
 
-const QA_ITEMS = [
-  { icon: "verified", title: "IS / IEC Certified", desc: "Compliant with IS 16230, IEC 61537, and NEMA VE-1." },
-  { icon: "shield", title: "Corrosion Resistant", desc: "Hot-dip galvanised, SS, and powder-coated options." },
-  { icon: "straighten", title: "Custom Fabrication", desc: "Bespoke sizes, widths, and finishes to order." },
-  { icon: "local_shipping", title: "Pan-India Supply", desc: "Warehouse stock + project-direct dispatch." },
-];
+        <div className="flex-1 min-w-0 p-6 md:p-8">
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">
+              {product["Sub-Category"]}
+            </span>
+          </div>
 
-const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+          <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight mb-3">
+            {product["Product Name"]}
+          </h3>
+          <div className="w-12 h-1 bg-yellow-500 rounded-full mb-4" />
+
+          <div className="mb-6 space-y-4">
+            {product.descriptionParagraphs.map((paragraph) => (
+              <p
+                key={`${product.id}-${paragraph}`}
+                className="text-base text-slate-600 font-sans leading-relaxed text-justify"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {product.certifications && product.certifications.length > 0 && (
+            <div className="mb-6">
+              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-3 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-yellow-500">
+                  shield
+                </span>
+                Certifications & Compliance
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {product.certifications.map((cert) => (
+                  <span
+                    key={`${product.id}-cert-${cert}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-heading font-bold uppercase tracking-wider rounded-sm"
+                  >
+                    <span className="material-symbols-outlined text-xs">
+                      verified
+                    </span>
+                    {cert}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {product.industries && product.industries.length > 0 && (
+            <div className="mb-6">
+              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-yellow-500">
+                  factory
+                </span>
+                Key Industries & Applications
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {product.industries.map((industry) => (
+                  <span
+                    key={`${product.id}-ind-${industry}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-sm">
+                      check_circle
+                    </span>
+                    {industry}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {product.features && product.features.length > 0 && (
+            <div>
+              <h4 className="text-[11px] font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-yellow-500">
+                  bolt
+                </span>
+                Key Features
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {product.features.map((feature) => (
+                  <span
+                    key={`${product.id}-${feature}`}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-sm">
+                      check_circle
+                    </span>
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {product.technicalSpecifications.length > 0 && (
+        <AccordionSection
+          title="Technical Specifications"
+          icon="engineering"
+          open={specsOpen}
+          onToggle={() => setSpecsOpen((open) => !open)}
+        >
+          <div className="overflow-x-auto pb-4">
+            <table className="w-full border-collapse text-sm">
+              <tbody>
+                {product.technicalSpecifications.map((item, itemIndex) => (
+                  <tr
+                    key={`${product.id}-${item.label}`}
+                    className={itemIndex % 2 === 0 ? "bg-slate-50" : "bg-white"}
+                  >
+                    <td className="px-4 py-3 font-heading font-bold text-slate-500 uppercase text-[11px] tracking-wider w-[220px] border border-slate-200 whitespace-nowrap">
+                      {item.label}
+                    </td>
+                    <td className="px-4 py-3 text-slate-800 font-medium font-sans border border-slate-200">
+                      {item.value}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </AccordionSection>
+      )}
+
+      {product.typeGallery && product.typeGallery.items.length > 0 && (
+        <AccordionSection
+          title={product.typeGallery.title}
+          icon="grid_view"
+          open={typesOpen}
+          onToggle={() => setTypesOpen((open) => !open)}
+          className="px-6 md:px-8 pb-6"
+        >
+          <div className="pb-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-yellow-200 bg-yellow-50 text-yellow-700 text-[11px] font-heading font-bold uppercase tracking-[0.18em]">
+              Gallery
+            </span>
+            <p className="mt-4 text-sm md:text-base text-slate-600 font-sans leading-relaxed text-justify max-w-4xl">
+              {product.typeGallery.intro}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-2">
+            {product.typeGallery.items.map((item) => (
+              <div
+                key={`${product.id}-${item.name}`}
+                className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="px-4 py-4 border-t border-slate-200">
+                  <p className="text-sm font-heading font-bold text-slate-900 text-center leading-snug">
+                    {item.name}
+                  </p>
+                  {item.description && (
+                    <p className="mt-2 text-xs text-slate-500 text-center leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </AccordionSection>
+      )}
+
+      {product.accessoryGallery && product.accessoryGallery.items.length > 0 && (
+        <AccordionSection
+          title={product.accessoryGallery.title}
+          icon="extension"
+          open={accessoriesOpen}
+          onToggle={() => setAccessoriesOpen((open) => !open)}
+          className="px-6 md:px-8 pb-6"
+        >
+          <div className="pb-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-[11px] font-heading font-bold uppercase tracking-[0.18em]">
+              Accessories
+            </span>
+            <p className="mt-4 text-sm md:text-base text-slate-600 font-sans leading-relaxed text-justify max-w-4xl">
+              {product.accessoryGallery.intro}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-2">
+            {product.accessoryGallery.items.map((item) => (
+              <div
+                key={`${product.id}-acc-${item.name}`}
+                className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="px-4 py-4 border-t border-slate-200">
+                  <p className="text-sm font-heading font-bold text-slate-900 text-center leading-snug">
+                    {item.name}
+                  </p>
+                  {item.description && (
+                    <p className="mt-2 text-xs text-slate-500 text-center leading-relaxed">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </AccordionSection>
+      )}
+
+      {product.rangeTables && product.rangeTables.length > 0 && (
+        <AccordionSection
+          title="Product Range"
+          icon="table_chart"
+          open={rangeOpen}
+          onToggle={() => setRangeOpen((open) => !open)}
+          className="px-6 md:px-8 pb-4"
+        >
+          <div className="space-y-8">
+            {product.rangeTables.map((table) => (
+              <RangeTableSection
+                key={`${product.id}-${table.title}`}
+                table={table}
+              />
+            ))}
+          </div>
+        </AccordionSection>
+      )}
+    </motion.div>
+  );
+};
 
 const CableTray: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const activeCategoryKey: CategoryKey = useMemo(() => {
-    const c = searchParams.get("category");
-    if (c) { const found = CATEGORIES.find((cat) => cat.key === c); if (found) return found.key; }
-    return "ladder";
+    const category = searchParams.get("category");
+    if (category) {
+      const found = CATEGORIES.find((item) => item.key === category);
+      if (found) return found.key as CategoryKey;
+    }
+    return "perforated";
   }, [searchParams]);
 
-  const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey)!;
-  const categoryProducts = useMemo(() => PRODUCTS.filter((p) => p.Category === activeCategory.match), [activeCategory]);
+  const activeCategory = CATEGORIES.find((item) => item.key === activeCategoryKey)!;
 
-  const activeProductIdx = useMemo(() => {
-    const param = searchParams.get("product");
-    if (param) { const idx = categoryProducts.findIndex((p) => slugify(p["Product Name"]) === param); if (idx >= 0) return idx; }
-    return 0;
-  }, [searchParams, categoryProducts]);
+  const displayedProducts = useMemo(
+    () =>
+      PRODUCTS.filter((product) =>
+        matchesCategory(activeCategory.match, product.Category),
+      ),
+    [activeCategory],
+  );
 
-  const activeProduct = categoryProducts[activeProductIdx] || categoryProducts[0];
-
-  function selectCategory(key: string) { setSearchParams({ category: key }); setMobileMenuOpen(false); }
-  function selectProduct(idx: number) {
-    const p = categoryProducts[idx];
-    if (p) setSearchParams({ category: activeCategoryKey, product: slugify(p["Product Name"]) });
-    setMobileMenuOpen(false);
+  function selectCategory(key: string) {
+    setSearchParams({ category: key });
   }
-
-  const activeSpecs = useMemo(() => {
-    if (!activeProduct) return [];
-    return SPEC_FIELDS.filter((f) => { const v = activeProduct[f.key]; return typeof v === "string" && v.trim().length > 0; });
-  }, [activeProduct]);
-
-  const sidebarProducts = useMemo(() => categoryProducts.map((p) => ({
-    name: p["Product Name"], subLabel: p["Sub-Category"], thumbnail: p.thumbnail,
-  })), [categoryProducts]);
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero
-        backgroundImage="/cable Trays/Cabletrays.jpeg"
-        title="Cable Tray Systems"
-        subtitle="Engineered Cable Management."
-        description="GI, stainless steel & aluminium cable trays — ladder, perforated, mesh & solid bottom — IS / IEC certified, custom fabricated for power plants, data centres & industrial installations."
-        breadcrumbLabel="Cable Tray Systems"
+      <ProductHero {...HERO} />
+
+      <ProductCategoryNav
+        categories={CATEGORIES}
+        activeKey={activeCategoryKey}
+        onSelect={selectCategory}
+        certBadge={CERT_BADGE}
       />
-      <ProductCategoryNav categories={CATEGORIES} activeKey={activeCategoryKey} onSelect={selectCategory} certBadge="IS / IEC / NEMA Certified" />
 
       <section className="bg-white border-b border-slate-100">
         <div className={`${CONTAINER} py-6 md:py-8 lg:py-12`}>
-          <ProductMobileMenu open={mobileMenuOpen} toggle={() => setMobileMenuOpen(!mobileMenuOpen)} activeLabel={activeProduct ? activeProduct["Product Name"] : "Select Product"} products={sidebarProducts} activeIdx={activeProductIdx} onSelect={selectProduct} />
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <ProductSidebar activeCategory={activeCategory} products={sidebarProducts} activeIdx={activeProductIdx} onSelect={selectProduct} />
-            <div className="flex-1 min-w-0">
-              <AnimatePresence mode="wait">
-                {activeProduct && (
-                  <motion.div key={activeProduct["Product Name"]} variants={DETAIL_VARIANTS} initial="initial" animate="animate" exit="exit">
-                    <div className="mb-8">
-                      <span className="text-xs font-bold font-heading uppercase tracking-[0.15em] text-yellow-600 bg-yellow-50 px-3 py-1 rounded-sm">{activeProduct["Sub-Category"]}</span>
-                      <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-slate-900 leading-tight mt-3">{activeProduct["Product Name"]}</h2>
-                      <div className="w-16 h-1 bg-yellow-500 mt-4 rounded-full" />
-                    </div>
-
-                    <div className="relative overflow-hidden rounded-sm mb-8 h-[200px] md:h-[240px] lg:h-[280px] xl:h-[340px] group">
-                      <img src={activeProduct.applicationImage || activeProduct.thumbnail} alt={activeProduct["Product Name"]} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-5 right-5"><span className="text-xs font-heading font-bold uppercase tracking-widest text-white/80">{activeProduct["Product Name"]}</span></div>
-                    </div>
-
-                    <div className="mb-10"><p className="text-lg text-slate-600 font-sans leading-relaxed max-w-3xl">{activeProduct.Description}</p></div>
-
-                    {activeSpecs.length > 0 && (
-                      <div className="mb-10">
-                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2"><span className="material-symbols-outlined text-sm text-yellow-500">engineering</span>Technical Specifications</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                          {activeSpecs.map((spec) => (
-                            <div key={spec.key} className="bg-white border border-slate-200 p-5 rounded-sm hover:border-slate-300 hover:shadow-sm transition-all group">
-                              <div className="flex items-center gap-2 mb-2.5"><span className="material-symbols-outlined text-base text-yellow-500 group-hover:text-yellow-600 transition-colors">{spec.icon}</span><span className="text-[11px] font-heading font-bold uppercase tracking-widest text-slate-400">{spec.label}</span></div>
-                              <p className="text-sm font-sans text-slate-800 leading-relaxed font-medium">{activeProduct[spec.key] as string}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {activeProduct.Applications && activeProduct.Applications.length > 0 && (
-                      <div className="mb-10">
-                        <h3 className="text-xs font-heading font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2"><span className="material-symbols-outlined text-sm text-yellow-500">factory</span>Key Industries & Applications</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {activeProduct.Applications.map((app, idx) => (
-                            <span key={idx} className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-heading font-bold uppercase tracking-wider rounded-sm hover:bg-yellow-100 transition-colors"><span className="material-symbols-outlined text-sm">check_circle</span>{app}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="flex flex-wrap gap-3 mb-10">
-                      <button className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-sm"><span className="material-symbols-outlined text-lg">download</span>Download Datasheet</button>
-                      <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 text-xs font-heading font-bold uppercase tracking-wider hover:border-yellow-500 hover:bg-yellow-50 transition-all"><span className="material-symbols-outlined text-lg">request_quote</span>Get Quote</Link>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          <div className="mb-6 flex flex-col sm:flex-row justify-between items-start gap-4">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
+                {activeCategory.label}
+              </h2>
+              <p className="text-sm text-slate-400 mt-1 font-heading uppercase tracking-wider">
+                {displayedProducts.length} product
+                {displayedProducts.length !== 1 ? "s" : ""} available
+              </p>
+              <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+            </div>
+            <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider bg-white">
+              <span className="material-symbols-outlined text-lg">
+                download
+              </span>
+              Download Catalogue
             </div>
           </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategoryKey}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.3 } }}
+              exit={{ opacity: 0, y: -8, transition: { duration: 0.15 } }}
+              className="flex flex-col gap-8"
+            >
+              {displayedProducts.map((product, index) => (
+                <TrayProductCard
+                  key={product.id}
+                  product={product}
+                  index={index}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
-      <ProductQABanner title="Certified Cable Management Systems" items={QA_ITEMS} />
-      <ProductCTA title="Need a Custom Cable Tray Solution?" description="Our engineering team can assist with tray sizing, material selection, load calculations, and project-specific configurations. Get a response within 24 hours." ctaLabel="Request Quote" />
+      <ProductQABanner title={QA_BANNER.title} items={QA_BANNER.items} />
+      <ProductCTA
+        title={CTA.title}
+        description={CTA.description}
+        ctaLabel={CTA.ctaLabel}
+        ctaIcon={CTA.ctaIcon}
+        ctaLink={CTA.ctaLink}
+      />
     </div>
   );
 };
