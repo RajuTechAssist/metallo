@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { PRODUCT_VERTICAL_BY_KEY } from "../utils/productVerticals";
@@ -133,26 +133,45 @@ const ctaVariants: Variants = {
   exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
+const TRANSITION_LOCK_MS = 800; // ignore clicks during this window
+
 const Hero: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
 
+  // Stable ref for current index so callbacks don't depend on `current`
+  const currentRef = useRef(current);
+  currentRef.current = current;
+
+  // Transition lock to prevent rapid-fire clicks from causing flicker
+  const isTransitioning = useRef(false);
+  const lockTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
   const goToSlide = useCallback((index: number) => {
+    if (isTransitioning.current) return; // ignore while animating
+    isTransitioning.current = true;
+    clearTimeout(lockTimer.current);
+    lockTimer.current = setTimeout(() => {
+      isTransitioning.current = false;
+    }, TRANSITION_LOCK_MS);
+
     setCurrent(index);
     setProgressKey((k) => k + 1);
   }, []);
 
   const next = useCallback(() => {
-    goToSlide((current + 1) % SLIDES.length);
-  }, [current, goToSlide]);
+    goToSlide((currentRef.current + 1) % SLIDES.length);
+  }, [goToSlide]);
 
   const prev = useCallback(() => {
-    goToSlide((current - 1 + SLIDES.length) % SLIDES.length);
-  }, [current, goToSlide]);
+    goToSlide((currentRef.current - 1 + SLIDES.length) % SLIDES.length);
+  }, [goToSlide]);
 
   /* Auto-advance driven by progress bar duration */
   useEffect(() => {
     const timer = setTimeout(() => {
+      // Bypass the transition lock for auto-advance
+      isTransitioning.current = false;
       next();
     }, SLIDE_DURATION * 1000);
     return () => clearTimeout(timer);
@@ -163,7 +182,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative w-full bg-slate-900 overflow-hidden h-[50dvh] md:h-[calc(80vh-80px)] min-h-[400px] md:min-h-[500px]">
       {/* ── Background Images with Ken Burns ── */}
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="sync">
         <motion.div
           key={slide.id}
           className="absolute inset-0 z-0 w-full"
