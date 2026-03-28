@@ -34,7 +34,7 @@ const Certifications: React.FC = () => {
     <>
       <section id="certifications" className="bg-white py-16 md:py-20">
         <div className="container">
-          <div className="max-w-4xl">
+          <div className="w-full">
             <div className="flex items-start gap-4">
               <span className="mt-1 h-10 w-2 flex-none -skew-x-[18deg] bg-metallo-gold" />
               <div>
