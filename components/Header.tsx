@@ -4,8 +4,8 @@ import { HEADER_PRODUCT_VERTICALS } from "../utils/productVerticals";
 
 const TOP_LINKS = [
   { name: "About Us", path: "/about" },
+  { name: "Certifications", path: "/?section=certifications" },
   { name: "Why Metallo", path: "/why-metallo" },
-  { name: "Careers", path: "/careers" },
   { name: "Contact Us", path: "/contact" },
 ] as const;
 
@@ -63,7 +63,12 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center text-[clamp(0.625rem,0.78vw,0.8rem)] font-medium font-serif text-gray-600 tracking-wide">
               <div className="flex space-x-[clamp(1rem,2.57vw,2.6rem)]">
                 {TOP_LINKS.map((link) => {
-                  const isActive = location.pathname === link.path;
+                  const isCertificationsLink = link.name === "Certifications";
+                  const isActive = isCertificationsLink
+                    ? location.pathname === "/" &&
+                      new URLSearchParams(location.search).get("section") ===
+                        "certifications"
+                    : location.pathname === link.path;
 
                   return (
                     <Link
@@ -211,7 +216,12 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row h-full">
               <div className="flex-1 flex flex-col space-y-[clamp(1rem,3vw,2rem)] pt-[clamp(0.5rem,1.5vw,1rem)] pb-[clamp(1rem,3vw,2rem)] md:pb-0 pl-[clamp(0.5rem,2vw,1rem)] md:pl-[clamp(1rem,3vw,2rem)]">
                 {TOP_LINKS.map((link) => {
-                  const isActive = location.pathname === link.path;
+                  const isCertificationsLink = link.name === "Certifications";
+                  const isActive = isCertificationsLink
+                    ? location.pathname === "/" &&
+                      new URLSearchParams(location.search).get("section") ===
+                        "certifications"
+                    : location.pathname === link.path;
 
                   return (
                     <Link
@@ -262,18 +272,18 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
               <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
                 <Link
-                  to="/csr"
+                  to="/?section=certifications"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors"
                 >
-                  CSR Policy
+                  Certifications
                 </Link>
                 <Link
-                  to="/disclosure"
+                  to="/contact"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors"
                 >
-                  Disclosure
+                  Contact
                 </Link>
               </div>
 

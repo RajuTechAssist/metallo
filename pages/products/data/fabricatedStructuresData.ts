@@ -30,6 +30,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
     },
   ] as const,
   defaultCategoryKey: "building",
+  verticalKey: "fabricatedStructures",
   certBadge: "PEB / Framing / Cladding",
   items: [
     {

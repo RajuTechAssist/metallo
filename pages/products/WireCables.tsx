@@ -8,6 +8,7 @@ import {
   ProductCTA,
   ProductHero,
   ProductQABanner,
+  VerticalCertifications,
 } from "../../components/product";
 import {
   CATALOGUE_DOWNLOAD,
@@ -530,14 +531,8 @@ const WireCables: React.FC = () => {
         </div>
       </section>
 
+      <VerticalCertifications verticalKey="cables" />
       <ProductQABanner title={QA_BANNER.title} items={QA_BANNER.items} />
-      <ProductCTA
-        title={CTA.title}
-        description={CTA.description}
-        ctaLabel={CTA.ctaLabel}
-        ctaIcon={CTA.ctaIcon}
-        ctaLink={CTA.ctaLink}
-      />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {
   ProductCategoryNav,
   ProductQABanner,
   ProductCTA,
+  VerticalCertifications,
   CONTAINER,
   DETAIL_VARIANTS,
 } from "../../components/product";
@@ -548,15 +549,10 @@ const Steel: React.FC = () => {
         </div>
       </section>
 
+      <VerticalCertifications verticalKey="steel" />
       <ProductQABanner
         title="Certified to the Highest Standards"
         items={QA_ITEMS}
-      />
-      <ProductCTA
-        title="Procuring for a major project?"
-        description="Submit your Bill of Materials (BOM) for a comprehensive supply schedule. Our engineering team will provide grade-specific availability, lead times, and project pricing within 24 hours."
-        ctaLabel="Upload BOQ / Request Supply Quote"
-        ctaIcon="upload_file"
       />
     </div>
   );

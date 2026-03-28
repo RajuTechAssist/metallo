@@ -53,6 +53,8 @@ export interface ConfigurableProductPageData {
   categories: readonly CategoryConfig[];
   defaultCategoryKey: string;
   certBadge?: string;
+  /** Key into VERTICAL_CERT_DATA — renders partners + certifications sections */
+  verticalKey?: string;
   items: ProductCatalogItem[];
   catalogCtaLabel?: string;
   catalogCtaIcon?: string;

@@ -8,6 +8,7 @@ import {
   ProductCTA,
   ProductHero,
   ProductQABanner,
+  VerticalCertifications,
   matchesCategory,
 } from "../../components/product";
 import {
@@ -460,14 +461,8 @@ const CableTray: React.FC = () => {
         </div>
       </section>
 
+      <VerticalCertifications verticalKey="cabletray" />
       <ProductQABanner title={QA_BANNER.title} items={QA_BANNER.items} />
-      <ProductCTA
-        title={CTA.title}
-        description={CTA.description}
-        ctaLabel={CTA.ctaLabel}
-        ctaIcon={CTA.ctaIcon}
-        ctaLink={CTA.ctaLink}
-      />
     </div>
   );
 };

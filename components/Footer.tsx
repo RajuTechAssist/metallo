@@ -56,8 +56,8 @@ const Footer: React.FC = () => {
   };
   const topLinks = [
     { name: "About Us", path: "/about" },
+    { name: "Certifications", path: "/?section=certifications" },
     { name: "Why Metallo", path: "/why-metallo" },
-    { name: "Careers", path: "/careers" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -277,13 +277,13 @@ const Footer: React.FC = () => {
               About Us
             </Link>
             <Link
-              to="/why-metallo"
+              to="/?section=certifications"
               className="hover:text-white transition-colors"
             >
-              why metallo
+              Certifications
             </Link>
-            <Link to="/careers" className="hover:text-white transition-colors">
-              Careers
+            <Link to="/why-metallo" className="hover:text-white transition-colors">
+              Why Metallo
             </Link>
           </div>
         </div>

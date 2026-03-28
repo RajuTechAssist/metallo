@@ -5,6 +5,7 @@ import ProductCategoryNav from "./ProductCategoryNav";
 import ProductCatalogCards from "./ProductCatalogCards";
 import ProductQABanner from "./ProductQABanner";
 import ProductCTA from "./ProductCTA";
+import VerticalCertifications from "./VerticalCertifications";
 import { matchesCategory } from "./productLayout";
 import type {
   ConfigurableProductPageData,
@@ -108,18 +109,14 @@ const ConfigurableProductPage: React.FC<ConfigurableProductPageProps> = ({
         ctaIcon={config.catalogCtaIcon}
       />
 
+      {config.verticalKey && (
+        <VerticalCertifications verticalKey={config.verticalKey} />
+      )}
+
       <ProductQABanner
         sectionLabel={config.qaBanner.sectionLabel}
         title={config.qaBanner.title}
         items={config.qaBanner.items}
-      />
-
-      <ProductCTA
-        title={config.cta.title}
-        description={config.cta.description}
-        ctaLabel={config.cta.ctaLabel}
-        ctaIcon={config.cta.ctaIcon}
-        ctaLink={config.cta.ctaLink}
       />
     </div>
   );

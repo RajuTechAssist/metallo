@@ -6,6 +6,7 @@ import {
   ProductCatalogCards,
   ProductQABanner,
   ProductCTA,
+  VerticalCertifications,
   matchesCategory,
 } from "../../components/product";
 import {
@@ -176,13 +177,8 @@ const PowerTools: React.FC = () => {
         ctaLabel="Download Power Tools Catalog"
       />
 
+      <VerticalCertifications verticalKey="tools" />
       <ProductQABanner title="Professional Power Tools" items={QA_ITEMS} />
-
-      <ProductCTA
-        title="Need Bulk Power Tool Orders?"
-        description="Corporate and project-level pricing is available on bulk tool orders. Contact our team for fleet pricing, service agreements, and custom kit configurations."
-        ctaLabel="Request Quote"
-      />
     </div>
   );
 };

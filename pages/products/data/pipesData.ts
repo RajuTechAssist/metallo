@@ -30,6 +30,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
     },
   ] as const,
   defaultCategoryKey: "piping",
+  verticalKey: "pipes",
   certBadge: "Engineering / QC / Delivery",
   items: [
     {

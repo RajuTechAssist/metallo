@@ -6,6 +6,7 @@ import {
   ProductCatalogCards,
   ProductQABanner,
   ProductCTA,
+  VerticalCertifications,
   matchesCategory,
 } from "../../components/product";
 import {
@@ -83,13 +84,8 @@ const WeldingConsumables: React.FC = () => {
         }
       />
 
+      <VerticalCertifications verticalKey="welding" />
       <ProductQABanner title="Certified Welding Consumables" items={QA_ITEMS} />
-
-      <ProductCTA
-        title="Need Bulk Welding & Allied Supplies?"
-        description="Submit your project requirements for competitive pricing on bulk orders. Our team provides grade-specific availability and delivery timelines within 24 hours."
-        ctaLabel="Request Quote"
-      />
     </div>
   );
 };

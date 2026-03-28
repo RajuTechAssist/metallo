@@ -6,6 +6,7 @@ export { default as ProductSidebar } from "./ProductSidebar";
 export { default as ProductMobileMenu } from "./ProductMobileMenu";
 export { default as ProductQABanner } from "./ProductQABanner";
 export { default as ProductCTA } from "./ProductCTA";
+export { default as VerticalCertifications } from "./VerticalCertifications";
 export { default as ConfigurableProductPage } from "./ConfigurableProductPage";
 export {
   CONTAINER,

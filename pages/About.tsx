@@ -16,26 +16,29 @@ const About: React.FC = () => {
             alt="Metallo Industrial Facility"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-metallo-navy/80 mix-blend-multiply"></div>
+          <div className="absolute mix-blend-multiply"></div>
         </div>
 
-        <div className={`relative z-10 ${CONTAINER}`}>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold text-white mb-4 md:mb-6 uppercase tracking-wide leading-tight">
-            Powering the Future of <span className="text-metallo-gold">Industrial Infrastructure</span>
-          </h1>
-          <p className="text-base md:text-xl text-gray-200 font-serif max-w-4xl mb-3 md:mb-4">
-            Metallo is a manufacturing-technology platform that integrates global industrial capacity into a scalable, quality-controlled production ecosystem.
-          </p>
-          <p className="text-sm md:text-lg text-gray-300 max-w-3xl mb-8 md:mb-10">
-            Delivering engineered metal solutions with precision, scale, and global reach.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start">
-            <button className="px-8 py-4 bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-wider hover:bg-white transition-all shadow-xl">
-              Download Corporate Profile
-            </button>
-            <Link to="/contact" className="px-8 py-4 bg-transparent text-white border-2 border-white font-bold font-heading uppercase tracking-wider hover:bg-white hover:text-metallo-navy transition-all shadow-xl">
-              Contact Our Engineering Team
-            </Link>
+        <div className={`relative z-10 flex flex-col justify-center ${CONTAINER}`}>
+          <div className='max-w-4xl inset-0 bg-slate-900/60 pt-10 pb-10 pl-10 pr-10'>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold text-white mb-4 md:mb-6 uppercase tracking-wide leading-tight">
+              Powering the Future of
+              <br /><span className="text-metallo-gold">Industrial Infrastructure</span>
+            </h1>
+            <p className="text-base md:text-xl text-gray-200 font-serif max-w-4xl mb-3 md:mb-4">
+              Metallo is a manufacturing-technology platform that integrates global industrial capacity into a scalable, quality-controlled production ecosystem.
+            </p>
+            <p className="text-sm md:text-lg text-gray-300 max-w-3xl mb-8 md:mb-10">
+              Delivering engineered metal solutions with precision, scale, and global reach.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-start">
+              <button className="px-8 py-4 bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-wider hover:bg-white transition-all shadow-xl">
+                Download Corporate Profile
+              </button>
+              <Link to="/contact" className="px-8 py-4 bg-transparent text-white border-2 border-white font-bold font-heading uppercase tracking-wider hover:bg-white hover:text-metallo-navy transition-all shadow-xl">
+                Contact Our Engineering Team
+              </Link>
+            </div>
           </div>
         </div>
       </section>
