@@ -2,7 +2,7 @@ import type { ConfigurableProductPageData } from "../../../components/product";
 
 export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
   hero: {
-    backgroundImage: "/pipes/shop-fabricated-piping.jpg",
+    backgroundImage: "/pipes/shop-fabricated-piping.png",
     title: "Pipes & Piping Solutions",
     subtitle: "Built for Critical Flow.",
     description:
@@ -40,7 +40,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Shop Fabricated Piping",
       description:
         "DEE Piping positions this offer as a full process-piping package covering engineering, cutting and beveling, robotic and automatic welding, radiography, PWHT, hydro testing, passivation, blasting, and painting for complex industrial systems.",
-      image: "/pipes/shop-fabricated-piping.jpg",
+      image: "/pipes/shop-fabricated-piping.png",
       applications: ["Power Projects", "Process Plants", "Oil & Gas", "Alloy Service Lines"],
       badges: [{ label: "Robotic Welding", tone: "accent" }],
       specifications: [

@@ -9,7 +9,7 @@ import { PRODUCT_VERTICAL_BY_KEY } from "../utils/productVerticals";
    Ken Burns effect, and industrial track navigation.
    ═══════════════════════════════════════════════════════════════ */
 
-const SLIDE_DURATION = 6; // seconds
+const SLIDE_DURATION = 4; // seconds
 
 interface Slide {
   id: string;
@@ -24,59 +24,59 @@ const SLIDES: Slide[] = [
   {
     id: "01",
     category: "Steel",
-    title: "Infinite Capacity. Standardized Quality.",
-    desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
+    title: "Unmatched Scale. Uncompromising Grade.",
+    desc: "India's premier distributed manufacturing network for structural and engineering steel. Delivering IS:2062 compliant materials with 100% traceability and immediate deployment capability.",
     image: "/Steel/oil_industry1.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.steel.path,
   },
   {
     id: "02",
     category: "Wire & Cable",
-    title: "Powering the National Grid.",
-    desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
+    title: "High-Voltage Reliability.",
+    desc: "Engineered for utility-scale power transmission up to 33kV. We mandate rigorous multi-point batch testing to guarantee continuous performance in demanding industrial environments.",
     image: "/wire&cable/wireCables.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.cables.path,
   },
   {
     id: "03",
     category: "Cable Trays",
-    title: "Structural Routing Systems",
-    desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
+    title: "Heavy-Duty Routing Architecture.",
+    desc: "Galvanized and customized structural support systems designed to protect mission-critical wiring. Built to international standards for complex onshore and offshore installations.",
     image: "/cable Trays/cableTrays2.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.cabletray.path,
   },
   {
     id: "04",
     category: "Welding Consumables",
-    title: "Mission-Critical Precision.",
-    desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
+    title: "Flawless High-Stress Joints.",
+    desc: "AWS and ASME certified welding alloys crafted for foundational infrastructure. Manufactured under strict operating procedures to ensure absolute structural integrity.",
     image: "/Welding Consumables/welding_consumables.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.welding.path,
   },
   {
     id: "05",
     category: "Power Tools",
-    title: "Heavy-Duty Execution at Scale.",
-    desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
+    title: "Relentless Industrial Performance.",
+    desc: "Professional-grade automated tooling built for extreme operational conditions. Maximizing workforce efficiency while exceeding global safety certifications.",
     image: "/powerTools/powerTool.jpg",
     link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
-  // {
-  //   id: "06",
-  //   category: "Die Casting",
-  //   title: "Micro-Tolerance Engineering.",
-  //   desc: "Precision aluminum components for automotive and aerospace. Seamlessly scalable from prototype to mass production via our agile capacity.",
-  //   image: "/diecasting/die-casting-process-foundry.jpg",
-  //   link: PRODUCT_VERTICAL_BY_KEY.casting.path,
-  // },
-  // {
-  //   id: "07",
-  //   category: "Industrial Tech",
-  //   title: "The Operating System for Infrastructure.",
-  //   desc: "End-to-end digital production tracking, centralized procurement, and seamless supply chain visibility for major EPC contractors.",
-  //   image: "/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg",
-  //   link: PRODUCT_VERTICAL_BY_KEY.tech.path,
-  // },
+  {
+    id: "06",
+    category: "Pipes",
+    title: "Precision Process Flow Systems.",
+    desc: "Bespoke fabricated piping packages and modular skids. Precisely engineered and hydro-tested for absolute reliability in harsh fluid and gas transmission networks.",
+    image: "/pipes/shop-fabricated-piping.png",
+    link: PRODUCT_VERTICAL_BY_KEY.pipes.path,
+  },
+  {
+    id: "07",
+    category: "Fabricated Structures",
+    title: "Rapid-Assembly Structural Prowess.",
+    desc: "End-to-end fabrication from primary PEB frameworks to intricate workshop steelwork. Delivered with exact tolerances to accelerate your project execution.",
+    image: "/fabricated-structures/cold-form-section.png",
+    link: PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path,
+  },
 ];
 
 const TOTAL = String(SLIDES.length).padStart(2, "0");
@@ -138,6 +138,7 @@ const TRANSITION_LOCK_MS = 800; // ignore clicks during this window
 const Hero: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Stable ref for current index so callbacks don't depend on `current`
   const currentRef = useRef(current);
@@ -169,18 +170,25 @@ const Hero: React.FC = () => {
 
   /* Auto-advance driven by progress bar duration */
   useEffect(() => {
+    if (isPaused) return;
     const timer = setTimeout(() => {
       // Bypass the transition lock for auto-advance
       isTransitioning.current = false;
       next();
     }, SLIDE_DURATION * 1000);
     return () => clearTimeout(timer);
-  }, [progressKey, next]);
+  }, [progressKey, next, isPaused]);
 
   const slide = SLIDES[current];
 
   return (
     <section className="relative w-full bg-slate-900 overflow-hidden h-[50dvh] md:h-[calc(80vh-80px)] min-h-[400px] md:min-h-[500px]">
+      {/* ── Hidden Image Preloader ── */}
+      <div className="hidden" aria-hidden="true">
+        {SLIDES.map((s) => (
+          <img key={`${s.id}-preload`} src={s.image} alt="" />
+        ))}
+      </div>
       {/* ── Background Images with Ken Burns ── */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -203,13 +211,12 @@ const Hero: React.FC = () => {
       </AnimatePresence>
 
       {/* ── Overlay ── */}
-      <div className="absolute inset-0 z-[1] bg-slate-900/60" />
       {/* Bottom vignette for track nav readability */}
-      <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent pointer-events-none" />
 
       {/* ── Content ── */}
       <div className="relative container z-10 flex flex-col justify-center h-full pt-[5%] pb-[10%]">
-        <div className="max-w-5xl">
+        <div className="max-w-5xl bg-slate-900/70 p-8 sm:p-10 md:p-12 lg:p-16 backdrop-blur-sm border-l-4 border-yellow-500">
           <AnimatePresence mode="wait">
             <motion.div key={slide.id}>
               {/* Category Subtitle */}
@@ -292,6 +299,15 @@ const Hero: React.FC = () => {
         <div className="flex items-end justify-between gap-6">
           {/* Right: Arrow Buttons */}
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center mr-2"
+              aria-label={isPaused ? "Play slider" : "Pause slider"}
+            >
+              <span className="material-symbols-outlined text-xl">
+                {isPaused ? "play_arrow" : "pause"}
+              </span>
+            </button>
             <button
               onClick={prev}
               className="w-12 h-12 border border-white/20 text-white/70 hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center"

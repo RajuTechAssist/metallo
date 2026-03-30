@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   CategoryConfig,
   ProductCTAConfig,
   ProductHeroConfig,
@@ -34,6 +34,7 @@ const CABLE_TRAY_INDUSTRIES = [
   "Commercial Buildings",
 ];
 
+const metalloImage = (asset: string) => `/cable Trays/metallo_cable_trays/${asset}`;
 const trayImage = (asset: string) => `/cable Trays/dudhat/${asset}`;
 const accessoryImage = (asset: string) => trayImage(`accessories/${asset}`);
 const finishingImage = (asset: string) => trayImage(`finishing/${asset}`);
@@ -256,7 +257,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's perforated tray program is aligned to the product range for open cable routes that need airflow, heat dissipation, and straightforward field installation without moving to a ladder profile too early. Available in regular flange, U type flange, inside flange, outside flange, and heavy-duty inside flange constructions.",
       "The range covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 builds with hot-dip galvanized, GI alkaline, powder-coated, aluminium-anodized, and stainless finishes. Standard tray widths run from 50 mm to 900 mm, with height combinations stepping from 25 mm through 150 mm and lengths in 2500 mm or 3000 mm sections.",
     ],
-    thumbnail: trayImage("perforated-tray.webp"),
+    thumbnail: metalloImage("Perforated-Straight-Flange-Tray.png"),
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -311,17 +312,17 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "ST00 â€” Straight Type",
-          trayImage("perforated-tray.webp"),
+          metalloImage("Perforated-Straight-Flange-Tray.png"),
           "Standard straight flange edge, the base profile for all perforated trays.",
         ),
         galleryItem(
           "RF15 â€” Return Flange (15 mm)",
-          trayImage("perforated-tray.webp"),
+          metalloImage("Straight_With_U_Bend.png"),
           "15 mm return flange along the top edge for added lateral stiffness and cable retention.",
         ),
         galleryItem(
           "IB15 â€” Inward Bend (15 mm)",
-          trayImage("perforated-tray.webp"),
+          metalloImage("Perforated-Inward-Bend-Flange-Tray.png"),
           "15 mm inward bend at top edge for enhanced edge protection and structural strength.",
         ),
       ],
@@ -356,7 +357,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo uses the sourced ladder tray range for heavier cable corridors where rung ventilation, cable separation, and structural carrying capacity matter more than a fully sheeted tray body. The catalogue positions this family around strong load-bearing performance, ventilation, ease of fastening, cost-effectiveness, and a neat finished appearance.",
       "The published material and finish matrix mirrors the broader metallic tray platform: MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, pre-galvanized, powder-coated, anodized, and stainless finish options. Width coverage extends from 150 mm to 1500 mm, across 50 mm to 200 mm height options and 2500 mm or 3000 mm lengths.",
     ],
-    thumbnail: trayImage("ladder-tray.webp"),
+    thumbnail: metalloImage("LCT_Starlight_Length_Inner_Bend.png"),
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -412,22 +413,22 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "IB00 â€” Inner Bend",
-          trayImage("ladder-tray.webp"),
+          metalloImage("LCT_Starlight_Length_Inner_Bend.png"),
           "Side rail with inward-facing bend for cable protection and structural integrity.",
         ),
         galleryItem(
           "OB00 â€” Outer Bend",
-          trayImage("ladder-tray.webp"),
+          metalloImage("LCT_Starlight_Length_Outer_Bend.png"),
           "Side rail with outward-facing bend for easier cable loading from the top.",
         ),
         galleryItem(
           "IU00 â€” Inner U-Bend",
-          trayImage("ladder-tray.webp"),
+          metalloImage("LCT_Starlight_Length_Inner_U_Bend.png"),
           "U-shaped inward profile for enhanced edge stiffness and cable retention.",
         ),
         galleryItem(
           "OU00 â€” Outer U-Bend",
-          trayImage("ladder-tray.webp"),
+          metalloImage("LCT_Starlight_Length_Outer_U_Bend.png"),
           "U-shaped outward profile for maximum load distribution and cover compatibility.",
         ),
       ],
@@ -758,7 +759,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's embossed cable tray program follows the Indiana Group catalogue range for installations where longitudinal embossing on the tray base delivers higher load-carrying capacity and a cleaner decorative finish compared to standard perforated or plain trays.",
       "The Indiana catalogue lists ST (straight), UT (U-flange), RF15 (return flange), and IB15 (inward bend) profiles with widths from 150 mm to 600 mm, heights from 25 mm through 150 mm, and thickness options from 1.0 mm to 2.0 mm in 2500 mm, 3000 mm, and 6000 mm lengths.",
     ],
-    thumbnail: trayImage("embossed-cable-tray.png"),
+    thumbnail: metalloImage("ECT_Starlight_Flange_ray.png"),
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -794,10 +795,10 @@ export const PRODUCTS: TrayProduct[] = [
       "Embossed Cable Tray Profile Types",
       "The Indiana Group catalogue lists four profile types for embossed trays, each providing different edge treatment for varying load and coverage requirements.",
       [
-        galleryItem("ST â€” Straight Type", trayImage("embossed-cable-tray.png"), "Standard straight edge profile for embossed cable trays."),
-        galleryItem("UT â€” U-Flange Type", trayImage("embossed-cable-tray.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
-        galleryItem("RF15 â€” Return Flange (15 mm)", trayImage("embossed-cable-tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
-        galleryItem("IB15 â€” Inward Bend (15 mm)", trayImage("embossed-cable-tray.png"), "Inward bend at top edge for edge protection and structural strength."),
+        galleryItem("ST â€” Straight Type", metalloImage("ECT_Starlight_Flange_ray.png"), "Standard straight edge profile for embossed cable trays."),
+        galleryItem("UT â€” U-Flange Type", metalloImage("Straight_With_U_Bend.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
+        galleryItem("RF15 â€” Return Flange (15 mm)", metalloImage("ECT_Starlight_Return_Flange_Tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
+        galleryItem("IB15 â€” Inward Bend (15 mm)", metalloImage("ECT_Straight_With_Inner_Bend.png"), "Inward bend at top edge for edge protection and structural strength."),
       ],
     ),
     accessoryGallery: accessoryGallery(
@@ -820,7 +821,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's tray cover program follows the Indiana Group catalogue range for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. The catalogue defines five cover profiles â€” plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
       "Standard cover widths match the tray range from 50 mm to 900 mm with a 15 mm cover height and thicknesses from 1.0 mm to 3.0 mm. Cover accessories include bend covers, tee covers, cross covers, and reducer covers to protect the full routing system.",
     ],
-    thumbnail: trayImage("tray-cover.png"),
+    thumbnail: metalloImage("PT00_Cable_Tray_Cover.png"),
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -860,11 +861,11 @@ export const PRODUCTS: TrayProduct[] = [
       "Tray Cover Profile Types",
       "The Indiana Group catalogue defines five cover profiles, each offering different ventilation and protection characteristics for cable tray systems.",
       [
-        galleryItem("PT00 â€” Plain Type", trayImage("tray-cover.png"), "Solid flat cover for maximum cable protection from dust and debris."),
-        galleryItem("VT00 â€” Ventilated Type", trayImage("tray-cover.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
+        galleryItem("PT00 â€” Plain Type", metalloImage("PT00_Cable_Tray_Cover.png"), "Solid flat cover for maximum cable protection from dust and debris."),
+        galleryItem("VT00 â€” Ventilated Type", metalloImage("VT00_Cable_Tray_Cover.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
         galleryItem("LT00 â€” Louvre Type", trayImage("tray-cover.png"), "Angled louvre slots for directional airflow and water drainage."),
-        galleryItem("DF00 â€” Dome Faced", trayImage("tray-cover.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
-        galleryItem("DS00 â€” Dome Faced with Spacing", trayImage("tray-cover.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
+        galleryItem("DF00 â€” Dome Faced", metalloImage("DF00_Cable_Tray_Cover.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
+        galleryItem("DS00 â€” Dome Faced with Spacing", metalloImage("DS00_Cable_Tray_Cover.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
       ],
     ),
     accessoryGallery: accessoryGallery(
@@ -875,7 +876,7 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Tee Cover", accessoryImage("cable-tray-cover.webp"), "Covers for T-junction branching points."),
         accessoryItem("Cross Cover", accessoryImage("cable-tray-cover.webp"), "Covers for four-way intersection fittings."),
         accessoryItem("Reducer Cover", accessoryImage("cable-tray-cover.webp"), "Covers for width-transition reducer fittings."),
-        accessoryItem("Press Fit Cover (Embossed)", accessoryImage("cable-tray-cover.webp"), "Snap-on cover for embossed cable tray systems."),
+        accessoryItem("Press Fit Cover (Embossed)", metalloImage("Press_Fit_Cover_(Embossed).png"), "Snap-on cover for embossed cable tray systems."),
       ],
     ),
   }),
@@ -887,7 +888,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's industrial floor trunking program is based on the Indiana Group catalogue for floor-level cable routing installations where cables need to be run under floors or along floor surfaces with maximum protection and compartmentalized routing options.",
       "The Indiana catalogue uses an IB00 (inward bend with 15 mm flange) profile with widths from 100 mm to 600 mm, heights of 35 mm, 75 mm, and 100 mm, thickness from 1.5 mm to 3.0 mm, and optional longitudinal dividers for separating power and data cables within a single trunking run.",
     ],
-    thumbnail: trayImage("floor-trunking.png"),
+    thumbnail: metalloImage("Industrial_Floor_Trunking.png"),
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -930,7 +931,7 @@ export const PRODUCTS: TrayProduct[] = [
         accessoryItem("Floor Tee (RTEE)", accessoryImage("junction-box.webp"), "T-junction fitting for floor-level branching."),
         accessoryItem("Floor Cross (CR)", accessoryImage("junction-box.webp"), "Four-way floor crossing fitting."),
         accessoryItem("Reducer (REDC)", accessoryImage("jointing-plate.webp"), "Width transition fitting for floor trunking."),
-        accessoryItem("Longitudinal Divider", accessoryImage("cable-tray-cover.webp"), "Internal divider for separating power and data cables."),
+        accessoryItem("Longitudinal Divider", metalloImage("Industrial_Floor_Trunking_With_Divider.png"), "Internal divider for separating power and data cables."),
         accessoryItem("Coupler Plate (STC)", accessoryImage("jointing-plate.webp"), "End-to-end section joining for floor trunking runs."),
       ],
     ),

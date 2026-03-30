@@ -654,7 +654,7 @@ const About: React.FC = () => {
               <div className="p-8 w-full md:w-2/3">
                 <span className="material-symbols-outlined text-4xl text-gray-300 mb-4">format_quote</span>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  With over 15 years of experience in heavy infrastructure and oil & gas projects, Anand Kumar brings deep strategic insight into large-scale industrial operations. His experience across critical infrastructure sectors has shaped Metallo's vision of building a resilient and dependable industrial supply network capable of supporting high-value engineering projects.
+                  With over 15 years of experience in heavy infrastructure and oil & gas projects, Vinay Kumar brings deep strategic insight into large-scale industrial operations. His experience across critical infrastructure sectors has shaped Metallo's vision of building a resilient and dependable industrial supply network capable of supporting high-value engineering projects.
                 </p>
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   Understanding that even a minor delay in sectors like energy and infrastructure can result in significant financial impact, he focuses on strengthening Metallo's supply chain reliability and production scalability.

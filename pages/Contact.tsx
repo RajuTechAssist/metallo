@@ -29,7 +29,6 @@ const Contact: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const lastSubmitRef = useRef(0);
   const formRef = useRef<HTMLFormElement>(null);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   // Timestamp tracking for bot detection (bots fill forms instantly)
   const formLoadTime = useRef(Date.now());
@@ -113,21 +112,6 @@ const Contact: React.FC = () => {
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  const faqs = [
-    {
-      q: 'Do you supply to small residential projects?',
-      a: 'No, Metallo is a strictly B2B industrial partner. We specialize in bulk supplies for Infrastructure, EPC, and Manufacturing projects.',
-    },
-    {
-      q: 'What is your Minimum Order Quantity (MOQ)?',
-      a: 'MOQs vary by vertical. For Cables, it is typically 100m. For Steel, it is by tonnage. Please submit an enquiry for specific details.',
-    },
-    {
-      q: 'Do you provide Mill Test Certificates (MTC)?',
-      a: 'Yes. Every dispatch of Steel, Cable, or Welding material is accompanied by a manufacturer\'s Test Certificate confirming IS/ISO compliance.',
-    },
-  ];
 
   return (
     <div className="w-full bg-white overflow-x-hidden">
@@ -505,42 +489,37 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 4: MANUFACTURING HUBS */}
+      {/* SECTION 4: GLOBAL OFFICES */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className={CONTAINER}>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Visit Our Facilities.</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Strategic manufacturing hubs positioned to serve India's core industrial corridors.</p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Global Offices.</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Connect with our worldwide network to support your international project requirements.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Location 1: Noida */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Location 1: India */}
             <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-              {/* Map placeholder */}
               <div className="h-48 bg-metallo-navy relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
-                    <span className="text-white font-heading font-bold text-xl">NOIDA</span>
+                    <span className="text-white font-heading font-bold text-xl">INDIA</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">factory</span>
-                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Corporate & Manufacturing Hub</h3>
+                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">corporate_fare</span>
+                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Corporate Headquarters</h3>
                 </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Wire & Cable, Tech Products</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Metallo Group</p>
 
                 <div className="space-y-3 ml-7">
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
-                    <p className="text-sm text-gray-600">[Insert Full Noida Address Here]</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">call</span>
-                    <a href="tel:+911234567890" className="text-sm text-gray-600 hover:text-metallo-navy transition-colors">+91-XXXXXXXXXX</a>
+                    <p className="text-sm text-gray-600">710, 7th Floor, Tower A, Emmar Digital Greens, Baharampur Naya, Sector 61, Gurugram, Ghata, Haryana 122098</p>
                   </div>
                 </div>
 
@@ -558,32 +537,28 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Location 2: Gurgaon */}
+            {/* Location 2: Dubai */}
             <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
               <div className="h-48 bg-metallo-navy relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
-                    <span className="text-white font-heading font-bold text-xl">GURGAON</span>
+                    <span className="text-white font-heading font-bold text-xl">DUBAI</span>
                   </div>
                 </div>
               </div>
               <div className="p-8">
                 <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">precision_manufacturing</span>
-                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Heavy Engineering Unit</h3>
+                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">language</span>
+                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Middle East Branch</h3>
                 </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Structural Steel, Die Casting</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Sales & Support</p>
 
                 <div className="space-y-3 ml-7">
                   <div className="flex items-start gap-3">
                     <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
-                    <p className="text-sm text-gray-600">[Insert Full Gurgaon Address Here]</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">call</span>
-                    <a href="tel:+911234567891" className="text-sm text-gray-600 hover:text-metallo-navy transition-colors">+91-XXXXXXXXXX</a>
+                    <p className="text-sm text-gray-600">1908, 19th floor, Indigo Icon, Cluster - F, Jumeirah Lake Towers (JLT), P O Box - 634397, Dubai, UAE</p>
                   </div>
                 </div>
 
@@ -600,41 +575,45 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION 5: FAQ */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-3">Common Questions</h2>
-            <p className="text-gray-500">Quick answers about working with Metallo.</p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-100 rounded-lg overflow-hidden shadow-sm bg-white">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
-                >
-                  <span className="text-sm md:text-base font-bold text-metallo-navy pr-4">{faq.q}</span>
-                  <span
-                    className="material-symbols-outlined text-gray-400 shrink-0 transition-transform duration-300"
-                    style={{ transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                  >
-                    expand_more
-                  </span>
-                </button>
-                <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: openFaq === i ? '200px' : '0px', opacity: openFaq === i ? 1 : 0 }}
-                >
-                  <p className="px-6 pb-6 text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+            {/* Location 3: Germany */}
+            <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="h-48 bg-metallo-navy relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
+                    <span className="text-white font-heading font-bold text-xl">GERMANY</span>
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className="p-8">
+                <div className="flex items-start gap-2 mb-1">
+                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">domain</span>
+                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Registered Office</h3>
+                </div>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Metallo Manufactoring Technologies GmbH</p>
+
+                <div className="space-y-3 ml-7">
+                  <div className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
+                    <p className="text-sm text-gray-600">Reichenbachstraße 1, 85737 Ismaning, Germany</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 ml-7">
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
+                  >
+                    View on Google Maps
+                    <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
