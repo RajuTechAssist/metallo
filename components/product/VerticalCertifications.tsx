@@ -123,7 +123,7 @@ const VerticalCertifications: React.FC<VerticalCertificationsProps> = ({
   if (!data) return null;
 
   // Auto-scrolling is handled via purely CSS marquee (`animate-marquee`).
-
+  return
   return (
     <>
       {/* ── Partners Section ── Zetwerk-style: heading left, logos right, same line */}

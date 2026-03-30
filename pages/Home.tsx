@@ -28,11 +28,11 @@ const Home: React.FC = () => {
   return (
     <>
       <Hero />
-      <Certifications />
       <About />
       <Industries />
       <Verticals />
       <WorldMap />
+      <Certifications />
     </>
   );
 };
