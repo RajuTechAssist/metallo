@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PRODUCT_VERTICALS } from "../utils/productVerticals";
 
 const Footer: React.FC = () => {
@@ -10,6 +10,7 @@ const Footer: React.FC = () => {
   >("idle");
   const [honeypot, setHoneypot] = useState("");
   const formLoadTime = useRef(Date.now());
+  const location = useLocation();
 
   // Reset form load time on mount
   useEffect(() => {
@@ -64,6 +65,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-metallo-navy text-white mt-auto">
       {/* Yellow CTA Strip */}
+      {location.pathname !== '/contact' && (
       <div className="bg-metallo-gold text-metallo-navy py-12 relative z-20">
         <div className="container flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
           <div>
@@ -85,6 +87,7 @@ const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
+      )}
 
       <div className="container pt-12 pb-8">
         {/* Top Row: Logo (Left) and Socials (Right) */}

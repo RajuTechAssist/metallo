@@ -677,7 +677,7 @@ const About: React.FC = () => {
               <div className="p-8 w-full md:w-2/3">
                 <span className="material-symbols-outlined text-4xl text-gray-300 mb-4">format_quote</span>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  Vinay brings more than 15 years of technical and operational experience across HVAC and industrial manufacturing sectors. His deep understanding of material performance, engineering standards, and industrial fabrication processes drives Metallo's commitment to precision and product reliability.
+                  Anand Kumar brings more than 15 years of technical and operational experience across HVAC and industrial manufacturing sectors. His deep understanding of material performance, engineering standards, and industrial fabrication processes drives Metallo's commitment to precision and product reliability.
                 </p>
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   With expertise spanning material sciences and industrial engineering, he plays a key role in maintaining the technical integrity and quality assurance standards that define Metallo's manufacturing ecosystem.

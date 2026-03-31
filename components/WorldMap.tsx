@@ -1,203 +1,541 @@
-import React, { useEffect, useState } from 'react';
-import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from "react-simple-maps";
-import { HUBS, HubDetail } from '../utils/mapConstants';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+  ZoomableGroup,
+} from 'react-simple-maps';
+import { feature, merge } from 'topojson-client';
+import {
+  GLOBAL_OFFICES,
+  normalizeGeoId,
+  OFFICE_KIND_LABELS,
+} from '../utils/mapConstants';
 
-// --- Constants ---
-const GEO_URL = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
+const WORLD_DATA_URL = '/data/world-countries-110m.json';
 
-const stats = [
-  { value: "50+", label: "Global Clients", sub: "Across Industries" },
-  { value: "24/7", label: "Operational Support", sub: "Always Available" },
-  { value: "100%", label: "Global Coverage", sub: "Serving Clients Worldwide" },
-  { value: "100%", label: "On-Time Delivery", sub: "Consistent Track Record" },
+const coverageCards = [
+  {
+    value: 'India',
+    label: 'Global HQ',
+    sub: 'Manufacturing leadership and project execution base.',
+  },
+  {
+    value: 'Europe',
+    label: 'Germany office',
+    sub: 'Buyer coordination and commercial support across Europe.',
+  },
+  {
+    value: 'Middle East',
+    label: 'Dubai office',
+    sub: 'Regional sales support across Gulf and nearby markets.',
+  },
+  {
+    value: 'Africa',
+    label: 'Dubai office',
+    sub: 'Commercial support for African project and supply requirements.',
+  },
 ];
 
 const COLOR_MAP = {
-  headquarters: "#00AEEF",
-  office: "#72d9fe",
-  fabrication: "#8e9195",
-  default: "#D1D5DB",
-  hover: "#EAB308",
+  landFill: '#E5E7EB',
+  landStroke: '#FFFFFF',
+  primary: '#1a4554',
+  europe: '#1a4554',
+  middleEast: '#1a4554',
+  africa: '#1a4554',
+  markerOuter: '#0F172A',
+  markerInner: '#FFFFFF',
+  hover: '#344a52',
+  tooltipBg: '#0F172A',
+};
 
-  markerOuter: "#EAB308",
-  markerInner: "#FFFFFF",
+const REGION_HIGHLIGHTS = [
+  {
+    id: 'europe',
+    label: 'Europe coverage',
+    tooltip: 'Europe coverage managed through our Germany office.',
+    fill: COLOR_MAP.europe,
+    countryNames: [
+      'United Kingdom',
+      'Ireland',
+      'Portugal',
+      'Spain',
+      'France',
+      'Belgium',
+      'Netherlands',
+      'Luxembourg',
+      'Germany',
+      'Switzerland',
+      'Italy',
+      'Austria',
+      'Czechia',
+      'Poland',
+      'Denmark',
+      'Norway',
+      'Sweden',
+      'Finland',
+      'Romania',
+      'Hungary',
+      'Slovakia',
+      'Slovenia',
+      'Croatia',
+      'Bosnia and Herz.',
+      'Serbia',
+      'Montenegro',
+      'Albania',
+      'Macedonia',
+      'Greece',
+      'Moldova',
+      'Ukraine',
+      'Belarus',
+      'Lithuania',
+      'Latvia',
+      'Estonia',
+    ],
+  },
+  {
+    id: 'middle-east',
+    label: 'Middle East coverage',
+    tooltip: 'Middle East coverage coordinated from our Dubai office.',
+    fill: COLOR_MAP.middleEast,
+    countryNames: [
+      'United Arab Emirates',
+      'Saudi Arabia',
+      'Qatar',
+      'Kuwait',
+      'Oman',
+      'Yemen',
+      'Iraq',
+      'Jordan',
+      'Syria',
+      'Lebanon',
+      'Israel',
+      'Palestine',
+      'Iran',
+      'Cyprus',
+    ],
+  },
+  {
+    id: 'africa',
+    label: 'Africa coverage',
+    tooltip: 'Africa coverage supported through our Dubai office.',
+    fill: COLOR_MAP.africa,
+    countryNames: [
+      'Morocco',
+      'W. Sahara',
+      'Algeria',
+      'Tunisia',
+      'Libya',
+      'Egypt',
+      'Mauritania',
+      'Mali',
+      'Niger',
+      'Chad',
+      'Sudan',
+      'S. Sudan',
+      'Eritrea',
+      'Djibouti',
+      'Ethiopia',
+      'Somalia',
+      'Somaliland',
+      'Senegal',
+      'Gambia',
+      'Guinea',
+      'Guinea-Bissau',
+      'Sierra Leone',
+      'Liberia',
+      'Ghana',
+      'Togo',
+      'Benin',
+      'Burkina Faso',
+      'Nigeria',
+      'Cameroon',
+      'Central African Rep.',
+      'Congo',
+      'Dem. Rep. Congo',
+      'Gabon',
+      'Eq. Guinea',
+      'Uganda',
+      'Rwanda',
+      'Burundi',
+      'Kenya',
+      'Tanzania',
+      'Angola',
+      'Zambia',
+      'Zimbabwe',
+      'Botswana',
+      'Namibia',
+      'South Africa',
+      'Lesotho',
+      'eSwatini',
+      'Mozambique',
+      'Malawi',
+      'Madagascar',
+    ],
+  },
+];
+
+type WorldTopology = {
+  objects: {
+    countries: object;
+    land: object;
+  };
+};
+
+type FeatureCollectionLike = {
+  type: 'FeatureCollection';
+  features: any[];
+};
+
+const toFeatureCollection = (value: any): FeatureCollectionLike => {
+  if (value?.type === 'FeatureCollection') {
+    return value;
+  }
+
+  return {
+    type: 'FeatureCollection',
+    features: value ? [value] : [],
+  };
 };
 
 const WorldMap: React.FC = () => {
-  const [tooltipContent, setTooltipContent] = useState<string>("");
-  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [worldTopology, setWorldTopology] = useState<WorldTopology | null>(null);
+  const [activeHighlightId, setActiveHighlightId] = useState<string | null>(null);
+  const [tooltipContent, setTooltipContent] = useState('');
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
   const [isSmallDevice, setIsSmallDevice] = useState(false);
-  // const [selectedCountry, setSelectedCountry] = useState<HubDetail | null>(null);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 640px)");
-    const handleDeviceSize = () => setIsSmallDevice(mediaQuery.matches);
+    let isMounted = true;
 
-    handleDeviceSize();
-    mediaQuery.addEventListener("change", handleDeviceSize);
+    fetch(WORLD_DATA_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        if (isMounted) {
+          setWorldTopology(data);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setWorldTopology(null);
+        }
+      });
 
-    return () => mediaQuery.removeEventListener("change", handleDeviceSize);
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 640px)');
+    const syncDeviceState = () => setIsSmallDevice(mediaQuery.matches);
+
+    syncDeviceState();
+    mediaQuery.addEventListener('change', syncDeviceState);
+
+    return () => mediaQuery.removeEventListener('change', syncDeviceState);
+  }, []);
+
+  const headquartersOffice =
+    GLOBAL_OFFICES.find((office) => office.kind === 'headquarters') ??
+    GLOBAL_OFFICES[0];
+
+  const countryGeographies = useMemo(() => {
+    if (!worldTopology) return null;
+
+    const countries = toFeatureCollection(
+      feature(worldTopology as any, (worldTopology as any).objects.countries),
+    );
+
+    return {
+      type: 'FeatureCollection' as const,
+      features: countries.features.filter(
+        (geo) => normalizeGeoId(geo.id) !== '010',
+      ),
+    };
+  }, [worldTopology]);
+
+  const headquartersCountryGeographies = useMemo(() => {
+    if (!worldTopology) return null;
+
+    const countries = toFeatureCollection(
+      feature(worldTopology as any, (worldTopology as any).objects.countries),
+    );
+
+    return {
+      type: 'FeatureCollection' as const,
+      features: countries.features.filter((geo) =>
+        normalizeGeoId(geo.id) === headquartersOffice.geoId,
+      ),
+    };
+  }, [headquartersOffice.geoId, worldTopology]);
+
+  const regionHighlightGeographies = useMemo(() => {
+    if (!worldTopology) return [];
+
+    const countryObjects =
+      (worldTopology as any).objects?.countries?.geometries ?? [];
+
+    return REGION_HIGHLIGHTS.map((region) => {
+      const geometries = countryObjects.filter((geo: any) =>
+        region.countryNames.includes(geo.properties?.name),
+      );
+
+      if (!geometries.length) {
+        return null;
+      }
+
+      return {
+        ...region,
+        geography: toFeatureCollection(merge(worldTopology as any, geometries)),
+      };
+    }).filter(Boolean) as Array<
+      (typeof REGION_HIGHLIGHTS)[number] & { geography: FeatureCollectionLike }
+    >;
+  }, [worldTopology]);
 
   const defaultMapView = isSmallDevice
     ? { zoom: 1.2, center: [0, 0] as [number, number] }
-    : { zoom: 2.1, center: [0, 20] as [number, number] };
+    : { zoom: 2, center: [6, 20] as [number, number] };
 
   const filterZoomEvent = (event: { type: string; ctrlKey?: boolean }) => {
-    if (event.type === "wheel") {
+    if (event.type === 'wheel') {
       return Boolean(event.ctrlKey);
     }
 
     return true;
   };
 
-  const LegendItem = ({ color, text, pulse }: { color: string, text: string, pulse?: boolean }) => (
+  const LegendItem = ({
+    color,
+    text,
+    pulse,
+  }: {
+    color: string;
+    text: string;
+    pulse?: boolean;
+  }) => (
     <div className="flex items-center gap-2">
-      <span className={`w-3 h-3 rounded-full ${pulse ? 'animate-pulse shadow-[0_0_10px_#00AEEF]' : ''}`} style={{ backgroundColor: color }}></span>
-      <span className="text-[10px] sm:text-xs font-bold text-metallo-navy uppercase">{text}</span>
+      <span
+        className={`h-3 w-3 rounded-full ${pulse ? 'animate-pulse' : ''}`}
+        style={{ backgroundColor: color }}
+      ></span>
+      <span className="text-[10px] font-bold uppercase text-metallo-navy sm:text-xs">
+        {text}
+      </span>
     </div>
   );
 
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto container">
-        <h4 className="text-metallo-navy/60 font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">
+    <section className="bg-white py-24">
+      <div className="container mx-auto">
+        <h4 className="mb-3 block text-sm font-bold uppercase tracking-[0.2em] text-metallo-navy/60 font-heading">
           Global Footprint
         </h4>
-        <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-4">
+        <h2 className="mb-4 text-4xl font-bold text-metallo-navy font-heading md:text-5xl">
           Strategic Presence. Limitless Reach.
         </h2>
-        <h3 className="text-lg text-metallo-gold-hover font-bold font-heading uppercase mb-6">
+        <h3 className="mb-6 text-lg font-bold uppercase text-metallo-navy/70 font-heading">
           Manufacturing in India, Delivering to the World.
         </h3>
-        <p className="text-gray-500 leading-relaxed max-w-4xl">
-          Metallo operates at the intersection of local manufacturing excellence
-          and global supply chain efficiency. With our state-of-the-art
-          manufacturing hubs in India and global contact points in Europe,
-          Middle East, and beyond, we ensure time-critical delivery of heavy
-          industrial materials globally.
+        <p className="max-w-4xl leading-relaxed text-gray-500">
+          Metallo combines India-based manufacturing strength with responsive
+          commercial support across Europe, the Middle East, and Africa. This
+          map highlights our operating regions clearly, so buyers can
+          understand how each office supports the markets it serves.
         </p>
-        <div
-          className="relative w-full h-full min-h-[280px] sm:min-h-[320px] lg:h-[70vh] overflow-hidden mt-5 lg:mt-10 cursor-grab active:cursor-grabbing select-none"
-        >
-          {/* Floating Legend - Top on Mobile, Bottom-Left on Desktop */}
-          <div className="absolute bottom-0 lg:bottom-10 z-10 bg-white/90 backdrop-blur rounded-lg shadow-md p-3 sm:p-4 border border-gray-100 flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-start sm:w-auto">
-            <LegendItem color={COLOR_MAP.headquarters} text="Global HQ" pulse />
-            <LegendItem color={COLOR_MAP.office} text="Sales / Trade Office" />
-            <LegendItem color={COLOR_MAP.fabrication} text="Fabrication Unit" />
-            {/* <LegendItem color={COLOR_MAP.default} text="Regional Coverage" /> */}
-            <LegendItem color={COLOR_MAP.default} text="Global Reach" />
+
+        <div className="relative mt-5 h-full min-h-[280px] w-full overflow-hidden lg:mt-10 lg:h-[70vh]">
+          <div className="absolute bottom-0 z-10 flex flex-wrap justify-center gap-x-4 gap-y-2 rounded-lg border border-gray-100 bg-white/90 p-3 shadow-md backdrop-blur sm:justify-start sm:w-auto lg:bottom-10">
+            <LegendItem color={COLOR_MAP.primary} text="India HQ" pulse />
+            <LegendItem color={COLOR_MAP.europe} text="Europe" />
+            <LegendItem color={COLOR_MAP.middleEast} text="Middle East" />
+            <LegendItem color={COLOR_MAP.africa} text="Africa" />
           </div>
 
-          {/* Map Container */}
-          <ComposableMap
-            projection="geoEqualEarth"
-            draggable={false}
-            // projectionConfig={{ scale: 205, center: [0, 0] }}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <ZoomableGroup
-              zoom={defaultMapView.zoom}
-              minZoom={1}
-              maxZoom={5}
-              center={defaultMapView.center}
-              filterZoomEvent={filterZoomEvent}
+          {countryGeographies && headquartersCountryGeographies ? (
+            <ComposableMap
+              projection="geoEqualEarth"
+              style={{ width: '100%', height: '100%' }}
             >
-              <Geographies geography={GEO_URL}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    const EXCLUDED_REGIONS = ["010"]; // Antarctica
-                    if (EXCLUDED_REGIONS.includes(geo.id)) return null;
-                    const hub = HUBS[geo.id];
-
-                    let fillColor = COLOR_MAP.default;
-
-                    if (hub?.status === "headquarters")
-                      fillColor = COLOR_MAP.headquarters;
-                    else if (
-                      hub?.status === "sale_office" ||
-                      hub?.status === "trade_office"
-                    )
-                      fillColor = COLOR_MAP.office;
-                    else if (hub?.status === "fabrication_unit")
-                      fillColor = COLOR_MAP.fabrication;
-
-                    return (
+              <ZoomableGroup
+                zoom={defaultMapView.zoom}
+                minZoom={1}
+                maxZoom={5}
+                center={defaultMapView.center}
+                filterZoomEvent={filterZoomEvent}
+              >
+                <Geographies geography={countryGeographies as any}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => (
                       <Geography
                         key={geo.rsmKey}
-                        tabIndex={-1}
                         geography={geo}
-                        fill={fillColor}
-                        stroke="#FFFFFF"
-                        strokeWidth={0.5}
-                        onMouseEnter={(e) => {
-                          if (hub) {
-                            setTooltipContent(hub.name.replace("\n", " - "));
-                            setTooltipPos({ x: e.clientX, y: e.clientY });
-                          }
-                        }}
-                        onMouseLeave={() => setTooltipContent("")}
+                        fill={COLOR_MAP.landFill}
+                        stroke={COLOR_MAP.landStroke}
+                        strokeWidth={0.6}
                         style={{
-                          default: {
-                            outline: "none",
-                          },
-                          hover: {
-                            fill: hub ? COLOR_MAP.hover : COLOR_MAP.default,
-                            outline: "none",
-                            cursor: hub ? "pointer" : "default",
-                          },
+                          default: { outline: 'none' },
+                          hover: { outline: 'none' },
+                          pressed: { outline: 'none' },
                         }}
                       />
-                    );
-                  })
-                }
-              </Geographies>
+                    ))
+                  }
+                </Geographies>
 
-              {/* Markers (Main Nodes Only) */}
-              {Object.entries(HUBS).map(([key, hub]) => {
-                if (!hub.isMainNode) return null;
+                {regionHighlightGeographies.map((region) => (
+                  <Geographies key={region.id} geography={region.geography as any}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={`${region.id}-${geo.rsmKey}`}
+                          geography={geo}
+                          fill={
+                            activeHighlightId === region.id
+                              ? COLOR_MAP.hover
+                              : region.fill
+                          }
+                          stroke="rgba(255,255,255,0.9)"
+                          strokeWidth={0.75}
+                          onMouseEnter={(event) => {
+                            setTooltipContent(region.tooltip);
+                            setActiveHighlightId(region.id);
+                            setTooltipPos({
+                              x: event.clientX,
+                              y: event.clientY,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setTooltipContent('');
+                            setActiveHighlightId(null);
+                          }}
+                          style={{
+                            default: {
+                              outline: 'none',
+                              cursor: 'pointer',
+                            },
+                            hover: {
+                              fill: COLOR_MAP.hover,
+                              outline: 'none',
+                              cursor: 'pointer',
+                            },
+                            pressed: {
+                              outline: 'none',
+                            },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                ))}
 
-                // Approximate coordinates mapping (you can refine later)
-                const coordMap: Record<string, [number, number]> = {
-                  // India (center)
-                  "356": [78.9629, 20.5937],
-                  // United Kingdom (center)
-                  // "826": [-3.4360, 55.3781],
-                  // // UAE (center)
-                  // "784": [53.8478, 23.4241],
-                  // // Germany (center)
-                  // "276": [10.4515, 51.1657],
-                  // // China (center)
-                  // "156": [104.1954, 35.8617],
-                  // // Turkey (center)
-                  // "792": [35.2433, 38.9637],
-                };
+                <Geographies geography={headquartersCountryGeographies as any}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const fillColor =
+                        activeHighlightId === headquartersOffice.id
+                          ? COLOR_MAP.hover
+                          : COLOR_MAP.primary;
 
-                const coordinates = coordMap[key];
-                if (!coordinates) return null;
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={fillColor}
+                          stroke="#FFFFFF"
+                          strokeWidth={0.9}
+                          onMouseEnter={(event) => {
+                            setTooltipContent(
+                              `${headquartersOffice.city}, ${headquartersOffice.country} - ${OFFICE_KIND_LABELS[headquartersOffice.kind]}`,
+                            );
+                            setActiveHighlightId(headquartersOffice.id);
+                            setTooltipPos({
+                              x: event.clientX,
+                              y: event.clientY,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setTooltipContent('');
+                            setActiveHighlightId(null);
+                          }}
+                          style={{
+                            default: {
+                              outline: 'none',
+                            },
+                            hover: {
+                              fill: COLOR_MAP.hover,
+                              outline: 'none',
+                              cursor: 'pointer',
+                            },
+                            pressed: {
+                              outline: 'none',
+                            },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
 
-                return (
-                  <Marker key={key} coordinates={coordinates}>
-                    <circle r={3} fill="#EAB308" strokeWidth={1} />
-                    <circle r={1.5} fill="#FFFFFF" strokeWidth={1} />
+                {GLOBAL_OFFICES.map((office) => (
+                  <Marker key={office.id} coordinates={office.marker}>
+                    <g
+                      onMouseEnter={(event) => {
+                        setTooltipContent(
+                          `${office.city}, ${office.country} - ${OFFICE_KIND_LABELS[office.kind]}`,
+                        );
+                        setActiveHighlightId(office.id);
+                        setTooltipPos({
+                          x: event.clientX,
+                          y: event.clientY,
+                        });
+                      }}
+                      onMouseLeave={() => {
+                        setTooltipContent('');
+                        setActiveHighlightId(null);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <circle
+                        r={office.kind === 'headquarters' ? 6.5 : 5.5}
+                        fill={
+                          activeHighlightId === office.id
+                            ? COLOR_MAP.hover
+                            : COLOR_MAP.markerOuter
+                        }
+                        opacity={office.kind === 'headquarters' ? 0.2 : 0.1}
+                      />
+                      <circle
+                        r={office.kind === 'headquarters' ? 3.1 : 2.8}
+                        fill={
+                          activeHighlightId === office.id
+                            ? COLOR_MAP.hover
+                            : COLOR_MAP.markerOuter
+                        }
+                        stroke={COLOR_MAP.markerInner}
+                        strokeWidth={1}
+                      />
+                    </g>
                   </Marker>
-                );
-              })}
-            </ZoomableGroup>
-          </ComposableMap>
+                ))}
+              </ZoomableGroup>
+            </ComposableMap>
+          ) : (
+            <div className="h-full min-h-[280px] w-full animate-pulse rounded-[24px] bg-gray-100 lg:min-h-[70vh]"></div>
+          )}
 
-          {/* Tooltip */}
           {tooltipContent && (
             <div
               style={{
-                position: "fixed",
+                position: 'fixed',
                 top: tooltipPos.y + 10,
                 left: tooltipPos.x + 10,
+                backgroundColor: COLOR_MAP.tooltipBg,
               }}
-              className="bg-blue-900 text-white text-sm font-bold px-3 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap z-50"
+              className="pointer-events-none z-50 whitespace-nowrap rounded border border-white/10 px-3 py-1 text-sm font-bold text-white shadow-lg"
             >
               {tooltipContent}
             </div>
@@ -205,71 +543,24 @@ const WorldMap: React.FC = () => {
         </div>
       </div>
 
-      {/* Key Stats Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, idx) => (
+      <div className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {coverageCards.map((card) => (
             <div
-              key={idx}
-              className="text-center p-4 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow bg-gray-50"
+              key={`${card.value}-${card.label}`}
+              className="rounded-lg border border-gray-100 bg-gray-50 p-4 text-center transition-all hover:border-metallo-gold/30 hover:shadow-lg"
             >
-              <div className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-1">
-                {stat.value}
+              <div className="mb-1 text-3xl font-bold text-metallo-navy font-heading md:text-4xl">
+                {card.value}
               </div>
-              <div className="text-sm font-bold text-metallo-gold-hover uppercase tracking-wider mb-1">
-                {stat.label}
+              <div className="mb-1 text-sm font-bold uppercase tracking-wider text-metallo-navy/70">
+                {card.label}
               </div>
-              <div className="text-xs text-gray-500 font-medium">
-                {stat.sub}
-              </div>
+              <div className="text-xs font-medium text-gray-500">{card.sub}</div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Detail Modal */}
-      {/* {selectedCountry && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-metallo-navy/80 backdrop-blur-sm transition-opacity duration-300" onClick={() => setSelectedCountry(null)}>
-          <div className="bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 scale-100" onClick={e => e.stopPropagation()}>
-            <div className="bg-metallo-navy p-6 flex justify-between items-start">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  {selectedCountry.status === 'headquarters' && <span className="material-symbols-outlined text-[#00AEEF]">verified</span>}
-                  <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${selectedCountry.status === 'headquarters' ? 'bg-[#00AEEF] text-white' :
-                    selectedCountry.status === 'region_contact' ? 'bg-gray-200 text-gray-600' :
-                      'bg-metallo-gold text-metallo-navy'
-                    }`}>
-                    {selectedCountry.typeLabel}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold font-heading text-white whitespace-pre-line">{selectedCountry.name}</h3>
-              </div>
-              <button onClick={() => setSelectedCountry(null)} className="text-white/50 hover:text-white transition-colors">
-                <span className="material-symbols-outlined text-3xl">close</span>
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Location & Address</h4>
-                <p className="text-metallo-navy font-medium leading-relaxed">{selectedCountry.address}</p>
-              </div>
-
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Local Contact</h4>
-                <div className="flex items-center gap-2 text-metallo-navy font-bold font-heading">
-                  <span className="material-symbols-outlined text-metallo-gold-hover">mail</span>
-                  Contact your regional Metallo representative for inquiries.
-                </div>
-              </div>
-
-              <button className="w-full py-3 bg-metallo-navy text-white font-bold font-heading uppercase hover:bg-metallo-gold hover:text-metallo-navy transition-colors" onClick={() => setSelectedCountry(null)}>
-                Close Details
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
     </section>
   );
 };

@@ -1,61 +1,84 @@
-export interface HubDetail {
-  name: string;
-  typeLabel: string; // e.g., 'SALE OFFICE', 'FABRICATION UNIT', 'GLOBAL HEADQUARTERS'
-  address: string;
-  status: 'headquarters' | 'sale_office' | 'trade_office' | 'fabrication_unit' | 'region_contact' | 'global_coverage';
-  isMainNode?: boolean; // Determines if this is rendered as an explicit Dot or just inherited area.
+export type OfficeKind =
+  | "headquarters"
+  | "regional-office"
+  | "registered-office";
+
+export interface GlobalOffice {
+  id: string;
+  geoId: string;
+  city: string;
+  country: string;
+  title: string;
+  entity: string;
+  region: string;
+  addressLines: string[];
+  kind: OfficeKind;
+  marker: [number, number];
+  mapQuery: string;
 }
 
-// -------------------------------------------------------------
-// 1. HUB DATA DEFINITIONS
-// -------------------------------------------------------------
-export const HUBS: Record<string, HubDetail> = {
-  // India
-  "356": {
-    name: "INDIA",
-    typeLabel: "GLOBAL HEADQUARTERS",
-    address: "Global Expansion & Manufacturing Base",
-    status: 'headquarters',
-    isMainNode: true
+export const GLOBAL_OFFICES: GlobalOffice[] = [
+  {
+    id: "india-hq",
+    geoId: "356",
+    city: "Gurugram",
+    country: "India",
+    title: "Corporate Headquarters",
+    entity: "Metallo Group",
+    region: "Manufacturing base and global project coordination",
+    addressLines: [
+      "710, 7th Floor, Tower A, Emmar Digital Greens",
+      "Sector 61, Gurugram, Haryana 122098",
+    ],
+    kind: "headquarters",
+    marker: [77.0266, 28.4595],
+    mapQuery:
+      "710, 7th Floor, Tower A, Emmar Digital Greens, Sector 61, Gurugram, Haryana 122098",
   },
-  // United Kingdom
-  "826": {
-    name: "UNITED KINGDOM\nLONDON",
-    typeLabel: "SALE OFFICE",
-    address: "35, Marsh Road, Pinner, HA5 5NL",
-    status: 'sale_office',
-    isMainNode: true
+  {
+    id: "dubai-office",
+    geoId: "784",
+    city: "Dubai",
+    country: "United Arab Emirates",
+    title: "Middle East Branch",
+    entity: "Sales and support office",
+    region: "Middle East and Africa commercial support",
+    addressLines: [
+      "1908, 19th Floor, Indigo Icon, Cluster F",
+      "Jumeirah Lake Towers, Dubai, UAE",
+    ],
+    kind: "regional-office",
+    marker: [55.2708, 25.2048],
+    mapQuery:
+      "1908, 19th Floor, Indigo Icon, Cluster F, Jumeirah Lake Towers, Dubai, UAE",
   },
-  // United Arab Emirates
-  "784": {
-    name: "UNITED ARAB EMIRATES",
-    typeLabel: "SALE OFFICE",
-    address: "2709, Jumeirah Business Centre-II, (JBC-II)",
-    status: 'sale_office',
-    isMainNode: true
+  {
+    id: "germany-office",
+    geoId: "276",
+    city: "Ismaning",
+    country: "Germany",
+    title: "Registered Office",
+    entity: "Metallo Manufacturing Technologies GmbH",
+    region: "Europe commercial presence and buyer coordination",
+    addressLines: ["Reichenbachstrasse 1", "85737 Ismaning, Germany"],
+    kind: "registered-office",
+    marker: [11.6986, 48.2254],
+    mapQuery: "Reichenbachstrasse 1, 85737 Ismaning, Germany",
   },
-  // Germany
-  "276": {
-    name: "GERMANY",
-    typeLabel: "FABRICATION UNIT",
-    address: "Reichenbachstr. 1, 85737 München (Kreis) - Ismaning",
-    status: 'fabrication_unit',
-    isMainNode: true
-  },
-  // China
-  "156": {
-    name: "CHINA\nWENZHOU",
-    typeLabel: "TRADE OFFICE",
-    address: "No.2, Building15 East Yongle Rd, Longwan District, Wenzhou",
-    status: 'trade_office',
-    isMainNode: true
-  },
-  // Turkey
-  "792": {
-    name: "TURKEY",
-    typeLabel: "SALE OFFICE",
-    address: "Menderes İzmir, Turkey",
-    status: 'sale_office',
-    isMainNode: true
-  }
+];
+
+export const OFFICE_KIND_LABELS: Record<OfficeKind, string> = {
+  headquarters: "Global HQ",
+  "regional-office": "Regional Office",
+  "registered-office": "Registered Office",
 };
+
+export function normalizeGeoId(id: string | number): string {
+  return String(id).padStart(3, "0");
+}
+
+export function getOfficeMapsUrl(office: GlobalOffice): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    office.mapQuery,
+  )}`;
+}
