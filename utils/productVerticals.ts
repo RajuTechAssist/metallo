@@ -89,7 +89,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showcaseTitle: "Industrial Tools",
     showcaseSubtitle: "Heavy-Duty Execution",
     showcaseImage:
-      "/industrialTech/industrial.png",
+      "/powerTools/powerTools1.png",
     showcasePoints: [
       "Industrial Motors",
       "Safety Standards",

@@ -58,7 +58,7 @@ const SLIDES: Slide[] = [
     category: "Power Tools",
     title: "Heavy-Duty Execution at Scale.",
     desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
-    image: "/powerTools/powerTool.jpg",
+    image: "/powerTools/powerTools2.png",
     link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
   {
