@@ -36,7 +36,7 @@ const CABLE_TRAY_INDUSTRIES = [
 
 const metalloImage = (asset: string) => `/cable Trays/metallo_cable_trays/${asset}`;
 const trayImage = (asset: string) => `/cable Trays/dudhat/${asset}`;
-const accessoryImage = (asset: string) => trayImage(`accessories/${asset}`);
+const accessoryImage = (asset: string) => `/cable Trays/metallo_cable_trays/Accessories/PCT_Accessories/${asset}`;
 const finishingImage = (asset: string) => trayImage(`finishing/${asset}`);
 const strutHardwareImage = (asset: string) =>
   trayImage(`strut-hardware/${asset}`);
@@ -331,21 +331,21 @@ export const PRODUCTS: TrayProduct[] = [
       "Perforated Cable Tray Accessories",
       "Indiana Group catalogues a full set of field-routing accessories for perforated tray systems, covering horizontal and vertical direction changes, branching, width transitions, and section joining.",
       [
-        accessoryItem("Horizontal Bend (Radial)", accessoryImage("jointing-plate.webp"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
-        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("jointing-plate.webp"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
-        accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("c-channel-for-hanging.webp"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("c-channel-for-hanging.webp"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Non-Radial)", accessoryImage("l-cable-tray-support-stand.webp"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
-        accessoryItem("Horizontal Cross (Radial)", accessoryImage("junction-box.webp"), "Four-way radial intersection fitting for complex routing layouts."),
-        accessoryItem("Horizontal Cross (Non-Radial)", accessoryImage("junction-box.webp"), "Four-way non-radial intersection fitting for complex routing layouts."),
-        accessoryItem("Horizontal Tee (Radial)", accessoryImage("junction-box.webp"), "Equal radial T-branch fitting for three-way cable routing at junctions."),
-        accessoryItem("Horizontal Tee (Non-Radial)", accessoryImage("junction-box.webp"), "Equal non-radial T-branch fitting for three-way cable routing at junctions."),
-        accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("junction-box.webp"), "Radial T-branch with different width on the branch leg for mixed tray sizes."),
-        accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("junction-box.webp"), "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
-        accessoryItem("Vertical Tee (Radial)", accessoryImage("junction-box.webp"), "Radial vertical T-branch for combined horizontal and vertical routing."),
-        accessoryItem("Reducer", accessoryImage("jointing-plate.webp"), "Width transition fitting â€” available in left, right, and center alignment."),
-        accessoryItem("Coupler Plate", accessoryImage("jointing-plate.webp"), "Straight coupling plate for joining two tray sections end-to-end."),
+        accessoryItem("Horizontal Bend (Radial)", accessoryImage("PCTA_Horizontal_Bend_(Radial).png"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("PCTA_Horizontal_Bend_(Non-Radial).png"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
+        accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("PCTA_Vertical_Inside_Bend_(Radial).png"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("PCTA_Vertical_Inside_Bend_(Non-Radial).png"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("PCTA_Vertical_Outside_Bend_(Radial).png"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Non-Radial)", accessoryImage("PCTA_Vertical_Outside_Bend_(Non-Radial).png"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
+        accessoryItem("Horizontal Cross (Radial)", accessoryImage("PCTA_Horizontal_Cross_(Radial).png"), "Four-way radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Cross (Non-Radial)", accessoryImage("PCTA_Horizontal_Cross_(Non-Radial).png"), "Four-way non-radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Tee (Radial)", accessoryImage("PCTA_Horizontal_Tee_(Radial).png"), "Equal radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee (Non-Radial)", accessoryImage("PCTA_Horizontal_Tee_(Non-Radial).png"), "Equal non-radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("PCTA_Horizontal_Tee_Unequal_(Radial).png"), "Radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("PCTA_Horizontal_Tee_Unequal_(Non-Radial).png"), "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Vertical Tee (Radial)", accessoryImage("PCTA_Vertical_Tee_(Radial).png"), "Radial vertical T-branch for combined horizontal and vertical routing."),
+        accessoryItem("Reducer", accessoryImage("PCTA_Reducer.png"), "Width transition fitting â€” available in left, right, and center alignment."),
+        accessoryItem("Coupler Plate", accessoryImage("PCTA_Coupler_Plate.png"), "Straight coupling plate for joining two tray sections end-to-end."),
       ],
     ),
   }),
