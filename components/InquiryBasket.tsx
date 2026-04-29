@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useQuote, type QuoteProduct } from '../contexts/QuoteContext';
+import { useQuote, type QuoteProduct } from '@/contexts/QuoteContext';
 
 /* ═══════════════════════════════════════════════════════════════
    INQUIRY BASKET SIDEBAR + FLOATING BADGE + SUCCESS STATE

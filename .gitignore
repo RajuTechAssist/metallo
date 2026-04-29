@@ -10,8 +10,14 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next
+out
+next-env.d.ts
 *.local
 .env
+
+# Local-only review folder
+temp/
 
 # Editor directories and files
 .vscode/*
@@ -42,3 +48,6 @@ Thumbs.db
 
 # Scraped Data
 scraped-sources/
+.*
+C*.md
+package-lock.json

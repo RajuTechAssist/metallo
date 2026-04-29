@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useRef, useState, useEffect } from "react";
 import {
   VERTICAL_CERT_DATA,
   type CertificationItem,
   type PartnerItem,
-} from "../../pages/products/data/verticalCertificationsData";
+} from "@/data/verticalCertificationsData";
 import { CONTAINER } from "./productLayout";
 
 /* ------------------------------------------------------------------ */

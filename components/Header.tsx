@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { HEADER_PRODUCT_VERTICALS } from "../utils/productVerticals";
+import Link from "next/link";
+import { useLocation } from "@/lib/useLocation";
+import { HEADER_PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
 const TOP_LINKS = [
   { name: "About Us", path: "/about" },
@@ -73,7 +76,7 @@ const Header: React.FC = () => {
                   return (
                     <Link
                       key={link.name}
-                      to={link.path}
+                      href={link.path}
                       className={`uppercase transition-colors ${
                         isActive
                           ? "text-metallo-navy font-bold"
@@ -101,7 +104,7 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="py-[clamp(0.5rem,1vw,1rem)] bg-white">
             <div className="flex justify-between items-center">
-              <Link to="/" className="flex items-center group">
+              <Link href="/" className="flex items-center group">
                 <img
                   src="/logo.svg"
                   alt="Metallo"
@@ -111,7 +114,7 @@ const Header: React.FC = () => {
               </Link>
 
               <Link
-                to="/contact"
+                href="/contact"
                 className="hidden md:inline-flex items-center px-[clamp(1rem,1.5vw,1.5rem)] py-[clamp(0.5rem,0.8vw,0.75rem)] bg-metallo-gold hover:bg-metallo-gold-hover text-metallo-navy font-bold text-[clamp(0.7rem,0.85vw,0.875rem)] uppercase tracking-wide transition-colors rounded-sm"
               >
                 Contact Us
@@ -158,7 +161,7 @@ const Header: React.FC = () => {
                   return (
                     <Link
                       key={vertical.key}
-                      to={vertical.path}
+                      href={vertical.path}
                       className={`whitespace-nowrap text-[clamp(0.6rem,0.72vw,0.72rem)] font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${
                         isActive
                           ? "text-metallo-gold underline"
@@ -226,7 +229,7 @@ const Header: React.FC = () => {
                   return (
                     <Link
                       key={link.name}
-                      to={link.path}
+                      href={link.path}
                       onClick={() => setIsMenuOpen(false)}
                       className={`text-[clamp(1rem,2.5vw,1.25rem)] md:text-[clamp(1.25rem,2vw,1.5rem)] font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${
                         isActive
@@ -251,7 +254,7 @@ const Header: React.FC = () => {
                     return (
                       <Link
                         key={vertical.key}
-                        to={vertical.path}
+                        href={vertical.path}
                         onClick={() => setIsMenuOpen(false)}
                         className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${
                           isActive
@@ -272,14 +275,14 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
               <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
                 <Link
-                  to="/?section=certifications"
+                  href="/?section=certifications"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors"
                 >
                   Certifications
                 </Link>
                 <Link
-                  to="/contact"
+                  href="/contact"
                   onClick={() => setIsMenuOpen(false)}
                   className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors"
                 >

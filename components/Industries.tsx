@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 
 interface Industry {
   title: string;
@@ -58,7 +60,7 @@ const Industries: React.FC = () => {
         >
           {industriesData.map((industry, index) => (
             <Link
-              to={industry.slug}
+              href={industry.slug}
               key={index}
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >

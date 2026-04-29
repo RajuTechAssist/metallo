@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { PRODUCT_VERTICALS } from "../utils/productVerticals";
+import Link from "next/link";
+import { useLocation } from "@/lib/useLocation";
+import { PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -77,7 +80,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <Link
-            to="/contact"
+            href="/contact"
             className="px-8 py-3 bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider hover:bg-opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
           >
             Get Started{" "}
@@ -241,7 +244,7 @@ const Footer: React.FC = () => {
                 {PRODUCT_VERTICALS.map((vertical) => (
                   <li key={vertical.key}>
                     <Link
-                      to={vertical.path}
+                      href={vertical.path}
                       className="hover:text-white transition-colors"
                     >
                       {vertical.name}
@@ -260,7 +263,7 @@ const Footer: React.FC = () => {
                 {topLinks.map((link, index) => (
                   <li key={index}>
                     <Link
-                      to={link.path}
+                      href={link.path}
                       className="hover:text-white transition-colors"
                     >
                       {link.name}
@@ -276,16 +279,16 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} METALLO All Rights Reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/about" className="hover:text-white transition-colors">
+            <Link href="/about" className="hover:text-white transition-colors">
               About Us
             </Link>
             <Link
-              to="/?section=certifications"
+              href="/?section=certifications"
               className="hover:text-white transition-colors"
             >
               Certifications
             </Link>
-            <Link to="/why-metallo" className="hover:text-white transition-colors">
+            <Link href="/why-metallo" className="hover:text-white transition-colors">
               Why Metallo
             </Link>
           </div>

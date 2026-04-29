@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CONTAINER } from "./productLayout";
 
 interface SteelHeroProps {
@@ -62,7 +64,7 @@ const SteelHero: React.FC<SteelHeroProps> = ({
       <div className="max-w-2xl pointer-events-auto inset-0 bg-slate-900/60 pt-10 pb-10 pl-10 pr-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-slate-300 mb-6 font-sans">
-          <Link to="/" className="hover:text-white transition-colors">
+          <Link href="/" className="hover:text-white transition-colors">
             Home
           </Link>
           <span className="material-symbols-outlined text-xs">

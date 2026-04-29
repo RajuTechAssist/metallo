@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Link } from "react-router-dom";
-import { PRODUCT_VERTICAL_BY_KEY } from "../utils/productVerticals";
+import Link from "next/link";
+import { PRODUCT_VERTICAL_BY_KEY } from "@/lib/productVerticals";
 
 /* ═══════════════════════════════════════════════════════════════
    CINEMATIC HERO SLIDER
@@ -274,7 +276,7 @@ const Hero: React.FC = () => {
                 exit="exit"
               >
                 <Link
-                  to={slide.link}
+                  href={slide.link}
                   className="inline-flex items-center gap-[clamp(0.5rem,1%,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] bg-yellow-500 text-slate-900 text-[clamp(0.75rem,0.9vw,0.875rem)] font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
                 >
                   Explore Capabilities

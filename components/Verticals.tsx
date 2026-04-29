@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SHOWCASE_PRODUCT_VERTICALS } from '../utils/productVerticals';
+import Link from "next/link";
+import { SHOWCASE_PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
 const Verticals: React.FC = () => {
   return (
@@ -25,7 +27,7 @@ const Verticals: React.FC = () => {
         >
           {SHOWCASE_PRODUCT_VERTICALS.map((item) => (
             <Link
-              to={item.path}
+              href={item.path}
               key={item.key}
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >

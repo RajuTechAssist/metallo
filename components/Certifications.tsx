@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import {
   CERTIFICATE_ARCHIVE,
   CERTIFICATION_INTRO_POINTS,
   type CertificateArchiveItem,
-} from "../utils/certificates";
+} from "@/lib/certificates";
 
 const Certifications: React.FC = () => {
   const [activeCertificate, setActiveCertificate] =

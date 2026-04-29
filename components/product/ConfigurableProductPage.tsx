@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParamsState as useSearchParams } from "@/lib/useSearchParamsState";
 import ProductHero from "./ProductHero";
 import ProductCategoryNav from "./ProductCategoryNav";
 import ProductCatalogCards from "./ProductCatalogCards";

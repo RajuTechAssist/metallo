@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { CONTAINER, DETAIL_VARIANTS } from "./productLayout";
 import type { ProductSpecItem, ProductBadgeItem } from "./productTypes";
@@ -208,7 +210,7 @@ function ProductCatalogCard<T>({
             Download Datasheet
           </button>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 text-xs font-heading font-bold uppercase tracking-wider hover:border-yellow-500 hover:bg-yellow-50 transition-all"
           >
             <span className="material-symbols-outlined text-lg">request_quote</span>

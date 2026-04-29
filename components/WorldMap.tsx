@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   ComposableMap,
@@ -11,7 +13,7 @@ import {
   GLOBAL_OFFICES,
   normalizeGeoId,
   OFFICE_KIND_LABELS,
-} from '../utils/mapConstants';
+} from '@/lib/mapConstants';
 
 const WORLD_DATA_URL = '/data/world-countries-110m.json';
 
