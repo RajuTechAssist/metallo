@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 interface Industry {
   title: string;
@@ -58,16 +59,18 @@ const Industries: React.FC = () => {
           className="flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:pb-0"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {industriesData.map((industry, index) => (
+          {industriesData.map((industry) => (
             <Link
               href={industry.slug}
-              key={index}
+              key={industry.slug}
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >
-              <img
+              <Image
                 src={industry.image}
                 alt={industry.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                fill
+                sizes="(min-width: 1024px) 16vw, (min-width: 768px) 180px, 160px"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-3">
