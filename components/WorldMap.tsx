@@ -243,23 +243,21 @@ const WorldMap: React.FC = () => {
   const [isSmallDevice, setIsSmallDevice] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
+    const controller = new AbortController();
 
-    fetch(WORLD_DATA_URL)
+    fetch(WORLD_DATA_URL, { signal: controller.signal })
       .then((response) => response.json())
       .then((data) => {
-        if (isMounted) {
-          setWorldTopology(data);
-        }
+        setWorldTopology(data);
       })
-      .catch(() => {
-        if (isMounted) {
+      .catch((err) => {
+        if (err.name !== 'AbortError') {
           setWorldTopology(null);
         }
       });
 
     return () => {
-      isMounted = false;
+      controller.abort();
     };
   }, []);
 
@@ -290,7 +288,7 @@ const WorldMap: React.FC = () => {
     return {
       type: 'FeatureCollection' as const,
       features: countries.features.filter(
-        (geo) => normalizeGeoId(geo.id) !== '010',
+        (geo) => normalizeGeoId(geo.id || '') !== '010',
       ),
     };
   }, [worldTopology]);
@@ -308,7 +306,7 @@ const WorldMap: React.FC = () => {
     return {
       type: 'FeatureCollection' as const,
       features: countries.features.filter((geo) =>
-        normalizeGeoId(geo.id) === headquartersOffice.geoId,
+        normalizeGeoId(geo.id || '') === headquartersOffice.geoId,
       ),
     };
   }, [headquartersOffice.geoId, worldTopology]);
@@ -345,7 +343,8 @@ const WorldMap: React.FC = () => {
     ? { zoom: 1.2, center: [0, 0] as [number, number] }
     : { zoom: 2, center: [6, 20] as [number, number] };
 
-  const filterZoomEvent = (event: { type: string; ctrlKey?: boolean }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const filterZoomEvent = (event: any) => {
     if (event.type === 'wheel') {
       return Boolean(event.ctrlKey);
     }
@@ -410,7 +409,8 @@ const WorldMap: React.FC = () => {
                 minZoom={1}
                 maxZoom={5}
                 center={defaultMapView.center}
-                filterZoomEvent={filterZoomEvent}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                filterZoomEvent={filterZoomEvent as any}
               >
                 <Geographies geography={countryGeographies}>
                   {({ geographies }) =>

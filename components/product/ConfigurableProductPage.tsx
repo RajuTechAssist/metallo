@@ -104,7 +104,7 @@ const ConfigurableProductPage: React.FC<ConfigurableProductPageProps> = ({
         getImage={(product) => product.image}
         getSpecifications={(product) => product.specifications || []}
         getApplications={(product) => product.applications}
-        getBadges={(product) => product.badges}
+        getBadges={(product) => product.badges || []}
         renderExtraSection={renderHighlights}
         ctaLabel={config.catalogCtaLabel}
         ctaIcon={config.catalogCtaIcon}

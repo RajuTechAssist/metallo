@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import {
   CERTIFICATE_ARCHIVE,
@@ -13,7 +13,7 @@ const Certifications: React.FC = () => {
     useState<CertificateArchiveItem | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = useCallback((direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = window.innerWidth > 768 ? 400 : 300;
       scrollContainerRef.current.scrollBy({
@@ -21,7 +21,7 @@ const Certifications: React.FC = () => {
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (!activeCertificate) {

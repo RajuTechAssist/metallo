@@ -184,7 +184,7 @@ const WireCableProductCard: React.FC<{
         {!detailsOpen && (
           <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-sm border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
             <Image
-              src={product.thumbnail || product.panelImage}
+              src={product.thumbnail || product.panelImage || ''}
               alt={product["Product Name"]}
               fill
               className="object-cover"
