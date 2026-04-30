@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhone = (phone: string) => /^[+]?[\d\s\-()]{7,15}$/.test(phone);
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg('');
 
@@ -101,15 +101,30 @@ const Contact: React.FC = () => {
     setSubmitStatus('submitting');
     lastSubmitRef.current = Date.now();
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const payload = new FormData();
+      Object.entries(formData).forEach(([k, v]) => payload.append(k, v));
+      if (bomFile) payload.append('bomFile', bomFile);
+
+      const res = await fetch('/api/contact', { method: 'POST', body: payload });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setSubmitStatus('idle');
+        setErrorMsg(data?.error || 'Failed to send enquiry. Please try again.');
+        return;
+      }
+
       setSubmitStatus('success');
       setFormData({ lookingFor: '', fullName: '', companyName: '', workEmail: '', phone: '', projectLocation: '', message: '' });
       setBomFile(null);
       setCaptchaInput('');
       setCaptcha(generateCaptcha());
-    }, 1500);
-  }, [formData, honeypot, captcha, captchaInput]);
+    } catch {
+      setSubmitStatus('idle');
+      setErrorMsg('Network error. Please try again.');
+    }
+  }, [formData, bomFile, honeypot, captcha, captchaInput]);
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
