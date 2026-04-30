@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -98,6 +99,8 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
     );
 };
 
+const MotionImage = motion(Image);
+
 /* ═══════════════════════════════════════════════════════════════
    AUTOMOTIVE & MOBILITY PAGE
    ═══════════════════════════════════════════════════════════════ */
@@ -143,10 +146,13 @@ const AutomotiveMobility: React.FC = () => {
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-                <motion.img
+                <MotionImage
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=85&auto=format&fit=crop"
                     alt="Automotive manufacturing assembly line"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority
                     style={{ y: heroY }}
                 />
 

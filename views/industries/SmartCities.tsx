@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -98,6 +99,8 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
     );
 };
 
+const MotionImage = motion(Image);
+
 /* ═══════════════════════════════════════════════════════════════
    SMART CITIES & URBAN DEVELOPMENT PAGE
    ═══════════════════════════════════════════════════════════════ */
@@ -143,9 +146,13 @@ const SmartCities: React.FC = () => {
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-                <motion.img
+                <MotionImage
                     src="/industries/smartCities1.jpg"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Smart cities and urban development"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority
                     style={{ y: heroY }}
                 />
                 <div className="absolute" />

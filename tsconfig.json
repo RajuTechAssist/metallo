@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "incremental": true,
     "plugins": [{ "name": "next" }],
+    "noUncheckedSideEffectImports": false,
     "paths": {
       "@/*": ["./*"]
     }

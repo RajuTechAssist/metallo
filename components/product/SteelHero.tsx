@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { CONTAINER } from "./productLayout";
 
 interface SteelHeroProps {
@@ -16,7 +17,7 @@ const panels = [
   { name: "", img: "/Steel/SHEETS&PLATES.png" },
   { name: "", img: "/Steel/flanges1.png" },
   { name: "", img: "/Steel/pipe-fittings3.png" },
-  { name: "", img: "/Steel/Fasteners & Bars.png" },
+  { name: "", img: "/Steel/Fasteners-Bars.png" },
   { name: "", img: "/Steel/gaskets1.png" },
 ];
 
@@ -34,10 +35,13 @@ const SteelHero: React.FC<SteelHeroProps> = ({
     <div className="absolute  flex w-full h-full">
       {panels.map((panel, idx) => (
         <div key={idx} className="relative flex-1 h-full border-r border-slate-800/80 last:border-r-0 group overflow-hidden">
-          <img
+          <Image
             src={panel.img}
             alt={panel.name}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            sizes="(max-width: 768px) 50vw, 17vw"
+            priority
           />
           {/* Default Overlay & Hover Effect */}
           {/* <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors duration-500" /> */}

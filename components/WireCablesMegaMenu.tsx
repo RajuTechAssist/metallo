@@ -126,7 +126,7 @@ const WireCablesMegaMenu: React.FC<{
                 Metallo Wire & Cable
               </h4>
               <p className="font-sans text-xs text-gray-500 leading-relaxed mb-4">
-                Metallo's wire and cable range is organized around LT Power &
+                Metallo&apos;s wire and cable range is organized around LT Power &
                 Control Cable and HT Power Cable selections for industrial
                 distribution, control circuits, and medium-voltage networks.
               </p>

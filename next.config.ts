@@ -6,10 +6,8 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
-  },
-  env: {
-    GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   },
 };
 

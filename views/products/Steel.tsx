@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Image from "next/image";
 import { useSearchParamsState as useSearchParams } from "@/lib/useSearchParamsState";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -194,11 +195,13 @@ const Steel: React.FC = () => {
         >
           {!detailsOpen && (
             <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-sm border border-slate-200 bg-slate-50 overflow-hidden relative">
-              <img
+              <Image
                 src={product.applicationImage || product.thumbnail}
                 alt={product["Product Name"]}
-                className={`absolute inset-0 w-full h-full ${isPipeCard ? "object-cover" : "object-contain p-2"}`}
+                fill
+                className={isPipeCard ? "object-cover" : "object-contain p-2"}
                 style={isPipeCard ? { objectPosition: "22% center" } : undefined}
+                sizes="96px"
               />
             </div>
           )}
@@ -229,10 +232,12 @@ const Steel: React.FC = () => {
               <div className="border-t border-slate-200">
                 <div className="flex flex-col md:flex-row">
                   <div className="relative w-full md:w-[320px] lg:w-[380px] shrink-0 h-[200px] md:h-auto overflow-hidden group">
-                    <img
+                    <Image
                       src={product.applicationImage || product.thumbnail}
                       alt={product["Product Name"]}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 380px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
                   </div>
@@ -377,9 +382,11 @@ const Steel: React.FC = () => {
                           className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
                         >
                           <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
-                            <img
+                            <Image
                               src={item.image}
                               alt={item.name}
+                              width={400}
+                              height={300}
                               className="w-full h-full object-contain"
                             />
                           </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Image from "next/image";
 import { useSearchParamsState as useSearchParams } from "@/lib/useSearchParamsState";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -142,10 +143,12 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
     >
       <div className="flex flex-col md:flex-row">
         <div className="relative w-full md:w-[320px] lg:w-[380px] shrink-0 h-[220px] md:h-auto overflow-hidden group bg-slate-100">
-          <img
+          <Image
             src={product.applicationImage || product.thumbnail}
             alt={product["Product Name"]}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 380px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-transparent to-transparent" />
         </div>

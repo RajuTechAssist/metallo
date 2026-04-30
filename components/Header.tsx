@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLocation } from "@/lib/useLocation";
 import { HEADER_PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
@@ -105,11 +106,12 @@ const Header: React.FC = () => {
           <div className="py-[clamp(0.5rem,1vw,1rem)] bg-white">
             <div className="flex justify-between items-center">
               <Link href="/" className="flex items-center group">
-                <img
+                <Image
                   src="/logo.svg"
                   alt="Metallo"
-                  className="w-auto"
-                  style={{ width: "clamp(10rem, 16vw, 15rem)" }}
+                  width={600}
+                  height={150}
+                  style={{ width: "clamp(10rem, 16vw, 15rem)", height: "auto" }}
                 />
               </Link>
 

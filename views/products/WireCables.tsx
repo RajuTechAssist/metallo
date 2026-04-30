@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Image from "next/image";
 import { useSearchParamsState as useSearchParams } from "@/lib/useSearchParamsState";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -181,11 +182,13 @@ const WireCableProductCard: React.FC<{
         className={`w-full flex items-center gap-4 md:gap-5 px-4 md:px-6 py-4 md:py-5 text-left transition-all duration-300 ${detailsOpen ? "bg-slate-50 border-b border-slate-200" : ""}`}
       >
         {!detailsOpen && (
-          <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-sm border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
-            <img
+          <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-sm border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
+            <Image
               src={product.thumbnail || product.panelImage}
               alt={product["Product Name"]}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="96px"
             />
           </div>
         )}
@@ -216,10 +219,12 @@ const WireCableProductCard: React.FC<{
             <div className="border-t border-slate-200">
               <div className="flex flex-col md:flex-row">
                 <div className="relative w-full md:w-[320px] lg:w-[380px] shrink-0 h-[220px] md:h-auto overflow-hidden bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200 group">
-                  <img
+                  <Image
                     src={product.panelImage || product.thumbnail}
                     alt={product["Product Name"]}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 380px"
                   />
                 </div>
 

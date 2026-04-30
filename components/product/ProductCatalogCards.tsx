@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { CONTAINER, DETAIL_VARIANTS } from "./productLayout";
 import type { ProductSpecItem, ProductBadgeItem } from "./productTypes";
@@ -80,10 +80,12 @@ function ProductCatalogCard<T>({
     >
       <div className="flex flex-col md:flex-row">
         <div className="relative w-full md:w-[320px] lg:w-[380px] shrink-0 h-[220px] md:h-auto overflow-hidden group">
-          <img
+          <Image
             src={getImage(product)}
             alt={getProductName(product)}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 380px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
         </div>

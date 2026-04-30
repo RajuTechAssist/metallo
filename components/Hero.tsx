@@ -97,8 +97,6 @@ const SLIDES: Slide[] = [
   // },
 ];
 
-const TOTAL = String(SLIDES.length).padStart(2, "0");
-
 const EASE_STANDARD: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const EASE_IN: [number, number, number, number] = [0.55, 0, 1, 0.45];

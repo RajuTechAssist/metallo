@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLocation } from "@/lib/useLocation";
 import { PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
@@ -14,11 +15,6 @@ const Footer: React.FC = () => {
   const [honeypot, setHoneypot] = useState("");
   const formLoadTime = useRef(Date.now());
   const location = useLocation();
-
-  // Reset form load time on mount
-  useEffect(() => {
-    formLoadTime.current = Date.now();
-  }, []);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,11 +93,12 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-gray-700/50 pb-8 gap-6">
           {/* Logo */}
           <div className="flex items-center group cursor-pointer">
-            <img
+            <Image
               src="/logo-white.svg"
               alt="Metallo"
-              className="w-auto"
-              style={{ width: "20rem" }}
+              width={600}
+              height={150}
+              style={{ width: "20rem", height: "auto" }}
             />
           </div>
 

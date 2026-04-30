@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
 
@@ -13,10 +14,13 @@ const About: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="/Metallo_office.png"
             alt="Metallo Industrial Facility"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
           />
           <div className="absolute mix-blend-multiply"></div>
         </div>
@@ -73,10 +77,12 @@ const About: React.FC = () => {
             </div>
             <div className="relative h-full min-h-[400px]">
               <div className="absolute top-0 right-0 w-4/5 h-4/5 bg-gray-100 rounded-tr-[4rem] -z-10"></div>
-              <img
+              <Image
                 src="/Steel/oil_industry1.jpg"
                 alt="Industrial Construction"
-                className="rounded-lg shadow-2xl w-full h-full object-cover"
+                fill
+                className="object-cover rounded-lg shadow-2xl"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               {/* <div className="absolute -bottom-8 -left-8 bg-metallo-navy p-8 text-white max-w-xs shadow-xl hidden md:block">
                 <p className="font-heading text-2xl font-bold mb-2">Since 2026</p>
@@ -101,7 +107,7 @@ const About: React.FC = () => {
             {/* Globe "O" Symbol from Logo */}
             <div className="flex-shrink-0 relative group flex flex-col items-center md:items-start lg:ml-12">
               <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-                <img src="/logo-icon.svg" alt="Metallo Globe Symbol" className="w-full h-full object-contain animate-spin-slow" />
+                <Image src="/logo-icon.svg" alt="Metallo Globe Symbol" width={320} height={320} className="w-full h-full object-contain animate-spin-slow" />
               </div>
               <div className="mt-4">
                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400">Continuity in Motion</span>
@@ -514,10 +520,12 @@ const About: React.FC = () => {
               href="/industries/infrastructure"
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[260px] rounded-md overflow-hidden cursor-pointer block"
             >
-              <img
+              <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvJM6qnxAt2dKFffbMpPfbpiY7ubZxxyjoHeXfXW7vlMYogDc2DKEEadk48s0aOS_IM-SABTEs0XmqHERJ1xqWE8k5dMFxC3NV23s1JmAY_2_qIJChkoM90FRnk8QylFpy6ChFKEYc0YQpOzXBUkQxbyVBuvC-rSk3rJ78SGFhDBOZR91prnaE0MisDsgU4c_mYC2obktRkY_6vsuUKjFlT_eJamzYm9uHYOOqChpDTs2maDJ7qdBtHw_T3rIn3pWhF4nh5zChyHpi"
                 alt="Infrastructure & Construction"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 200px, (max-width: 1024px) 200px, 17vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-3">

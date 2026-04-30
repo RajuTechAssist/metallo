@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
 
@@ -142,10 +143,12 @@ const WhyMetallo: React.FC = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {/* Image */}
-              <img
+              <Image
                 src={item.img}
                 alt={item.name}
-                className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110`}
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 15vw"
               />
 
               {/* Mobile Label (Hidden on Desktop as we have central overlay) */}
@@ -210,7 +213,7 @@ const WhyMetallo: React.FC = () => {
                 {/* Central Hub */}
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <div className="w-32 h-32 bg-metallo-gold rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(234,179,8,0.3)] animate-pulse p-5">
-                    <img src="/logo-icon.svg" alt="Metallo" className="w-full h-full object-contain animate-spin-slow" />
+                    <Image src="/logo-icon.svg" alt="Metallo" width={128} height={128} className="w-full h-full object-contain animate-spin-slow" />
                   </div>
                 </div>
 

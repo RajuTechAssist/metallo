@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { CONTAINER } from "./productLayout";
 
 interface ProductHeroProps {
@@ -23,10 +24,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({
     className="relative w-full overflow-hidden"
     style={{ height: "clamp(400px, 60vh, 700px)" }}
   >
-    <img
+    <Image
       src={backgroundImage}
       alt={breadcrumbLabel}
-      className="absolute w-full h-full object-cover"
+      fill
+      className="object-cover"
+      sizes="100vw"
+      priority
     />
     <div className="absolute" />
 

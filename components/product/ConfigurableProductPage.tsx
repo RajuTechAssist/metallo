@@ -6,7 +6,6 @@ import ProductHero from "./ProductHero";
 import ProductCategoryNav from "./ProductCategoryNav";
 import ProductCatalogCards from "./ProductCatalogCards";
 import ProductQABanner from "./ProductQABanner";
-import ProductCTA from "./ProductCTA";
 import VerticalCertifications from "./VerticalCertifications";
 import { matchesCategory } from "./productLayout";
 import type {
