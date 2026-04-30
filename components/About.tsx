@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import Image from 'next/image';
 
 const About: React.FC = () => {
   return (
@@ -12,8 +15,8 @@ const About: React.FC = () => {
               <span className="text-metallo-gold-hover">Industrial India</span>.
             </h2>
             <h3 className="text-xl font-medium text-gray-500 mb-8 uppercase tracking-wide font-sans">
-              We don't just build factories. We aggregate, standardize, and
-              scale the nation's idle industrial capacity.
+              We don&apos;t just build factories. We aggregate, standardize, and
+              scale the nation&apos;s idle industrial capacity.
             </h3>
             <div className="prose prose-lg text-gray-600 mb-10 space-y-4">
               <p>
@@ -32,7 +35,7 @@ const About: React.FC = () => {
                 CAPEX overhead.
               </p>
               <p>
-                We don't just supply products; we engineer certainty. Whether
+                We don&apos;t just supply products; we engineer certainty. Whether
                 you are building a mega-factory, a smart city, or a port,
                 Metallo provides the standardized quality and manufacturing
                 velocity you need to deliver on time.
@@ -87,10 +90,12 @@ const About: React.FC = () => {
           <div className="order-2 flex flex-col gap-6">
             {/* Card 1 — India Entry for Global Manufacturers */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
-              <img
-                alt="India Entry for Global Manufacturers"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              <Image
                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=85&auto=format&fit=crop"
+                alt="India Entry for Global Manufacturers"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 
@@ -109,8 +114,8 @@ const About: React.FC = () => {
               {/* Bottom Description */}
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
-                  Skip the complexity of India's fragmented supply base.
-                  Metallo's Manufacturing OS connects you to 500+ audited MSME
+                  Skip the complexity of India&apos;s fragmented supply base.
+                  Metallo&apos;s Manufacturing OS connects you to 500+ audited MSME
                   facilities with standardized SOPs, Central QC Hub testing, and
                   full MTC traceability—production-ready from day one.
                 </p>
@@ -119,10 +124,12 @@ const About: React.FC = () => {
 
             {/* Card 2 — Global Expansion for Indian Manufacturers */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
-              <img
-                alt="Global Expansion for Indian Manufacturers"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=85&auto=format&fit=crop"
+                alt="Global Expansion for Indian Manufacturers"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 

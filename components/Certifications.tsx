@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import React, { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import {
   CERTIFICATE_ARCHIVE,
   CERTIFICATION_INTRO_POINTS,
   type CertificateArchiveItem,
-} from "../utils/certificates";
+} from "@/lib/certificates";
 
 const Certifications: React.FC = () => {
   const [activeCertificate, setActiveCertificate] =
     useState<CertificateArchiveItem | null>(null);
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = useCallback((direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = window.innerWidth > 768 ? 400 : 300;
       scrollContainerRef.current.scrollBy({
@@ -18,7 +21,7 @@ const Certifications: React.FC = () => {
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (!activeCertificate) {
@@ -112,11 +115,12 @@ const Certifications: React.FC = () => {
                     onClick={() => setActiveCertificate(item)}
                     className="group inline-block text-left transition duration-300 hover:-translate-y-1"
                   >
-                    <img
+                    <Image
                       src={item.previewImage}
                       alt={item.title}
+                      width={400}
+                      height={576}
                       className="h-72 sm:h-[400px] w-auto border border-slate-200 shadow-[0_16px_40px_rgba(15,23,42,0.08)] bg-white transition duration-300 group-hover:shadow-[0_22px_56px_rgba(15,23,42,0.12)] group-hover:scale-[1.02]"
-                      loading="lazy"
                     />
                   </button>
                 </div>

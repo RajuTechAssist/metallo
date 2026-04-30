@@ -1,5 +1,8 @@
+"use client";
+
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useQuote, type QuoteProduct } from '../contexts/QuoteContext';
+import Image from 'next/image';
+import { useQuote, type QuoteProduct } from '@/contexts/QuoteContext';
 
 /* ═══════════════════════════════════════════════════════════════
    INQUIRY BASKET SIDEBAR + FLOATING BADGE + SUCCESS STATE
@@ -353,11 +356,13 @@ const InquiryBasket: React.FC = () => {
                       >
                         <div className="flex gap-3">
                           {/* Thumbnail */}
-                          <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 shrink-0">
-                            <img
+                          <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-gray-100 shrink-0">
+                            <Image
                               src={item.product.image}
                               alt={item.product.name}
-                              className="w-full h-full object-cover"
+                              fill
+                              className="object-cover"
+                              sizes="64px"
                             />
                           </div>
 

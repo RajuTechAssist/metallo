@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   ComposableMap,
@@ -11,7 +13,7 @@ import {
   GLOBAL_OFFICES,
   normalizeGeoId,
   OFFICE_KIND_LABELS,
-} from '../utils/mapConstants';
+} from '@/lib/mapConstants';
 
 const WORLD_DATA_URL = '/data/world-countries-110m.json';
 
@@ -177,27 +179,60 @@ const REGION_HIGHLIGHTS = [
   },
 ];
 
+type GeoProperties = {
+  name?: string;
+};
+
+type GeoGeometry = {
+  properties?: GeoProperties;
+};
+
+type CountryObjects = {
+  geometries?: GeoGeometry[];
+};
+
 type WorldTopology = {
   objects: {
-    countries: object;
-    land: object;
+    countries: CountryObjects;
   };
+};
+
+type GeoFeature = {
+  id?: string | number;
+  rsmKey?: string;
+  properties?: GeoProperties;
 };
 
 type FeatureCollectionLike = {
   type: 'FeatureCollection';
-  features: any[];
+  features: GeoFeature[];
 };
 
-const toFeatureCollection = (value: any): FeatureCollectionLike => {
-  if (value?.type === 'FeatureCollection') {
-    return value;
+type TopologyInput = Parameters<typeof feature>[0];
+type ObjectInput = Parameters<typeof feature>[1];
+type MergeTopologyInput = Parameters<typeof merge>[0];
+type MergeGeometriesInput = Parameters<typeof merge>[1];
+
+const toFeatureCollection = (value: unknown): FeatureCollectionLike => {
+  if (
+    value &&
+    typeof value === 'object' &&
+    (value as FeatureCollectionLike).type === 'FeatureCollection'
+  ) {
+    return value as FeatureCollectionLike;
   }
 
   return {
     type: 'FeatureCollection',
-    features: value ? [value] : [],
+    features: value ? [value as GeoFeature] : [],
   };
+};
+
+const getCountriesObject = (topology: WorldTopology): ObjectInput => {
+  const topo = topology as unknown as TopologyInput;
+  const objects = topo.objects as Record<string, ObjectInput>;
+
+  return objects.countries;
 };
 
 const WorldMap: React.FC = () => {
@@ -208,23 +243,21 @@ const WorldMap: React.FC = () => {
   const [isSmallDevice, setIsSmallDevice] = useState(false);
 
   useEffect(() => {
-    let isMounted = true;
+    const controller = new AbortController();
 
-    fetch(WORLD_DATA_URL)
+    fetch(WORLD_DATA_URL, { signal: controller.signal })
       .then((response) => response.json())
       .then((data) => {
-        if (isMounted) {
-          setWorldTopology(data);
-        }
+        setWorldTopology(data);
       })
-      .catch(() => {
-        if (isMounted) {
+      .catch((err) => {
+        if (err.name !== 'AbortError') {
           setWorldTopology(null);
         }
       });
 
     return () => {
-      isMounted = false;
+      controller.abort();
     };
   }, []);
 
@@ -246,13 +279,16 @@ const WorldMap: React.FC = () => {
     if (!worldTopology) return null;
 
     const countries = toFeatureCollection(
-      feature(worldTopology as any, (worldTopology as any).objects.countries),
+      feature(
+        worldTopology as unknown as TopologyInput,
+        getCountriesObject(worldTopology),
+      ),
     );
 
     return {
       type: 'FeatureCollection' as const,
       features: countries.features.filter(
-        (geo) => normalizeGeoId(geo.id) !== '010',
+        (geo) => normalizeGeoId(geo.id || '') !== '010',
       ),
     };
   }, [worldTopology]);
@@ -261,13 +297,16 @@ const WorldMap: React.FC = () => {
     if (!worldTopology) return null;
 
     const countries = toFeatureCollection(
-      feature(worldTopology as any, (worldTopology as any).objects.countries),
+      feature(
+        worldTopology as unknown as TopologyInput,
+        getCountriesObject(worldTopology),
+      ),
     );
 
     return {
       type: 'FeatureCollection' as const,
       features: countries.features.filter((geo) =>
-        normalizeGeoId(geo.id) === headquartersOffice.geoId,
+        normalizeGeoId(geo.id || '') === headquartersOffice.geoId,
       ),
     };
   }, [headquartersOffice.geoId, worldTopology]);
@@ -275,12 +314,11 @@ const WorldMap: React.FC = () => {
   const regionHighlightGeographies = useMemo(() => {
     if (!worldTopology) return [];
 
-    const countryObjects =
-      (worldTopology as any).objects?.countries?.geometries ?? [];
+    const countryObjects = worldTopology.objects?.countries?.geometries ?? [];
 
     return REGION_HIGHLIGHTS.map((region) => {
-      const geometries = countryObjects.filter((geo: any) =>
-        region.countryNames.includes(geo.properties?.name),
+      const geometries = countryObjects.filter((geo) =>
+        region.countryNames.includes(geo.properties?.name ?? ''),
       );
 
       if (!geometries.length) {
@@ -289,7 +327,12 @@ const WorldMap: React.FC = () => {
 
       return {
         ...region,
-        geography: toFeatureCollection(merge(worldTopology as any, geometries)),
+        geography: toFeatureCollection(
+          merge(
+            worldTopology as unknown as MergeTopologyInput,
+            geometries as unknown as MergeGeometriesInput,
+          ),
+        ),
       };
     }).filter(Boolean) as Array<
       (typeof REGION_HIGHLIGHTS)[number] & { geography: FeatureCollectionLike }
@@ -300,7 +343,8 @@ const WorldMap: React.FC = () => {
     ? { zoom: 1.2, center: [0, 0] as [number, number] }
     : { zoom: 2, center: [6, 20] as [number, number] };
 
-  const filterZoomEvent = (event: { type: string; ctrlKey?: boolean }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const filterZoomEvent = (event: any) => {
     if (event.type === 'wheel') {
       return Boolean(event.ctrlKey);
     }
@@ -365,9 +409,10 @@ const WorldMap: React.FC = () => {
                 minZoom={1}
                 maxZoom={5}
                 center={defaultMapView.center}
-                filterZoomEvent={filterZoomEvent}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                filterZoomEvent={filterZoomEvent as any}
               >
-                <Geographies geography={countryGeographies as any}>
+                <Geographies geography={countryGeographies}>
                   {({ geographies }) =>
                     geographies.map((geo) => (
                       <Geography
@@ -387,7 +432,7 @@ const WorldMap: React.FC = () => {
                 </Geographies>
 
                 {regionHighlightGeographies.map((region) => (
-                  <Geographies key={region.id} geography={region.geography as any}>
+                  <Geographies key={region.id} geography={region.geography}>
                     {({ geographies }) =>
                       geographies.map((geo) => (
                         <Geography
@@ -432,7 +477,7 @@ const WorldMap: React.FC = () => {
                   </Geographies>
                 ))}
 
-                <Geographies geography={headquartersCountryGeographies as any}>
+                <Geographies geography={headquartersCountryGeographies}>
                   {({ geographies }) =>
                     geographies.map((geo) => {
                       const fillColor =

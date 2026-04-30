@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParamsState as useSearchParams } from "@/lib/useSearchParamsState";
 import ProductHero from "./ProductHero";
 import ProductCategoryNav from "./ProductCategoryNav";
 import ProductCatalogCards from "./ProductCatalogCards";
 import ProductQABanner from "./ProductQABanner";
-import ProductCTA from "./ProductCTA";
 import VerticalCertifications from "./VerticalCertifications";
 import { matchesCategory } from "./productLayout";
 import type {
@@ -103,7 +104,7 @@ const ConfigurableProductPage: React.FC<ConfigurableProductPageProps> = ({
         getImage={(product) => product.image}
         getSpecifications={(product) => product.specifications || []}
         getApplications={(product) => product.applications}
-        getBadges={(product) => product.badges}
+        getBadges={(product) => product.badges || []}
         renderExtraSection={renderHighlights}
         ctaLabel={config.catalogCtaLabel}
         ctaIcon={config.catalogCtaIcon}

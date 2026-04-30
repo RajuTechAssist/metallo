@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SHOWCASE_PRODUCT_VERTICALS } from '../utils/productVerticals';
+import Link from "next/link";
+import Image from "next/image";
+import { SHOWCASE_PRODUCT_VERTICALS } from "@/lib/productVerticals";
 
 const Verticals: React.FC = () => {
   return (
@@ -25,14 +28,16 @@ const Verticals: React.FC = () => {
         >
           {SHOWCASE_PRODUCT_VERTICALS.map((item) => (
             <Link
-              to={item.path}
+              href={item.path}
               key={item.key}
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >
-              <img
-                src={item.showcaseImage}
+              <Image
+                src={item.showcaseImage || ''}
                 alt={item.showcaseTitle || item.name}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 200px, (max-width: 1024px) 200px, 15vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
