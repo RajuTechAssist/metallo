@@ -66,10 +66,10 @@ const PROCESS_STEPS = [
 /* ─── BENEFITS ──────────────────────────────────────────────── */
 const BENEFITS = [
     { title: 'Predictable Compliance', desc: 'Consistent MTCs, NDT reports, and third‑party validation reduce audit rework and project hold‑ups.', icon: 'verified_user' },
-    { title: 'Elastic Capacity', desc: 'Scale heavy fabrication capacity on demand without new CAPEX — parallelize across audited MSME partners.', icon: 'hub' },
+    { title: 'Elastic Capacity', desc: 'Scale heavy fabrication capacity on demand without new CAPEX — parallelize across audited global manufacturing partners.', icon: 'hub' },
     { title: 'Faster Delivery', desc: 'Parallelized, audited production across multiple locations shortens lead times for large assemblies.', icon: 'speed' },
     { title: 'Cost & Material Control', desc: 'Centralized procurement of critical steels and alloys reduces grade variance and eliminates rework.', icon: 'savings' },
-    { title: 'Export Readiness', desc: 'Compliance and documentation aligned to global standards for Middle East, Africa, and ASEAN markets.', icon: 'public' },
+    { title: 'Globally-Compliant', desc: 'Compliance and documentation aligned to international standards, built for global mega-projects.', icon: 'public' },
 ];
 
 /* ─── ANIMATION VARIANTS ────────────────────────────────────── */
@@ -177,7 +177,7 @@ const HeavyEngineering: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            Audited MSME capacity, certified heavy‑fabrication SOPs, and Central QC for pressure vessels, large structural works, and industrial assemblies — with NDT, PMI, and MTC traceability for every shipment.
+                            Audited borderless manufacturing capacity, certified heavy‑fabrication SOPs, and Central QC for pressure vessels, large structural works, and industrial assemblies — with NDT, PMI, and MTC traceability for every shipment.
                         </p>
 
                         {/* CTAs */}
@@ -237,10 +237,10 @@ const HeavyEngineering: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the heavy engineering and capital goods sector — aggregating MSME capacity across pipe mills, heavy fabricators, CNC machining units, and assembly shops. By deploying standardized SOPs and centralizing quality control through its Central QC Hub, Metallo ensures EPCs, integrators, and industrial plants receive certified, traceable, and project‑ready heavy fabrications without building new facilities.
+                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the heavy engineering and capital goods sector — aggregating borderless manufacturing capacity across pipe mills, heavy fabricators, CNC machining units, and assembly shops. Operating on a model of Centralized Control, Distributed Execution, Metallo ensures Tier-1 EPC contractors, integrators, and industrial plants receive globally-compliant, traceable, and project‑ready heavy fabrications without building new facilities.
                             </p>
                             <p>
-                                India's heavy engineering sector is recovering strongly, with engineering exports above <strong className="text-metallo-navy">US$100 billion</strong> and record government CAPEX driving demand for large‑format fabrications, pressure vessels, and heavy assemblies. Despite growth, the sector faces technology and scale gaps — many MSME shops have relevant capability but inconsistent SOPs, testing, and traceability. Metallo bridges this gap by standardizing quality across distributed capacity and providing <strong className="text-metallo-navy">NDT, PMI, and MTC traceability</strong> for every shipment.
+                                The global heavy engineering sector is expanding rapidly, with transnational infrastructure expansions driving unprecedented demand for large‑format fabrications, pressure vessels, and heavy assemblies. Despite this growth, Tier-1 EPCs face scaling challenges — many global manufacturing partners have relevant capability but lack consistent SOPs, testing, and traceability. Metallo bridges this gap by standardizing quality across distributed capacity and providing <strong className="text-metallo-navy">NDT, PMI, and MTC traceability</strong> for every shipment.
                             </p>
                         </div>
                     </div>
@@ -256,10 +256,10 @@ const HeavyEngineering: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'Engineering exports above US$100B — strong government CAPEX driving demand.',
-                                    'Record infrastructure spend on highways, ports, and industrial corridors.',
+                                    'Transnational infrastructure expansions and international capital projects driving unprecedented demand.',
+                                    'Record global infrastructure spend on ports, pipelines, and industrial corridors.',
                                     'Growing demand for pressure vessels, heat exchangers, and heavy assemblies.',
-                                    'Sector still relies on imports for some high‑end machinery — opening for local aggregators.',
+                                    'Fragmented supply chains for high‑end machinery necessitate a borderless manufacturing network.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
                                         <span className="material-symbols-outlined text-sm text-yellow-500 mt-0.5 shrink-0">circle</span>
@@ -277,7 +277,7 @@ const HeavyEngineering: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'Fragmented supplier base — many MSME shops have capability but inconsistent SOPs and testing.',
+                                    'Fragmented supplier base — many global manufacturing partners have capability but inconsistent SOPs and testing.',
                                     'Pressure vessels and boilers require strict NDT, material certification, and third‑party validation.',
                                     'Large projects need burst capacity for heavy fabrications that single plants cannot always meet.',
                                     'Heavy subassemblies require coordinated multi‑site fabrication and JIT delivery.',
@@ -322,7 +322,7 @@ const HeavyEngineering: React.FC = () => {
                     <div className="text-center mb-16">
                         <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Why Metallo for Heavy Engineering</p>
                         <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-metallo-navy leading-tight">
-                            Scale large fabrications across<br className="hidden sm:block" /> audited MSME partners
+                            Scale large fabrications across<br className="hidden sm:block" /> an audited borderless network
                         </h2>
                     </div>
 
@@ -368,9 +368,9 @@ const HeavyEngineering: React.FC = () => {
                         {[
                             {
                                 icon: 'engineering',
-                                title: 'EPC Contractors & Integrators',
+                                title: 'Tier-1 EPC Contractors & Integrators',
                                 focus: 'Pressure vessels, structural fabrications, modular skids, piping',
-                                copy: 'EPCs rely on Metallo for certified heavy fabrications — from bridge girders and pressure vessels to modular plant skids. Our audited MSME network delivers parallelized production with NDT, PMI, and MTCs for every batch, reducing audit rework and project hold‑ups.',
+                                copy: 'Tier-1 EPC contractors rely on Metallo for certified heavy fabrications — from bridge girders and pressure vessels to modular plant skids. Our audited borderless network delivers parallelized production with NDT, PMI, and MTCs for every batch, reducing audit rework and project hold‑ups.',
                                 assurances: 'ASME/IS/EN compliance · NDT per batch · Serialized MTCs · Multi‑site pre‑assembly',
                                 cta: 'Request a Project Quote',
                             },
@@ -378,7 +378,7 @@ const HeavyEngineering: React.FC = () => {
                                 icon: 'factory',
                                 title: 'Steel, Cement & Mining Plants',
                                 focus: 'Crusher assemblies, base frames, gear housings, heavy skids',
-                                copy: 'Industrial plants source heavy machinery assemblies — gear housings, crusher components, base frames, and skids — through Metallo\'s pooled MSME capacity with CNC machining, alignment services, and certified material traceability.',
+                                copy: 'Industrial plants source heavy machinery assemblies — gear housings, crusher components, base frames, and skids — through Metallo\'s pooled global manufacturing capacity with CNC machining, alignment services, and certified material traceability.',
                                 assurances: 'CNC machining · PMI testing · Traceable material certs · Pre‑assembly & alignment',
                                 cta: 'Get Capability Study',
                             },
@@ -585,7 +585,7 @@ const HeavyEngineering: React.FC = () => {
                             {
                                 icon: 'qr_code_2',
                                 title: 'Traceability',
-                                items: ['Serialized batch IDs & part genealogy', 'Digital QC reports per batch', 'Material Testing Certificates (MTCs)', 'NDT reports linked to weld maps', 'Statutory documentation packages', 'Export documentation for global markets'],
+                                items: ['Serialized batch IDs & part genealogy', 'Digital QC reports per batch', 'Material Testing Certificates (MTCs)', 'NDT reports linked to weld maps', 'Statutory documentation packages', 'Globally-compliant documentation for international deployment'],
                             },
                         ].map((block, i) => (
                             <motion.div
@@ -658,7 +658,7 @@ const HeavyEngineering: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">EPC Pressure Vessel Program — Multi‑Site Fabrication</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Metallo coordinated 7 audited MSME partners to fabricate 24 pressure vessels and heat exchangers for a cement plant expansion. Standardized welding SOPs (ASME IX), NDT on every weld, and PMI verification achieved 98.5% first‑pass NDT acceptance. Full MTC documentation and statutory package delivered 3 weeks ahead of project timeline.
+                                Metallo coordinated 7 audited global manufacturing partners to fabricate 24 pressure vessels and heat exchangers for a cement plant expansion. Strict SOPs (ASME IX), NDT on every weld, and PMI verification achieved 98.5% first‑pass NDT acceptance. Full MTC documentation and statutory package delivered 3 weeks ahead of project timeline.
                             </p>
                             <div className="flex gap-8 flex-wrap">
                                 <div>
@@ -671,7 +671,7 @@ const HeavyEngineering: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">7</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Global Manufacturing Partners</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">3 wk</p>
@@ -703,7 +703,7 @@ const HeavyEngineering: React.FC = () => {
                         Ready to scale your<br />heavy engineering project?
                     </h2>
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
-                        From pressure vessels and bridge girders to modular plant modules — Metallo delivers certified heavy fabrications from India's audited MSME network.
+                        From pressure vessels and bridge girders to modular plant modules — Metallo delivers certified heavy fabrications from an audited, borderless manufacturing network.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">

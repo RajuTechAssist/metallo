@@ -39,7 +39,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Process Piping",
       name: "Shop Fabricated Piping",
       description:
-        "DEE Piping positions this offer as a full process-piping package covering engineering, cutting and beveling, robotic and automatic welding, radiography, PWHT, hydro testing, passivation, blasting, and painting for complex industrial systems.",
+        "A comprehensive process-piping package covering engineering, cutting and beveling, robotic and automatic welding, radiography, PWHT, hydro testing, passivation, blasting, and painting for complex industrial systems.",
       image: "/pipes/shop-fabricated-piping.png",
       applications: ["Power Projects", "Process Plants", "Oil & Gas", "Alloy Service Lines"],
       badges: [{ label: "Robotic Welding", tone: "accent" }],
@@ -65,17 +65,16 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         {
           label: "Manufacturing Footprint",
           value:
-            "Seven manufacturing facilities across Palwal, Anjar, Barmer, Bangkok, and Numaligarh.",
+            "Multiple manufacturing facilities across Gurugram, Gujarat, and Maharashtra.",
           icon: "factory",
         },
       ],
       highlights: [
         "Blends engineering and shop fabrication into one delivery workflow.",
-        "Highlights automated and robotic welding for repeatability at scale.",
+        "Automated and robotic welding ensures repeatability at scale.",
         "Built for high-mix metallurgy where conventional shops struggle.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/shop-fabricated-piping.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "skid-modular-piping",
@@ -83,7 +82,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Modular Skids",
       name: "Skid & Modular Piping",
       description:
-        "DEE Piping describes modular skids as advanced pipe-rack and processing structures designed for petrochemical, natural gas, and energy projects where safer installation, faster commissioning, and scalable layouts matter.",
+        "Advanced pipe-rack and processing structures delivered as modular skids, designed for petrochemical, natural gas, and energy projects where safer installation, faster commissioning, and scalable layouts matter.",
       image: "/pipes/skid-modular-piping.png",
       applications: ["Petrochemicals", "Natural Gas", "Energy Projects", "Process Modules"],
       badges: [{ label: "Fast-Track Modules", tone: "accent" }],
@@ -110,8 +109,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         "Reduces project disruption by shipping larger preassembled systems.",
         "Fits projects where predictable startup timelines are critical.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/skid-modular-piping.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "induction-bending",
@@ -119,7 +117,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "High-Frequency Bends",
       name: "High-Frequency Induction Bending",
       description:
-        "DEE Piping manufactures weld-less pipe spools and bends through high-frequency induction heating, covering seamless and LSAW bends in carbon, alloy, stainless, super duplex, and incoloy grades for demanding service conditions.",
+        "Weld-less pipe spools and bends manufactured through high-frequency induction heating, covering seamless and LSAW bends in carbon, alloy, stainless, super duplex, and incoloy grades for demanding service conditions.",
       image: "/pipes/induction-bending.jpg",
       applications: [
         "Thermal & Nuclear Power",
@@ -148,11 +146,10 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       ],
       highlights: [
         "Uses localized induction heat to form large-radius bends without conventional weld buildup.",
-        "Positions DEE for higher-temperature and higher-alloy piping packages.",
+        "Enables higher-temperature and higher-alloy piping packages.",
         "Fits critical sectors where geometry and metallurgy both matter.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/induction-bending.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "heavy-fabrication",
@@ -160,14 +157,14 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Large-Diameter Fabrication",
       name: "Facility for Heavy Fabrication",
       description:
-        "DEE Piping's Anjar heavy fabrication facility is presented as a dedicated site for renewable-power and heavy piping work, producing wind turbine towers, industrial stacks, pressure vessels, steel fabrication, and LSAW pipe structures.",
+        "Metallo's heavy fabrication facility is dedicated to renewable-power and heavy piping work, producing wind turbine towers, industrial stacks, pressure vessels, steel fabrication, and LSAW pipe structures.",
       image: "/pipes/heavy-fabrication.jpg",
       applications: ["Renewable Power", "Industrial Stacks", "Pressure Equipment", "Large Pipe Structures"],
       badges: [{ label: "Large Diameter", tone: "accent" }],
       specifications: [
         {
           label: "Facility Area",
-          value: "Approx. 88,429.61 square meters at the Anjar fabrication facility.",
+          value: "Approx. 88,429.61 square meters of dedicated fabrication space.",
           icon: "warehouse",
         },
         {
@@ -182,12 +179,11 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         },
       ],
       highlights: [
-        "Extends the pipe page from small fittings into very large fabricated sections.",
+        "Extends capabilities from small fittings into very large fabricated sections.",
         "Supports renewable and process-industry structures with thick-wall fabrication.",
         "Creates a bridge between piping packages and associated heavy steel assemblies.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/heavy-metal-fabrication.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "industrial-pipe-fittings",
@@ -195,7 +191,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Fittings",
       name: "Industrial Pipe Fittings",
       description:
-        "DEE Piping uses industrial fittings both for internal pipe spool fabrication and for OEM supply, highlighting elbows, tees, end caps, reducers, couplings, bends, plugs, and stub ends along with custom Y-pieces and long U-bends.",
+        "Industrial fittings for internal pipe spool fabrication and OEM supply, including elbows, tees, end caps, reducers, couplings, bends, plugs, and stub ends along with custom Y-pieces and long U-bends.",
       image: "/pipes/pipe-fittings.jpg",
       applications: ["Pipe Spools", "OEM Supply", "Power Projects", "Oil & Gas"],
       badges: [{ label: "OEM Supply", tone: "neutral" }],
@@ -221,8 +217,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         "Supports both direct sale and integrated spool-building workflows.",
         "Connects small components to larger project fabrication packages.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/pipe-fittings.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "engineering-services",
@@ -230,7 +225,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Design Support",
       name: "Engineering Services",
       description:
-        "DEE Piping frames engineering services as a parallel capability to fabrication, covering pipe sizing, pressure-drop calculations, 3D modelling, stress analysis, support engineering, isometrics, layout engineering, spooling, and statutory documentation support.",
+        "Metallo's engineering services run in parallel with fabrication, covering pipe sizing, pressure-drop calculations, 3D modelling, stress analysis, support engineering, isometrics, layout engineering, spooling, and statutory documentation support.",
       image: "/pipes/engineering-services.jpg",
       applications: ["3D Plant Models", "Stress Analysis", "Routing Layouts", "Bid Support"],
       badges: [{ label: "3D Modelling", tone: "accent" }],
@@ -259,8 +254,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         "Connects engineering models to downstream spool and support packages.",
         "Improves constructability when space, loads, and maintenance access are tight.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/engineering-services.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "pilot-plant",
@@ -268,7 +262,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Pilot Plant Solutions",
       name: "Pilot Plant",
       description:
-        "DEE Piping presents pilot plants as a one-stop offer spanning concept development, 3D modelling, process simulation, control engineering, fabrication, construction, installation, and commissioning for innovation-led process industries.",
+        "Metallo delivers pilot plants as a turnkey solution spanning concept development, 3D modelling, process simulation, control engineering, fabrication, construction, installation, and commissioning for innovation-led process industries.",
       image: "/pipes/pilot-plant.png",
       applications: ["Green Chemistry", "Renewable Energy", "Specialty Chemicals", "Process R&D"],
       badges: [{ label: "Concept to Commissioning", tone: "accent" }],
@@ -292,12 +286,11 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         },
       ],
       highlights: [
-        "Extends the page beyond pipe components into integrated process systems.",
-        "Pairs DEE's piping and systems-integration background with R&D-scale builds.",
+        "Goes beyond pipe components into integrated process systems.",
+        "Combines Metallo's piping and systems-integration expertise with R&D-scale builds.",
         "Useful for customers validating processes before full-scale capex.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/pilot-plant.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "quality-control",
@@ -305,7 +298,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Quality Systems",
       name: "Quality Control Testing and Certifications",
       description:
-        "DEE Piping describes a multilevel quality-control stack that starts with incoming materials and continues through process-stage checks, internal audits, ERP-based traceability, and certification-backed management systems.",
+        "Metallo operates a multilevel quality-control stack that starts with incoming materials and continues through process-stage checks, internal audits, ERP-based traceability, and certification-backed management systems.",
       image: "/pipes/quality-control.jpg",
       applications: ["Material Traceability", "Regulatory Compliance", "Inspection Readiness", "Project QA"],
       badges: [{ label: "ERP Traceability", tone: "accent" }],
@@ -322,7 +315,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         },
         {
           label: "Visible Certifications",
-          value: "ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018 highlighted on the quality page.",
+          value: "ISO 9001:2015, ISO 14001:2015, and ISO 45001:2018.",
           icon: "workspace_premium",
         },
       ],
@@ -331,8 +324,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         "Useful for customers who need auditable traceability through fabrication stages.",
         "Supports regulated and customer-audited projects with documented controls.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/quality.php",
+      sourceLabel: "Metallo",
     },
     {
       id: "packaging-shipping",
@@ -340,7 +332,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Logistics",
       name: "Packaging, Freight and Transportation",
       description:
-        "DEE Piping's logistics offer covers packing, domestic and export dispatch coordination, consignee and door-delivery models, clearance workflows, and Incoterm-based shipment handling through third-party logistics networks.",
+        "Metallo's logistics capability covers packing, domestic and export dispatch coordination, consignee and door-delivery models, clearance workflows, and Incoterm-based shipment handling through third-party logistics networks.",
       image: "/pipes/packaging-shipping.png",
       applications: ["Door Delivery", "Export Shipments", "Port Dispatch", "Project Logistics"],
       badges: [{ label: "Export Ready", tone: "neutral" }],
@@ -367,8 +359,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
         "Useful when projects need one supplier coordinating dispatch to site or port.",
         "Helps tie product readiness to practical delivery terms and export paperwork.",
       ],
-      sourceLabel: "DEE Piping",
-      sourceUrl: "https://www.deepiping.com/packaging-shipping.php",
+      sourceLabel: "Metallo",
     },
   ],
   catalogCtaLabel: "Download Pipes Catalog",
@@ -380,7 +371,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       {
         icon: "precision_manufacturing",
         title: "Automated Fabrication",
-        desc: "Source material highlights CNC preparation plus semi-automatic and robotic welding workflows.",
+        desc: "CNC preparation paired with semi-automatic and robotic welding workflows.",
       },
       {
         icon: "verified",

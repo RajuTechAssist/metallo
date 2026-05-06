@@ -65,10 +65,10 @@ const PROCESS_STEPS = [
 
 /* ─── BENEFITS ──────────────────────────────────────────────── */
 const BENEFITS = [
-    { title: 'Faster Project Delivery', desc: 'Parallelized production across audited MSME partners shortens lead times for city‑scale infrastructure rollouts.', icon: 'speed' },
+    { title: 'Faster Project Delivery', desc: 'Parallelized production across audited global manufacturing partners shortens lead times for city‑scale infrastructure rollouts.', icon: 'speed' },
     { title: 'Lower Audit Risk', desc: 'Consistent MTCs, digital QC reports, and third‑party validation reduce compliance rework for municipal projects.', icon: 'verified_user' },
     { title: 'Cost Predictability', desc: 'Centralized procurement of steel, cables, and trays reduces grade variance and provides transparent, locked‑in pricing.', icon: 'savings' },
-    { title: 'Elastic City‑Scale Capacity', desc: 'Pool audited MSME capacity for city‑wide rollouts — kiosks, piping, cable trays — without new plant investments.', icon: 'hub' },
+    { title: 'Elastic City‑Scale Capacity', desc: 'Pool audited borderless manufacturing capacity for city‑wide rollouts — kiosks, piping, cable trays — without new plant investments.', icon: 'hub' },
     { title: 'Digital Traceability', desc: 'Serialized batch IDs, digital QC certificates, and BOM‑linked part genealogy for warranty and audit trail.', icon: 'qr_code_2' },
 ];
 
@@ -177,7 +177,7 @@ const SmartCities: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-lg text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            Audited MSME capacity, modular components, and traceable QA for smart infrastructure, utilities, and urban systems — SS pipes, cable trays, control cables, modular enclosures, and MEP modules with Central QC and full MTC traceability.
+                            Audited global manufacturing capacity, modular components, and traceable QA for smart infrastructure, utilities, and urban systems — SS pipes, cable trays, control cables, modular enclosures, and MEP modules with Central QC and full MTC traceability.
                         </p>
 
                         {/* CTAs
@@ -237,10 +237,10 @@ const SmartCities: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo leverages its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to support India's smart city and urban development initiatives. By aggregating idle MSME capacity — SS pipe mills, cable tray manufacturers, wire &amp; cable plants, fabricators, and industrial assembly units — Metallo delivers certified, scalable, and asset‑light manufacturing solutions for infrastructure components, utilities, and modular assemblies.
+                                Metallo leverages its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to support transnational smart city and urban development initiatives. By aggregating audited borderless manufacturing capacity — SS pipe mills, cable tray manufacturers, wire &amp; cable plants, fabricators, and industrial assembly units — Metallo delivers certified, scalable, and asset‑light manufacturing solutions for infrastructure components, utilities, and modular assemblies based on a model of Centralized Control, Distributed Execution.
                             </p>
                             <p>
-                                India's <strong className="text-metallo-navy">Smart Cities Mission</strong> and rapid urbanization are driving demand for standardized, modular, and digitally traceable infrastructure components — structural steel, stainless pipes, cable trays, control cables, and pre‑assembled MEP modules — for utilities, transport, and housing. MSMEs already produce much of the required hardware but lack uniform SOPs, traceability, and centralized QA. Metallo upgrades and integrates them into a unified, quality‑controlled production ecosystem.
+                                Transnational infrastructure expansions and rapid urbanization are driving demand for standardized, modular, and digitally traceable infrastructure components — structural steel, stainless pipes, cable trays, control cables, and pre‑assembled MEP modules — for utilities, transport, and housing. Global manufacturing partners already produce much of the required hardware but lack uniform SOPs, traceability, and centralized QA. Metallo upgrades and integrates them into a unified, quality‑controlled production ecosystem tailored for Tier-1 EPC contractors.
                             </p>
                         </div>
                     </div>
@@ -256,10 +256,10 @@ const SmartCities: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'Smart Cities Mission driving demand for modular, repeatable urban infrastructure across 100+ cities.',
+                                    'Transnational infrastructure expansions driving demand for modular, repeatable urban infrastructure across global mega-cities.',
                                     'Metro expansion, smart grids, and IoT‑enabled utilities require digitally traceable components.',
                                     'EV charging infrastructure, telecom shelters, and smart water networks scaling rapidly.',
-                                    'MSMEs produce the hardware but lack SOPs and traceability — ripe for aggregation and certification.',
+                                    'Global manufacturing partners produce the hardware but lack SOPs and traceability — ripe for aggregation and certification.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
                                         <span className="material-symbols-outlined text-sm text-yellow-500 mt-0.5 shrink-0">circle</span>
@@ -328,7 +328,7 @@ const SmartCities: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         {[
-                            { icon: 'hub', title: 'Elastic City‑Scale Capacity', desc: 'Pool audited MSME capacity for city‑wide rollouts — pipes, trays, enclosures, MEP modules — without new CAPEX.' },
+                            { icon: 'hub', title: 'Elastic City‑Scale Capacity', desc: 'Pool audited borderless manufacturing capacity for city‑wide rollouts — pipes, trays, enclosures, MEP modules — without new CAPEX.' },
                             { icon: 'verified_user', title: 'Certified Quality', desc: 'SOPs, batch testing, MTCs, and third‑party validation for municipal compliance and audit readiness.' },
                             { icon: 'inventory_2', title: 'Unified Multi‑Category Procurement', desc: 'One platform for steel, cables, cable trays, and modular assemblies — simplifying complex urban BOMs.' },
                             { icon: 'qr_code_2', title: 'Digital Traceability', desc: 'Production tracking and QC reports linked to smart city project BOMs — serialized batch IDs for warranty and audit.' },
@@ -370,7 +370,7 @@ const SmartCities: React.FC = () => {
                                 icon: 'location_city',
                                 title: 'Municipal Authorities & SPVs',
                                 focus: 'Pipes, cable trays, modular kiosks, street furniture, MEP modules',
-                                copy: 'Smart city SPVs and municipal bodies source standardized infrastructure components — SS pipes for water networks, cable trays for smart grids, modular utility kiosks, and pre‑assembled MEP modules — through Metallo\'s audited MSME network with MTCs, digital traceability, and JIT delivery to project timelines.',
+                                copy: 'Smart city SPVs and municipal bodies source standardized infrastructure components — SS pipes for water networks, cable trays for smart grids, modular utility kiosks, and pre‑assembled MEP modules — through Metallo\'s audited borderless manufacturing network with MTCs, digital traceability, and JIT delivery to project timelines.',
                                 assurances: 'IS/ASTM steel · BIS cables · Batch MTCs · Digital QC reports · Municipal audit packages',
                                 cta: 'Get a Municipal Quote',
                             },
@@ -378,7 +378,7 @@ const SmartCities: React.FC = () => {
                                 icon: 'engineering',
                                 title: 'EPCs & Smart City Integrators',
                                 focus: 'Multi‑category BOMs, modular assemblies, cable routing systems',
-                                copy: 'EPCs and system integrators consolidate multi‑category BOMs through Metallo — structural steel, control cables, cable trays, and modular enclosures sourced from a single certified MSME ecosystem with centralized procurement, grade control, and coordinated logistics.',
+                                copy: 'Tier-1 EPC contractors and system integrators consolidate multi‑category BOMs through Metallo — structural steel, control cables, cable trays, and modular enclosures sourced from a single certified global manufacturing ecosystem with centralized procurement, grade control, and coordinated logistics.',
                                 assurances: 'Unified BOM procurement · Centralized grade control · Pre‑assembly · JIT logistics',
                                 cta: 'Request Project Capability Pack',
                             },
@@ -658,7 +658,7 @@ const SmartCities: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">Smart City Utility Infrastructure — Multi‑Vertical Supply</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Metallo coordinated 6 audited MSME partners to supply a smart city SPV with SS water mains (IS:2062), GI cable trays for smart grid nodes, FRLS control cables for IoT sensor networks, pre‑fabricated EV charging shelters, and MEP pump skids — achieving 100% MTC completeness and delivering installation‑ready modules 10 days ahead of the city deployment schedule.
+                                Metallo coordinated 6 audited global manufacturing partners to supply a smart city SPV with SS water mains (IS:2062), GI cable trays for smart grid nodes, FRLS control cables for IoT sensor networks, pre‑fabricated EV charging shelters, and MEP pump skids — achieving 100% MTC completeness and delivering installation‑ready modules 10 days ahead of the city deployment schedule.
                             </p>
                             <div className="flex gap-8 flex-wrap">
                                 <div>
@@ -671,7 +671,7 @@ const SmartCities: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">6</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Global Manufacturing Partners</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">10 d</p>
@@ -703,7 +703,7 @@ const SmartCities: React.FC = () => {
                         Ready to scale your<br />smart city project?
                     </h2>
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
-                        From utility piping and cable trays to modular enclosures and MEP modules — Metallo delivers certified urban infrastructure from India's audited MSME network.
+                        From utility piping and cable trays to modular enclosures and MEP modules — Metallo delivers certified urban infrastructure from an audited, borderless manufacturing network.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">

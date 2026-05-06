@@ -49,14 +49,14 @@ const PRODUCTS = [
         title: 'Welding Consumables',
         icon: 'whatshot',
         useCases: 'Body‑in‑white assembly, chassis joining, structural welding, exhaust fabrication.',
-        assurance: 'AWS/ASME certified, flux‑cored & solid wires, standardized SOPs across MSME network.',
+        assurance: 'AWS/ASME certified, flux‑cored & solid wires, standardized SOPs across Small and Medium Enterprise network.',
         image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
     },
 ];
 
 /* ─── PROCESS STEPS ─────────────────────────────────────────── */
 const PROCESS_STEPS = [
-    { title: 'Program Intake', desc: 'Upload drawings, BOM, and PPAP requirements; Metallo maps capacity and capability across audited MSME partners.', icon: 'upload_file' },
+    { title: 'Program Intake', desc: 'Upload drawings, BOM, and PPAP requirements; Metallo maps capacity and capability across audited Small and Medium Enterprise partners.', icon: 'upload_file' },
     { title: 'Pilot Run & PPAP Pack', desc: 'Small pilot production with dimensional and functional validation. PPAP documentation prepared for OEM submission.', icon: 'science' },
     { title: 'SOP & Training', desc: 'Standardized SOPs for welding, assembly, and inspection deployed. Remote and on‑site training for partner units.', icon: 'rule' },
     { title: 'Central QC & Traceability', desc: 'Batch testing, MTCs, serialized part IDs, and digital QC reports linked to BOM and part genealogy.', icon: 'verified' },
@@ -66,9 +66,9 @@ const PROCESS_STEPS = [
 /* ─── BENEFITS ──────────────────────────────────────────────── */
 const BENEFITS = [
     { title: 'Faster Qualification', desc: 'Standardized SOPs and PPAP packs reduce supplier qualification time by up to 40% vs. traditional vetting.', icon: 'speed' },
-    { title: 'Zero CAPEX', desc: 'Pooled MSME capacity for program ramps, recalls, and surge production — no factory buildout needed.', icon: 'hub' },
+    { title: 'Zero CAPEX', desc: 'Pooled Small and Medium Enterprise capacity for program ramps, recalls, and surge production — no factory buildout needed.', icon: 'hub' },
     { title: 'Full Traceability', desc: 'Serialized part IDs, MTCs, and digital QC linked to BOM for warranty and recall management.', icon: 'shield' },
-    { title: 'EV Program Ready', desc: 'Upgraded MSME partners for battery enclosures, thermal assemblies, and powertrain components with material grade control.', icon: 'ev_station' },
+    { title: 'EV Program Ready', desc: 'Upgraded Small and Medium Enterprise partners for battery enclosures, thermal assemblies, and powertrain components with material grade control.', icon: 'ev_station' },
     { title: 'Export Readiness', desc: 'Documentation and QA aligned to Middle East, Africa, and Southeast Asian OEM expectations.', icon: 'public' },
 ];
 
@@ -176,7 +176,7 @@ const AutomotiveMobility: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            IATF‑aligned chassis, battery enclosures, powertrain assemblies, and harnesses from an audited MSME network — with PPAP packs, serialized traceability, and Central QC.
+                            IATF‑aligned chassis, battery enclosures, powertrain assemblies, and harnesses from an audited Small and Medium Enterprise network — with PPAP packs, serialized traceability, and Central QC.
                         </p>
 
                         {/* CTAs */}
@@ -236,10 +236,10 @@ const AutomotiveMobility: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the automotive and mobility sector — aggregating MSME capacity across fabricators, CNC machining units, sheet‑metal shops, wire &amp; cable plants, and assembly lines. By deploying standardized SOPs and centralizing quality control through its Central QC Hub, Metallo ensures OEMs, Tier‑1 suppliers, and fleet operators receive IATF‑aligned, traceable, and program‑ready components without heavy CAPEX investments.
+                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the automotive and mobility sector — aggregating Small and Medium Enterprise capacity across fabricators, CNC machining units, sheet‑metal shops, wire &amp; cable plants, and assembly lines. By deploying standardized SOPs and centralizing quality control through its Central QC Hub, Metallo ensures OEMs, Tier‑1 suppliers, and fleet operators receive IATF‑aligned, traceable, and program‑ready components without heavy CAPEX investments.
                             </p>
                             <p>
-                                India's auto‑component industry reached <strong className="text-metallo-navy">US$80.2 billion in FY25</strong> — growing at a 14% CAGR over five years. MSMEs account for over 70% of total production. Simultaneously, EV adoption is accelerating — <strong className="text-metallo-navy">1.5 million EVs sold in 2025</strong>, a 25% jump from 2024, with the EV component market valued at US$8–10 billion. Auto‑component exports hit <strong className="text-metallo-navy">US$22.9 billion</strong>, targeting US$70–100 billion by FY30. Traditional MSME suppliers often struggle with IATF certification, PPAP documentation, surge capacity, and consistent traceability — Metallo bridges exactly this gap.
+                                India's auto‑component industry reached <strong className="text-metallo-navy">US$80.2 billion in FY25</strong> — growing at a 14% CAGR over five years. Small and Medium Enterprises account for over 70% of total production. Simultaneously, EV adoption is accelerating — <strong className="text-metallo-navy">1.5 million EVs sold in 2025</strong>, a 25% jump from 2024, with the EV component market valued at US$8–10 billion. Auto‑component exports hit <strong className="text-metallo-navy">US$22.9 billion</strong>, targeting US$70–100 billion by FY30. Traditional Small and Medium Enterprise suppliers often struggle with IATF certification, PPAP documentation, surge capacity, and consistent traceability — Metallo bridges exactly this gap.
                             </p>
                         </div>
                     </div>
@@ -258,7 +258,7 @@ const AutomotiveMobility: React.FC = () => {
                                     'US$80.2B auto‑component turnover in FY25 — targeting US$200B by 2030.',
                                     '1.5 million EVs sold in 2025; EV component market US$8–10B.',
                                     'Auto‑component exports: US$22.9B in FY25, targeting US$70–100B by FY30.',
-                                    'MSMEs produce 70%+ of all auto components — central to EV transition.',
+                                    'Small and Medium Enterprises produce 70%+ of all auto components — central to EV transition.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
                                         <span className="material-symbols-outlined text-sm text-yellow-500 mt-0.5 shrink-0">circle</span>
@@ -297,7 +297,7 @@ const AutomotiveMobility: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    { label: 'Audited MSME network', desc: 'Die‑cast units, pipe mills, cable manufacturers, tray fabricators, and welding consumable producers — vetted and SOP‑deployed.' },
+                                    { label: 'Audited Small and Medium Enterprise network', desc: 'Die‑cast units, pipe mills, cable manufacturers, tray fabricators, and welding consumable producers — vetted and SOP‑deployed.' },
                                     { label: 'Die Casting vertical', desc: 'Precision Al/Zn die‑cast motor housings, sensor brackets, and gearbox covers with CNC finishing and PPAP documentation.' },
                                     { label: 'Steel vertical', desc: 'SS pipes, tubes, fittings, and sheets (ASTM A312/A269) for exhaust, fluid, and thermal management systems.' },
                                     { label: 'Wire & Cable vertical', desc: 'BIS‑certified automotive cables, control harnesses, and EV charging cables with hi‑pot & continuity testing.' },
@@ -369,7 +369,7 @@ const AutomotiveMobility: React.FC = () => {
                                 icon: 'factory',
                                 title: 'Auto Manufacturers & OEMs',
                                 focus: 'Assembly plant supply, die‑cast parts, piping, cable infrastructure',
-                                copy: 'Metallo supplies OEM assembly plants with precision die‑cast components (motor housings, brackets, sensor mounts), SS piping for fluid & exhaust systems, cable trays for plant‑wide routing, and AWS‑certified welding consumables for body‑in‑white and chassis assembly — all from a single audited MSME ecosystem.',
+                                copy: 'Metallo supplies OEM assembly plants with precision die‑cast components (motor housings, brackets, sensor mounts), SS piping for fluid & exhaust systems, cable trays for plant‑wide routing, and AWS‑certified welding consumables for body‑in‑white and chassis assembly — all from a single audited Small and Medium Enterprise ecosystem.',
                                 assurances: 'Die‑cast Al/Zn components · SS ASTM A312 piping · AWS/ASME welding wires · Cable tray infrastructure',
                                 cta: 'Request OEM Supply Quote',
                             },
@@ -657,7 +657,7 @@ const AutomotiveMobility: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">OEM Assembly Plant Supply — Die‑Cast & SS Piping</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Metallo coordinated 5 audited MSME partners to supply precision die‑cast motor housings (Al), SS 304 coolant piping, cable trays for the paint‑shop, and AWS‑certified welding wires for body‑in‑white assembly — delivered with PPAP documentation and serialized batch IDs across a 12‑month OEM contract.
+                                Metallo coordinated 5 audited Small and Medium Enterprise partners to supply precision die‑cast motor housings (Al), SS 304 coolant piping, cable trays for the paint‑shop, and AWS‑certified welding wires for body‑in‑white assembly — delivered with PPAP documentation and serialized batch IDs across a 12‑month OEM contract.
                             </p>
                             <div className="flex gap-8 flex-wrap">
                                 <div>
@@ -670,7 +670,7 @@ const AutomotiveMobility: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">5</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Small and Medium Enterprise Partners</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">12 mo</p>
@@ -702,7 +702,7 @@ const AutomotiveMobility: React.FC = () => {
                         Ready to scale your<br />automotive program?
                     </h2>
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
-                        From PPAP packs and battery enclosures to fleet electrification kits — Metallo delivers program‑grade capacity from India's audited MSME network.
+                        From PPAP packs and battery enclosures to fleet electrification kits — Metallo delivers program‑grade capacity from India's audited Small and Medium Enterprise network.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">

@@ -57,7 +57,7 @@ const PRODUCTS = [
 /* ─── PROCESS STEPS ─────────────────────────────────────────── */
 const PROCESS_STEPS = [
     { title: 'Project Intake', desc: 'Upload drawings or BOM; Metallo maps capacity across audited partners.', icon: 'upload_file' },
-    { title: 'SOP Deployment', desc: 'Certified MSME partners assigned; standardized SOPs and inspection checklists pushed.', icon: 'rule' },
+    { title: 'SOP Deployment', desc: 'Certified Small and Medium Enterprise partners assigned; standardized SOPs and inspection checklists pushed.', icon: 'rule' },
     { title: 'Central Procurement', desc: 'Bulk raw‑material sourcing to control grade and cost consistency.', icon: 'shopping_cart' },
     { title: 'Production & QC', desc: 'Real‑time production tracking; Central QC Hub performs batch testing and issues MTCs.', icon: 'verified' },
     { title: 'Site Delivery', desc: 'Coordinated dispatch with project‑timed deliveries and installation support.', icon: 'local_shipping' },
@@ -175,7 +175,7 @@ const InfrastructureConstruction: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            Audited MSME capacity, centralized QA, and on‑demand scaling for highways, bridges, metros, ports, and industrial projects.
+                            Audited Small and Medium Enterprise capacity, centralized QA, and on‑demand scaling for highways, bridges, metros, ports, and industrial projects.
                         </p>
 
                         {/* CTAs */}
@@ -255,7 +255,7 @@ const InfrastructureConstruction: React.FC = () => {
                             <ul className="space-y-3">
                                 {[
                                     'Rapid highway, metro, port, and industrial plant projects driving demand for certified steel, piping, and allied products.',
-                                    'Highly fragmented supply — many MSME shops with idle capacity but inconsistent SOPs, testing, and traceability.',
+                                    'Highly fragmented supply — many Small and Medium Enterprise shops with idle capacity but inconsistent SOPs, testing, and traceability.',
                                     'EPCs and developers need batch traceability (MTCs), compliance to IS/ASTM/AWS, and on‑time delivery to pass audits.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
@@ -295,7 +295,7 @@ const InfrastructureConstruction: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    { label: 'Network aggregation', desc: 'Map and onboard audited MSME partners into a pooled, flexible capacity network.' },
+                                    { label: 'Network aggregation', desc: 'Map and onboard audited Small and Medium Enterprise partners into a pooled, flexible capacity network.' },
                                     { label: 'Standardization', desc: 'Deploy SOPs for welding, finishing, tolerances, and traceability across partners.' },
                                     { label: 'Central procurement', desc: 'Bulk raw‑material sourcing (304/316 grade control) to reduce variance and cost.' },
                                     { label: 'Central QC Hub', desc: 'Batch testing, third‑party lab validation, and MTC issuance for every shipment.' },
@@ -333,7 +333,7 @@ const InfrastructureConstruction: React.FC = () => {
                             {
                                 icon: 'workspace_premium',
                                 title: 'Tier‑1 Quality Without CAPEX',
-                                desc: 'Asset‑light scaling across our audited MSME network. Meet surges in project demand without investing in new facilities or equipment.',
+                                desc: 'Asset‑light scaling across our audited Small and Medium Enterprise network. Meet surges in project demand without investing in new facilities or equipment.',
                             },
                             {
                                 icon: 'track_changes',
@@ -607,7 +607,7 @@ const InfrastructureConstruction: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">National Highway Expansion — Phase IV</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Supplied 1,200 MT of structural steel, SS pipes, and cable trays across 6 MSME partners. Full MTC traceability and Central QC Hub testing delivered 100% on-time across a 14‑month project timeline.
+                                Supplied 1,200 MT of structural steel, SS pipes, and cable trays across 6 Small and Medium Enterprise partners. Full MTC traceability and Central QC Hub testing delivered 100% on-time across a 14‑month project timeline.
                             </p>
                             <div className="flex gap-8">
                                 <div>
@@ -620,7 +620,7 @@ const InfrastructureConstruction: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">6</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Small and Medium Enterprise Partners</p>
                                 </div>
                             </div>
                         </div>
