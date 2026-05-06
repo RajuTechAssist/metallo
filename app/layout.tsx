@@ -10,7 +10,7 @@ import { QuoteProvider } from "@/contexts/QuoteContext";
 export const metadata: Metadata = {
   metadataBase: new URL("https://metalloindustrial.com"),
   title: {
-    default: "METALLO — Powering Industrial India",
+    default: "METALLO — Powering Global Infrastructure",
     template: "%s | METALLO Industrial",
   },
   description:
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     "welding consumables",
     "fabricated structures",
     "industrial India",
+    "global infrastructure",
     "Metallo",
   ],
   authors: [{ name: "Metallo Industrial" }],
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "METALLO Industrial",
-    title: "METALLO — Powering Industrial India",
+    title: "METALLO — Powering Global Infrastructure",
     description:
       "Industrial manufacturing and supply chain solutions provider.",
     images: ["/banner1.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "METALLO — Powering Industrial India",
+    title: "METALLO — Powering Global Infrastructure",
     description:
       "Industrial manufacturing and supply chain solutions provider.",
     images: ["/banner1.jpg"],

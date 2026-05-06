@@ -19,7 +19,7 @@ export interface GlobalOffice {
 
 export const GLOBAL_OFFICES: GlobalOffice[] = [
   {
-    id: "india-hq",
+    id: "india",
     geoId: "356",
     city: "Gurugram",
     country: "India",
