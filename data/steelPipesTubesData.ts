@@ -627,7 +627,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     ],
     standards: ["ASTM A106", "ASTM A53", "API 5L", "IS 1239", "EN 10255"],
     sizeRange:
-      '1/2" NB to 24" NB line-pipe supply, with project OD and schedule combinations for utility and fabrication work.',
+      '1/2" NB to 90" NB line-pipe supply, with project OD and schedule combinations for utility and fabrication work.',
     wallThickness:
       "SCH 10 to SCH 160, medium and heavy classes, and custom project wall combinations.",
     length: "6 meter, 12 meter, single random, double random, and cut lengths.",
@@ -638,7 +638,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeSummary: [
       "Seamless carbon pipe",
       "ERW mild steel pipe",
-      "Line pipe",
+      "Welded/LSAW/CSAW pipe",
       "Structural utility pipe",
       "Low-temperature carbon pipe",
     ],
