@@ -4,11 +4,11 @@ import InfrastructureConstruction from "@/views/industries/InfrastructureConstru
 export const metadata: Metadata = {
   title: "Infrastructure & Construction Industry",
   description:
-    "Metallo's industrial supply solutions for infrastructure, construction, and civil engineering projects across India.",
+    "Metallo's industrial supply solutions for infrastructure, construction, and civil engineering projects across the globe.",
   openGraph: {
     title: "Infrastructure & Construction Industry | METALLO Industrial",
     description:
-      "Metallo's industrial supply solutions for infrastructure, construction, and civil engineering projects across India.",
+      "Metallo's industrial supply solutions for infrastructure, construction, and civil engineering projects across the globe.",
     url: "/industries/infrastructure",
     type: "website",
   },

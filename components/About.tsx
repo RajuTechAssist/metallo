@@ -85,7 +85,7 @@ const About: React.FC = () => {
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=85&auto=format&fit=crop"
-                alt="India Entry for Global Manufacturers"
+                alt="Global Manufacturing Entry point"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"

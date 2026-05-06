@@ -3,9 +3,9 @@ import Home from "@/views/Home";
 
 export const metadata: Metadata = {
   description:
-    "METALLO Industrial — Powering Industrial India with steel, wire & cables, cable trays, welding consumables, power tools, pipes, and fabricated structures.",
+    "METALLO Industrial — Powering Global Infrastructure with steel, wire & cables, cable trays, welding consumables, power tools, pipes, and fabricated structures.",
   openGraph: {
-    title: "METALLO — Powering Industrial India",
+    title: "METALLO — Powering Global Infrastructure",
     description:
       "Industrial manufacturing and supply chain solutions provider.",
     url: "/",
