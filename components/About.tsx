@@ -12,27 +12,23 @@ const About: React.FC = () => {
           <div className="order-1">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-metallo-navy mb-6 leading-tight">
               The Distributed Manufacturing OS for{" "}
-              <span className="text-metallo-gold-hover">Industrial India</span>.
+              <span className="text-metallo-gold-hover">Global Infrastructure</span>.
             </h2>
             <h3 className="text-xl font-medium text-gray-500 mb-8 uppercase tracking-wide font-sans">
               We don&apos;t just build factories. We aggregate, standardize, and
-              scale the nation&apos;s idle industrial capacity.
+              scale the world&apos;s idle industrial capacity.
             </h3>
             <div className="prose prose-lg text-gray-600 mb-10 space-y-4">
               <p>
-                The Indian manufacturing sector is massive but highly
-                fragmented. Metallo acts as the central orchestrator—aggregating
-                idle capacity across MSME facilities, from stainless steel pipe
-                mills to cable tray fabricators. We upgrade them to global
-                standards and integrate them into one seamless production
-                ecosystem.
+                The global supply chain for heavy engineering is massive, yet heavily fragmented.
+                Metallo acts as the central orchestrator—aggregating underutilized capacity across an
+                audited, international network of specialized facilities, from high-grade steel mills to heavy-duty cable fabricators.
+                We enforce universal Tier-1 standards to integrate them into a single, borderless production ecosystem.
               </p>
               <p>
-                By operating an asset-light model, we offer EPC contractors
-                infinite scaling flexibility. Every product—whether a structural
-                steel beam or an industrial assembly—undergoes rigorous testing
-                at our Central QC Hub, ensuring Tier-1 quality without the heavy
-                CAPEX overhead.
+                Operating on an agile, asset-light model, we provide multinational EPC contractors with infinite scaling flexibility.
+                Every component is standardized via our strict SOPs, centrally procured, and certified at our Central QC Hub—delivering
+                mission-critical infrastructure products across continents without traditional heavy-CAPEX bottlenecks.
               </p>
               <p>
                 We don&apos;t just supply products; we engineer certainty. Whether
@@ -49,11 +45,10 @@ const About: React.FC = () => {
                   account_tree
                 </span>
                 <h4 className="text-lg font-bold font-heading text-metallo-navy">
-                  Asset-Light Scaling
+                  Global Scaling
                 </h4>
                 <p className="text-sm text-gray-600">
-                  Infinite manufacturing capacity across our audited MSME
-                  network.
+                  Infinite manufacturing capacity across a worldwide audited network.
                 </p>
               </div>
 
@@ -66,8 +61,7 @@ const About: React.FC = () => {
                   Central QC Hub
                 </h4>
                 <p className="text-sm text-gray-600">
-                  100% batch-tested with strict SOPs & Material Testing
-                  Certificates (MTC).
+                  100% batch-tested to meet international Tier-1 EPC standards.
                 </p>
               </div>
 
@@ -80,8 +74,7 @@ const About: React.FC = () => {
                   Unified Procurement
                 </h4>
                 <p className="text-sm text-gray-600">
-                  One integrated platform for your entire infrastructure Bill of
-                  Materials (BOM).
+                  One borderless platform for your entire infrastructure BOM.
                 </p>
               </div>
             </div>
@@ -104,20 +97,19 @@ const About: React.FC = () => {
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
                   Your Single Gateway
                   <br />
-                  Into Indian Manufacturing
+                  Into GLOBAL Manufacturing
                 </h3>
                 <p className="text-sm font-sans text-metallo-gold-hover mt-2 tracking-wide">
-                  Audited local capacity, global standards, faster market entry.
+                  Audited worldwide capacity, global standards, faster market entry.
                 </p>
               </div>
 
               {/* Bottom Description */}
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
-                  Skip the complexity of India&apos;s fragmented supply base.
-                  Metallo&apos;s Manufacturing OS connects you to 500+ audited MSME
-                  facilities with standardized SOPs, Central QC Hub testing, and
-                  full MTC traceability—production-ready from day one.
+                  Skip the complexity of fragmented supply chains.
+                  Metallo&apos;s Manufacturing OS connects you to an audited international network of specialized
+                  facilities with standardized SOPs, Central QC Hub testing, and full MTC traceability—production-ready from day one.
                 </p>
               </div>
             </div>
@@ -150,7 +142,7 @@ const About: React.FC = () => {
                 <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
                   Metallo converts your idle capacity into export‑grade output.
                   We handle unified BOMs, procurement, and quality traceability
-                  across your MSME network—so you win international tenders in
+                  across your Small and Medium Enterprise network—so you win international tenders in
                   the Middle East, Africa, and beyond without adding CAPEX.
                 </p>
               </div>

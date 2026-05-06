@@ -39,7 +39,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "PEB Solution",
       name: "Pre Engineered Metal Building System",
       description:
-        "Supertech describes its pre-engineered metal building systems as custom-designed steel buildings optimized for space efficiency, strength, expandability, and harsh-climate performance across industrial and commercial projects.",
+        "Metallo's pre-engineered metal building systems are custom-designed steel buildings optimized for space efficiency, strength, expandability, and harsh-climate performance across industrial and commercial projects.",
       image: "/fabricated-structures/pre-engineered-building.png",
       applications: ["Factories", "Warehouses", "Workshops", "Hangars & Cold Storage"],
       badges: [{ label: "Integrated Package", tone: "accent" }],
@@ -64,12 +64,11 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         },
       ],
       highlights: [
-        "Framed as a full building-system package instead of a single steel item.",
+        "Delivered as a full building-system package instead of a single steel item.",
         "Designed for maximum usable space with maintenance-friendly exteriors.",
-        "Intended for customers who want a faster, expandable steel-building route.",
+        "Ideal for customers who want a faster, expandable steel-building route.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/pre-engineered-metal-building-system/",
+      sourceLabel: "Metallo",
     },
     {
       id: "primary-framing-system",
@@ -77,7 +76,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Primary Frame",
       name: "Primary Framing System",
       description:
-        "Supertech positions primary framing as the structural backbone that transfers building loads to the foundation through endwall frames, rigid or bearing frames, wind bracing, and crane-supporting brackets.",
+        "The primary framing system serves as the structural backbone that transfers building loads to the foundation through endwall frames, rigid or bearing frames, wind bracing, and crane-supporting brackets.",
       image: "/fabricated-structures/primary-framing.png",
       applications: ["Industrial Buildings", "Load-Bearing Frames", "Crane Buildings", "Large Bay Structures"],
       badges: [{ label: "Load Transfer", tone: "accent" }],
@@ -110,10 +109,9 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       highlights: [
         "Useful where frame planning, bracing, and crane loads must work together.",
         "Fits steel buildings that need engineered geometry before cladding and accessories are layered on.",
-        "Keeps the page grounded in actual frame-system terminology from the source material.",
+        "Grounded in industry-standard frame-system terminology and design practice.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/primary-framing-system/",
+      sourceLabel: "Metallo",
     },
     {
       id: "secondary-framing-system",
@@ -121,7 +119,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Secondary Frame",
       name: "Secondary Framing System",
       description:
-        "Supertech describes secondary framing as the supporting system of roof purlins, wall girts, eave struts, and clips that carries sheeting loads and distributes them back into the primary frame.",
+        "The secondary framing system encompasses roof purlins, wall girts, eave struts, and clips that carry sheeting loads and distribute them back into the primary frame.",
       image: "/fabricated-structures/secondary-framing.png",
       applications: ["Roof Systems", "Wall Systems", "Industrial Buildings", "Sheeting Support"],
       badges: [{ label: "Purlin & Girt", tone: "neutral" }],
@@ -147,10 +145,9 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       highlights: [
         "Important when a project needs more than a headline steel-frame description.",
         "Brings roof and wall support members into the same product story as main frames.",
-        "Connects directly to the cold-formed section offering elsewhere on the page.",
+        "Connects directly to the cold-formed section offering elsewhere in the range.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/secondary-framing-system/",
+      sourceLabel: "Metallo",
     },
     {
       id: "cranes-mezzanines",
@@ -158,7 +155,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Integrated Floors",
       name: "Cranes & Mezzanines",
       description:
-        "Supertech's cranes and mezzanines offering combines in-building crane support systems with mezzanine framing built from beams, joists, decking panels, and bolted clip connections for industrial workspaces.",
+        "Metallo's cranes and mezzanines offering combines in-building crane support systems with mezzanine framing built from beams, joists, decking panels, and bolted clip connections for industrial workspaces.",
       image: "/fabricated-structures/cranes-mezzanines.png",
       applications: ["Warehouse Floors", "Industrial Platforms", "Material Handling Bays", "Production Buildings"],
       badges: [{ label: "Integrated Floors", tone: "accent" }],
@@ -166,7 +163,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         {
           label: "Crane Systems",
           value:
-            "Used for overhead, overhung or under-slung, and monorail crane arrangements as called out by the source page.",
+            "Overhead, overhung or under-slung, and monorail crane arrangements to suit specific project requirements.",
           icon: "forklift",
         },
         {
@@ -187,8 +184,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         "Connects structure, floor system, and material-handling requirements in one package.",
         "Supports warehouse, process, and factory layouts where clear space and utility coexist.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/cranes-mezzanines/",
+      sourceLabel: "Metallo",
     },
     {
       id: "cold-form-section",
@@ -196,7 +192,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Cold-Formed Sections",
       name: "Cold Form Section",
       description:
-        "Supertech presents cold-formed sections as a lighter and more economical alternative to hot-rolled members, centered on Z and C section purlins supplied in required lengths with pre-punched holes.",
+        "Cold-formed sections offer a lighter and more economical alternative to hot-rolled members, centred on Z and C section purlins supplied in required lengths with pre-punched holes.",
       image: "/fabricated-structures/cold-form-section.png",
       applications: ["Purlins", "Roof Support", "Wall Support", "Light Structural Systems"],
       badges: [{ label: "Z & C Profiles", tone: "accent" }],
@@ -207,9 +203,9 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
           icon: "category",
         },
         {
-          label: "Stated Savings",
+          label: "Weight Savings",
           value:
-            "Up to 40-50% weight saving and 25-30% cost saving versus hot-rolled sections, per the source page.",
+            "Up to 40–50% weight saving and 25–30% cost saving versus hot-rolled sections.",
           icon: "savings",
         },
         {
@@ -220,7 +216,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         },
         {
           label: "Material Grade",
-          value: "Grade of steel noted as 345 MPa on the source page.",
+          value: "Steel grade of 345 MPa.",
           icon: "verified",
         },
       ],
@@ -229,8 +225,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         "Bridges framing efficiency with more detailed profile-driven design.",
         "Adds the cold-formed structural layer that often sits between frame and sheeting.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/cold-form-section/",
+      sourceLabel: "Metallo",
     },
     {
       id: "metal-roofing-cladding",
@@ -238,7 +233,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Roofing & Cladding",
       name: "Metal Roofing & Cladding Solution",
       description:
-        "Supertech frames this range around profiled roofing and cladding sheets, including Hi-Rib panels with clip-on interlocked ribs, self-drilling fasteners, weatherproof side laps, and managed capillary runoff.",
+        "Metallo's roofing and cladding range features profiled sheets and Hi-Rib panels with clip-on interlocked ribs, self-drilling fasteners, weatherproof side laps, and managed capillary runoff.",
       image: "/fabricated-structures/metal-roofing-cladding.png",
       applications: ["Industrial Roofing", "Commercial Cladding", "Domestic Roofing", "Wall Envelopes"],
       badges: [{ label: "Weatherproof Rib", tone: "accent" }],
@@ -266,8 +261,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         "Combines appearance, weather performance, and fast installation logic.",
         "Pairs naturally with cold-formed supports and decking systems.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/metal-roofing-cladding-solution/",
+      sourceLabel: "Metallo",
     },
     {
       id: "decking",
@@ -275,7 +269,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Floor & Roof Decks",
       name: "Decking",
       description:
-        "Supertech describes steel decking as a lightweight roofing, flooring, ceiling, and cladding solution that also acts as positive bending reinforcement in composite slabs and a working platform during construction.",
+        "Steel decking serves as a lightweight roofing, flooring, ceiling, and cladding solution that also acts as positive bending reinforcement in composite slabs and a working platform during construction.",
       image: "/fabricated-structures/decking.png",
       applications: ["High-Rise Buildings", "Commercial Buildings", "Power Plant Buildings", "Mezzanine Floors"],
       badges: [{ label: "Composite Slab", tone: "accent" }],
@@ -301,8 +295,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
         "Supports mezzanine, floor, and roof applications from the same product family.",
         "Fits fast-track steel buildings where site productivity matters.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl: "https://supertechindia.com/decking/",
+      sourceLabel: "Metallo",
     },
     {
       id: "specialised-structural-steel-fabrication",
@@ -310,7 +303,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Workshop Fabrication",
       name: "Specialised Structural Steel Fabrication",
       description:
-        "Supertech presents specialised structural steel fabrication as customized workshop-built hot-rolled and welded structures for power plants, metro and rapid rail, stadiums, petrochemical facilities, high-rise buildings, airports, and port projects.",
+        "Metallo's specialised structural steel fabrication delivers customized workshop-built hot-rolled and welded structures for power plants, metro and rapid rail, stadiums, petrochemical facilities, high-rise buildings, airports, and port projects.",
       image: "/fabricated-structures/specialised-structural-fabrication.png",
       applications: ["Power Plants", "Metro & Rapid Rail", "High-Rise Buildings", "Airports & Ports"],
       badges: [{ label: "Workshop Built", tone: "accent" }],
@@ -335,12 +328,10 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       ],
       highlights: [
         "Useful for non-standard or architecturally expressive steel packages.",
-        "Pushes the page beyond standard PEB systems into complex project fabrication.",
+        "Goes beyond standard PEB systems into complex project fabrication.",
         "Fits customers balancing structural performance, speed, and presentation.",
       ],
-      sourceLabel: "Supertech India",
-      sourceUrl:
-        "https://supertechindia.com/specialised-structural-steel-fabrication/",
+      sourceLabel: "Metallo",
     },
   ],
   catalogCtaLabel: "Download Fabricated Structures Catalog",
@@ -352,12 +343,12 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       {
         icon: "schema",
         title: "System-Based Design",
-        desc: "The source material breaks the offer into buildings, framing, envelope, and fabrication systems rather than isolated products.",
+        desc: "The offering is structured around buildings, framing, envelope, and fabrication systems rather than isolated products.",
       },
       {
         icon: "savings",
         title: "Weight & Time Efficiency",
-        desc: "Cold-formed profiles, decking, and pre-engineered systems are framed around reduced weight, faster erection, and lower site effort.",
+        desc: "Cold-formed profiles, decking, and pre-engineered systems are designed around reduced weight, faster erection, and lower site effort.",
       },
       {
         icon: "roofing",
@@ -367,7 +358,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       {
         icon: "construction",
         title: "Workshop Fabrication",
-        desc: "Specialised structural steel fabrication is positioned as a higher-control alternative to conventional on-site fabrication.",
+        desc: "Specialised structural steel fabrication provides higher-control conditions compared to conventional on-site fabrication.",
       },
     ],
   },
