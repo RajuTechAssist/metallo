@@ -43,6 +43,128 @@ interface SteelFastenerSource {
 }
 
 const FASTENER_SOURCES: SteelFastenerSource[] = [
+    {
+    slug: "stainless-fasteners",
+    name: "Stainless Steel Fasteners",
+    subCategory: "Stainless Steel Fasteners",
+    sourceUrl: "https://www.deepakfasteners.com/stainless",
+    descriptionParagraphs: [
+      "Metallo supplies stainless steel fasteners for corrosive, hygienic, marine, and outdoor service where the fastening system needs corrosion resistance as well as mechanical consistency. The sourced range spans screws, bolts, nuts, washers, spring washers, and threaded rods across metric and inch standards.",
+      "The program is organized around A2 and A4 stainless grades together with ASTM F-series inch requirements, giving engineering teams a clear path from general corrosion-resistant bolting to more specification-driven stainless assemblies. Metallo positions this family where plant durability and clean-service suitability outweigh the cost of carbon-steel hardware.",
+    ],
+    grades: [
+      "A2-70 / A2-80",
+      "A4-70 / A4-80",
+      "ASTM F837",
+      "ASTM F593",
+      "ASTM F594",
+      "304 stainless",
+      "316 stainless",
+    ],
+    standards: [
+      "DIN 912 / ISO 4762",
+      "DIN 933 / ISO 4017",
+      "DIN 931 / ISO 4014",
+      "DIN 934 / ISO 4032",
+      "DIN 125 A",
+      "DIN 127 B",
+      "DIN 7980",
+      "DIN 975",
+      "ASME B18.3 / ASTM F837",
+      "ASME B18.2.1 / ASTM F593",
+      "ASME B18.2.2 / ASTM F594",
+      "ANSI B18.21.1",
+    ],
+    sizeRange:
+      'M3 to M64 metric coverage and 3/16" to 1 1/2" inch stainless hardware formats.',
+    typeSummary: [
+      "Socket Head Cap Screw",
+      "Hex Head Screw",
+      "Hex Head Bolt",
+      "Hex Nut",
+      "Plain Washer",
+      "Spring Washers",
+      "Threaded Rod",
+    ],
+    materialFamilies: [
+      "304 stainless steel",
+      "316 stainless steel",
+      "A2 fasteners",
+      "A4 fasteners",
+    ],
+    testing:
+      "Thread and dimension checks, grade verification, corrosion-service traceability, and lot-based quality inspection.",
+    application:
+      "Corrosion-resistant bolting for marine, chemical, hygienic, and outdoor equipment service.",
+    applications: [
+      "Marine Equipment",
+      "Chemical Plants",
+      "Hygienic Systems",
+      "Outdoor Installations",
+    ],
+    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/stainless.jpg`,
+    typeGalleryIntro:
+      "Metallo's stainless range brings together the core screw, bolt, nut, washer, and threaded-rod formats needed for corrosion-resistant fastening systems.",
+    typeItems: [
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Socket Head Cap Screw - Metric",
+        "s1.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Hex Head Screw (Full Thread)",
+        "s2.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Hex Head Bolt (Partial Thread)",
+        "s3.png",
+      ),
+      fastenerTypeItem("stainless-fasteners", "Hex Nut - Metric", "s4.png"),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Plain Washer - Metric",
+        "s6.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Flat Section Spring Washer - Metric",
+        "s7.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Square Section Spring Washer - Metric",
+        "s8.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Threaded Rod - Metric",
+        "s9.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Socket Head Cap Screw ASTM F837",
+        "s10.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Hex Head Bolt / Screw ASTM F593",
+        "s11.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "304 / 316 Hex Nut ASTM F594",
+        "s12.png",
+      ),
+      fastenerTypeItem(
+        "stainless-fasteners",
+        "Plain Washer ANSI B18.21.1",
+        "s13.png",
+      ),
+    ],
+  },
+
   {
     slug: "hex-bolts",
     name: "Hex Bolts and Screws",
@@ -331,127 +453,7 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       ),
     ],
   },
-  {
-    slug: "stainless-fasteners",
-    name: "Stainless Steel Fasteners",
-    subCategory: "Stainless Steel Fasteners",
-    sourceUrl: "https://www.deepakfasteners.com/stainless",
-    descriptionParagraphs: [
-      "Metallo supplies stainless steel fasteners for corrosive, hygienic, marine, and outdoor service where the fastening system needs corrosion resistance as well as mechanical consistency. The sourced range spans screws, bolts, nuts, washers, spring washers, and threaded rods across metric and inch standards.",
-      "The program is organized around A2 and A4 stainless grades together with ASTM F-series inch requirements, giving engineering teams a clear path from general corrosion-resistant bolting to more specification-driven stainless assemblies. Metallo positions this family where plant durability and clean-service suitability outweigh the cost of carbon-steel hardware.",
-    ],
-    grades: [
-      "A2-70 / A2-80",
-      "A4-70 / A4-80",
-      "ASTM F837",
-      "ASTM F593",
-      "ASTM F594",
-      "304 stainless",
-      "316 stainless",
-    ],
-    standards: [
-      "DIN 912 / ISO 4762",
-      "DIN 933 / ISO 4017",
-      "DIN 931 / ISO 4014",
-      "DIN 934 / ISO 4032",
-      "DIN 125 A",
-      "DIN 127 B",
-      "DIN 7980",
-      "DIN 975",
-      "ASME B18.3 / ASTM F837",
-      "ASME B18.2.1 / ASTM F593",
-      "ASME B18.2.2 / ASTM F594",
-      "ANSI B18.21.1",
-    ],
-    sizeRange:
-      'M3 to M64 metric coverage and 3/16" to 1 1/2" inch stainless hardware formats.',
-    typeSummary: [
-      "Socket Head Cap Screw",
-      "Hex Head Screw",
-      "Hex Head Bolt",
-      "Hex Nut",
-      "Plain Washer",
-      "Spring Washers",
-      "Threaded Rod",
-    ],
-    materialFamilies: [
-      "304 stainless steel",
-      "316 stainless steel",
-      "A2 fasteners",
-      "A4 fasteners",
-    ],
-    testing:
-      "Thread and dimension checks, grade verification, corrosion-service traceability, and lot-based quality inspection.",
-    application:
-      "Corrosion-resistant bolting for marine, chemical, hygienic, and outdoor equipment service.",
-    applications: [
-      "Marine Equipment",
-      "Chemical Plants",
-      "Hygienic Systems",
-      "Outdoor Installations",
-    ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/stainless.jpg`,
-    typeGalleryIntro:
-      "Metallo's stainless range brings together the core screw, bolt, nut, washer, and threaded-rod formats needed for corrosion-resistant fastening systems.",
-    typeItems: [
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Socket Head Cap Screw - Metric",
-        "s1.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Screw (Full Thread)",
-        "s2.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Bolt (Partial Thread)",
-        "s3.png",
-      ),
-      fastenerTypeItem("stainless-fasteners", "Hex Nut - Metric", "s4.png"),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Plain Washer - Metric",
-        "s6.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Flat Section Spring Washer - Metric",
-        "s7.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Square Section Spring Washer - Metric",
-        "s8.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Threaded Rod - Metric",
-        "s9.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Socket Head Cap Screw ASTM F837",
-        "s10.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Bolt / Screw ASTM F593",
-        "s11.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "304 / 316 Hex Nut ASTM F594",
-        "s12.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Plain Washer ANSI B18.21.1",
-        "s13.png",
-      ),
-    ],
-  },
+
   {
     slug: "structural-assemblies",
     name: "Structural Assemblies",

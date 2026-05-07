@@ -18,10 +18,10 @@ const NAV_ITEMS = [
 /* ─── PRODUCT DATA ──────────────────────────────────────────── */
 const PRODUCTS = [
     {
-        title: 'Pipelines & Fittings',
-        icon: 'valve',
-        useCases: 'Oil & gas pipelines, chemical process lines, refineries, LNG terminals.',
-        assurance: 'Stainless steel, duplex, and alloy pipes; ASME B31.3 certified welding SOPs; MTCs per heat.',
+        title: 'Steel',
+        icon: 'hardware',
+        useCases: 'Oil & gas pipelines, refinery structures, chemical process lines, LNG terminals.',
+        assurance: 'Stainless steel, duplex, carbon steel; API 5L / ASTM compliance; MTCs per heat.',
         image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=80&auto=format&fit=crop',
     },
     {
@@ -32,24 +32,24 @@ const PRODUCTS = [
         image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80&auto=format&fit=crop',
     },
     {
-        title: 'Valves & Supports',
-        icon: 'settings_input_component',
-        useCases: 'Pipeline networks, process plants, offshore platforms.',
-        assurance: 'API 600/602 standards; third‑party validation; corrosion‑resistant coatings; PMI tested.',
+        title: 'Welding & Allied',
+        icon: 'construction',
+        useCases: 'Pipeline fabrication, process equipment welding, offshore platforms.',
+        assurance: 'AWS/ASME certified consumables; flux‑cored & solid wires; NDT tested; standardized SOPs.',
         image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
     },
     {
-        title: 'Industrial Fabrications',
+        title: 'Process Equipment & Structural Steel Fabrication',
         icon: 'engineering',
-        useCases: 'Refinery structures, chemical plant assemblies, pressure vessel supports.',
-        assurance: 'Audited partners; SOPs for dimensional tolerances; PMI testing; ASME Section VIII compliance.',
+        useCases: 'Refinery structures, pressure vessels, modular skids, chemical plant assemblies.',
+        assurance: 'Audited fabrication partners; PMI testing; ASME Section VIII compliance.',
         image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
     },
     {
-        title: 'Cable Trays & Instrumentation',
+        title: 'Cable & Cable Trays',
         icon: 'cable',
-        useCases: 'Refinery cable routing, instrumentation support, control systems.',
-        assurance: 'Galvanized/SS/Aluminium; standardized perforation; fire‑resistant ratings; hazardous area compliance.',
+        useCases: 'Power and control routing for refineries, instrumentation networks, offshore rigs.',
+        assurance: 'IEC/IS compliant control cables; FRP, SS, and GI cable trays; fire‑resistant and hazardous area compliance.',
         image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80&auto=format&fit=crop',
     },
 ];
@@ -57,7 +57,7 @@ const PRODUCTS = [
 /* ─── PROCESS STEPS ─────────────────────────────────────────── */
 const PROCESS_STEPS = [
     { title: 'Project Intake', desc: 'Upload P&IDs, isometric drawings, or BOM; Metallo maps capacity across audited pipe mills, fabricators, and machining partners.', icon: 'upload_file' },
-    { title: 'Vendor & SOP Deployment', desc: 'Certified MSME partners onboarded with SOPs for welding (ASME IX), finishing, dimensional tolerances, and corrosion‑resistance protocols.', icon: 'rule' },
+    { title: 'Vendor & SOP Deployment', desc: 'Certified Small and Medium Enterprise partners onboarded with SOPs for welding (ASME IX), finishing, dimensional tolerances, and corrosion‑resistance protocols.', icon: 'rule' },
     { title: 'Central Procurement', desc: 'Bulk sourcing of stainless steel grades (304, 316, duplex, super duplex alloys) with mill test certificates and grade control.', icon: 'shopping_cart' },
     { title: 'QC & Testing', desc: 'Central QC Hub performs PMI, hydro‑testing, radiography, tensile & chemical analysis; third‑party lab validation and MTC issuance.', icon: 'verified' },
     { title: 'Delivery & Support', desc: 'Coordinated logistics with project‑timed deliveries, packing lists, and installation support for site mobilization.', icon: 'local_shipping' },
@@ -67,7 +67,7 @@ const PROCESS_STEPS = [
 const BENEFITS = [
     { title: 'Eliminate Compliance Risk', desc: 'ASME/API/ASTM certified products with full MTCs, radiography reports, and third‑party lab validation on every batch.', icon: 'verified_user' },
     { title: 'Corrosion‑Resistant Assurance', desc: 'Controlled stainless steel grades (304, 316, duplex) with PMI testing ensure materials survive harsh refinery and pipeline environments.', icon: 'shield' },
-    { title: 'Scale Without CAPEX', desc: 'Pooled MSME capacity across pipe mills, fabricators, and machining partners for surge demand during refinery expansions or pipeline rollouts.', icon: 'speed' },
+    { title: 'Scale Without CAPEX', desc: 'Pooled Small and Medium Enterprise capacity across pipe mills, fabricators, and machining partners for surge demand during refinery expansions or pipeline rollouts.', icon: 'speed' },
     { title: 'Cost Predictability', desc: 'Centralized procurement with bulk alloy sourcing reduces variance, eliminates rework, and provides transparent pricing per MT.', icon: 'savings' },
     { title: 'Export Readiness', desc: 'Compliance with global standards for Middle East, Africa, and Southeast Asian refinery and pipeline projects.', icon: 'public' },
 ];
@@ -177,7 +177,7 @@ const OilGasProcessIndustries: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            ASME/API/ASTM‑compliant pipelines, fittings, skids, and assemblies from an audited MSME network — corrosion‑resistant, export‑ready, and delivered with full traceability.
+                            ASME/API/ASTM‑compliant pipelines, fittings, skids, and assemblies from an audited Small and Medium Enterprise network — corrosion‑resistant, export‑ready, and delivered with full traceability.
                         </p>
 
                         {/* CTAs */}
@@ -237,10 +237,10 @@ const OilGasProcessIndustries: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the oil, gas, and process industries — aggregating MSME capacity across stainless steel pipe mills, fabrication shops, CNC machining units, and industrial assembly lines. By standardizing SOPs and centralizing quality control through its Central QC Hub, Metallo ensures EPC contractors, refineries, and process plants receive certified, corrosion‑resistant, and export‑ready components without heavy CAPEX investments.
+                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the oil, gas, and process industries — aggregating Small and Medium Enterprise capacity across stainless steel pipe mills, fabrication shops, CNC machining units, and industrial assembly lines. By standardizing SOPs and centralizing quality control through its Central QC Hub, Metallo ensures EPC contractors, refineries, and process plants receive certified, corrosion‑resistant, and export‑ready components without heavy CAPEX investments.
                             </p>
                             <p>
-                                India's oil & gas sector is expanding rapidly — new refineries under the National Refinery Expansion Programme, LNG terminal additions along the western coast, and the ₹1.18 lakh crore city gas distribution rollout are creating unprecedented demand. Simultaneously, process industries (chemicals, fertilizers, food, and pharma) require stainless steel and alloy piping, modular skids, and fabricated assemblies that meet <strong className="text-metallo-navy">ASME, ASTM, and API standards</strong>. Traditional MSME suppliers often face challenges with fragmented quality systems, inconsistent traceability, and an inability to scale during project surges — Metallo bridges exactly this gap.
+                                The global oil & gas sector is expanding rapidly — international mega-refineries, cross-border LNG terminal additions, and transnational pipeline rollouts are creating unprecedented demand. Simultaneously, process industries (chemicals, fertilizers, food, and pharma) require stainless steel and alloy piping, modular skids, and fabricated assemblies that meet <strong className="text-metallo-navy">ASME, ASTM, and API standards</strong>. Traditional Small and Medium Enterprise suppliers often face challenges with fragmented quality systems, inconsistent traceability, and an inability to scale during project surges — Metallo bridges exactly this gap.
                             </p>
                         </div>
                     </div>
@@ -256,10 +256,10 @@ const OilGasProcessIndustries: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'India\'s petroleum refining capacity targeted to reach 450 MTPA by 2030 — driving massive demand for piping, fittings, and process equipment.',
-                                    'City gas distribution expanding to 630+ geographical areas, requiring certified pipelines and modular assemblies at unprecedented scale.',
+                                    'Global petroleum refining capacity is surging to meet international energy demands — driving massive requirements for piping, fittings, and process equipment.',
+                                    'Transnational gas distribution and LNG networks are expanding rapidly, requiring certified pipelines and modular assemblies at unprecedented scale.',
                                     'Process industries (chemicals, fertilizers, pharma) need ASME/API-compliant SS piping and skids with full heat‑wise traceability.',
-                                    'MSMEs hold ~40% of India\'s manufacturing capacity but lack standardized quality systems to serve Tier‑1 EPC projects.',
+                                    'Small and Medium Enterprises hold a massive share of global manufacturing capacity but often lack the standardized quality systems required to serve international Tier‑1 EPC projects.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
                                         <span className="material-symbols-outlined text-sm text-yellow-500 mt-0.5 shrink-0">circle</span>
@@ -277,10 +277,10 @@ const OilGasProcessIndustries: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'Stringent compliance requirements — ASME B31.3, API 5L, ASTM A312, and ISO 9001 — that many MSME shops cannot independently certify.',
+                                    'Stringent compliance requirements — ASME B31.3, API 5L, ASTM A312, and ISO 9001 — that many Small and Medium Enterprise shops cannot independently certify.',
                                     'Corrosion resistance and material grade control (304, 316, duplex, super duplex) are critical for pipelines and chemical plants.',
                                     'Complex BOMs covering pipes, valves, trays, skids, and modular assemblies — often 500+ line items per project.',
-                                    'Surge demand during refinery turnarounds or pipeline rollouts that outstrip single-site MSME capacity.',
+                                    'Surge demand during refinery turnarounds or pipeline rollouts that outstrip single-site Small and Medium Enterprise capacity.',
                                     'Traceability & audit risk when suppliers cannot provide heat‑wise MTCs, radiography reports, or third‑party test certificates.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
@@ -299,7 +299,7 @@ const OilGasProcessIndustries: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    { label: 'Audited MSME network', desc: 'Pipe mills, fabricators, CNC machining units, and assembly shops vetted for ASME/API readiness.' },
+                                    { label: 'Audited Small and Medium Enterprise network', desc: 'Pipe mills, fabricators, CNC machining units, and assembly shops vetted for ASME/API readiness.' },
                                     { label: 'Standardized SOPs', desc: 'Welding procedures (ASME IX), finishing, dimensional tolerances, and corrosion‑resistance protocols deployed across all partners.' },
                                     { label: 'Central procurement', desc: 'Bulk sourcing of SS grades (304, 316, duplex, super duplex) with mill test certificates and grade control.' },
                                     { label: 'Central QC Hub', desc: 'PMI, hydro‑testing, radiography, tensile & chemical analysis; third‑party lab validation and MTC issuance per batch.' },
@@ -347,7 +347,7 @@ const OilGasProcessIndustries: React.FC = () => {
                             {
                                 icon: 'bolt',
                                 title: 'Flexible Scaling',
-                                desc: 'Pooled MSME capacity to handle surge demand during refinery turnarounds and pipeline rollouts.',
+                                desc: 'Pooled Small and Medium Enterprise capacity to handle surge demand during refinery turnarounds and pipeline rollouts.',
                             },
                             {
                                 icon: 'public',
@@ -611,7 +611,7 @@ const OilGasProcessIndustries: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">Petrochemical Complex — Gujarat Refinery Expansion</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Supplied 2,400 MT of SS 316 process piping, duplex fittings, modular skids, and cable trays across 8 audited MSME partners. Full ASME B31.3 compliance, heat‑wise MTCs, PMI testing, and radiography on 100% of critical welds — delivered on schedule across a 16‑month EPC timeline.
+                                Supplied 2,400 MT of SS 316 process piping, duplex fittings, modular skids, and cable trays across 8 audited Small and Medium Enterprise partners. Full ASME B31.3 compliance, heat‑wise MTCs, PMI testing, and radiography on 100% of critical welds — delivered on schedule across a 16‑month EPC timeline.
                             </p>
                             <div className="flex gap-8 flex-wrap">
                                 <div>
@@ -624,7 +624,7 @@ const OilGasProcessIndustries: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">8</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Small and Medium Enterprise Partners</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">16 mo</p>

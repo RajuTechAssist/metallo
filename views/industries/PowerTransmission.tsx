@@ -50,7 +50,7 @@ const PRODUCTS = [
 /* ─── PROCESS STEPS ─────────────────────────────────────────── */
 const PROCESS_STEPS = [
     { title: 'Project Intake', desc: 'Upload drawings or BOM; Metallo maps capacity across audited cable, conductor, and transformer partners.', icon: 'upload_file' },
-    { title: 'SOP Deployment', desc: 'Certified MSME partners onboarded with SOPs for conductor manufacturing, insulation, and transformer assembly.', icon: 'rule' },
+    { title: 'SOP Deployment', desc: 'Certified global manufacturing partners onboarded with strict SOPs for conductor manufacturing, insulation, and transformer assembly.', icon: 'rule' },
     { title: 'Central Procurement', desc: 'Bulk sourcing of copper, aluminium, and steel grades for cost control and compliance.', icon: 'shopping_cart' },
     { title: 'QC & Testing', desc: 'Central QC Hub performs dielectric tests, batch validation, and third‑party lab certification.', icon: 'verified' },
     { title: 'Delivery & Support', desc: 'Coordinated logistics with project‑timed deliveries and installation support.', icon: 'local_shipping' },
@@ -59,9 +59,9 @@ const PROCESS_STEPS = [
 /* ─── BENEFITS ──────────────────────────────────────────────── */
 const BENEFITS = [
     { title: 'Reduce Compliance Risk', desc: 'IEC/IS certified products with traceable MTCs and third‑party lab validation on every batch.', icon: 'verified_user' },
-    { title: 'Scale Faster', desc: 'Pooled MSME capacity across cable, conductor, and transformer partners for surge demand during grid expansion.', icon: 'speed' },
+    { title: 'Scale Faster', desc: 'Pooled borderless network capacity across cable, conductor, and transformer partners for surge demand during grid expansion.', icon: 'speed' },
     { title: 'Cost Predictability', desc: 'Centralized procurement of copper and aluminium reduces variance and procurement overhead.', icon: 'savings' },
-    { title: 'Export Advantage', desc: 'Meet global buyer expectations with standardized QA for Middle East & Africa projects.', icon: 'public' },
+    { title: 'Globally-Compliant', desc: 'Meet international buyer expectations with standardized QA built for global mega-projects.', icon: 'public' },
 ];
 
 /* ─── ANIMATION VARIANTS ────────────────────────────────────── */
@@ -164,12 +164,12 @@ const PowerTransmission: React.FC = () => {
                         </nav>
 
                         <h1 className="text-xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.05] mb-6">
-                            Powering India's Grid,<br />
+                            Powering the Global Grid,<br />
                             <span className="text-yellow-500">Certified at Scale.</span>
                         </h1>
 
                         <p className="text-lg md:text-lg text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            IEC/IS‑compliant cables, conductors, transformers, and substation assemblies from an audited MSME network with centralized QA and export readiness.
+                            IEC/IS‑compliant cables, conductors, transformers, and substation assemblies from an audited, global manufacturing network with centralized QA, ready for international deployment.
                         </p>
 
                         {/* CTAs */}
@@ -229,10 +229,10 @@ const PowerTransmission: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo extends its distributed Manufacturing OS to the power and transmission sector, aggregating MSME capacity for cables, conductors, transformers, and substation assemblies. By standardizing processes and centralizing quality control, Metallo ensures that EPC contractors, utilities, and industrial plants receive certified, export‑grade products without the heavy CAPEX of building new facilities.
+                                Metallo extends its distributed Manufacturing OS to the power and transmission sector, aggregating global manufacturing capacity for cables, conductors, transformers, and substation assemblies. Operating on a model of Centralized Control, Distributed Execution, Metallo ensures that Tier-1 EPC contractors, utilities, and industrial plants receive globally-compliant products without the heavy CAPEX of building new facilities.
                             </p>
                             <p>
-                                India's power sector is undergoing rapid expansion with investments in high‑voltage transmission lines, substations, and renewable integration. EPCs and utilities require suppliers who can deliver <strong className="text-metallo-navy">IEC/IS‑compliant</strong> cables, transformers, and assemblies with full traceability and testing. Traditional suppliers often struggle with surge capacity and fragmented quality systems — Metallo bridges that gap.
+                                The global power sector is undergoing rapid expansion with transnational investments in high‑voltage transmission lines, substations, and renewable integration. Tier-1 EPCs and utilities require suppliers who can deliver <strong className="text-metallo-navy">IEC/IS‑compliant</strong> cables, transformers, and assemblies with full MTC traceability and testing. Traditional suppliers often struggle with surge capacity and fragmented quality systems — Metallo bridges that gap.
                             </p>
                         </div>
                     </div>
@@ -248,7 +248,7 @@ const PowerTransmission: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'Massive investments in HV transmission lines, substations, and renewable energy integration across India.',
+                                    'Massive transnational infrastructure expansions in HV transmission lines, substations, and renewable energy integration worldwide.',
                                     'EPCs and utilities need IEC/IS‑compliant cables, transformers, and assemblies with full traceability.',
                                     'Traditional suppliers struggle with surge capacity and fragmented quality systems during grid expansion phases.',
                                 ].map((item, i) => (
@@ -289,7 +289,7 @@ const PowerTransmission: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    { label: 'Audited partners', desc: 'Cable, conductor, and transformer MSMEs onboarded with SOPs and inspection checklists.' },
+                                    { label: 'Audited partners', desc: 'Cable, conductor, and transformer global manufacturing partners onboarded with strict SOPs and inspection checklists.' },
                                     { label: 'Standardized processes', desc: 'SOPs for conductor manufacturing, insulation, and transformer assembly.' },
                                     { label: 'Central QC Hub', desc: 'Dielectric tests, batch validation, and third‑party lab certification on every lot.' },
                                     { label: 'Digital tracking', desc: 'Real‑time production visibility and traceability linked to project BOM.' },
@@ -332,12 +332,12 @@ const PowerTransmission: React.FC = () => {
                             {
                                 icon: 'bolt',
                                 title: 'Flexible Scaling',
-                                desc: 'Pooled MSME capacity to meet surge demand during grid expansion — no investment in new facilities required.',
+                                desc: 'Pooled global network capacity to meet surge demand during transnational grid expansion — no investment in new facilities required.',
                             },
                             {
                                 icon: 'public',
-                                title: 'Export Readiness',
-                                desc: 'Compliance with global standards for Middle East & Africa power projects. Standardized QA meets international buyer expectations.',
+                                title: 'Globally-Compliant',
+                                desc: 'Compliance with global standards built for global mega-projects. Standardized QA meets international buyer expectations.',
                             },
                         ].map((item, i) => (
                             <motion.div
@@ -596,7 +596,7 @@ const PowerTransmission: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">400kV Substation Expansion — Western Grid</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Supplied 850 km of HT/LT cables, 24 distribution transformers, and modular substation assemblies across 4 audited MSME partners. Full IEC compliance, dielectric test reports, and MTCs delivered on schedule across a 10‑month project.
+                                Supplied 850 km of HT/LT cables, 24 distribution transformers, and modular substation assemblies across 4 audited global manufacturing partners. Full IEC compliance, dielectric test reports, and MTCs delivered on schedule across a 10‑month project.
                             </p>
                             <div className="flex gap-8">
                                 <div>

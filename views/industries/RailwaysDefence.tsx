@@ -18,7 +18,7 @@ const NAV_ITEMS = [
 /* ─── PRODUCT DATA (mapped to Metallo verticals) ─────────────── */
 const PRODUCTS = [
     {
-        title: 'Structural Steel & Coach Fabrications',
+        title: 'Structural Steel & Fabricated Structures',
         icon: 'train',
         useCases: 'Coach underframes, bogie components, couplers, mounting brackets, defence chassis and structural frames.',
         assurance: 'IS:2062/ASTM grades; RDSO‑aligned welding SOPs; dimensional inspection; MTCs per heat lot.',
@@ -42,7 +42,7 @@ const PRODUCTS = [
         title: 'Welding Consumables & Electrodes',
         icon: 'whatshot',
         useCases: 'Coach body assembly welding, bogie frame joining, structural fabrication for rail/defence platforms.',
-        assurance: 'AWS/ASME certified; flux‑cored & solid wires; RDSO‑approved grades; standardized SOPs across MSME network.',
+        assurance: 'AWS/ASME certified; flux‑cored & solid wires; RDSO‑approved and MIL-SPEC grades; standardized SOPs across global manufacturing network.',
         image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
     },
     {
@@ -56,7 +56,7 @@ const PRODUCTS = [
 
 /* ─── PROCESS STEPS ─────────────────────────────────────────── */
 const PROCESS_STEPS = [
-    { title: 'Project Intake & BOM Mapping', desc: 'Upload drawings and BOM; Metallo maps capacity across audited rail/defence‑capable MSME partners.', icon: 'upload_file' },
+    { title: 'Project Intake & BOM Mapping', desc: 'Upload drawings and BOM; Metallo maps capacity across audited rail/defence‑capable global manufacturing partners.', icon: 'upload_file' },
     { title: 'Capability Validation & Pilot', desc: 'Capability study, pilot fabrication, and sample NDT/functional checks to qualify partner plants.', icon: 'science' },
     { title: 'SOP Deployment & Material Staging', desc: 'Standardized welding, assembly, and finishing SOPs aligned to RDSO/DRDO standards; centralized material procurement.', icon: 'rule' },
     { title: 'Production Tracking & QC', desc: 'Digital production tracking; Central QC Hub performs NDT, PMI, tensile and chemical tests; MTCs issued per batch.', icon: 'verified' },
@@ -69,7 +69,7 @@ const BENEFITS = [
     { title: 'Elastic Program Capacity', desc: 'Parallelize production across multiple audited sites to meet large rolling‑stock orders or defence program ramps.', icon: 'hub' },
     { title: 'Faster Delivery', desc: 'Parallelized, audited production across locations shortens lead times for large coach and defence assemblies.', icon: 'speed' },
     { title: 'Cost & Material Control', desc: 'Centralized procurement of critical steels, alloys, and cables reduces grade variance and eliminates rework.', icon: 'savings' },
-    { title: 'Export Readiness', desc: 'Compliance and documentation aligned to global standards for international rail and defence export opportunities.', icon: 'public' },
+    { title: 'Globally-Compliant', desc: 'Compliance and documentation aligned to international standards (e.g., UIC, MIL-STD) built for global mega-projects.', icon: 'public' },
 ];
 
 /* ─── ANIMATION VARIANTS ────────────────────────────────────── */
@@ -177,7 +177,7 @@ const RailwaysDefence: React.FC = () => {
                         </h1>
 
                         <p className="text-lg md:text-lg text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            RDSO‑ and DRDO‑aligned manufacturing from India's audited MSME network — structural steel, signal cables, cable trays, welding consumables, and precision die‑cast components with Central QC, NDT, and full MTC traceability.
+                            RDSO, DRDO, and internationally aligned manufacturing from an audited, global manufacturing network — structural steel, signal cables, cable trays, welding consumables, and precision die‑cast components with Central QC, NDT, and full MTC traceability.
                         </p>
 
                         {/* CTAs */}
@@ -237,10 +237,10 @@ const RailwaysDefence: React.FC = () => {
 
                         <div className="text-base text-slate-700 font-sans leading-relaxed space-y-5 mb-12">
                             <p>
-                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the Railways &amp; Defence sectors by aggregating audited MSME capacity — SS pipe mills, heavy fabricators, wire &amp; cable plants, cable tray manufacturers, welding consumable producers, and CNC machining units — and standardizing SOPs, QC, and traceability so rail integrators and defence contractors get certified, scalable production without heavy CAPEX.
+                                Metallo applies its <strong className="text-metallo-navy">Distributed Manufacturing OS</strong> to the Railways &amp; Defence sectors by aggregating audited borderless manufacturing capacity — SS pipe mills, heavy fabricators, wire &amp; cable plants, cable tray manufacturers, welding consumable producers, and CNC machining units. Operating on a model of Centralized Control, Distributed Execution, Metallo standardizes SOPs, QC, and traceability so Tier-1 EPC contractors, rail integrators, and defence contractors get certified, scalable production without heavy CAPEX.
                             </p>
                             <p>
-                                India's rolling‑stock and metro expansion is driving large, repeatable demand for coach components, bogie parts, structural fabrications, and electrical assemblies. Meanwhile, the <strong className="text-metallo-navy">Make‑in‑Defence</strong> push and rising defence production targets mean more contracts, higher indigenisation quotas, and growing export ambitions — creating demand for certified domestic suppliers. MSMEs already form a critical part of the defence and rail supply chain; with Metallo's certification, SOPs, and centralized QA they can be scaled to meet large program needs.
+                                Transnational infrastructure expansions in rolling‑stock and metro networks are driving large, repeatable demand for coach components, bogie parts, structural fabrications, and electrical assemblies. Meanwhile, rising international defence production targets mean more contracts and rigorous compliance requirements — creating demand for globally-compliant suppliers capable of meeting UIC and MIL-SPEC standards. A borderless manufacturing network already forms a critical part of the defence and rail supply chain; with Metallo's certification, SOPs, and centralized QA, this capacity can be scaled to meet international capital project needs.
                             </p>
                         </div>
                     </div>
@@ -256,10 +256,10 @@ const RailwaysDefence: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    'India\'s rolling‑stock market valued at multi‑billion dollars — strong coach production growth over 5 years.',
-                                    'Make‑in‑Defence push: rising defence production targets, higher indigenisation quotas, growing exports.',
-                                    'MSMEs form a critical part of rail/defence supply chain — ready for aggregation and certification.',
-                                    'Metro expansion across 20+ Indian cities driving repeatable demand for coach assemblies.',
+                                    'Global rolling‑stock market experiencing multi‑billion dollar expansions — strong worldwide coach production growth.',
+                                    'Rising international defence production targets and rigorous multi-national compliance requirements.',
+                                    'Global manufacturing partners form a critical part of rail/defence supply chains — ready for aggregation and certification.',
+                                    'Transnational metro expansions driving repeatable demand for coach assemblies globally.',
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate-600 font-sans leading-relaxed">
                                         <span className="material-symbols-outlined text-sm text-yellow-500 mt-0.5 shrink-0">circle</span>
@@ -278,7 +278,7 @@ const RailwaysDefence: React.FC = () => {
                             <ul className="space-y-3">
                                 {[
                                     'RDSO/IR approval requirements for railways; DRDO/DPSU compliance for defence programs.',
-                                    'Fragmented MSME suppliers with variable SOPs, traceability, and third‑party testing.',
+                                    'Fragmented global manufacturing partners with variable SOPs, traceability, and third‑party testing.',
                                     'Large rolling‑stock orders and defence ramps need burst capacity across multiple partners.',
                                     'Complex multi‑site fabrication and pre‑assembly for coach and defence subsystems.',
                                 ].map((item, i) => (
@@ -298,7 +298,7 @@ const RailwaysDefence: React.FC = () => {
                             </div>
                             <ul className="space-y-3">
                                 {[
-                                    { label: 'MSME network for rail/defence', desc: 'Audited SS fabricators, wire & cable plants, cable tray manufacturers, and welding consumable producers mapped to RDSO/DRDO capabilities.' },
+                                    { label: 'Global manufacturing partners for rail/defence', desc: 'Audited SS fabricators, wire & cable plants, cable tray manufacturers, and welding consumable producers mapped to RDSO/DRDO, UIC, and MIL-SPEC capabilities.' },
                                     { label: 'Steel vertical', desc: 'SS pipes, tubes, sheets, and structural steel (IS:2062/ASTM) for coach frames, bogie parts, and defence chassis.' },
                                     { label: 'Wire & Cable vertical', desc: 'BIS/RDSO‑certified signal cables, power cables, and fire‑rated FRLS/LSZH coach wiring.' },
                                     { label: 'Cable Tray vertical', desc: 'GI/SS cable trays for under‑coach routing, depot infrastructure, and defence shelter management.' },
@@ -328,11 +328,11 @@ const RailwaysDefence: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         {[
-                            { icon: 'hub', title: 'Elastic Program Capacity', desc: 'Parallelize production across multiple audited MSME sites to meet large rolling‑stock orders or defence production ramps.' },
+                            { icon: 'hub', title: 'Elastic Program Capacity', desc: 'Parallelize production across multiple audited global manufacturing sites to meet large rolling‑stock orders or defence production ramps.' },
                             { icon: 'verified_user', title: 'RDSO / DRDO Compliance', desc: 'Central QC Hub produces RDSO/IR documentation for railways and DRDO/DPSU qualification packages for defence.' },
-                            { icon: 'inventory_2', title: 'Multi‑Vertical Supply', desc: 'Steel, cables, cable trays, welding consumables, and die‑cast parts — all from one certified MSME ecosystem.' },
+                            { icon: 'inventory_2', title: 'Multi‑Vertical Supply', desc: 'Steel, cables, cable trays, welding consumables, and die‑cast parts — all from one certified borderless manufacturing ecosystem.' },
                             { icon: 'speed', title: 'Faster Program Delivery', desc: 'Standardized SOPs and digital BOM tracking reduce supplier qualification and production cycle times.' },
-                            { icon: 'public', title: 'Export Readiness', desc: 'Documentation aligned to international standards for global rail and defence export markets.' },
+                            { icon: 'public', title: 'Globally-Compliant', desc: 'Documentation aligned to international standards (UIC, MIL-SPEC, NATO STANAG) ready for international deployment.' },
                         ].map((item, i) => (
                             <motion.div
                                 key={item.title}
@@ -370,7 +370,7 @@ const RailwaysDefence: React.FC = () => {
                                 icon: 'train',
                                 title: 'Rail Integrators & Coach Builders',
                                 focus: 'Coach frames, cables, cable trays, welding, die‑cast fittings',
-                                copy: 'Metallo supplies rolling‑stock integrators with structural steel for coach frames and bogies, RDSO‑certified signal and power cables, cable trays for under‑coach routing, welding consumables for body assembly, and precision die‑cast fittings — all from a single audited MSME ecosystem with Central QC and full MTC traceability.',
+                                copy: 'Metallo supplies Tier-1 EPC contractors and rolling‑stock integrators with structural steel for coach frames and bogies, UIC/RDSO‑certified signal and power cables, cable trays for under‑coach routing, welding consumables for body assembly, and precision die‑cast fittings — all from a single audited borderless ecosystem with Central QC and full MTC traceability.',
                                 assurances: 'RDSO‑aligned SOPs · IS:2062 structural steel · BIS signal cables · Fire‑rated FRLS wiring',
                                 cta: 'Request a Railway Quote',
                             },
@@ -378,8 +378,8 @@ const RailwaysDefence: React.FC = () => {
                                 icon: 'shield',
                                 title: 'Defence Contractors & DPSUs',
                                 focus: 'Structural fabrications, harnesses, machined parts, shelter modules',
-                                copy: 'Defence contractors source structural steel fabrications (chassis, mounting frames), control cable harnesses, cable trays for shelter modules, and CNC‑machined precision parts through Metallo\'s audited MSME network — with DRDO/DPSU documentation packages, NDT validation, and serialized batch traceability.',
-                                assurances: 'DRDO/DPSU documentation · NDT per batch · Serialized MTCs · Make‑in‑India compliance',
+                                copy: 'Tier-1 defence contractors source structural steel fabrications (chassis, mounting frames), control cable harnesses, cable trays for shelter modules, and CNC‑machined precision parts through Metallo\'s audited global manufacturing network — with MIL-SPEC/DRDO documentation packages, NDT validation, and serialized batch traceability.',
+                                assurances: 'MIL-SPEC/DRDO documentation · NDT per batch · Serialized MTCs · Globally-compliant manufacturing',
                                 cta: 'Get a Defence Capability Pack',
                             },
                             {
@@ -486,7 +486,7 @@ const RailwaysDefence: React.FC = () => {
                         >
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">build</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Custom Rail / Defence<br />Component?</h3>
-                            <p className="text-sm text-metallo-navy/70 font-sans mb-6 max-w-md">Upload drawings and BOM — we'll map capacity across audited MSME partners and deliver an RDSO/DRDO‑ready quote.</p>
+                            <p className="text-sm text-metallo-navy/70 font-sans mb-6 max-w-md">Upload drawings and BOM — we'll map capacity across audited global manufacturing partners and deliver a globally-compliant, project-ready quote.</p>
                             <button className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
                                 Request Project Quote
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -577,7 +577,7 @@ const RailwaysDefence: React.FC = () => {
                             {
                                 icon: 'menu_book',
                                 title: 'Standards Supported',
-                                items: ['RDSO / Indian Railways standards', 'DRDO / DPSU qualification packages', 'IS:2062 / ASTM — Structural steel', 'BIS — Wire & cable certification', 'IEC 61537 / IS 16230 — Cable trays', 'AWS / ASME — Welding qualification'],
+                                items: ['UIC / EN / RDSO — Railways standards', 'MIL-SPEC / NATO STANAG / DRDO — Defence packages', 'IS:2062 / ASTM — Structural steel', 'BIS / IEC — Wire & cable certification', 'IEC 61537 / IS 16230 — Cable trays', 'AWS / ASME — Welding qualification'],
                             },
                             {
                                 icon: 'science',
@@ -587,7 +587,7 @@ const RailwaysDefence: React.FC = () => {
                             {
                                 icon: 'qr_code_2',
                                 title: 'Traceability & Documentation',
-                                items: ['Serialized batch IDs & part genealogy', 'Digital QC reports per batch', 'Material Testing Certificates (MTCs)', 'RDSO‑format documentation packages', 'DRDO vendor qualification packs', 'Export‑ready statutory documentation'],
+                                items: ['Serialized batch IDs & part genealogy', 'Digital QC reports per batch', 'Material Testing Certificates (MTCs)', 'UIC/RDSO‑format documentation packages', 'MIL-SPEC/DRDO vendor qualification packs', 'Globally-compliant statutory documentation'],
                             },
                         ].map((block, i) => (
                             <motion.div
@@ -660,7 +660,7 @@ const RailwaysDefence: React.FC = () => {
                             <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-yellow-600 mb-3">Case Study</p>
                             <h3 className="text-2xl font-heading font-bold text-metallo-navy mb-3">Metro Coach Component Program — Multi‑Vertical Supply</h3>
                             <p className="text-sm text-slate-600 font-sans leading-relaxed mb-4">
-                                Metallo coordinated 8 audited MSME partners to supply a metro coach integrator with structural steel (IS:2062 underframes), RDSO‑certified signal cables, fire‑rated cable trays for under‑coach routing, AWS‑certified welding consumables, and die‑cast sensor brackets — achieving 97.8% first‑pass NDT acceptance and delivering 2 weeks ahead of the production timeline.
+                                Metallo coordinated 8 audited global manufacturing partners to supply a Tier-1 metro coach integrator with structural steel (IS:2062 underframes), UIC/RDSO‑certified signal cables, fire‑rated cable trays for under‑coach routing, AWS‑certified welding consumables, and die‑cast sensor brackets — achieving 97.8% first‑pass NDT acceptance and delivering 2 weeks ahead of the production timeline.
                             </p>
                             <div className="flex gap-8 flex-wrap">
                                 <div>
@@ -673,7 +673,7 @@ const RailwaysDefence: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">8</p>
-                                    <p className="text-xs text-slate-500 font-sans">MSME Partners</p>
+                                    <p className="text-xs text-slate-500 font-sans">Global Manufacturing Partners</p>
                                 </div>
                                 <div>
                                     <p className="text-2xl font-heading font-extrabold text-metallo-navy">2 wk</p>
@@ -709,7 +709,7 @@ const RailwaysDefence: React.FC = () => {
                         Ready to scale your<br />rail or defence program?
                     </h2>
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
-                        From coach assemblies and signal cables to defence structural fabrications — Metallo delivers RDSO/DRDO‑certified manufacturing from India's audited MSME network.
+                        From coach assemblies and signal cables to defence structural fabrications — Metallo delivers UIC, MIL-SPEC, and RDSO/DRDO‑certified manufacturing from an audited, borderless manufacturing network.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">

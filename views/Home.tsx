@@ -34,7 +34,7 @@ const Home: React.FC = () => {
       <Industries />
       <Verticals />
       <WorldMap />
-      <Certifications />
+      {/* <Certifications /> */}
     </>
   );
 };

@@ -213,7 +213,7 @@ const Contact: React.FC = () => {
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">For Careers</p>
               <h3 className="text-xl font-bold font-heading text-metallo-navy mb-3">Join the Team</h3>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                Build your career in India's fastest-growing manufacturing platform.
+                Build your career in the world's fastest-growing manufacturing platform.
               </p>
               <span className="inline-flex items-center text-sm font-bold text-metallo-navy group-hover:text-metallo-gold-hover transition-colors">
                 hr@metallo.com
