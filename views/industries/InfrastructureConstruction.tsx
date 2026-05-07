@@ -359,12 +359,12 @@ const InfrastructureConstruction: React.FC = () => {
                         ))}
                     </div>
 
-                    {/* Market context */}
+                    {/* Market context
                     <div className="mt-12 text-center">
                         <p className="text-sm text-slate-500 font-sans max-w-3xl mx-auto leading-relaxed">
                             <span className="font-semibold text-metallo-navy">Market context:</span> India's infrastructure expansion is driving unprecedented demand for certified steel, pipes, and allied products. Suppliers are shifting from volume to quality and traceability to meet EPC standards.
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </AnimatedSection>
 
@@ -639,13 +639,13 @@ const InfrastructureConstruction: React.FC = () => {
             {/* ═══ 7. FINAL CTA ═══════════════════════════════════════════ */}
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
-                  <Image
-                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80&auto=format&fit=crop"
-                    alt="Construction site"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                  />
+                    <Image
+                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80&auto=format&fit=crop"
+                        alt="Construction site"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
