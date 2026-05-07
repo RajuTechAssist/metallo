@@ -50,4 +50,6 @@ Thumbs.db
 scraped-sources/
 .*
 C*.md
+G*.md
 package-lock.json
+tsconfig.tsbuildinfo

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { PRODUCT_VERTICAL_BY_KEY } from "@/lib/productVerticals";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -96,6 +97,8 @@ const SLIDES: Slide[] = [
   //   link: PRODUCT_VERTICAL_BY_KEY.tech.path,
   // },
 ];
+
+const MotionImage = motion(Image);
 
 const EASE_STANDARD: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -207,10 +210,13 @@ const Hero: React.FC = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          <motion.img
+          <MotionImage
             src={slide.image}
             alt={slide.category}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={slide.id === "01"}
             initial={{ scale: 1 }}
             animate={{ scale: 1.08 }}
             transition={{ duration: SLIDE_DURATION + 1, ease: "linear" }}

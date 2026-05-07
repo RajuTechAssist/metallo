@@ -130,8 +130,8 @@ const Steel: React.FC = () => {
     return categoryProducts;
   }, [activeCategoryKey, groupedProducts, activeGroup, categoryProducts]);
 
-  function selectCategory(key: CategoryKey) {
-    setSearchParams({ category: key });
+  function selectCategory(key: string) {
+    setSearchParams({ category: key as CategoryKey });
     setMobileGroupOpen(false);
     setOpenCardId(null);
   }

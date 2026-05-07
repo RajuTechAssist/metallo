@@ -33,7 +33,7 @@ const Verticals: React.FC = () => {
               className="group relative flex-shrink-0 w-[160px] h-[220px] md:w-[180px] md:h-[240px] lg:w-auto lg:h-[296px] rounded-md overflow-hidden cursor-pointer block"
             >
               <Image
-                src={item.showcaseImage}
+                src={item.showcaseImage || ''}
                 alt={item.showcaseTitle || item.name}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"

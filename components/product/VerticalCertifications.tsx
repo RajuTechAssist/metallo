@@ -1,113 +1,116 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   VERTICAL_CERT_DATA,
+  type CertificationItem,
+  type PartnerItem,
 } from "@/data/verticalCertificationsData";
+// import { CONTAINER } from "@/components/product/productLayout";
 
 /* ------------------------------------------------------------------ */
 /*  Inline SVG certification badge renderer                           */
 /* ------------------------------------------------------------------ */
 
-// const BADGE_LABELS: Record<CertificationItem["icon"], string> = {
-//   iso: "ISO",
-//   bis: "BIS",
-//   astm: "ASTM",
-//   asme: "ASME",
-//   iec: "IEC",
-//   aws: "AWS",
-//   ce: "CE",
-//   ul: "UL",
-//   api: "API",
-//   nema: "NEMA",
-//   cpri: "CPRI",
-//   aisc: "AISC",
-//   en: "EN",
-// };
+const BADGE_LABELS: Record<CertificationItem["icon"], string> = {
+  iso: "ISO",
+  bis: "BIS",
+  astm: "ASTM",
+  asme: "ASME",
+  iec: "IEC",
+  aws: "AWS",
+  ce: "CE",
+  ul: "UL",
+  api: "API",
+  nema: "NEMA",
+  cpri: "CPRI",
+  aisc: "AISC",
+  en: "EN",
+};
 
-// const CertBadge: React.FC<{ cert: CertificationItem }> = ({ cert }) => {
-//   const label = BADGE_LABELS[cert.icon];
-//   const color = "#1e293b";
+const CertBadge: React.FC<{ cert: CertificationItem }> = ({ cert }) => {
+  const label = BADGE_LABELS[cert.icon];
 
-//   return (
-//     <div className="flex flex-col items-center gap-2 group cursor-default shrink-0 transition-all duration-300 hover:-translate-y-1">
-//       <svg
-//         viewBox="0 0 80 80"
-//         className="w-16 h-16 md:w-20 md:h-20"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         {/* Outer ring */}
-//         <circle
-//           cx="40"
-//           cy="40"
-//           r="37"
-//           stroke={color}
-//           strokeWidth="2"
-//           opacity="0.15"
-//         />
-//         <circle
-//           cx="40"
-//           cy="40"
-//           r="33"
-//           stroke={color}
-//           strokeWidth="1.5"
-//           opacity="0.3"
-//         />
-//         {/* Badge body fill */}
-//         <circle cx="40" cy="40" r="30" fill={color} opacity="0.06" />
-//         {/* Acronym text */}
-//         <text
-//           x="40"
-//           y="38"
-//           textAnchor="middle"
-//           dominantBaseline="middle"
-//           fill={color}
-//           fontFamily="system-ui, -apple-system, sans-serif"
-//           fontWeight="800"
-//           fontSize={label.length > 3 ? "12" : "14"}
-//           letterSpacing="1"
-//         >
-//           {label}
-//         </text>
-//         {/* Checkmark at bottom */}
-//         <circle cx="40" cy="56" r="7" fill={color} opacity="0.12" />
-//         <path
-//           d="M36 56l3 3 5-5"
-//           stroke={color}
-//           strokeWidth="1.5"
-//           strokeLinecap="round"
-//           strokeLinejoin="round"
-//           opacity="0.7"
-//         />
-//       </svg>
-//       <div className="text-center">
-//         <span className="block text-[11px] font-bold text-slate-700 uppercase tracking-wide whitespace-nowrap font-heading">
-//           {cert.name}
-//         </span>
-//         <span className="block text-[9px] text-slate-400 uppercase tracking-wider whitespace-nowrap mt-0.5">
-//           {cert.subtitle}
-//         </span>
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div className="flex flex-col items-center gap-2 group cursor-default shrink-0 transition-all duration-300 hover:-translate-y-1">
+      <svg
+        viewBox="0 0 80 80"
+        className="w-16 h-16 md:w-20 md:h-20 text-slate-800"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Outer ring */}
+        <circle
+          cx="40"
+          cy="40"
+          r="37"
+          stroke="currentColor"
+          strokeWidth="2"
+          opacity="0.15"
+        />
+        <circle
+          cx="40"
+          cy="40"
+          r="33"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          opacity="0.3"
+        />
+        {/* Badge body fill */}
+        <circle cx="40" cy="40" r="30" fill="currentColor" opacity="0.06" />
+        {/* Acronym text */}
+        <text
+          x="40"
+          y="38"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="currentColor"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          fontWeight="800"
+          fontSize={label.length > 3 ? "12" : "14"}
+          letterSpacing="1"
+        >
+          {label}
+        </text>
+        {/* Checkmark at bottom */}
+        <circle cx="40" cy="56" r="7" fill="currentColor" opacity="0.12" />
+        <path
+          d="M36 56l3 3 5-5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.7"
+        />
+      </svg>
+      <div className="text-center">
+        <span className="block text-[11px] font-bold text-slate-700 uppercase tracking-wide whitespace-nowrap font-heading">
+          {cert.name}
+        </span>
+        <span className="block text-[9px] text-slate-400 uppercase tracking-wider whitespace-nowrap mt-0.5">
+          {cert.subtitle}
+        </span>
+      </div>
+    </div>
+  );
+};
 
 /* ------------------------------------------------------------------ */
 /*  Partner logo renderer                                             */
 /* ------------------------------------------------------------------ */
 
-// const PartnerLogo: React.FC<{ partner: PartnerItem }> = ({ partner }) => (
-//   <div className="flex items-center justify-center h-12 md:h-14 px-3 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-//     <Image
-//       src={partner.logo}
-//       alt={partner.name}
-//       width={160}
-//       height={56}
-//       className="max-h-full max-w-full object-contain"
-//     />
-//   </div>
-// );
+const PartnerLogo: React.FC<{ partner: PartnerItem }> = ({ partner }) => (
+  <div className="flex items-center justify-center h-12 md:h-14 px-3 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+    <Image
+      src={partner.logo}
+      alt={partner.name}
+      width={160}
+      height={56}
+      className="max-h-full max-w-full object-contain"
+    />
+  </div>
+);
 
 /* ------------------------------------------------------------------ */
 /*  Main component                                                    */

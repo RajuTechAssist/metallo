@@ -444,10 +444,12 @@ const AutomotiveMobility: React.FC = () => {
                                 variants={fadeUp}
                                 className="group relative rounded-xl overflow-hidden bg-metallo-navy shadow-lg h-[360px] cursor-pointer"
                             >
-                                <img
+                                <Image
                                     src={product.image}
                                     alt={product.title}
-                                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105"
+                                    fill
+                                    className="object-cover opacity-40 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy via-metallo-navy/60 to-transparent" />
 
@@ -690,11 +692,15 @@ const AutomotiveMobility: React.FC = () => {
 
             {/* ═══ 8. FINAL CTA ═══════════════════════════════════════════ */}
             <section className="relative py-20 lg:py-28 overflow-hidden">
-                <img
+                <div className="absolute inset-0">
+                  <Image
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80&auto=format&fit=crop"
                     alt="Automotive manufacturing"
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
