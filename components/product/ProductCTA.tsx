@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CONTAINER } from "./productLayout";
 
 interface ProductCTAProps {
@@ -35,7 +37,7 @@ const ProductCTA: React.FC<ProductCTAProps> = ({
             </p>
           </div>
           <Link
-            to={ctaLink}
+            href={ctaLink}
             className="shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-yellow-500 text-slate-900 text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-md hover:shadow-lg"
           >
             <span className="material-symbols-outlined text-xl">

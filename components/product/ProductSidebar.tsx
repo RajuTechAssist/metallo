@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
 import type { CategoryConfig } from "./productLayout";
 
 interface ProductSidebarProps {
@@ -46,17 +49,19 @@ const ProductSidebar: React.FC<ProductSidebarProps> = ({
           >
             {/* Thumbnail */}
             <div
-              className={`w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${
+              className={`relative w-10 h-10 shrink-0 rounded-sm overflow-hidden border ${
                 activeIdx === idx
                   ? "border-yellow-500/40"
                   : "border-slate-200"
               }`}
             >
               {product.thumbnail ? (
-                <img
+                <Image
                   src={product.thumbnail}
                   alt=""
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="40px"
                 />
               ) : (
                 <div

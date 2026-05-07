@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Link } from "react-router-dom";
-import { PRODUCT_VERTICAL_BY_KEY } from "../utils/productVerticals";
+import Link from "next/link";
+import Image from "next/image";
+import { PRODUCT_VERTICAL_BY_KEY } from "@/lib/productVerticals";
 
 /* ═══════════════════════════════════════════════════════════════
    CINEMATIC HERO SLIDER
@@ -95,7 +98,7 @@ const SLIDES: Slide[] = [
   // },
 ];
 
-const TOTAL = String(SLIDES.length).padStart(2, "0");
+const MotionImage = motion(Image);
 
 const EASE_STANDARD: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -207,10 +210,13 @@ const Hero: React.FC = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          <motion.img
+          <MotionImage
             src={slide.image}
             alt={slide.category}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={slide.id === "01"}
             initial={{ scale: 1 }}
             animate={{ scale: 1.08 }}
             transition={{ duration: SLIDE_DURATION + 1, ease: "linear" }}
@@ -274,7 +280,7 @@ const Hero: React.FC = () => {
                 exit="exit"
               >
                 <Link
-                  to={slide.link}
+                  href={slide.link}
                   className="inline-flex items-center gap-[clamp(0.5rem,1%,0.75rem)] px-[clamp(1rem,2vw,1.5rem)] py-[clamp(0.5rem,1vw,0.75rem)] bg-yellow-500 text-slate-900 text-[clamp(0.75rem,0.9vw,0.875rem)] font-heading font-extrabold uppercase tracking-wider hover:bg-yellow-400 transition-colors"
                 >
                   Explore Capabilities

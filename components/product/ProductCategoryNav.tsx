@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { CONTAINER } from "./productLayout";
 import type { CategoryConfig } from "./productLayout";

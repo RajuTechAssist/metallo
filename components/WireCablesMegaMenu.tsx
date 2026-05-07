@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const groupPath = (group: string) =>
   `/products/wire-cables?group=${encodeURIComponent(group)}`;
@@ -43,7 +45,7 @@ const WireCablesMegaMenu: React.FC<{
               ].map(([name, spec]) => (
                 <Link
                   key={name}
-                  to={LT_PATH}
+                  href={LT_PATH}
                   onClick={onClose}
                   className="flex items-center justify-between py-3 group border-b border-gray-100 last:border-b-0"
                 >
@@ -58,7 +60,7 @@ const WireCablesMegaMenu: React.FC<{
             </div>
 
             <Link
-              to={LT_PATH}
+              href={LT_PATH}
               onClick={onClose}
               className="inline-flex items-center gap-1 mt-4 text-xs font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-sans transition-colors"
             >
@@ -87,7 +89,7 @@ const WireCablesMegaMenu: React.FC<{
               ].map(([name, spec]) => (
                 <Link
                   key={name}
-                  to={HT_PATH}
+                  href={HT_PATH}
                   onClick={onClose}
                   className="flex items-center justify-between py-3 group border-b border-gray-100 last:border-b-0"
                 >
@@ -102,7 +104,7 @@ const WireCablesMegaMenu: React.FC<{
             </div>
 
             <Link
-              to={HT_PATH}
+              href={HT_PATH}
               onClick={onClose}
               className="inline-flex items-center gap-1 mt-4 text-xs font-bold text-metallo-gold hover:text-metallo-gold-hover uppercase tracking-wider font-sans transition-colors"
             >
@@ -124,12 +126,12 @@ const WireCablesMegaMenu: React.FC<{
                 Metallo Wire & Cable
               </h4>
               <p className="font-sans text-xs text-gray-500 leading-relaxed mb-4">
-                Metallo's wire and cable range is organized around LT Power &
+                Metallo&apos;s wire and cable range is organized around LT Power &
                 Control Cable and HT Power Cable selections for industrial
                 distribution, control circuits, and medium-voltage networks.
               </p>
               <Link
-                to="/products/wire-cables"
+                href="/products/wire-cables"
                 onClick={onClose}
                 className="inline-flex items-center gap-2 text-xs font-bold text-metallo-navy hover:text-metallo-gold uppercase tracking-wider font-sans transition-colors"
               >
@@ -166,7 +168,7 @@ const WireCablesMegaMenu: React.FC<{
 
             <div className="pt-4 border-t border-gray-100">
               <Link
-                to="/products/wire-cables"
+                href="/products/wire-cables"
                 onClick={onClose}
                 className="flex items-center justify-between text-sm font-bold text-metallo-navy hover:text-metallo-gold transition-colors font-sans"
               >
