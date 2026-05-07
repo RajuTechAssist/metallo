@@ -224,7 +224,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Overlay ── */}
       <div className="absolute inset-0 z-[1] bg-slate-900/60" />
       {/* Bottom vignette for track nav readability */}
       <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
