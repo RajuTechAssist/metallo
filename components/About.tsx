@@ -128,22 +128,20 @@ const About: React.FC = () => {
               {/* Top Headline */}
               <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
-                  From India to the World,
-                  <br />
-                  Built to Spec
+                  BUILT FOR GLOBAL MEGA-PROJECTS.
                 </h3>
                 <p className="text-sm font-sans text-metallo-gold-hover overlay-black mt-2 tracking-wide">
-                  Export‑grade processes, unified QA, faster go‑to‑market.
+                  Standardized processes, unified QA, faster go-to-market.
                 </p>
               </div>
 
               {/* Bottom Description */}
               <div className="absolute bottom-0 left-0 right-0 p-7">
                 <p className="text-sm text-slate-200 font-sans leading-relaxed max-w-md">
-                  Metallo converts your idle capacity into export‑grade output.
-                  We handle unified BOMs, procurement, and quality traceability
-                  across your Small and Medium Enterprise network—so you win international tenders in
-                  the Middle East, Africa, and beyond without adding CAPEX.
+                  Metallo converts distributed capacity into Tier-1 infrastructure output.
+                  We handle unified BOMs, centralized procurement, and rigorous quality
+                  traceability across our global manufacturing network—empowering you
+                  to win and execute international mega-tenders without adding heavy CAPEX.
                 </p>
               </div>
             </div>
