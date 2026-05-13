@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct, SteelProductTypeGallery } from "./steelTypes";
 import {
   createSteelTypeGallery,
@@ -7,15 +8,7 @@ import {
 } from "./steelCatalogUtils";
 
 const STEEL_GASKET_IMAGE_DIR = "/Steel/sealing-gaskets";
-
 const gasketImage = (slug: string) => `${STEEL_GASKET_IMAGE_DIR}/${slug}.png`;
-const gasketTypeImage = (slug: string, fileName: string) =>
-  `${STEEL_GASKET_IMAGE_DIR}/types/${slug}/${fileName}`;
-const gasketTypeItem = (
-  slug: string,
-  name: string,
-  fileName: string,
-) => createSteelTypeItem(name, gasketTypeImage(slug, fileName));
 const typeGallery = (
   title: string,
   intro: string,
@@ -640,69 +633,21 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Ring Gasket Types",
       "Metallo's RTJ range covers the standard Type R family and a broader set of specialty profiles for ultra-high-pressure, subsea, transition, blind, and adapted flange systems.",
       [
-        gasketTypeItem(
-          "ring-gasket",
-          "Ring Gasket - Octagonal",
-          "ring-gasket---octagonal.jpg",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "Ring Gasket - Oval",
-          "ring-gasket---oval.jpg",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "BX Type Ring Gaskets",
-          "bx-type-ring-gaskets.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "SBX Type Ring Gaskets",
-          "sbx-type-ring-gaskets.jpg",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "RX Types Ring Gaskets",
-          "rx-types-ring-gaskets.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "Zinc Coated Ring Gasket",
-          "zinc-coated-ring-gasket.jpg",
-        ),
-        gasketTypeItem("ring-gasket", "Seat Rings", "seat-rings.jpg"),
-        gasketTypeItem(
-          "ring-gasket",
-          "Silver Coated Gasket",
-          "silver-coated-gasket.jpg",
-        ),
-        gasketTypeItem("ring-gasket", "Lip Seal", "lip-seal.jpg"),
-        gasketTypeItem("ring-gasket", "Bonnet Gasket", "bonnet-gasket.jpg"),
-        gasketTypeItem(
-          "ring-gasket",
-          "Ring Gasket with PTFE Inserted",
-          "ring-gasket-with-ptfe-inserted.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "Bridgeman Gaskets",
-          "bridgeman-gaskets.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "R Type Kammprofile Gaskets - Adapter",
-          "r-type-kammprofile-gaskets---adapter.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "Ring Type Blind Gaskets",
-          "ring-type-blind-gaskets.png",
-        ),
-        gasketTypeItem(
-          "ring-gasket",
-          "R Type Kammprofile Gaskets - Octagonal",
-          "r-type-kammprofile-gaskets---octagonal.png",
-        ),
+        createSteelTypeItem("Ring Gasket - Octagonal", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["ringGasketOctagonal"]),
+        createSteelTypeItem("Ring Gasket - Oval", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["ringGasketOval"]),
+        createSteelTypeItem("BX Type Ring Gaskets", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["bxTypeRingGaskets"]),
+        createSteelTypeItem("SBX Type Ring Gaskets", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["sbxTypeRingGaskets"]),
+        createSteelTypeItem("RX Types Ring Gaskets", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["rxTypesRingGaskets"]),
+        createSteelTypeItem("Zinc Coated Ring Gasket", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["zincCoatedRingGasket"]),
+        createSteelTypeItem("Seat Rings", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["seatRings"]),
+        createSteelTypeItem("Silver Coated Gasket", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["silverCoatedGasket"]),
+        createSteelTypeItem("Lip Seal", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["lipSeal"]),
+        createSteelTypeItem("Bonnet Gasket", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["bonnetGasket"]),
+        createSteelTypeItem("Ring Gasket with PTFE Inserted", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["ringGasketWithPtfeInserted"]),
+        createSteelTypeItem("Bridgeman Gaskets", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["bridgemanGaskets"]),
+        createSteelTypeItem("R Type Kammprofile Gaskets - Adapter", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["rTypeKammprofileGasketsAdapter"]),
+        createSteelTypeItem("Ring Type Blind Gaskets", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["ringTypeBlindGaskets"]),
+        createSteelTypeItem("R Type Kammprofile Gaskets - Octagonal", SITE_IMAGES.steel.sealingGaskets.types["ringGasket"]["rTypeKammprofileGasketsOctagonal"]),
       ],
     ),
   },
@@ -716,14 +661,10 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Spiral Wound Gasket (SPW) Types",
       "Metallo's SPW range is organized around the four standard configurations used for different flange designs, centering needs, and high-pressure operating conditions.",
       [
-        gasketTypeItem(
-          "spiral-wound-gasket",
-          "Type CGI",
-          "type-cgi.jpg",
-        ),
-        gasketTypeItem("spiral-wound-gasket", "Type CG", "type-cg.jpg"),
-        gasketTypeItem("spiral-wound-gasket", "Type GI", "type-gi.jpg"),
-        gasketTypeItem("spiral-wound-gasket", "Type G", "type-g.jpg"),
+        createSteelTypeItem("Type CGI", SITE_IMAGES.steel.sealingGaskets.types["spiralWoundGasket"]["typeCgi"]),
+        createSteelTypeItem("Type CG", SITE_IMAGES.steel.sealingGaskets.types["spiralWoundGasket"]["typeCg"]),
+        createSteelTypeItem("Type GI", SITE_IMAGES.steel.sealingGaskets.types["spiralWoundGasket"]["typeGi"]),
+        createSteelTypeItem("Type G", SITE_IMAGES.steel.sealingGaskets.types["spiralWoundGasket"]["typeG"]),
       ],
     ),
   },
@@ -737,14 +678,10 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "IX Gasket Types",
       "Metallo provides four IX gasket variants for compact flange applications, giving teams a clear path to match seal geometry and coating identification to the required service condition.",
       [
-        gasketTypeItem(
-          "ix-gaskets",
-          "IX Ring Assembled In Compact Flange Position",
-          "ix-ring-assembled-in-compact-flange-position.jpg",
-        ),
-        gasketTypeItem("ix-gaskets", "IX-RING-BLUE", "ix-ring-blue.jpg"),
-        gasketTypeItem("ix-gaskets", "IX-RING-ORANGE", "ix-ring-orange.jpg"),
-        gasketTypeItem("ix-gaskets", "IX-RING-YELLOW", "ix-ring-yellow.jpg"),
+        createSteelTypeItem("IX Ring Assembled In Compact Flange Position", SITE_IMAGES.steel.sealingGaskets.types["ixGaskets"]["ixRingAssembledInCompactFlangePosition"]),
+        createSteelTypeItem("IX-RING-BLUE", SITE_IMAGES.steel.sealingGaskets.types["ixGaskets"]["ixRingBlue"]),
+        createSteelTypeItem("IX-RING-ORANGE", SITE_IMAGES.steel.sealingGaskets.types["ixGaskets"]["ixRingOrange"]),
+        createSteelTypeItem("IX-RING-YELLOW", SITE_IMAGES.steel.sealingGaskets.types["ixGaskets"]["ixRingYellow"]),
       ],
     ),
   },
@@ -758,20 +695,12 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Insulation Gasket Types",
       "Metallo offers insulation gasket geometries for raised-face, full-face, and RTJ flange systems so isolation performance can be aligned with the actual flange design in service.",
       [
-        gasketTypeItem("insulation-gasket", "Type D", "type-d.jpg"),
-        gasketTypeItem("insulation-gasket", "Type D G10", "type-d-g10.jpg"),
-        gasketTypeItem("insulation-gasket", "Type E", "type-e.jpg"),
-        gasketTypeItem("insulation-gasket", "Type F", "type-f.jpg"),
-        gasketTypeItem(
-          "insulation-gasket",
-          "Type F G10 316",
-          "type-f-g10-316.jpg",
-        ),
-        gasketTypeItem(
-          "insulation-gasket",
-          "Type F G10 PTF",
-          "type-f-g10-ptf.jpg",
-        ),
+        createSteelTypeItem("Type D", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeD"]),
+        createSteelTypeItem("Type D G10", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeDG10"]),
+        createSteelTypeItem("Type E", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeE"]),
+        createSteelTypeItem("Type F", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeF"]),
+        createSteelTypeItem("Type F G10 316", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeFG10316"]),
+        createSteelTypeItem("Type F G10 PTF", SITE_IMAGES.steel.sealingGaskets.types["insulationGasket"]["typeFG10Ptf"]),
       ],
     ),
   },
@@ -791,17 +720,9 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Rubber Gasket Types",
       "Metallo offers rubber gasket forms that line up with common flange faces and custom-cut requirements, while the elastomer compound itself is chosen around media compatibility and operating conditions.",
       [
-        gasketTypeItem(
-          "rubber-gasket",
-          "Full Face Type",
-          "full-face-type.jpg",
-        ),
-        gasketTypeItem("rubber-gasket", "Raised Face", "raised-face.jpg"),
-        gasketTypeItem(
-          "rubber-gasket",
-          "Customized Rubber Gasket",
-          "customized-rubber-gasket.jpg",
-        ),
+        createSteelTypeItem("Full Face Type", SITE_IMAGES.steel.sealingGaskets.types["rubberGasket"]["fullFaceType"]),
+        createSteelTypeItem("Raised Face", SITE_IMAGES.steel.sealingGaskets.types["rubberGasket"]["raisedFace"]),
+        createSteelTypeItem("Customized Rubber Gasket", SITE_IMAGES.steel.sealingGaskets.types["rubberGasket"]["customizedRubberGasket"]),
       ],
     ),
   },
@@ -815,17 +736,9 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Metal Gasket Types",
       "Metallo groups its metal gasket offer around the core metallic sealing constructions most often specified in critical piping, exchanger, and pressure-boundary applications.",
       [
-        gasketTypeItem(
-          "metal-gasket",
-          "Spiral Wound Gasket",
-          "spiral-wound-gasket.jpg",
-        ),
-        gasketTypeItem(
-          "metal-gasket",
-          "Metal Jacketed Gaskets",
-          "metal-jacketed-gaskets.jpg",
-        ),
-        gasketTypeItem("metal-gasket", "Ring Gaskets", "ring-gaskets.jpg"),
+        createSteelTypeItem("Spiral Wound Gasket", SITE_IMAGES.steel.sealingGaskets.types["metalGasket"]["spiralWoundGasket"]),
+        createSteelTypeItem("Metal Jacketed Gaskets", SITE_IMAGES.steel.sealingGaskets.types["metalGasket"]["metalJacketedGaskets"]),
+        createSteelTypeItem("Ring Gaskets", SITE_IMAGES.steel.sealingGaskets.types["metalGasket"]["ringGaskets"]),
       ],
     ),
   },
@@ -839,34 +752,18 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Hammer Union Types",
       "Metallo's hammer union range covers the figure series commonly specified for oilfield flowlines and high-pressure service connections, with options spanning standard threaded and butt-weld end formats.",
       [
-        gasketTypeItem("hammer-union", "Fig 50 Union", "fig-50-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 100 Union", "fig-100-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 200 Union", "fig-200-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 206 Union", "fig-206-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 211 Union", "fig-211-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 400 Union", "fig-400-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 600 Union", "fig-600-union.jpg"),
-        gasketTypeItem("hammer-union", "Fig 602 Union", "fig-602-union.jpg"),
-        gasketTypeItem(
-          "hammer-union",
-          "Fig 1002 Union",
-          "fig-1002-union.jpg",
-        ),
-        gasketTypeItem(
-          "hammer-union",
-          "Fig 1003 Union",
-          "fig-1003-union.jpg",
-        ),
-        gasketTypeItem(
-          "hammer-union",
-          "Fig 1502 Union",
-          "fig-1502-union.jpg",
-        ),
-        gasketTypeItem(
-          "hammer-union",
-          "Fig 2002 & 2202 Union",
-          "fig-2002-2202-union.jpg",
-        ),
+        createSteelTypeItem("Fig 50 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig50Union"]),
+        createSteelTypeItem("Fig 100 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig100Union"]),
+        createSteelTypeItem("Fig 200 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig200Union"]),
+        createSteelTypeItem("Fig 206 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig206Union"]),
+        createSteelTypeItem("Fig 211 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig211Union"]),
+        createSteelTypeItem("Fig 400 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig400Union"]),
+        createSteelTypeItem("Fig 600 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig600Union"]),
+        createSteelTypeItem("Fig 602 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig602Union"]),
+        createSteelTypeItem("Fig 1002 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig1002Union"]),
+        createSteelTypeItem("Fig 1003 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig1003Union"]),
+        createSteelTypeItem("Fig 1502 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig1502Union"]),
+        createSteelTypeItem("Fig 2002 & 2202 Union", SITE_IMAGES.steel.sealingGaskets.types["hammerUnion"]["fig20022202Union"]),
       ],
     ),
   },
@@ -880,16 +777,8 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "PTFE and CNAF Gasket Types",
       "Metallo's PTFE and CNAF offer combines chemically resistant PTFE sealing with reinforced sheet-gasket options for steam, utility, and general industrial service.",
       [
-        gasketTypeItem(
-          "ptfe-and-cnaf-gaskets",
-          "Reinforced Graphite Gasket Reinforcements",
-          "reinforcedgraphite-gasket-reinforcements.jpg",
-        ),
-        gasketTypeItem(
-          "ptfe-and-cnaf-gaskets",
-          "General Compressed Non-Asbestos Fibre",
-          "general-compressed-non-asbestos-fibre.jpg",
-        ),
+        createSteelTypeItem("Reinforced Graphite Gasket Reinforcements", SITE_IMAGES.steel.sealingGaskets.types["ptfeAndCnafGaskets"]["reinforcedgraphiteGasketReinforcements"]),
+        createSteelTypeItem("General Compressed Non-Asbestos Fibre", SITE_IMAGES.steel.sealingGaskets.types["ptfeAndCnafGaskets"]["generalCompressedNonAsbestosFibre"]),
       ],
     ),
   },
@@ -903,26 +792,10 @@ const STEEL_SEALING_GASKET_CONTENT: Record<string, SteelSealingGasketContent> = 
       "Metal Jacketed Gasket Types",
       "Metallo's metal jacketed family includes the core constructions used for exchanger channels, confined flange spaces, and higher-temperature pressure-boundary sealing duties.",
       [
-        gasketTypeItem(
-          "metal-jacketed-gasket",
-          "Single Jacketed Gasket",
-          "single-jacketed-gasket.jpg",
-        ),
-        gasketTypeItem(
-          "metal-jacketed-gasket",
-          "Corrugated Gasket",
-          "corrugated-gasket.jpg",
-        ),
-        gasketTypeItem(
-          "metal-jacketed-gasket",
-          "Solid Gasket",
-          "solid-gasket.jpg",
-        ),
-        gasketTypeItem(
-          "metal-jacketed-gasket",
-          "Metal Jacketed Gasket",
-          "metal-jackted-gasket.jpg",
-        ),
+        createSteelTypeItem("Single Jacketed Gasket", SITE_IMAGES.steel.sealingGaskets.types["metalJacketedGasket"]["singleJacketedGasket"]),
+        createSteelTypeItem("Corrugated Gasket", SITE_IMAGES.steel.sealingGaskets.types["metalJacketedGasket"]["corrugatedGasket"]),
+        createSteelTypeItem("Solid Gasket", SITE_IMAGES.steel.sealingGaskets.types["metalJacketedGasket"]["solidGasket"]),
+        createSteelTypeItem("Metal Jacketed Gasket", SITE_IMAGES.steel.sealingGaskets.types["metalJacketedGasket"]["metalJacktedGasket"]),
       ],
     ),
   },

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Link from "next/link";
 import { CONTAINER } from "./productLayout";
+import { SITE_IMAGES } from '@/config/images';
 
 /* ═══════════════════════════════════════════════════════════════
    WELDING HERO SLIDER
@@ -32,7 +33,7 @@ const SLIDES: WeldingSlide[] = [
     body: "Combining an agile, borderless supply network with decades of specialized metallurgical engineering and manufacturing.",
     cta: "Explore the Ecosystem",
     ctaLink: "#ecosystem",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80",
+    image: SITE_IMAGES.welding.hero.slide1,
   },
   {
     id: "02",
@@ -41,7 +42,7 @@ const SLIDES: WeldingSlide[] = [
     body: "Deploying world-class welding engineers, NDT/NDE specialists, and high-integrity consumables directly to your global mega-projects.",
     cta: "View Site Services",
     ctaLink: "#site-services",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80",
+    image: SITE_IMAGES.welding.hero.slide2,
   },
   {
     id: "03",
@@ -50,7 +51,7 @@ const SLIDES: WeldingSlide[] = [
     body: "Engineered for absolute safety. Featuring state-of-the-art fume extraction systems, PAPR respiratory protection, and on-site LEV certification.",
     cta: "Explore Safety & PPE",
     ctaLink: "?category=safety",
-    image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80",
+    image: SITE_IMAGES.welding.hero.slide3,
   },
 ];
 

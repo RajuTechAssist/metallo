@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type {
   CategoryConfig,
   ProductCTAConfig,

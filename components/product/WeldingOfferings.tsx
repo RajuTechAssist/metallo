@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SITE_IMAGES } from '@/config/images';
 
 /* ═══════════════════════════════════════════════════════════════
    WELDING OFFERINGS
@@ -20,21 +21,21 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
   {
     title: "Consumables",
     image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80&auto=format&fit=crop",
+      SITE_IMAGES.welding.offerings.consumables,
     link: "/products/welding?category=consumables",
     items: [
-      { label: "MIG Wire and TIG Cut Lengths", href: "#" },
-      { label: "Stick Electrodes", href: "#" },
-      { label: "Gas Shielded Flux-Cored", href: "#" },
-      { label: "Self Shielded Flux Cored", href: "#" },
-      { label: "Submerged Arc", href: "#" },
+      { label: "MIG Wire and TIG Cut Lengths", href: "/products/welding?category=consumables" },
+      { label: "Stick Electrodes", href: "/products/welding?category=consumables" },
+      { label: "Metal-Cored Wires", href: "/products/welding?category=consumables" },
+      { label: "Self Shielded Flux Cored", href: "/products/welding?category=consumables" },
+      { label: "Submerged Arc", href: "/products/welding?category=consumables" },
       { label: "Stainless Alloys", href: "#" },
     ],
   },
   {
     title: "Automation",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80&auto=format&fit=crop",
+      SITE_IMAGES.welding.offerings.safetyPPE,
     link: "/products/welding?category=automation",
     items: [
       { label: "Robotic Welding Systems", href: "#" },
@@ -50,7 +51,7 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
   {
     title: "Accessories & Tools",
     image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop",
+      SITE_IMAGES.welding.offerings.accessoriesTools,
     link: "/products/welding?category=accessories",
     items: [
       { label: "Equipment Accessories", href: "#" },
@@ -66,7 +67,7 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
   {
     title: "Safety & PPE",
     image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop",
+      SITE_IMAGES.welding.offerings.automation,
     link: "/products/welding?category=safety",
     items: [
       { label: "Hand, Body and Arm", href: "#" },

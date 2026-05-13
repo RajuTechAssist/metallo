@@ -3,63 +3,86 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
+import { SITE_IMAGES } from '@/config/images';
 
-interface Industry {
+export interface Industry {
   title: string;
   image: string;
   slug: string;
 }
 
-const industriesData: Industry[] = [
+export const defaultIndustriesData: Industry[] = [
   {
     title: "Infrastructure & Construction",
-    image: "/industries/infrastructure-construction.jpg",
+    image: SITE_IMAGES.industries.grid.infrastructure,
     slug: "/industries/infrastructure",
   },
   {
     title: "Power & Transmission",
-    image: "/industries/powerTransmission.jpg",
+    image: SITE_IMAGES.industries.grid.powerTransmission,
     slug: "/industries/power-transmission",
   },
   {
     title: "Oil & Gas / Process Industries",
-    image: "/industries/oil-gas.jpg",
+    image: SITE_IMAGES.industries.grid.oilGas,
     slug: "/industries/oil-gas",
   },
   {
     title: "Heavy Engineering",
-    image: "/industries/heavyEngineering.jpg",
+    image: SITE_IMAGES.industries.grid.heavyEngineering,
     slug: "/industries/heavy-engineering",
   },
   {
     title: "Railways & Defence",
-    image: "/industries/railway-station.webp",
+    image: SITE_IMAGES.industries.grid.railways,
     slug: "/industries/railways-defence",
   },
   {
     title: "Smart Cities & Urban Development",
-    image: "/industries/smartCities.jpg",
+    image: SITE_IMAGES.industries.grid.smartCities,
     slug: "/industries/smart-cities",
   }
 ];
 
-const Industries: React.FC = () => {
+interface IndustriesProps {
+  data?: Industry[];
+  title?: string;
+  subtitle?: string;
+  gridCols?: 5 | 6;
+}
+
+const Industries: React.FC<IndustriesProps> = ({ 
+  data = defaultIndustriesData, 
+  title = "Industries we serve", 
+  subtitle,
+  gridCols = 6 
+}) => {
+  const gridClass = gridCols === 5 ? "lg:grid-cols-5" : "lg:grid-cols-6";
+
   return (
     <section className="w-full py-24 bg-white border-t border-gray-100">
       <div className="container">
         <div className="mb-10">
+          {subtitle && (
+            <div className="flex items-center gap-3 mb-4">
+              <span className="block w-10 h-px bg-yellow-500" />
+              <span className="text-xs font-bold font-heading text-yellow-600 uppercase tracking-[0.2em]">
+                {subtitle}
+              </span>
+            </div>
+          )}
           <h2 className="text-3xl md:text-4xl font-serif text-metallo-navy mb-3">
-            Industries we serve
+            {title}
           </h2>
           <div className="w-20 h-1 bg-metallo-gold"></div>
         </div>
 
         {/* Compact Zetwerk-style image cards — single row, horizontally scrollable */}
         <div
-          className="flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:grid lg:grid-cols-6 lg:gap-4 lg:overflow-visible lg:pb-0"
+          className={`flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:grid ${gridClass} lg:gap-4 lg:overflow-visible lg:pb-0`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {industriesData.map((industry) => (
+          {data.map((industry) => (
             <Link
               href={industry.slug}
               key={industry.slug}

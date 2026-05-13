@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CONTAINER } from "./productLayout";
+import { SITE_IMAGES } from '@/config/images';
 
 interface SteelHeroProps {
   title: string;
@@ -13,12 +14,12 @@ interface SteelHeroProps {
 }
 
 const panels = [
-  { name: "", img: "/Steel/pipes&tubes1.png" },
-  { name: "", img: "/Steel/SHEETS&PLATES.png" },
-  { name: "", img: "/Steel/flanges1.png" },
-  { name: "", img: "/Steel/pipe-fittings3.png" },
-  { name: "", img: "/Steel/Fasteners-Bars.png" },
-  { name: "", img: "/Steel/gaskets1.png" },
+  { name: "", img: SITE_IMAGES.steel.hero.pipesTubes },
+  { name: "", img: SITE_IMAGES.steel.hero.sheetsPlates },
+  { name: "", img: SITE_IMAGES.steel.hero.flanges },
+  { name: "", img: SITE_IMAGES.steel.hero.pipeFittings },
+  { name: "", img: SITE_IMAGES.steel.hero.fastenersBars },
+  { name: "", img: SITE_IMAGES.steel.hero.gaskets },
 ];
 
 const SteelHero: React.FC<SteelHeroProps> = ({

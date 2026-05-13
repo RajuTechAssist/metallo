@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type {
   CategoryConfig,
   ProductCTAConfig,
@@ -34,14 +35,7 @@ const CABLE_TRAY_INDUSTRIES = [
   "Commercial Buildings",
 ];
 
-const metalloImage = (asset: string) => `/cable Trays/metallo_cable_trays/${asset}`;
-const trayImage = (asset: string) => `/cable Trays/dudhat/${asset}`;
-const accessoryImage = (asset: string) => `/cable Trays/metallo_cable_trays/Accessories/PCT_Accessories/${asset}`;
-const lctAccessoryImage = (asset: string) => `/cable Trays/metallo_cable_trays/Accessories/LCT_Accessories/${asset}`;
-const ctcAccessoryImage = (asset: string) => `/cable Trays/metallo_cable_trays/Accessories/CTC_Accessories/${asset}`;
-const finishingImage = (asset: string) => trayImage(`finishing/${asset}`);
-const strutHardwareImage = (asset: string) =>
-  trayImage(`strut-hardware/${asset}`);
+
 
 const spec = (label: string, value: string, icon: string): ProductSpecItem => ({
   label,
@@ -139,7 +133,7 @@ const createTrayProduct = (input: TrayProductInput): TrayProduct => ({
 });
 
 export const HERO: ProductHeroConfig = {
-  backgroundImage: trayImage("cableTrayHeroSection.png"),
+  backgroundImage: SITE_IMAGES.cableTrays.cabletrayherosection,
   title: "Industrial Cable",
   subtitle: "Tray Systems.",
   description:
@@ -256,7 +250,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's perforated tray program is aligned to the product range for open cable routes that need airflow, heat dissipation, and straightforward field installation without moving to a ladder profile too early. Available in regular flange, U type flange, inside flange, outside flange, and heavy-duty inside flange constructions.",
       "The range covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 builds with hot-dip galvanized, GI alkaline, powder-coated, aluminium-anodized, and stainless finishes. Standard tray widths run from 50 mm to 900 mm, with height combinations stepping from 25 mm through 150 mm and lengths in 2500 mm or 3000 mm sections.",
     ],
-    thumbnail: metalloImage("Perforated-Straight-Flange-Tray.png"),
+    thumbnail: SITE_IMAGES.cableTrays.perforatedStraightFlangeTray,
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -311,17 +305,17 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "ST00 â€” Straight Type",
-          metalloImage("Perforated-Straight-Flange-Tray.png"),
+          SITE_IMAGES.cableTrays.perforatedStraightFlangeTray,
           "Standard straight flange edge, the base profile for all perforated trays.",
         ),
         galleryItem(
           "RF15 â€” Return Flange (15 mm)",
-          metalloImage("Straight_With_U_Bend.png"),
+          SITE_IMAGES.cableTrays.straightWithUBend,
           "15 mm return flange along the top edge for added lateral stiffness and cable retention.",
         ),
         galleryItem(
           "IB15 â€” Inward Bend (15 mm)",
-          metalloImage("Perforated-Inward-Bend-Flange-Tray.png"),
+          SITE_IMAGES.cableTrays.perforatedInwardBendFlangeTray,
           "15 mm inward bend at top edge for enhanced edge protection and structural strength.",
         ),
       ],
@@ -330,21 +324,21 @@ export const PRODUCTS: TrayProduct[] = [
       "Perforated Cable Tray Accessories",
       "A full set of field-routing accessories for perforated tray systems, covering horizontal and vertical direction changes, branching, width transitions, and section joining.",
       [
-        accessoryItem("Horizontal Bend (Radial)", accessoryImage("PCTA_Horizontal_Bend_(Radial).png"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
-        accessoryItem("Horizontal Bend (Non-Radial)", accessoryImage("PCTA_Horizontal_Bend_(Non-Radial).png"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
-        accessoryItem("Vertical Inside Bend (Radial)", accessoryImage("PCTA_Vertical_Inside_Bend_(Radial).png"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Inside Bend (Non-Radial)", accessoryImage("PCTA_Vertical_Inside_Bend_(Non-Radial).png"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Radial)", accessoryImage("PCTA_Vertical_Outside_Bend_(Radial).png"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Non-Radial)", accessoryImage("PCTA_Vertical_Outside_Bend_(Non-Radial).png"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
-        accessoryItem("Horizontal Cross (Radial)", accessoryImage("PCTA_Horizontal_Cross_(Radial).png"), "Four-way radial intersection fitting for complex routing layouts."),
-        accessoryItem("Horizontal Cross (Non-Radial)", accessoryImage("PCTA_Horizontal_Cross_(Non-Radial).png"), "Four-way non-radial intersection fitting for complex routing layouts."),
-        accessoryItem("Horizontal Tee (Radial)", accessoryImage("PCTA_Horizontal_Tee_(Radial).png"), "Equal radial T-branch fitting for three-way cable routing at junctions."),
-        accessoryItem("Horizontal Tee (Non-Radial)", accessoryImage("PCTA_Horizontal_Tee_(Non-Radial).png"), "Equal non-radial T-branch fitting for three-way cable routing at junctions."),
-        accessoryItem("Horizontal Tee Unequal (Radial)", accessoryImage("PCTA_Horizontal_Tee_Unequal_(Radial).png"), "Radial T-branch with different width on the branch leg for mixed tray sizes."),
-        accessoryItem("Horizontal Tee Unequal (Non-Radial)", accessoryImage("PCTA_Horizontal_Tee_Unequal_(Non-Radial).png"), "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
-        accessoryItem("Vertical Tee (Radial)", accessoryImage("PCTA_Vertical_Tee_(Radial).png"), "Radial vertical T-branch for combined horizontal and vertical routing."),
-        accessoryItem("Reducer", accessoryImage("PCTA_Reducer.png"), "Width transition fitting â€” available in left, right, and center alignment."),
-        accessoryItem("Coupler Plate", accessoryImage("PCTA_Coupler_Plate.png"), "Straight coupling plate for joining two tray sections end-to-end."),
+        accessoryItem("Horizontal Bend (Radial)", SITE_IMAGES.cableTrays.pctaHorizontalBendRadial, "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", SITE_IMAGES.cableTrays.pctaHorizontalBendNonRadial, "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
+        accessoryItem("Vertical Inside Bend (Radial)", SITE_IMAGES.cableTrays.pctaVerticalInsideBendRadial, "Smooth curved vertical rise with radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Inside Bend (Non-Radial)", SITE_IMAGES.cableTrays.pctaVerticalInsideBendNonRadial, "Angular vertical rise with non-radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Radial)", SITE_IMAGES.cableTrays.pctaVerticalOutsideBendRadial, "Smooth curved vertical drop with radial profile for downward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Non-Radial)", SITE_IMAGES.cableTrays.pctaVerticalOutsideBendNonRadial, "Angular vertical drop with non-radial profile for downward elevation transitions."),
+        accessoryItem("Horizontal Cross (Radial)", SITE_IMAGES.cableTrays.pctaHorizontalCrossRadial, "Four-way radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Cross (Non-Radial)", SITE_IMAGES.cableTrays.pctaHorizontalCrossNonRadial, "Four-way non-radial intersection fitting for complex routing layouts."),
+        accessoryItem("Horizontal Tee (Radial)", SITE_IMAGES.cableTrays.pctaHorizontalTeeRadial, "Equal radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee (Non-Radial)", SITE_IMAGES.cableTrays.pctaHorizontalTeeNonRadial, "Equal non-radial T-branch fitting for three-way cable routing at junctions."),
+        accessoryItem("Horizontal Tee Unequal (Radial)", SITE_IMAGES.cableTrays.pctaHorizontalTeeUnequalRadial, "Radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Horizontal Tee Unequal (Non-Radial)", SITE_IMAGES.cableTrays.pctaHorizontalTeeUnequalNonRadial, "Non-radial T-branch with different width on the branch leg for mixed tray sizes."),
+        accessoryItem("Vertical Tee (Radial)", SITE_IMAGES.cableTrays.pctaVerticalTeeRadial, "Radial vertical T-branch for combined horizontal and vertical routing."),
+        accessoryItem("Reducer", SITE_IMAGES.cableTrays.pctaReducer, "Width transition fitting â€” available in left, right, and center alignment."),
+        accessoryItem("Coupler Plate", SITE_IMAGES.cableTrays.pctaCouplerPlate, "Straight coupling plate for joining two tray sections end-to-end."),
       ],
     ),
   }),
@@ -356,7 +350,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's ladder tray range is designed for heavier cable corridors where rung ventilation, cable separation, and structural carrying capacity matter more than a fully sheeted tray body. This family delivers strong load-bearing performance, ventilation, ease of fastening, cost-effectiveness, and a neat finished appearance.",
       "The material and finish matrix mirrors the broader metallic tray platform: MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, pre-galvanized, powder-coated, anodized, and stainless finish options. Width coverage extends from 150 mm to 1500 mm, across 50 mm to 200 mm height options and 2500 mm or 3000 mm lengths.",
     ],
-    thumbnail: metalloImage("LCT_Starlight_Length_Inner_Bend.png"),
+    thumbnail: SITE_IMAGES.cableTrays.lctStarlightLengthInnerBend,
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -412,22 +406,22 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "IB00 â€” Inner Bend",
-          metalloImage("LCT_Starlight_Length_Inner_Bend.png"),
+          SITE_IMAGES.cableTrays.lctStarlightLengthInnerBend,
           "Side rail with inward-facing bend for cable protection and structural integrity.",
         ),
         galleryItem(
           "OB00 â€” Outer Bend",
-          metalloImage("LCT_Starlight_Length_Outer_Bend.png"),
+          SITE_IMAGES.cableTrays.lctStarlightLengthOuterBend,
           "Side rail with outward-facing bend for easier cable loading from the top.",
         ),
         galleryItem(
           "IU00 â€” Inner U-Bend",
-          metalloImage("LCT_Starlight_Length_Inner_U_Bend.png"),
+          SITE_IMAGES.cableTrays.lctStarlightLengthInnerUBend,
           "U-shaped inward profile for enhanced edge stiffness and cable retention.",
         ),
         galleryItem(
           "OU00 â€” Outer U-Bend",
-          metalloImage("LCT_Starlight_Length_Outer_U_Bend.png"),
+          SITE_IMAGES.cableTrays.lctStarlightLengthOuterUBend,
           "U-shaped outward profile for maximum load distribution and cover compatibility.",
         ),
       ],
@@ -436,21 +430,21 @@ export const PRODUCTS: TrayProduct[] = [
       "Ladder Cable Tray Accessories",
       "A complete set of ladder tray accessories for direction changes, branching, width transitions, and section joining â€“ matching the same routing families available for perforated trays.",
       [
-        accessoryItem("Horizontal Bend (Radial)", lctAccessoryImage("LCTA_Horizontal_Bend_(Radial).png"), "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
-        accessoryItem("Horizontal Bend (Non-Radial)", lctAccessoryImage("LCTA_Horizontal_Bend_(Non-Radial).png"), "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
-        accessoryItem("Vertical Inside Bend (Radial)", lctAccessoryImage("LCTA_Vertical_Bend_Inside_(Radial).png"), "Smooth curved vertical rise with radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Inside Bend (Non-Radial)", lctAccessoryImage("LCTA_Vertical_Inside_Bend_(Non-Radial).png"), "Angular vertical rise with non-radial profile for upward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Radial)", lctAccessoryImage("LCTA_Vertical_Bend_Outside_(Radial).png"), "Smooth curved vertical drop with radial profile for downward elevation transitions."),
-        accessoryItem("Vertical Outside Bend (Non-Radial)", lctAccessoryImage("LCTA_Vertical_Outside_Bend_(Non-Radial).png"), "Angular vertical drop with non-radial profile for downward elevation transitions."),
-        accessoryItem("Horizontal Cross (Radial)", lctAccessoryImage("LCTA_Horizontal_Cross_(Radial).png"), "Four-way radial intersection fitting."),
-        accessoryItem("Horizontal Cross (Non-Radial)", lctAccessoryImage("LCTA_Horizontal_Cross_(Non-Radial).png"), "Four-way non-radial intersection fitting."),
-        accessoryItem("Horizontal Tee (Radial)", lctAccessoryImage("LCTA_Horizontal_Tee_(Radial).png"), "Equal radial T-branch for three-way junction routing."),
-        accessoryItem("Horizontal Tee (Non-Radial)", lctAccessoryImage("LCTA_Horizontal_Tee_Equal_(Non-Radial).png"), "Equal non-radial T-branch for three-way junction routing."),
-        accessoryItem("Horizontal Tee Unequal (Radial)", lctAccessoryImage("LCTA_Horizontal_Tee_Unequal_(Radial).png"), "Radial T-branch with different width on the branch leg."),
-        accessoryItem("Horizontal Tee Unequal (Non-Radial)", lctAccessoryImage("LCTA_Horizontal_Tee_Unequal_(Non-Radial).png"), "Non-radial T-branch with different width on the branch leg."),
-        accessoryItem("Vertical Tee (Radial)", lctAccessoryImage("LCTA_Vertical_Tee_(Radial).png"), "Radial vertical T-branch for combined horizontal and vertical routing."),
-        accessoryItem("Reducer", lctAccessoryImage("LCTA_Reducers.png"), "Width transition fitting â€” available in left, right, and center alignment."),
-        accessoryItem("Coupler Plate", lctAccessoryImage("LCTA_Coupler_Plate.png"), "End-to-end tray section joining plate."),
+        accessoryItem("Horizontal Bend (Radial)", SITE_IMAGES.cableTrays.lctaHorizontalBendRadial, "Smooth curved horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for radial direction changes."),
+        accessoryItem("Horizontal Bend (Non-Radial)", SITE_IMAGES.cableTrays.lctaHorizontalBendNonRadial, "Angular horizontal bend at 90Â°, 60Â°, 45Â°, and 30Â° for non-radial direction changes."),
+        accessoryItem("Vertical Inside Bend (Radial)", SITE_IMAGES.cableTrays.lctaVerticalBendInsideRadial, "Smooth curved vertical rise with radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Inside Bend (Non-Radial)", SITE_IMAGES.cableTrays.lctaVerticalInsideBendNonRadial, "Angular vertical rise with non-radial profile for upward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Radial)", SITE_IMAGES.cableTrays.lctaVerticalBendOutsideRadial, "Smooth curved vertical drop with radial profile for downward elevation transitions."),
+        accessoryItem("Vertical Outside Bend (Non-Radial)", SITE_IMAGES.cableTrays.lctaVerticalOutsideBendNonRadial, "Angular vertical drop with non-radial profile for downward elevation transitions."),
+        accessoryItem("Horizontal Cross (Radial)", SITE_IMAGES.cableTrays.lctaHorizontalCrossRadial, "Four-way radial intersection fitting."),
+        accessoryItem("Horizontal Cross (Non-Radial)", SITE_IMAGES.cableTrays.lctaHorizontalCrossNonRadial, "Four-way non-radial intersection fitting."),
+        accessoryItem("Horizontal Tee (Radial)", SITE_IMAGES.cableTrays.lctaHorizontalTeeRadial, "Equal radial T-branch for three-way junction routing."),
+        accessoryItem("Horizontal Tee (Non-Radial)", SITE_IMAGES.cableTrays.lctaHorizontalTeeEqualNonRadial, "Equal non-radial T-branch for three-way junction routing."),
+        accessoryItem("Horizontal Tee Unequal (Radial)", SITE_IMAGES.cableTrays.lctaHorizontalTeeUnequalRadial, "Radial T-branch with different width on the branch leg."),
+        accessoryItem("Horizontal Tee Unequal (Non-Radial)", SITE_IMAGES.cableTrays.lctaHorizontalTeeUnequalNonRadial, "Non-radial T-branch with different width on the branch leg."),
+        accessoryItem("Vertical Tee (Radial)", SITE_IMAGES.cableTrays.lctaVerticalTeeRadial, "Radial vertical T-branch for combined horizontal and vertical routing."),
+        accessoryItem("Reducer", SITE_IMAGES.cableTrays.lctaReducers, "Width transition fitting â€” available in left, right, and center alignment."),
+        accessoryItem("Coupler Plate", SITE_IMAGES.cableTrays.lctaCouplerPlate, "End-to-end tray section joining plate."),
       ],
     ),
   }),
@@ -462,7 +456,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's FRP cable management program groups perforated tray, raceway, and ladder configurations into one corrosion-focused system. Key advantages include corrosion resistance, high mechanical strength, UV resistance, light weight, anti-static behaviour, non-conductivity, and non-magnetic performance.",
       "The FRP range separates perforated or raceway formats from ladder builds, both in 3000 mm lengths with 4 mm or 6 mm thickness options. Perforated and raceway sizes run from 50 mm to 400 mm widths, while the ladder family extends up to 1200 mm with dedicated rung and runner dimensions.",
     ],
-    thumbnail: trayImage("frp-tray.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.frpTray,
     technicalSpecifications: [
       spec("System Family", "FRP perforated tray, FRP raceway, FRP ladder tray", "category"),
       spec("Perforated / Raceway Widths", "50 mm to 400 mm", "swap_horiz"),
@@ -526,7 +520,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's wiremesh tray offering covers open basket cable routes that need fast drops, flexible field changes, and continuous airflow. Like the perforated tray family, it delivers ventilation, heat dissipation, strength, ease of installation, aesthetic appeal, and future-proofing.",
       "The range uses MS (HR, CRC) and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, electroplated, stainless, and powder-coated finish options. Standard widths run from 50 mm to 600 mm across height options from 50 mm through 155 mm, with 2500 mm lengths and wire thickness combinations from 3 mm through 6 mm.",
     ],
-    thumbnail: trayImage("wiremesh-tray.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.wiremeshTray,
     technicalSpecifications: [
       spec("Raw Material", "MS (HR, CRC), stainless steel 304 & 316", "diamond"),
       spec(
@@ -576,7 +570,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's raceway and cable-duct range is designed for installations that need stronger cable protection and cleaner compartmentalized routing than an open tray system can provide. Built around inside-edge construction, it supports single-compartment or multi-compartment arrangements.",
       "The metallic material matrix covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316. Width coverage runs from 50 mm to 600 mm, with height options from 25 mm to 150 mm, thickness options from 1.2 mm through 3.0 mm, and standard lengths of 2500 mm or 3000 mm.",
     ],
-    thumbnail: trayImage("raceway-trunking.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.racewayTrunking,
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -631,7 +625,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's support and cover clamp range is designed to lock down tray covers, stabilize tray runs, and complete the mechanical support layer around the main tray system within one coordinated hardware family.",
       "Available in MS (HR, CRC) and pre-galvanized material options with hot-dip galvanized, pre-galvanized, and powder-coated finishes. Size coverage runs from 50 mm to 1000 mm, with 1.6 mm, 2.0 mm, and 2.5 mm thickness options.",
     ],
-    thumbnail: trayImage("support-cover-clamps.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.supportCoverClamps,
     technicalSpecifications: [
       spec("Material", "MS (HR, CRC), pre-galvanized", "diamond"),
       spec("Finish", "Hot dip galvanized, pre-galvanized, powder coated", "auto_awesome"),
@@ -647,7 +641,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's strut system covers the channel body plus the matching hardware used to finish and secure the support assembly. The range centres on 41 x 21 mm and 41 x 41 mm channel sizes, with standard 3 metre lengths and two slot-size patterns.",
       "The range also includes Protection Cap and Spring Nut accessories used with the strut family, keeping the support frame, end protection, and fastening hardware within one coordinated set.",
     ],
-    thumbnail: trayImage("strut-channels.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.strutChannels,
     technicalSpecifications: [
       spec(
         "Material",
@@ -670,12 +664,12 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "Protection Cap",
-          strutHardwareImage("protection-cap.webp"),
+          SITE_IMAGES.cableTrays.protectionCap,
           "PVC cap for 41 x 21 mm and 41 x 41 mm strut sizes.",
         ),
         galleryItem(
           "Spring Nut",
-          strutHardwareImage("spring-nut.webp"),
+          SITE_IMAGES.cableTrays.springNut,
           "MS (HR, CRC) / pre-galvanized spring nut with M6, M8, and M10 hole sizes.",
         ),
       ],
@@ -689,7 +683,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's accessory range spans tray joining, covers, suspension hardware, fastening components, cable tying, support stands, and related installation pieces used around a full tray package.",
       "Individual accessory items are presented in a dedicated gallery so project teams can see the full inventory available for their installation scope.",
     ],
-    thumbnail: accessoryImage("cable-tray-cover.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.cableTrayCover,
     technicalSpecifications: [
       spec("Accessory Families", "9 catalogued items on the accessories programme", "inventory_2"),
       spec("Coverage", "Tray joining, covers, suspension, fastening, support, tying, and junction hardware", "category"),
@@ -698,15 +692,15 @@ export const PRODUCTS: TrayProduct[] = [
       "Accessory Range",
       "A set of discrete tray-support and installation items covering the full scope needed to complete a cable tray installation.",
       [
-        galleryItem("Jointing Plate", accessoryImage("jointing-plate.webp")),
-        galleryItem("Nut Bolts", accessoryImage("nut-bolts.webp")),
-        galleryItem("Cable Tray Cover", accessoryImage("cable-tray-cover.webp")),
-        galleryItem("Full Thread Rod", accessoryImage("full-thread-rod.webp")),
-        galleryItem("Bullet Fastener", accessoryImage("bullet-fastener.webp")),
-        galleryItem("Junction Box", accessoryImage("junction-box.webp")),
-        galleryItem("C - Channel For Hanging", accessoryImage("c-channel-for-hanging.webp")),
-        galleryItem("L Cable Tray Support Stand", accessoryImage("l-cable-tray-support-stand.webp")),
-        galleryItem("Cable Tie", accessoryImage("cable-tie.webp")),
+        galleryItem("Jointing Plate", SITE_IMAGES.cableTrays.jointingPlate),
+        galleryItem("Nut Bolts", SITE_IMAGES.cableTrays.nutBolts),
+        galleryItem("Cable Tray Cover", SITE_IMAGES.cableTrays.cableTrayCover),
+        galleryItem("Full Thread Rod", SITE_IMAGES.cableTrays.fullThreadRod),
+        galleryItem("Bullet Fastener", SITE_IMAGES.cableTrays.bulletFastener),
+        galleryItem("Junction Box", SITE_IMAGES.cableTrays.junctionBox),
+        galleryItem("C - Channel For Hanging", SITE_IMAGES.cableTrays.cChannelForHanging),
+        galleryItem("L Cable Tray Support Stand", SITE_IMAGES.cableTrays.lCableTraySupportStand),
+        galleryItem("Cable Tie", SITE_IMAGES.cableTrays.cableTie),
       ],
     ),
   }),
@@ -718,7 +712,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's finishing section covers the actual finishing and feed-material processes applied to cable tray products, giving a clear view of how coated and base material options relate to the tray system.",
       "Available processes include hot-dip finishing, electro plating, powder coating, and GP / HR sheet coil supply. Each process is presented with its key specification so finishing can be specified as part of the overall tray package.",
     ],
-    thumbnail: finishingImage("hot-dip-plant.webp"),
+    thumbnail: SITE_IMAGES.cableTrays.hotDipPlant,
     technicalSpecifications: [
       spec("Visible Finishing Blocks", "Hot-dip plant, electro plating plant, powder coating plant, GP sheet coil / HR sheet coil", "format_paint"),
       spec("Use In Page", "Surface-finish and base-material reference for tray-system supply planning", "design_services"),
@@ -729,22 +723,22 @@ export const PRODUCTS: TrayProduct[] = [
       [
         galleryItem(
           "Hot-Dip Plant",
-          finishingImage("hot-dip-plant.webp"),
+          SITE_IMAGES.cableTrays.hotDipPlant,
           "70-100 micron layer",
         ),
         galleryItem(
           "Electro Plating Plant",
-          finishingImage("electro-plating-plant.webp"),
+          SITE_IMAGES.cableTrays.electroPlatingPlant,
           "120 GSM",
         ),
         galleryItem(
           "Powder Coating Plant",
-          finishingImage("powder-coating-plant.webp"),
+          SITE_IMAGES.cableTrays.powderCoatingPlant,
           "Tank process",
         ),
         galleryItem(
           "G.P. Sheet Coil / HR Sheet Coil",
-          finishingImage("gp-sheet-coil-essar-steel.webp"),
+          SITE_IMAGES.cableTrays.gpSheetCoilEssarSteel,
           "GP and HR sheet coil feed material",
         ),
       ],
@@ -758,7 +752,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's embossed cable tray program is designed for installations where longitudinal embossing on the tray base delivers higher load-carrying capacity and a cleaner decorative finish compared to standard perforated or plain trays.",
       "Available in ST (straight), UT (U-flange), RF15 (return flange), and IB15 (inward bend) profiles with widths from 150 mm to 600 mm, heights from 25 mm through 150 mm, and thickness options from 1.0 mm to 2.0 mm in 2500 mm, 3000 mm, and 6000 mm lengths.",
     ],
-    thumbnail: metalloImage("ECT_Starlight_Flange_ray.png"),
+    thumbnail: SITE_IMAGES.cableTrays.ectStarlightFlangeRay,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -794,21 +788,21 @@ export const PRODUCTS: TrayProduct[] = [
       "Embossed Cable Tray Profile Types",
       "Four profile types are available for embossed trays, each providing different edge treatment for varying load and coverage requirements.",
       [
-        galleryItem("ST â€” Straight Type", metalloImage("ECT_Starlight_Flange_ray.png"), "Standard straight edge profile for embossed cable trays."),
-        galleryItem("UT â€” U-Flange Type", metalloImage("Straight_With_U_Bend.png"), "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
-        galleryItem("RF15 â€” Return Flange (15 mm)", metalloImage("ECT_Starlight_Return_Flange_Tray.png"), "Return flange along the top edge for enhanced lateral stiffness."),
-        galleryItem("IB15 â€” Inward Bend (15 mm)", metalloImage("ECT_Straight_With_Inner_Bend.png"), "Inward bend at top edge for edge protection and structural strength."),
+        galleryItem("ST â€” Straight Type", SITE_IMAGES.cableTrays.ectStarlightFlangeRay, "Standard straight edge profile for embossed cable trays."),
+        galleryItem("UT â€” U-Flange Type", SITE_IMAGES.cableTrays.straightWithUBend, "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
+        galleryItem("RF15 â€” Return Flange (15 mm)", SITE_IMAGES.cableTrays.ectStarlightReturnFlangeTray, "Return flange along the top edge for enhanced lateral stiffness."),
+        galleryItem("IB15 â€” Inward Bend (15 mm)", SITE_IMAGES.cableTrays.ectStraightWithInnerBend, "Inward bend at top edge for edge protection and structural strength."),
       ],
     ),
     accessoryGallery: accessoryGallery(
       "Embossed Cable Tray Accessories",
       "Dedicated accessories for the embossed tray family, including press-fit covers and coupling plates.",
       [
-        accessoryItem("Press Fit Cover", metalloImage("Press_Fit_Cover_(Embossed).png"), "Quick-assembly snap-on cover designed specifically for embossed tray profiles."),
-        accessoryItem("Straight Coupler Plate (STC)", accessoryImage("PCTA_Coupler_Plate.png"), "End-to-end joining plate for embossed tray sections."),
-        accessoryItem("Horizontal Bend (HB)", accessoryImage("PCTA_Horizontal_Bend_(Radial).png"), "Direction-change fitting at 90Â°, 60Â°, 45Â°, and 30Â° angles."),
-        accessoryItem("Vertical Inside Bend (VIB)", accessoryImage("PCTA_Vertical_Inside_Bend_(Radial).png"), "Vertical rise fitting for elevation changes."),
-        accessoryItem("Reducer (REDC)", accessoryImage("PCTA_Reducer.png"), "Width transition fitting for changing tray sizes."),
+        accessoryItem("Press Fit Cover", SITE_IMAGES.cableTrays.pressFitCoverEmbossed, "Quick-assembly snap-on cover designed specifically for embossed tray profiles."),
+        accessoryItem("Straight Coupler Plate (STC)", SITE_IMAGES.cableTrays.pctaCouplerPlate, "End-to-end joining plate for embossed tray sections."),
+        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.pctaHorizontalBendRadial, "Direction-change fitting at 90Â°, 60Â°, 45Â°, and 30Â° angles."),
+        accessoryItem("Vertical Inside Bend (VIB)", SITE_IMAGES.cableTrays.pctaVerticalInsideBendRadial, "Vertical rise fitting for elevation changes."),
+        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.pctaReducer, "Width transition fitting for changing tray sizes."),
       ],
     ),
   }),
@@ -820,7 +814,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's tray cover program is designed for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. Five cover profiles are available â€“ plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
       "Standard cover widths match the tray range from 50 mm to 900 mm with a 15 mm cover height and thicknesses from 1.0 mm to 3.0 mm. Cover accessories include bend covers, tee covers, cross covers, and reducer covers to protect the full routing system.",
     ],
-    thumbnail: metalloImage("Cable_Tray_Cover_VT00.png"),
+    thumbnail: SITE_IMAGES.cableTrays.cableTrayCoverVt00,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -860,22 +854,22 @@ export const PRODUCTS: TrayProduct[] = [
       "Tray Cover Profile Types",
       "Five cover profiles are available, each offering different ventilation and protection characteristics for cable tray systems.",
       [
-        galleryItem("PT00 â€” Plain Type", metalloImage("Cable_Tray_Cover_PT00.png"), "Solid flat cover for maximum cable protection from dust and debris."),
-        galleryItem("VT00 â€” Ventilated Type", metalloImage("Cable_Tray_Cover_VT00.png"), "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
-        galleryItem("LT00 â€” Louvre Type", trayImage("tray-cover.png"), "Angled louvre slots for directional airflow and water drainage."),
-        galleryItem("DF00 â€” Dome Faced", metalloImage("Cable_Tray_Cover_DF00.png"), "Raised dome profile for additional cable clearance and structural stiffness."),
-        galleryItem("DS00 â€” Dome Faced with Spacing", metalloImage("Cable_Tray_Cover_DS00.png"), "Dome profile with integrated spacing for clip-on mounting without fasteners."),
+        galleryItem("PT00 â€” Plain Type", SITE_IMAGES.cableTrays.cableTrayCoverPt00, "Solid flat cover for maximum cable protection from dust and debris."),
+        galleryItem("VT00 â€” Ventilated Type", SITE_IMAGES.cableTrays.cableTrayCoverVt00, "Perforated cover with ventilation slots for heat dissipation while protecting cables."),
+        galleryItem("LT00 â€” Louvre Type", SITE_IMAGES.cableTrays.trayCover, "Angled louvre slots for directional airflow and water drainage."),
+        galleryItem("DF00 â€” Dome Faced", SITE_IMAGES.cableTrays.cableTrayCoverDf00, "Raised dome profile for additional cable clearance and structural stiffness."),
+        galleryItem("DS00 â€” Dome Faced with Spacing", SITE_IMAGES.cableTrays.cableTrayCoverDs00, "Dome profile with integrated spacing for clip-on mounting without fasteners."),
       ],
     ),
     accessoryGallery: accessoryGallery(
       "Tray Cover Accessories",
       "Matching cover accessories ensure the entire cable routing system stays protected at direction changes, branches, and transitions.",
       [
-        accessoryItem("Bend Cover", ctcAccessoryImage("CTCA_Horizontal_Bend.png"), "Covers for horizontal and vertical bend fittings."),
-        accessoryItem("Tee Cover", ctcAccessoryImage("CTCA_Horizontal_Tee.png"), "Covers for T-junction branching points."),
-        accessoryItem("Cross Cover", ctcAccessoryImage("CTCA_Horizontal_Cross.png"), "Covers for four-way intersection fittings."),
-        accessoryItem("Reducer Cover", ctcAccessoryImage("CTCA_Reducers.png"), "Covers for width-transition reducer fittings."),
-        accessoryItem("Press Fit Cover (Embossed)", metalloImage("Press_Fit_Cover_(Embossed).png"), "Snap-on cover for embossed cable tray systems."),
+        accessoryItem("Bend Cover", SITE_IMAGES.cableTrays.ctcaHorizontalBend, "Covers for horizontal and vertical bend fittings."),
+        accessoryItem("Tee Cover", SITE_IMAGES.cableTrays.ctcaHorizontalTee, "Covers for T-junction branching points."),
+        accessoryItem("Cross Cover", SITE_IMAGES.cableTrays.ctcaHorizontalCross, "Covers for four-way intersection fittings."),
+        accessoryItem("Reducer Cover", SITE_IMAGES.cableTrays.ctcaReducers, "Covers for width-transition reducer fittings."),
+        accessoryItem("Press Fit Cover (Embossed)", SITE_IMAGES.cableTrays.pressFitCoverEmbossed, "Snap-on cover for embossed cable tray systems."),
       ],
     ),
   }),
@@ -887,7 +881,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's industrial floor trunking program covers floor-level cable routing installations where cables need to be run under floors or along floor surfaces with maximum protection and compartmentalized routing options.",
       "An IB00 (inward bend with 15 mm flange) profile is available with widths from 100 mm to 600 mm, heights of 35 mm, 75 mm, and 100 mm, thickness from 1.5 mm to 3.0 mm, and optional longitudinal dividers for separating power and data cables within a single trunking run.",
     ],
-    thumbnail: metalloImage("Industrial_Floor_Trunking.png"),
+    thumbnail: SITE_IMAGES.cableTrays.industrialFloorTrunking,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -926,12 +920,12 @@ export const PRODUCTS: TrayProduct[] = [
       "Floor Trunking Accessories",
       "Dedicated floor-compatible accessories for trunking systems, covering direction changes, branching, and divider integration.",
       [
-        accessoryItem("Horizontal Bend (HB)", accessoryImage("PCTA_Horizontal_Bend_(Radial).png"), "Floor-compatible bend fittings at 90Â° and 45Â° angles."),
-        accessoryItem("Floor Tee (RTEE)", accessoryImage("PCTA_Horizontal_Tee_(Radial).png"), "T-junction fitting for floor-level branching."),
-        accessoryItem("Floor Cross (CR)", accessoryImage("PCTA_Horizontal_Cross_(Radial).png"), "Four-way floor crossing fitting."),
-        accessoryItem("Reducer (REDC)", accessoryImage("PCTA_Reducer.png"), "Width transition fitting for floor trunking."),
-        accessoryItem("Longitudinal Divider", metalloImage("Industrial_Floor_Trunking_With_Divider.png"), "Internal divider for separating power and data cables."),
-        accessoryItem("Coupler Plate (STC)", accessoryImage("PCTA_Coupler_Plate.png"), "End-to-end section joining for floor trunking runs."),
+        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.pctaHorizontalBendRadial, "Floor-compatible bend fittings at 90Â° and 45Â° angles."),
+        accessoryItem("Floor Tee (RTEE)", SITE_IMAGES.cableTrays.pctaHorizontalTeeRadial, "T-junction fitting for floor-level branching."),
+        accessoryItem("Floor Cross (CR)", SITE_IMAGES.cableTrays.pctaHorizontalCrossRadial, "Four-way floor crossing fitting."),
+        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.pctaReducer, "Width transition fitting for floor trunking."),
+        accessoryItem("Longitudinal Divider", SITE_IMAGES.cableTrays.industrialFloorTrunkingWithDivider, "Internal divider for separating power and data cables."),
+        accessoryItem("Coupler Plate (STC)", SITE_IMAGES.cableTrays.pctaCouplerPlate, "End-to-end section joining for floor trunking runs."),
       ],
     ),
   }),
@@ -943,7 +937,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's earthing material program covers the complete grounding and bonding scope that pairs with the cable tray infrastructure. The range includes GI wire, copper conductors, rigid and flexible conduits, earth electrodes, terminal lugs, flat bars, and bonding jumpers.",
       "These earthing components are part of the cable management system so project teams can source the full installation scope â€“ tray, accessories, support, finishing, and grounding â€“ through a single coordinated supply chain.",
     ],
-    thumbnail: trayImage("earthing-material.png"),
+    thumbnail: SITE_IMAGES.cableTrays.earthingMaterial,
     technicalSpecifications: [
       spec("Coverage", "GI wire, copper conductors, conduits, earth electrodes, lugs, flat bars, bonding jumpers", "category"),
       spec("Conductor Types", "GI wire and copper conductors in various gauges and configurations", "cable"),
@@ -964,14 +958,14 @@ export const PRODUCTS: TrayProduct[] = [
       "Earthing Material Range",
       "The earthing material family covers wire, conduit, conductor, and electrode categories for complete grounding installations.",
       [
-        galleryItem("GI Wire", trayImage("earthing-material.png"), "Galvanized iron wire for earthing connections and bonding."),
-        galleryItem("Flexible Conduit", trayImage("earthing-material.png"), "Flexible protective conduit for cable routing in tight spaces."),
-        galleryItem("Rigid Conduit", trayImage("earthing-material.png"), "Steel rigid conduit for fixed cable protection runs."),
-        galleryItem("Copper Conductor", trayImage("earthing-material.png"), "Copper conductor cables for high-conductivity grounding."),
-        galleryItem("Earth Electrode (CU Rod)", trayImage("earthing-material.png"), "Copper solid rod electrode for ground connections."),
-        galleryItem("Terminal Lugs", trayImage("earthing-material.png"), "Various terminal lug types for secure electrical terminations."),
-        galleryItem("Flat Bars", trayImage("earthing-material.png"), "Flat copper or GI bars for busbar and bonding applications."),
-        galleryItem("Bonding Jumpers", trayImage("earthing-material.png"), "Pre-formed jumpers for bonding cable tray sections."),
+        galleryItem("GI Wire", SITE_IMAGES.cableTrays.earthingMaterial, "Galvanized iron wire for earthing connections and bonding."),
+        galleryItem("Flexible Conduit", SITE_IMAGES.cableTrays.earthingMaterial, "Flexible protective conduit for cable routing in tight spaces."),
+        galleryItem("Rigid Conduit", SITE_IMAGES.cableTrays.earthingMaterial, "Steel rigid conduit for fixed cable protection runs."),
+        galleryItem("Copper Conductor", SITE_IMAGES.cableTrays.earthingMaterial, "Copper conductor cables for high-conductivity grounding."),
+        galleryItem("Earth Electrode (CU Rod)", SITE_IMAGES.cableTrays.earthingMaterial, "Copper solid rod electrode for ground connections."),
+        galleryItem("Terminal Lugs", SITE_IMAGES.cableTrays.earthingMaterial, "Various terminal lug types for secure electrical terminations."),
+        galleryItem("Flat Bars", SITE_IMAGES.cableTrays.earthingMaterial, "Flat copper or GI bars for busbar and bonding applications."),
+        galleryItem("Bonding Jumpers", SITE_IMAGES.cableTrays.earthingMaterial, "Pre-formed jumpers for bonding cable tray sections."),
       ],
     ),
   }),

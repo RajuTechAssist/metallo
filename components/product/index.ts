@@ -4,6 +4,7 @@ export { default as WeldingHero } from "./WeldingHero";
 export { default as WeldingAbout } from "./WeldingAbout";
 export { default as WeldingIndustries } from "./WeldingIndustries";
 export { default as WeldingOfferings } from "./WeldingOfferings";
+export { default as WeldingProductCatalog } from "./WeldingProductCatalog";
 export { default as ProductCategoryNav } from "./ProductCategoryNav";
 export { default as ProductCatalogCards } from "./ProductCatalogCards";
 export { default as ProductSidebar } from "./ProductSidebar";

@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'foundation',
         useCases: 'Bridges, flyovers, structural frames, building skeletons.',
         assurance: 'IS:2062 / ASTM compliant; centralized grade control; PMI and batch testing.',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.infrastructure.products.construction,
     },
     {
         title: 'SS Pipes & Fittings',
         icon: 'valve',
         useCases: 'Drainage, process piping, potable water, chemical lines.',
         assurance: '304/316 grade control; MTCs; SOPs for welding and finishing.',
-        image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.infrastructure.products.refinery,
     },
     {
         title: 'Cable Trays & Supports',
         icon: 'grid_view',
         useCases: 'Metro stations, substations, industrial plants.',
         assurance: 'Galvanized/SS/Aluminium options; standardized perforation and load ratings.',
-        image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.infrastructure.products.powerGrid,
     },
     {
         title: 'Welding Consumables & Fasteners',
         icon: 'whatshot',
         useCases: 'Structural joins, heavy fabrication, on-site welding.',
         assurance: 'AWS/ASME‑grade alloys; SOP‑driven welding protocols.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.infrastructure.products.industrialPlant,
     },
     {
         title: 'Industrial Assemblies & Fabrications',
         icon: 'precision_manufacturing',
         useCases: 'Pre-fabricated spools, modular assemblies for rapid site installation.',
         assurance: 'CNC, sheet‑metal, and assembly partners audited to SOPs; traceable BOMs.',
-        image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.infrastructure.products.steelPipes,
     },
 ];
 
@@ -640,7 +641,7 @@ const InfrastructureConstruction: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
-                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80&auto=format&fit=crop"
+                        src={SITE_IMAGES.industries.infrastructure.cta}
                         alt="Construction site"
                         fill
                         className="object-cover"

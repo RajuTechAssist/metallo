@@ -18,6 +18,7 @@ import {
   type CategoryKey,
   type ToolProduct,
 } from "@/data/powerToolsData";
+import { SITE_IMAGES } from '@/config/images';
 
 const PowerTools: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -150,7 +151,7 @@ const PowerTools: React.FC = () => {
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
       <ProductHero
-        backgroundImage="/powerTools/powerTool.jpg"
+        backgroundImage={SITE_IMAGES.misc.productHeroes.powerTools}
         title="Power Tools"
         subtitle="Built for the Job Site."
         description="Professional-grade cordless and corded power tools - drills, grinders, hammers, saws, and specialty tools - backed by nationwide service and V20 battery interchangeability."

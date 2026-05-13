@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import {
   createSteelTypeGallery,
@@ -7,13 +8,11 @@ import {
 
 const STEEL_PIPE_TUBE_IMAGE_DIR = "/Steel/pipes-tubes";
 
-const pipeTubeImage = (fileName: string) =>
-  `${STEEL_PIPE_TUBE_IMAGE_DIR}/${fileName}`;
+
 const steelImage = (fileName: string) => `/Steel/${fileName}`;
 const pipeTubeTypeImage = (slug: string, fileName: string) =>
   `${STEEL_PIPE_TUBE_IMAGE_DIR}/types/${slug}/${fileName}`;
-const pipeTubeTypeItem = (slug: string, name: string, fileName: string) =>
-  createSteelTypeItem(name, pipeTubeTypeImage(slug, fileName));
+
 const steelTypeItem = (name: string, fileName: string) =>
   createSteelTypeItem(name, steelImage(fileName));
 
@@ -31,7 +30,7 @@ interface SteelPipeTubeSource {
   name: string;
   subCategory: string;
   materialGroup: PipeMaterialGroup;
-  imageFile: string;
+  thumbnail: string;
   imagePath?: string;
   sourceUrl: string;
   descriptionParagraphs: string[];
@@ -58,7 +57,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Seamless Pipe",
     subCategory: "Seamless Pipes",
     materialGroup: "ss",
-    imageFile: "seamless-pipe1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe1,
     sourceUrl: "https://www.triloksteel.com/stainless-steel-seamless-pipe.html",
     descriptionParagraphs: [
       "Metallo supplies stainless steel seamless pipe for pressure-duty lines where weld-free construction, tighter integrity under cyclic loading, and dependable corrosion resistance are the main project drivers. The sourced range is positioned around ASTM A312 and EN 10216-5 manufacturing, covering the core austenitic grades used in process piping, utility headers, fabrication spools, and plant maintenance stock.",
@@ -120,31 +119,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's seamless pipe program covers the most common pressure-piping supply variants requested for plant fabrication, schedule-based line replacement, and stainless process upgrades.",
     typeItems: [
-      pipeTubeTypeItem(
-        "seamless",
-        "Seamless Process Pipes",
-        "stainless-steel-seamless-pipes1.png",
-      ),
-      pipeTubeTypeItem(
-        "seamless",
-        "Round Stainless Pipe",
-        "stainless-steel-round-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "seamless",
-        "Schedule 40 Seamless Pipe",
-        "schedule-40-seamless-stainless-steel-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "seamless",
-        "Cold Rolled Seamless Pipe",
-        "cold-rolled-seamless-stainless-steel-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "seamless",
-        "High Pressure Seamless Pipe",
-        "stainless-steel-high-pressure-pipe1.png",
-      ),
+      createSteelTypeItem("Seamless Process Pipes", SITE_IMAGES.steel.pipesTubes.types.seamless.stainlessSteelSeamlessPipes1Png),
+      createSteelTypeItem("Round Stainless Pipe", SITE_IMAGES.steel.pipesTubes.types.seamless.stainlessSteelRoundPipe1Png),
+      createSteelTypeItem("Schedule 40 Seamless Pipe", SITE_IMAGES.steel.pipesTubes.types.seamless.schedule40SeamlessStainlessSteelPipe1Png),
+      createSteelTypeItem("Cold Rolled Seamless Pipe", SITE_IMAGES.steel.pipesTubes.types.seamless.coldRolledSeamlessStainlessSteelPipe1Png),
+      createSteelTypeItem("High Pressure Seamless Pipe", SITE_IMAGES.steel.pipesTubes.types.seamless.stainlessSteelHighPressurePipe1Png),
     ],
   },
   {
@@ -152,7 +131,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel ERW / EFW Pipe",
     subCategory: "Welded Pipes",
     materialGroup: "ss",
-    imageFile: "erw-pipe1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.erwPipe1,
     sourceUrl: "https://www.triloksteel.com/stainless-steel-erw-pipe.html",
     descriptionParagraphs: [
       "Metallo's ERW and EFW stainless pipe range is built for projects that need large-diameter welded coverage, controlled bead-finished supply, and broad geometric flexibility across round, square, rectangular, hydraulic, and honed sections. The sourced listing pairs ANSI / ASME pipe dimension standards with stainless welded manufacturing routes that suit utility, structural, and process applications alike.",
@@ -215,31 +194,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's welded stainless program balances diameter scale, fabrication flexibility, and visual finish options for customers who need more than a single ERW stock item.",
     typeItems: [
-      pipeTubeTypeItem(
-        "erw",
-        "Welded Stainless Pipe",
-        "stainless-steel-welded-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "erw",
-        "EFW Stainless Pipe",
-        "stainless-steel-efw-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "erw",
-        "Large Diameter Welded Pipe",
-        "large-diameter-stainless-steel-welded-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "erw",
-        "Spiral Welded Pipe",
-        "stainless-steel-spiral-welded-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "erw",
-        "SCH 10 Welded Pipe",
-        "sch-10-ss-welded-pipe1.png",
-      ),
+      createSteelTypeItem("Welded Stainless Pipe", SITE_IMAGES.steel.pipesTubes.types.erw.stainlessSteelWeldedPipe1Png),
+      createSteelTypeItem("EFW Stainless Pipe", SITE_IMAGES.steel.pipesTubes.types.erw.stainlessSteelEfwPipe1Png),
+      createSteelTypeItem("Large Diameter Welded Pipe", SITE_IMAGES.steel.pipesTubes.types.erw.largeDiameterStainlessSteelWeldedPipe1Png),
+      createSteelTypeItem("Spiral Welded Pipe", SITE_IMAGES.steel.pipesTubes.types.erw.stainlessSteelSpiralWeldedPipe1Png),
+      createSteelTypeItem("SCH 10 Welded Pipe", SITE_IMAGES.steel.pipesTubes.types.erw.sch10SsWeldedPipe1Png),
     ],
   },
   {
@@ -247,7 +206,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Industrial Tube",
     subCategory: "Industrial Tubes",
     materialGroup: "ss",
-    imageFile: "industrial-tube1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.industrialTube1,
     sourceUrl: "https://www.triloksteel.com/stainless-steel-tube.html",
     descriptionParagraphs: [
       "Metallo supplies stainless steel industrial tubing for hydraulic, pneumatic, structural, decorative, food, and fluid-handling applications where profile flexibility matters as much as corrosion resistance. The sourced range covers welded and seamless tube in round, rectangular, square, and spiral-welded formats, with delivery conditions that include bright annealed, annealed and pickled, cold drawn, and polished finishes.",
@@ -293,23 +252,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's industrial tube offer covers the profile and finish combinations most often required in plant tubing, polished fabrications, and stainless structural details.",
     typeItems: [
-      pipeTubeTypeItem(
-        "tube",
-        "Seamless Tube",
-        "stainless-steel-seamless-tube11.png",
-      ),
-      pipeTubeTypeItem("tube", "Welded Tubing", "ss-welded-tubing11.png"),
-      pipeTubeTypeItem(
-        "tube",
-        "Cold Drawn Tube",
-        "cold-drawn-stainless-steel-tube11.png",
-      ),
-      pipeTubeTypeItem(
-        "tube",
-        "Round Tube",
-        "stainless-steel-round-tube11.png",
-      ),
-      pipeTubeTypeItem("tube", "Thick Wall Tube", "ss-thick-wall-tubes11.png"),
+      createSteelTypeItem("Seamless Tube", SITE_IMAGES.steel.pipesTubes.types.tube.stainlessSteelSeamlessTube11Png),
+      createSteelTypeItem("Welded Tubing", SITE_IMAGES.steel.pipesTubes.types.tube.ssWeldedTubing11Png),
+      createSteelTypeItem("Cold Drawn Tube", SITE_IMAGES.steel.pipesTubes.types.tube.coldDrawnStainlessSteelTube11Png),
+      createSteelTypeItem("Round Tube", SITE_IMAGES.steel.pipesTubes.types.tube.stainlessSteelRoundTube11Png),
+      createSteelTypeItem("Thick Wall Tube", SITE_IMAGES.steel.pipesTubes.types.tube.ssThickWallTubes11Png),
     ],
   },
   {
@@ -317,7 +264,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Polished Tube",
     subCategory: "Polished and Decorative Tubes",
     materialGroup: "ss",
-    imageFile: "polished-tube1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.polishedTube1,
     sourceUrl:
       "https://www.triloksteel.com/stainless-steel-polished-tube.html",
     descriptionParagraphs: [
@@ -358,31 +305,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's polished tube gallery focuses on the finish-led variants most often specified for exposed stainless installations and hygienic fabrication packages.",
     typeItems: [
-      pipeTubeTypeItem(
-        "polished",
-        "Polished Pipe",
-        "stainless-steel-polished-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "polished",
-        "Polished Tubing",
-        "stainless-steel-polished-tubing1.png",
-      ),
-      pipeTubeTypeItem(
-        "polished",
-        "ASTM A554 Gr 304 Polished Pipe",
-        "astm-a554-gr-304-polished-pipe1.png",
-      ),
-      pipeTubeTypeItem(
-        "polished",
-        "Polished Stainless Tube",
-        "polished-stainless-steel-tube1.png",
-      ),
-      pipeTubeTypeItem(
-        "polished",
-        "ASTM A554 Gr 201 Polished Pipe",
-        "astm-a554-gr-201-polished-pipe1.png",
-      ),
+      createSteelTypeItem("Polished Pipe", SITE_IMAGES.steel.pipesTubes.types.polished.stainlessSteelPolishedPipe1Png),
+      createSteelTypeItem("Polished Tubing", SITE_IMAGES.steel.pipesTubes.types.polished.stainlessSteelPolishedTubing1Png),
+      createSteelTypeItem("ASTM A554 Gr 304 Polished Pipe", SITE_IMAGES.steel.pipesTubes.types.polished.astmA554Gr304PolishedPipe1Png),
+      createSteelTypeItem("Polished Stainless Tube", SITE_IMAGES.steel.pipesTubes.types.polished.polishedStainlessSteelTube1Png),
+      createSteelTypeItem("ASTM A554 Gr 201 Polished Pipe", SITE_IMAGES.steel.pipesTubes.types.polished.astmA554Gr201PolishedPipe1Png),
     ],
   },
   {
@@ -390,7 +317,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Heat Exchanger Tube",
     subCategory: "Heat Exchanger Tubes",
     materialGroup: "special",
-    imageFile: "heat-exchanger-tube1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.heatExchangerTube1,
     sourceUrl:
       "https://www.triloksteel.com/stainless-steel-heat-exchanger-tube.html",
     descriptionParagraphs: [
@@ -443,31 +370,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's heat exchanger tube offer spans the exchanger-specific configurations commonly required for bundles, shell-and-tube builds, and long-length thermal process assemblies.",
     typeItems: [
-      pipeTubeTypeItem(
-        "heat-exchanger",
-        "Heat Exchanger Tubes",
-        "stainless-steel-heat-exchanger-tubes1.png",
-      ),
-      pipeTubeTypeItem(
-        "heat-exchanger",
-        "Coil Tubing Heat Exchanger",
-        "stainless-steel-coil-tubing-heat-exchanger1.png",
-      ),
-      pipeTubeTypeItem(
-        "heat-exchanger",
-        "Shell and Tube Exchanger",
-        "stainless-steel-shell-and-tube-heat-exchanger1.png",
-      ),
-      pipeTubeTypeItem(
-        "heat-exchanger",
-        "Straight Exchanger Tubing",
-        "stainless-steel-heat-exchanger-straight-tubing1.png",
-      ),
-      pipeTubeTypeItem(
-        "heat-exchanger",
-        "Seamless Exchanger Tubes",
-        "ss-seamless-heat-exchanger-tubes1.png",
-      ),
+      createSteelTypeItem("Heat Exchanger Tubes", SITE_IMAGES.steel.pipesTubes.types.heatExchanger.stainlessSteelHeatExchangerTubes1Png),
+      createSteelTypeItem("Coil Tubing Heat Exchanger", SITE_IMAGES.steel.pipesTubes.types.heatExchanger.stainlessSteelCoilTubingHeatExchanger1Png),
+      createSteelTypeItem("Shell and Tube Exchanger", SITE_IMAGES.steel.pipesTubes.types.heatExchanger.stainlessSteelShellAndTubeHeatExchanger1Png),
+      createSteelTypeItem("Straight Exchanger Tubing", SITE_IMAGES.steel.pipesTubes.types.heatExchanger.stainlessSteelHeatExchangerStraightTubing1Png),
+      createSteelTypeItem("Seamless Exchanger Tubes", SITE_IMAGES.steel.pipesTubes.types.heatExchanger.ssSeamlessHeatExchangerTubes1Png),
     ],
   },
   {
@@ -475,7 +382,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Boiler Tube",
     subCategory: "Boiler Tubes",
     materialGroup: "special",
-    imageFile: "boiler-tube1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.boilerTube1,
     sourceUrl:
       "https://www.triloksteel.com/stainless-steel-boiler-tubes.html",
     descriptionParagraphs: [
@@ -518,31 +425,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's boiler tube gallery reflects the formats commonly procured for pressure sections, water-tube service, and stainless boiler retrofits.",
     typeItems: [
-      pipeTubeTypeItem(
-        "boiler",
-        "Boiler Tube",
-        "stainless-steel-boiler-tube1.png",
-      ),
-      pipeTubeTypeItem(
-        "boiler",
-        "SS 304 Seamless Boiler Tubing",
-        "ss-304-seamless-boiler-tubing1.png",
-      ),
-      pipeTubeTypeItem(
-        "boiler",
-        "Water Tube Boiler",
-        "stainless-steel-water-tube-boiler1.png",
-      ),
-      pipeTubeTypeItem(
-        "boiler",
-        "Seamless Boiler Tubes",
-        "ss-seamless-boiler-tubes1.png",
-      ),
-      pipeTubeTypeItem(
-        "boiler",
-        "Welded Boiler Tube",
-        "stainless-steel-welded-boiler-tube1.png",
-      ),
+      createSteelTypeItem("Boiler Tube", SITE_IMAGES.steel.pipesTubes.types.boiler.stainlessSteelBoilerTube1Png),
+      createSteelTypeItem("SS 304 Seamless Boiler Tubing", SITE_IMAGES.steel.pipesTubes.types.boiler.ss304SeamlessBoilerTubing1Png),
+      createSteelTypeItem("Water Tube Boiler", SITE_IMAGES.steel.pipesTubes.types.boiler.stainlessSteelWaterTubeBoiler1Png),
+      createSteelTypeItem("Seamless Boiler Tubes", SITE_IMAGES.steel.pipesTubes.types.boiler.ssSeamlessBoilerTubes1Png),
+      createSteelTypeItem("Welded Boiler Tube", SITE_IMAGES.steel.pipesTubes.types.boiler.stainlessSteelWeldedBoilerTube1Png),
     ],
   },
   {
@@ -550,7 +437,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Galvanized Iron Conduit and Utility Pipe",
     subCategory: "GI / Conduit Pipes",
     materialGroup: "gi",
-    imageFile: "conduit-pipe.jpg",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.conduitPipe,
     imagePath: steelImage("Galvanised-Iron-Pipe.png"),
     sourceUrl: "https://www.triloksteel.com/stainless-steel-conduit-pipe.html",
     descriptionParagraphs: [
@@ -611,7 +498,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Carbon Steel and Mild Steel Pipe",
     subCategory: "MS / CS Pipes",
     materialGroup: "ms",
-    imageFile: "seamless-pipe.jpg",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe,
     imagePath: steelImage("Customised-Steel-Pipe.png"),
     sourceUrl: "https://www.triloksteel.com/",
     descriptionParagraphs: [
@@ -673,7 +560,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Duplex Stainless Pipe and Tube",
     subCategory: "Duplex Pipe and Tube",
     materialGroup: "special",
-    imageFile: "duplex-pipe1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.duplexPipe1,
     sourceUrl: "https://www.triloksteel.com/duplex-pipe.html",
     descriptionParagraphs: [
       "Metallo supplies duplex stainless pipe and tube for chloride-bearing, pressure-intensive, and mechanically demanding service where standard austenitic stainless can be stretched beyond its comfort zone. The sourced range is built around ASTM A790 grades S31803 and S32205, with schedule, wall-thickness, and finish combinations that support seawater, offshore, chemical, and process-plant service.",
@@ -709,23 +596,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's duplex supply range goes beyond standard straight pipe by covering the welded, seamless, tube, and special-form variants most often specified in corrosion-intensive projects.",
     typeItems: [
-      pipeTubeTypeItem(
-        "duplex",
-        "Duplex 2205 Seamless Pipe",
-        "duplex-2205-seamless-pipe1.png",
-      ),
-      pipeTubeTypeItem("duplex", "Duplex 2205 Tube", "duplex-2205-tube1.png"),
-      pipeTubeTypeItem(
-        "duplex",
-        "ASTM A790 S32205 Tubing",
-        "astm-a790-gr-s32205-tubing1.png",
-      ),
-      pipeTubeTypeItem(
-        "duplex",
-        "Duplex Stainless Pipe",
-        "duplex-stainless-steel-pipe1.png",
-      ),
-      pipeTubeTypeItem("duplex", "2205 ERW Pipe", "2205-steel-erw-pipe1.pngg"),
+      createSteelTypeItem("Duplex 2205 Seamless Pipe", SITE_IMAGES.steel.pipesTubes.types.duplex.duplex2205SeamlessPipe1Png),
+      createSteelTypeItem("Duplex 2205 Tube", SITE_IMAGES.steel.pipesTubes.types.duplex.duplex2205Tube1Png),
+      createSteelTypeItem("ASTM A790 S32205 Tubing", SITE_IMAGES.steel.pipesTubes.types.duplex.astmA790GrS32205Tubing1Png),
+      createSteelTypeItem("Duplex Stainless Pipe", SITE_IMAGES.steel.pipesTubes.types.duplex.duplexStainlessSteelPipe1Png),
+      createSteelTypeItem("2205 ERW Pipe", SITE_IMAGES.steel.pipesTubes.types.duplex["2205SteelErwPipe1Pngg"]),
     ],
   },
   {
@@ -733,7 +608,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Hollow Section",
     subCategory: "Hollow Sections",
     materialGroup: "special",
-    imageFile: "hollow-section1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.hollowSection1,
     sourceUrl:
       "https://www.triloksteel.com/stainless-steel-hollow-section.html",
     descriptionParagraphs: [
@@ -774,31 +649,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's hollow section range covers the profile combinations most often specified for stainless structural and architectural fabrication.",
     typeItems: [
-      pipeTubeTypeItem(
-        "hollow",
-        "Square Hollow Section",
-        "stainless-steel-square-hollow-section1.png",
-      ),
-      pipeTubeTypeItem(
-        "hollow",
-        "Circular Hollow Section",
-        "stainless-steel-circular-hollow-section1.png",
-      ),
-      pipeTubeTypeItem(
-        "hollow",
-        "Rectangular Hollow Tube",
-        "astm-a554-grade-201-rectangular-hollow-tube1.png",
-      ),
-      pipeTubeTypeItem(
-        "hollow",
-        "316 Circular Hollow Tube",
-        "ss-316-circular-hollow-tube1.png",
-      ),
-      pipeTubeTypeItem(
-        "hollow",
-        "316L Seamless Hollow Tube",
-        "astm-a554-tp-316l-seamless-hollow-tube1.png",
-      ),
+      createSteelTypeItem("Square Hollow Section", SITE_IMAGES.steel.pipesTubes.types.hollow.stainlessSteelSquareHollowSection1Png),
+      createSteelTypeItem("Circular Hollow Section", SITE_IMAGES.steel.pipesTubes.types.hollow.stainlessSteelCircularHollowSection1Png),
+      createSteelTypeItem("Rectangular Hollow Tube", SITE_IMAGES.steel.pipesTubes.types.hollow.astmA554Grade201RectangularHollowTube1Png),
+      createSteelTypeItem("316 Circular Hollow Tube", SITE_IMAGES.steel.pipesTubes.types.hollow.ss316CircularHollowTube1Png),
+      createSteelTypeItem("316L Seamless Hollow Tube", SITE_IMAGES.steel.pipesTubes.types.hollow.astmA554Tp316lSeamlessHollowTube1Png),
     ],
   },
   {
@@ -806,7 +661,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Conduit Pipe",
     subCategory: "Conduit Tubes",
     materialGroup: "special",
-    imageFile: "conduit-pipe1.png",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.conduitPipe1,
     sourceUrl:
       "https://www.triloksteel.com/stainless-steel-conduit-pipe.html",
     descriptionParagraphs: [
@@ -857,31 +712,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's conduit range spans the rigid, tube, EMT, and flexible stainless conduit forms used to protect wiring in demanding industrial environments.",
     typeItems: [
-      pipeTubeTypeItem(
-        "conduit",
-        "Conduit Tube",
-        "stainless-steel-conduit-tube1.png",
-      ),
-      pipeTubeTypeItem(
-        "conduit",
-        "Stainless Conduits",
-        "stainless-steel-conduits1.png",
-      ),
-      pipeTubeTypeItem(
-        "conduit",
-        "Electrical Metallic Tubing",
-        "electrical-metallic-tubing1.png",
-      ),
-      pipeTubeTypeItem(
-        "conduit",
-        "316L Rigid Conduit",
-        "aisi-316l-rigid-stainless-steel-conduit1.png",
-      ),
-      pipeTubeTypeItem(
-        "conduit",
-        "Flexible Stainless Conduit",
-        "stainless-steel-flexible-conduit1.png",
-      ),
+      createSteelTypeItem("Conduit Tube", SITE_IMAGES.steel.pipesTubes.types.conduit.stainlessSteelConduitTube1Png),
+      createSteelTypeItem("Stainless Conduits", SITE_IMAGES.steel.pipesTubes.types.conduit.stainlessSteelConduits1Png),
+      createSteelTypeItem("Electrical Metallic Tubing", SITE_IMAGES.steel.pipesTubes.types.conduit.electricalMetallicTubing1Png),
+      createSteelTypeItem("316L Rigid Conduit", SITE_IMAGES.steel.pipesTubes.types.conduit.aisi316lRigidStainlessSteelConduit1Png),
+      createSteelTypeItem("Flexible Stainless Conduit", SITE_IMAGES.steel.pipesTubes.types.conduit.stainlessSteelFlexibleConduit1Png),
     ],
   },
 ];
@@ -895,7 +730,7 @@ const toSteelProduct = (source: SteelPipeTubeSource): SteelProduct => ({
   Grades: formatSteelList(source.grades, 6),
   Standards: formatSteelList(source.standards, 6),
   Application: source.application,
-  thumbnail: source.imagePath ?? pipeTubeImage(source.imageFile),
+  thumbnail: source.imagePath ?? source.thumbnail,
   OD: source.sizeRange,
   WallThickness: source.wallThickness,
   Length: source.length,
@@ -907,7 +742,7 @@ const toSteelProduct = (source: SteelPipeTubeSource): SteelProduct => ({
     source.certifications ?? Array.from(PIPE_TUBE_COMMON_CERTIFICATIONS),
   Testing: source.testing,
   Applications: source.applications,
-  applicationImage: source.imagePath ?? pipeTubeImage(source.imageFile),
+  applicationImage: source.imagePath ?? source.thumbnail,
   descriptionParagraphs: source.descriptionParagraphs,
   typeGallery: createSteelTypeGallery(
     `${source.name} Types`,

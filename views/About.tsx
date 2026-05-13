@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
+import { SITE_IMAGES } from '@/config/images';
 
 const About: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const About: React.FC = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Metallo_office.png"
+            src={SITE_IMAGES.about.office}
             alt="Metallo Industrial Facility"
             fill
             className="object-cover"
@@ -107,7 +108,7 @@ const About: React.FC = () => {
             <div className="relative h-full min-h-[400px]">
               <div className="absolute top-0 right-0 w-4/5 h-4/5 bg-gray-100 rounded-tr-[4rem] -z-10"></div>
               <Image
-                src="/Steel/oil_industry1.jpg"
+                src={SITE_IMAGES.about.oilIndustry}
                 alt="Industrial Construction"
                 fill
                 className="object-cover rounded-lg shadow-2xl"

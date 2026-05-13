@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import {
   createSteelTypeGallery,
@@ -7,10 +8,8 @@ import {
 
 const STEEL_FASTENER_IMAGE_DIR = "/Steel/fasteners-bars";
 
-const fastenerTypeImage = (slug: string, fileName: string) =>
-  `${STEEL_FASTENER_IMAGE_DIR}/types/${slug}/${fileName}`;
-const fastenerTypeItem = (slug: string, name: string, fileName: string) =>
-  createSteelTypeItem(name, fastenerTypeImage(slug, fileName));
+
+
 
 const FASTENER_COMMON_CERTIFICATIONS = [
   "ASTM",
@@ -33,7 +32,7 @@ interface SteelFastenerSource {
   testing: string;
   application: string;
   applications: string[];
-  thumbnailImage: string;
+  thumbnail: string;
   typeGalleryIntro: string;
   typeItems: ReturnType<typeof createSteelTypeGallery>["items"];
   certification?: string[];
@@ -102,66 +101,22 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Hygienic Systems",
       "Outdoor Installations",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/stainless.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.stainless,
     typeGalleryIntro:
       "Metallo's stainless range brings together the core screw, bolt, nut, washer, and threaded-rod formats needed for corrosion-resistant fastening systems.",
     typeItems: [
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Socket Head Cap Screw - Metric",
-        "s1.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Screw (Full Thread)",
-        "s2.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Bolt (Partial Thread)",
-        "s3.png",
-      ),
-      fastenerTypeItem("stainless-fasteners", "Hex Nut - Metric", "s4.png"),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Plain Washer - Metric",
-        "s6.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Flat Section Spring Washer - Metric",
-        "s7.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Square Section Spring Washer - Metric",
-        "s8.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Threaded Rod - Metric",
-        "s9.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Socket Head Cap Screw ASTM F837",
-        "s10.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Hex Head Bolt / Screw ASTM F593",
-        "s11.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "304 / 316 Hex Nut ASTM F594",
-        "s12.png",
-      ),
-      fastenerTypeItem(
-        "stainless-fasteners",
-        "Plain Washer ANSI B18.21.1",
-        "s13.png",
-      ),
+      createSteelTypeItem("Socket Head Cap Screw - Metric", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s1"]),
+      createSteelTypeItem("Hex Head Screw (Full Thread)", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s2"]),
+      createSteelTypeItem("Hex Head Bolt (Partial Thread)", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s3"]),
+      createSteelTypeItem("Hex Nut - Metric", SITE_IMAGES.steel.fasteners.types.stainlessFasteners.s4),
+      createSteelTypeItem("Plain Washer - Metric", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s6"]),
+      createSteelTypeItem("Flat Section Spring Washer - Metric", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s7"]),
+      createSteelTypeItem("Square Section Spring Washer - Metric", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s8"]),
+      createSteelTypeItem("Threaded Rod - Metric", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s9"]),
+      createSteelTypeItem("Socket Head Cap Screw ASTM F837", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s10"]),
+      createSteelTypeItem("Hex Head Bolt / Screw ASTM F593", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s11"]),
+      createSteelTypeItem("304 / 316 Hex Nut ASTM F594", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s12"]),
+      createSteelTypeItem("Plain Washer ANSI B18.21.1", SITE_IMAGES.steel.fasteners.types["stainlessFasteners"]["s13"]),
     ],
   },
 
@@ -203,18 +158,14 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Structural Steel",
       "OEM Manufacturing",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/hexbolts.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.hexbolts,
     typeGalleryIntro:
       "Metallo's hex bolt program spans metric and inch fasteners for general-duty through high-strength industrial assemblies.",
     typeItems: [
-      fastenerTypeItem(
-        "hex-bolts",
-        "Hex Head Bolt / Screw - Metric",
-        "hex1.png",
-      ),
-      fastenerTypeItem("hex-bolts", "Hex Cap Screw Grade 8", "hex2.png"),
-      fastenerTypeItem("hex-bolts", "Hex Cap Screw Grade 5", "hex3.png"),
-      fastenerTypeItem("hex-bolts", "Hex Bolt ASTM A307", "hex4.png"),
+      createSteelTypeItem("Hex Head Bolt / Screw - Metric", SITE_IMAGES.steel.fasteners.types["hexBolts"]["hex1"]),
+      createSteelTypeItem("Hex Cap Screw Grade 8", SITE_IMAGES.steel.fasteners.types.hexBolts.hex2),
+      createSteelTypeItem("Hex Cap Screw Grade 5", SITE_IMAGES.steel.fasteners.types.hexBolts.hex3),
+      createSteelTypeItem("Hex Bolt ASTM A307", SITE_IMAGES.steel.fasteners.types.hexBolts.hex4),
     ],
     tensileStrength:
       "Metric class 10.9 at 1040 N/mm^2 minimum, with inch-series grades from 60 Ksi minimum through 150,000 psi minimum depending on standard.",
@@ -272,35 +223,19 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Fabrication Shops",
       "Vibration-Sensitive Joints",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/hexnut.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.hexnut,
     typeGalleryIntro:
       "Metallo's nut program covers standard, locking, welding, flange, and coupling designs so the fastening method can match the joint requirement.",
     typeItems: [
-      fastenerTypeItem("hex-nuts", "Hex Nut ISO 4032", "n1.png"),
-      fastenerTypeItem("hex-nuts", "Nylock Nut DIN 982", "n2.png"),
-      fastenerTypeItem("hex-nuts", "Nylock Nut DIN 985", "n2.png"),
-      fastenerTypeItem("hex-nuts", "Hex Weld Nut DIN 929", "n4.png"),
-      fastenerTypeItem(
-        "hex-nuts",
-        "Hex Nut ASME B18.2.2 Grade 8",
-        "in1.png",
-      ),
-      fastenerTypeItem(
-        "hex-nuts",
-        "Hex Nut ASME B18.2.2 Grade 5",
-        "in1.png",
-      ),
-      fastenerTypeItem(
-        "hex-nuts",
-        "Nylock Nut ASME B18.16.6",
-        "in3.png",
-      ),
-      fastenerTypeItem(
-        "hex-nuts",
-        "Hex Serrated Flange Nut",
-        "in4.png",
-      ),
-      fastenerTypeItem("hex-nuts", "Hex Coupling Nut", "in5.png"),
+      createSteelTypeItem("Hex Nut ISO 4032", SITE_IMAGES.steel.fasteners.types.hexNuts.n1),
+      createSteelTypeItem("Nylock Nut DIN 982", SITE_IMAGES.steel.fasteners.types.hexNuts.n2),
+      createSteelTypeItem("Nylock Nut DIN 985", SITE_IMAGES.steel.fasteners.types.hexNuts.n2),
+      createSteelTypeItem("Hex Weld Nut DIN 929", SITE_IMAGES.steel.fasteners.types.hexNuts.n4),
+      createSteelTypeItem("Hex Nut ASME B18.2.2 Grade 8", SITE_IMAGES.steel.fasteners.types["hexNuts"]["in1"]),
+      createSteelTypeItem("Hex Nut ASME B18.2.2 Grade 5", SITE_IMAGES.steel.fasteners.types["hexNuts"]["in1"]),
+      createSteelTypeItem("Nylock Nut ASME B18.16.6", SITE_IMAGES.steel.fasteners.types["hexNuts"]["in3"]),
+      createSteelTypeItem("Hex Serrated Flange Nut", SITE_IMAGES.steel.fasteners.types["hexNuts"]["in4"]),
+      createSteelTypeItem("Hex Coupling Nut", SITE_IMAGES.steel.fasteners.types.hexNuts.in5),
     ],
   },
   {
@@ -353,30 +288,18 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "General Maintenance",
       "Preload-Critical Joints",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/washers.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.washers,
     typeGalleryIntro:
       "Metallo's washer offer spans spring, plain, and hardened designs so load distribution and loosening resistance can be specified together.",
     typeItems: [
-      fastenerTypeItem(
-        "washers",
-        "Square Section Spring Washer",
-        "w1.png",
-      ),
-      fastenerTypeItem(
-        "washers",
-        "Flat Section Spring Washer",
-        "w2.png",
-      ),
-      fastenerTypeItem("washers", "Hardened Washer IS 2016", "w3.png"),
-      fastenerTypeItem(
-        "washers",
-        "Hardened Steel Washer ASTM F436M",
-        "w3.png",
-      ),
-      fastenerTypeItem("washers", "USS Plain Washer", "w3.png"),
-      fastenerTypeItem("washers", "SAE Plain Washer", "w3.png"),
-      fastenerTypeItem("washers", "Spring-Lock Washer", "w4.png"),
-      fastenerTypeItem("washers", "Hardened Washer ASTM F436", "w3.png"),
+      createSteelTypeItem("Square Section Spring Washer", SITE_IMAGES.steel.fasteners.types["washers"]["w1"]),
+      createSteelTypeItem("Flat Section Spring Washer", SITE_IMAGES.steel.fasteners.types["washers"]["w2"]),
+      createSteelTypeItem("Hardened Washer IS 2016", SITE_IMAGES.steel.fasteners.types.washers.w3),
+      createSteelTypeItem("Hardened Steel Washer ASTM F436M", SITE_IMAGES.steel.fasteners.types["washers"]["w3"]),
+      createSteelTypeItem("USS Plain Washer", SITE_IMAGES.steel.fasteners.types.washers.w3),
+      createSteelTypeItem("SAE Plain Washer", SITE_IMAGES.steel.fasteners.types.washers.w3),
+      createSteelTypeItem("Spring-Lock Washer", SITE_IMAGES.steel.fasteners.types.washers.w4),
+      createSteelTypeItem("Hardened Washer ASTM F436", SITE_IMAGES.steel.fasteners.types.washers.w3),
     ],
     hardness:
       "Hardness coverage spans approximately HV 300 to 530 and HRC 38 to 46 depending on washer family and coating condition.",
@@ -427,30 +350,14 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Heat Exchangers",
       "Critical Process Equipment",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/studbolt.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.studbolt,
     typeGalleryIntro:
       "Metallo's petrochemical bolting program pairs stud bolts and nuts in the ASTM material systems most commonly specified for pressure-boundary joints.",
     typeItems: [
-      fastenerTypeItem(
-        "petrochemical-stud-bolts",
-        "Stud Bolt - Metric",
-        "s1.png",
-      ),
-      fastenerTypeItem(
-        "petrochemical-stud-bolts",
-        "Heavy Hex Nut - Metric",
-        "s2.png",
-      ),
-      fastenerTypeItem(
-        "petrochemical-stud-bolts",
-        "Stud Bolt - Inch",
-        "s1.png",
-      ),
-      fastenerTypeItem(
-        "petrochemical-stud-bolts",
-        "Heavy Hex Nut - Inch",
-        "s2.png",
-      ),
+      createSteelTypeItem("Stud Bolt - Metric", SITE_IMAGES.steel.fasteners.types["petrochemicalStudBolts"]["s1"]),
+      createSteelTypeItem("Heavy Hex Nut - Metric", SITE_IMAGES.steel.fasteners.types["petrochemicalStudBolts"]["s2"]),
+      createSteelTypeItem("Stud Bolt - Inch", SITE_IMAGES.steel.fasteners.types["petrochemicalStudBolts"]["s1"]),
+      createSteelTypeItem("Heavy Hex Nut - Inch", SITE_IMAGES.steel.fasteners.types["petrochemicalStudBolts"]["s2"]),
     ],
   },
 
@@ -519,120 +426,32 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Towers and Masts",
       "Heavy Fabrication",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/structurebolt.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.structurebolt,
     typeGalleryIntro:
       "Metallo's structural assembly program groups the bolt, nut, and washer systems used across EN, IS, ASTM, and Australian structural fastening requirements.",
     typeItems: [
-      fastenerTypeItem(
-        "structural-assemblies",
-        "System HR Structural Bolt",
-        "a1.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "System HR Pre-Load Nut",
-        "a2.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Plain Chamfered Washer",
-        "a3.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "System HV Structural Bolt",
-        "a4.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "System HV Pre-Load Nut",
-        "a5.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Tension Control Structural Bolt BS EN 14399-10",
-        "a6.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Pre-Load Nut BS EN 14399-10",
-        "a7.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Non Pre-Load Structural Bolt",
-        "a9.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Non Pre-Load Structural Nut",
-        "a10.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "High-Strength Structural Bolt AS1252",
-        "a11.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Structural Nut AS1252",
-        "a12.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Structural Washer AS1252",
-        "a13.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Structural Bolt IS 3757",
-        "a15.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Nut IS 6623",
-        "a16.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Structural Washer IS 6649",
-        "a17.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Structural Bolt ASTM A325",
-        "a18.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Structural Bolt ASTM A490",
-        "a19.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Nuts Grade DH ASTM A563",
-        "a20.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Heavy Hex Nut Grade 2H ASTM A194",
-        "a21.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Hardened Washer ASTM F436",
-        "a22.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Tension Control Structural Bolt ASTM F1852",
-        "a23.png",
-      ),
-      fastenerTypeItem(
-        "structural-assemblies",
-        "Tension Control Structural Bolt ASTM F2280",
-        "a24.png",
-      ),
+      createSteelTypeItem("System HR Structural Bolt", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a1"]),
+      createSteelTypeItem("System HR Pre-Load Nut", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a2"]),
+      createSteelTypeItem("Plain Chamfered Washer", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a3"]),
+      createSteelTypeItem("System HV Structural Bolt", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a4"]),
+      createSteelTypeItem("System HV Pre-Load Nut", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a5"]),
+      createSteelTypeItem("Tension Control Structural Bolt BS EN 14399-10", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a6"]),
+      createSteelTypeItem("Pre-Load Nut BS EN 14399-10", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a7"]),
+      createSteelTypeItem("Non Pre-Load Structural Bolt", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a9"]),
+      createSteelTypeItem("Non Pre-Load Structural Nut", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a10"]),
+      createSteelTypeItem("High-Strength Structural Bolt AS1252", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a11"]),
+      createSteelTypeItem("Structural Nut AS1252", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a12"]),
+      createSteelTypeItem("Structural Washer AS1252", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a13"]),
+      createSteelTypeItem("Heavy Hex Structural Bolt IS 3757", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a15"]),
+      createSteelTypeItem("Heavy Hex Nut IS 6623", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a16"]),
+      createSteelTypeItem("Structural Washer IS 6649", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a17"]),
+      createSteelTypeItem("Heavy Hex Structural Bolt ASTM A325", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a18"]),
+      createSteelTypeItem("Heavy Hex Structural Bolt ASTM A490", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a19"]),
+      createSteelTypeItem("Heavy Hex Nuts Grade DH ASTM A563", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a20"]),
+      createSteelTypeItem("Heavy Hex Nut Grade 2H ASTM A194", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a21"]),
+      createSteelTypeItem("Hardened Washer ASTM F436", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a22"]),
+      createSteelTypeItem("Tension Control Structural Bolt ASTM F1852", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a23"]),
+      createSteelTypeItem("Tension Control Structural Bolt ASTM F2280", SITE_IMAGES.steel.fasteners.types["structuralAssemblies"]["a24"]),
     ],
   },
   {
@@ -696,85 +515,29 @@ const FASTENER_SOURCES: SteelFastenerSource[] = [
       "Custom Machinery",
       "Threaded Bar Supply",
     ],
-    thumbnailImage: `${STEEL_FASTENER_IMAGE_DIR}/special.jpg`,
+    thumbnail: SITE_IMAGES.steel.fasteners.special,
     typeGalleryIntro:
       "Metallo's special-fastener range covers the non-standard hardware, couplers, and threaded bar products that projects often need alongside standard bolts and nuts.",
     typeItems: [
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Arc Welding Stud / Shear Connector",
-        "s1.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Upset Parallel Threaded Rebar Coupler",
-        "s2.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Parallel Threaded Rebar Coupler",
-        "s3.png",
-      ),
-      fastenerTypeItem("special-fasteners-bars", "Tee Bolt - Metric", "s4.png"),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Trackshoe Bolt - Metric",
-        "s5.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Square Nut - Metric",
-        "s6.png",
-      ),
-      fastenerTypeItem("special-fasteners-bars", "Hex Lock Nut", "s7.png"),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Hex Slotted and Castle Nut",
-        "s8.png",
-      ),
-      fastenerTypeItem("special-fasteners-bars", "Anchor Plate", "s9.png"),
-      fastenerTypeItem("special-fasteners-bars", "Shear Nut", "s10.png"),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Anti-Theft Bolt",
-        "s11.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Carriage Bolt - Metric",
-        "s12.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Threaded Bar DIN 975 / DIN 976",
-        "s13.png",
-      ),
-      fastenerTypeItem("special-fasteners-bars", "Tee Bolt - Inch", "s14.png"),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Carriage Bolt ASTM A307",
-        "s15.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Trackshoe Bolt - Inch",
-        "s16.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Square Nut - Inch",
-        "s17.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Threaded Bar ASTM A193",
-        "s18.png",
-      ),
-      fastenerTypeItem(
-        "special-fasteners-bars",
-        "Threaded Bar ASTM A307",
-        "s19.png",
-      ),
+      createSteelTypeItem("Arc Welding Stud / Shear Connector", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s1"]),
+      createSteelTypeItem("Upset Parallel Threaded Rebar Coupler", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s2"]),
+      createSteelTypeItem("Parallel Threaded Rebar Coupler", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s3"]),
+      createSteelTypeItem("Tee Bolt - Metric", SITE_IMAGES.steel.fasteners.types.specialFastenersBars.s4),
+      createSteelTypeItem("Trackshoe Bolt - Metric", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s5"]),
+      createSteelTypeItem("Square Nut - Metric", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s6"]),
+      createSteelTypeItem("Hex Lock Nut", SITE_IMAGES.steel.fasteners.types.specialFastenersBars.s7),
+      createSteelTypeItem("Hex Slotted and Castle Nut", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s8"]),
+      createSteelTypeItem("Anchor Plate", SITE_IMAGES.steel.fasteners.types.specialFastenersBars.s9),
+      createSteelTypeItem("Shear Nut", SITE_IMAGES.steel.fasteners.types.specialFastenersBars.s10),
+      createSteelTypeItem("Anti-Theft Bolt", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s11"]),
+      createSteelTypeItem("Carriage Bolt - Metric", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s12"]),
+      createSteelTypeItem("Threaded Bar DIN 975 / DIN 976", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s13"]),
+      createSteelTypeItem("Tee Bolt - Inch", SITE_IMAGES.steel.fasteners.types.specialFastenersBars.s14),
+      createSteelTypeItem("Carriage Bolt ASTM A307", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s15"]),
+      createSteelTypeItem("Trackshoe Bolt - Inch", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s16"]),
+      createSteelTypeItem("Square Nut - Inch", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s17"]),
+      createSteelTypeItem("Threaded Bar ASTM A193", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s18"]),
+      createSteelTypeItem("Threaded Bar ASTM A307", SITE_IMAGES.steel.fasteners.types["specialFastenersBars"]["s19"]),
     ],
   },
 ];
@@ -787,7 +550,7 @@ const toSteelProduct = (source: SteelFastenerSource): SteelProduct => ({
   Grades: formatSteelList(source.grades, 6),
   Standards: formatSteelList(source.standards, 6),
   Application: source.application,
-  thumbnail: source.thumbnailImage,
+  thumbnail: source.thumbnail,
   OD: source.sizeRange,
   Type: formatSteelList(source.typeSummary, 6),
   Material: formatSteelList(source.materialFamilies, 5),
@@ -798,7 +561,7 @@ const toSteelProduct = (source: SteelFastenerSource): SteelProduct => ({
     source.certification ?? Array.from(FASTENER_COMMON_CERTIFICATIONS),
   Testing: source.testing,
   Applications: source.applications,
-  applicationImage: source.thumbnailImage,
+  applicationImage: source.thumbnail,
   descriptionParagraphs: source.descriptionParagraphs,
   typeGallery: createSteelTypeGallery(
     `${source.name} Types`,

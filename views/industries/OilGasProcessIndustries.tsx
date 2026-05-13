@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'hardware',
         useCases: 'Oil & gas pipelines, refinery structures, chemical process lines, LNG terminals.',
         assurance: 'Stainless steel, duplex, carbon steel; API 5L / ASTM compliance; MTCs per heat.',
-        image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.oilGas.products.refineryAerial,
     },
     {
         title: 'Modular Skids & Assemblies',
         icon: 'precision_manufacturing',
         useCases: 'Process plants, refineries, LNG terminals, fertilizer units.',
         assurance: 'Pre‑fabricated modules; CNC machining; API 6D / API 600 compliant; traceable BOMs.',
-        image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.oilGas.products.pipelines,
     },
     {
         title: 'Welding & Allied',
         icon: 'construction',
         useCases: 'Pipeline fabrication, process equipment welding, offshore platforms.',
         assurance: 'AWS/ASME certified consumables; flux‑cored & solid wires; NDT tested; standardized SOPs.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.oilGas.products.industrialWeld,
     },
     {
         title: 'Process Equipment & Structural Steel Fabrication',
         icon: 'engineering',
         useCases: 'Refinery structures, pressure vessels, modular skids, chemical plant assemblies.',
         assurance: 'Audited fabrication partners; PMI testing; ASME Section VIII compliance.',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.oilGas.products.heavyConstruction,
     },
     {
         title: 'Cable & Cable Trays',
         icon: 'cable',
         useCases: 'Power and control routing for refineries, instrumentation networks, offshore rigs.',
         assurance: 'IEC/IS compliant control cables; FRP, SS, and GI cable trays; fire‑resistant and hazardous area compliance.',
-        image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.oilGas.products.energyInfra,
     },
 ];
 
@@ -646,7 +647,7 @@ const OilGasProcessIndustries: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.oilGas.cta}
                     alt="Oil refinery at night"
                     fill
                     className="object-cover"

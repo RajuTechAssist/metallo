@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,28 +23,28 @@ const PRODUCTS = [
         icon: 'cable',
         useCases: 'Transmission lines, substations, industrial plants.',
         assurance: 'IEC/IS compliance, dielectric testing, MTCs.',
-        image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.powerTransmission.products.solarField,
     },
     {
         title: 'Transformers (Distribution & Power)',
         icon: 'electrical_services',
         useCases: 'Grid expansion, industrial plants, renewable integration.',
         assurance: 'SOP‑driven assembly, third‑party lab validation, traceability protocols.',
-        image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.powerTransmission.products.windTurbines,
     },
     {
         title: 'Substation Assemblies',
         icon: 'settings_input_component',
         useCases: 'Modular fabrication for rapid deployment at substations.',
         assurance: 'CNC and sheet‑metal partners audited to SOPs, standardized BOMs.',
-        image: 'https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.powerTransmission.products.highVoltage,
     },
     {
         title: 'Cable Trays & Supports',
         icon: 'grid_view',
         useCases: 'Utility projects, substations, industrial facilities.',
         assurance: 'Standardized load ratings, galvanization, corrosion resistance.',
-        image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.powerTransmission.products.substation,
     },
 ];
 
@@ -627,7 +628,7 @@ const PowerTransmission: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.powerTransmission.cta}
                     alt="Power transmission lines"
                     fill
                     className="object-cover"
