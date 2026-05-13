@@ -1,7 +1,7 @@
-/* ─── PIPES IMAGES ────────────────────────────────────────────── */
+/* ─── PROCESS PIPING IMAGES ──────────────────────────────────── */
 
-export const PIPES_IMAGES = {
-  hero: '/pipes/shop-fabricated-piping.png',
+export const PROCESS_PIPING_IMAGES = {
+  hero: '/pipes/piping_hero1.png',
   products: {
     shopFabricatedPiping: '/pipes/shop-fabricated-piping.png',
     skidModularPiping: '/pipes/skid-modular-piping.png',

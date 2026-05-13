@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import Pipes from "@/views/products/Pipes";
+import ProcessPiping from "@/views/products/ProcessPiping";
 
 export const metadata: Metadata = {
-  title: "Industrial Pipes — Process Flow Systems",
+  title: "Process Piping — Industrial Flow Systems",
   description:
     "Fabricated piping packages, modular skids, and bends for process flow systems. Includes QC, pilot plants, and logistics for end-to-end project delivery.",
   openGraph: {
-    title: "Industrial Pipes — Process Flow Systems | METALLO Industrial",
+    title: "Process Piping — Industrial Flow Systems | METALLO Industrial",
     description:
       "Fabricated piping packages, modular skids, and bends for process flow systems. Includes QC, pilot plants, and logistics for end-to-end project delivery.",
-    url: "/products/pipes",
+    url: "/products/process-piping",
     type: "website",
   },
-  alternates: { canonical: "/products/pipes" },
+  alternates: { canonical: "/products/process-piping" },
 };
 
 export default function Page() {
-  return <Pipes />;
+  return <ProcessPiping />;
 }

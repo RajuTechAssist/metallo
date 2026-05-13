@@ -1,7 +1,7 @@
 /* ─── FABRICATED STRUCTURES IMAGES ────────────────────────────── */
 
 export const FABRICATED_STRUCTURES_IMAGES = {
-  hero: '/fabricated-structures/fabricated-structures.png',
+  hero: '/fabricated-structures/fabricated_structure4.png',
   products: {
     preEngineeredBuilding: '/fabricated-structures/pre-engineered-building.png',
     primaryFraming: '/fabricated-structures/primary-framing.png',

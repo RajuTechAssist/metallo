@@ -4,9 +4,9 @@ export const WELDING_IMAGES = {
 
   /* Welding hero carousel */
   hero: {
-    slide1: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80',
-    slide2: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80',
-    slide3: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1920&q=80',
+    slide1: '/pipes/wb_alloys_plant.png',
+    slide2: '/pipes/induction-bending.jpg',
+    slide3: '/Welding Consumables/welding_allied2.jpg',
   },
 
   /* Welding about section */

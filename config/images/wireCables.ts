@@ -1,7 +1,7 @@
 /* --- WIRE & CABLE IMAGES --------------------------------------- */
 
 export const WIRE_CABLE_IMAGES = {
-  hero: '/wire&cable/Hero_wire&cable.png',
+  hero: '/wire&cable/wire&cable_page_image4.jpg',
   products: {
     lt: {
       singleCoreUnarmoured: {

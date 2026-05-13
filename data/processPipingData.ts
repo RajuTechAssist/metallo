@@ -1,14 +1,14 @@
 import type { ConfigurableProductPageData } from "@/components/product";
 import { SITE_IMAGES } from "@/config/images";
 
-export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
+export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
   hero: {
-    backgroundImage: SITE_IMAGES.pipes.hero,
+    backgroundImage: SITE_IMAGES.processPiping.hero,
     title: "Pipes & Piping Solutions",
     subtitle: "Built for Critical Flow.",
     description:
       "Process piping, modular skids, induction bends, heavy fabrication, pilot plants, and delivery support assembled into one source-driven offering for power, oil and gas, petrochemical, and industrial projects.",
-    breadcrumbLabel: "Pipes",
+    breadcrumbLabel: "Process Piping",
   },
   categories: [
     {
@@ -31,7 +31,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
     },
   ] as const,
   defaultCategoryKey: "piping",
-  verticalKey: "pipes",
+  verticalKey: "processPiping",
   certBadge: "Engineering / QC / Delivery",
   items: [
     {
@@ -41,7 +41,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Shop Fabricated Piping",
       description:
         "A comprehensive process-piping package covering engineering, cutting and beveling, robotic and automatic welding, radiography, PWHT, hydro testing, passivation, blasting, and painting for complex industrial systems.",
-      image: SITE_IMAGES.pipes.products.shopFabricatedPiping,
+      image: SITE_IMAGES.processPiping.products.shopFabricatedPiping,
       applications: ["Power Projects", "Process Plants", "Oil & Gas", "Alloy Service Lines"],
       badges: [{ label: "Robotic Welding", tone: "accent" }],
       specifications: [
@@ -84,7 +84,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Skid & Modular Piping",
       description:
         "Advanced pipe-rack and processing structures delivered as modular skids, designed for petrochemical, natural gas, and energy projects where safer installation, faster commissioning, and scalable layouts matter.",
-      image: SITE_IMAGES.pipes.products.skidModularPiping,
+      image: SITE_IMAGES.processPiping.products.skidModularPiping,
       applications: ["Petrochemicals", "Natural Gas", "Energy Projects", "Process Modules"],
       badges: [{ label: "Fast-Track Modules", tone: "accent" }],
       specifications: [
@@ -119,7 +119,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "High-Frequency Induction Bending",
       description:
         "Weld-less pipe spools and bends manufactured through high-frequency induction heating, covering seamless and LSAW bends in carbon, alloy, stainless, super duplex, and incoloy grades for demanding service conditions.",
-      image: SITE_IMAGES.pipes.products.inductionBending,
+      image: SITE_IMAGES.processPiping.products.inductionBending,
       applications: [
         "Thermal & Nuclear Power",
         "Oil & Gas",
@@ -159,7 +159,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Facility for Heavy Fabrication",
       description:
         "Metallo's heavy fabrication facility is dedicated to renewable-power and heavy piping work, producing wind turbine towers, industrial stacks, pressure vessels, steel fabrication, and LSAW pipe structures.",
-      image: SITE_IMAGES.pipes.products.heavyFabrication,
+      image: SITE_IMAGES.processPiping.products.heavyFabrication,
       applications: ["Renewable Power", "Industrial Stacks", "Pressure Equipment", "Large Pipe Structures"],
       badges: [{ label: "Large Diameter", tone: "accent" }],
       specifications: [
@@ -193,7 +193,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Industrial Pipe Fittings",
       description:
         "Industrial fittings for internal pipe spool fabrication and OEM supply, including elbows, tees, end caps, reducers, couplings, bends, plugs, and stub ends along with custom Y-pieces and long U-bends.",
-      image: SITE_IMAGES.pipes.products.pipeFittings,
+      image: SITE_IMAGES.processPiping.products.pipeFittings,
       applications: ["Pipe Spools", "OEM Supply", "Power Projects", "Oil & Gas"],
       badges: [{ label: "OEM Supply", tone: "neutral" }],
       specifications: [
@@ -227,7 +227,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Engineering Services",
       description:
         "Metallo's engineering services run in parallel with fabrication, covering pipe sizing, pressure-drop calculations, 3D modelling, stress analysis, support engineering, isometrics, layout engineering, spooling, and statutory documentation support.",
-      image: SITE_IMAGES.pipes.products.engineeringServices,
+      image: SITE_IMAGES.processPiping.products.engineeringServices,
       applications: ["3D Plant Models", "Stress Analysis", "Routing Layouts", "Bid Support"],
       badges: [{ label: "3D Modelling", tone: "accent" }],
       specifications: [
@@ -264,7 +264,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Pilot Plant",
       description:
         "Metallo delivers pilot plants as a turnkey solution spanning concept development, 3D modelling, process simulation, control engineering, fabrication, construction, installation, and commissioning for innovation-led process industries.",
-      image: SITE_IMAGES.pipes.products.pilotPlant,
+      image: SITE_IMAGES.processPiping.products.pilotPlant,
       applications: ["Green Chemistry", "Renewable Energy", "Specialty Chemicals", "Process R&D"],
       badges: [{ label: "Concept to Commissioning", tone: "accent" }],
       specifications: [
@@ -300,7 +300,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Quality Control Testing and Certifications",
       description:
         "Metallo operates a multilevel quality-control stack that starts with incoming materials and continues through process-stage checks, internal audits, ERP-based traceability, and certification-backed management systems.",
-      image: SITE_IMAGES.pipes.products.qualityControl,
+      image: SITE_IMAGES.processPiping.products.qualityControl,
       applications: ["Material Traceability", "Regulatory Compliance", "Inspection Readiness", "Project QA"],
       badges: [{ label: "ERP Traceability", tone: "accent" }],
       specifications: [
@@ -334,7 +334,7 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Packaging, Freight and Transportation",
       description:
         "Metallo's logistics capability covers packing, domestic and export dispatch coordination, consignee and door-delivery models, clearance workflows, and Incoterm-based shipment handling through third-party logistics networks.",
-      image: SITE_IMAGES.pipes.products.packagingShipping,
+      image: SITE_IMAGES.processPiping.products.packagingShipping,
       applications: ["Door Delivery", "Export Shipments", "Port Dispatch", "Project Logistics"],
       badges: [{ label: "Export Ready", tone: "neutral" }],
       specifications: [
@@ -399,3 +399,4 @@ export const PIPES_PAGE_DATA: ConfigurableProductPageData = {
     ctaIcon: "request_quote",
   },
 };
+

@@ -1,12 +1,5 @@
 export const STEEL_IMAGES = {
-  hero: {
-    pipesTubes: '/Steel/pipes&tubes1.png',
-    sheetsPlates: '/Steel/SHEETS&PLATES.png',
-    flanges: '/Steel/flanges1.png',
-    pipeFittings: '/Steel/pipe-fittings3.png',
-    fastenersBars: '/Steel/Fasteners-Bars.png',
-    gaskets: '/Steel/gaskets1.png',
-  },
+  hero: '/Steel/steel_hero2.jpg',
   pipesTubes: {
     seamlessPipe1: '/Steel/pipes-tubes/seamless-pipe1.png',
     types: {
@@ -25,11 +18,11 @@ export const STEEL_IMAGES = {
         sch10SsWeldedPipe1Png: '/Steel/pipes-tubes/types/erw/sch-10-ss-welded-pipe1.png',
       },
       tube: {
-        stainlessSteelSeamlessTube11Png: '/Steel/pipes-tubes/types/tube/stainless-steel-seamless-tube1.png',
-        ssWeldedTubing11Png: '/Steel/pipes-tubes/types/tube/ss-welded-tubing1.png',
-        coldDrawnStainlessSteelTube11Png: '/Steel/pipes-tubes/types/tube/cold-drawn-stainless-steel-tube1.png',
-        stainlessSteelRoundTube11Png: '/Steel/pipes-tubes/types/tube/stainless-steel-round-tube1.png',
-        ssThickWallTubes11Png: '/Steel/pipes-tubes/types/tube/ss-thick-wall-tubes1.png',
+        stainlessSteelSeamlessTube11Png: '/Steel/placeholder-stainlessSteelSeamlessTube11Png.jpg',
+        ssWeldedTubing11Png: '/Steel/placeholder-ssWeldedTubing11Png.jpg',
+        coldDrawnStainlessSteelTube11Png: '/Steel/placeholder-coldDrawnStainlessSteelTube11Png.jpg',
+        stainlessSteelRoundTube11Png: '/Steel/placeholder-stainlessSteelRoundTube11Png.jpg',
+        ssThickWallTubes11Png: '/Steel/placeholder-ssThickWallTubes11Png.jpg',
       },
       polished: {
         stainlessSteelPolishedPipe1Png: '/Steel/pipes-tubes/types/polished/stainless-steel-polished-pipe1.png',
@@ -57,7 +50,7 @@ export const STEEL_IMAGES = {
         duplex2205Tube1Png: '/Steel/pipes-tubes/types/duplex/duplex-2205-tube1.png',
         astmA790GrS32205Tubing1Png: '/Steel/pipes-tubes/types/duplex/astm-a790-gr-s32205-tubing1.png',
         duplexStainlessSteelPipe1Png: '/Steel/pipes-tubes/types/duplex/duplex-stainless-steel-pipe1.png',
-        '2205SteelErwPipe1Pngg': '/Steel/pipes-tubes/types/duplex/2205-steel-erw-pipe1.png',
+        '2205SteelErwPipe1Pngg': '/Steel/placeholder-2205SteelErwPipe1Pngg.jpg',
       },
       hollow: {
         stainlessSteelSquareHollowSection1Png: '/Steel/pipes-tubes/types/hollow/stainless-steel-square-hollow-section1.png',

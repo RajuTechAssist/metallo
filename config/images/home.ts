@@ -9,7 +9,7 @@ export const HOME_IMAGES = {
     cableTrays:          '/cable Trays/cable_tray3.jpg',
     weldingConsumables:  '/Welding Consumables/welding_allied1.jpg',
     powerTools:          '/powerTools/power_tool.jpg',
-    pipes:               '/pipes/piping_solution.jpg',
+    processPiping:       '/pipes/piping_solution.jpg',
     fabricatedStructures: '/fabricated-structures/fabricated_structure2.png',
     // dieCasting:       '/diecasting/die-casting-process-foundry.jpg',
     // industrialTech:   '/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg',

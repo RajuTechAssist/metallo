@@ -17,7 +17,7 @@ import { STEEL_IMAGES } from './images/steel';
 import { ABOUT_IMAGES } from './images/about';
 import { MISC_IMAGES } from './images/misc';
 import { POWER_TOOLS_IMAGES } from './images/powerTools';
-import { PIPES_IMAGES } from './images/pipes';
+import { PROCESS_PIPING_IMAGES } from './images/processPiping';
 import { DIE_CASTING_IMAGES } from './images/dieCasting';
 import { INDUSTRIAL_TECH_IMAGES } from './images/industrialTech';
 import { FABRICATED_STRUCTURES_IMAGES } from './images/fabricated';
@@ -32,7 +32,7 @@ export const SITE_IMAGES = {
   about:       ABOUT_IMAGES,
   misc:        MISC_IMAGES,
   powerTools:      POWER_TOOLS_IMAGES,
-  pipes:                 PIPES_IMAGES,
+  processPiping:         PROCESS_PIPING_IMAGES,
   dieCasting:            DIE_CASTING_IMAGES,
   industrialTech:        INDUSTRIAL_TECH_IMAGES,
   fabricatedStructures:  FABRICATED_STRUCTURES_IMAGES,

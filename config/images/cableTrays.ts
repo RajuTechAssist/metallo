@@ -8,7 +8,7 @@ export const CABLE_TRAY_IMAGES = {
   cableTrayCoverDs00: '/cable Trays/metallo_cable_trays/Cable_Tray_Cover_DS00.png',
   cableTrayCoverPt00: '/cable Trays/metallo_cable_trays/Cable_Tray_Cover_PT00.png',
   cableTrayCoverVt00: '/cable Trays/metallo_cable_trays/Cable_Tray_Cover_VT00.png',
-  cabletrayherosection: '/cable Trays/cable_tray2.jpg',
+  cabletrayherosection: '/cable Trays/cable_tray5.jpg',
   cChannelForHanging: '/cable Trays/metallo_cable_trays/Accessories/PCT_Accessories/c-channel-for-hanging.webp',
   ctcaHorizontalBend: '/cable Trays/metallo_cable_trays/Accessories/CTC_Accessories/CTCA_Horizontal_Bend.png',
   ctcaHorizontalCross: '/cable Trays/metallo_cable_trays/Accessories/CTC_Accessories/CTCA_Horizontal_Cross.png',

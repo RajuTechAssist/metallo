@@ -249,7 +249,7 @@ const WeldingHero: React.FC = () => {
               </motion.p>
 
               {/* CTA */}
-              <motion.div
+              {/* <motion.div
                 variants={ctaVariants}
                 initial="initial"
                 animate="animate"
@@ -264,7 +264,7 @@ const WeldingHero: React.FC = () => {
                     arrow_forward
                   </span>
                 </Link>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </AnimatePresence>
         </div>

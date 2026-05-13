@@ -23,13 +23,8 @@ function setDeep(obj, pathArr, value) {
   current[pathArr[pathArr.length - 1]] = value;
 }
 
-// Pre-fill hero since it was removed from data files in the last turn
-setDeep(steelObj, ['hero', 'pipesTubes'], "'/Steel/pipes-tubes/seamless-pipe1.png'");
-setDeep(steelObj, ['hero', 'sheetsPlates'], "'/Steel/sheets-plates/shared/sheets-plates.jpg'");
-setDeep(steelObj, ['hero', 'flanges'], "'/Steel/flanges/weld-neck-flange.jpg'");
-setDeep(steelObj, ['hero', 'pipeFittings'], "'/Steel/pipe-fittings/forged-fittings.jpg'");
-setDeep(steelObj, ['hero', 'fastenersBars'], "'/Steel/fasteners-bars/stainless.jpg'");
-setDeep(steelObj, ['hero', 'gaskets'], "'/Steel/sealing-gaskets/types/ring-gasket/bonnet-gasket.jpg'");
+// Pre-fill hero
+steelObj.hero = "'/Steel/steel_hero.jpg'";
 
 const regex = /SITE_IMAGES\.steel\.([a-zA-Z0-9_.[\]'"]+)/g;
 

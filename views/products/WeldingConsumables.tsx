@@ -13,14 +13,8 @@ import {
 } from "../../components/product";
 import { QA_ITEMS } from "@/data/weldingData";
 
-const OVERVIEW_NAV_ITEMS = [
-  { id: "ecosystem", label: "Ecosystem" },
-  { id: "industries", label: "Industries" },
-  { id: "Products", label: "Products" },
-  { id: "quality", label: "Quality & Certifications" },
-];
-
-const PRODUCTS_NAV_ITEMS = [
+const NAV_ITEMS = [
+  { id: "overview", label: "Overview" },
   { id: "consumables", label: "Consumables" },
   { id: "automation", label: "Automation" },
   { id: "accessories", label: "Accessories & Tools" },
@@ -35,66 +29,13 @@ const WeldingPageContent: React.FC = () => {
   const validCategories = ["consumables", "automation", "accessories", "safety"];
   const isProductsView = categoryParam && validCategories.includes(categoryParam);
 
-  const activeNavItems = isProductsView ? PRODUCTS_NAV_ITEMS : OVERVIEW_NAV_ITEMS;
-  const defaultActive = isProductsView ? categoryParam : "ecosystem";
-  
-  const [activeSection, setActiveSection] = useState<string>(defaultActive);
+  const activeSection = isProductsView && categoryParam ? categoryParam : "overview";
 
-  // Sync state when categoryParam changes
-  useEffect(() => {
-    if (isProductsView && categoryParam) {
-      setActiveSection(categoryParam);
-      // Optional: scroll slightly down to the catalog section
-      setTimeout(() => {
-        const el = document.getElementById("catalog-section");
-        if (el) {
-          const offset = 100;
-          const top = el.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }, 100);
+  const handleNavClick = (id: string) => {
+    if (id === "overview") {
+      router.push("/products/welding", { scroll: true });
     } else {
-      setActiveSection("ecosystem");
-    }
-  }, [categoryParam, isProductsView]);
-
-  // Scrollspy for the overview view
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isProductsView) return; // Disable scrollspy in products view
-
-      const sections = activeNavItems.map((item) => ({
-        id: item.id,
-        el: document.getElementById(item.id),
-      }));
-
-      const scrollPos = window.scrollY + 180;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = sections[i].el;
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeNavItems, isProductsView]);
-
-  const scrollToSection = (id: string) => {
-    if (isProductsView) {
-      // Navigate to the other category
-      router.push(`/products/welding?category=${id}`, { scroll: false });
-      return;
-    }
-
-    const el = document.getElementById(id);
-    if (el) {
-      const offset = 130;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
+      router.push(`/products/welding?category=${id}`, { scroll: true });
     }
   };
 
@@ -110,10 +51,10 @@ const WeldingPageContent: React.FC = () => {
               className="flex items-center gap-0 overflow-x-auto"
               style={{ scrollbarWidth: "none" }}
             >
-              {activeNavItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className={`relative whitespace-nowrap px-5 py-4 text-sm font-heading font-bold uppercase tracking-wider transition-colors shrink-0 ${
                     activeSection === item.id
                       ? "text-yellow-600"
@@ -127,33 +68,12 @@ const WeldingPageContent: React.FC = () => {
                 </button>
               ))}
             </div>
-
-            {/* Back to Overview button when in Products View */}
-            {isProductsView && (
-              <button 
-                onClick={() => router.push("/products/welding")}
-                className="hidden md:flex items-center gap-1 text-sm font-bold font-heading text-metallo-navy hover:text-yellow-600 transition-colors uppercase tracking-wider whitespace-nowrap px-4"
-              >
-                <span className="material-symbols-outlined text-base">arrow_back</span>
-                Overview
-              </button>
-            )}
           </div>
         </div>
       </nav>
 
       {isProductsView && categoryParam ? (
-        <div id="catalog-section" className="min-h-screen">
-          {/* Mobile Back Button */}
-          <div className="md:hidden container pt-6">
-             <button 
-                onClick={() => router.push("/products/welding")}
-                className="flex items-center gap-1 text-sm font-bold font-heading text-metallo-navy hover:text-yellow-600 transition-colors uppercase tracking-wider"
-              >
-                <span className="material-symbols-outlined text-base">arrow_back</span>
-                Back to Overview
-              </button>
-          </div>
+        <div id="catalog-section" className="min-h-screen pt-4">
           <WeldingProductCatalog categoryKey={categoryParam} />
           
           <section id="quality" className="bg-white">

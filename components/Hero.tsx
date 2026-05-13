@@ -67,11 +67,11 @@ const SLIDES: Slide[] = [
   },
   {
     id: "06",
-    category: "Pipes",
+    category: "Process Piping",
     title: "Process Flow Systems.",
     desc: "Fabricated piping packages, modular skids, and bends. Engineered and tested for mission-critical industrial flow networks.",
-    image: SITE_IMAGES.home.hero.pipes,
-    link: PRODUCT_VERTICAL_BY_KEY.pipes.path,
+    image: SITE_IMAGES.home.hero.processPiping,
+    link: PRODUCT_VERTICAL_BY_KEY.processPiping.path,
   },
   {
     id: "07",
