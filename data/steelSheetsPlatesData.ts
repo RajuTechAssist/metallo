@@ -121,7 +121,7 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
     subCategory: "Carbon and Boiler Plates",
     thumbnail: SITE_IMAGES.steel.sheetsPlates.csCoils,
     sourceUrl:
-      "https://www.kencotubes.com/carbon-steel-sheets-plates-supplier-exporter.html",
+      "",
     descriptionParagraphs: [
       "Metallo's carbon and boiler-quality flat stock is structured around a wide grade matrix, heavy thickness coverage, and fabrication-ready forms for structural platework, tanks, pressure parts, boiler shells, and general industrial steelwork where stainless is unnecessary.",
       "The sourced catalogue reaches from general carbon sheets and coils through chequered, perforated, galvanized, black, and boiler-quality plates. Metallo positions this family for projects that need mainstream carbon-steel sheet and plate supply with specification discipline rather than commodity-only purchasing.",

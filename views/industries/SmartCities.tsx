@@ -148,7 +148,7 @@ const SmartCities: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/smartCities1.jpg"
+                    src={SITE_IMAGES.industries.smartCities.hero}
                     alt="Smart cities and urban development"
                     fill
                     className="object-cover"

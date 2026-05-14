@@ -148,7 +148,7 @@ const RailwaysDefence: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/railway-defense.png"
+                    src={SITE_IMAGES.industries.railways.hero}
                     alt="Railways and defence manufacturing"
                     fill
                     className="object-cover"

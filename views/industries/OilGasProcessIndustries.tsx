@@ -148,7 +148,7 @@ const OilGasProcessIndustries: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/oil-gas2.png"
+                    src={SITE_IMAGES.industries.oilGas.hero}
                     alt="Oil and gas process industries"
                     fill
                     className="object-cover"

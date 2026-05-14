@@ -148,7 +148,7 @@ const HeavyEngineering: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/heavyEngineering1.png"
+                    src={SITE_IMAGES.industries.heavyEngineering.hero}
                     alt="Heavy engineering fabrication"
                     fill
                     className="object-cover"

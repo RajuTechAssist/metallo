@@ -140,7 +140,7 @@ const PowerTransmission: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/power&Transmission1.png"
+                    src={SITE_IMAGES.industries.powerTransmission.hero}
                     alt="Power transmission infrastructure"
                     fill
                     className="object-cover"

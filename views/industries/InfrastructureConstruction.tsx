@@ -146,7 +146,7 @@ const InfrastructureConstruction: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/infrastructure-construction.png"
+                    src={SITE_IMAGES.industries.infrastructure.hero}
                     alt="Infrastructure and construction site"
                     fill
                     className="object-cover"

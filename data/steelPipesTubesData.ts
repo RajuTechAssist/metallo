@@ -57,7 +57,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Stainless Steel Seamless Pipe",
     subCategory: "Seamless Pipes",
     materialGroup: "ss",
-    thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe1,
+    thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe,
     sourceUrl: "https://www.triloksteel.com/stainless-steel-seamless-pipe.html",
     descriptionParagraphs: [
       "Metallo supplies stainless steel seamless pipe for pressure-duty lines where weld-free construction, tighter integrity under cyclic loading, and dependable corrosion resistance are the main project drivers. The sourced range is positioned around ASTM A312 and EN 10216-5 manufacturing, covering the core austenitic grades used in process piping, utility headers, fabrication spools, and plant maintenance stock.",
@@ -437,9 +437,8 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Galvanized Iron Conduit and Utility Pipe",
     subCategory: "GI / Conduit Pipes",
     materialGroup: "gi",
-    thumbnail: SITE_IMAGES.steel.pipesTubes.conduitPipe,
-    imagePath: steelImage("Galvanised-Iron-Pipe.png"),
-    sourceUrl: "https://www.triloksteel.com/stainless-steel-conduit-pipe.html",
+    thumbnail: SITE_IMAGES.steel.pipesTubes.giPipe,
+    sourceUrl: "",
     descriptionParagraphs: [
       "Metallo's galvanized iron conduit and utility pipe range is intended for cable protection, low-pressure service, and exposed utility routing where a zinc-coated exterior still makes the most commercial sense. The sourced conduit reference highlights rigid threaded installation, galvanized construction, smooth-finish conduit supply, and practical size coverage used in electrical and building services work.",
       "We position this family for commercial buildings, utility corridors, maintenance retrofits, and plant support systems that need dependable conduit runs without moving into stainless for every application. It keeps the Steel page's GI offering active for buyers who specifically want galvanized pipe and conduit options alongside stainless and specialty ranges.",
@@ -498,8 +497,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     name: "Carbon Steel and Mild Steel Pipe",
     subCategory: "MS / CS Pipes",
     materialGroup: "ms",
-    thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe,
-    imagePath: steelImage("Customised-Steel-Pipe.png"),
+    thumbnail: SITE_IMAGES.steel.pipesTubes.carbonPipe,
     sourceUrl: "https://www.triloksteel.com/",
     descriptionParagraphs: [
       "Metallo's carbon steel and mild steel pipe range is included for buyers who still need mainstream line pipe, utility pipe, and fabrication stock alongside the stainless and specialty products in the Steel catalogue. The reference material used for this range covers carbon steel pipes and tubes, low-temperature carbon steel variants, and general MS pipe supply for industrial utility and structural service.",
