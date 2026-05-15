@@ -21,6 +21,17 @@ export const HOME_IMAGES = {
     roboticWelding:      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=85&auto=format&fit=crop',
   },
 
+  /* Product Verticals showcase section */
+  verticals: {
+    steel: '/industrialTech/steel.png',
+    wireCable: '/industrialTech/wire.png',
+    cableTrays: '/industrialTech/cable-tray.png',
+    weldingConsumables: '/industrialTech/welding.png',
+    powerTools: '/powerTools/powerTools1.png',
+    processPiping: '/industrialTech/pipes.png',
+    fabricatedStructures: '/industrialTech/Fabricated.png',
+  },
+
   partners: {
     sail: '/partners/sail.png',
     tataSteel: '/partners/tata-steel.png',
