@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'train',
         useCases: 'Coach underframes, bogie components, couplers, mounting brackets, defence chassis and structural frames.',
         assurance: 'IS:2062/ASTM grades; RDSO‑aligned welding SOPs; dimensional inspection; MTCs per heat lot.',
-        image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.railways.products.trainStation,
     },
     {
         title: 'Signal & Power Cables',
         icon: 'cable',
         useCases: 'Signaling cables, LV/HV train power cables, control & instrumentation cables, fire‑rated FRLS/LSZH coach wiring.',
         assurance: 'BIS/RDSO certified; IS/IEC compliant; hi‑pot & continuity tested; fire‑rated (FRLS/LSZH) options.',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.railways.products.precisionWiring,
     },
     {
         title: 'Cable Trays & Routing Systems',
         icon: 'account_tree',
         useCases: 'Under‑coach cable routing, depot infrastructure, signal equipment housing, defence shelter cable management.',
         assurance: 'IEC 61537/IS 16230; hot‑dip GI/SS/powder‑coated; fire‑rated; custom sizes for coach profiles.',
-        image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.railways.products.roboticAutomation,
     },
     {
         title: 'Welding Consumables & Electrodes',
         icon: 'whatshot',
         useCases: 'Coach body assembly welding, bogie frame joining, structural fabrication for rail/defence platforms.',
         assurance: 'AWS/ASME certified; flux‑cored & solid wires; RDSO‑approved and MIL-SPEC grades; standardized SOPs across global manufacturing network.',
-        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.railways.products.steelFabrication,
     },
     {
         title: 'Precision Die‑Cast & CNC Components',
         icon: 'precision_manufacturing',
         useCases: 'Rail fittings, sensor brackets, latch housings, defence equipment mounts, CNC‑machined brackets and assemblies.',
         assurance: 'Al/Zn die‑cast; CNC finishing ±0.05 mm; X‑ray porosity checks; serialized part IDs; PPAP packs.',
-        image: 'https://images.unsplash.com/photo-1504222490345-c075b6008014?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.railways.products.evMobility,
     },
 ];
 
@@ -147,7 +148,7 @@ const RailwaysDefence: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/railway-defense.png"
+                    src={SITE_IMAGES.industries.railways.hero}
                     alt="Railways and defence manufacturing"
                     fill
                     className="object-cover"
@@ -695,7 +696,7 @@ const RailwaysDefence: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.railways.cta}
                     alt="Railway infrastructure manufacturing"
                     fill
                     className="object-cover"

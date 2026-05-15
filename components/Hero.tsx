@@ -5,6 +5,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { PRODUCT_VERTICAL_BY_KEY } from "@/lib/productVerticals";
+import { SITE_IMAGES } from '@/config/images';
 
 /* ═══════════════════════════════════════════════════════════════
    CINEMATIC HERO SLIDER
@@ -29,7 +30,7 @@ const SLIDES: Slide[] = [
     category: "Steel",
     title: "Infinite Capacity. Standardized Quality.",
     desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
-    image: "/Steel/oil_industry1.jpg",
+    image: SITE_IMAGES.home.hero.steel,
     link: PRODUCT_VERTICAL_BY_KEY.steel.path,
   },
   {
@@ -37,7 +38,7 @@ const SLIDES: Slide[] = [
     category: "Wire & Cable",
     title: "Powering the National Grid.",
     desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
-    image: "/wire&cable/wireCables.jpg",
+    image: SITE_IMAGES.home.hero.wireCable,
     link: PRODUCT_VERTICAL_BY_KEY.cables.path,
   },
   {
@@ -45,7 +46,7 @@ const SLIDES: Slide[] = [
     category: "Cable Trays",
     title: "Structural Routing Systems",
     desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
-    image: "/cable Trays/cableTrays2.jpg",
+    image: SITE_IMAGES.home.hero.cableTrays,
     link: PRODUCT_VERTICAL_BY_KEY.cabletray.path,
   },
   {
@@ -53,7 +54,7 @@ const SLIDES: Slide[] = [
     category: "Welding Consumables",
     title: "Mission-Critical Precision.",
     desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
-    image: "/Welding Consumables/welding_consumables.jpg",
+    image: SITE_IMAGES.home.hero.weldingConsumables,
     link: PRODUCT_VERTICAL_BY_KEY.welding.path,
   },
   {
@@ -61,23 +62,23 @@ const SLIDES: Slide[] = [
     category: "Power Tools",
     title: "Heavy-Duty Execution at Scale.",
     desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
-    image: "/powerTools/powerTools2.png",
+    image: SITE_IMAGES.home.hero.powerTools,
     link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
   {
     id: "06",
-    category: "Pipes",
+    category: "Process Piping",
     title: "Process Flow Systems.",
     desc: "Fabricated piping packages, modular skids, and bends. Engineered and tested for mission-critical industrial flow networks.",
-    image: "/pipes/shop-fabricated-piping.png",
-    link: PRODUCT_VERTICAL_BY_KEY.pipes.path,
+    image: SITE_IMAGES.home.hero.processPiping,
+    link: PRODUCT_VERTICAL_BY_KEY.processPiping.path,
   },
   {
     id: "07",
     category: "Fabricated Structures",
     title: "Engineered Steel Systems.",
     desc: "From PEB frameworks to heavy workshop fabrication. End-to-end structural solutions built for rapid assembly and lifetime durability.",
-    image: "/fabricated-structures/cold-form-section.png",
+    image: SITE_IMAGES.home.hero.fabricatedStructures,
     link: PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path,
   },
   // {

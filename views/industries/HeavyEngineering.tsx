@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'foundation',
         useCases: 'Bridge girders, portal frames, heavy trusses, steel bridges, industrial building frames.',
         assurance: 'ASTM/IS:2062 steel; certified welding SOPs; dimensional inspection; MTCs per heat lot.',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.heavyEngineering.products.heavyStructural,
     },
     {
         title: 'Pressure Equipment & Vessels',
         icon: 'propane_tank',
         useCases: 'Boilers, heat exchangers, storage tanks, process vessels, reactors for cement and steel plants.',
         assurance: 'ASME Section VIII; NDT (RT/UT/MT/PT); PMI testing; third‑party lab certification; MTCs.',
-        image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.heavyEngineering.products.industrialPipes,
     },
     {
         title: 'Industrial Machinery Assemblies',
         icon: 'precision_manufacturing',
         useCases: 'Gear housings, base frames, heavy skids, crusher assemblies for mining, cement, and steel.',
         assurance: 'CNC machining; alignment services; pre‑assembly; PMI; traceable material certificates.',
-        image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.heavyEngineering.products.pipelineWelding,
     },
     {
         title: 'Modular Plant Modules & Skids',
         icon: 'grid_view',
         useCases: 'Pre‑assembled modules for rapid on‑site erection, reducing field welding and delays.',
         assurance: 'Coordinated multi‑site fabrication; unified BOM; serialized batch IDs; load‑out planning.',
-        image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.heavyEngineering.products.roboticMfg,
     },
     {
         title: 'Heavy Plate & Section Work',
         icon: 'layers',
         useCases: 'Rolled plates, welded sections, machined mating surfaces for heavy structural applications.',
         assurance: 'SS/carbon steel grades; traceable MTCs; surface finish per spec; hydrostatic testing.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.heavyEngineering.products.plantProcess,
     },
 ];
 
@@ -147,7 +148,7 @@ const HeavyEngineering: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/heavyEngineering1.png"
+                    src={SITE_IMAGES.industries.heavyEngineering.hero}
                     alt="Heavy engineering fabrication"
                     fill
                     className="object-cover"
@@ -695,7 +696,7 @@ const HeavyEngineering: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.heavyEngineering.cta}
                     alt="Heavy engineering fabrication"
                     fill
                     className="object-cover"

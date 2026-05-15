@@ -1,8 +1,9 @@
 import type { ConfigurableProductPageData } from "@/components/product";
+import { SITE_IMAGES } from "@/config/images";
 
 export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
   hero: {
-    backgroundImage: "/fabricated-structures/fabricated-structures.png",
+    backgroundImage: SITE_IMAGES.fabricatedStructures.hero,
     title: "Metallo Fabricated Structures",
     subtitle: "Engineered Steel Systems.",
     description:
@@ -40,7 +41,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Pre Engineered Metal Building System",
       description:
         "Metallo's pre-engineered metal building systems are custom-designed steel buildings optimized for space efficiency, strength, expandability, and harsh-climate performance across industrial and commercial projects.",
-      image: "/fabricated-structures/pre-engineered-building.png",
+      image: SITE_IMAGES.fabricatedStructures.products.preEngineeredBuilding,
       applications: ["Factories", "Warehouses", "Workshops", "Hangars & Cold Storage"],
       badges: [{ label: "Integrated Package", tone: "accent" }],
       specifications: [
@@ -77,7 +78,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Primary Framing System",
       description:
         "The primary framing system serves as the structural backbone that transfers building loads to the foundation through endwall frames, rigid or bearing frames, wind bracing, and crane-supporting brackets.",
-      image: "/fabricated-structures/primary-framing.png",
+      image: SITE_IMAGES.fabricatedStructures.products.primaryFraming,
       applications: ["Industrial Buildings", "Load-Bearing Frames", "Crane Buildings", "Large Bay Structures"],
       badges: [{ label: "Load Transfer", tone: "accent" }],
       specifications: [
@@ -120,7 +121,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Secondary Framing System",
       description:
         "The secondary framing system encompasses roof purlins, wall girts, eave struts, and clips that carry sheeting loads and distribute them back into the primary frame.",
-      image: "/fabricated-structures/secondary-framing.png",
+      image: SITE_IMAGES.fabricatedStructures.products.secondaryFraming,
       applications: ["Roof Systems", "Wall Systems", "Industrial Buildings", "Sheeting Support"],
       badges: [{ label: "Purlin & Girt", tone: "neutral" }],
       specifications: [
@@ -156,7 +157,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Cranes & Mezzanines",
       description:
         "Metallo's cranes and mezzanines offering combines in-building crane support systems with mezzanine framing built from beams, joists, decking panels, and bolted clip connections for industrial workspaces.",
-      image: "/fabricated-structures/cranes-mezzanines.png",
+      image: SITE_IMAGES.fabricatedStructures.products.cranesMezzanines,
       applications: ["Warehouse Floors", "Industrial Platforms", "Material Handling Bays", "Production Buildings"],
       badges: [{ label: "Integrated Floors", tone: "accent" }],
       specifications: [
@@ -193,7 +194,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Cold Form Section",
       description:
         "Cold-formed sections offer a lighter and more economical alternative to hot-rolled members, centred on Z and C section purlins supplied in required lengths with pre-punched holes.",
-      image: "/fabricated-structures/cold-form-section.png",
+      image: SITE_IMAGES.fabricatedStructures.products.coldFormSection,
       applications: ["Purlins", "Roof Support", "Wall Support", "Light Structural Systems"],
       badges: [{ label: "Z & C Profiles", tone: "accent" }],
       specifications: [
@@ -234,7 +235,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Metal Roofing & Cladding Solution",
       description:
         "Metallo's roofing and cladding range features profiled sheets and Hi-Rib panels with clip-on interlocked ribs, self-drilling fasteners, weatherproof side laps, and managed capillary runoff.",
-      image: "/fabricated-structures/metal-roofing-cladding.png",
+      image: SITE_IMAGES.fabricatedStructures.products.metalRoofingCladding,
       applications: ["Industrial Roofing", "Commercial Cladding", "Domestic Roofing", "Wall Envelopes"],
       badges: [{ label: "Weatherproof Rib", tone: "accent" }],
       specifications: [
@@ -270,7 +271,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Decking",
       description:
         "Steel decking serves as a lightweight roofing, flooring, ceiling, and cladding solution that also acts as positive bending reinforcement in composite slabs and a working platform during construction.",
-      image: "/fabricated-structures/decking.png",
+      image: SITE_IMAGES.fabricatedStructures.products.decking,
       applications: ["High-Rise Buildings", "Commercial Buildings", "Power Plant Buildings", "Mezzanine Floors"],
       badges: [{ label: "Composite Slab", tone: "accent" }],
       specifications: [
@@ -304,7 +305,7 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
       name: "Specialised Structural Steel Fabrication",
       description:
         "Metallo's specialised structural steel fabrication delivers customized workshop-built hot-rolled and welded structures for power plants, metro and rapid rail, stadiums, petrochemical facilities, high-rise buildings, airports, and port projects.",
-      image: "/fabricated-structures/specialised-structural-fabrication.png",
+      image: SITE_IMAGES.fabricatedStructures.products.specialisedStructuralFabrication,
       applications: ["Power Plants", "Metro & Rapid Rail", "High-Rise Buildings", "Airports & Ports"],
       badges: [{ label: "Workshop Built", tone: "accent" }],
       specifications: [

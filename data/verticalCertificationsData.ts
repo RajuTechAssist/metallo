@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 /**
  * Vertical-specific certifications & partner data.
  * Each vertical page gets its own set of industry-relevant certifications
@@ -182,10 +183,10 @@ export const VERTICAL_CERT_DATA: Record<string, VerticalCertData> = {
   steel: {
     certifications: [ISO_9001, BIS_ISI, ASTM, ASME, EN_10204, ISO_14001],
     partners: [
-      { name: "SAIL", logo: "/partners/sail.png" },
-      { name: "Tata Steel", logo: "/partners/tata-steel.png" },
-      { name: "JSW Steel", logo: "/partners/jsw-steel.png" },
-      { name: "Jindal", logo: "/partners/jindal.png" },
+      { name: "SAIL", logo: SITE_IMAGES.home.partners.sail },
+      { name: "Tata Steel", logo: SITE_IMAGES.home.partners.tataSteel },
+      { name: "JSW Steel", logo: SITE_IMAGES.home.partners.jswSteel },
+      { name: "Jindal", logo: SITE_IMAGES.home.partners.jindal },
       { name: "ISMT", logo: "/partners/ismt.svg" },
       { name: "Ratnamani", logo: "/partners/ratnamani.svg" },
       { name: "APL Apollo", logo: "/partners/apl-apollo.svg" },
@@ -273,9 +274,9 @@ export const VERTICAL_CERT_DATA: Record<string, VerticalCertData> = {
     certifications: [IS_800, IS_2062, AISC, ISO_3834, ISO_9001, ISO_45001],
     partners: [
       { name: "L&T", logo: "/partners/lt.svg" },
-      { name: "TATA Projects", logo: "/partners/tata-projects.png" },
+      { name: "TATA Projects", logo: SITE_IMAGES.home.partners.tataProjects },
       { name: "Godrej", logo: "/partners/godrej.svg" },
-      { name: "KEC Intl.", logo: "/partners/kec-intl.png" },
+      { name: "KEC Intl.", logo: SITE_IMAGES.home.partners.kecIntl },
       { name: "Kalpataru", logo: "/partners/kalpataru.svg" },
       { name: "Sterling & Wilson", logo: "/partners/sterling-wilson.svg" },
       { name: "Shapoorji Pallonji", logo: "/partners/shapoorji-pallonji.svg" },

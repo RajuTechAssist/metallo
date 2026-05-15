@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CONTAINER } from "./productLayout";
+import { SITE_IMAGES } from '@/config/images';
 
 interface SteelHeroProps {
   title: string;
@@ -13,12 +14,12 @@ interface SteelHeroProps {
 }
 
 const panels = [
-  { name: "", img: "/Steel/pipes&tubes1.png" },
-  { name: "", img: "/Steel/SHEETS&PLATES.png" },
-  { name: "", img: "/Steel/flanges1.png" },
-  { name: "", img: "/Steel/pipe-fittings3.png" },
-  { name: "", img: "/Steel/Fasteners-Bars.png" },
-  { name: "", img: "/Steel/gaskets1.png" },
+  // { name: "", img: SITE_IMAGES.steel.hero.pipesTubes },
+  // { name: "", img: SITE_IMAGES.steel.hero.sheetsPlates },
+  // { name: "", img: SITE_IMAGES.steel.hero.flanges },
+  // { name: "", img: SITE_IMAGES.steel.hero.pipeFittings },
+  // { name: "", img: SITE_IMAGES.steel.hero.fastenersBars },
+  // { name: "", img: SITE_IMAGES.steel.hero.gaskets },
 ];
 
 const SteelHero: React.FC<SteelHeroProps> = ({
@@ -31,8 +32,20 @@ const SteelHero: React.FC<SteelHeroProps> = ({
     className="relative w-full overflow-hidden flex bg-slate-900"
     style={{ height: "clamp(400px, 60vh, 700px)" }}
   >
+    {/* Single Background Image */}
+    <div className="absolute inset-0 w-full h-full">
+      <Image
+        src={SITE_IMAGES.steel.hero}
+        alt="Steel Hero"
+        fill
+        className="object-cover"
+        sizes="100vw"
+        priority
+      />
+    </div>
+
     {/* 6 Panels Background */}
-    <div className="absolute  flex w-full h-full">
+    {/* <div className="absolute  flex w-full h-full">
       {panels.map((panel, idx) => (
         <div key={idx} className="relative flex-1 h-full border-r border-slate-800/80 last:border-r-0 group overflow-hidden">
           <Image
@@ -43,12 +56,6 @@ const SteelHero: React.FC<SteelHeroProps> = ({
             sizes="(max-width: 768px) 50vw, 17vw"
             priority
           />
-          {/* Default Overlay & Hover Effect */}
-          {/* <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors duration-500" /> */}
-
-          {/* Bottom Gradient for Name */}
-          {/* <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent" /> */}
-
           <div className="absolute bottom-6 sm:bottom-8 w-full text-center px-1 md:px-2">
             <span className="text-white text-[9px] sm:text-[10px] md:text-sm font-heading font-bold uppercase tracking-widest relative z-20 group-hover:text-yellow-500 transition-colors">
               {panel.name}
@@ -56,7 +63,7 @@ const SteelHero: React.FC<SteelHeroProps> = ({
           </div>
         </div>
       ))}
-    </div>
+    </div> */}
 
     {/* Overall gradient overlay left to right for main text readability */}
     {/* <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent w-full md:w-2/3 pointer-events-none" /> */}

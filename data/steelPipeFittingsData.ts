@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import {
   createSteelTypeGallery,
@@ -7,12 +8,9 @@ import {
 
 const STEEL_PIPE_FITTING_IMAGE_DIR = "/Steel/pipe-fittings";
 
-const pipeFittingImage = (fileName: string) =>
-  `${STEEL_PIPE_FITTING_IMAGE_DIR}/${fileName}`;
-const pipeFittingTypeImage = (slug: string, fileName: string) =>
-  `${STEEL_PIPE_FITTING_IMAGE_DIR}/types/${slug}/${fileName}`;
-const pipeFittingTypeItem = (slug: string, name: string, fileName: string) =>
-  createSteelTypeItem(name, pipeFittingTypeImage(slug, fileName));
+
+
+
 
 const PIPE_FITTING_COMMON_CERTIFICATIONS = [
   "ASME",
@@ -25,7 +23,7 @@ interface SteelPipeFittingSource {
   slug: string;
   name: string;
   subCategory: string;
-  imageFile: string;
+  thumbnail: string;
   sourceUrl: string;
   descriptionParagraphs: string[];
   grades: string[];
@@ -47,7 +45,7 @@ const STEEL_PIPE_FITTING_SOURCES: SteelPipeFittingSource[] = [
     slug: "butt-weld",
     name: "Butt Weld Pipe Fittings",
     subCategory: "Butt Weld Fittings",
-    imageFile: "butt-weld-fittings-banner.jpg",
+    thumbnail: "/Steel/pipe-fittings/butt-weld-fittings-banner.jpg",
     sourceUrl: "https://www.sotco.in/pipe-fittings.html",
     descriptionParagraphs: [
       "Metallo's butt weld pipe fitting range is built for permanent piping connections where flow path continuity, weld integrity, and broad material coverage are essential. The sourced family is organized around ASME B16.9 geometry and includes elbows, tees, reducers, bends, stub ends, caps, and crosses for carbon, stainless, alloy, and high-yield service.",
@@ -110,48 +108,20 @@ const STEEL_PIPE_FITTING_SOURCES: SteelPipeFittingSource[] = [
     typeGalleryIntro:
       "Metallo's butt weld range combines the core B16.9 fitting geometries used to reroute, split, reduce, terminate, and align heavy-duty process lines.",
     typeItems: [
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Butt Weld Elbows",
-        "pipe-fitting-elbow-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Pipe Tees",
-        "pipe-fitting-tee-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Reducers",
-        "pipe-fitting-reducers-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Pipe Bends",
-        "pipe-fitting-pipe-bend-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Lap Joint Stub Ends",
-        "pipe-fitting-stub-end-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Pipe Caps",
-        "pipe-fitting-cap-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "butt-weld",
-        "Pipe Cross",
-        "pipe-fitting-cross-card.jpg",
-      ),
+      createSteelTypeItem("Butt Weld Elbows", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingElbowCard"]),
+      createSteelTypeItem("Pipe Tees", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingTeeCard"]),
+      createSteelTypeItem("Reducers", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingReducersCard"]),
+      createSteelTypeItem("Pipe Bends", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingPipeBendCard"]),
+      createSteelTypeItem("Lap Joint Stub Ends", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingStubEndCard"]),
+      createSteelTypeItem("Pipe Caps", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingCapCard"]),
+      createSteelTypeItem("Pipe Cross", SITE_IMAGES.steel.pipeFittings.types["buttWeld"]["pipeFittingCrossCard"]),
     ],
   },
   {
     slug: "forged",
     name: "Forged Pipe Fittings",
     subCategory: "Forged Fittings",
-    imageFile: "forged-fittings.jpg",
+    thumbnail: "/Steel/pipe-fittings/forged-fittings.jpg",
     sourceUrl: "https://www.sotco.in/forged-fittings.html",
     descriptionParagraphs: [
       "Metallo supplies forged pipe fittings for small-bore, high-pressure piping where dense grain flow, compact geometry, and robust threaded or socket-weld connections are required. The sourced range is aligned with ASME B16.11 service and covers elbows, tees, crosses, couplings, caps, unions, plugs, bushings, and swage nipples.",
@@ -215,36 +185,12 @@ const STEEL_PIPE_FITTING_SOURCES: SteelPipeFittingSource[] = [
     typeGalleryIntro:
       "Metallo's forged fitting range covers the compact threaded and socket-weld geometries used across high-pressure small-bore piping and instrumentation systems.",
     typeItems: [
-      pipeFittingTypeItem(
-        "forged",
-        "Forged Elbows (Threaded / Socket Weld)",
-        "forged-fitting-elbow-card.jpg",
-      ),
-      pipeFittingTypeItem(
-        "forged",
-        "Forged Tees and Crosses",
-        "forged-fitting-cross-tee.jpg",
-      ),
-      pipeFittingTypeItem(
-        "forged",
-        "Couplings and Caps",
-        "forged-fittings-cap.jpg",
-      ),
-      pipeFittingTypeItem(
-        "forged",
-        "Forged Unions",
-        "forged-fittings-union.jpg",
-      ),
-      pipeFittingTypeItem(
-        "forged",
-        "Plugs and Bushings",
-        "forged-fittings-plug-bushing.jpg",
-      ),
-      pipeFittingTypeItem(
-        "forged",
-        "Swage Nipples",
-        "forged-fittings-swage-nipple.jpg",
-      ),
+      createSteelTypeItem("Forged Elbows (Threaded / Socket Weld)", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingElbowCard"]),
+      createSteelTypeItem("Forged Tees and Crosses", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingCrossTee"]),
+      createSteelTypeItem("Couplings and Caps", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingsCap"]),
+      createSteelTypeItem("Forged Unions", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingsUnion"]),
+      createSteelTypeItem("Plugs and Bushings", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingsPlugBushing"]),
+      createSteelTypeItem("Swage Nipples", SITE_IMAGES.steel.pipeFittings.types["forged"]["forgedFittingsSwageNipple"]),
     ],
   },
 ];
@@ -257,7 +203,7 @@ const toSteelProduct = (source: SteelPipeFittingSource): SteelProduct => ({
   Grades: formatSteelList(source.grades, 6),
   Standards: formatSteelList(source.standards, 6),
   Application: source.application,
-  thumbnail: pipeFittingImage(source.imageFile),
+  thumbnail: source.thumbnail,
   OD: source.sizeRange,
   WallThickness: source.wallThickness,
   "Pressure Class": source.pressureClass,
@@ -266,7 +212,7 @@ const toSteelProduct = (source: SteelPipeFittingSource): SteelProduct => ({
   Certification: Array.from(PIPE_FITTING_COMMON_CERTIFICATIONS),
   Testing: source.testing,
   Applications: source.applications,
-  applicationImage: pipeFittingImage(source.imageFile),
+  applicationImage: source.thumbnail,
   descriptionParagraphs: source.descriptionParagraphs,
   typeGallery: createSteelTypeGallery(
     `${source.name} Types`,

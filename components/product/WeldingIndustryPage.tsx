@@ -20,6 +20,7 @@ export interface WeldingIndustryHero {
   subHeadline: string;
   image: string;
   breadcrumbLabel: string;
+  overviewBody?: string;
 }
 
 export interface WeldingIndustryChallenge {
@@ -192,6 +193,11 @@ const WeldingIndustryPage: React.FC<{ data: WeldingIndustryPageData }> = ({
             <p className="text-base text-slate-700 font-sans leading-relaxed">
               {data.hero.subHeadline}
             </p>
+            {data.hero.overviewBody && (
+              <p className="text-base text-slate-700 font-sans leading-relaxed mt-6">
+                {data.hero.overviewBody}
+              </p>
+            )}
           </div>
         </div>
       </AnimatedSection>

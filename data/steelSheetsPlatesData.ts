@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import {
   createSteelTypeGallery,
@@ -7,10 +8,8 @@ import {
 
 const STEEL_SHEETS_PLATES_IMAGE_DIR = "/Steel/sheets-plates/shared";
 
-const sheetPlateImage = (fileName: string) =>
-  `${STEEL_SHEETS_PLATES_IMAGE_DIR}/${fileName}`;
-const sheetPlateTypeItem = (name: string, fileName: string) =>
-  createSteelTypeItem(name, sheetPlateImage(fileName));
+
+
 
 const SHEET_PLATE_COMMON_CERTIFICATIONS = [
   "EN 10204 3.1",
@@ -22,7 +21,7 @@ const SHEET_PLATE_COMMON_CERTIFICATIONS = [
 interface SteelSheetPlateSource {
   name: string;
   subCategory: string;
-  imageFile: string;
+  thumbnail: string;
   sourceUrl: string;
   descriptionParagraphs: string[];
   grades: string[];
@@ -45,7 +44,7 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
   {
     name: "Stainless Steel Sheets, Plates and Coils",
     subCategory: "Stainless Steel Flat Products",
-    imageFile: "sheets-plates.jpg",
+    thumbnail: SITE_IMAGES.steel.sheetsPlates.sheetsPlates,
     sourceUrl:
       "https://www.kencotubes.com/stainless-steel-sheets-plates-supplier-exporter.html",
     descriptionParagraphs: [
@@ -107,25 +106,22 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
     typeGalleryIntro:
       "Metallo's stainless flat-products gallery covers the form mix most often required in fabrication, decorative work, and corrosion-resistant plate processing.",
     typeItems: [
-      sheetPlateTypeItem("Stainless Steel Sheet", "ss-sheets.png"),
-      sheetPlateTypeItem("Stainless Steel Plate", "ss-plates.png"),
-      sheetPlateTypeItem("Stainless Steel Coil", "steel-coils.png"),
-      sheetPlateTypeItem("Stainless Steel Strip", "ss-strips.png"),
-      sheetPlateTypeItem("Stainless Steel Circle", "ss-circle.png"),
-      sheetPlateTypeItem(
-        "Stainless Perforated Sheet",
-        "ss-perforated-sheet.png",
-      ),
-      sheetPlateTypeItem("Stainless Chequered Plate", "ss-chequered-plate.png"),
-      sheetPlateTypeItem("Stainless Flats", "ss-flats.png"),
+      createSteelTypeItem("Stainless Steel Sheet", SITE_IMAGES.steel.sheetsPlates.ssSheets),
+      createSteelTypeItem("Stainless Steel Plate", SITE_IMAGES.steel.sheetsPlates.ssPlates),
+      createSteelTypeItem("Stainless Steel Coil", SITE_IMAGES.steel.sheetsPlates.steelCoils),
+      createSteelTypeItem("Stainless Steel Strip", SITE_IMAGES.steel.sheetsPlates.ssStrips),
+      createSteelTypeItem("Stainless Steel Circle", SITE_IMAGES.steel.sheetsPlates.ssCircle),
+      createSteelTypeItem("Stainless Perforated Sheet", SITE_IMAGES.steel.sheetsPlates.types.ssPerforatedSheet),
+      createSteelTypeItem("Stainless Chequered Plate", SITE_IMAGES.steel.sheetsPlates.ssChequeredPlate),
+      createSteelTypeItem("Stainless Flats", SITE_IMAGES.steel.sheetsPlates.ssFlats),
     ],
   },
   {
     name: "Carbon Steel and Boiler Quality Sheets and Plates",
     subCategory: "Carbon and Boiler Plates",
-    imageFile: "cs-coils.jpg",
+    thumbnail: SITE_IMAGES.steel.sheetsPlates.csCoils,
     sourceUrl:
-      "https://www.kencotubes.com/carbon-steel-sheets-plates-supplier-exporter.html",
+      "",
     descriptionParagraphs: [
       "Metallo's carbon and boiler-quality flat stock is structured around a wide grade matrix, heavy thickness coverage, and fabrication-ready forms for structural platework, tanks, pressure parts, boiler shells, and general industrial steelwork where stainless is unnecessary.",
       "The sourced catalogue reaches from general carbon sheets and coils through chequered, perforated, galvanized, black, and boiler-quality plates. Metallo positions this family for projects that need mainstream carbon-steel sheet and plate supply with specification discipline rather than commodity-only purchasing.",
@@ -190,23 +186,20 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
     typeGalleryIntro:
       "Metallo's carbon and boiler plate gallery covers the flat-product forms commonly procured for structural and heavy engineering projects.",
     typeItems: [
-      sheetPlateTypeItem("Carbon Steel Sheet", "cs-sheets.png"),
-      sheetPlateTypeItem("Carbon Steel Plate", "cs-plates.png"),
-      sheetPlateTypeItem("Carbon Steel Coil", "carbon-coils.png"),
-      sheetPlateTypeItem("Carbon Steel Strip", "cs-stips.png"),
-      sheetPlateTypeItem("Carbon Steel Foil", "cs-foils.png"),
-      sheetPlateTypeItem(
-        "Carbon Perforated Sheet",
-        "cs-perforated-sheet.png",
-      ),
-      sheetPlateTypeItem("Carbon Chequered Plate", "cs-chequered-plate.png"),
-      sheetPlateTypeItem("Carbon Steel Circles", "cs-circles.png"),
+      createSteelTypeItem("Carbon Steel Sheet", SITE_IMAGES.steel.sheetsPlates.csSheets),
+      createSteelTypeItem("Carbon Steel Plate", SITE_IMAGES.steel.sheetsPlates.csPlates),
+      createSteelTypeItem("Carbon Steel Coil", SITE_IMAGES.steel.sheetsPlates.carbonCoils),
+      createSteelTypeItem("Carbon Steel Strip", SITE_IMAGES.steel.sheetsPlates.csStips),
+      createSteelTypeItem("Carbon Steel Foil", SITE_IMAGES.steel.sheetsPlates.csFoils),
+      createSteelTypeItem("Carbon Perforated Sheet", SITE_IMAGES.steel.sheetsPlates.types.csPerforatedSheet),
+      createSteelTypeItem("Carbon Chequered Plate", SITE_IMAGES.steel.sheetsPlates.csChequeredPlate),
+      createSteelTypeItem("Carbon Steel Circles", SITE_IMAGES.steel.sheetsPlates.csCircles),
     ],
   },
   {
     name: "Alloy and Nickel Plates, Sheets and Coils",
     subCategory: "Alloy and Nickel Flat Products",
-    imageFile: "ss-coils.jpg",
+    thumbnail: SITE_IMAGES.steel.sheetsPlates.ssCoils,
     sourceUrl:
       "https://www.kencotubes.com/inconel-sheets-plates-supplier-exporter.html",
     descriptionParagraphs: [
@@ -270,20 +263,20 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
     typeGalleryIntro:
       "Metallo's alloy and nickel flat-products gallery focuses on the sheet, plate, and coil formats most often specified in high-temperature and corrosion-critical fabrication work.",
     typeItems: [
-      sheetPlateTypeItem("Alloy / Nickel Sheet", "ss-sheets.png"),
-      sheetPlateTypeItem("Alloy / Nickel Plate", "ss-plates.png"),
-      sheetPlateTypeItem("Alloy / Nickel Coil", "steel-coils.png"),
-      sheetPlateTypeItem("Alloy / Nickel Foil", "ss-foils.png"),
-      sheetPlateTypeItem("Alloy / Nickel Strip", "ss-strips.png"),
-      sheetPlateTypeItem("Alloy Perforated Sheet", "ss-perforated-sheet.png"),
-      sheetPlateTypeItem("Alloy Chequered Plate", "ss-chequered-plate.png"),
-      sheetPlateTypeItem("Alloy Flats", "ss-flats.png"),
+      createSteelTypeItem("Alloy / Nickel Sheet", SITE_IMAGES.steel.sheetsPlates.ssSheets),
+      createSteelTypeItem("Alloy / Nickel Plate", SITE_IMAGES.steel.sheetsPlates.ssPlates),
+      createSteelTypeItem("Alloy / Nickel Coil", SITE_IMAGES.steel.sheetsPlates.steelCoils),
+      createSteelTypeItem("Alloy / Nickel Foil", SITE_IMAGES.steel.sheetsPlates.ssFoils),
+      createSteelTypeItem("Alloy / Nickel Strip", SITE_IMAGES.steel.sheetsPlates.ssStrips),
+      createSteelTypeItem("Alloy Perforated Sheet", SITE_IMAGES.steel.sheetsPlates.ssPerforatedSheet),
+      createSteelTypeItem("Alloy Chequered Plate", SITE_IMAGES.steel.sheetsPlates.ssChequeredPlate),
+      createSteelTypeItem("Alloy Flats", SITE_IMAGES.steel.sheetsPlates.ssFlats),
     ],
   },
   {
     name: "Titanium Sheets and Coils",
     subCategory: "Titanium Flat Products",
-    imageFile: "steel-coils.png",
+    thumbnail: SITE_IMAGES.steel.sheetsPlates.steelCoils,
     sourceUrl:
       "https://www.kencotubes.com/titanium-gr-2-sheets-plates-supplier-exporter.html",
     descriptionParagraphs: [
@@ -326,14 +319,14 @@ const STEEL_SHEETS_PLATES_SOURCES: SteelSheetPlateSource[] = [
     typeGalleryIntro:
       "Metallo's titanium gallery highlights the form mix typically required for corrosion-resistant lightweight fabrication and process-industry cut parts.",
     typeItems: [
-      sheetPlateTypeItem("Titanium Sheet", "ss-sheets.png"),
-      sheetPlateTypeItem("Titanium Plate", "ss-plates.png"),
-      sheetPlateTypeItem("Titanium Coil", "steel-coils.png"),
-      sheetPlateTypeItem("Titanium Foil", "ss-foils.png"),
-      sheetPlateTypeItem("Titanium Strip", "ss-strips.png"),
-      sheetPlateTypeItem("Titanium Perforated Sheet", "ss-perforated-sheet.png"),
-      sheetPlateTypeItem("Titanium Chequered Plate", "ss-chequered-plate.png"),
-      sheetPlateTypeItem("Titanium Flats", "ss-flats.png"),
+      createSteelTypeItem("Titanium Sheet", SITE_IMAGES.steel.sheetsPlates.ssSheets),
+      createSteelTypeItem("Titanium Plate", SITE_IMAGES.steel.sheetsPlates.ssPlates),
+      createSteelTypeItem("Titanium Coil", SITE_IMAGES.steel.sheetsPlates.steelCoils),
+      createSteelTypeItem("Titanium Foil", SITE_IMAGES.steel.sheetsPlates.ssFoils),
+      createSteelTypeItem("Titanium Strip", SITE_IMAGES.steel.sheetsPlates.ssStrips),
+      createSteelTypeItem("Titanium Perforated Sheet", SITE_IMAGES.steel.sheetsPlates.ssPerforatedSheet),
+      createSteelTypeItem("Titanium Chequered Plate", SITE_IMAGES.steel.sheetsPlates.ssChequeredPlate),
+      createSteelTypeItem("Titanium Flats", SITE_IMAGES.steel.sheetsPlates.ssFlats),
     ],
   },
 ];
@@ -346,7 +339,7 @@ const toSteelProduct = (source: SteelSheetPlateSource): SteelProduct => ({
   Grades: formatSteelList(source.grades, 6),
   Standards: formatSteelList(source.standards, 6),
   Application: source.application,
-  thumbnail: sheetPlateImage(source.imageFile),
+  thumbnail: source.thumbnail,
   OD: source.sizeRange,
   Thickness: source.thickness,
   Length: source.length,
@@ -357,7 +350,7 @@ const toSteelProduct = (source: SteelSheetPlateSource): SteelProduct => ({
     source.certifications ?? Array.from(SHEET_PLATE_COMMON_CERTIFICATIONS),
   Testing: source.testing,
   Applications: source.applications,
-  applicationImage: sheetPlateImage(source.imageFile),
+  applicationImage: source.thumbnail,
   descriptionParagraphs: source.descriptionParagraphs,
   typeGallery: createSteelTypeGallery(
     `${source.name} Forms`,

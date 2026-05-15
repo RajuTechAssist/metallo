@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 import type {
   CategoryConfig,
   ProductCTAConfig,
@@ -295,7 +296,7 @@ const htProduct = (input: HTProductOptions): WireCableProduct =>
   });
 
 export const HERO: ProductHeroConfig = {
-  backgroundImage: wireImage("Hero_wire&cable.png"),
+  backgroundImage: SITE_IMAGES.wireCables.hero,
   title: "Wire & Cables",
   subtitle: "Power & Control Cables",
   description:

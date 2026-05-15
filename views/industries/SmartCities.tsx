@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'water_pipe',
         useCases: 'Water mains, drainage networks, sewage systems, utility conduits, structural supports for urban transit.',
         assurance: 'IS:2062/ASTM grades; seamless/welded/ERW options; MTCs per heat lot; hydrostatic testing.',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.smartCities.products.heavyConstruction,
     },
     {
         title: 'Cable Trays, Conduits & Supports',
         icon: 'account_tree',
         useCases: 'Metro stations, smart grid nodes, telecom ducts, IT park infrastructure, underground utility corridors.',
         assurance: 'IEC 61537/IS 16230; hot‑dip GI/SS/powder‑coated; standardized load ratings; fire‑rated options.',
-        image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.smartCities.products.roboticMfg,
     },
     {
         title: 'Control & Instrumentation Cables',
         icon: 'cable',
         useCases: 'Smart grid wiring, IoT sensor networks, SCADA systems, building management, fire safety circuits.',
         assurance: 'BIS/IS certified; FRLS/LSZH fire‑rated; hi‑pot & continuity tested; shielded options for EMI.',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.smartCities.products.precisionElectric,
     },
     {
         title: 'Modular Utility Enclosures & Kiosks',
         icon: 'home_work',
         useCases: 'EV charging shelters, telecom shelters, smart‑city info kiosks, mini substations, water ATMs.',
         assurance: 'Pre‑wired and pre‑tested; powder‑coated/SS finishes; vandal‑resistant; modular bolt‑up assembly.',
-        image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.smartCities.products.smartInfra,
     },
     {
         title: 'Pre‑Assembled MEP Modules',
         icon: 'plumbing',
         useCases: 'Pump skids, water treatment modules, electrical distribution skids, HVAC assemblies for rapid site install.',
         assurance: 'Factory‑tested assemblies; unified BOM; serialized batch IDs; coordinated multi‑site fabrication.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.smartCities.products.industrialPlant,
     },
 ];
 
@@ -147,7 +148,7 @@ const SmartCities: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="/industries/smartCities1.jpg"
+                    src={SITE_IMAGES.industries.smartCities.hero}
                     alt="Smart cities and urban development"
                     fill
                     className="object-cover"
@@ -695,7 +696,7 @@ const SmartCities: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.smartCities.cta}
                     alt="Smart city urban infrastructure"
                     fill
                     className="object-cover"

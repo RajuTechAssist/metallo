@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 /* ─── SECTION NAV ───────────────────────────────────────────── */
 const NAV_ITEMS = [
@@ -22,35 +23,35 @@ const PRODUCTS = [
         icon: 'precision_manufacturing',
         useCases: 'Motor housings, sensor brackets, gearbox covers, EV connector shells, structural die‑cast nodes.',
         assurance: 'CNC‑integrated finishing, micro‑tolerance (±0.05 mm), X‑ray porosity checks, PPAP packs.',
-        image: 'https://images.unsplash.com/photo-1504222490345-c075b6008014?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.automotive.products.evBattery,
     },
     {
         title: 'SS Pipes, Tubes & Fittings',
         icon: 'valve',
         useCases: 'Exhaust systems, hydraulic circuits, fuel/brake lines, coolant loops, EV thermal management piping.',
         assurance: 'ASTM A312/A269 grades, 100% PMI tested, hydrostatic pressure validated, MTCs per heat.',
-        image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.automotive.products.steelSourcing,
     },
     {
         title: 'Automotive‑Grade Cables',
         icon: 'cable',
         useCases: 'Battery interconnect cables, control harnesses, EV charging station cables, fire‑rated wiring.',
         assurance: 'BIS certified, IS/IEC compliant, hi‑pot & continuity tested, FRLS/LSZH fire‑rated options.',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.automotive.products.precisionWiring,
     },
     {
         title: 'Cable Trays & Routing Systems',
         icon: 'account_tree',
         useCases: 'Assembly plant cable management, paint‑shop routing, EV charging hub infrastructure.',
         assurance: 'IEC 61537/IS 16230, hot‑dip GI/SS/powder‑coated, custom sizes, fire‑rated.',
-        image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.automotive.products.roboticAssembly,
     },
     {
         title: 'Welding Consumables',
         icon: 'whatshot',
         useCases: 'Body‑in‑white assembly, chassis joining, structural welding, exhaust fabrication.',
         assurance: 'AWS/ASME certified, flux‑cored & solid wires, standardized SOPs across Small and Medium Enterprise network.',
-        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
+        image: SITE_IMAGES.industries.automotive.products.weldIntegrity,
     },
 ];
 
@@ -147,7 +148,7 @@ const AutomotiveMobility: React.FC = () => {
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
             <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
                 <MotionImage
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=85&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.automotive.hero}
                     alt="Automotive manufacturing assembly line"
                     fill
                     className="object-cover"
@@ -694,7 +695,7 @@ const AutomotiveMobility: React.FC = () => {
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
                   <Image
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80&auto=format&fit=crop"
+                    src={SITE_IMAGES.industries.automotive.cta}
                     alt="Automotive manufacturing"
                     fill
                     className="object-cover"

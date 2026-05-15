@@ -1,10 +1,10 @@
+import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import { formatSteelList } from "./steelCatalogUtils";
 
 const STEEL_FLANGE_IMAGE_DIR = "/Steel/flanges";
 
-const flangeImage = (fileName: string) =>
-  `${STEEL_FLANGE_IMAGE_DIR}/${fileName}`;
+
 
 const FLANGE_COMMON_MATERIALS = [
   "Carbon steel forgings",
@@ -25,7 +25,7 @@ interface SteelFlangeSource {
   slug: string;
   name: string;
   subCategory: string;
-  imageFile: string;
+  thumbnail: string;
   sourceUrl: string;
   descriptionParagraphs: string[];
   grades: string[];
@@ -48,7 +48,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "slip-on-flanges",
     name: "Slip-On Flanges",
     subCategory: "Slip-On Flanges",
-    imageFile: "slip-on-flange.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.slipOnFlange,
     sourceUrl: "https://www.sotco.in/slip-on-flange.html",
     descriptionParagraphs: [
       "Metallo supplies slip-on flanges for utility, cooling-water, firefighting, and low-to-medium pressure process lines where fast alignment and practical fabrication control matter as much as pressure containment. The sourced range is built around double fillet welding, allowing fabricators to slide the pipe into position before completing the inside and outside welds.",
@@ -100,7 +100,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "blind-spectacle-blind-flanges",
     name: "Blind and Spectacle Blind Flanges",
     subCategory: "Isolation Flanges",
-    imageFile: "blind-spectacle-blind-banner.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.blindSpectacleBlindBanner,
     sourceUrl: "https://www.sotco.in/spectacle-blind-flange.html",
     descriptionParagraphs: [
       "Metallo uses blind and spectacle blind flanges where positive isolation, hydro-testing, and visible safety status are critical to plant operations. Blind flanges close line ends and vessel nozzles, while spectacle blinds provide a one-piece open-and-closed isolation device that crews can identify immediately during maintenance work.",
@@ -154,7 +154,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "lap-joint-flanges",
     name: "Lap Joint Flanges",
     subCategory: "Lap Joint Flanges",
-    imageFile: "lap-joint-flange-banner.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.lapJointFlangeBanner,
     sourceUrl: "https://www.sotco.in/lap-joint-flange.html",
     descriptionParagraphs: [
       "Metallo supplies lap joint flanges for systems that need frequent dismantling, easy bolt-hole alignment, and material-cost optimization around expensive process pipe. The flange stays loose on the pipe and works with a butt-welded stub end, allowing 360 degree rotation during installation and maintenance.",
@@ -205,7 +205,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "socket-weld-flanges",
     name: "Socket Weld Flanges",
     subCategory: "Socket Weld Flanges",
-    imageFile: "socket-weld-flange-banner.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.socketWeldFlangeBanner,
     sourceUrl: "https://www.sotco.in/socket-weld-flange.html",
     descriptionParagraphs: [
       "Metallo positions socket weld flanges for high-pressure small-bore piping where bore alignment, low turbulence, and dependable fatigue performance matter. The counter-bored hub accepts the pipe directly, keeping the internal flow path smoother than many alternative flange constructions.",
@@ -259,7 +259,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "weld-neck-flanges",
     name: "Weld Neck Flanges",
     subCategory: "Critical Application Flanges",
-    imageFile: "weld-neck-flange.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.weldNeckFlange,
     sourceUrl: "https://www.sotco.in/weld-neck-flange.html",
     descriptionParagraphs: [
       "Metallo's weld neck flange range is built for pressure, temperature, and cyclic loading conditions where stress transfer through a tapered hub is essential. The long hub profile reduces stress concentration at the weld junction and helps the bore transition cleanly into the pipe wall.",
@@ -311,7 +311,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "orifice-flanges",
     name: "Orifice Flanges",
     subCategory: "Instrumentation Flanges",
-    imageFile: "orifice-flange-banner.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.orificeFlangeBanner,
     sourceUrl: "https://www.sotco.in/orifice-flange.html",
     descriptionParagraphs: [
       "Metallo supplies orifice flanges for flow-metering installations that need integrated pressure taps, repeatable plate access, and measurement hardware that fits standard orifice systems. The sourced design builds the tapping points directly into the flange ring so instrumentation teams can avoid separate carriers or pipe-wall drilling.",
@@ -350,7 +350,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     slug: "threaded-flanges",
     name: "Threaded Flanges",
     subCategory: "Low Pressure Flanges",
-    imageFile: "threaded-flange-banner.jpg",
+    thumbnail: SITE_IMAGES.steel.flanges.threadedFlangeBanner,
     sourceUrl: "https://www.sotco.in/threaded-flange.html",
     descriptionParagraphs: [
       "Metallo supplies threaded flanges for services where welding is restricted, hazardous, or impractical because of field conditions or plant safety constraints. The internal taper thread matches the pipe thread so crews can assemble or remove the joint quickly without hot work.",
@@ -402,7 +402,7 @@ const toSteelProduct = (source: SteelFlangeSource): SteelProduct => ({
   Grades: formatSteelList(source.grades, 6),
   Standards: formatSteelList(source.standards, 6),
   Application: source.application,
-  thumbnail: flangeImage(source.imageFile),
+  thumbnail: source.thumbnail,
   OD: source.sizeRange,
   WallThickness: source.wallThickness,
   EndFinish: source.facingTypes,
@@ -414,7 +414,7 @@ const toSteelProduct = (source: SteelFlangeSource): SteelProduct => ({
     source.certifications ?? Array.from(FLANGE_COMMON_CERTIFICATIONS),
   Testing: source.testing,
   Applications: source.applications,
-  applicationImage: flangeImage(source.imageFile),
+  applicationImage: source.thumbnail,
   descriptionParagraphs: source.descriptionParagraphs,
   sourceUrl: source.sourceUrl,
 });

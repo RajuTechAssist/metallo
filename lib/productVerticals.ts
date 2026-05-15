@@ -97,13 +97,13 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     ],
   },
   {
-    key: "pipes",
-    name: "Pipes",
-    path: "/products/pipes",
+    key: "processPiping",
+    name: "Process Piping",
+    path: "/products/process-piping",
     icon: "plumbing",
     showInHeader: true,
     showInShowcase: true,
-    showcaseTitle: "Metallo Pipes",
+    showcaseTitle: "Metallo Process Piping",
     showcaseSubtitle: "Process Flow Systems",
     showcaseImage: "/industrialTech/pipes.png",
     showcasePoints: [
