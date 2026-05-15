@@ -49,7 +49,7 @@ const STEEL_FLANGE_SOURCES: SteelFlangeSource[] = [
     name: "Slip-On Flanges",
     subCategory: "Slip-On Flanges",
     thumbnail: SITE_IMAGES.steel.flanges.slipOnFlange,
-    sourceUrl: "https://www.sotco.in/slip-on-flange.html",
+    sourceUrl: "",
     descriptionParagraphs: [
       "Metallo supplies slip-on flanges for utility, cooling-water, firefighting, and low-to-medium pressure process lines where fast alignment and practical fabrication control matter as much as pressure containment. The sourced range is built around double fillet welding, allowing fabricators to slide the pipe into position before completing the inside and outside welds.",
       "The product family covers ASME and DIN pressure classes, broad schedule compatibility, and multiple facing options so engineering teams can match the flange to general plant service as well as more demanding petrochemical lines. Metallo positions this range where installation speed, economical fabrication, and dependable sealing need to stay balanced.",

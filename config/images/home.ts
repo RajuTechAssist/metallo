@@ -23,13 +23,13 @@ export const HOME_IMAGES = {
 
   /* Product Verticals showcase section */
   verticals: {
-    steel: '/industrialTech/steel.png',
-    wireCable: '/industrialTech/wire.png',
-    cableTrays: '/industrialTech/cable-tray.png',
-    weldingConsumables: '/industrialTech/welding.png',
+    steel: '/pipes/piping_solution3.jpg',
+    wireCable: '/vertical_wire_cable.jpg',
+    cableTrays: '/cable Trays/cable_tray2.jpg',
+    weldingConsumables: '/Welding Consumables/welding_allied.jpg',
     powerTools: '/powerTools/powerTools1.png',
-    processPiping: '/industrialTech/pipes.png',
-    fabricatedStructures: '/industrialTech/Fabricated.png',
+    processPiping: '/pipes/piping_solution4.jpg',
+    fabricatedStructures: '/Steel/verticals_fabricated_structure1.jpg',
   },
 
   partners: {

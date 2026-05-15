@@ -1,3 +1,5 @@
+import { SITE_IMAGES } from "@/config/images";
+
 /* ═══════════════════════════════════════════════════════════════
    WELDING MAIN CATEGORY DATA
    Rich descriptions, features, and applications for each
@@ -42,7 +44,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Pressure Vessels",
       "Heavy Equipment Manufacturing",
     ],
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.migTig,
     useCases: [
       {
         name: "MIG WIRES AND TIG RODS",
@@ -86,7 +88,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Structural & Bridge Fabrication",
       "LNG & Cryogenic Storage",
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.stick,
     useCases: [
       {
         name: "Stick Electrodes",
@@ -136,7 +138,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Wind Tower Production",
       "Arctic & Offshore Structures",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.metalCored,
     useCases: [
       {
         name: "Metal Cored Wires",
@@ -179,7 +181,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Farm & Agricultural Equipment",
       "Railroad & Infrastructure",
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.selfShielded,
     useCases: [
       {
         name: "Self Shielded Flux Cored",
@@ -223,7 +225,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Platform Fabrication",
       "General Fabrication",
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.gasShielded,
     useCases: [
       {
         name: "Gas-Shielded Flux-Cored",
@@ -270,7 +272,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Heavy Plate Fabrication",
       "Structural Beam Production",
     ],
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.submergedArc,
     useCases: [
       {
         name: "Submerged Arc",
@@ -316,7 +318,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Pulp & Paper",
       "Water Treatment & Desalination",
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.stainless,
     useCases: [
       {
         name: "Stainless Alloys",
@@ -374,7 +376,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Gas Turbine Manufacturing",
       "Pharmaceutical & Biotech",
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.nickel,
     useCases: [
       {
         name: "Nickel Alloys",
@@ -421,7 +423,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Sugar & Agriculture",
       "Dredging & Material Handling",
     ],
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.hardfacing,
     useCases: [
       {
         name: "Hardfacing",
@@ -461,7 +463,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "HVAC & Heat Exchangers",
       "Trailer & Tank Manufacturing",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.aluminum,
     useCases: [
       {
         name: "Aluminum MIG and TIG",
@@ -504,7 +506,7 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
       "Heat Recovery Systems",
       "Hydrogen Service Equipment",
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.consumables.chromeMoly,
   },
 ];
 
@@ -533,7 +535,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Aerospace",
       "General Fabrication",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.roboticWelding,
     useCases: [
       {
         name: "Pre-Engineered Robotic Welding Cells",
@@ -585,7 +587,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Furniture Manufacturing",
       "Contract Manufacturing",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.collaborativeRobotic,
     useCases: [
       {
         name: "Collaborative Welding Robots (Cobots)",
@@ -627,7 +629,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Structural Steel",
       "Shipbuilding",
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.mechanizedAutomation,
     useCases: [
       {
         name: "Orbital and Portable Mechanized Systems",
@@ -692,7 +694,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Heavy Equipment",
       "Construction",
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.automatedCutting,
     useCases: [
       {
         name: "CNC Laser and Plasma Profilers",
@@ -733,7 +735,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Automotive",
       "General Manufacturing",
     ],
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.positioners,
     useCases: [
       {
         name: "Robotic Part Positioning",
@@ -768,7 +770,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Medical Device Fabrication",
       "Electronics"
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.roboticLaser,
     useCases: [
       {
         name: "Laser Processing Cells",
@@ -804,7 +806,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Architectural Metalwork",
       "Aerospace"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.roboticGrinding,
     useCases: [
       {
         name: "Automated Material Removal",
@@ -839,7 +841,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Medical Implants",
       "High-Volume Machining"
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.partInspection,
     useCases: [
       {
         name: "Automated Metrology",
@@ -873,7 +875,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Forging Operations",
       "Heavy Metallurgy"
     ],
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.foundryAutomation,
     useCases: [
       {
         name: "Foundry Automation",
@@ -909,7 +911,7 @@ export const AUTOMATION_CATEGORIES: WeldingMainCategory[] = [
       "Automotive Plastics",
       "Medical Devices"
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.automation.plasticsAutomation,
     useCases: [
       {
         name: "Plastics Automation",
@@ -950,7 +952,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Shipbuilding",
       "Pipeline Construction",
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.handBodyArm,
     subCategories: [
       "Welding Jackets", "Welding Gloves", "Protective Sleeves",
       "Aprons", "Welding Trousers", "Lab Coats", "Gaiters",
@@ -1047,7 +1049,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Training & Education",
       "Maintenance & Repair",
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.headFaceEye,
     subCategories: [
       "Welding Helmets", "Face Shields", "Safety Glasses & Goggles", "Protective Headwear",
     ],
@@ -1107,7 +1109,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Maintenance & Repair",
       "Construction Sites",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.personalRespiratory,
     subCategories: [
       "Powered Air Purifying Respirators (PAPR)", "PAPR Replacement Parts & Accessories",
       "Half Mask Respirators", "Respirator Filters",
@@ -1166,7 +1168,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Educational Institutions",
       "Safety Supply Distribution",
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.safetyStorage,
     subCategories: [
       "Welding Gear Ready-Paks", "Welders Backpacks & Duffle Bags",
     ],
@@ -1207,7 +1209,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Pipeline Construction",
       "Shipbuilding",
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.footProtection,
     subCategories: [
       "Welding Shoes & Boots",
     ],
@@ -1245,7 +1247,7 @@ export const SAFETY_CATEGORIES: WeldingMainCategory[] = [
       "Shipbuilding",
       "Manufacturing Plants",
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.safety.hearingProtection,
     subCategories: [
       "Ear Protection",
     ],
@@ -1292,7 +1294,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Field & Site Welding",
       "Industrial Maintenance"
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.equipment,
     useCases: [
       {
         name: "Control Cables",
@@ -1365,7 +1367,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Maintenance & Repair",
       "Construction"
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.cutting,
     useCases: [
       {
         name: "Plasma Accessories",
@@ -1413,7 +1415,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Robotic Welding Cells",
       "Fabrication Shops"
     ],
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.gunTorch,
     useCases: [
       {
         name: "Gun Contact Tips & Expendables",
@@ -1452,7 +1454,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Training & Education",
       "Maintenance & Repair"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.helmet,
     useCases: [
       {
         name: "Replacement Lenses & Expendables",
@@ -1486,7 +1488,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Shipbuilding",
       "Pipeline Construction"
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.general,
     useCases: [
       {
         name: "Arc Gouging Carbons",
@@ -1530,7 +1532,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Tank Manufacturing",
       "Shipbuilding"
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.mechanizedAutomation,
     useCases: [
       {
         name: "Robotic & Mechanized Systems",
@@ -1564,7 +1566,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Structural Steel",
       "High-Volume Production"
     ],
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.roboticAutomation,
   },
   {
     id: "weld-fume-accessories",
@@ -1591,7 +1593,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Training & Education",
       "Stainless Alloy Welding"
     ],
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.weldFume,
     useCases: [
       {
         name: "Fume Extraction Parts",
@@ -1625,7 +1627,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Construction Sites",
       "Maintenance Departments"
     ],
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.tools,
     useCases: [
       {
         name: "Hand Tools & Fixtures",
@@ -1669,7 +1671,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Heavy Equipment Manufacturing",
       "Shipbuilding"
     ],
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.wireDelivery,
   },
   {
     id: "software",
@@ -1696,7 +1698,7 @@ export const ACCESSORIES_CATEGORIES: WeldingMainCategory[] = [
       "Aerospace",
       "Code-Critical Fabrication"
     ],
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: SITE_IMAGES.welding.categoryCards.accessories.software,
     useCases: [
       {
         name: "Welding Software Solutions",

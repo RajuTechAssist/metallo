@@ -99,6 +99,56 @@ export const WELDING_IMAGES = {
     smartCities:         'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80&auto=format&fit=crop',
   },
 
+  
+  /* Category Card Images used in weldingCategoryData.ts */
+  categoryCards: {
+    consumables: {
+      migTig: '/Welding Consumables/consumables/MIG_Wires_&_TIG_Cut_Lengths.png',
+      stick: '/Welding Consumables/consumables/stick_electrodes.png',
+      metalCored: '/Welding Consumables/consumables/Metal_Cored_Wires.png',
+      selfShielded: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+      gasShielded: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      submergedArc: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
+      stainless: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      nickel: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      hardfacing: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80',
+      aluminum: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      chromeMoly: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+    },
+    automation: {
+      roboticWelding: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      collaborativeRobotic: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      mechanizedAutomation: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      automatedCutting: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      positioners: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
+      roboticLaser: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      roboticGrinding: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      partInspection: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      foundryAutomation: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
+      plasticsAutomation: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+    },
+    safety: {
+      handBodyArm: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      headFaceEye: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      personalRespiratory: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      safetyStorage: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+      footProtection: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      hearingProtection: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    },
+    accessories: {
+      equipment: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      cutting: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      gunTorch: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80',
+      helmet: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      general: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+      mechanizedAutomation: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      roboticAutomation: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
+      weldFume: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80',
+      tools: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      wireDelivery: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80',
+      software: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    }
+  },
   misc: {
     weldingElectrodes: '/Welding Consumables/welding-electrodes.png',
     migWireSpool: '/Welding Consumables/mig-wire-spool.png',

@@ -301,11 +301,11 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
                 key={`${product.id}-${item.name}`}
                 className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <div className="px-4 py-4 border-t border-slate-200">
@@ -346,11 +346,11 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
                 key={`${product.id}-acc-${item.name}`}
                 className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <div className="px-4 py-4 border-t border-slate-200">
