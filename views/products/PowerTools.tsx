@@ -149,40 +149,56 @@ const PowerTools: React.FC = () => {
   );
 
   return (
-    <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero
-        backgroundImage={SITE_IMAGES.misc.productHeroes.powerTools}
-        title="Power Tools"
-        subtitle="Built for the Job Site."
-        description="Professional-grade cordless and corded power tools - drills, grinders, hammers, saws, and specialty tools - backed by nationwide service and V20 battery interchangeability."
-        breadcrumbLabel="Power Tools"
-      />
+    <>
+      <div className="w-full min-h-[60vh] flex items-center justify-center bg-slate-50">
+        <div className="text-center p-8 max-w-lg mx-auto">
+          <span className="material-symbols-outlined text-6xl text-yellow-500 mb-4">handyman</span>
+          <h2 className="text-3xl font-heading font-extrabold text-slate-900 mb-4">Power Tools Catalog</h2>
+          <p className="text-slate-600 font-sans mb-8">Our professional-grade power tools catalog is currently being updated. Please check back soon.</p>
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-900 text-white text-xs font-heading font-bold uppercase tracking-wider rounded-sm shadow-sm">
+            <span className="material-symbols-outlined text-sm text-yellow-500">pending</span>
+            Coming Soon
+          </span>
+        </div>
+      </div>
 
-      <ProductCategoryNav
-        categories={CATEGORIES}
-        activeKey={activeCategoryKey}
-        onSelect={selectCategory}
-        certBadge="IEC / IS Certified"
-      />
+      {false && (
+        <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
+          <ProductHero
+            backgroundImage={SITE_IMAGES.misc.productHeroes.powerTools}
+            title="Power Tools"
+            subtitle="Built for the Job Site."
+            description="Professional-grade cordless and corded power tools - drills, grinders, hammers, saws, and specialty tools - backed by nationwide service and V20 battery interchangeability."
+            breadcrumbLabel="Power Tools"
+          />
 
-      <ProductCatalogCards
-        animationKey={activeCategoryKey}
-        sectionHeading={activeCategory.label}
-        products={categoryProducts}
-        getProductKey={(product) => `${product.Model}-${product["Product Name"]}`}
-        getProductName={(product) => product["Product Name"]}
-        getSubCategory={(product) => product["Sub-Category"]}
-        getDescription={(product) => product.Description}
-        getImage={(product) => product.thumbnail}
-        getSpecifications={getToolSpecs}
-        getBadges={(product) => [{ label: product.Model, tone: "neutral" }]}
-        renderExtraSection={renderToolExtraSection}
-        ctaLabel="Download Power Tools Catalog"
-      />
+          <ProductCategoryNav
+            categories={CATEGORIES}
+            activeKey={activeCategoryKey}
+            onSelect={selectCategory}
+            certBadge="IEC / IS Certified"
+          />
 
-      <VerticalCertifications verticalKey="tools" />
-      <ProductQABanner title="Professional Power Tools" items={QA_ITEMS} />
-    </div>
+          <ProductCatalogCards
+            animationKey={activeCategoryKey}
+            sectionHeading={activeCategory.label}
+            products={categoryProducts}
+            getProductKey={(product) => `${product.Model}-${product["Product Name"]}`}
+            getProductName={(product) => product["Product Name"]}
+            getSubCategory={(product) => product["Sub-Category"]}
+            getDescription={(product) => product.Description}
+            getImage={(product) => product.thumbnail}
+            getSpecifications={getToolSpecs}
+            getBadges={(product) => [{ label: product.Model, tone: "neutral" }]}
+            renderExtraSection={renderToolExtraSection}
+            ctaLabel="Download Power Tools Catalog"
+          />
+
+          <VerticalCertifications verticalKey="tools" />
+          <ProductQABanner title="Professional Power Tools" items={QA_ITEMS} />
+        </div>
+      )}
+    </>
   );
 };
 
