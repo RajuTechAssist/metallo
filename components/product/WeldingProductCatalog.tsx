@@ -337,14 +337,22 @@ const WeldingProductCatalog: React.FC<WeldingProductCatalogProps> = ({ categoryK
     <section className="bg-white border-b border-slate-100">
       <div className="container py-6 md:py-8 lg:py-12">
         {/* Section Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
-            {label}
-          </h2>
-          <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
-          <span className="text-sm text-slate-500 font-sans mt-3 block">
-            {categories.length} {categories.length === 1 ? "category" : "categories"}
-          </span>
+        <div className="mb-8 flex flex-col sm:flex-row justify-between items-start gap-4">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900 leading-tight">
+              {label}
+            </h2>
+            <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
+            <span className="text-sm text-slate-500 font-sans mt-3 block">
+              {categories.length} {categories.length === 1 ? "category" : "categories"}
+            </span>
+          </div>
+          <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
+            <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
+              download
+            </span>
+            Download Technical Catalog
+          </button>
         </div>
 
         {/* Vertical list of expandable category cards */}
