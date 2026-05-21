@@ -274,12 +274,32 @@ const CategoryCard: React.FC<{
                                 Certifications
                               </p>
                               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-1.5">
-                                {uc.standards.map((std, j) => (
-                                  <div key={j} className="flex items-start gap-2 text-[12px] text-slate-600 leading-snug">
-                                    <span className="material-symbols-outlined text-xs text-emerald-400 mt-0.5 shrink-0">check_circle</span>
-                                    {std}
-                                  </div>
-                                ))}
+                                {uc.standards.map((std, j) => {
+                                  const isObj = typeof std === 'object' && std !== null && 'label' in std;
+                                  const label = isObj ? (std as { label: string; datasheetUrl: string }).label : (std as string);
+                                  const url = isObj ? (std as { label: string; datasheetUrl: string }).datasheetUrl : null;
+                                  return (
+                                    <div key={j} className="flex items-start gap-2 text-[12px] leading-snug group/cert">
+                                      <span className="material-symbols-outlined text-xs text-emerald-400 mt-0.5 shrink-0">
+                                        check_circle
+                                      </span>
+                                      {url ? (
+                                        <a
+                                          href={url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-2 transition-colors duration-200 cursor-pointer inline-flex items-center gap-1"
+                                          title={`View datasheet: ${label}`}
+                                        >
+                                          {label}
+                                          <span className="material-symbols-outlined text-[10px] text-blue-500 opacity-0 group-hover/cert:opacity-100 transition-opacity">open_in_new</span>
+                                        </a>
+                                      ) : (
+                                        <span className="text-slate-600">{label}</span>
+                                      )}
+                                    </div>
+                                  );
+                                })}
                               </div>
                             </div>
                           )}
