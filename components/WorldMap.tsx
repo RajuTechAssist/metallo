@@ -54,7 +54,7 @@ const coverageCards = [
   {
     kind: 'SALES OFFICE',
     country: 'Africa',
-    lines: ['Morocco Office'],
+    lines: ['Casablanca, Morocco Office'],
   },
 ];
 

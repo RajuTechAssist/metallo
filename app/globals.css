@@ -6,8 +6,8 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════
-   GLOBAL TEXT JUSTIFICATION
-   Applies text-align: justify to all body paragraphs, prose
+   GLOBAL TEXT ALIGNMENT
+   Applies text-align: left to all body paragraphs, prose
    elements, and descriptive list items across the entire site.
    Change this ONCE to update every page automatically (DRY).
    ═══════════════════════════════════════════════════════════ */
@@ -16,13 +16,12 @@
 section p,
 .prose p,
 section li {
-  text-align: justify;
+  text-align: left;
 }
 
-/* Enhanced Industry Pages Justification */
+/* Enhanced Industry Pages Alignment */
 .global-justify-wrapper .leading-relaxed {
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
 }
 
 /* Keep headings, labels, buttons, and nav items left-aligned */

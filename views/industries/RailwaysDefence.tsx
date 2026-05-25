@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from "next/link";
-import { motion, useScroll, useTransform, useInView, Variants } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, Variants, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { SITE_IMAGES } from '@/config/images';
 
@@ -102,6 +102,25 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
 
 const MotionImage = motion(Image);
 
+const HERO_SLIDES = [
+    {
+        image: SITE_IMAGES.industries.railways.hero,
+        category: "Railways & Transit Procurement",
+        title: "Railways & Transit Procurement",
+        highlight: "Infrastructure, Certified.",
+        desc: "Aggregated, audited production for global transit operations. UIC & RDSO‑certified coach frames, sub-assemblies, cable support tracks, signal lines, and high-performance welding materials.",
+        microcopy: "RDSO-aligned SOPs · NDT, PMI, and MTC traceability per batch"
+    },
+    {
+        image: "/indianDefence3.jpg",
+        category: "Defence Engineering Procurement",
+        title: "Defence Engineering Procurement",
+        highlight: "Engineering, Secured.",
+        desc: "Military-grade components engineered for high-integrity missions. Compliant structural chassis, MIL-SPEC cable harnesses, modular tactical shelters, and specialized welding consumables.",
+        microcopy: "DRDO & MIL-SPEC compliant · ISO 9001:2015 · Third-party validated"
+    }
+] as const;
+
 /* ═══════════════════════════════════════════════════════════════
    RAILWAYS & DEFENCE PAGE
    ═══════════════════════════════════════════════════════════════ */
@@ -110,6 +129,26 @@ const RailwaysDefence: React.FC = () => {
     const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
     const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
     const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slideProgressKey, setSlideProgressKey] = useState(0);
+
+    const nextSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+        setSlideProgressKey((k) => k + 1);
+    }, []);
+
+    const prevSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+        setSlideProgressKey((k) => k + 1);
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            nextSlide();
+        }, 7000);
+        return () => clearTimeout(timer);
+    }, [slideProgressKey, nextSlide]);
 
     /* ─── Sticky nav active section tracking ──── */
     const [activeSection, setActiveSection] = useState('overview');
@@ -146,57 +185,109 @@ const RailwaysDefence: React.FC = () => {
         <div className="w-full bg-white global-justify-wrapper">
 
             {/* ═══ 1. HERO ═══════════════════════════════════════════════ */}
-            <section ref={heroRef} className="relative w-full overflow-hidden" style={{ height: "clamp(400px, 60vh, 700px)" }}>
-                <MotionImage
-                    src={SITE_IMAGES.industries.railways.hero}
-                    alt="Railways and defence manufacturing"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                    priority
-                    style={{ y: heroY }}
-                />
-                <div className="absolute" />
+            <section ref={heroRef} className="relative w-full overflow-hidden h-[50vh] md:h-[60vh] min-h-[500px]">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentSlide}
+                        className="absolute inset-0 z-0 w-full h-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        <MotionImage
+                            src={HERO_SLIDES[currentSlide].image}
+                            alt={HERO_SLIDES[currentSlide].category}
+                            fill
+                            className="object-cover"
+                            sizes="100vw"
+                            priority
+                            initial={{ scale: 1 }}
+                            animate={{ scale: 1.06 }}
+                            transition={{ duration: 7, ease: "linear" }}
+                            style={{ y: heroY }}
+                        />
+                    </motion.div>
+                </AnimatePresence>
+                <div className="absolute  bg-slate-950/65 z-[1]" />
 
                 <motion.div
                     className="relative z-10 flex flex-col justify-center h-full container"
                     style={{ opacity: heroOpacity }}
                 >
-                    <div className="max-w-3xl inset-0 bg-slate-900/60 pt-10 pb-10 pl-10 pr-10">
+                    <div className="max-w-3xl bg-slate-900/80 pt-8 pb-8 pl-8 pr-8 rounded-lg border border-white/10 backdrop-blur-sm shadow-2xl relative overflow-hidden">
+                        
+                        {/* Slide Selector Tabs */}
+                        <div className="flex gap-4 mb-4 border-b border-white/10 pb-3">
+                            {HERO_SLIDES.map((s, idx) => (
+                                <button
+                                    key={s.category}
+                                    onClick={() => {
+                                        setCurrentSlide(idx);
+                                        setSlideProgressKey((k) => k + 1);
+                                    }}
+                                    className={`text-xs font-bold font-heading uppercase tracking-wider pb-1 transition-all ${
+                                        idx === currentSlide 
+                                            ? "text-yellow-500 border-b-2 border-yellow-500" 
+                                            : "text-slate-400 hover:text-white"
+                                    }`}
+                                >
+                                    {s.category}
+                                </button>
+                            ))}
+                        </div>
+
                         {/* Breadcrumb */}
-                        <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8 font-sans">
+                        <nav className="flex items-center gap-2 text-xs text-slate-400 mb-4 font-sans">
                             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                            <span className="material-symbols-outlined text-xs">chevron_right</span>
+                            <span className="material-symbols-outlined text-[10px]">chevron_right</span>
                             <Link href="/" className="hover:text-white transition-colors">Industries</Link>
-                            <span className="material-symbols-outlined text-xs">chevron_right</span>
-                            <span className="text-yellow-500 font-medium">Railways &amp; Defence</span>
+                            <span className="material-symbols-outlined text-[10px]">chevron_right</span>
+                            <span className="text-yellow-500 font-medium">{HERO_SLIDES[currentSlide].title}</span>
                         </nav>
 
-                        <h1 className="text-xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.05] mb-6">
-                            Railways &amp; Defence<br />
-                            <span className="text-yellow-500">Manufacturing, Certified.</span>
-                        </h1>
+                        {/* Animated content inside AnimatePresence */}
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -15 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <h1 className="text-2xl md:text-3xl lg:text-5xl font-heading font-extrabold text-white leading-[1.1] mb-4">
+                                    {HERO_SLIDES[currentSlide].title}<br />
+                                    <span className="text-yellow-500">{HERO_SLIDES[currentSlide].highlight}</span>
+                                </h1>
 
-                        <p className="text-lg md:text-lg text-slate-300 max-w-2xl mb-10 font-sans leading-relaxed">
-                            RDSO, DRDO, and internationally aligned manufacturing from an audited, global manufacturing network — structural steel, signal cables, cable trays, welding consumables, and precision die‑cast components with Central QC, NDT, and full MTC traceability.
-                        </p>
+                                <p className="text-sm md:text-base text-slate-300 max-w-2xl mb-6 font-sans leading-relaxed min-h-[72px]">
+                                    {HERO_SLIDES[currentSlide].desc}
+                                </p>
 
-                        {/* CTAs */}
-                        {/* <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                            <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 group">
-                                <span className="material-symbols-outlined text-xl">description</span>
-                                Request a Rail / Defence Quote
+                                {/* Microcopy */}
+                                <div className="flex items-center gap-2 text-xs text-slate-400 font-sans mt-2">
+                                    <span className="material-symbols-outlined text-sm text-yellow-500">verified</span>
+                                    {HERO_SLIDES[currentSlide].microcopy}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                        
+                        {/* Slide Navigation Buttons */}
+                        <div className="absolute right-6 bottom-6 flex gap-2">
+                            <button
+                                onClick={prevSlide}
+                                className="w-8 h-8 rounded-full border border-white/20 text-white/70 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center cursor-pointer"
+                                aria-label="Previous slide"
+                            >
+                                <span className="material-symbols-outlined text-base">chevron_left</span>
                             </button>
-                            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/40 text-white text-sm font-heading font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all duration-300 group">
-                                <span className="material-symbols-outlined text-xl">fact_check</span>
-                                Schedule Vendor Audit
+                            <button
+                                onClick={nextSlide}
+                                className="w-8 h-8 rounded-full border border-white/20 text-white/70 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center cursor-pointer"
+                                aria-label="Next slide"
+                            >
+                                <span className="material-symbols-outlined text-base">chevron_right</span>
                             </button>
-                        </div> */}
-
-                        {/* Microcopy */}
-                        <div className="flex items-center gap-2 text-xs text-slate-400 font-sans">
-                            <span className="material-symbols-outlined text-sm text-yellow-500">verified</span>
-                            RDSO / DRDO‑aligned SOPs · NDT, PMI, and MTC traceability across every batch
                         </div>
                     </div>
                 </motion.div>

@@ -250,7 +250,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's perforated tray program is aligned to the product range for open cable routes that need airflow, heat dissipation, and straightforward field installation without moving to a ladder profile too early. Available in regular flange, U type flange, inside flange, outside flange, and heavy-duty inside flange constructions.",
       "The range covers MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 builds with hot-dip galvanized, GI alkaline, powder-coated, aluminium-anodized, and stainless finishes. Standard tray widths run from 50 mm to 900 mm, with height combinations stepping from 25 mm through 150 mm and lengths in 2500 mm or 3000 mm sections.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.perforatedStraightFlangeTray,
+    thumbnail: SITE_IMAGES.cableTrays.perforatedMain,
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -350,7 +350,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's ladder tray range is designed for heavier cable corridors where rung ventilation, cable separation, and structural carrying capacity matter more than a fully sheeted tray body. This family delivers strong load-bearing performance, ventilation, ease of fastening, cost-effectiveness, and a neat finished appearance.",
       "The material and finish matrix mirrors the broader metallic tray platform: MS (HR, CRC), pre-galvanized, aluminium, and stainless steel 304 / 316 with hot-dip galvanized, GI alkaline, pre-galvanized, powder-coated, anodized, and stainless finish options. Width coverage extends from 150 mm to 1500 mm, across 50 mm to 200 mm height options and 2500 mm or 3000 mm lengths.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.lctStarlightLengthInnerBend,
+    thumbnail: SITE_IMAGES.cableTrays.ladderMain,
     technicalSpecifications: [
       spec(
         "Raw Material",
@@ -712,7 +712,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's finishing section covers the actual finishing and feed-material processes applied to cable tray products, giving a clear view of how coated and base material options relate to the tray system.",
       "Available processes include hot-dip finishing, electro plating, powder coating, and GP / HR sheet coil supply. Each process is presented with its key specification so finishing can be specified as part of the overall tray package.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.hotDipPlant,
+    thumbnail: SITE_IMAGES.cableTrays.finishingMain,
     technicalSpecifications: [
       spec("Visible Finishing Blocks", "Hot-dip plant, electro plating plant, powder coating plant, GP sheet coil / HR sheet coil", "format_paint"),
       spec("Use In Page", "Surface-finish and base-material reference for tray-system supply planning", "design_services"),
@@ -752,7 +752,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's embossed cable tray program is designed for installations where longitudinal embossing on the tray base delivers higher load-carrying capacity and a cleaner decorative finish compared to standard perforated or plain trays.",
       "Available in ST (straight), UT (U-flange), RF15 (return flange), and IB15 (inward bend) profiles with widths from 150 mm to 600 mm, heights from 25 mm through 150 mm, and thickness options from 1.0 mm to 2.0 mm in 2500 mm, 3000 mm, and 6000 mm lengths.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.ectStarlightFlangeRay,
+    thumbnail: SITE_IMAGES.cableTrays.embossedMain,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -789,7 +789,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Four profile types are available for embossed trays, each providing different edge treatment for varying load and coverage requirements.",
       [
         galleryItem("ST â€” Straight Type", SITE_IMAGES.cableTrays.ectStarlightFlangeRay, "Standard straight edge profile for embossed cable trays."),
-        galleryItem("UT â€” U-Flange Type", SITE_IMAGES.cableTrays.straightWithUBend, "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
+        galleryItem("UT â€” U-Flange Type", SITE_IMAGES.cableTrays.embossedUFlangeType, "15 mm U-shaped flange at the top edge for added cable retention and stiffness."),
         galleryItem("RF15 â€” Return Flange (15 mm)", SITE_IMAGES.cableTrays.ectStarlightReturnFlangeTray, "Return flange along the top edge for enhanced lateral stiffness."),
         galleryItem("IB15 â€” Inward Bend (15 mm)", SITE_IMAGES.cableTrays.ectStraightWithInnerBend, "Inward bend at top edge for edge protection and structural strength."),
       ],
@@ -799,10 +799,10 @@ export const PRODUCTS: TrayProduct[] = [
       "Dedicated accessories for the embossed tray family, including press-fit covers and coupling plates.",
       [
         accessoryItem("Press Fit Cover", SITE_IMAGES.cableTrays.pressFitCoverEmbossed, "Quick-assembly snap-on cover designed specifically for embossed tray profiles."),
-        accessoryItem("Straight Coupler Plate (STC)", SITE_IMAGES.cableTrays.pctaCouplerPlate, "End-to-end joining plate for embossed tray sections."),
-        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.pctaHorizontalBendRadial, "Direction-change fitting at 90Â°, 60Â°, 45Â°, and 30Â° angles."),
-        accessoryItem("Vertical Inside Bend (VIB)", SITE_IMAGES.cableTrays.pctaVerticalInsideBendRadial, "Vertical rise fitting for elevation changes."),
-        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.pctaReducer, "Width transition fitting for changing tray sizes."),
+        accessoryItem("Straight Coupler Plate (STC)", SITE_IMAGES.cableTrays.ectCouplerPlate, "End-to-end joining plate for embossed tray sections."),
+        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.ectHorizontalBendRadial, "Direction-change fitting at 90Â°, 60Â°, 45Â°, and 30Â° angles."),
+        accessoryItem("Vertical Inside Bend (VIB)", SITE_IMAGES.cableTrays.ectVerticalInsideBendRadial, "Vertical rise fitting for elevation changes."),
+        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.ectReducer, "Width transition fitting for changing tray sizes."),
       ],
     ),
   }),
@@ -814,7 +814,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's tray cover program is designed for installations that need cable protection from dust, debris, and physical damage while maintaining system accessibility. Five cover profiles are available â€“ plain, ventilated, louvre, dome-faced, and dome-faced with spacing.",
       "Standard cover widths match the tray range from 50 mm to 900 mm with a 15 mm cover height and thicknesses from 1.0 mm to 3.0 mm. Cover accessories include bend covers, tee covers, cross covers, and reducer covers to protect the full routing system.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.cableTrayCoverVt00,
+    thumbnail: SITE_IMAGES.cableTrays.trayCoverMain,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -881,7 +881,7 @@ export const PRODUCTS: TrayProduct[] = [
       "Metallo's industrial floor trunking program covers floor-level cable routing installations where cables need to be run under floors or along floor surfaces with maximum protection and compartmentalized routing options.",
       "An IB00 (inward bend with 15 mm flange) profile is available with widths from 100 mm to 600 mm, heights of 35 mm, 75 mm, and 100 mm, thickness from 1.5 mm to 3.0 mm, and optional longitudinal dividers for separating power and data cables within a single trunking run.",
     ],
-    thumbnail: SITE_IMAGES.cableTrays.industrialFloorTrunking,
+    thumbnail: SITE_IMAGES.cableTrays.floorTrunkingMain,
     technicalSpecifications: [
       spec("Raw Material", "MS (Mild Steel), pre-galvanized, stainless steel 304 & 316, aluminium", "diamond"),
       spec("Finish Of Product", "Hot-dip galvanized, powder coated, pickling & passivation, painted, self colour", "auto_awesome"),
@@ -920,12 +920,12 @@ export const PRODUCTS: TrayProduct[] = [
       "Floor Trunking Accessories",
       "Dedicated floor-compatible accessories for trunking systems, covering direction changes, branching, and divider integration.",
       [
-        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.pctaHorizontalBendRadial, "Floor-compatible bend fittings at 90Â° and 45Â° angles."),
-        accessoryItem("Floor Tee (RTEE)", SITE_IMAGES.cableTrays.pctaHorizontalTeeRadial, "T-junction fitting for floor-level branching."),
-        accessoryItem("Floor Cross (CR)", SITE_IMAGES.cableTrays.pctaHorizontalCrossRadial, "Four-way floor crossing fitting."),
-        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.pctaReducer, "Width transition fitting for floor trunking."),
+        accessoryItem("Horizontal Bend (HB)", SITE_IMAGES.cableTrays.floorHorizontalBendRadial, "Floor-compatible bend fittings at 90Â° and 45Â° angles."),
+        accessoryItem("Floor Tee (RTEE)", SITE_IMAGES.cableTrays.floorHorizontalTeeRadial, "T-junction fitting for floor-level branching."),
+        accessoryItem("Floor Cross (CR)", SITE_IMAGES.cableTrays.floorHorizontalCrossRadial, "Four-way floor crossing fitting."),
+        accessoryItem("Reducer (REDC)", SITE_IMAGES.cableTrays.floorReducer, "Width transition fitting for floor trunking."),
         accessoryItem("Longitudinal Divider", SITE_IMAGES.cableTrays.industrialFloorTrunkingWithDivider, "Internal divider for separating power and data cables."),
-        accessoryItem("Coupler Plate (STC)", SITE_IMAGES.cableTrays.pctaCouplerPlate, "End-to-end section joining for floor trunking runs."),
+        accessoryItem("Coupler Plate (STC)", SITE_IMAGES.cableTrays.floorCouplerPlate, "End-to-end section joining for floor trunking runs."),
       ],
     ),
   }),
