@@ -17,11 +17,11 @@ export const STEEL_IMAGES = {
         sch10SsWeldedPipe1Png: '/Steel/pipes-tubes/types/erw/sch-10-ss-welded-pipe1.png',
       },
       tube: {
-        stainlessSteelSeamlessTube11Png: '/Steel/placeholder-stainlessSteelSeamlessTube11Png.jpg',
-        ssWeldedTubing11Png: '/Steel/placeholder-ssWeldedTubing11Png.jpg',
-        coldDrawnStainlessSteelTube11Png: '/Steel/placeholder-coldDrawnStainlessSteelTube11Png.jpg',
-        stainlessSteelRoundTube11Png: '/Steel/placeholder-stainlessSteelRoundTube11Png.jpg',
-        ssThickWallTubes11Png: '/Steel/placeholder-ssThickWallTubes11Png.jpg',
+        stainlessSteelSeamlessTube11Png: '/Steel/pipes-tubes/types/tube/stainless-steel-seamless-tube1.png',
+        ssWeldedTubing11Png: '/Steel/pipes-tubes/types/tube/ss-welded-tubing1.png',
+        coldDrawnStainlessSteelTube11Png: '/Steel/pipes-tubes/types/tube/cold-drawn-stainless-steel-tube1.png',
+        stainlessSteelRoundTube11Png: '/Steel/pipes-tubes/types/tube/stainless-steel-round-tube1.png',
+        ssThickWallTubes11Png: '/Steel/pipes-tubes/types/tube/ss-thick-wall-tubes1.png',
       },
       polished: {
         stainlessSteelPolishedPipe1Png: '/Steel/pipes-tubes/types/polished/stainless-steel-polished-pipe1.png',
