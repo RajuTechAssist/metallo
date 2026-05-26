@@ -1,5 +1,5 @@
 /**
- * Script to analyze and map certifications from wb_alloys_consumables_only.json
+ * Script to analyze and map certifications from updated_consumables_metadata.json
  * to the categories in weldingCategoryData.ts
  * 
  * Outputs: which certifications match existing standards, which are new
@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const jsonData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '..', 'wb_alloys_consumables_only.json'), 'utf8')
+  fs.readFileSync(path.join(__dirname, '..', 'updated_consumables_metadata.json'), 'utf8')
 );
 
 const consumables = jsonData.verticals.Consumables;

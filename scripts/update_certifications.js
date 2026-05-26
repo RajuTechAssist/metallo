@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const jsonData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '..', 'wb_alloys_consumables_only.json'), 'utf8')
+  fs.readFileSync(path.join(__dirname, '..', 'updated_consumables_metadata.json'), 'utf8')
 );
 
 const consumables = jsonData.verticals.Consumables;
@@ -38,7 +38,7 @@ const categoryMapping = {
   'Nickel Alloys': { id: 'nickel', useCaseName: 'Nickel Alloys' },
   'Hardfacing': { id: 'hardfacing', useCaseName: 'Hardfacing' },
   'Aluminum MIG & TIG': { id: 'aluminum', useCaseName: 'Aluminum MIG and TIG' },
-  'Chrome-Moly Alloys': { id: 'chrome-moly', useCaseName: null },
+  'Chrome-Moly Alloys': { id: 'chrome-moly', useCaseName: 'Chrome-Moly Alloys' },
 };
 
 // Helper function to extract all normalized codes (e.g. ["ER70S-6", "E6013"]) from standard string
@@ -123,18 +123,18 @@ for (const [subCat, certs] of Object.entries(consumables)) {
       const matchIndex = match.index;
       const matchFull = match[0];
       const standardsContent = match[2];
-      
-      // Parse existing plain standards from the file
-      // We parse strings matching "something" or 'something'
-      const originalStandards = [];
-      const stdRegex = /(?:"([^"]+)"|'([^']+)')/g;
-      let stdMatch;
-      while ((stdMatch = stdRegex.exec(standardsContent)) !== null) {
-        originalStandards.push(stdMatch[1] || stdMatch[2]);
+      // Safely evaluate the standards block as a real JavaScript array
+      let originalStandardsArray = [];
+      try {
+        originalStandardsArray = eval('[' + standardsContent + ']');
+      } catch (e) {
+        console.error(`Failed to parse standards content for "${mapping.useCaseName}":`, e.message);
       }
       
+      const originalPlainStandards = originalStandardsArray.filter(std => typeof std === 'string');
+      
       // Filter out original plain standards that are now covered by datasheet ones
-      const filteredPlainStandards = originalStandards.filter(std => {
+      const filteredPlainStandards = originalPlainStandards.filter(std => {
         const stdCodes = getClassificationCodes(std);
         
         // If this standard's classification code matches one of our datasheet ones, remove it

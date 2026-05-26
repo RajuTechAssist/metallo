@@ -178,36 +178,36 @@
       ],
       "Stainless Alloys": [
         {
-          "certification": "AWS A5.9 : ER308LWB253MA-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER308L",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : EGWB347H-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: EG (WB253MA-SAW)",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER347HWB316L-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER347H",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER316LWB309L-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER316L",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER309LWB309LMo-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER309L",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER309LMoWB22-9-3L-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER309LMo",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER2209WB25-9-3L-SAW",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER2209",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         },
         {
-          "certification": "AWS A5.9 : ER2594",
-          "datasheet_url": "Data sheet link not found dynamically"
+          "certification": "AWS A5.9: ER2594",
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
         }
       ],
       "Nickel Alloys": [],
@@ -332,31 +332,31 @@
         },
         {
           "certification": "AWS A5.17: F7 AP8",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F8 AP4-EA2-A2F8 AP8-EG-GF8P2-EB2-B2F8P4-EB3-B3",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F9A6-EG-G, F9P6-EG-G WBSD3Mo",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F1-P4-EG-GWBS2-1¼Cr1/2Mo",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F9P0-EB2-B2WBS2-2 1/2Cr1Mo",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         },
         {
           "certification": "AWS A5.23: F9P2-EG-B3",
-          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true"
+          "datasheet_url": "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true"
         }
       ]
     }
