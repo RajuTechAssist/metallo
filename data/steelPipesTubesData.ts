@@ -58,7 +58,7 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     subCategory: "Seamless Pipes",
     materialGroup: "ss",
     thumbnail: SITE_IMAGES.steel.pipesTubes.seamlessPipe,
-    sourceUrl: "https://www.triloksteel.com/stainless-steel-seamless-pipe.html",
+    sourceUrl: "",
     descriptionParagraphs: [
       "Metallo supplies stainless steel seamless pipe for pressure-duty lines where weld-free construction, tighter integrity under cyclic loading, and dependable corrosion resistance are the main project drivers. The sourced range is positioned around ASTM A312 and EN 10216-5 manufacturing, covering the core austenitic grades used in process piping, utility headers, fabrication spools, and plant maintenance stock.",
       "This family is especially suited to chemical, water, food, and power-sector installations that need schedule-based pipe supply with mill traceability, project inspection support, and flexible finishing routes. Metallo frames the range as the workhorse option for stainless pressure piping when fabricators want broad schedule availability without stepping into site-specific custom fabrication too early.",
@@ -485,11 +485,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's GI pipe and conduit program keeps the practical galvanized formats available for electrical and utility projects that do not require full stainless construction.",
     typeItems: [
-      steelTypeItem("Galvanized Iron Pipe", "Galvanised-Iron-Pipe.png"),
-      steelTypeItem("Threaded Utility Pipe", "Customised-Steel-Pipe.png"),
-      steelTypeItem("GI Conduit Runs", "pipes&tubes.jpg"),
-      steelTypeItem("Commercial Utility Pipe", "pipes&tubes1.png"),
-      steelTypeItem("Plant Support Conduit", "Structural-Steel.png"),
+      createSteelTypeItem("Galvanized Iron Pipe", SITE_IMAGES.steel.pipesTubes.types.gi.galvanisedIronPipe),
+      createSteelTypeItem("Threaded Utility Pipe", SITE_IMAGES.steel.pipesTubes.types.gi.threadedUtilityPipe),
+      createSteelTypeItem("GI Conduit Runs", SITE_IMAGES.steel.pipesTubes.types.gi.pipesTubes),
+      createSteelTypeItem("Commercial Utility Pipe", SITE_IMAGES.steel.pipesTubes.types.gi.pipesTubes1),
+      createSteelTypeItem("Plant Support Conduit", SITE_IMAGES.steel.pipesTubes.types.gi.structuralSteel),
     ],
   },
   {
@@ -546,11 +546,11 @@ const STEEL_PIPE_TUBE_SOURCES: SteelPipeTubeSource[] = [
     typeGalleryIntro:
       "Metallo's MS and carbon-steel pipe range covers the practical pipe forms most often used in plant utility, fabrication, and general industrial projects.",
     typeItems: [
-      steelTypeItem("Carbon Steel Utility Pipe", "Customised-Steel-Pipe.png"),
-      steelTypeItem("Project Line Pipe", "pipes&tubes.jpg"),
-      steelTypeItem("Mild Steel Pipe Stock", "pipes&tubes1.png"),
-      steelTypeItem("Fabrication Pipe Supply", "structural-steel-product-range.jpg"),
-      steelTypeItem("Industrial Support Pipe", "Structural-Steel.png"),
+      createSteelTypeItem("Carbon Steel Utility Pipe", SITE_IMAGES.steel.pipesTubes.types.ms.customisedSteelPipe),
+      createSteelTypeItem("Project Line Pipe", SITE_IMAGES.steel.pipesTubes.types.ms.projectLinePipe),
+      createSteelTypeItem("Mild Steel Pipe Stock", SITE_IMAGES.steel.pipesTubes.types.ms.mildSteelPipeStock),
+      createSteelTypeItem("Fabrication Pipe Supply", SITE_IMAGES.steel.pipesTubes.types.ms.fabricationPipeSupply),
+      createSteelTypeItem("Industrial Support Pipe", SITE_IMAGES.steel.pipesTubes.types.ms.industrialSupportPipe),
     ],
   },
   {
