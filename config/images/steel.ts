@@ -215,8 +215,8 @@ export const STEEL_IMAGES = {
         a24: '/Steel/fasteners-bars/types/structural-assemblies/a24.png',
       },
       specialFastenersBars: {
-        s1: '/Steel/fasteners-bars/types/petrochemical-stud-bolts/s1.png',
-        s2: '/Steel/fasteners-bars/types/petrochemical-stud-bolts/s2.png',
+        s1: '/Steel/fasteners-bars/types/special-fasteners-bars/s1.png',
+        s2: '/Steel/fasteners-bars/types/special-fasteners-bars/s2.png',
         s3: '/Steel/fasteners-bars/types/special-fasteners-bars/s3.png',
         s4: '/Steel/fasteners-bars/types/special-fasteners-bars/s4.png',
         s5: '/Steel/fasteners-bars/types/special-fasteners-bars/s5.png',

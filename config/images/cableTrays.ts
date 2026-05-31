@@ -135,32 +135,32 @@ export const CABLE_TRAY_IMAGES = {
   // =========================================================================
   // 7. WIRE MESH BASKETS
   // =========================================================================
-  wiremeshTray: '/cable Trays/dudhat/wiremesh-tray.webp',
+  wiremeshTray: '/cable Trays/dudhat/wiremesh-tray.png',
 
   // =========================================================================
   // 8. FRP CABLE TRAY SYSTEMS
   // =========================================================================
-  frpTray: '/cable Trays/dudhat/frp-tray.webp',
+  frpTray: '/cable Trays/dudhat/frp-tray2.png',
 
   // =========================================================================
   // 9. EARTHING / GROUNDING MATERIALS
   // =========================================================================
   // Note: Shared image used for GI Wire, conduits, copper conductors, electrodes, lugs, flat bars, and jumpers
-  earthingMaterial: '/cable Trays/dudhat/earthing-material.png',
+  earthingMaterial: '/cable Trays/dudhat/earthing-material1.png',
 
   // =========================================================================
   // 10. FINISHING SYSTEMS
   // =========================================================================
   // Dedicated Category Main Thumbnail Image
-  finishingMain: '/cable Trays/dudhat/finishing/hot-dip-plant.webp',
+  finishingMain: '/cable Trays/dudhat/finishing/hot-dip-plant.png',
   // Hot-Dip Plant
-  hotDipPlant: '/cable Trays/dudhat/finishing/hot-dip-plant.webp',
+  hotDipPlant: '/cable Trays/dudhat/finishing/hot-dip-plant.png',
   // Electro Plating Plant
-  electroPlatingPlant: '/cable Trays/dudhat/finishing/electro-plating-plant.webp',
+  electroPlatingPlant: '/cable Trays/dudhat/finishing/electro-plating-plant.png',
   // Powder Coating Plant
-  powderCoatingPlant: '/cable Trays/dudhat/finishing/powder-coating-plant.webp',
+  powderCoatingPlant: '/cable Trays/dudhat/finishing/powder-coating-plant.png',
   // GP Sheet Coil (Essar Steel) / HR Sheet Coil
-  gpSheetCoilEssarSteel: '/cable Trays/dudhat/finishing/gp-sheet-coil-essar-steel.webp',
+  gpSheetCoilEssarSteel: '/cable Trays/dudhat/finishing/gp-sheet-coil-essar-steel.png',
 
   // =========================================================================
   // 11. GENERAL INSTALLATION & HARDWARE ACCESSORIES
