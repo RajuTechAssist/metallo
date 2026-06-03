@@ -103,7 +103,7 @@ export const WELDING_IMAGES = {
   /* Category Card Images used in weldingCategoryData.ts */
   categoryCards: {
     consumables: {
-      migTig: '/Welding Consumables/consumables/MIG_Wires_&_TIG_Cut_Lengths.png',
+      migTig: '/Welding Consumables/consumables/MIG_Wires_&_TIG_Cut_Lengths1.png',
       stick: '/Welding Consumables/consumables/stick_electrodes.png',
       metalCored: '/Welding Consumables/consumables/Metal_Cored_Wires.png',
       selfShielded: '/Welding Consumables/consumables/Self-Shielded_Flux-Cored.png',

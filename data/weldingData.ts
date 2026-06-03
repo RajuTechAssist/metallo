@@ -682,9 +682,6 @@ export const CATALOG_DATA: Record<string, CatalogCategoryData> = {
       { id: "mechanized", label: "Mechanized Automation" },
       { id: "robotic-laser", label: "Robotic Laser Systems" },
       { id: "positioners", label: "Positioners" },
-      { id: "auto-cutting", label: "Automated Cutting Systems" },
-      { id: "inspection", label: "Part Inspection & Quality Control" },
-      { id: "grinding", label: "Robotic Grinding Systems" },
     ],
     products: {
       "robotic-systems": [
@@ -700,9 +697,6 @@ export const CATALOG_DATA: Record<string, CatalogCategoryData> = {
       "mechanized": [],
       "robotic-laser": [],
       "positioners": [],
-      "auto-cutting": [],
-      "inspection": [],
-      "grinding": [],
     }
   },
   accessories: {
@@ -713,10 +707,7 @@ export const CATALOG_DATA: Record<string, CatalogCategoryData> = {
       { id: "cutting-acc", label: "Cutting Accessories" },
       { id: "gun-torch", label: "Gun & Torch Accessories" },
       { id: "helmet-acc", label: "Helmet Accessories" },
-      { id: "mech-acc", label: "Mechanized Automation Accessories" },
-      { id: "robo-acc", label: "Robotic Automation Accessories" },
-      { id: "fume-acc", label: "Weld Fume Accessories" },
-      { id: "tools", label: "Tools & Wire Delivery" },
+      { id: "general-acc", label: "General Accessories" },
     ],
     products: {
       "gun-torch": [
@@ -731,10 +722,7 @@ export const CATALOG_DATA: Record<string, CatalogCategoryData> = {
       "equip-acc": [],
       "cutting-acc": [],
       "helmet-acc": [],
-      "mech-acc": [],
-      "robo-acc": [],
-      "fume-acc": [],
-      "tools": [],
+      "general-acc": [],
     }
   },
   safety: {

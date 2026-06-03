@@ -43,9 +43,6 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
       { label: "Mechanized Automation", href: "#" },
       { label: "Robotic Laser Systems", href: "#" },
       { label: "Positioners", href: "#" },
-      { label: "Automated Cutting Systems", href: "#" },
-      { label: "Part Inspection & Quality Control", href: "#" },
-      { label: "Robotic Grinding Systems", href: "#" },
     ],
   },
   {
@@ -58,10 +55,7 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
       { label: "Cutting Accessories", href: "#" },
       { label: "Gun & Torch Accessories", href: "#" },
       { label: "Helmet Accessories", href: "#" },
-      { label: "Mechanized Automation Accessories", href: "#" },
-      { label: "Robotic Automation Accessories", href: "#" },
-      { label: "Weld Fume Accessories", href: "#" },
-      { label: "Tools & Wire Delivery", href: "#" },
+      { label: "General Accessories", href: "#" },
     ],
   },
   {
