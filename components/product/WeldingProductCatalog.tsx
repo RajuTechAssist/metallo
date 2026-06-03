@@ -9,6 +9,7 @@ import {
   SAFETY_CATEGORIES,
   ACCESSORIES_CATEGORIES,
   type WeldingMainCategory,
+  type WeldingProduct,
 } from "@/data/weldingCategoryData";
 
 /* ── OLD IMPORTS — kept for future re-enable ──────────────────
@@ -249,15 +250,55 @@ const CategoryCard: React.FC<{
                         </div>
 
                         <div className="p-4 space-y-3">
-                          {/* Product Types */}
-                          {uc.products && uc.products.length > 0 && (
+                          {/* Products Grid (Consumables Style: grouped certifications and direct datasheet links) */}
+                          {uc.products && uc.products.length > 0 && typeof uc.products[0] === 'object' && (
+                            <div>
+                              <p className="text-[10px] font-heading font-bold uppercase tracking-[0.12em] text-slate-400 mb-2 flex items-center gap-1.5">
+                                <span className="material-symbols-outlined text-xs text-emerald-500">verified</span>
+                                Certifications
+                              </p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-3">
+                                {(uc.products as WeldingProduct[]).map((prod, j) => {
+                                  return (
+                                    <div key={j} className="flex items-start gap-2 text-[12px] leading-snug group/cert">
+                                      <span className="material-symbols-outlined text-xs text-emerald-400 mt-0.5 shrink-0">
+                                        check_circle
+                                      </span>
+                                      {prod.datasheetUrl ? (
+                                        <a
+                                          href={prod.datasheetUrl}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-slate-600 hover:text-slate-900 hover:underline underline-offset-2 transition-colors duration-200 cursor-pointer flex flex-col"
+                                          title={`View datasheet for ${prod.name}`}
+                                        >
+                                          {prod.certifications.map((cert, k) => (
+                                            <span key={k}>{cert}</span>
+                                          ))}
+                                        </a>
+                                      ) : (
+                                        <div className="flex flex-col text-slate-600">
+                                          {prod.certifications.map((cert, k) => (
+                                            <span key={k}>{cert}</span>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Product Types (String style for Automation) */}
+                          {uc.products && uc.products.length > 0 && typeof uc.products[0] === 'string' && (
                             <div>
                               <p className="text-[10px] font-heading font-bold uppercase tracking-[0.12em] text-slate-400 mb-2 flex items-center gap-1.5">
                                 <span className="material-symbols-outlined text-xs text-slate-400">inventory_2</span>
                                 Product Types
                               </p>
                               <div className="flex flex-wrap gap-1.5">
-                                {uc.products.map((p, j) => (
+                                {(uc.products as string[]).map((p, j) => (
                                   <span key={j} className="inline-flex items-center px-2.5 py-1 bg-slate-50 border border-slate-200 text-[11px] text-slate-600 font-sans rounded-sm">
                                     {p}
                                   </span>
@@ -304,8 +345,8 @@ const CategoryCard: React.FC<{
                             </div>
                           )}
 
-                          {/* No Standards Note */}
-                          {(!uc.standards || uc.standards.length === 0) && (
+                          {/* No Standards or Products Note */}
+                          {(!uc.standards || uc.standards.length === 0) && (!uc.products || uc.products.length === 0) && (
                             <p className="text-[11px] text-slate-400 italic flex items-center gap-1.5">
                               <span className="material-symbols-outlined text-xs">info</span>
                               General purpose — no specific certification required

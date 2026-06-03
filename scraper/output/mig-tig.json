@@ -1,10 +1,10 @@
 {
-  "category": "MIG Wires & TIG Cut Lengths",
+  "category": "MIG Welding Wires",
   "id": "mig-tig",
   "products": [
     {
       "originalName": "SuperArc® L-56®",
-      "url": "https://www.lincolnelectric.com/en/Products/superarcl56_gmaw",
+      "url": "",
       "title": "SuperArc® L-56®",
       "classification": "ER70S-6",
       "awsStandard": "",

@@ -6,6 +6,12 @@ import { SITE_IMAGES } from "@/config/images";
    main product category displayed on the Welding & Allied page.
    ═══════════════════════════════════════════════════════════════ */
 
+export interface WeldingProduct {
+  name: string;
+  certifications: string[];
+  datasheetUrl?: string;
+}
+
 export interface WeldingMainCategory {
   id: string;
   label: string;
@@ -16,626 +22,871 @@ export interface WeldingMainCategory {
   image: string;
   subCategories?: string[];
   standards?: string[];
-  useCases?: { name: string; products?: string[]; standards: (string | { label: string; datasheetUrl: string })[] }[];
+  useCases?: { name: string; products?: (string | WeldingProduct)[]; standards?: (string | { label: string; datasheetUrl: string })[] }[];
 }
 
 /* ── CONSUMABLES (Filler Metal Sub-Categories) ─────────────── */
+/* Data sourced from wballoys_full_clean_List.json — 5 consumable categories
+   with product sub-groups and certifications mapped to local PDF datasheets */
 
 export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
   {
-    id: "mig-tig",
-    label: "MIG Wires & TIG Cut Lengths",
+    id: "mig-gmaw",
+    label: "MIG Welding Wire (GMAW)",
     icon: "electric_bolt",
-    description:
-      "Precision-engineered solid wire electrodes for Gas Metal Arc Welding (GMAW) and TIG cut-length rods for Gas Tungsten Arc Welding (GTAW). Our MIG wires deliver exceptional arc stability, ultra-low spatter, and superior feedability across short-circuit, globular, and spray transfer modes. Available in copper-coated and copper-free surface technologies for robotic and manual applications.",
-    features: [
-      "ER70S-6, ER70S-3, ER80S-Ni1, ER90S-D2, ER100S-G classifications",
-      "Copper-coated & copper-free surface options",
-      "Optimized for robotic & automated systems",
-      "Superior feedability in long conduit lengths",
-      "Low diffusible hydrogen (H4/H8) designations",
-      "ABS, DNV, CWB, LR marine approvals",
-    ],
-    industries: [
-      "Shipbuilding & Marine",
-      "Structural Steel Fabrication",
-      "Offshore Platforms",
-      "Automotive & Robotics",
-      "Pressure Vessels",
-      "Heavy Equipment Manufacturing",
-    ],
+    description: "Precision-engineered solid wire electrodes for Gas Metal Arc Welding (GMAW). Our MIG wires deliver exceptional arc stability, ultra-low spatter, and superior feedability across short-circuit, globular, and spray transfer modes. Available in steel, stainless steel, and nickel & copper alloy grades for robotic and manual applications.",
+    features: ["ER70S-6, ER80S-Ni1, ER90S-D2, ER100S-G classifications", "Copper-coated & copper-free surface options", "Optimized for robotic & automated systems", "Superior feedability in long conduit lengths", "Low diffusible hydrogen (H4/H8) designations", "ABS, DNV, CWB, LR marine approvals"],
+    industries: ["Shipbuilding & Marine", "Structural Steel Fabrication", "Offshore Platforms", "Automotive & Robotics", "Pressure Vessels", "Heavy Equipment Manufacturing"],
     image: SITE_IMAGES.welding.categoryCards.consumables.migTig,
     useCases: [
       {
-        name: "MIG WIRES AND TIG RODS",
+        name: "Steel Non & Low Alloyed",
         products: [
-          "Carbon Steel Solid MIG Wires (Copper-Coated & Bare)",
-          "Carbon Steel TIG Cut Lengths",
-          "Low Alloy Solid MIG Wires",
-          "Low Alloy TIG Cut Lengths",
-          "Silicon Bronze Wires"
-        ],
-        standards: [
-          { label: "AWS A5.18: ER70S-6BS EN ISO 636-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_359f1812de2544dcab1ccc59ce3cd6a5.pdf?index=true" },
-          { label: "AWS A5.18: ER70S-2", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_2993ed206cf742b782fbf0e05a6c7b01.pdf" },
-          { label: "AWS A5.28: ER80S-Ni1-H4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_10586bc8e1df409aa51662684f32de80.pdf" },
-          { label: "AWS A5.28: ER80S-G (A1)BS EN ISO 21952-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_300a1f3feda6410485250a6beb192690.pdf?index=true" },
-          { label: "AWS A5.28: ER80S-D2 / ER90S-D2", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d82cd6b13c08452d8774e59deafb63c7.pdf?index=true" },
-          { label: "AWS A5.28: ER80S-B2BS EN ISO 21952-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_e442575465354f9d8d5f4a91d920ab57.pdf" },
-          { label: "AWS A5.28: ER80S-B8", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_a8465c5ab55740c9b009c5d7e6161ae7.pdf" },
-          { label: "AWS A5.28: ER100S-G", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_427fb2165b2f49a29cc1549f0473cb87.pdf?index=true" },
-          { label: "AWS A5.28: ER90S-G", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_1a90338e8250477396a04e4d1b33b95b.pdf?index=true" },
-          { label: "AWS A5.1: E7016-1 H4 RBS EN ISO 2560-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_e46cc75f3f3e43a5b6ef959976074796.pdf" },
-          { label: "AWS A5.5: E8018-G H4R RCC-M", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_75e8e1c158af4dde949fdd8b5f12d079.pdf" },
-          { label: "AWS A5.5: E9018-M", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_c3e01665869a4e6284803b5af54a9923.pdf" },
-          { label: "AWS A5.5: E11018-M H4RMIL-11018-M MIL-E-222000/1", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_493023ae8b944035a8d7919a1cb89de8.pdf" },
-          { label: "AWS A5.5: E8016-GBS EN ISO 2560-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_15991309aab84fb9835f66b533485ff3.pdf" },
-          { label: "AWS A5.5: E8018-B2BS EN ISO 3580-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_2a61d5359e114802867bb2365bbe337e.pdf" },
-          { label: "AWS A5.5: E8018-C1-H4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_1c0623f74a534b789283de672e045a4c.pdf" },
-          { label: "AWS A5.5: E8018-C3BS EN ISO 2560-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_1ca20647ec1e4024aac8d8149626c520.pdf" },
-          { label: "AWS A5.5: E8018-W2", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_cf1459d1ecb945b1bbec5c1c53f6eefc.pdf" },
-          { label: "AWS A5.5: E9018-G", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_b33e5f6d9d5445049e3cb89c41b2e137.pdf" },
-          { label: "AWS A5.5: E10018-D2-H4 RBS EN ISO 18275", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_9792a1ec13a34f3683ff0bd4a02cbd6e.pdf" },
-          { label: "AWS A5.5: E12018-GBS EN ISO 18275", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_b0653971d1f1493dbf2663f2213b534e.pdf" },
-          { label: "AWS A5.5: E12018-MBS EN ISO 18275", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d800a35a327e401380be16ff5e62b4ee.pdf" },
-          { label: "AWS A5.28: E90C-K3H4BS EN ISO 18276-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_f36f24f6381b404d9ea3695a0239db29.pdf?index=true" },
-          { label: "AWS A5.36: E91T15-M21A8-K1-H4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_f36f24f6381b404d9ea3695a0239db29.pdf?index=true" },
-          { label: "AWS A5.28: E110C-K4H4EN ISO 18276-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_e916ab535ab0431aa73f3e21ae67f5dd.pdf?index=true" },
-          { label: "AWS A5.36: E110T15-M21A8-K4-H4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_e916ab535ab0431aa73f3e21ae67f5dd.pdf?index=true" },
-          { label: "AWS A5.28: E120C-GH4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_223054e4e7374dadbdbc640a9083d75c.pdf?index=true" },
-          "AWS A5.18: ER70S-3",
-          "AWS A5.7: ERCuSi-A",
-          "AWS A5.18: ER70S-9",
-          "AWS A5.28: ER110S-G",
-          "AWS A5.28: ER100S-1",
-          "AWS A5.28: ER90S-B91",
-          "AWS A5.28: ER90S-B3",
-          "AWS A5.28: ER80S-B6",
-          "AWS A5.28: ER90S-B92",
+          {
+            name: "WB100S-G",
+            certifications: ["AWS A5.28: ER100S-G", "BS EN 16834-A: G 62 4 M21 Mn3NiCrMo"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB100S-G.pdf"
+          },
+          {
+            name: "WB120S-G",
+            certifications: ["AWS A5.28: ER120S-G", "BS EN 16834-A: G 89 4 M21 Mn4Ni2CrMo"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB120S-G.pdf"
+          },
+          {
+            name: "WB6000",
+            certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 14341-A: G 46 4 M21 3Si1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6000.pdf"
+          },
+          {
+            name: "WB6002",
+            certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 14341-A: G 46 5 M21 4Si1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6002.pdf"
+          },
+          {
+            name: "WB6012M",
+            certifications: ["AWS A5.28: ER80S-G"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6012M.pdf"
+          },
+          {
+            name: "WB6013",
+            certifications: ["AWS A5.28: ER80S-Ni1", "BS EN ISO 14341-A: G 46 6 M 3 Ni1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6013.pdf"
+          },
+          {
+            name: "WB6040",
+            certifications: ["AWS A5.28: ER80S-Ni2 B", "BS EN ISO 14341-A: G 50 6 M 2 Ni2"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6040.pdf"
+          },
+          {
+            name: "WB6041E",
+            certifications: ["AWS A5.28: ER80S-D2/ER90S-D2", "BS EN ISO 14341-A: G 50 5 M21 4Mo"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6041E.pdf"
+          },
+          {
+            name: "WB6042",
+            certifications: ["AWS A5.28: ER80S-B2", "BS EN ISO 21952-A: G CrMo1Si"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6042.pdf"
+          },
+          {
+            name: "WB6047P",
+            certifications: ["AWS A5.28: ER100S-G"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6047P.pdf"
+          },
         ]
-      }
-    ],
-  },
-  {
-    id: "stick",
-    label: "Stick Electrodes",
-    icon: "hardware",
-    description:
-      "Comprehensive range of shielded metal arc welding (SMAW) electrodes covering cellulosic, rutile, and low-hydrogen classifications. From deep-penetration pipeline root pass electrodes to moisture-resistant low-hydrogen rods for critical structural and offshore applications. Engineered for consistent X-ray quality deposits with excellent slag detachability.",
-    features: [
-      "E6010, E6011, E7018, E7024, E8018-C3, E9018-B3 classifications",
-      "Moisture-resistant (H4R) coating technology",
-      "Cryogenic service down to -73°C",
-      "All-position welding capability",
-      "Chrome-Moly for elevated temperature service",
-      "API 1104 pipeline approved",
-    ],
-    industries: [
-      "Pipeline Construction",
-      "Offshore & Subsea",
-      "Power Generation",
-      "Refinery & Petrochemical",
-      "Structural & Bridge Fabrication",
-      "LNG & Cryogenic Storage",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.stick,
-    useCases: [
+      },
       {
-        name: "Stick Electrodes",
+        name: "Stainless Steel",
         products: [
-          "Mild Steel Cellulosic Electrodes",
-          "Mild Steel Rutile Electrodes",
-          "Mild Steel Low-Hydrogen Electrodes",
-          "Low Alloy Low-Hydrogen Electrodes",
-          "Iron Powder Electrodes",
-          "Creep-Resistant Stick Electrodes",
-          "Cast Iron Stick Electrodes"
-        ],
-        standards: [
-          { label: "AWS A5.5: E7018-G H4RBS EN ISO 2560-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_40f5203e8e49426f86ceab58ef6e94b1.pdf" },
-          { label: "AWS A5.1: E6013 BS EN ISO 2560-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_40604265408840c69b8455eebe1c7f21.pdf" },
-          { label: "AWS A5.1: E7018-1H4REN ISO 2560A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d72e2540d33a400fbc989595a13a882e.pdf" },
-          { label: "AWS A5.1: E7018-1 H4 REN ISO 2560A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_a4219c411ff24a319a798ccdcefbf842.pdf" },
-          "AWS A5.1: E6010",
-          "AWS A5.1: E6011",
-          "AWS A5.1: E6022",
-          "AWS A5.1: E7014",
-          "AWS A5.5: E7018-A1",
-          "AWS A5.5: E7010-P1",
-          "AWS A5.5: E8010-G",
-          "AWS A5.5: E8010-P1",
-          "AWS A5.5: E8018-C1",
-          "AWS A5.5: E8018-C3",
-          "AWS A5.1: E7024",
-          "AWS A5.1: E7024-1",
-          "AWS A5.1: E7028 H8",
-          "AWS A5.5: E9010-G",
-          "AWS A5.5: E9018M",
-          "AWS A5.5: E9015-B3",
-          "AWS A5.5: E9015-B91",
-          "AWS A5.5: E9015-B92",
-          "AWS A5.5: E9015-G22V",
-          "AWS A5.5: E10018-D2",
-          "AWS A5.5: E10045-P2",
-          "AWS A5.5: E11018M",
-          "AWS A5.15: ESt (Cast Iron)",
-          "AWS Hardfacing / Wear-Resistant Specifications",
+          {
+            name: "WB17-4PH",
+            certifications: ["AWS A5.9: ER630"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB 17-4PH.pdf"
+          },
+          {
+            name: "WB22-9-3LM",
+            certifications: ["AWS A5.9: ER2209", "BS EN ISO 14343-A: G 22 9 3 NL"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB22-9-3LM.pdf"
+          },
+          {
+            name: "WB25-9-3LM",
+            certifications: ["AWS A5.9: ER2594", "BS EN ISO 14343-A: G 25 9 4 NL"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB25-9-3LM.pdf"
+          },
+          {
+            name: "WB308HM",
+            certifications: ["AWS A5.9: ER308H", "BS EN ISO 14343-A: G 19 9 H"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB308HM.pdf"
+          },
+          {
+            name: "WB308LM",
+            certifications: ["AWS A5.9: ER308LSi", "BS EN ISO 14343-A: G 19 9 LSi"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB308LM.pdf"
+          },
+          {
+            name: "WB309LM",
+            certifications: ["AWS A5.9: ER309LSi", "BS EN ISO 14343-A: G 23 12 L Si"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309LM.pdf"
+          },
+          {
+            name: "WB309L",
+            certifications: ["AWS A5.9: ER309L", "BS EN ISO 14343-A: G 23 12 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309L.pdf"
+          },
+          {
+            name: "WB309LMo-M",
+            certifications: ["AWS A5.9: ER309LMo", "BS EN ISO 14343-A: G 23 12 2 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309LMo-M.pdf"
+          },
+          {
+            name: "WB310M",
+            certifications: ["AWS A5.9: ER310", "BS EN ISO 14343-A: G 25 20"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB310M.pdf"
+          },
+          {
+            name: "WB316HM",
+            certifications: ["AWS A5.9: ER316H", "BS EN ISO 14343-A: G 19 12 3 H"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316HM.pdf"
+          },
+          {
+            name: "WB316LM",
+            certifications: ["AWS A5.9: ER316LSi", "BS EN 14343-A: G 19 12 3 LSi"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316LM.pdf"
+          },
+          {
+            name: "WB316L",
+            certifications: ["AWS A5.9: ER316L", "BS EN 14343-A: G 19 12 3 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316L.pdf"
+          },
         ]
-      }
-    ],
-  },
-  {
-    id: "metal-cored",
-    label: "Metal-Cored Wires",
-    icon: "precision_manufacturing",
-    description:
-      "High-productivity metal-cored wire electrodes that combine the efficiency of flux-cored wires with the clean weld appearance of solid wires. Deliver up to 30% faster travel speeds compared to solid wire with significantly wider operating windows, reduced spatter, and excellent gap-bridging capability for automated and robotic welding cells.",
-    features: [
-      "E70C-6M, E80C-Ni1 classifications",
-      "Up to 30% faster travel speeds vs solid wire",
-      "Wide operating parameter window",
-      "Excellent gap bridging capability",
-      "All-position including pulsed spray",
-      "Low hydrogen H4 designation",
-    ],
-    industries: [
-      "Robotic Welding Cells",
-      "Heavy Fabrication",
-      "Automotive Manufacturing",
-      "Shipbuilding",
-      "Wind Tower Production",
-      "Arctic & Offshore Structures",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.metalCored,
-    useCases: [
+      },
       {
-        name: "Metal Cored Wires",
+        name: "Nickel & Copper Alloy",
         products: [
-          "Mild Steel Metal-Cored Wires",
-          "Low Alloy Metal-Cored Wires",
-          "High-Deposition Metal-Cored Wires"
-        ],
-        standards: [
-          { label: "BS EN ISO 17632-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_8e884f41aeb1462d842f6e3b70573a56.pdf?index=true" },
-          { label: "AWS A5.28: E80C-Ni1H4BS EN ISO 17632-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_81c0666a49254cd4950bad883df5bb73.pdf?index=true" },
-          { label: "AWS A5.36: E80T15-M21A8-Ni1-H4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_81c0666a49254cd4950bad883df5bb73.pdf?index=true" },
-          { label: "AWS A5.28: E80C-GH4BS EN ISO 17632-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_6ce3834c232f469bb33949bd2e564d9e.pdf?index=true" },
-          { label: "AWS A5.36: E81T15-M21A8-GH4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_6ce3834c232f469bb33949bd2e564d9e.pdf?index=true" },
-          "AWS A5.36: E70C-6M-H4",
-          "AWS A5.36: E80T15-M21A5-Ni1-H4",
-          "AWS A5.28: E90C-K3-H4",
-          "AWS A5.36: E90T15-M20A6-K3-H4",
-          "AWS A5.28: E110C-K4-H4",
-          "AWS A5.36: E110T15-M20A6-K4-H4",
-          "AWS A5.28: E120C-K4-H4",
-          "AWS A5.36: E120T15-M20A6-K4-H4",
-          "AWS A5.36: E70C-GM-H4",
-          "AWS A5.36: E70C-GS",
-          "AWS A5.36: E70C-6M-H8",
-          "AWS A5.36: E70T15-M20A4-CS1-H4",
-          "AWS A5.36: E70T15-M20A2-CS1-H8",
+          {
+            name: "WB59M",
+            certifications: ["AWS A5.14: ERNiCrMo-13", "BS EN ISO 18274: NiCr23Mo16"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB59M.pdf"
+          },
+          {
+            name: "WB61M",
+            certifications: ["AWS A5.14: ERNi-1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB61M.pdf"
+          },
+          {
+            name: "WB67M",
+            certifications: ["AWS A5.7: ERCuNi"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB67M.pdf"
+          },
+          {
+            name: "WB718M",
+            certifications: ["AWS A5.14/A5.14M: ERNiFeCr-2 UNS: N07718"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB718M.pdf"
+          },
+          {
+            name: "WB82M",
+            certifications: ["AWS A5.14: ERNiCr-3", "BS EN ISO 18274: NiCr20Mn3Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB82M.pdf"
+          },
+          {
+            name: "WB625M",
+            certifications: ["AWS A5.14: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB625M.pdf"
+          },
+          {
+            name: "WBC26M",
+            certifications: ["AWS A5.7: ERCuNiAl", "BS EN ISO 24373: CuAl9Ni5Fe3Mn2"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WBC26M.pdf"
+          },
         ]
-      }
-    ],
+      },
+    ]
   },
+
   {
-    id: "self-shielded",
-    label: "Self-Shielded Flux-Cored",
-    icon: "shield",
-    description:
-      "Self-shielded flux-cored wires that require no external shielding gas, making them ideal for outdoor field welding, windy conditions, and remote locations. From versatile all-position maintenance wires to high-deposition structural fabrication electrodes with low-hydrogen designations for code-critical applications.",
-    features: [
-      "E71T-11, E71T-8, E70T-7 classifications",
-      "No external shielding gas required",
-      "Wind-tolerant for outdoor applications",
-      "Low hydrogen H8 structural grades",
-      "All-position including vertical-up",
-      "High deposition rates for heavy plate",
-    ],
-    industries: [
-      "Field Construction & Erection",
-      "Multi-Story Buildings",
-      "Bridge Fabrication",
-      "Mining Equipment",
-      "Farm & Agricultural Equipment",
-      "Railroad & Infrastructure",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.selfShielded,
-    useCases: [
-      {
-        name: "Self Shielded Flux Cored",
-        products: [
-          "Mild Steel Self-Shielded FCAW Wires",
-          "Low Alloy Self-Shielded FCAW Wires",
-          "Galvanized Steel FCAW-S Wires",
-          "Seismic/Structural FCAW-S Wires"
-        ],
-        standards: [
-          "AWS A5.20: E71T-8", "AWS A5.20: E71T-11", "AWS A5.20: E71TG-G",
-          "AWS A5.29: E81T8-G", "AWS A5.20: E70T-6", "AWS A5.20: E70T-7",
-          "AWS A5.20: E70T-4", "AWS A5.20: E70T-3", "AWS A5.20: E70T-10",
-          "AWS A5.29: E91T8-G", "AWS A5.20: E71T-14", "AWS A5.29: E71T8-Ni1",
-          "AWS A5.29: E71T8-Ni2", "AWS A5.20: E70T7-K2", "AWS A5.29: E80TG-K2",
-          "AWS A5.29: E71T8-K6", "EN ISO 17632-A: T Fe9",
-          "EN ISO 17632-A: T Fe1", "EN ISO 17632-A: T Fe2"
-        ]
-      }
-    ],
-  },
-  {
-    id: "gas-shielded",
-    label: "Gas Shielded Flux-Cored",
+    id: "fcaw",
+    label: "Flux Core Wire Welding (FCAW)",
     icon: "air",
-    description:
-      "Gas-shielded flux-cored arc welding (FCAW-G) wires designed for high-deposition, all-position welding with external CO₂ or mixed gas shielding. Offering superior penetration, excellent bead profile, and high deposition efficiency for structural steel, shipbuilding, and heavy fabrication applications.",
-    features: [
-      "E71T-1/9, E71T-12 classifications",
-      "All-position high-deposition capability",
-      "CO₂ and mixed gas compatible",
-      "Excellent slag removal",
-      "Superior penetration profiles",
-      "Seismic-rated & code-approved",
-    ],
-    industries: [
-      "Structural Steel",
-      "Shipbuilding & Marine",
-      "Heavy Equipment",
-      "Seismic Construction",
-      "Platform Fabrication",
-      "General Fabrication",
-    ],
+    description: "Gas-shielded and self-shielded flux-cored arc welding (FCAW) wires designed for high-deposition, all-position welding. Covering flux-cored, metal-cored, creep-resisting, and stainless steel grades, these wires offer superior penetration, excellent bead profile, and high deposition efficiency for structural steel, shipbuilding, and heavy fabrication applications.",
+    features: ["E71T-1/9, E81T1-Ni1 classifications", "All-position high-deposition capability", "CO₂ and mixed gas compatible", "Metal-cored options for robotic welding", "Creep-resisting grades for power generation", "Stainless steel cored wires for corrosion resistance"],
+    industries: ["Structural Steel", "Shipbuilding & Marine", "Heavy Equipment", "Power Generation", "Platform Fabrication", "General Fabrication"],
     image: SITE_IMAGES.welding.categoryCards.consumables.gasShielded,
     useCases: [
       {
-        name: "Gas-Shielded Flux-Cored",
+        name: "Flux Cored Non & Low Alloyed",
         products: [
-          "Mild Steel Gas-Shielded FCAW Wires",
-          "Low Alloy Gas-Shielded FCAW Wires",
-          "Rutile Base FCAW Wires",
-          "Basic Slag FCAW Wires",
-          "Seamless Flux-Cored Wires"
-        ],
-        standards: [
-          "AWS A5.20: E70T-5", "AWS A5.20: E70T-9", "AWS A5.20: E70T-12",
-          "AWS A5.20: E71T-1", "AWS A5.20: E71T-9", "AWS A5.20: E71T-12",
-          "AWS A5.29: E80T1-Ni1", "AWS A5.29: E80T5-B2", "AWS A5.29: E81T1-Ni1",
-          "AWS A5.29: E81T1-Ni2", "AWS A5.29: E81T1-K2", "AWS A5.29: E81T1-B2",
-          "AWS A5.29: E81T1-GM", "AWS A5.29: E81T1-K11", "AWS A5.29: E90T5-B3",
-          "AWS A5.29: E91T1-K2", "AWS A5.29: E91T1-GM", "AWS A5.29: E101T1-K3",
-          "AWS A5.29: E101T1-GM", "AWS A5.29: E111T1-K3", "AWS A5.29: E111T1-GM",
-          "AWS A5.29: E121T1-GM", "AWS A5.29: E621T1-B91",
-          "EN ISO 17632-A: T Fe2", "EN ISO 17634-A: T CrMo2 B M21 2 H5"
+          {
+            name: "WB6121",
+            certifications: ["AWS A5.29: E81T1-Ni1M/C-JH4", "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5", "AWS A5.36: E81T1-M21A8-Ni1 H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Cu.pdf"
+          },
+          {
+            name: "WB6121-SR",
+            certifications: ["AWS A5.29: E81T1-Ni1M/C-JH4", "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5", "AWS A5.36: E81T1-M21A8-Ni1 H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121SR.pdf"
+          },
+          {
+            name: "WB6111E-NG",
+            certifications: ["AWS A5.20: E71T-8", "AWS A5.36/A5.36M: E71T8-A2"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6111E-NG.pdf"
+          },
+          {
+            name: "WB6111E",
+            certifications: ["AWS A5.20-95: E71T1-M/T9M/T-12M JDH4", "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/E71T-1- M WB6111E.pdf"
+          },
+          {
+            name: "WB6114",
+            certifications: ["AWS A5.20: E71T1-M/T9M/T-12M JDH4", "E71T1C/T-9C/T-12C DH4", "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6114.pdf"
+          },
+          {
+            name: "WB6121-Mo",
+            certifications: ["AWS A5.29: E101T1-K2M-JH4", "BS EN ISO 18276-A: T62 4 Mn1.5Ni P M21 1 H5", "AWS A5.36: E81T1-M21A4-G-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Mo.pdf"
+          },
+          {
+            name: "WB6121-Cu",
+            certifications: ["AWS A5.29: E81T1-WGM-H4", "BS EN ISO 17632-A: T46 4 Z P M21 1 H5", "AWS A5.36: E81T1-M21A4-G-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Cu.pdf"
+          },
+          {
+            name: "WB6123",
+            certifications: ["AWS A5.29: E81T1-Ni2M/C-JH4", "BS EN ISO 17632-A: T50 6 2Ni P M21 1 H5", "AWS A5.36: E71T5-M21-A4-CS1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6123.pdf"
+          },
+          {
+            name: "WB6130",
+            certifications: ["AWS A5.20: E71T5-M/C-JH4", "BS EN ISO 17632-A: T42 4 B M21 1 H5", "AWS A5.36: E71T5-M21-A4-CS1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6130.pdf"
+          },
+          {
+            name: "WB6131",
+            certifications: ["AWS A5.36: E91-T5-K4", "BS EN ISO 17632-A: T42 4 B M21 1 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6131.pdf"
+          },
+          {
+            name: "WB6132",
+            certifications: ["AWS A5.29: E110T5-K4M-H4", "BS EN ISO 18276-A: T69 6 Mn2NiCrMo B 4 2 H5", "AWS A5.36: E110T5-M21A8-K4-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6132.pdf"
+          },
+          {
+            name: "WB6132-R",
+            certifications: ["AWS A5.29: E111T1-GM-JH4", "EN ISO 18276-A: T69 6 Mn2NiMo P M21 1 H5", "AWS A5.36: E111T1-M21A8-K3-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6132-R.pdf"
+          },
         ]
-      }
-    ],
+      },
+      {
+        name: "Metal Cored Non & Low Alloyed",
+        products: [
+          {
+            name: "WB6105",
+            certifications: ["AWS A5.18: E70C-6M-H4", "BS EN ISO 17632-A: T46 6 M M21 1 H5", "AWS A5.36: E70T15-M21A8-CS1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105.pdf"
+          },
+          {
+            name: "6105-Ni1",
+            certifications: ["AWS A5.28: E80C-Ni1H4", "BS EN ISO 17632-A: T50 6 1Ni M M21 1 H5", "AWS A5.36: E80T15-M21A8-Ni1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB Alloys 6105-Ni1.pdf"
+          },
+          {
+            name: "WB6105-NiCu",
+            certifications: ["AWS A5.28: E80C-GH4", "BS EN ISO 17632-A: T46 6 Z M M21 1 H5", "AWS A5.36: E81T15-M21A8-GH4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105-NiCu.pdf"
+          },
+          {
+            name: "WB6105-NiMo",
+            certifications: ["AWS A5.28: E90C-K3H4", "BS EN ISO 18276-A: T55 6 1NiMo M M21 1 H5", "AWS A5.36: E91T15-M21A8-K1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105-NiMo.pdf"
+          },
+          {
+            name: "WB6132-MC",
+            certifications: ["AWS A5.28: E110C-K4H4", "EN ISO 18276-A: T69 6 Mn2NiCrMo M M21 1 H5", "AWS A5.36: E110T15-M21A8-K4-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6132-MC.pdf"
+          },
+          {
+            name: "WB6134-MC",
+            certifications: ["AWS A5.28: E120C-GH4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6134-MC.pdf"
+          },
+          {
+            name: "WB6154-MC",
+            certifications: ["DIN 8555-83: MSG6-60 + MF10-GF-65-GR"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6154-MC.pdf"
+          },
+        ]
+      },
+      {
+        name: "Cored Wire Creep Resisting Steel",
+        products: [
+          {
+            name: "WB6P91",
+            certifications: ["AWS A5.29: E91T1-B9MH4", "BS EN ISO 17634-B: T69T1-1M-9C1MV-H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6P91.pdf"
+          },
+          {
+            name: "WB6602",
+            certifications: ["AWS A5.29: E80T5-GM-H4", "BS EN ISO 17634-A: T46 CrMo1 B M21 4 H5", "AWS A5.36: E80T5-G-M21-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6602.pdf"
+          },
+          {
+            name: "WB6602ER",
+            certifications: ["AWS A5.29: E81T1-B2M-H4", "BS EN ISO 17634-A: T CrMo1 P M21 1 H5", "AWS A5.36: E81T1-B3C-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6602ER.pdf"
+          },
+          {
+            name: "WB6603ER",
+            certifications: ["AWS A5.29: E91T1-B3M-H4", "BS EN ISO 17634-A: T CrMo2 P M21 1 H5", "AWS A5.36: E91T1-B3C-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6603ER.pdf"
+          },
+          {
+            name: "WB6615ER",
+            certifications: ["AWS A5.36: E81T1-B2M"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6615ER.pdf"
+          },
+          {
+            name: "WBP91-MC",
+            certifications: ["AWS A5.28: E90C-B9MH4", "BS EN ISO 17634-B: T69T15-0M-9C1MV-H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WBP91MC.pdf"
+          },
+        ]
+      },
+      {
+        name: "Stainless Steel Cored Wires",
+        products: [
+          {
+            name: "WB6308H",
+            certifications: ["AWS A5.22: E308HT0-4", "BS EN ISO 17633-A: T 19 9 H"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308H.pdf"
+          },
+          {
+            name: "WB6308HP",
+            certifications: ["AWS A5.22: E308HT1-1/4", "BS EN ISO 17633-A: T 19 9 H P M21 1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308HP.pdf"
+          },
+          {
+            name: "WB6308L",
+            certifications: ["AWS A5.22: E308LTO-1/4", "BS EN ISO 17633-A: T 19 9 L R M21 3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308L.pdf"
+          },
+          {
+            name: "WB6308LP",
+            certifications: ["AWS A5.22: E308LT1-1/4", "BS EN ISO 17633-A: T 19 9 L P M1/C 1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308LP.pdf"
+          },
+          {
+            name: "WB6309L",
+            certifications: ["AWS A5.22: E309LTO-1/4", "BS EN ISO 17633-A: T 23 12 L R M21 3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309L.pdf"
+          },
+          {
+            name: "WB6309LP",
+            certifications: ["AWS A5.22: E309LT1-1/4", "BS EN ISO 17633-A: T 23 12 L P M1/C 1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309LP.pdf"
+          },
+          {
+            name: "WB6309LMoP",
+            certifications: ["AWS A5.22: E309LMoT1-1/4", "BS EN ISO 17633-A: T 23 12 2 L P M1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309LMoP.pdf"
+          },
+          {
+            name: "WB6310",
+            certifications: ["AWS A5.22: E310T0-1/4", "BS EN ISO 17633-A: T 25 20 R C1/M21 3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6310.pdf"
+          },
+          {
+            name: "WB6316HP",
+            certifications: ["AWS A5.22: E316T1-1/4", "BS EN ISO 17633-A: T 19 12 3 H P M21 1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316HP.pdf"
+          },
+          {
+            name: "WB6316L",
+            certifications: ["AWS A5.22: E316LTO-1/4", "BS EN ISO 17633-A: T 19 12 3 L R M3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316L.pdf"
+          },
+          {
+            name: "WB6316LP",
+            certifications: ["AWS A5.22: E316LT1-1/4", "BS EN ISO 17633-A: T 19 12 3 L P M1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316LP.pdf"
+          },
+          {
+            name: "WB6347",
+            certifications: ["AWS A5.22: E347T0-1/4", "BS EN ISO 17633-A: T 19 9 Nb R M3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6347.pdf"
+          },
+          {
+            name: "WB6347P",
+            certifications: ["AWS A5.22: E347T1-1/4", "BS EN ISO 17633-A: T 19 9 Nb P M1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6347P.pdf"
+          },
+          {
+            name: "WB6410NiMo",
+            certifications: ["AWS A5.22: E410NiMoT0-1/4", "BS EN ISO 17633-A: T 13 4 M M3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6410NiMo.pdf"
+          },
+          {
+            name: "WB6410NiMoP",
+            certifications: ["AWS A5.22: E410NiMoT1-1/4", "BS EN ISO 17633-A: T 13 4 R C/M1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6410NiMoP.pdf"
+          },
+          {
+            name: "WB6625-P",
+            certifications: ["BS EN ISO 12153: T Ni6625 P M 2", "AWS A5.34: ENiCrMo3T1-1/4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6625-P.pdf"
+          },
+          {
+            name: "WB62293L",
+            certifications: ["AWS A5.22: E2209T0-1/4", "BS EN ISO 17633-A: T 22 9 3 N L R"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB62293L.pdf"
+          },
+          {
+            name: "WB62293LP",
+            certifications: ["AWS A5.22-95: E2209T1-1/4", "BS EN ISO 17633-A: T 22 9 3 N L P"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB62293LP.pdf"
+          },
+          {
+            name: "WB62593L",
+            certifications: ["AWS A5.22: E2594T0-1/4", "BS EN ISO 17633-A: T 25 9 4 Cu N L R M3"]
+          },
+          {
+            name: "WB62593LP",
+            certifications: ["AWS A5.22: E2594T1-1/4", "BS EN ISO 17633-A: T 25 9 4 Cu N L P M21 1"]
+          },
+        ]
+      },
+    ]
   },
+
   {
-    id: "submerged-arc",
-    label: "Submerged Arc",
+    id: "tig-gtaw",
+    label: "TIG Welding (GTAW)",
+    icon: "hardware",
+    description: "Premium TIG welding cut-length rods for Gas Tungsten Arc Welding (GTAW). Engineered for precise, high-quality welds with excellent arc stability and minimal spatter. Available in non & low alloy steel, stainless steel, and nickel & copper alloy grades for critical applications requiring superior weld integrity.",
+    features: ["ER70S-6, ER70S-2 classifications", "Precision-cut lengths for manual TIG welding", "Excellent arc stability & weld pool control", "Low spatter, clean weld deposits", "Stainless steel duplex & super duplex grades", "Nickel alloy grades for extreme environments"],
+    industries: ["Aerospace & Defense", "Pharmaceutical Manufacturing", "Food & Beverage", "Nuclear Power", "Chemical Processing", "Precision Fabrication"],
+    image: SITE_IMAGES.welding.categoryCards.consumables.stick,
+    useCases: [
+      {
+        name: "Non & Low Alloy Steel",
+        products: [
+          {
+            name: "WB6500",
+            certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 636-A: W42 3 W3Si1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6500.pdf"
+          },
+          {
+            name: "WB6510",
+            certifications: ["AWS A5.18: ER70S-2"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6510.pdf"
+          },
+          {
+            name: "WB6513",
+            certifications: ["AWS A5.28: ER80S-Ni1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6513.pdf"
+          },
+          {
+            name: "WB6541",
+            certifications: ["AWS A5.28: ER80S-G (A1)", "BS EN ISO 21952-A: G MoSi"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6541.pdf"
+          },
+          {
+            name: "WB6541E",
+            certifications: ["AWS A5.28: ER80S-D2 / ER90S-D2"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6541E.pdf"
+          },
+          {
+            name: "WB6542T",
+            certifications: ["AWS A5.28: ER80S-B2", "BS EN ISO 21952-A: W CrMo1Si"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/Wb6542.pdf"
+          },
+          {
+            name: "WB6545",
+            certifications: ["AWS A5.28: ER90S-B9", "BS EN ISO 21952-A: W CrMo91"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6545.pdf"
+          },
+          {
+            name: "WB6546",
+            certifications: ["AWS A5.28: ER80S-B8"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6546.pdf"
+          },
+          {
+            name: "WB6547P",
+            certifications: ["AWS A5.28: ER100S-G"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6547P.pdf"
+          },
+          {
+            name: "WB6591",
+            certifications: ["AWS A5.28: ER90S-G"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6591.pdf"
+          },
+        ]
+      },
+      {
+        name: "Stainless Steel",
+        products: [
+          {
+            name: "WB17-4PH",
+            certifications: ["AWS A5.9: ER630", "BS EN ISO 636-A: W42 3 W3Si1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB 17-4PH.pdf"
+          },
+          {
+            name: "WB22-9-3LT",
+            certifications: ["AWS A5.9: ER2209", "BS EN ISO 14343-A: W 22 9 3 N L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB22-9-3LT.pdf"
+          },
+          {
+            name: "WB25-9-3LT",
+            certifications: ["AWS A5.9: ER2594", "BS EN ISO 14343-A: W 25 9 4 N L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB25-9-3LT.pdf"
+          },
+          {
+            name: "WB308HT",
+            certifications: ["AWS A5.9: ER308H", "BS EN ISO 14343-A: W 19 9 H"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB308HT.pdf"
+          },
+          {
+            name: "WB308LT",
+            certifications: ["AWS A5.9: ER308L", "BS EN ISO 14343-A: W 19 9 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB308LT.pdf"
+          },
+          {
+            name: "WB309LMoT",
+            certifications: ["AWS A5.9: ER309LMo", "BS EN ISO 14343-A: W 23 12 2 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB309LMoT.pdf"
+          },
+          {
+            name: "WB309LT",
+            certifications: ["AWS A5.9: ER309L", "BS EN ISO 14343-A: W 23 12 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB309LT.pdf"
+          },
+          {
+            name: "WB310T",
+            certifications: ["AWS A5.9: ER310", "BS EN ISO 14343-A: W 25 20"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB310T.pdf"
+          },
+          {
+            name: "WB316HT",
+            certifications: ["AWS A5.9: ER316H", "BS EN ISO 14343-A: W 19 12 3 H"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB316HT.pdf"
+          },
+          {
+            name: "WB316LT",
+            certifications: ["AWS A5.9: ER316L", "BS EN ISO 14343-A: W 19 12 3 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB316LT.pdf"
+          },
+          {
+            name: "WB409NbT",
+            certifications: ["AWS A5.9/A5.9M: ER409Nb", "ASME SFA-5.9: ER409Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB409NbT.pdf"
+          },
+          {
+            name: "WB410NiMoT",
+            certifications: ["AWS A5.9: ER410NiMo", "BS EN ISO 14343-A: W 13 4 L"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB410NiMoT.pdf"
+          },
+          {
+            name: "WB800H",
+            certifications: ["BS EN ISO 14343-A: W 21 33 Mn Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB800H.pdf"
+          },
+          {
+            name: "WB625T",
+            certifications: ["AWS A5.14/A5.14M: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB625T.pdf"
+          },
+        ]
+      },
+      {
+        name: "Nickel & Copper Alloy",
+        products: [
+          {
+            name: "WB59T",
+            certifications: ["AWS A5.14: ERNiCrMo-13"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB59T.pdf"
+          },
+          {
+            name: "WB61T",
+            certifications: ["AWS A5.14: ERNi-1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB61T.pdf"
+          },
+          {
+            name: "WB617T",
+            certifications: ["AWS A5.14: ERNiCoMo-1", "BS EN ISO 18274-A: NiCr22Co12Mo9"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB617T.pdf"
+          },
+          {
+            name: "WB67T",
+            certifications: ["AWS A5.7: ERCuNi"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB67T.pdf"
+          },
+          {
+            name: "WB718T",
+            certifications: ["AWS A5.14/A5.14M: ERNiFeCr-2", "UNS: N07718"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB718T.pdf"
+          },
+          {
+            name: "WB82T",
+            certifications: ["AWS A5.14: ERNiCr-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB82T.pdf"
+          },
+          {
+            name: "WB90-10CuNi",
+            certifications: ["AWS A5.7: ERCuNi10Fe"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB90_10CuNi.pdf"
+          },
+          {
+            name: "WB625T",
+            certifications: ["AWS A5.14/A5.14M: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB625T.pdf"
+          },
+          {
+            name: "WBC27T",
+            certifications: ["BS EN ISO 24373: Cu 5410 (CuSn12P)", "EN 14640: CuSn12P"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WBC27T.pdf"
+          },
+          {
+            name: "WBNiCu-7T",
+            certifications: ["AWS A5.14: ERNiCu-7", "ASME SFA 5.14"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WBNiCu-7T.pdf"
+          },
+        ]
+      },
+    ]
+  },
+
+  {
+    id: "mma-stick",
+    label: "MMA Welding (Stick Welding)",
+    icon: "construction",
+    description: "Comprehensive range of shielded metal arc welding (SMAW) electrodes covering cellulosic, rutile, and low-hydrogen classifications. From deep-penetration pipeline root pass electrodes to moisture-resistant low-hydrogen rods for critical structural and offshore applications. Engineered for consistent X-ray quality deposits with excellent slag detachability.",
+    features: ["E6013, E7018, E8018-C3, E9018-M classifications", "Moisture-resistant (H4R) coating technology", "Cryogenic service capability", "All-position welding capability", "Chrome-Moly for elevated temperature service", "Stainless steel & nickel alloy electrodes"],
+    industries: ["Pipeline Construction", "Offshore & Subsea", "Power Generation", "Refinery & Petrochemical", "Structural & Bridge Fabrication", "LNG & Cryogenic Storage"],
+    image: SITE_IMAGES.welding.categoryCards.consumables.metalCored,
+    useCases: [
+      {
+        name: "Non & Low Alloyed",
+        products: [
+          {
+            name: "H8",
+            certifications: ["AWS A5.5: E11018-G MOD 769", "EN ISO 18275-A: E692ZB3 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/H8.pdf"
+          },
+          {
+            name: "WB56S",
+            certifications: ["AWS A5.1: E7016-1 H4 R", "BS EN ISO 2560-A: E 42 5 B1 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB56S.pdf"
+          },
+          {
+            name: "WB76S",
+            certifications: ["AWS A5.5: E7018-G H4R", "BS EN ISO 2560-A: E 50 6 Mn1Ni B 3 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB76S.pdf"
+          },
+          {
+            name: "WB2000E",
+            certifications: ["AWS A5.1-04: E6013", "BSEN 499-95: E42 AR 1 2 LRS: GRADE 1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2000E.pdf"
+          },
+          {
+            name: "WB2024E",
+            certifications: ["AWS A5.1: E6013 B", "BS EN ISO 2560-A: E 42 2R12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2024E.pdf"
+          },
+          {
+            name: "WB2218E",
+            certifications: ["AWS A5.5: E8018-G H4R RCC-M", "MIL-11018-M", "MIL-E-222000/1"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2218E.pdf"
+          },
+          {
+            name: "WB2318E",
+            certifications: ["AWS A5.5: E9018-M"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2318E AWS ISO[86].pdf"
+          },
+          {
+            name: "WB2518E",
+            certifications: ["AWS A5.5: E11018-M H4R", "EN ISO 2560A: E465B32H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2518E.pdf"
+          },
+          {
+            name: "WB7018-1",
+            certifications: ["AWS A5.1: E7018-1H4R", "ABS: 4Y", "DNV: 4Y 40H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB7018-1 VP ABS 2025.pdf"
+          },
+          {
+            name: "WB7018-A1",
+            certifications: ["AWS A5.1: E7018-1 H4R", "EN ISO 2560A: E46 2 Mo B3 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB7018-A1.pdf"
+          },
+          {
+            name: "WB8016-G",
+            certifications: ["AWS A5.5: E8016-G", "BS EN ISO 2560-A: E 50 6 Mn1Ni B 12 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8016-G r1.pdf"
+          },
+          {
+            name: "WB8018-B2",
+            certifications: ["AWS A5.5: E8018-B2", "BS EN ISO 3580-A: ECrMo1 B 3 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-B2.pdf"
+          },
+          {
+            name: "WB8018-C1",
+            certifications: ["AWS A5.5: E8018-C1-H4"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-C1.pdf"
+          },
+          {
+            name: "WB8018-C3",
+            certifications: ["AWS A5.5: E8018-C3", "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-C3.pdf"
+          },
+          {
+            name: "WB8018-W2",
+            certifications: ["AWS A5.5: E8018-W2", "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-W2.pdf"
+          },
+          {
+            name: "WB9018-G",
+            certifications: ["AWS A5.5: E9018-G", "BS EN 14700: EFe6 Hv700"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB9018-G.pdf"
+          },
+          {
+            name: "WB9119E",
+            certifications: ["BS EN 14700: EFe6 Hv700"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB9119E.pdf"
+          },
+          {
+            name: "WB10018-D2",
+            certifications: ["AWS A5.5: E10018-D2-H4 R", "BS EN ISO 18275: E625 MnMo BT 3 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB10018-D2 - 2024.pdf"
+          },
+          {
+            name: "WB12018-G",
+            certifications: ["AWS A5.5: E12018-G", "BS EN ISO 18275: E79 4 Mn3.5Ni1CrMo B 4 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB12018-G.pdf"
+          },
+          {
+            name: "WB12018-M",
+            certifications: ["AWS A5.5: E12018-M", "BS EN ISO 18275: E79 4 Mn2Ni1CrMo B 4 2 H5"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB12018-M.pdf"
+          },
+        ]
+      },
+      {
+        name: "Stainless Steel",
+        products: [
+          {
+            name: "WB4404E",
+            certifications: ["AWS A5.4: E308L-17", "BS EN ISO 3581-A: E199LR12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4404E.pdf"
+          },
+          {
+            name: "WB4414E",
+            certifications: ["AWS A5.4: E308H-17", "BS EN ISO 3581: E199HR12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4414E.pdf"
+          },
+          {
+            name: "WB4444E",
+            certifications: ["AWS A5.4: E2594-16", "BS EN ISO 3581: E2594NLR"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4444E.pdf"
+          },
+          {
+            name: "WB4445E",
+            certifications: ["AWS A5.4: E2595-16", "BS EN ISO 3581: E2595NLR"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4445E.pdf"
+          },
+          {
+            name: "WB4405E",
+            certifications: ["AWS A5.4-92: E308Mo-15", "BS EN ISO 3581-A: E308Mo-15"]
+          },
+          {
+            name: "WB4545E",
+            certifications: ["AWS A5.4: E2209-17", "BS EN ISO 3581-A: E2293NLR"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4545E.pdf"
+          },
+          {
+            name: "WB4545E-15",
+            certifications: ["AWS A5.4: E2209-15", "BS EN ISO 3581-A: E2293NLB"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4545E-15.pdf"
+          },
+          {
+            name: "WB4555E",
+            certifications: ["AWS A5.4: E309L-16", "BS EN ISO 3581-A: E2312LR12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4555E.pdf"
+          },
+          {
+            name: "WB4560E",
+            certifications: ["AWS A5.4: E309MoL-17", "BS EN ISO 3581-A: E23122LR12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4560E.pdf"
+          },
+          {
+            name: "WB4606E",
+            certifications: ["AWS A5.4: E312-17", "BS EN ISO 3581-A: E299R12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4606E.pdf"
+          },
+          {
+            name: "WB4707E",
+            certifications: ["AWS A5.4: E310-17", "BS EN ISO 3581: E2520R12"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4707E.pdf"
+          },
+        ]
+      },
+      {
+        name: "Nickel & Copper Alloy",
+        products: [
+          {
+            name: "WB5505E",
+            certifications: ["AWS A5.11: ENiCrFe-3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB5505E.pdf"
+          },
+          {
+            name: "WB5535E",
+            certifications: ["AWS A5.11: ENiCrMo-3", "BS EN ISO 14172: E Ni 6625 (NiCr22Mo9Nb)"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB5535E.pdf"
+          },
+        ]
+      },
+    ]
+  },
+
+  {
+    id: "saw",
+    label: "Submerged Arc Welding (SAW)",
     icon: "layers",
-    description:
-      "Submerged arc welding (SAW) wire and flux combinations for high-productivity, deep-penetration welding of thick sections. Engineered for single and multi-pass welding in flat and horizontal positions, delivering exceptional deposition rates and consistent mechanical properties in heavy industrial applications.",
-    features: [
-      "Wire-flux combination systems",
-      "High deposition rates up to 20+ kg/hr",
-      "Deep penetration capability",
-      "Consistent mechanical properties",
-      "Multi-pass thick section welding",
-      "Active & neutral flux options",
-    ],
-    industries: [
-      "Pressure Vessel Manufacturing",
-      "Shipbuilding & Marine",
-      "Wind Tower Fabrication",
-      "Pipeline Construction",
-      "Heavy Plate Fabrication",
-      "Structural Beam Production",
-    ],
+    description: "Submerged arc welding (SAW) wire and flux combinations for high-productivity, deep-penetration welding of thick sections. Engineered for single and multi-pass welding in flat and horizontal positions, delivering exceptional deposition rates and consistent mechanical properties in heavy industrial applications.",
+    features: ["Wire-flux combination systems", "High deposition rates up to 20+ kg/hr", "Deep penetration capability", "Consistent mechanical properties", "Multi-pass thick section welding", "Active & neutral flux options"],
+    industries: ["Pressure Vessel Manufacturing", "Shipbuilding & Marine", "Wind Tower Fabrication", "Pipeline Construction", "Heavy Plate Fabrication", "Structural Beam Production"],
     image: SITE_IMAGES.welding.categoryCards.consumables.submergedArc,
     useCases: [
       {
-        name: "Submerged Arc",
+        name: "SAW WIRE AND FLUX",
         products: [
-          "Mild Steel SAW Solid Wires",
-          "Low Alloy SAW Solid Wires",
-          "Active SAW Fluxes",
-          "Neutral SAW Fluxes",
-          "Highly Basic SAW Fluxes"
-        ],
-        standards: [
-          { label: "AWS A5.17 : F7A2-EM12KAWS A5", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_3a7cb83ed6e94e328c4a0b6aaf3fec77.pdf?index=true" },
-          { label: "AWS A5.17: F6 A4", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F7 A10", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.17: F6 A4 (Alt 2)", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23: F7 A10 (Alt 2)", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          "AWS A5.17: EM11K",
-          "AWS A5.17: EM13K",
-          "AWS A5.17: EH11K",
-          "AWS A5.17: EL12",
-          "AWS A5.23: EA1",
-          "AWS A5.23: EM2",
-          "AWS A5.23: ER100S-G",
-          "AWS A5.23: ER110S-G",
-          "AWS A5.17: EM14K",
-          "AWS A5.23: ENi1K",
-          "AWS A5.23: EA2TiB",
-          "AWS A5.23: EF3",
-          "AWS A5.23 (SAW low-alloy/creep-resistant filler metal specification)",
-          "AWS A5.23: EB3R",
-          "AWS A5.23: EB8",
-          "AWS A5.23: EB91",
-          "AWS A5.23: EG",
-          "EN ISO 14174",
-          "EN ISO 24598-A",
-          "EN ISO 21598-A",
-          "EN ISO 760",
+          {
+            name: "WBSAWF-B1",
+            certifications: ["AWS A5.17: F7A2-EM12K", "AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "DIN 32 522: B FB 165 AC 12", "MHP5 EN760: A AB 167ACH5", "WBS1: AWS A5.17 F7A2-EL12 / BSEN 14171-A: S1", "WBS15Si: AWS A5.17 F7A2-EL12K / BSEN 14171-A: S1Si", "WBS2Si: AWS A5.17 F7A2-EM12K / BSEN 14171-A: S2Si", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B1.pdf"
+          },
+          {
+            name: "WBSAWF-B3",
+            certifications: ["AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "AWS A5.23: F7 A10-E Ni1 - Ni1", "F8 A6 - F8 P6 - EA3 - A3", "F8 A2 - F7 P4 - EB2 - B2", "F9P0-EB2-B2, F7P15-ENi3", "F9P2-EG-B3, EB9", "EF5", "F7A4-EM12K", "F7A5-EM12K", "F7A2-EM12K", "DIN 32 522: B FB 155 AC 10 MHP5", "EN 14171: A FB 1 55 AC H 5", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS3 NiCrMo: AWS A5.23: EF5", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3", "WBS2-Ni-3: AWS A5.23: F7P15-ENi3", "WBS2Ni1C: AWS A5.23: EG", "WB5Cr ER50: AWS A5.28: ER80S-B8", "WB9Cr ER50: AWS A5.28: ER90S-B9", "WB9Cr (mod): AWS A5.23: EB91"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B3.pdf"
+          },
+          {
+            name: "WBSAWF-B3SR",
+            certifications: ["AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "AWS A5.23: F7 A10-E Ni1 - Ni1", "F8 A6 - F8 P6 - EA3 - A3", "F8 A2 - F7 P4 - EB2 - B2", "F9P0-EB2-B2, F7P15-ENi3", "F9P2-EG-B3, EB9", "EF5", "F7A4-EM12K", "F7A5-EM12K", "F7A2-EM12K", "DIN 32 522: B FB 155 AC 10 MHP5", "EN 14171: A FB 1 55 AC H 5", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS3 NiCrMo: AWS A5.23: EF5", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3", "WBS2-Ni-3: AWS A5.23: F7P15-ENi3", "WBSONITCu: AWS A5.23: EG", "WB5Cr ER502: AWS A5.28: ER80S-B8", "WB9Cr ER505: AWS A5.28: ER90S-B9", "WB9Cr: AWS A5.23: EB91"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B3SR.pdf"
+          },
+          {
+            name: "WBSAWF-B4",
+            certifications: ["AWS A5.17: F7 AP8 - EH12K", "AWS A5.23: F8 AP4-EA2-A2", "F8 AP8-EG-G", "F8P2-EB2-B2", "F8P4-EB3-B3", "EN 14174: SA FB 1 55 AC H5", "EN 14171: S 46 6 FB S3S", "S 50 4 FB S2 Mo", "S 50 6 FB S0", "WBSD3: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B4.pdf"
+          },
+          {
+            name: "WBSAWF-SSCR",
+            certifications: ["BS EN 14174: S A AF 2 5644 DC H5 TUV /CE", "WB308L-SAW: AWS A5.9: ER308L", "WB253MA-SAW: AWS A5.9: EG", "WB347H-SAW: AWS A5.9: ER347H", "WB316L-SAW: AWS A5.9: ER316L", "WB309L-SAW: AWS A5.9: ER309L", "WB309LMo-SAW: AWS A5.9: ER309LMo", "WB22-9-3L-SAW: AWS A5.9: ER2209", "WB25-9-3L-SAW: AWS A5.9: ER2594"],
+            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-SSCR.pdf"
+          },
         ]
-      }
-    ],
-  },
-  {
-    id: "stainless",
-    label: "Stainless Alloys",
-    icon: "diamond",
-    description:
-      "Complete range of stainless steel welding consumables covering austenitic, duplex, super duplex, and precipitation-hardened grades. Engineered for superior corrosion resistance, high-temperature service, and critical applications in chemical processing, pharmaceutical, food & beverage, and marine environments.",
-    features: [
-      "308L, 309L, 316L, 2209 Duplex classifications",
-      "Low carbon for sensitization resistance",
-      "Duplex & super duplex grades",
-      "Excellent corrosion resistance",
-      "High-temperature service capability",
-      "FDA & pharmaceutical compliant grades",
-    ],
-    industries: [
-      "Chemical & Petrochemical Processing",
-      "Pharmaceutical Manufacturing",
-      "Food & Beverage",
-      "Marine & Offshore",
-      "Pulp & Paper",
-      "Water Treatment & Desalination",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.stainless,
-    useCases: [
-      {
-        name: "Stainless Alloys",
-        products: [
-          "Austenitic Stainless Solid Wires (MIG/TIG)",
-          "Duplex & Super Duplex Stainless Wires",
-          "Ferritic/Martensitic Stainless Wires",
-          "Stainless Steel Stick Electrodes",
-          "Stainless Steel Flux-Cored Wires"
-        ],
-        standards: [
-          { label: "AWS A5.9: ER308L", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER308L.pdf" },
-          { label: "AWS A5.9: EG (WB253MA-SAW)", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ EG (WB253MA-SAW).pdf" },
-          { label: "AWS A5.9: ER347H", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER347H.pdf" },
-          { label: "AWS A5.9: ER316L", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER316L.pdf" },
-          { label: "AWS A5.9: ER309L", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER309L.pdf" },
-          { label: "AWS A5.9: ER309LMo", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER309LMo.pdf" },
-          { label: "AWS A5.9: ER2209", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER2209.pdf" },
-          { label: "AWS A5.9: ER2594", datasheetUrl: "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER2594.pdf" },
-          "AWS A5.9: ER308 / ER308H / ER308LCF / ER308Si / ER308LSi",
-          "AWS A5.9: ER309 / ER309Si / ER309LSi",
-          "AWS A5.9: ER310", "AWS A5.9: ER312",
-          "AWS A5.9: ER316 / ER316LCF / ER316Si / ER316LSi",
-          "AWS A5.9: ER317 / ER317L", "AWS A5.9: ER320LR", "AWS A5.9: ER330",
-          "AWS A5.9: ER347", "AWS A5.9: ER385", "AWS A5.9: ER409 / ER409Nb / EC409",
-          "AWS A5.9: ER410 / ER410NiMo", "AWS A5.9: ER420", "AWS A5.9: ER630 (17-4 PH)",
-          "AWS A5.9: EC439 (Ferritic)", "AWS A5.4: E308 (-15, -16, -17, L, H)",
-          "AWS A5.4: E309 (-15, -16, -17, L)", "AWS A5.4: E310-16",
-          "AWS A5.4: E316 (-15, -16, -17, L)", "AWS A5.4: E320LR-16",
-          "AWS A5.4: E347-16", "AWS A5.4: E385-16", "AWS A5.4: E410-16",
-          "AWS A5.4: E410NiMo-16", "AWS A5.4: E630-16", "AWS A5.22: E2209T1-1/4",
-          "AWS A5.22: E2594T1-4", "AWS A5.22: E308T0 / E308LT0",
-          "AWS A5.22: E308T1 / E308LT1", "AWS A5.22: E309T0 / E309LT0",
-          "AWS A5.22: E309T1 / E309LT1", "AWS A5.22: E316T0 / E316LT0",
-          "AWS A5.22: E316T1 / E316LT1", "AWS A5.22: E308HT1-1/4",
-          "AWS A5.9M: ER16.8.2", "ISO 14343-A: G 18 8 Mn",
-          "ISO 14343-A: S 23 12 2 L", "EN ISO 14174: S A FB 2",
-          "EN ISO 760: S A AF 2"
-        ]
-      }
-    ],
-  },
-  {
-    id: "nickel",
-    label: "Nickel Alloys",
-    icon: "science",
-    description:
-      "Specialty nickel-base and nickel alloy welding consumables for extreme service environments. Designed for high-temperature, corrosive, and cryogenic applications where conventional materials fail. Includes Inconel, Monel, and Hastelloy equivalent grades for aerospace, chemical processing, and power generation.",
-    features: [
-      "Inconel, Monel, Hastelloy equivalents",
-      "Service temperatures up to 1100°C",
-      "Exceptional corrosion resistance",
-      "Dissimilar metal joining capability",
-      "Cryogenic to elevated temperature range",
-      "Aerospace & nuclear qualified grades",
-    ],
-    industries: [
-      "Aerospace & Defense",
-      "Nuclear Power",
-      "Chemical Processing",
-      "Oil & Gas Upstream",
-      "Gas Turbine Manufacturing",
-      "Pharmaceutical & Biotech",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.nickel,
-    useCases: [
-      {
-        name: "Nickel Alloys",
-        products: [
-          "Solid Nickel Alloy MIG Wires",
-          "Nickel Alloy TIG Cut Lengths",
-          "Nickel Alloy Flux-Cored Wires",
-          "Nickel Alloy Stick Electrodes"
-        ],
-        standards: [
-          "AWS A5.14: ERNi-1", "AWS A5.14: ERNiCrMo-4", "AWS A5.7: ERCuNi",
-          "AWS A5.14: ERNiCu-7", "AWS A5.15: ENiFe-Cl", "AWS A5.14: ERNiCr-3",
-          "AWS A5.14: ERNiCrCoMo-1", "AWS A5.14: ERNiCrMo-10", "AWS A5.14: ERNiCrMo-3",
-          "AWS A5.14: ERNiCrMo-14", "AWS A5.14: ERNiFeCr-2", "AWS A5.14: ERNiFeCr-1",
-          "AWS A5.15: ERNi-CI", "AWS A5.14: ERNiCrMo-2", "AWS A5.11: ENiCrMo-3",
-          "AWS A5.11: ENiCrCoMo-1", "AWS A5.11: ENi-1", "AWS A5.11: ENiCrFe-3",
-          "AWS A5.11: ENiCu-7", "AWS A5.11: ENiCrMo-4", "AWS A5.15: ENi-Cl",
-          "AWS A5.11: ENiCrFe-2", "AWS A5.34: ENiCrMo3T1-1/4",
-          "EN ISO 12153: T Ni 6625 P M21 2", "EN ISO 12153: T Ni 6625 P C1 2",
-          "EN ISO 17634-A: T CrMo2 B M21 2 H5"
-        ]
-      }
-    ],
-  },
-  {
-    id: "hardfacing",
-    label: "Hardfacing",
-    icon: "construction",
-    description:
-      "Wear-resistant hardfacing and build-up welding consumables for extending the service life of components subject to abrasion, impact, erosion, and metal-to-metal wear. Available as stick electrodes, flux-cored wires, and submerged arc wires to restore worn parts and apply protective overlays.",
-    features: [
-      "Abrasion-resistant overlay alloys",
-      "Impact-resistant build-up grades",
-      "Metal-to-metal wear solutions",
-      "Chromium carbide & complex carbide alloys",
-      "Build-up and dimensional restoration",
-      "Multi-layer application capability",
-    ],
-    industries: [
-      "Mining & Quarrying",
-      "Cement & Aggregate",
-      "Steel Mills & Rolling",
-      "Earth Moving Equipment",
-      "Sugar & Agriculture",
-      "Dredging & Material Handling",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.hardfacing,
-    useCases: [
-      {
-        name: "Hardfacing",
-        products: [
-          "Wear-Resistant SAW Wires",
-          "Build-Up Metal-Cored Wires",
-          "Abrasion-Resistant Fluxes",
-          "Impact-Resistant Hardfacing Alloys"
-        ],
-        standards: [
-          "EN 760: S A Z 3", "EN 760: S A CS 1", "EN 760: S A CS 2",
-          "EN 760: S A FB 1", "EN 760: S A FB 2", "EN ISO: T Fe9",
-          "EN ISO: T Fe1", "EN ISO: T Fe2"
-        ]
-      }
-    ],
-  },
-  {
-    id: "aluminum",
-    label: "Aluminum MIG & TIG",
-    icon: "auto_awesome",
-    description:
-      "High-purity aluminum MIG wire and TIG rod for welding all grades of aluminum and aluminum alloys. Engineered for consistent feedability, excellent arc characteristics, and superior weld quality in transportation, marine, and structural aluminum applications.",
-    features: [
-      "ER4043, ER5356, ER5183 classifications",
-      "High-purity alloy compositions",
-      "Shaved & polished surface finish",
-      "Consistent diameter tolerance",
-      "Excellent feedability & arc stability",
-      "Low porosity deposits",
-    ],
-    industries: [
-      "Transportation & Automotive",
-      "Marine & Boatbuilding",
-      "Aerospace",
-      "Architectural & Structural",
-      "HVAC & Heat Exchangers",
-      "Trailer & Tank Manufacturing",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.aluminum,
-    useCases: [
-      {
-        name: "Aluminum MIG and TIG",
-        products: [
-          "4000-Series Aluminum Spooled Wires (High Silicon)",
-          "5000-Series Aluminum Spooled Wires (High Magnesium)",
-          "Aluminum TIG Cut Lengths"
-        ],
-        standards: [
-          "AWS A5.10 (Aluminum filler metal specification)",
-          "AWS A5.10: ER4043 (MIG)", "AWS A5.10: R4043 (TIG)",
-          "AWS A5.10: ER5356 (MIG)", "AWS A5.10: R5356 (TIG)",
-          "AWS A5.10: ER5183 (MIG)", "AWS A5.10: R5183 (TIG)",
-          "AWS A5.10: ER5556 (MIG)", "AWS A5.10: R5556 (TIG)",
-          "AWS A5.10: ER5554 (MIG)", "AWS A5.10: R5554 (TIG)",
-          "AWS A5.10: ER4047 (MIG)"
-        ]
-      }
-    ],
-  },
-  {
-    id: "chrome-moly",
-    label: "Chrome-Moly Alloys",
-    icon: "local_fire_department",
-    description:
-      "Chrome-Moly (Cr-Mo) welding consumables for high-temperature creep-resistant service in power generation, refinery, and petrochemical piping systems. Available in 1.25Cr-0.5Mo, 2.25Cr-1Mo, 5Cr-0.5Mo, and 9Cr-1Mo-V grades for service temperatures up to 650°C.",
-    features: [
-      "1.25Cr-0.5Mo through 9Cr-1Mo-V grades",
-      "Creep resistant to 650°C",
-      "Low hydrogen H4 designations",
-      "PWHT optimized compositions",
-      "ASME/AWS code compliant",
-      "Consistent elevated-temp mechanicals",
-    ],
-    industries: [
-      "Power Generation (Thermal & Nuclear)",
-      "Refinery & Petrochemical",
-      "Boiler & Pressure Vessel",
-      "Process Piping",
-      "Heat Recovery Systems",
-      "Hydrogen Service Equipment",
-    ],
-    image: SITE_IMAGES.welding.categoryCards.consumables.chromeMoly,
-    useCases: [
-      {
-        name: "Chrome-Moly Alloys",
-        standards: [
-          { label: "AWS A5.28: ER90S-B9BS EN ISO 21952-A", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_a7532d9e3e33459a8e3ec255563b0c26.pdf" },
-          { label: "EN ISO 18275-A-E", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d30e7ff1717646329882c095dc7d9ba2.pdf?index=true" },
-          { label: "AWS A5.23: F7A8", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: ENi1 F8P6ENi1WBSD3 1Ni 1/4Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F9A6-EG-G, F9P6-EG-G WBSD3Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F1-P4-EG-GWBSD2 1NiCrMo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F1-P4-EG-GWBS3 NiCrMo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: EF5WBS2-2 1/2Cr1Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F9P2-EG-B3WBS2-Ni-3", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: F7P15-ENi3WBS2Ni1C", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: EGWB5Cr ER50", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.28: ER80S-B8WB9Cr ER50", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.28: ER90S-B9WB9Cr (mod)", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: EB9 WBP92", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23: EG", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_03315599bc3f41ec9be0831a6112425a.pdf?index=true" },
-          { label: "AWS A5.23 : ENi1 F8P6ENi1WBSD3 1Ni 1/4Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F9A6-EG-G, F9P6-EG-G WBSD3Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F1-P4-EG-GWBSD2 1NiCrMo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F1-P4-EG-GWBS3 NiCrMo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : EF5WBS2-1¼Cr½ Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F9P0-EB2-B2WBS2-21/2Cr1Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : F9P2-EG-EB3WBS2-Ni-3", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : , F7P15-ENi3WBS2Ni1Cu", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : EGWB5Cr ER502", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.28 : ER80S-B8WB9Cr ER505", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.28 : ER90S-B9WB9Cr", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.23 : EB91", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_736158987a7343aaa78e84373721e29f.pdf?index=true" },
-          { label: "AWS A5.17: F7 AP8", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F8 AP4-EA2-A2F8 AP8-EG-GF8P2-EB2-B2F8P4-EB3-B3", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo (Alt 2)", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F9A6-EG-G, F9P6-EG-G WBSD3Mo (Alt 2)", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F1-P4-EG-GWBS2-1¼Cr1/2Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F9P0-EB2-B2WBS2-2 1/2Cr1Mo", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-          { label: "AWS A5.23: F9P2-EG-B3", datasheetUrl: "https://www.wballoys.co.uk/_files/ugd/347c2c_d0666ae3800441968836fe9313d27be4.pdf?index=true" },
-        ]
-      }
-    ],
-  },
-];
+      },
+    ]
+  }
+];;;
 
 /* ── NON-CONSUMABLE CATEGORIES ─────────────────────────────── */
 

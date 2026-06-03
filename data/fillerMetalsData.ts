@@ -557,7 +557,7 @@ const SELF_SHIELDED_PRODUCTS: FillerMetalProduct[] = [
 export const FILLER_METAL_CATEGORIES: FillerMetalCategory[] = [
   {
     id: "mig-tig",
-    label: "MIG Wires & TIG Cut Lengths",
+    label: "MIG Welding Wires",
     subCategories: [
       { id: "mig-tig-all", label: "All Products", products: MIG_TIG_PRODUCTS },
     ],
