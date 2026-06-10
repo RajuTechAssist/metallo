@@ -20,6 +20,7 @@ interface ProductCatalogCardsProps<T> {
   getApplications?: (product: T) => string[] | undefined;
   getBadges?: (product: T) => ProductBadgeItem[];
   renderExtraSection?: (product: T) => React.ReactNode;
+  getEngineeringServicesTypes?: (product: T) => string[] | undefined;
   emptyStateTitle?: string;
   emptyStateDescription?: string;
   ctaLabel?: string;
@@ -45,6 +46,7 @@ interface CatalogCardProps<T> {
   getApplications?: (product: T) => string[] | undefined;
   getBadges?: (product: T) => ProductBadgeItem[];
   renderExtraSection?: (product: T) => React.ReactNode;
+  getEngineeringServicesTypes?: (product: T) => string[] | undefined;
 }
 
 function ProductCatalogCard<T>({
@@ -59,8 +61,10 @@ function ProductCatalogCard<T>({
   getApplications,
   getBadges,
   renderExtraSection,
+  getEngineeringServicesTypes,
 }: CatalogCardProps<T>) {
   const [specsOpen, setSpecsOpen] = useState(false);
+  const [typesOpen, setTypesOpen] = useState(false);
   const specs = getSpecifications(product);
   const applications = getApplications?.(product) || [];
   const badges = getBadges?.(product) || [];
@@ -68,6 +72,7 @@ function ProductCatalogCard<T>({
   const descriptionParagraphs =
     getDescriptionParagraphs?.(product)?.filter((paragraph) => paragraph.trim().length > 0) ||
     [getDescription(product)];
+  const engineeringServicesTypes = getEngineeringServicesTypes?.(product) || [];
 
   return (
     <motion.div
@@ -205,6 +210,44 @@ function ProductCatalogCard<T>({
         </div>
       )}
 
+      {engineeringServicesTypes.length > 0 && (
+        <div className="px-6 md:px-8 pb-2">
+          <button
+            onClick={() => setTypesOpen((open) => !open)}
+            className="w-full flex items-center justify-between py-4 border-t border-slate-200 cursor-pointer group"
+          >
+            <h4 className="text-[13px] font-heading font-bold uppercase tracking-[0.15em] text-slate-900 flex items-center gap-2">
+              <span className="material-symbols-outlined text-sm text-yellow-500">
+                engineering
+              </span>
+              Types Of Engineering Services
+            </h4>
+            <span
+              className={`material-symbols-outlined text-lg text-slate-400 group-hover:text-slate-600 transition-transform duration-200 ${typesOpen ? "rotate-180" : ""}`}
+            >
+              expand_more
+            </span>
+          </button>
+
+          {typesOpen && (
+            <div className="pb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 bg-white p-2">
+                {engineeringServicesTypes.map((type) => (
+                  <div key={type} className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-xs text-red-700 shrink-0 select-none">
+                      play_arrow
+                    </span>
+                    <span className="text-sm font-sans font-medium text-slate-700 leading-relaxed">
+                      {type}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* <div className="px-6 md:px-8 pb-8">
         <div className="flex flex-wrap gap-3 pt-4">
           <button className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-colors shadow-sm">
@@ -238,6 +281,7 @@ function ProductCatalogCards<T>({
   getApplications,
   getBadges,
   renderExtraSection,
+  getEngineeringServicesTypes,
   emptyStateTitle = "No products available",
   emptyStateDescription =
   "Please select a different category to view available products.",
@@ -299,6 +343,7 @@ function ProductCatalogCards<T>({
                   getApplications={getApplications}
                   getBadges={getBadges}
                   renderExtraSection={renderExtraSection}
+                  getEngineeringServicesTypes={getEngineeringServicesTypes}
                 />
               ))}
             </motion.div>

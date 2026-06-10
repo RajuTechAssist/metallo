@@ -186,6 +186,7 @@ export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
       ],
       sourceLabel: "Metallo",
     },
+    /*
     {
       id: "industrial-pipe-fittings",
       category: "Piping Solutions",
@@ -220,6 +221,7 @@ export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
       ],
       sourceLabel: "Metallo",
     },
+    */
     {
       id: "engineering-services",
       category: "Engineering & Pilot",
@@ -254,6 +256,19 @@ export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
         "Useful when projects need design help before fabrication release.",
         "Connects engineering models to downstream spool and support packages.",
         "Improves constructability when space, loads, and maintenance access are tight.",
+      ],
+      engineeringServicesTypes: [
+        "Power and Process Piping",
+        "Material Engineering",
+        "Modular Skid",
+        "Stress Analysis",
+        "Support Engineering",
+        "Detailed Engineering",
+        "Pre- Bid Engineering",
+        "Pipe Support Engineering",
+        "Basic Engineering",
+        "Indian Boiler Regulations",
+        "Layout Engineering",
       ],
       sourceLabel: "Metallo",
     },

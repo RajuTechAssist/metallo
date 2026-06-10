@@ -106,6 +106,7 @@ const ConfigurableProductPage: React.FC<ConfigurableProductPageProps> = ({
         getApplications={(product) => product.applications}
         getBadges={(product) => product.badges || []}
         renderExtraSection={renderHighlights}
+        getEngineeringServicesTypes={(product) => product.engineeringServicesTypes}
         ctaLabel={config.catalogCtaLabel}
         ctaIcon={config.catalogCtaIcon}
       />

@@ -24,6 +24,7 @@ export interface ProductCatalogItem {
   highlights?: string[];
   sourceLabel?: string;
   sourceUrl?: string;
+  engineeringServicesTypes?: string[];
 }
 
 export interface ProductHeroConfig {
