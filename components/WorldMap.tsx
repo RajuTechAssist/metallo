@@ -62,21 +62,21 @@ const coverageCards = [
  * Office marker positions (x, y) mapped to the SVG viewBox (1362 x 724).
  */
 const OFFICE_MARKERS: { id: string; x: number; y: number; label: string }[] = [
-  { id: 'india',       x: 928,  y: 322, label: 'Gurugram, India' },
-  { id: 'gujarat',     x: 903,  y: 350, label: 'Gujarat, India' },
-  { id: 'maharashtra', x: 916,  y: 365, label: 'Maharashtra, India' },
-  { id: 'germany',     x: 685,  y: 222, label: 'Germany' },
-  { id: 'hungary',     x: 710,  y: 226, label: 'Hungary' },
-  { id: 'france',      x: 653,  y: 236, label: 'France' },
-  { id: 'spain',       x: 637,  y: 256, label: 'Spain' },
-  { id: 'turkey',      x: 762,  y: 256, label: 'Turkey' },
-  { id: 'dubai',       x: 840,  y: 333, label: 'Dubai' },
-  { id: 'saudi',       x: 818,  y: 336, label: 'Saudi Arabia' },
-  { id: 'oman',        x: 845,  y: 340, label: 'Oman' },
-  { id: 'china',       x: 1065, y: 260, label: 'China' },
-  { id: 'uk',          x: 638,  y: 230, label: 'United Kingdom' },
-  { id: 'morocco',     x: 607,  y: 328, label: 'Morocco' },
-  { id: 'algeria',     x: 655,  y: 312, label: 'Algeria' },
+  { id: 'india',       x: 928,  y: 350, label: 'Gurugram, India' },
+  { id: 'gujarat',     x: 910,  y: 375, label: 'Gujarat, India' },
+  { id: 'maharashtra', x: 925,  y: 390, label: 'Maharashtra, India' },
+  { id: 'germany',     x: 680,  y: 230, label: 'Germany' },
+  { id: 'hungary',     x: 710,  y: 255, label: 'Hungary' },
+  { id: 'france',      x: 645,  y: 255, label: 'France' },
+  { id: 'spain',       x: 625,  y: 290, label: 'Spain' },
+  { id: 'turkey',      x: 762,  y: 300, label: 'Turkey' },
+  { id: 'dubai',       x: 842,  y: 370, label: 'Dubai' },
+  { id: 'saudi',       x: 810,  y: 370, label: 'Saudi Arabia' },
+  { id: 'oman',        x: 850,  y: 380, label: 'Oman' },
+  { id: 'china',       x: 970, y: 295, label: 'China' },
+  { id: 'uk',          x: 635,  y: 225, label: 'United Kingdom' },
+  { id: 'morocco',     x: 620,  y: 330, label: 'Morocco' },
+  { id: 'algeria',     x: 655,  y: 320, label: 'Algeria' },
 ];
 
 const COLOR_MAP = {
@@ -213,10 +213,10 @@ const WorldMap: React.FC = () => {
                   <circle
                     cx={office.x}
                     cy={office.y}
-                    r={6}
+                    r={3}
                     fill={COLOR_MAP.gold}
                     stroke="#101C5E"
-                    strokeWidth={2}
+                    strokeWidth={0.2}
                     className="transition-transform group-hover:scale-125 duration-300"
                     style={{ transformOrigin: `${office.x}px ${office.y}px` }}
                   />
