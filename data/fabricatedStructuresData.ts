@@ -337,6 +337,8 @@ export const FABRICATED_STRUCTURES_PAGE_DATA: ConfigurableProductPageData = {
   ],
   catalogCtaLabel: "Download Fabricated Structures Catalog",
   catalogCtaIcon: "download",
+  catalogCtaHref: "https://1urnlf5q52zhr3wc.public.blob.vercel-storage.com/Metallo%20Steels%20Catalogue-mmRto6JCHzaghFxfZ1ueyUdsV9USmh.pdf",
+  catalogCtaDisabled: true,
   qaBanner: {
     sectionLabel: "Execution Standards",
     title: "Configured for Steel Buildings, Frames, and Envelope Systems",

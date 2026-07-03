@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { CONTAINER, DETAIL_VARIANTS } from "./productLayout";
@@ -25,6 +26,8 @@ interface ProductCatalogCardsProps<T> {
   emptyStateDescription?: string;
   ctaLabel?: string;
   ctaIcon?: string;
+  ctaHref?: string;
+  ctaDisabled?: boolean;
 }
 
 const BADGE_TONE: Record<NonNullable<ProductBadgeItem["tone"]>, string> = {
@@ -287,6 +290,8 @@ function ProductCatalogCards<T>({
   "Please select a different category to view available products.",
   ctaLabel,
   ctaIcon = "download",
+  ctaHref,
+  ctaDisabled = false,
 }: ProductCatalogCardsProps<T>) {
   return (
     <section className="bg-white border-b border-slate-100">
@@ -302,12 +307,28 @@ function ProductCatalogCards<T>({
             <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
           </div>
           {ctaLabel && (
-            <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
-              <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
-                {ctaIcon}
-              </span>
-              {ctaLabel}
-            </button>
+            ctaDisabled ? (
+              <button
+                disabled
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-400 text-xs font-heading font-bold uppercase tracking-wider cursor-not-allowed opacity-50 shrink-0"
+              >
+                <span className="material-symbols-outlined text-lg">
+                  {ctaIcon}
+                </span>
+                {ctaLabel} (Coming Soon)
+              </button>
+            ) : (
+              <Link
+                href={ctaHref || "https://1urnlf5q52zhr3wc.public.blob.vercel-storage.com/Metallo%20Cables%20And%20Wires%20Catalogue.pdf"}
+                target="_blank"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0"
+              >
+                <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
+                  {ctaIcon}
+                </span>
+                {ctaLabel}
+              </Link>
+            )
           )}
         </div>
 

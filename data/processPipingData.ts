@@ -380,6 +380,8 @@ export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
   ],
   catalogCtaLabel: "Download Pipes Catalog",
   catalogCtaIcon: "download",
+  catalogCtaHref: "https://1urnlf5q52zhr3wc.public.blob.vercel-storage.com/Metallo%20Steels%20Catalogue-mmRto6JCHzaghFxfZ1ueyUdsV9USmh.pdf",
+  catalogCtaDisabled: true,
   qaBanner: {
     sectionLabel: "Delivery Readiness",
     title: "Process Piping Backed by Engineering and Quality",
