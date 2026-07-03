@@ -413,7 +413,7 @@ const Steel: React.FC = () => {
       <SteelHero
         title="High-Performance"
         subtitle="Industrial Steel."
-        description="IS / BIS / ISI Marked / ASTM / MTC EN compliant Stainless, Carbon, Mild & Alloy Steel â€” engineered for critical infrastructure, oil & gas, and heavy engineering across 8 product families."
+        description="IS / BIS / ISI Marked / ASTM / MTC EN compliant Stainless, Carbon, Mild & Alloy Steel — engineered for critical infrastructure, oil & gas, and heavy engineering across 8 product families."
         breadcrumbLabel="Steel Products"
       />
       <ProductCategoryNav

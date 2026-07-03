@@ -1,6 +1,5 @@
-import type { Config } from 'tailwindcss';
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,24 +14,16 @@ const config: Config = {
       },
     },
     extend: {
-      /* ── Typography ──────────────────────────────
-         font-sans    → Inter        (default body text)
-         font-heading → Manrope      (headings & display)
-         font-serif   → Merriweather (accent / optional)
-         ─────────────────────────────────────────── */
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         heading: ["Manrope", "sans-serif"],
         serif: ["Merriweather", "serif"],
       },
-
-      /* ── Brand colours ─────────────────────────── */
       colors: {
         "metallo-slate": "#0F172A",
         "metallo-gold": "#EAB308",
         "metallo-navy": "#0F172A",
         "metallo-gold-hover": "#CA8A04",
-
         primary: {
           DEFAULT: "#0F172A",
           foreground: "#EAB308",
@@ -45,17 +36,12 @@ const config: Config = {
         foreground: "#0F172A",
         muted: "#F1F5F9",
       },
-
-      /* ── Animations ────────────────────────────── */
       animation: {
         "spin-slow": "spin 10s linear infinite",
       },
-
-      /* ── utilities ────────────────────────────── */
     },
   },
-
   plugins: [],
 };
 
-export default config;
+module.exports = config;

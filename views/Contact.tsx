@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { CONTAINER } from '../components/product/productLayout';
+import { GLOBAL_OFFICES, getOfficeMapsUrl } from '@/lib/mapConstants';
 
 // Simple math CAPTCHA for form security
 const generateCaptcha = () => {
@@ -25,7 +26,7 @@ const Contact: React.FC = () => {
   });
   const [bomFile, setBomFile] = useState<File | null>(null);
   const [honeypot, setHoneypot] = useState(''); // hidden field for bots
-  const [captcha, setCaptcha] = useState(generateCaptcha());
+  const [captcha, setCaptcha] = useState({ question: '? + ? = ?', answer: 0 });
   const [captchaInput, setCaptchaInput] = useState('');
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -34,6 +35,11 @@ const Contact: React.FC = () => {
 
   // Timestamp tracking for bot detection (bots fill forms instantly)
   const formLoadTime = useRef(Date.now());
+
+  // Load captcha on client side to avoid hydration mismatch
+  useEffect(() => {
+    setCaptcha(generateCaptcha());
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -233,122 +239,66 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Location 1: India */}
-            <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="h-48 bg-metallo-navy relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
-                    <span className="text-white font-heading font-bold text-xl">INDIA</span>
+            {[...GLOBAL_OFFICES]
+              .sort((a, b) => {
+                const order = ["germany-office", "dubai-office", "india"];
+                return order.indexOf(a.id) - order.indexOf(b.id);
+              })
+              .map((office) => {
+              // Determine icon based on kind/title
+              let icon = "domain";
+              const titleLower = office.title.toLowerCase();
+              if (titleLower.includes("headquarters") || office.kind === "headquarters") {
+                icon = "corporate_fare";
+              } else if (titleLower.includes("branch") || titleLower.includes("regional")) {
+                icon = "language";
+              } else if (titleLower.includes("sales")) {
+                icon = "store";
+              }
+
+              // Determine header country display name
+              const displayName = office.id === "dubai-office" ? "DUBAI" : office.country.toUpperCase();
+
+              return (
+                <div key={office.id} className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                  <div className="h-48 bg-metallo-navy relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
+                        <span className="text-white font-heading font-bold text-xl">{displayName}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-8">
+                    <div className="flex items-start gap-2 mb-1">
+                      <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">{icon}</span>
+                      <h3 className="text-lg font-bold font-heading text-metallo-navy">{office.title}</h3>
+                    </div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">{office.entity}</p>
+
+                    <div className="space-y-3 ml-7">
+                      <div className="flex items-start gap-3">
+                        <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
+                        <p className="text-sm text-gray-600">{office.addressLines.join(', ')}</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 ml-7">
+                      <a
+                        href={getOfficeMapsUrl(office)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
+                      >
+                        View on Google Maps
+                        <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="p-8">
-                <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">corporate_fare</span>
-                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Corporate Headquarters</h3>
-                </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Metallo Group</p>
-
-                <div className="space-y-3 ml-7">
-                  <div className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
-                    <p className="text-sm text-gray-600">710, 7th Floor, Tower A, Emmar Digital Greens, Baharampur Naya, Sector 61, Gurugram, Ghata, Haryana 122098</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 ml-7">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
-                  >
-                    View on Google Maps
-                    <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Location 2: Dubai */}
-            <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="h-48 bg-metallo-navy relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
-                    <span className="text-white font-heading font-bold text-xl">DUBAI</span>
-                  </div>
-                </div>
-              </div>
-              <div className="p-8">
-                <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">language</span>
-                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Middle East Branch</h3>
-                </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Sales & Support</p>
-
-                <div className="space-y-3 ml-7">
-                  <div className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
-                    <p className="text-sm text-gray-600">1908, 19th floor, Indigo Icon, Cluster - F, Jumeirah Lake Towers (JLT), P O Box - 634397, Dubai, UAE</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 ml-7">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
-                  >
-                    View on Google Maps
-                    <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Location 3: Germany */}
-            <div className="group bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="h-48 bg-metallo-navy relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="material-symbols-outlined text-5xl text-metallo-gold mb-2 block">location_on</span>
-                    <span className="text-white font-heading font-bold text-xl">GERMANY</span>
-                  </div>
-                </div>
-              </div>
-              <div className="p-8">
-                <div className="flex items-start gap-2 mb-1">
-                  <span className="material-symbols-outlined text-metallo-gold text-lg shrink-0 mt-0.5">domain</span>
-                  <h3 className="text-lg font-bold font-heading text-metallo-navy">Registered Office</h3>
-                </div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 ml-7">Metallo Manufactoring Technologies GmbH</p>
-
-                <div className="space-y-3 ml-7">
-                  <div className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-gray-400 text-lg shrink-0">location_on</span>
-                    <p className="text-sm text-gray-600">Reichenbachstraße 1, 85737 Ismaning, Germany</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 ml-7">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-metallo-navy hover:text-metallo-gold-hover transition-colors border border-gray-200 px-4 py-2 rounded-md hover:border-metallo-navy"
-                  >
-                    View on Google Maps
-                    <span className="material-symbols-outlined text-sm ml-1">arrow_outward</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -403,7 +353,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-3">
                   <a href="tel:+911234567890" className="flex items-center gap-3 text-sm text-gray-600 hover:text-metallo-navy transition-colors">
                     <span className="material-symbols-outlined text-lg">call</span>
-                    +91-XXXXXXXXXX
+                    +91 12 4488 8943
                   </a>
                   <a href="mailto:sales@metallo.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-metallo-navy transition-colors">
                     <span className="material-symbols-outlined text-lg">mail</span>

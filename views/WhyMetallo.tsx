@@ -20,7 +20,7 @@ const spectrumVerticals = [
   {
     id: 'steel',
     name: 'Steel',
-    cert: 'IS:2062 Certified',
+    cert: 'IS / ASTM Certified',
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAZmT_s2B9dm9-HBV823d6vMwXy9qsBMMQ3nGKJIKyS5fwDMVAFQfixx0y-sygCvmnG896hpbtiT4P0lI2r8wkCf2rvSOk6ngn7p0c0saTngyDwhMAJzTZ-oEfN69XK8hppDwDyF7vllPZmXYfvr1eo7o9qkdYxatryE1B-qzerwAsDc1GC0HLRmt55olsDJKVaIX-cEz-tNZCRpo8bR3tbk6Pq2kql-1SxTkbOZSj2TmdmFqPcWsv5yo3-v2lBhvJGy391-zatHuy8'
   },
   {
@@ -201,9 +201,9 @@ const WhyMetallo: React.FC = () => {
                 <p>
                   In the industrial world, procurement is often a bottleneck. You chase steel from one vendor, cables from another, and tools from a third. Inconsistent quality, delayed shipments, and opaque pricing slow you down.
                 </p>
-                <p className="font-bold text-metallo-navy">Metallo offers a better way.</p>
+                <p className="font-bold text-metallo-navy"><abbr title="METALLO MANUFACTURING TECHNOLOGIES GmbH" className="no-underline cursor-help border-b border-dotted border-gray-400">Metallo</abbr> offers a better way.</p>
                 <p>
-                  We are India’s first Integrated Manufacturing Platform that unifies the critical pillars of infrastructure—Steel, Power, and Joining—into a single, seamless workflow. We don't just sell products; we sell <span className="text-metallo-navy font-semibold">Velocity, Visibility, and Value</span>.
+                  We are a leading global Integrated Manufacturing Platform that unifies the critical pillars of infrastructure—Steel, Power, and Joining—into a single, seamless workflow. We don't just sell products; we sell <span className="text-metallo-navy font-semibold">Velocity, Visibility, and Value</span>.
                 </p>
               </div>
             </div>
@@ -316,7 +316,7 @@ const WhyMetallo: React.FC = () => {
                   <span className="material-symbols-outlined text-metallo-gold shrink-0">check</span>
                   <div>
                     <strong className="block text-white font-bold mb-1">Proactive Delivery</strong>
-                    <p className="text-sm text-gray-300">Strategic hubs in Noida/Gurgaon ensure Just-in-Time arrival. Velocity.</p>
+                    <p className="text-sm text-gray-300">Strategic global distribution hubs ensure Just-in-Time arrival. Velocity.</p>
                   </div>
                 </li>
               </ul>
@@ -362,7 +362,7 @@ const WhyMetallo: React.FC = () => {
               <h3 className="text-xl font-bold font-heading text-metallo-navy mb-2">The Quality Shield</h3>
               <p className="text-xs font-bold uppercase text-gray-400 mb-4 tracking-wider">100% IS/ISO Compliant</p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                We don't deal in 'unbranded' quality. Steel: IS: 2062. Cables: IS: 7098. Welding: AWS Standards. Every shipment is accompanied by a Mill Test Certificate (MTC).
+                We don't deal in 'unbranded' quality. Steel: IS/ASTM. Cables: IS/IEC. Welding: AWS/ASME Standards. Every shipment is accompanied by a Mill Test Certificate (MTC).
               </p>
             </div>
 

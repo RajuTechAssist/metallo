@@ -22,7 +22,7 @@ const About: React.FC = () => {
             <div className="prose prose-lg text-gray-600 mb-10 space-y-4">
               <p>
                 The global supply chain for heavy engineering is massive, yet heavily fragmented.
-                Metallo acts as the central orchestrator—aggregating underutilized capacity across an
+                <abbr title="METALLO MANUFACTURING TECHNOLOGIES GmbH" className="no-underline cursor-help border-b border-dotted border-gray-400">Metallo</abbr> acts as the central orchestrator—aggregating underutilized capacity across an
                 audited, international network of specialized facilities, from high-grade steel mills to heavy-duty cable fabricators.
                 We enforce universal Tier-1 standards to integrate them into a single, borderless production ecosystem.
               </p>
@@ -94,7 +94,7 @@ const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 
               {/* Top Headline */}
-              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black/50">
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
                   Your Single Gateway
                   <br />
@@ -127,7 +127,7 @@ const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 
               {/* Top Headline */}
-              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black/50">
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
                   BUILT FOR GLOBAL MEGA-PROJECTS.
                 </h3>

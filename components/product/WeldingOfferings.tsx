@@ -21,7 +21,7 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
   {
     title: "Consumables",
     image:
-      SITE_IMAGES.welding.offerings.consumables,
+      SITE_IMAGES.welding.offerings.automation,
     link: "/products/welding?category=consumables",
     items: [
       { label: "MIG Wire and TIG Cut Lengths", href: "/products/welding?category=consumables" },
@@ -61,7 +61,7 @@ const OFFERING_CATEGORIES: OfferingCategory[] = [
   {
     title: "Safety & PPE",
     image:
-      SITE_IMAGES.welding.offerings.automation,
+      SITE_IMAGES.welding.offerings.consumables,
     link: "/products/welding?category=safety",
     items: [
       { label: "Hand, Body and Arm", href: "#" },

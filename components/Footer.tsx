@@ -75,7 +75,6 @@ const Footer: React.FC = () => {
   };
   const topLinks = [
     { name: "About Us", path: "/about" },
-    { name: "Certifications", path: "/?section=certifications" },
     { name: "Why Metallo", path: "/why-metallo" },
     { name: "Contact Us", path: "/contact" },
   ];
@@ -96,7 +95,7 @@ const Footer: React.FC = () => {
           </div>
           <Link
             href="/contact"
-            className="px-8 py-3 bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider hover:bg-opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
+            className="px-8 py-3 bg-metallo-navy text-white font-bold font-heading uppercase tracking-wider hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center"
           >
             Get Started{" "}
             <span className="material-symbols-outlined ml-2">
@@ -111,10 +110,10 @@ const Footer: React.FC = () => {
         {/* Top Row: Logo (Left) and Socials (Right) */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-gray-700/50 pb-8 gap-6">
           {/* Logo */}
-          <div className="flex items-center group cursor-pointer">
+          <div className="flex items-center group cursor-pointer" title="METALLO MANUFACTURING TECHNOLOGIES GmbH">
             <Image
               src="/logo-white.svg"
-              alt="Metallo"
+              alt="METALLO MANUFACTURING TECHNOLOGIES GmbH"
               width={600}
               height={150}
               style={{ width: "20rem", height: "auto" }}
@@ -209,7 +208,7 @@ const Footer: React.FC = () => {
 
             <div className="text-sm text-gray-400">
               <p className="font-bold text-white mb-1">Registered Office:</p>
-              <p>712, Tower A, Emaar Digital Greens,</p>
+              <p>710, Tower A, Emaar Digital Greens,</p>
               <p>Sector 61, Gurgaon, Haryana, India, 122101</p>
             </div>
           </div>
@@ -256,16 +255,10 @@ const Footer: React.FC = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wider">
-          <p>&copy; {new Date().getFullYear()} METALLO All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} METALLO MANUFACTURING TECHNOLOGIES GmbH. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/about" className="hover:text-white transition-colors">
               About Us
-            </Link>
-            <Link
-              href="/?section=certifications"
-              className="hover:text-white transition-colors"
-            >
-              Certifications
             </Link>
             <Link href="/why-metallo" className="hover:text-white transition-colors">
               Why Metallo

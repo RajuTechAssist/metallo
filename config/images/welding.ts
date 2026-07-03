@@ -1,3 +1,5 @@
+import { INDUSTRY_IMAGES } from './industries';
+
 /* ─── WELDING SECTION IMAGES ───────────────────────────────── */
 
 export const WELDING_IMAGES = {
@@ -27,7 +29,7 @@ export const WELDING_IMAGES = {
 
   /* Automotive & Mobility */
   automotive: {
-    hero: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=85&auto=format&fit=crop',
+    hero: INDUSTRY_IMAGES.automotive.hero,
     cta:  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80&auto=format&fit=crop',
     products: {
       consumables:     'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop',
@@ -53,7 +55,7 @@ export const WELDING_IMAGES = {
 
   /* Heavy Engineering & Fabrication */
   heavyEngineering: {
-    hero: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1400&q=85&auto=format&fit=crop',
+    hero: INDUSTRY_IMAGES.heavyEngineering.hero,
     cta:  'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1400&q=80&auto=format&fit=crop',
     products: {
       saw:             'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop',
@@ -66,7 +68,7 @@ export const WELDING_IMAGES = {
 
   /* Oil, Gas & Process Industries */
   oilGas: {
-    hero: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1400&q=85&auto=format&fit=crop',
+    hero: INDUSTRY_IMAGES.oilGas.hero,
     cta:  'https://images.unsplash.com/photo-1518314916381-77a37c2a49b7?w=1400&q=80&auto=format&fit=crop',
     products: {
       highAlloy:       'https://images.unsplash.com/photo-1518314916381-77a37c2a49b7?w=600&q=80&auto=format&fit=crop',
@@ -79,7 +81,7 @@ export const WELDING_IMAGES = {
 
   /* Smart Cities & Urban Development */
   smartCities: {
-    hero: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1400&q=85&auto=format&fit=crop',
+    hero: INDUSTRY_IMAGES.smartCities.hero,
     cta:  'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1400&q=80&auto=format&fit=crop',
     products: {
       architectural:   'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80&auto=format&fit=crop',

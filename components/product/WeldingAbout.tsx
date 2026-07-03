@@ -106,7 +106,7 @@ const WeldingAbout: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 
               {/* Top Headline */}
-              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black/50">
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
                   Powered by
                   <br />
@@ -139,7 +139,7 @@ const WeldingAbout: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-metallo-navy/70 via-transparent to-metallo-navy/90" />
 
               {/* Top Headline */}
-              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black bg-opacity-50">
+              <div className="absolute top-0 left-0 right-0 p-7 inset-0 bg-black/50">
                 <h3 className="text-xl lg:text-2xl font-heading font-extrabold text-white uppercase leading-tight tracking-wide">
                   End-to-End Welding
                   <br />
