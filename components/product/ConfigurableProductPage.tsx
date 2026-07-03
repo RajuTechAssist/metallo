@@ -109,6 +109,8 @@ const ConfigurableProductPage: React.FC<ConfigurableProductPageProps> = ({
         getEngineeringServicesTypes={(product) => product.engineeringServicesTypes}
         ctaLabel={config.catalogCtaLabel}
         ctaIcon={config.catalogCtaIcon}
+        ctaHref={config.catalogCtaHref}
+        ctaDisabled={config.catalogCtaDisabled}
       />
 
       {config.verticalKey && (

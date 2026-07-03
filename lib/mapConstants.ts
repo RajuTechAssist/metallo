@@ -23,7 +23,7 @@ export const GLOBAL_OFFICES: GlobalOffice[] = [
     geoId: "356",
     city: "Gurugram",
     country: "India",
-    title: "Corporate Headquarters",
+    title: "Sales Office",
     entity: "Metallo Group",
     region: "Manufacturing base and global project coordination",
     addressLines: [
@@ -57,7 +57,7 @@ export const GLOBAL_OFFICES: GlobalOffice[] = [
     geoId: "276",
     city: "Ismaning",
     country: "Germany",
-    title: "Registered Office",
+    title: "Corporate Headquarters",
     entity: "Metallo Manufacturing Technologies GmbH",
     region: "Europe commercial presence and buyer coordination",
     addressLines: ["Reichenbachstrasse 1", "85737 Ismaning, Germany"],

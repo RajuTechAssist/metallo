@@ -100,7 +100,26 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
     );
 };
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
+
+const HERO_SLIDES = [
+    {
+        image: SITE_IMAGES.industries.railways.hero,
+        category: "Railways & Transit Procurement",
+        title: "Railways & Transit Procurement",
+        highlight: "Infrastructure, Certified.",
+        desc: "Aggregated, audited production for global transit operations. UIC & RDSO‑certified coach frames, sub-assemblies, cable support tracks, signal lines, and high-performance welding materials.",
+        microcopy: "RDSO-aligned SOPs · NDT, PMI, and MTC traceability per batch"
+    },
+    {
+        image: "/indianDefence3.jpg",
+        category: "Defence Engineering Procurement",
+        title: "Defence Engineering Procurement",
+        highlight: "Engineering, Secured.",
+        desc: "Military-grade components engineered for high-integrity missions. Compliant structural chassis, MIL-SPEC cable harnesses, modular tactical shelters, and specialized welding consumables.",
+        microcopy: "DRDO & MIL-SPEC compliant · ISO 9001:2015 · Third-party validated"
+    }
+] as const;
 
 const HERO_SLIDES = [
     {
@@ -796,14 +815,14 @@ const RailwaysDefence: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
-                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
                     <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-tight mb-6">
                         Ready to scale your<br />rail or defence program?
                     </h2>
-                    <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
+                    <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From coach assemblies and signal cables to defence structural fabrications — Metallo delivers UIC, MIL-SPEC, and RDSO/DRDO‑certified manufacturing from an audited, borderless manufacturing network.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">description</span>
                             Request a Rail / Defence Quote

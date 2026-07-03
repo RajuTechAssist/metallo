@@ -178,7 +178,7 @@ const WireCableProductCard: React.FC<{
       <button
         type="button"
         onClick={onToggle}
-        aria-expanded={detailsOpen}
+        aria-expanded={detailsOpen ? "true" : "false"}
         className={`w-full flex items-center gap-4 md:gap-5 px-4 md:px-6 py-4 md:py-5 text-left transition-all duration-300 ${detailsOpen ? "bg-slate-50 border-b border-slate-200" : ""}`}
       >
         {!detailsOpen && (

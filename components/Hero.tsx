@@ -99,7 +99,7 @@ const SLIDES: Slide[] = [
   // },
 ];
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 const EASE_STANDARD: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -205,7 +205,7 @@ const Hero: React.FC = () => {
       <AnimatePresence mode="sync">
         <motion.div
           key={slide.id}
-          className="absolute inset-0 z-0 w-full"
+          className="absolute inset-0 z-0 h-full w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

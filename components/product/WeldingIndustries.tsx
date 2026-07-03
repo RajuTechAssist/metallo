@@ -23,17 +23,17 @@ const WELDING_INDUSTRIES: Industry[] = [
   },
   {
     title: "Oil & Gas / Process Industries",
-    image: SITE_IMAGES.welding.industries.oilGas,
+    image: SITE_IMAGES.industries.grid.oilGas,
     slug: "/products/welding/industries/oil-gas",
   },
   {
     title: "Heavy Engineering",
-    image: SITE_IMAGES.welding.industries.heavyEngineering,
+    image: SITE_IMAGES.industries.grid.heavyEngineering,
     slug: "/products/welding/industries/heavy-engineering",
   },
   {
     title: "Smart Cities & Urban Development",
-    image: SITE_IMAGES.welding.industries.smartCities,
+    image: SITE_IMAGES.industries.grid.smartCities,
     slug: "/products/welding/industries/smart-cities",
   },
 ];

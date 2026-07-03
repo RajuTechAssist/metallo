@@ -75,7 +75,12 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center text-[clamp(0.625rem,0.78vw,0.8rem)] font-medium font-serif text-gray-600 tracking-wide">
               <div className="flex space-x-[clamp(1rem,2.57vw,2.6rem)]">
                 {TOP_LINKS.map((link) => {
-                  const isActive = location.pathname === link.path;
+                  const isCertificationsLink = (link.name as string) === "Certifications";
+                  const isActive = isCertificationsLink
+                    ? location.pathname === "/" &&
+                      new URLSearchParams(location.search).get("section") ===
+                        "certifications"
+                    : location.pathname === link.path;
                   return (
                     <Link
                       key={link.name}
@@ -107,12 +112,13 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="py-[clamp(0.5rem,1vw,1rem)] bg-white">
             <div className="flex justify-between items-center">
-              <Link href="/" className="flex items-center group">
+              <Link href="/" className="flex items-center group" title="METALLO MANUFACTURING TECHNOLOGIES GmbH">
                 <Image
                   src="/logo.svg"
-                  alt="Metallo"
+                  alt="METALLO MANUFACTURING TECHNOLOGIES GmbH"
                   width={600}
                   height={150}
+                  priority
                   style={{ width: "clamp(10rem, 16vw, 15rem)", height: "auto" }}
                 />
               </Link>
@@ -223,7 +229,12 @@ const Header: React.FC = () => {
             <div className="flex flex-col md:flex-row h-full">
               <div className="flex-1 flex flex-col space-y-[clamp(1rem,3vw,2rem)] pt-[clamp(0.5rem,1.5vw,1rem)] pb-[clamp(1rem,3vw,2rem)] md:pb-0 pl-[clamp(0.5rem,2vw,1rem)] md:pl-[clamp(1rem,3vw,2rem)]">
                 {TOP_LINKS.map((link) => {
-                  const isActive = location.pathname === link.path;
+                  const isCertificationsLink = (link.name as string) === "Certifications";
+                  const isActive = isCertificationsLink
+                    ? location.pathname === "/" &&
+                      new URLSearchParams(location.search).get("section") ===
+                        "certifications"
+                    : location.pathname === link.path;
                   return (
                     <Link
                       key={link.name}
@@ -272,13 +283,6 @@ const Header: React.FC = () => {
           <div className="p-[clamp(1rem,3vw,2rem)] md:px-[clamp(2rem,5vw,4rem)] border-t border-white/10 mt-auto bg-metallo-navy z-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
               {/* <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
-                <Link
-                  href="/?section=certifications"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-xs font-bold text-white hover:text-metallo-gold uppercase tracking-wider transition-colors"
-                >
-                  Certifications
-                </Link>
                 <Link
                   href="/contact"
                   onClick={() => setIsMenuOpen(false)}

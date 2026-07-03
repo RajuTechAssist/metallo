@@ -29,7 +29,7 @@ const SLIDES: WeldingSlide[] = [
   {
     id: "01",
     headline: "Precision Welding, Engineered by Legacy.",
-    subHeadline: "Metallo Welding, powered by WB Alloys.",
+    subHeadline: "Metallo × WB Alloys — A METALLO MANUFACTURING TECHNOLOGIES GmbH Company",
     body: "Combining an agile, borderless supply network with decades of specialized metallurgical engineering and manufacturing.",
     cta: "Explore the Ecosystem",
     ctaLink: "#ecosystem",
@@ -219,8 +219,24 @@ const WeldingHero: React.FC = () => {
                 exit="exit"
               >
                 <span className="block w-8 h-px bg-yellow-500" />
-                <span className="text-xs font-bold font-heading text-yellow-500 uppercase tracking-[0.2em]">
-                  {slide.id} &mdash; {slide.subHeadline}
+                <span className="text-xs font-bold font-heading text-yellow-500 uppercase tracking-[0.2em] flex items-center flex-wrap">
+                  {slide.id} &mdash;{" "}
+                  {slide.subHeadline.includes("×") ? (
+                    (() => {
+                      const parts = slide.subHeadline.split("×");
+                      return (
+                        <>
+                          {parts[0]}
+                          <span className="material-symbols-outlined text-sm mx-1 shrink-0 align-middle normal-case tracking-normal text-yellow-500">
+                            handshake
+                          </span>
+                          {parts[1]}
+                        </>
+                      );
+                    })()
+                  ) : (
+                    slide.subHeadline
+                  )}
                 </span>
               </motion.div>
 

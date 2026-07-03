@@ -13,7 +13,7 @@ const LT_CATEGORY = "LT Power & Control Cable";
 const HT_CATEGORY = "HT Power Cable";
 
 const wireImage = (asset: string) => `/wire&cable/${asset}`;
-export const CATALOGUE_DOWNLOAD = "/Wire_Cables_Power_Control_Catalogue.pdf";
+export const CATALOGUE_DOWNLOAD = "https://1urnlf5q52zhr3wc.public.blob.vercel-storage.com/Metallo%20Cables%20And%20Wires%20Catalogue.pdf";
 
 const spec = (
   label: string,

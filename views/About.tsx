@@ -37,7 +37,7 @@ const About: React.FC = () => {
               </span>
             </h1>
             <p className="text-base md:text-xl text-gray-200 font-serif max-w-4xl mb-3 md:mb-4">
-              Metallo is a manufacturing-technology platform that integrates
+              <abbr title="METALLO MANUFACTURING TECHNOLOGIES GmbH" className="no-underline cursor-help border-b border-dotted border-metallo-gold-hover">Metallo</abbr> is a manufacturing-technology platform that integrates
               global industrial capacity into a scalable, quality-controlled
               production ecosystem.
             </p>
@@ -1017,7 +1017,7 @@ const About: React.FC = () => {
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
                   <h3 className="text-2xl font-bold font-heading text-white">
-                    Vinay
+                    Vinay Chadha
                   </h3>
                   <p className="text-xs font-bold uppercase tracking-widest text-white/80">
                     Director
@@ -1030,7 +1030,7 @@ const About: React.FC = () => {
                 </span>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   With over 15 years of experience in heavy infrastructure and
-                  oil & gas projects, Vinay Kumar brings deep strategic insight
+                  oil & gas projects, Vinay Chadha brings deep strategic insight
                   into large-scale industrial operations. His experience across
                   critical infrastructure sectors has shaped Metallo's vision of
                   building a resilient and dependable industrial supply network

@@ -59,6 +59,8 @@ export interface ConfigurableProductPageData {
   items: ProductCatalogItem[];
   catalogCtaLabel?: string;
   catalogCtaIcon?: string;
+  catalogCtaHref?: string;
+  catalogCtaDisabled?: boolean;
   qaBanner: ProductQABannerConfig;
   cta: ProductCTAConfig;
 }

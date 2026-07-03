@@ -100,7 +100,7 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
     );
 };
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 /* ═══════════════════════════════════════════════════════════════
    SMART CITIES & URBAN DEVELOPMENT PAGE
@@ -705,14 +705,14 @@ const SmartCities: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
-                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
                     <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-tight mb-6">
                         Ready to scale your<br />smart city project?
                     </h2>
-                    <p className="text-lg text-slate-300 font-sans max-w-2xl mx-auto mb-10">
+                    <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From utility piping and cable trays to modular enclosures and MEP modules — Metallo delivers certified urban infrastructure from an audited, borderless manufacturing network.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">description</span>
                             Get a Project Quote
