@@ -1,88 +1,200 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 /* ── Country presence list (displayed as bar below title) ── */
 const PRESENCE_COUNTRIES = [
-  'India',
-  'Germany',
-  'Hungary',
-  'France',
-  'Spain',
-  'Turkey',
-  'Dubai',
-  'Saudi Arabia',
-  'Oman',
-  'China',
-  'United Kingdom',
-  'Morocco',
-  'Algeria',
+  "India",
+  "Germany",
+  "Hungary",
+  "France",
+  "Spain",
+  "Turkey",
+  "Dubai",
+  "Saudi Arabia",
+  "Oman",
+  "China",
+  "United Kingdom",
+  "Morocco",
+  "Algeria",
 ];
 
 /* ── Coverage cards matching the screenshot layout ── */
 const coverageCards = [
   {
-    kind: 'HEAD OFFICE',
-    country: 'Europe & UK',
-    lines: ['Reichenbachstraße 1,', '85737 Ismaning, Germany'],
+    kind: "HEAD OFFICE",
+    country: "Europe & UK",
+    lines: ["Reichenbachstraße 1,", "85737 Ismaning, Germany"],
   },
   {
-    kind: 'SALES OFFICE',
-    country: 'Hungary',
-    lines: ['1037, Budapest, Csillaghegyi Út 13.'],
+    kind: "SALES OFFICE",
+    country: "Hungary",
+    lines: ["1037, Budapest, Csillaghegyi Út 13."],
   },
   {
-    kind: 'SALES OFFICE & MFG',
-    country: 'India',
+    kind: "SALES OFFICE & MFG",
+    country: "India",
     lines: [
-      '710, 7th Floor, Tower A,',
-      'Emmar Digital Greens, Gurugram',
-      '',
-      'Manufacturing Units:',
-      'Gujarat & Maharashtra',
+      "710, 7th Floor, Tower A,",
+      "Emmar Digital Greens, Gurugram",
+      "",
+      "Manufacturing Units:",
+      "Gujarat & Maharashtra",
     ],
   },
   {
-    kind: 'SALES OFFICE',
-    country: 'Middle East',
+    kind: "SALES OFFICE",
+    country: "Middle East",
     lines: [
-      '1908, 19th Floor,',
-      'Indigo Icon, Cluster - F,',
-      'Jumeirah Lake Towers (JLT),',
-      'Dubai, UAE | P O Box - 634397',
+      "1908, 19th Floor,",
+      "Indigo Icon, Cluster - F,",
+      "Jumeirah Lake Towers (JLT),",
+      "Dubai, UAE | P O Box - 634397",
     ],
   },
   {
-    kind: 'SALES OFFICE',
-    country: 'Africa',
-    lines: ['Casablanca, Morocco Office'],
+    kind: "SALES OFFICE",
+    country: "Africa",
+    lines: ["Casablanca, Morocco Office"],
   },
+];
+/* ── Marker type → color + legend copy ── */
+type MarkerType = "head" | "sales" | "mfg";
+const MARKER_COLORS: Record<MarkerType, string> = {
+  head: "#FF8C00", // gold
+  sales: "#406093", // navy
+  mfg: "#41A67E", // green
+};
+const LEGEND_ITEMS: { type: MarkerType; label: string }[] = [
+  { type: "head", label: "Head Office" },
+  { type: "sales", label: "Sales Office" },
+  { type: "mfg", label: "Manufacturing Unit" },
 ];
 
 /*
  * Office marker positions (x, y) mapped to the SVG viewBox (1362 x 724).
+ * `type` drives the pin color, `label` is the persistent caption under the pin.
+ * `detail` (optional) powers the rich hover card, matching the India example
+ * in the reference design. Markers without a `detail` fall back to a simple
+ * kind + label tooltip.
  */
-const OFFICE_MARKERS: { id: string; x: number; y: number; label: string }[] = [
-  { id: 'india',       x: 928,  y: 350, label: 'Gurugram, India' },
-  { id: 'gujarat',     x: 910,  y: 375, label: 'Gujarat, India' },
-  { id: 'maharashtra', x: 925,  y: 390, label: 'Maharashtra, India' },
-  { id: 'germany',     x: 680,  y: 230, label: 'Germany' },
-  { id: 'hungary',     x: 710,  y: 255, label: 'Hungary' },
-  { id: 'france',      x: 645,  y: 255, label: 'France' },
-  { id: 'spain',       x: 625,  y: 290, label: 'Spain' },
-  { id: 'turkey',      x: 762,  y: 300, label: 'Turkey' },
-  { id: 'dubai',       x: 842,  y: 370, label: 'Dubai' },
-  { id: 'saudi',       x: 810,  y: 370, label: 'Saudi Arabia' },
-  { id: 'oman',        x: 850,  y: 380, label: 'Oman' },
-  { id: 'china',       x: 970, y: 295, label: 'China' },
-  { id: 'uk',          x: 635,  y: 225, label: 'United Kingdom' },
-  { id: 'morocco',     x: 620,  y: 330, label: 'Morocco' },
-  { id: 'algeria',     x: 655,  y: 320, label: 'Algeria' },
+interface OfficeMarker {
+  id: string;
+  x: number;
+  y: number;
+  label: string;
+  type: MarkerType;
+  /** Optional overrides for crowded clusters — default label sits centered below the pin. */
+  labelX?: number;
+  labelY?: number;
+  labelAnchor?: "start" | "middle" | "end";
+  detail?: {
+    kind: string;
+    country: string;
+    lines: string[];
+  };
+}
+
+/*
+ * Office marker positions (x, y) mapped to the SVG viewBox (1362 x 724).
+ */
+const OFFICE_MARKERS: OfficeMarker[] = [
+  {
+    id: "india",
+    x: 928,
+    y: 335,
+    label: "Gurugram, India",
+    type: "sales",
+    labelAnchor: "start",
+    labelX: 940,
+    labelY: 345,
+    detail: {
+      kind: "SALES OFFICE",
+      country: "India",
+      lines: ["710, 7th Floor, Tower A,", "Emmar Digital Greens, Gurugram"],
+    },
+  },
+  {
+    id: "gujarat",
+    x: 905,
+    y: 360,
+    label: "Gujarat, India",
+    type: "mfg",
+    labelAnchor: "start",
+    labelX: 915,
+    labelY: 370,
+  },
+  {
+    id: "maharashtra",
+    x: 925,
+    y: 390,
+    label: "Maharashtra, India",
+    type: "mfg",
+  },
+  {
+    id: "germany",
+    x: 680,
+    y: 230,
+    label: "Germany",
+    type: "head",
+    labelAnchor: "start",
+    labelX: 692,
+    labelY: 240,
+    detail: {
+      kind: "HEAD OFFICE",
+      country: "Europe & UK",
+      lines: ["Reichenbachstraße 1,", "85737 Ismaning, Germany"],
+    },
+  },
+  { id: "hungary", x: 710, y: 255, label: "Hungary", type: "sales" },
+  { id: "france", x: 645, y: 255, label: "France", type: "sales" },
+  { id: "spain", x: 625, y: 290, label: "Spain", type: "sales" },
+  { id: "turkey", x: 762, y: 300, label: "Turkey", type: "sales" },
+  {
+    id: "dubai",
+    x: 845,
+    y: 350,
+    label: "Dubai",
+    type: "sales",
+    labelAnchor: "end",
+    labelX: 832,
+    labelY: 355,
+  },
+  {
+    id: "saudi",
+    x: 810,
+    y: 370,
+    label: "Saudi Arabia",
+    type: "sales",
+    labelAnchor: "end",
+    labelX: 800,
+    labelY: 382,
+  },
+  {
+    id: "oman",
+    x: 840,
+    y: 380,
+    label: "Oman",
+    type: "sales",
+  },
+  { id: "china", x: 970, y: 295, label: "China", type: "sales" },
+  {
+    id: "uk",
+    x: 635,
+    y: 225,
+    label: "United Kingdom",
+    type: "sales",
+    labelAnchor: "end",
+    labelX: 622,
+    labelY: 235,
+  },
+  { id: "morocco", x: 620, y: 330, label: "Morocco", type: "sales" },
+  { id: "algeria", x: 655, y: 320, label: "Algeria", type: "sales" },
 ];
 
 const COLOR_MAP = {
-  gold: '#DAA520',
-  goldGlow: '#FFD700',
-  tooltipBg: '#0F172A',
+  gold: "#DAA520",
+  goldGlow: "#FFD700",
+  tooltipBg: "#0F172A",
 };
 
 /* ── SVG icon components for the cards ── */
@@ -125,9 +237,41 @@ const SalesIcon = () => (
   </svg>
 );
 
+/* ── Reusable map-pin path (lucide "MapPin" style), colored per marker type ── */
+const MapPinIcon: React.FC<{ color: string }> = ({ color }) => (
+  <>
+    {/* Main Pin Shape (Solid Fill) */}
+    <path
+      d="M0,-16 C-6.6,-16 -12,-10.6 -12,-4 C-12,5.5 0,17 0,17 C0,17 12,5.5 12,-4 C12,-10.6 6.6,-16 0,-16 Z"
+      fill={color}
+    />
+
+    {/* Large Internal White Hole */}
+    <circle
+      cx="0"
+      cy="-4"
+      r="8" // Larger radius to create a prominent white area
+      fill="white"
+    />
+
+    {/* Small Central Dot (Solid Fill) */}
+    <circle
+      cx="0"
+      cy="-4"
+      r="3.5" // Smaller radius than the previous central circle to fit inside the hole
+      fill={color}
+    />
+  </>
+);
+
 const WorldMap: React.FC = () => {
-  const [tooltipContent, setTooltipContent] = useState('');
-  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+  // const [tooltipContent, setTooltipContent] = useState("");
+  // const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+
+  const [activeMarker, setActiveMarker] = useState<OfficeMarker | null>(null);
+  const [hoverPos, setHoverPos] = useState<{ x: number; y: number } | null>(
+    null,
+  );
 
   return (
     <section className="bg py-24">
@@ -156,15 +300,17 @@ const WorldMap: React.FC = () => {
 
         <div className="text-gray-600 mb-10 text-justify text-sm md:text-base leading-relaxed max-w-none">
           <p>
-            In a connected world where boundaries are fading, success is
-            defined by agility, access, and execution. <strong>Metallo</strong> is built for this new industrial
-            landscape—integrating manufacturing, global sourcing, and
-            distribution into a seamless ecosystem. Our platform enables consistent quality, efficient execution,
-            and reliable delivery across both local and international
-            markets. With a &ldquo;<strong>glocal</strong>&rdquo; approach, we combine
-            global reach with local responsiveness—delivering uncompromised
-            quality with optimised efficiency. Driven by precision and powered by global connectivity,{' '}
-            <strong>Metallo</strong> is redefining industrial metal solutions.
+            In a connected world where boundaries are fading, success is defined
+            by agility, access, and execution. <strong>Metallo</strong> is built
+            for this new industrial landscape—integrating manufacturing, global
+            sourcing, and distribution into a seamless ecosystem. Our platform
+            enables consistent quality, efficient execution, and reliable
+            delivery across both local and international markets. With a &ldquo;
+            <strong>glocal</strong>&rdquo; approach, we combine global reach
+            with local responsiveness—delivering uncompromised quality with
+            optimised efficiency. Driven by precision and powered by global
+            connectivity, <strong>Metallo</strong> is redefining industrial
+            metal solutions.
           </p>
         </div>
 
@@ -183,59 +329,133 @@ const WorldMap: React.FC = () => {
             {/* Marker overlay */}
             <svg
               viewBox="0 0 1362 724"
-              className="absolute inset-0 w-full h-full pointer-events-none"
+              className="absolute inset-0 w-full h-full"
               preserveAspectRatio="xMidYMid meet"
             >
-              {OFFICE_MARKERS.map((office, idx) => (
-                <g
-                  key={office.id}
-                  className="group"
-                  style={{ cursor: 'pointer', pointerEvents: 'auto' }}
-                  onMouseEnter={(event) => {
-                    setTooltipContent(office.label);
-                    setTooltipPos({
-                      x: event.clientX,
-                      y: event.clientY,
-                    });
-                  }}
-                  onMouseLeave={() => {
-                    setTooltipContent('');
-                  }}
-                >
-                  {/* Invisible larger hit area for easier hovering */}
-                  <circle
-                    cx={office.x}
-                    cy={office.y}
-                    r={15}
-                    fill="transparent"
-                  />
-                  {/* Static Dark Navy Outline Circle with Golden Fill */}
-                  <circle
-                    cx={office.x}
-                    cy={office.y}
-                    r={3}
-                    fill={COLOR_MAP.gold}
-                    stroke="#101C5E"
-                    strokeWidth={0.2}
-                    className="transition-transform group-hover:scale-125 duration-300"
-                    style={{ transformOrigin: `${office.x}px ${office.y}px` }}
-                  />
-                </g>
-              ))}
+              {OFFICE_MARKERS.map((office) => {
+                const isActive = activeMarker?.id === office.id;
+                return (
+                  <g
+                    key={office.id}
+                    style={{ cursor: "pointer", pointerEvents: "auto" }}
+                    onMouseEnter={() => {
+                      setActiveMarker(office);
+                      setHoverPos({ x: office.x, y: office.y });
+                    }}
+                    onMouseLeave={() => {
+                      setActiveMarker(null);
+                      setHoverPos(null);
+                    }}
+                  >
+                    <g
+                      transform={`translate(${office.x}, ${office.y}) scale(${isActive ? 1 : 0.8})`}
+                      style={{
+                        transformBox: "fill-box",
+                        transformOrigin: `bottom center`,
+                        transition: "transform 0.2s ease",
+                      }}
+                    >
+                      <MapPinIcon color={MARKER_COLORS[office.type]} />
+                    </g>
+
+                    {/* Persistent country label under the pin (or a custom
+                        position for crowded clusters, set per-marker above) */}
+                    <text
+                      x={office.labelX ?? office.x}
+                      y={office.labelY ?? office.y + 27}
+                      textAnchor={office.labelAnchor ?? "middle"}
+                      fontSize="11"
+                      fontWeight="700"
+                      fill="#101C5E"
+                      stroke="#ffffff"
+                      strokeWidth="1"
+                      strokeLinejoin="round"
+                      paintOrder="stroke"
+                      style={{ pointerEvents: "none", fontFamily: "inherit" }}
+                    >
+                      {office.label}
+                    </text>
+                  </g>
+                );
+              })}
             </svg>
+
+            {/* Legend */}
+            <div className="absolute bottom-4 left-4 rounded-md border border-gray-200 bg-white/95 px-4 py-3 shadow-md">
+              <ul className="space-y-2">
+                {LEGEND_ITEMS.map((item) => (
+                  <li
+                    key={item.type}
+                    className="flex items-center gap-2 text-xs font-semibold text-gray-700"
+                  >
+                    <span
+                      className="inline-block h-3 w-3 rounded-full border border-white shadow"
+                      style={{ backgroundColor: MARKER_COLORS[item.type] }}
+                    />
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {tooltipContent && (
+          {/* Rich hover detail card, positioned relative to the active marker */}
+          {activeMarker?.detail && hoverPos && (
             <div
+              className="pointer-events-none absolute z-50 w-72 rounded-lg border border-gray-200 bg-white p-4 shadow-xl"
               style={{
-                position: 'fixed',
-                top: tooltipPos.y + 10,
-                left: tooltipPos.x + 10,
+                left: `${(hoverPos.x / 1362) * 100}%`,
+                top: `${(hoverPos.y / 724) * 100}%`,
+                transform: "translate(20px, -110%)",
+              }}
+            >
+              <div className="mb-1 text-xs font-black uppercase tracking-wider text-metallo-gold-hover">
+                {activeMarker.detail.kind}
+              </div>
+              <div className="mb-2 text-lg font-black text-metallo-navy font-heading">
+                {activeMarker.detail.country}
+              </div>
+              <div className="text-xs leading-relaxed text-gray-600">
+                {activeMarker.detail.lines.map((line, i) =>
+                  line === "" ? (
+                    <div
+                      key={i}
+                      className="my-2 h-px w-8 bg-metallo-gold-hover/50"
+                    />
+                  ) : (
+                    <span key={i}>
+                      {line}
+                      {i < activeMarker.detail!.lines.length - 1 &&
+                        activeMarker.detail!.lines[i + 1] !== "" && <br />}
+                    </span>
+                  ),
+                )}
+              </div>
+              {/* Speech-bubble tail */}
+              <div
+                className="absolute h-3 w-3 rotate-45 bg-white"
+                style={{
+                  left: 16,
+                  bottom: -6,
+                  borderRight: "1px solid #e5e7eb",
+                  borderBottom: "1px solid #e5e7eb",
+                }}
+              />
+            </div>
+          )}
+
+          {/* Fallback simple tooltip for markers without a rich detail card */}
+          {activeMarker && !activeMarker.detail && hoverPos && (
+            <div
+              className="pointer-events-none absolute z-50 whitespace-nowrap rounded border border-white/10 px-3 py-1 text-sm font-bold text-white shadow-lg"
+              style={{
+                left: `${(hoverPos.x / 1362) * 100}%`,
+                top: `${(hoverPos.y / 724) * 100}%`,
+                transform: "translate(14px, -140%)",
                 backgroundColor: COLOR_MAP.tooltipBg,
               }}
-              className="pointer-events-none z-50 whitespace-nowrap rounded border border-white/10 px-3 py-1 text-sm font-bold text-white shadow-lg"
             >
-              {tooltipContent}
+              {activeMarker.label}
             </div>
           )}
         </div>
@@ -247,16 +467,17 @@ const WorldMap: React.FC = () => {
           {coverageCards.map((card) => (
             <div
               key={`${card.kind}-${card.country}`}
-              className="rounded-lg border border-gray-300 bg-[#e0e0e0] p-5 transition-all hover:border-metallo-gold/40 hover:shadow-lg"
+              className="rounded-lg bg-gray-200 p-5 transition-all hover:border-metallo-gold/40 hover:shadow-lg"
             >
               {/* Icon */}
-              <div className="mb-3">
-                {card.kind === 'HEAD OFFICE' ? (
+              {/* <div className="mb-3"> */}
+                {/* {card.kind === "HEAD OFFICE" ? (
                   <HeadquarterIcon />
                 ) : (
                   <SalesIcon />
-                )}
-              </div>
+                )} */}
+                {/* {card.icon && <card.icon />} */}
+              {/* </div> */}
 
               {/* Kind label */}
               <div className="mb-1 text-sm font-black uppercase tracking-wider text-metallo-navy font-heading">
@@ -281,7 +502,7 @@ const WorldMap: React.FC = () => {
           ))}
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 
