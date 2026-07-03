@@ -381,13 +381,13 @@ const Steel: React.FC = () => {
                           key={`${product["Product Name"]}-${item.name}`}
                           className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
                         >
-                          <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                          <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
                             <Image
                               src={item.image}
                               alt={item.name}
-                              width={400}
-                              height={300}
-                              className="w-full h-full object-contain"
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                             />
                           </div>
                           <div className="px-4 py-4 border-t border-slate-200">

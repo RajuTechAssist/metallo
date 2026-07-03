@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
+import { SITE_IMAGES } from '@/config/images';
 
 const convergingItems = [
   { deg: 0, icon: 'foundation', label: 'Steel' },
@@ -50,13 +51,13 @@ const spectrumVerticals = [
     id: 'pipes',
     name: 'Pipes',
     cert: 'API 5L / ASTM',
-    img: '/Steel/pipes&tubes1.png'
+    img: SITE_IMAGES.misc.whyMetallo.pipesTubes
   },
   {
     id: 'structures',
     name: 'Fabricated Structures',
     cert: 'IS 800 / AISC',
-    img: '/Steel/SHEETS&PLATES.png'
+    img: SITE_IMAGES.misc.whyMetallo.sheetsPlates
   },
 ];
 

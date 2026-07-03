@@ -1,0 +1,1286 @@
+{
+  "industry": "Welding & Allied Processes",
+  "verticals": {
+    "Consumables": {
+      "MIG WELDING WIRE(GMAW)": {
+        "Steel Non & Low Alloyed": [
+          {
+            "product_code": "WB100S-G",
+            "certifications": [
+              "AWS A5.28: ER100S-G",
+              "BS EN 16834-A: G 62 4 M21 Mn3NiCrMo"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB120S-G",
+            "certifications": [
+              "AWS A5.28: ER120S-G",
+              "BS EN 16834-A: G 89 4 M21 Mn4Ni2CrMo"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6000",
+            "certifications": [
+              "AWS A5.18: ER70S-6",
+              "BS EN ISO 14341-A: G 46 4 M21 3Si1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6002",
+            "certifications": [
+              "AWS A5.18: ER70S-6",
+              "BS EN ISO 14341-A: G 46 5 M21 4Si1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6012M",
+            "certifications": [
+              "AWS A5.28: ER80S-G"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6013",
+            "certifications": [
+              "AWS A5.28: ER80S-Ni1",
+              "BS EN ISO 14341-A: G 46 6 M 3 Ni1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6040",
+            "certifications": [
+              "AWS A5.28: ER80S-Ni2 B",
+              "BS EN ISO 14341-A: G 50 6 M 2 Ni2"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6041E",
+            "certifications": [
+              "AWS A5.28: ER80S-D2/ER90S-D2",
+              "BS EN ISO 14341-A: G 50 5 M21 4Mo"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6042",
+            "certifications": [
+              "AWS A5.28: ER80S-B2",
+              "BS EN ISO 21952-A: G CrMo1Si"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6047P",
+            "certifications": [
+              "AWS A5.28: ER100S-G"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Stainless Steel": [
+          {
+            "product_code": "WB17-4PH",
+            "certifications": [
+              "AWS A5.9: ER630"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB22-9-3LM",
+            "certifications": [
+              "AWS A5.9: ER2209",
+              "BS EN ISO 14343-A: G 22 9 3 NL"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB25-9-3LM",
+            "certifications": [
+              "AWS A5.9: ER2594",
+              "BS EN ISO 14343-A: G 25 9 4 NL"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB308HM",
+            "certifications": [
+              "AWS A5.9: ER308H",
+              "BS EN ISO 14343-A: G 19 9 H"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB308LM",
+            "certifications": [
+              "AWS A5.9: ER308LSi",
+              "BS EN ISO 14343-A: G 19 9 LSi"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB309LM",
+            "certifications": [
+              "AWS A5.9: ER309LSi",
+              "BS EN ISO 14343-A: G 23 12 L Si"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB309L",
+            "certifications": [
+              "AWS A5.9: ER309L",
+              "BS EN ISO 14343-A: G 23 12 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB309LMo-M",
+            "certifications": [
+              "AWS A5.9: ER309LMo",
+              "BS EN ISO 14343-A: G 23 12 2 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB310M",
+            "certifications": [
+              "AWS A5.9: ER310",
+              "BS EN ISO 14343-A: G 25 20"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB316HM",
+            "certifications": [
+              "AWS A5.9: ER316H",
+              "BS EN ISO 14343-A: G 19 12 3 H"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB316LM",
+            "certifications": [
+              "AWS A5.9: ER316LSi",
+              "BS EN 14343-A: G 19 12 3 LSi"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB316L",
+            "certifications": [
+              "AWS A5.9: ER316L",
+              "BS EN 14343-A: G 19 12 3 L"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Nickel & Copper Alloy": [
+          {
+            "product_code": "WB59M",
+            "certifications": [
+              "AWS A5.14: ERNiCrMo-13",
+              "BS EN ISO 18274: NiCr23Mo16"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB61M",
+            "certifications": [
+              "AWS A5.14: ERNi-1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB67M",
+            "certifications": [
+              "AWS A5.7: ERCuNi"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB718M",
+            "certifications": [
+              "AWS A5.14/A5.14M: ERNiFeCr-2 UNS: N07718"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB82M",
+            "certifications": [
+              "AWS A5.14: ERNiCr-3",
+              "BS EN ISO 18274: NiCr20Mn3Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB625M",
+            "certifications": [
+              "AWS A5.14: ERNiCrMo-3",
+              "BS EN ISO 18274: NiCr22Mo9Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBC26M",
+            "certifications": [
+              "AWS A5.7: ERCuNiAl",
+              "BS EN ISO 24373: CuAl9Ni5Fe3Mn2"
+            ],
+            "datasheet_url": ""
+          }
+        ]
+      },
+      "FLUX CORE WIRE WELDING (FCAW)": {
+        "Flux Cored Non & Low Alloyed": [
+          {
+            "product_code": "WB6121",
+            "certifications": [
+              "AWS A5.29: E81T1-Ni1M/C-JH4",
+              "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5",
+              "AWS A5.36: E81T1-M21A8-Ni1 H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6121-SR",
+            "certifications": [
+              "AWS A5.29: E81T1-Ni1M/C-JH4",
+              "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5",
+              "AWS A5.36: E81T1-M21A8-Ni1 H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6111E-NG",
+            "certifications": [
+              "AWS A5.20: E71T-8",
+              "AWS A5.36/A5.36M: E71T8-A2"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6111E",
+            "certifications": [
+              "AWS A5.20-95: E71T1-M/T9M/T-12M JDH4",
+              "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6114",
+            "certifications": [
+              "AWS A5.20: E71T1-M/T9M/T-12M JDH4",
+              "E71T1C/T-9C/T-12C DH4",
+              "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6121-Mo",
+            "certifications": [
+              "AWS A5.29: E101T1-K2M-JH4",
+              "BS EN ISO 18276-A: T62 4 Mn1.5Ni P M21 1 H5",
+              "AWS A5.36: E81T1-M21A4-G-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6121-Cu",
+            "certifications": [
+              "AWS A5.29: E81T1-WGM-H4",
+              "BS EN ISO 17632-A: T46 4 Z P M21 1 H5",
+              "AWS A5.36: E81T1-M21A4-G-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6123",
+            "certifications": [
+              "AWS A5.29: E81T1-Ni2M/C-JH4",
+              "BS EN ISO 17632-A: T50 6 2Ni P M21 1 H5",
+              "AWS A5.36: E71T5-M21-A4-CS1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6130",
+            "certifications": [
+              "AWS A5.20: E71T5-M/C-JH4",
+              "BS EN ISO 17632-A: T42 4 B M21 1 H5",
+              "AWS A5.36: E71T5-M21-A4-CS1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6131",
+            "certifications": [
+              "AWS A5.36: E91-T5-K4",
+              "BS EN ISO 17632-A: T42 4 B M21 1 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6132",
+            "certifications": [
+              "AWS A5.29: E110T5-K4M-H4",
+              "BS EN ISO 18276-A: T69 6 Mn2NiCrMo B 4 2 H5",
+              "AWS A5.36: E110T5-M21A8-K4-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6132-R",
+            "certifications": [
+              "AWS A5.29: E111T1-GM-JH4",
+              "EN ISO 18276-A: T69 6 Mn2NiMo P M21 1 H5",
+              "AWS A5.36: E111T1-M21A8-K3-H4"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Metal Cored Non & Low Alloyed": [
+          {
+            "product_code": "WB6105",
+            "certifications": [
+              "AWS A5.18: E70C-6M-H4",
+              "BS EN ISO 17632-A: T46 6 M M21 1 H5",
+              "AWS A5.36: E70T15-M21A8-CS1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "6105-Ni1",
+            "certifications": [
+              "AWS A5.28: E80C-Ni1H4",
+              "BS EN ISO 17632-A: T50 6 1Ni M M21 1 H5",
+              "AWS A5.36: E80T15-M21A8-Ni1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6105-NiCu",
+            "certifications": [
+              "AWS A5.28: E80C-GH4",
+              "BS EN ISO 17632-A: T46 6 Z M M21 1 H5",
+              "AWS A5.36: E81T15-M21A8-GH4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6105-NiMo",
+            "certifications": [
+              "AWS A5.28: E90C-K3H4",
+              "BS EN ISO 18276-A: T55 6 1NiMo M M21 1 H5",
+              "AWS A5.36: E91T15-M21A8-K1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6132-MC",
+            "certifications": [
+              "AWS A5.28: E110C-K4H4",
+              "EN ISO 18276-A: T69 6 Mn2NiCrMo M M21 1 H5",
+              "AWS A5.36: E110T15-M21A8-K4-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6134-MC",
+            "certifications": [
+              "AWS A5.28: E120C-GH4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6154-MC",
+            "certifications": [
+              "DIN 8555-83: MSG6-60 + MF10-GF-65-GR"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Cored Wire Creep Resisting Steel": [
+          {
+            "product_code": "WB6P91",
+            "certifications": [
+              "AWS A5.29: E91T1-B9MH4",
+              "BS EN ISO 17634-B: T69T1-1M-9C1MV-H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6602",
+            "certifications": [
+              "AWS A5.29: E80T5-GM-H4",
+              "BS EN ISO 17634-A: T46 CrMo1 B M21 4 H5",
+              "AWS A5.36: E80T5-G-M21-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6602ER",
+            "certifications": [
+              "AWS A5.29: E81T1-B2M-H4",
+              "BS EN ISO 17634-A: T CrMo1 P M21 1 H5",
+              "AWS A5.36: E81T1-B3C-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6603ER",
+            "certifications": [
+              "AWS A5.29: E91T1-B3M-H4",
+              "BS EN ISO 17634-A: T CrMo2 P M21 1 H5",
+              "AWS A5.36: E91T1-B3C-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6615ER",
+            "certifications": [
+              "AWS A5.36: E81T1-B2M"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBP91-MC",
+            "certifications": [
+              "AWS A5.28: E90C-B9MH4",
+              "BS EN ISO 17634-B: T69T15-0M-9C1MV-H5"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Stainless Steel Cored Wires": [
+          {
+            "product_code": "WB6308H",
+            "certifications": [
+              "AWS A5.22: E308HT0-4",
+              "BS EN ISO 17633-A: T 19 9 H"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6308HP",
+            "certifications": [
+              "AWS A5.22: E308HT1-1/4",
+              "BS EN ISO 17633-A: T 19 9 H P M21 1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6308L",
+            "certifications": [
+              "AWS A5.22: E308LTO-1/4",
+              "BS EN ISO 17633-A: T 19 9 L R M21 3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6308LP",
+            "certifications": [
+              "AWS A5.22: E308LT1-1/4",
+              "BS EN ISO 17633-A: T 19 9 L P M1/C 1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6309L",
+            "certifications": [
+              "AWS A5.22: E309LTO-1/4",
+              "BS EN ISO 17633-A: T 23 12 L R M21 3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6309LP",
+            "certifications": [
+              "AWS A5.22: E309LT1-1/4",
+              "BS EN ISO 17633-A: T 23 12 L P M1/C 1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6309LMoP",
+            "certifications": [
+              "AWS A5.22: E309LMoT1-1/4",
+              "BS EN ISO 17633-A: T 23 12 2 L P M1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6310",
+            "certifications": [
+              "AWS A5.22: E310T0-1/4",
+              "BS EN ISO 17633-A: T 25 20 R C1/M21 3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6316HP",
+            "certifications": [
+              "AWS A5.22: E316T1-1/4",
+              "BS EN ISO 17633-A: T 19 12 3 H P M21 1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6316L",
+            "certifications": [
+              "AWS A5.22: E316LTO-1/4",
+              "BS EN ISO 17633-A: T 19 12 3 L R M3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6316LP",
+            "certifications": [
+              "AWS A5.22: E316LT1-1/4",
+              "BS EN ISO 17633-A: T 19 12 3 L P M1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6347",
+            "certifications": [
+              "AWS A5.22: E347T0-1/4",
+              "BS EN ISO 17633-A: T 19 9 Nb R M3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6347P",
+            "certifications": [
+              "AWS A5.22: E347T1-1/4",
+              "BS EN ISO 17633-A: T 19 9 Nb P M1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6410NiMo",
+            "certifications": [
+              "AWS A5.22: E410NiMoT0-1/4",
+              "BS EN ISO 17633-A: T 13 4 M M3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6410NiMoP",
+            "certifications": [
+              "AWS A5.22: E410NiMoT1-1/4",
+              "BS EN ISO 17633-A: T 13 4 R C/M1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6625-P",
+            "certifications": [
+              "BS EN ISO 12153: T Ni6625 P M 2",
+              "AWS A5.34: ENiCrMo3T1-1/4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB62293L",
+            "certifications": [
+              "AWS A5.22: E2209T0-1/4",
+              "BS EN ISO 17633-A: T 22 9 3 N L R"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB62293LP",
+            "certifications": [
+              "AWS A5.22-95: E2209T1-1/4",
+              "BS EN ISO 17633-A: T 22 9 3 N L P"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB62593L",
+            "certifications": [
+              "AWS A5.22: E2594T0-1/4",
+              "BS EN ISO 17633-A: T 25 9 4 Cu N L R M3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB62593LP",
+            "certifications": [
+              "AWS A5.22: E2594T1-1/4",
+              "BS EN ISO 17633-A: T 25 9 4 Cu N L P M21 1"
+            ],
+            "datasheet_url": ""
+          }
+        ]
+      },
+      "TIG WELDING (GTAW)": {
+        "Non & Low Alloy Steel": [
+          {
+            "product_code": "WB6500",
+            "certifications": [
+              "AWS A5.18: ER70S-6",
+              "BS EN ISO 636-A: W42 3 W3Si1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6510",
+            "certifications": [
+              "AWS A5.18: ER70S-2"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6513",
+            "certifications": [
+              "AWS A5.28: ER80S-Ni1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6541",
+            "certifications": [
+              "AWS A5.28: ER80S-G (A1)",
+              "BS EN ISO 21952-A: G MoSi"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6541E",
+            "certifications": [
+              "AWS A5.28: ER80S-D2 / ER90S-D2"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6542T",
+            "certifications": [
+              "AWS A5.28: ER80S-B2",
+              "BS EN ISO 21952-A: W CrMo1Si"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6545",
+            "certifications": [
+              "AWS A5.28: ER90S-B9",
+              "BS EN ISO 21952-A: W CrMo91"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6546",
+            "certifications": [
+              "AWS A5.28: ER80S-B8"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6547P",
+            "certifications": [
+              "AWS A5.28: ER100S-G"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB6591",
+            "certifications": [
+              "AWS A5.28: ER90S-G"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Stainless Steel": [
+          {
+            "product_code": "WB17-4PH",
+            "certifications": [
+              "AWS A5.9: ER630",
+              "BS EN ISO 636-A: W42 3 W3Si1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB22-9-3LT",
+            "certifications": [
+              "AWS A5.9: ER2209",
+              "BS EN ISO 14343-A: W 22 9 3 N L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB25-9-3LT",
+            "certifications": [
+              "AWS A5.9: ER2594",
+              "BS EN ISO 14343-A: W 25 9 4 N L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB308HT",
+            "certifications": [
+              "AWS A5.9: ER308H",
+              "BS EN ISO 14343-A: W 19 9 H"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB308LT",
+            "certifications": [
+              "AWS A5.9: ER308L",
+              "BS EN ISO 14343-A: W 19 9 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB309LMoT",
+            "certifications": [
+              "AWS A5.9: ER309LMo",
+              "BS EN ISO 14343-A: W 23 12 2 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB309LT",
+            "certifications": [
+              "AWS A5.9: ER309L",
+              "BS EN ISO 14343-A: W 23 12 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB310T",
+            "certifications": [
+              "AWS A5.9: ER310",
+              "BS EN ISO 14343-A: W 25 20"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB316HT",
+            "certifications": [
+              "AWS A5.9: ER316H",
+              "BS EN ISO 14343-A: W 19 12 3 H"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB316LT",
+            "certifications": [
+              "AWS A5.9: ER316L",
+              "BS EN ISO 14343-A: W 19 12 3 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB409NbT",
+            "certifications": [
+              "AWS A5.9/A5.9M: ER409Nb",
+              "ASME SFA-5.9: ER409Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB410NiMoT",
+            "certifications": [
+              "AWS A5.9: ER410NiMo",
+              "BS EN ISO 14343-A: W 13 4 L"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB800H",
+            "certifications": [
+              "BS EN ISO 14343-A: W 21 33 Mn Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB625T",
+            "certifications": [
+              "AWS A5.14/A5.14M: ERNiCrMo-3",
+              "BS EN ISO 18274: NiCr22Mo9Nb"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Nickel & Copper Alloy": [
+          {
+            "product_code": "WB59T",
+            "certifications": [
+              "AWS A5.14: ERNiCrMo-13"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB61T",
+            "certifications": [
+              "AWS A5.14: ERNi-1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB617T",
+            "certifications": [
+              "AWS A5.14: ERNiCoMo-1",
+              "BS EN ISO 18274-A: NiCr22Co12Mo9"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB67T",
+            "certifications": [
+              "AWS A5.7: ERCuNi"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB718T",
+            "certifications": [
+              "AWS A5.14/A5.14M: ERNiFeCr-2",
+              "UNS: N07718"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB82T",
+            "certifications": [
+              "AWS A5.14: ERNiCr-3",
+              "BS EN ISO 18274: NiCr22Mo9Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB90-10CuNi",
+            "certifications": [
+              "AWS A5.7: ERCuNi10Fe"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB625T",
+            "certifications": [
+              "AWS A5.14/A5.14M: ERNiCrMo-3",
+              "BS EN ISO 18274: NiCr22Mo9Nb"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBC27T",
+            "certifications": [
+              "BS EN ISO 24373: Cu 5410 (CuSn12P)",
+              "EN 14640: CuSn12P"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBNiCu-7T",
+            "certifications": [
+              "AWS A5.14: ERNiCu-7",
+              "ASME SFA 5.14"
+            ],
+            "datasheet_url": ""
+          }
+        ]
+      },
+      "MMA Welding(STICK WELDING)": {
+        "Non & Low Alloyed": [
+          {
+            "product_code": "H8",
+            "certifications": [
+              "AWS A5.5: E11018-G MOD 769",
+              "EN ISO 18275-A: E692ZB3 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB56S",
+            "certifications": [
+              "AWS A5.1: E7016-1 H4 R",
+              "BS EN ISO 2560-A: E 42 5 B1 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB76S",
+            "certifications": [
+              "AWS A5.5: E7018-G H4R",
+              "BS EN ISO 2560-A: E 50 6 Mn1Ni B 3 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB2000E",
+            "certifications": [
+              "AWS A5.1-04: E6013",
+              "BSEN 499-95: E42 AR 1 2 LRS: GRADE 1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB2024E",
+            "certifications": [
+              "AWS A5.1: E6013 B",
+              "BS EN ISO 2560-A: E 42 2R12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB2218E",
+            "certifications": [
+              "AWS A5.5: E8018-G H4R RCC-M",
+              "MIL-11018-M",
+              "MIL-E-222000/1"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB2318E",
+            "certifications": [
+              "AWS A5.5: E9018-M"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB2518E",
+            "certifications": [
+              "AWS A5.5: E11018-M H4R",
+              "EN ISO 2560A: E465B32H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB7018-1",
+            "certifications": [
+              "AWS A5.1: E7018-1H4R",
+              "ABS: 4Y",
+              "DNV: 4Y 40H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB7018-A1",
+            "certifications": [
+              "AWS A5.1: E7018-1 H4R",
+              "EN ISO 2560A: E46 2 Mo B3 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB8016-G",
+            "certifications": [
+              "AWS A5.5: E8016-G",
+              "BS EN ISO 2560-A: E 50 6 Mn1Ni B 12 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB8018-B2",
+            "certifications": [
+              "AWS A5.5: E8018-B2",
+              "BS EN ISO 3580-A: ECrMo1 B 3 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB8018-C1",
+            "certifications": [
+              "AWS A5.5: E8018-C1-H4"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB8018-C3",
+            "certifications": [
+              "AWS A5.5: E8018-C3",
+              "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB8018-W2",
+            "certifications": [
+              "AWS A5.5: E8018-W2",
+              "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB9018-G",
+            "certifications": [
+              "AWS A5.5: E9018-G",
+              "BS EN 14700: EFe6 Hv700"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB9119E",
+            "certifications": [
+              "BS EN 14700: EFe6 Hv700"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB10018-D2",
+            "certifications": [
+              "AWS A5.5: E10018-D2-H4 R",
+              "BS EN ISO 18275: E625 MnMo BT 3 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB12018-G",
+            "certifications": [
+              "AWS A5.5: E12018-G",
+              "BS EN ISO 18275: E79 4 Mn3.5Ni1CrMo B 4 2 H5"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB12018-M",
+            "certifications": [
+              "AWS A5.5: E12018-M",
+              "BS EN ISO 18275: E79 4 Mn2Ni1CrMo B 4 2 H5"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Stainless Steel": [
+          {
+            "product_code": "WB4404E",
+            "certifications": [
+              "AWS A5.4: E308L-17",
+              "BS EN ISO 3581-A: E199LR12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4414E",
+            "certifications": [
+              "AWS A5.4: E308H-17",
+              "BS EN ISO 3581: E199HR12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4444E",
+            "certifications": [
+              "AWS A5.4: E2594-16",
+              "BS EN ISO 3581: E2594NLR"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4445E",
+            "certifications": [
+              "AWS A5.4: E2595-16",
+              "BS EN ISO 3581: E2595NLR"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4405E",
+            "certifications": [
+              "AWS A5.4-92: E308Mo-15",
+              "BS EN ISO 3581-A: E308Mo-15"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4545E",
+            "certifications": [
+              "AWS A5.4: E2209-17",
+              "BS EN ISO 3581-A: E2293NLR"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4545E-15",
+            "certifications": [
+              "AWS A5.4: E2209-15",
+              "BS EN ISO 3581-A: E2293NLB"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4555E",
+            "certifications": [
+              "AWS A5.4: E309L-16",
+              "BS EN ISO 3581-A: E2312LR12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4560E",
+            "certifications": [
+              "AWS A5.4: E309MoL-17",
+              "BS EN ISO 3581-A: E23122LR12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4606E",
+            "certifications": [
+              "AWS A5.4: E312-17",
+              "BS EN ISO 3581-A: E299R12"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB4707E",
+            "certifications": [
+              "AWS A5.4: E310-17",
+              "BS EN ISO 3581: E2520R12"
+            ],
+            "datasheet_url": ""
+          }
+        ],
+        "Nickel & Copper Alloy": [
+          {
+            "product_code": "WB5505E",
+            "certifications": [
+              "AWS A5.11: ENiCrFe-3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WB5535E",
+            "certifications": [
+              "AWS A5.11: ENiCrMo-3",
+              "BS EN ISO 14172: E Ni 6625 (NiCr22Mo9Nb)"
+            ],
+            "datasheet_url": ""
+          }
+        ]
+      },
+      "SUBMERGED ARC WELDING (SAW)": {
+        "SAW WIRE AND FLUX": [
+          {
+            "product_code": "WBSAWF-B1",
+            "certifications": [
+              "AWS A5.17: F7A2-EM12K",
+              "AWS A5.17: F6 A4 - EM12",
+              "F7 A8 - F7 P8 - EH12K",
+              "DIN 32 522: B FB 165 AC 12",
+              "MHP5 EN760: A AB 167ACH5",
+              "WBS1: AWS A5.17 F7A2-EL12 / BSEN 14171-A: S1",
+              "WBS15Si: AWS A5.17 F7A2-EL12K / BSEN 14171-A: S1Si",
+              "WBS2Si: AWS A5.17 F7A2-EM12K / BSEN 14171-A: S2Si",
+              "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBSAWF-B3",
+            "certifications": [
+              "AWS A5.17: F6 A4 - EM12",
+              "F7 A8 - F7 P8 - EH12K",
+              "AWS A5.23: F7 A10-E Ni1 - Ni1",
+              "F8 A6 - F8 P6 - EA3 - A3",
+              "F8 A2 - F7 P4 - EB2 - B2",
+              "F9P0-EB2-B2, F7P15-ENi3",
+              "F9P2-EG-B3, EB9",
+              "EF5",
+              "F7A4-EM12K",
+              "F7A5-EM12K",
+              "F7A2-EM12K",
+              "DIN 32 522: B FB 155 AC 10 MHP5",
+              "EN 14171: A FB 1 55 AC H 5",
+              "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G",
+              "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1",
+              "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G",
+              "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G",
+              "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4",
+              "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G",
+              "WBS3 NiCrMo: AWS A5.23: EF5",
+              "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2",
+              "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3",
+              "WBS2-Ni-3: AWS A5.23: F7P15-ENi3",
+              "WBS2Ni1C: AWS A5.23: EG",
+              "WB5Cr ER50: AWS A5.28: ER80S-B8",
+              "WB9Cr ER50: AWS A5.28: ER90S-B9",
+              "WB9Cr (mod): AWS A5.23: EB91"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBSAWF-B3SR",
+            "certifications": [
+              "AWS A5.17: F6 A4 - EM12",
+              "F7 A8 - F7 P8 - EH12K",
+              "AWS A5.23: F7 A10-E Ni1 - Ni1",
+              "F8 A6 - F8 P6 - EA3 - A3",
+              "F8 A2 - F7 P4 - EB2 - B2",
+              "F9P0-EB2-B2, F7P15-ENi3",
+              "F9P2-EG-B3, EB9",
+              "EF5",
+              "F7A4-EM12K",
+              "F7A5-EM12K",
+              "F7A2-EM12K",
+              "DIN 32 522: B FB 155 AC 10 MHP5",
+              "EN 14171: A FB 1 55 AC H 5",
+              "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G",
+              "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1",
+              "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G",
+              "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G",
+              "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4",
+              "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G",
+              "WBS3 NiCrMo: AWS A5.23: EF5",
+              "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2",
+              "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3",
+              "WBS2-Ni-3: AWS A5.23: F7P15-ENi3",
+              "WBSONITCu: AWS A5.23: EG",
+              "WB5Cr ER502: AWS A5.28: ER80S-B8",
+              "WB9Cr ER505: AWS A5.28: ER90S-B9",
+              "WB9Cr: AWS A5.23: EB91"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBSAWF-B4",
+            "certifications": [
+              "AWS A5.17: F7 AP8 - EH12K",
+              "AWS A5.23: F8 AP4-EA2-A2",
+              "F8 AP8-EG-G",
+              "F8P2-EB2-B2",
+              "F8P4-EB3-B3",
+              "EN 14174: SA FB 1 55 AC H5",
+              "EN 14171: S 46 6 FB S3S",
+              "S 50 4 FB S2 Mo",
+              "S 50 6 FB S0",
+              "WBSD3: AWS A5.23 F7A8-EG-G, F7P8-EG-G",
+              "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G",
+              "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G",
+              "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4",
+              "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G",
+              "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2",
+              "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3"
+            ],
+            "datasheet_url": ""
+          },
+          {
+            "product_code": "WBSAWF-SSCR",
+            "certifications": [
+              "BS EN 14174: S A AF 2 5644 DC H5 TUV /CE",
+              "WB308L-SAW: AWS A5.9: ER308L",
+              "WB253MA-SAW: AWS A5.9: EG",
+              "WB347H-SAW: AWS A5.9: ER347H",
+              "WB316L-SAW: AWS A5.9: ER316L",
+              "WB309L-SAW: AWS A5.9: ER309L",
+              "WB309LMo-SAW: AWS A5.9: ER309LMo",
+              "WB22-9-3L-SAW: AWS A5.9: ER2209",
+              "WB25-9-3L-SAW: AWS A5.9: ER2594"
+            ],
+            "datasheet_url": ""
+          }
+        ]
+      }
+    }
+  }
+}

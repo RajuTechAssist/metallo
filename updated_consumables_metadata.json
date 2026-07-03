@@ -1,0 +1,364 @@
+{
+  "industry": "Welding & Allied Processes",
+  "verticals": {
+    "Consumables": {
+      "MIG Wires & TIG Cut Lengths": [
+        {
+          "certification": "AWS A5.18: ER70S-6BS EN ISO 636-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.18_ ER70S-6BS EN ISO 636-A.pdf"
+        },
+        {
+          "certification": "AWS A5.18: ER70S-2",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.18_ ER70S-2.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-Ni1-H4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER80S-Ni1-H4.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-G (A1)BS EN ISO 21952-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER80S-G (A1)BS EN ISO 21952-A.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-D2 / ER90S-D2",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER80S-D2 _ ER90S-D2.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-B2BS EN ISO 21952-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER80S-B2BS EN ISO 21952-A.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-B8",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER80S-B8.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER100S-G",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER100S-G.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER90S-G",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ ER90S-G.pdf"
+        },
+        {
+          "certification": "AWS A5.1: E7016-1 H4 RBS EN ISO 2560-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.1_ E7016-1 H4 RBS EN ISO 2560-A.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8018-G H4R RCC-M",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8018-G H4R RCC-M.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E9018-M",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E9018-M.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E11018-M H4RMIL-11018-M MIL-E-222000/1",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E11018-M H4RMIL-11018-M MIL-E-222000_1.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8016-GBS EN ISO 2560-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8016-GBS EN ISO 2560-A.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8018-B2BS EN ISO 3580-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8018-B2BS EN ISO 3580-A.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8018-C1-H4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8018-C1-H4.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8018-C3BS EN ISO 2560-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8018-C3BS EN ISO 2560-A.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E8018-W2",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E8018-W2.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E9018-G",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E9018-G.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E10018-D2-H4 RBS EN ISO 18275",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E10018-D2-H4 RBS EN ISO 18275.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E12018-GBS EN ISO 18275",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E12018-GBS EN ISO 18275.pdf"
+        },
+        {
+          "certification": "AWS A5.5: E12018-MBS EN ISO 18275",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.5_ E12018-MBS EN ISO 18275.pdf"
+        },
+        {
+          "certification": "AWS A5.28: E90C-K3H4BS EN ISO 18276-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ E90C-K3H4BS EN ISO 18276-A.pdf"
+        },
+        {
+          "certification": "AWS A5.36: E91T15-M21A8-K1-H4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.36_ E91T15-M21A8-K1-H4.pdf"
+        },
+        {
+          "certification": "AWS A5.28: E110C-K4H4EN ISO 18276-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ E110C-K4H4EN ISO 18276-A.pdf"
+        },
+        {
+          "certification": "AWS A5.36: E110T15-M21A8-K4-H4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.36_ E110T15-M21A8-K4-H4.pdf"
+        },
+        {
+          "certification": "AWS A5.28: E120C-GH4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/MIG Wires & TIG Cut Lengths/AWS A5.28_ E120C-GH4.pdf"
+        }
+      ],
+      "Stick Electrodes": [
+        {
+          "certification": "AWS A5.5: E7018-G H4RBS EN ISO 2560-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stick Electrodes/AWS A5.5_ E7018-G H4RBS EN ISO 2560-A.pdf"
+        },
+        {
+          "certification": "AWS A5.1: E6013 BS EN ISO 2560-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stick Electrodes/AWS A5.1_ E6013 BS EN ISO 2560-A.pdf"
+        },
+        {
+          "certification": "AWS A5.1: E7018-1H4REN ISO 2560A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stick Electrodes/AWS A5.1_ E7018-1H4REN ISO 2560A.pdf"
+        },
+        {
+          "certification": "AWS A5.1: E7018-1 H4 REN ISO 2560A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stick Electrodes/AWS A5.1_ E7018-1 H4 REN ISO 2560A.pdf"
+        }
+      ],
+      "Metal-Cored Wires": [
+        {
+          "certification": "BS EN ISO 17632-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Metal-Cored Wires/BS EN ISO 17632-A.pdf"
+        },
+        {
+          "certification": "AWS A5.28: E80C-Ni1H4BS EN ISO 17632-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Metal-Cored Wires/AWS A5.28_ E80C-Ni1H4BS EN ISO 17632-A.pdf"
+        },
+        {
+          "certification": "AWS A5.36: E80T15-M21A8-Ni1-H4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Metal-Cored Wires/AWS A5.36_ E80T15-M21A8-Ni1-H4.pdf"
+        },
+        {
+          "certification": "AWS A5.28: E80C-GH4BS EN ISO 17632-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Metal-Cored Wires/AWS A5.28_ E80C-GH4BS EN ISO 17632-A.pdf"
+        },
+        {
+          "certification": "AWS A5.36: E81T15-M21A8-GH4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Metal-Cored Wires/AWS A5.36_ E81T15-M21A8-GH4.pdf"
+        }
+      ],
+      "Self-Shielded Flux-Cored": [],
+      "Gas Shielded Flux-Cored": [],
+      "Submerged Arc": [
+        {
+          "certification": "AWS A5.17 : F7A2-EM12KAWS A5",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Submerged Arc/AWS A5.17 _ F7A2-EM12KAWS A5.pdf"
+        },
+        {
+          "certification": "AWS A5.17: F6 A4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Submerged Arc/AWS A5.17_ F6 A4.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F7 A10",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Submerged Arc/AWS A5.23_ F7 A10.pdf"
+        },
+        {
+          "certification": "AWS A5.17: F6 A4",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Submerged Arc/AWS A5.17_ F6 A4.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F7 A10",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Submerged Arc/AWS A5.23_ F7 A10.pdf"
+        }
+      ],
+      "Stainless Alloys": [
+        {
+          "certification": "AWS A5.9: ER308L",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER308L.pdf"
+        },
+        {
+          "certification": "AWS A5.9: EG (WB253MA-SAW)",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ EG (WB253MA-SAW).pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER347H",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER347H.pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER316L",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER316L.pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER309L",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER309L.pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER309LMo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER309LMo.pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER2209",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER2209.pdf"
+        },
+        {
+          "certification": "AWS A5.9: ER2594",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Stainless Alloys/AWS A5.9_ ER2594.pdf"
+        }
+      ],
+      "Nickel Alloys": [],
+      "Hardfacing": [],
+      "Aluminum MIG & TIG": [],
+      "Chrome-Moly Alloys": [
+        {
+          "certification": "AWS A5.28: ER90S-B9BS EN ISO 21952-A",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.28_ ER90S-B9BS EN ISO 21952-A.pdf"
+        },
+        {
+          "certification": "EN ISO 18275-A-E",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/EN ISO 18275-A-E.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F7A8",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F7A8.pdf"
+        },
+        {
+          "certification": "AWS A5.23: ENi1 F8P6ENi1WBSD3 1Ni 1/4Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ ENi1 F8P6ENi1WBSD3 1Ni 1_4Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1_2Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F9A6-EG-G, F9P6-EG-G WBSD3Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F9A6-EG-G, F9P6-EG-G WBSD3Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F1-P4-EG-GWBSD2 1NiCrMo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F1-P4-EG-GWBSD2 1NiCrMo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F1-P4-EG-GWBS3 NiCrMo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F1-P4-EG-GWBS3 NiCrMo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: EF5WBS2-2 1/2Cr1Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ EF5WBS2-2 1_2Cr1Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F9P2-EG-B3WBS2-Ni-3",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F9P2-EG-B3WBS2-Ni-3.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F7P15-ENi3WBS2Ni1C",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F7P15-ENi3WBS2Ni1C.pdf"
+        },
+        {
+          "certification": "AWS A5.23: EGWB5Cr ER50",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ EGWB5Cr ER50.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER80S-B8WB9Cr ER50",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.28_ ER80S-B8WB9Cr ER50.pdf"
+        },
+        {
+          "certification": "AWS A5.28: ER90S-B9WB9Cr (mod)",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.28_ ER90S-B9WB9Cr (mod).pdf"
+        },
+        {
+          "certification": "AWS A5.23: EB9 WBP92",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ EB9 WBP92.pdf"
+        },
+        {
+          "certification": "AWS A5.23: EG",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ EG.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : ENi1 F8P6ENi1WBSD3 1Ni 1/4Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ ENi1 F8P6ENi1WBSD3 1Ni 1_4Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1_2Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F9A6-EG-G, F9P6-EG-G WBSD3Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F9A6-EG-G, F9P6-EG-G WBSD3Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F1-P4-EG-GWBSD2 1NiCrMo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F1-P4-EG-GWBSD2 1NiCrMo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F1-P4-EG-GWBS3 NiCrMo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F1-P4-EG-GWBS3 NiCrMo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : EF5WBS2-1¼Cr½ Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ EF5WBS2-1¼Cr½ Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F9P0-EB2-B2WBS2-21/2Cr1Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F9P0-EB2-B2WBS2-21_2Cr1Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : F9P2-EG-EB3WBS2-Ni-3",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ F9P2-EG-EB3WBS2-Ni-3.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : , F7P15-ENi3WBS2Ni1Cu",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ , F7P15-ENi3WBS2Ni1Cu.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : EGWB5Cr ER502",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ EGWB5Cr ER502.pdf"
+        },
+        {
+          "certification": "AWS A5.28 : ER80S-B8WB9Cr ER505",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.28 _ ER80S-B8WB9Cr ER505.pdf"
+        },
+        {
+          "certification": "AWS A5.28 : ER90S-B9WB9Cr",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.28 _ ER90S-B9WB9Cr.pdf"
+        },
+        {
+          "certification": "AWS A5.23 : EB91",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23 _ EB91.pdf"
+        },
+        {
+          "certification": "AWS A5.17: F7 AP8",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.17_ F7 AP8.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F8 AP4-EA2-A2F8 AP8-EG-GF8P2-EB2-B2F8P4-EB3-B3",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F8 AP4-EA2-A2F8 AP8-EG-GF8P2-EB2-B2F8P4-EB3-B3.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1/2Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F8A10-EG-G, F8P10-EG-G WBSD3 1Ni 1_2Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F9A6-EG-G, F9P6-EG-G WBSD3Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F9A6-EG-G, F9P6-EG-G WBSD3Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F1-P4-EG-GWBS2-1¼Cr1/2Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F1-P4-EG-GWBS2-1¼Cr1_2Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F9P0-EB2-B2WBS2-2 1/2Cr1Mo",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F9P0-EB2-B2WBS2-2 1_2Cr1Mo.pdf"
+        },
+        {
+          "certification": "AWS A5.23: F9P2-EG-B3",
+          "datasheet_url": "/Welding Consumables/Consumables_dataSheets/Chrome-Moly Alloys/AWS A5.23_ F9P2-EG-B3.pdf"
+        }
+      ]
+    }
+  }
+}

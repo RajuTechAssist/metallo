@@ -1,0 +1,11 @@
+export { MIG_TIG_PRODUCTS } from './mig-tig';
+export { STICK_PRODUCTS } from './stick';
+export { METAL_CORED_PRODUCTS } from './metal-cored';
+export { SELF_SHIELDED_PRODUCTS } from './self-shielded';
+export { GAS_SHIELDED_PRODUCTS } from './gas-shielded';
+export { SUBMERGED_ARC_PRODUCTS } from './submerged-arc';
+export { STAINLESS_PRODUCTS } from './stainless';
+export { NICKEL_PRODUCTS } from './nickel';
+export { HARDFACING_PRODUCTS } from './hardfacing';
+export { ALUMINUM_PRODUCTS } from './aluminum';
+export { CHROME_MOLY_PRODUCTS } from './chrome-moly';

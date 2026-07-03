@@ -1,3 +1,4 @@
+import { SITE_IMAGES } from '@/config/images';
 /**
  * Welding & Allied — Product Data
  *
@@ -52,7 +53,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Mild Steel Core Wire, Rutile Coating",
     Standards: "AWS A5.1, IS 814, EN ISO 2560",
     Application: "General fabrication, maintenance & repair, structural steel, sheet metal",
-    thumbnail: "/Welding Consumables/welding-electrodes.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingElectrodes,
     Classification: "E6013 (AWS) / E4113 (IS 814)",
     Diameter: "2.5 mm, 3.15 mm, 4.0 mm, 5.0 mm",
     Length: "350 mm / 450 mm",
@@ -61,7 +62,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Position: "All positions (F, V, OH, H)",
     Coating: "Rutile (High Titania)",
     Applications: ["General Fabrication", "Maintenance & Repair", "Structural Steel", "Sheet Metal"],
-    applicationImage: "/Welding Consumables/welding-electrodes.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingElectrodes,
   },
   {
     Category: "Consumables",
@@ -72,7 +73,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Mild Steel Core Wire, Low Hydrogen Iron Powder Coating",
     Standards: "AWS A5.1, IS 814, EN ISO 2560",
     Application: "Pressure vessels, structural steel, bridges, heavy plate fabrication",
-    thumbnail: "/Welding Consumables/welding-electrodes.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingElectrodes,
     Classification: "E7018 (AWS) / E5118 (IS 814)",
     Diameter: "2.5 mm, 3.15 mm, 4.0 mm, 5.0 mm",
     Length: "350 mm / 450 mm",
@@ -81,7 +82,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Position: "All positions (F, V, OH, H)",
     Coating: "Basic Low Hydrogen (Iron Powder)",
     Applications: ["Pressure Vessels", "Bridges", "Structural Steel", "Heavy Fabrication"],
-    applicationImage: "/Welding Consumables/welding-electrodes.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingElectrodes,
   },
   {
     Category: "Consumables",
@@ -92,7 +93,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Stainless Steel Core Wire (309L / 316L)",
     Standards: "AWS A5.4, IS 5206, EN ISO 3581",
     Application: "SS fabrication, food processing, chemical plant piping, pharma vessels",
-    thumbnail: "/Welding Consumables/welding-electrodes.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingElectrodes,
     Classification: "E309L-16 / E316L-16 (AWS)",
     Diameter: "2.5 mm, 3.15 mm, 4.0 mm",
     Length: "350 mm",
@@ -102,7 +103,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Coating: "Rutile-Basic",
     Composition: "Cr 23% / Ni 12% (309L) | Cr 18% / Ni 12% / Mo 2.5% (316L)",
     Applications: ["SS Fabrication", "Food Processing", "Chemical Plants", "Pharma"],
-    applicationImage: "/Welding Consumables/welding-electrodes.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingElectrodes,
   },
   {
     Category: "Consumables",
@@ -113,7 +114,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Mild Steel, Copper Coated",
     Standards: "AWS A5.18, IS 6419, EN ISO 14341",
     Application: "Semi-automatic & robotic welding, structural fabrication, automotive",
-    thumbnail: "/Welding Consumables/mig-wire-spool.png",
+    thumbnail: SITE_IMAGES.welding.misc.migWireSpool,
     Classification: "ER70S-6 (AWS) / S3 (IS 6419)",
     Diameter: "0.8 mm, 1.0 mm, 1.2 mm, 1.6 mm",
     Packaging: "5 kg / 15 kg spools, 250 kg drums",
@@ -122,7 +123,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Position: "All positions",
     Composition: "C 0.06–0.15%, Mn 1.4–1.85%, Si 0.8–1.15%",
     Applications: ["Structural Fabrication", "Automotive", "Robotic Welding", "Shipbuilding"],
-    applicationImage: "/Welding Consumables/mig-wire-spool.png",
+    applicationImage: SITE_IMAGES.welding.misc.migWireSpool,
   },
   {
     Category: "Consumables",
@@ -133,7 +134,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Mild Steel Sheath, Flux Core",
     Standards: "AWS A5.20, IS 12444, EN ISO 17632",
     Application: "Heavy fabrication, shipbuilding, structural steel, bridge construction",
-    thumbnail: "/Welding Consumables/mig-wire-spool.png",
+    thumbnail: SITE_IMAGES.welding.misc.migWireSpool,
     Classification: "E71T-1C / E71T-1M (AWS)",
     Diameter: "1.2 mm, 1.6 mm",
     Packaging: "15 kg spools, 200 kg drums",
@@ -141,7 +142,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Current: "DC + (DCEP)",
     Position: "All positions",
     Applications: ["Heavy Fabrication", "Shipbuilding", "Bridge Construction", "Offshore"],
-    applicationImage: "/Welding Consumables/mig-wire-spool.png",
+    applicationImage: SITE_IMAGES.welding.misc.migWireSpool,
   },
   {
     Category: "Consumables",
@@ -152,7 +153,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Stainless Steel 308L / 316L",
     Standards: "AWS A5.9, IS 6419, EN ISO 14343",
     Application: "Pharma piping, food processing, chemical vessels, architectural SS",
-    thumbnail: "/Welding Consumables/welding-electrodes.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingElectrodes,
     Classification: "ER308L / ER316L (AWS)",
     Diameter: "1.6 mm, 2.0 mm, 2.4 mm, 3.15 mm",
     Length: "1000 mm straight rods",
@@ -161,7 +162,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Current: "DC − (DCEN)",
     Position: "All positions",
     Applications: ["Pharma Piping", "Food Processing", "Chemical Vessels", "Architectural SS"],
-    applicationImage: "/Welding Consumables/welding-electrodes.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingElectrodes,
   },
 
   /* ═══════════════════════════════════════════════════════════════
@@ -177,12 +178,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Aluminium Oxide, Fibreglass Reinforced",
     Standards: "EN 12413, IS 3073, oSa Certified",
     Application: "Structural steel cutting, metal fabrication, angle grinding, pipe cutting",
-    thumbnail: "/Welding Consumables/cutting-disc.png",
+    thumbnail: SITE_IMAGES.welding.misc.cuttingDisc,
     Diameter: "4″ (105 mm), 7″ (180 mm), 14″ (355 mm)",
     Capacity: "Max RPM: 12,200 (4″) / 8,500 (7″) / 4,400 (14″)",
     Packaging: "Pack of 25 / 50 / Box of 100",
     Applications: ["Metal Fabrication", "Construction", "Pipe Cutting", "Maintenance"],
-    applicationImage: "/Welding Consumables/cutting-disc.png",
+    applicationImage: SITE_IMAGES.welding.misc.cuttingDisc,
   },
   {
     Category: "Cutting",
@@ -193,12 +194,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Zirconia Alumina, Resin Bonded",
     Standards: "EN 12413, IS 3073, oSa Certified",
     Application: "Weld dressing, surface grinding, deburring, edge preparation",
-    thumbnail: "/Welding Consumables/cutting-disc.png",
+    thumbnail: SITE_IMAGES.welding.misc.cuttingDisc,
     Diameter: "4″ (105 × 6 × 16 mm), 7″ (180 × 6 × 22 mm)",
     Capacity: "Max RPM: 12,200 (4″) / 8,500 (7″)",
     Packaging: "Pack of 25",
     Applications: ["Weld Dressing", "Surface Grinding", "Deburring", "Edge Prep"],
-    applicationImage: "/Welding Consumables/cutting-disc.png",
+    applicationImage: SITE_IMAGES.welding.misc.cuttingDisc,
   },
   {
     Category: "Cutting",
@@ -209,13 +210,13 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Brass Body, Stainless Steel Seat",
     Standards: "IS 7653, EN ISO 5172",
     Application: "Plate cutting, scrap cutting, demolition, gouging",
-    thumbnail: "/Welding Consumables/gas-cutting-torch.png",
+    thumbnail: SITE_IMAGES.welding.misc.gasCuttingTorch,
     Classification: "NM-250 / NM-300 Type",
     Capacity: "Cutting range: 3 mm – 300 mm MS plate",
     Features: "Anti-flashback valves, interchangeable nozzle tips (ACN 0–5)",
     Packaging: "Complete set with 5 m twin hose & regulators",
     Applications: ["Plate Cutting", "Scrap Processing", "Demolition", "Shipbreaking"],
-    applicationImage: "/Welding Consumables/gas-cutting-torch.png",
+    applicationImage: SITE_IMAGES.welding.misc.gasCuttingTorch,
   },
   {
     Category: "Cutting",
@@ -226,13 +227,13 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Copper Nozzle, Hafnium Electrode, Ceramic Shield",
     Standards: "EN 60974, CE Certified",
     Application: "Sheet metal cutting, plate profiling, stainless steel, aluminium",
-    thumbnail: "/Welding Consumables/plasma-cutting-torch.png",
+    thumbnail: SITE_IMAGES.welding.misc.plasmaCuttingTorch,
     Classification: "P80 (80A) / PT31 (40A)",
     Capacity: "Cutting capacity: up to 30 mm (P80) / 12 mm (PT31)",
     Features: "Air-cooled, pilot arc, quick-disconnect consumables",
     Packaging: "Torch head with 5 electrode + 5 nozzle starter kit",
     Applications: ["Sheet Metal", "Plate Profiling", "SS Cutting", "Aluminium"],
-    applicationImage: "/Welding Consumables/plasma-cutting-torch.png",
+    applicationImage: SITE_IMAGES.welding.misc.plasmaCuttingTorch,
   },
   {
     Category: "Cutting",
@@ -243,12 +244,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Aluminium Oxide (Iron & Sulphur Free)",
     Standards: "EN 12413, IS 3073, oSa Certified",
     Application: "SS fabrication, food processing equipment, pharma piping, architectural SS",
-    thumbnail: "/Welding Consumables/cutting-disc.png",
+    thumbnail: SITE_IMAGES.welding.misc.cuttingDisc,
     Diameter: "4″ (105 × 1.0 × 16 mm), 7″ (180 × 1.6 × 22 mm)",
     Capacity: "Max RPM: 12,200 (4″) / 8,500 (7″)",
     Packaging: "Tin of 25 / 50",
     Applications: ["SS Fabrication", "Pharma Piping", "Food Equipment", "Architectural SS"],
-    applicationImage: "/Welding Consumables/cutting-disc.png",
+    applicationImage: SITE_IMAGES.welding.misc.cuttingDisc,
   },
 
   /* ═══════════════════════════════════════════════════════════════
@@ -264,11 +265,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Brass Jaw, Fibreglass / Nylon Handle",
     Standards: "IS 9968, EN 60974-11",
     Application: "SMAW welding, fabrication workshops, site welding",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Classification: "200A / 300A / 400A / 600A rated",
     Features: "Spring-loaded jaw, fully insulated, twist-lock grip",
     Applications: ["SMAW Welding", "Fabrication Workshops", "Site Welding", "Maintenance"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -279,11 +280,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Forged Brass Body, Steel Spring",
     Standards: "IS 9968, EN 60974-12",
     Application: "All welding processes — SMAW, MIG, TIG",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Classification: "300A / 500A / 600A rated",
     Features: "Wide jaw opening (up to 60 mm), serrated grip teeth",
     Applications: ["All Welding", "Heavy Fabrication", "Shipbuilding", "Pipeline"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -294,11 +295,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Copper (Tips), Brass (Nozzles), Steel (Liners)",
     Standards: "EN 60974",
     Application: "MIG/MAG torch maintenance and consumable replacement",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Classification: "Contact Tips: 0.8 / 1.0 / 1.2 / 1.6 mm",
     Packaging: "Packs of 10 tips / 5 nozzles",
     Applications: ["MIG Welding", "Robotic Welding", "Workshop", "Production Lines"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -309,11 +310,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Brass Body, Stainless Steel Internals",
     Standards: "IS 6901, EN ISO 2503",
     Application: "Gas supply regulation for MIG/TIG welding, gas cutting, brazing",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Classification: "Argon / CO₂ / Mixed Gas / Oxygen Regulators",
     Features: "Dual gauge (inlet + outlet), safety relief valve",
     Applications: ["MIG Welding", "TIG Welding", "Gas Cutting", "Brazing"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -324,11 +325,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Forged Steel Head, Spring Steel Handle",
     Standards: "IS 4506",
     Application: "Slag removal, weld cleaning, fabrication workshops",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Weight: "350 g / 500 g",
     Features: "Spring handle (anti-vibration), double chisel head",
     Applications: ["SMAW Welding", "FCAW Welding", "Workshop", "Maintenance"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -339,11 +340,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "SS / Carbon Steel Bristles, Wooden Handle",
     Standards: "IS 2647",
     Application: "Weld cleaning, surface preparation, rust removal",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Features: "4-row / 6-row bristle configuration, ergonomic handle",
     Packaging: "Pack of 12 / 24",
     Applications: ["Weld Cleaning", "Surface Prep", "Rust Removal", "Maintenance"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -354,12 +355,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Mild Steel Body, SS Inner Chamber",
     Standards: "IS 5765, AWS D1.1",
     Application: "Electrode storage, low-hydrogen electrode baking",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Capacity: "50 kg / 100 kg / 200 kg electrode capacity",
     Power: "230 V AC, 1.5 kW / 3 kW",
     Features: "Digital temp controller, uniform heat, adjustable trays",
     Applications: ["Pressure Vessel Fabrication", "Pipeline", "Structural", "Shipbuilding"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
   {
     Category: "Accessories",
@@ -370,12 +371,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Electrolytic Copper / Aluminium",
     Standards: "IS 8309, IEC 61238",
     Application: "Welding cable termination, machine connections",
-    thumbnail: "/Welding Consumables/electrode-holder-clamp.png",
+    thumbnail: SITE_IMAGES.welding.misc.electrodeHolderClamp,
     Classification: "16 / 25 / 35 / 50 / 70 / 95 / 120 mm²",
     Features: "Tin-plated option, crimp or bolt-type, double-hole variants",
     Packaging: "Pack of 10 / 25 / 50",
     Applications: ["Welding Machines", "Power Distribution", "Industrial Wiring"],
-    applicationImage: "/Welding Consumables/electrode-holder-clamp.png",
+    applicationImage: SITE_IMAGES.welding.misc.electrodeHolderClamp,
   },
 
   /* ═══════════════════════════════════════════════════════════════
@@ -391,12 +392,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "High-Impact Nylon Shell, LCD Auto-Darkening Lens",
     Standards: "ANSI Z87.1, EN 379, IS 1179",
     Application: "SMAW, MIG, TIG, plasma cutting, grinding",
-    thumbnail: "/Welding Consumables/welding-helmet.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingHelmet,
     Protection: "UV/IR DIN 16 permanent protection, Variable shade DIN 9–13",
     Features: "Solar + CR2032 battery, adjustable sensitivity & delay, grind mode",
     Weight: "450 g (approx.)",
     Applications: ["All Welding Processes", "Plasma Cutting", "Grinding", "Gouging"],
-    applicationImage: "/Welding Consumables/welding-helmet.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingHelmet,
   },
   {
     Category: "PPE",
@@ -407,11 +408,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Split Cowhide Leather, Cotton Lining",
     Standards: "EN 12477, EN 388, EN 407, IS 2573",
     Application: "MIG, SMAW, gas cutting, heavy fabrication",
-    thumbnail: "/Welding Consumables/welding-gloves-apron.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingGlovesApron,
     Protection: "Heat resistance up to 250 °C, spark & spatter protection",
     Features: "Reinforced palm & thumb, Kevlar stitching, 14″/16″ gauntlet",
     Applications: ["MIG Welding", "SMAW Welding", "Gas Cutting", "Heavy Fabrication"],
-    applicationImage: "/Welding Consumables/welding-gloves-apron.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingGlovesApron,
   },
   {
     Category: "PPE",
@@ -422,11 +423,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Split Cowhide Leather (1.2 mm thick)",
     Standards: "EN ISO 11611, IS 6153",
     Application: "All welding & cutting processes, grinding",
-    thumbnail: "/Welding Consumables/welding-gloves-apron.png",
+    thumbnail: SITE_IMAGES.welding.misc.weldingGlovesApron,
     Protection: "Heat, spark & spatter protection for torso and legs",
     Features: "Adjustable neck strap, waist ties, reinforced edges",
     Applications: ["Welding", "Cutting", "Grinding", "Fabrication Workshops"],
-    applicationImage: "/Welding Consumables/welding-gloves-apron.png",
+    applicationImage: SITE_IMAGES.welding.misc.weldingGlovesApron,
   },
   {
     Category: "PPE",
@@ -437,11 +438,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Polycarbonate Lens, PVC Frame",
     Standards: "ANSI Z87.1, EN 166, IS 5983",
     Application: "Gas welding, grinding, chipping, workshop safety",
-    thumbnail: "/Welding Consumables/safety-goggles-shoes.png",
+    thumbnail: SITE_IMAGES.welding.misc.safetyGogglesShoes,
     Protection: "Impact rated (F / B grade), UV 400 protection",
     Features: "Anti-fog coating, indirect ventilation, flip-up lens option",
     Applications: ["Gas Welding", "Grinding", "Chipping", "Workshop Safety"],
-    applicationImage: "/Welding Consumables/safety-goggles-shoes.png",
+    applicationImage: SITE_IMAGES.welding.misc.safetyGogglesShoes,
   },
   {
     Category: "PPE",
@@ -452,12 +453,12 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Full Grain Leather Upper, PU/Rubber Sole, Steel Toe Cap",
     Standards: "IS 15298 Part 2, EN ISO 20345 S3",
     Application: "Welding workshops, fabrication, construction sites",
-    thumbnail: "/Welding Consumables/safety-goggles-shoes.png",
+    thumbnail: SITE_IMAGES.welding.misc.safetyGogglesShoes,
     Protection: "Steel toe 200 J impact, heat-resistant sole 300 °C, anti-static",
     Features: "Anti-slip outsole, oil & acid resistant, steel midsole",
     Weight: "1.2 kg / pair (approx.)",
     Applications: ["Welding Workshops", "Fabrication", "Construction", "Heavy Industry"],
-    applicationImage: "/Welding Consumables/safety-goggles-shoes.png",
+    applicationImage: SITE_IMAGES.welding.misc.safetyGogglesShoes,
   },
   {
     Category: "PPE",
@@ -468,11 +469,11 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "Silicone Face Piece, Activated Carbon + HEPA Filters",
     Standards: "EN 140, EN 143 (P2), IS 9473",
     Application: "Welding, cutting, grinding, spray painting, confined spaces",
-    thumbnail: "/Welding Consumables/safety-goggles-shoes.png",
+    thumbnail: SITE_IMAGES.welding.misc.safetyGogglesShoes,
     Protection: "P2 particulate (99% filtration) + A1 organic vapour",
     Features: "Dual cartridge, low breathing resistance, replaceable filters",
     Applications: ["Welding Fumes", "Grinding Dust", "Spray Painting", "Confined Spaces"],
-    applicationImage: "/Welding Consumables/safety-goggles-shoes.png",
+    applicationImage: SITE_IMAGES.welding.misc.safetyGogglesShoes,
   },
 
   /* ═══════════════════════════════════════════════════════════════
@@ -488,14 +489,14 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "IGBT Inverter Module, Steel Chassis",
     Standards: "IS 9806, EN 60974-1, CE Certified",
     Application: "Structural fabrication, maintenance, repair, construction",
-    thumbnail: "/Welding Consumables/arc-welding-machine.png",
+    thumbnail: SITE_IMAGES.welding.misc.arcWeldingMachine,
     Power: "220 V / 415 V AC, Single/Three Phase",
     Capacity: "200A @ 60% duty cycle / 400A @ 60% duty cycle",
     Current: "20 A – 400 A adjustable, DC output",
     Features: "Hot start, anti-stick, arc force, digital display, VRD safety",
     Weight: "8 kg (200A) / 22 kg (400A)",
     Applications: ["Structural Fabrication", "Maintenance & Repair", "Construction", "Shipbuilding"],
-    applicationImage: "/Welding Consumables/arc-welding-machine.png",
+    applicationImage: SITE_IMAGES.welding.misc.arcWeldingMachine,
   },
   {
     Category: "Welding",
@@ -506,7 +507,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "IGBT Inverter Module, Steel Chassis",
     Standards: "IS 9806, EN 60974-1, CE Certified",
     Application: "Automotive, sheet metal, structural steel, production welding",
-    thumbnail: "/Welding Consumables/mig-welding-machine.png",
+    thumbnail: SITE_IMAGES.welding.misc.migWeldingMachine,
     Power: "415 V AC, Three Phase",
     Capacity: "250A / 400A / 500A models available",
     Current: "30 A – 500 A adjustable, DC output",
@@ -514,7 +515,7 @@ export const PRODUCTS: WeldingProduct[] = [
     Weight: "45 kg (250A) / 85 kg (500A)",
     Diameter: "Wire: 0.8 – 1.6 mm solid, 0.8 – 2.0 mm flux cored",
     Applications: ["Automotive", "Sheet Metal", "Structural Steel", "Production Lines"],
-    applicationImage: "/Welding Consumables/mig-welding-machine.png",
+    applicationImage: SITE_IMAGES.welding.misc.migWeldingMachine,
   },
   {
     Category: "Welding",
@@ -525,14 +526,14 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "IGBT/MOSFET Inverter, Steel Chassis",
     Standards: "IS 9806, EN 60974-1, CE Certified",
     Application: "Pharma piping, aerospace, automotive, precision fabrication",
-    thumbnail: "/Welding Consumables/tig-welding-machine.png",
+    thumbnail: SITE_IMAGES.welding.misc.tigWeldingMachine,
     Power: "220 V / 415 V AC, Single/Three Phase",
     Capacity: "200A / 315A / 500A models available",
     Current: "5 A – 500 A adjustable, AC/DC output",
     Features: "Pulse TIG, HF start, AC balance, pre/post-flow, memory profiles, TIG+MMA",
     Weight: "15 kg (200A) / 55 kg (500A)",
     Applications: ["Pharma Piping", "Aerospace", "Automotive", "Precision Fabrication"],
-    applicationImage: "/Welding Consumables/tig-welding-machine.png",
+    applicationImage: SITE_IMAGES.welding.misc.tigWeldingMachine,
   },
   {
     Category: "Welding",
@@ -543,14 +544,14 @@ export const PRODUCTS: WeldingProduct[] = [
     Material: "IGBT Inverter Module, Steel Chassis",
     Standards: "IS 9806, EN 60974-1, CE Certified",
     Application: "Multi-material workshops, maintenance, training centres, fabrication",
-    thumbnail: "/Welding Consumables/mig-welding-machine.png",
+    thumbnail: SITE_IMAGES.welding.misc.migWeldingMachine,
     Power: "415 V AC, Three Phase",
     Capacity: "200A / 350A / 500A models available",
     Current: "10 A – 500 A adjustable",
     Features: "3-in-1 (MIG + TIG + MMA), synergic wire feed, HF TIG start, digital panel",
     Weight: "50 kg (200A) / 95 kg (500A)",
     Applications: ["Multi-Material Workshops", "Maintenance", "Training Centres", "Fabrication"],
-    applicationImage: "/Welding Consumables/mig-welding-machine.png",
+    applicationImage: SITE_IMAGES.welding.misc.migWeldingMachine,
   },
 ];
 
@@ -592,8 +593,172 @@ export const SPEC_FIELDS: { key: keyof WeldingProduct; label: string; icon: stri
 /* ── QA Items (Quality Assurance Banner) ────────────────────────── */
 
 export const QA_ITEMS = [
-  { icon: "verified",       title: "Certified Products",       desc: "All products comply with AWS, IS, EN, and ANSI industrial standards." },
-  { icon: "precision_manufacturing", title: "Industrial Grade",  desc: "Heavy-duty equipment tested for demanding fabrication environments." },
-  { icon: "local_shipping", title: "Pan-India Delivery",        desc: "Warehouse stock + project-direct despatch across India." },
-  { icon: "support_agent",  title: "Technical Support",         desc: "Dedicated support for product selection and welding process advice." },
+  { icon: "verified",       title: "Internationally Certified",       desc: "Full compliance and batch traceability to ASME, AWS, EN, ISO, and BOHS standards." },
+  { icon: "precision_manufacturing", title: "Mega-Project Grade",  desc: "High-integrity metallurgy engineered for demanding offshore and heavy fabrication environments." },
+  { icon: "local_shipping", title: "Global Deployment",        desc: "Borderless logistics with project-direct dispatch across Europe, Middle East, and Africa." },
+  { icon: "support_agent",  title: "Transnational Engineering",         desc: "Deployable NDT/NDE technicians and specialized metallurgical support worldwide." },
 ];
+
+/* ── Interactive Catalog Data ────────────────────────── */
+
+export type CatalogSubCategory = {
+  id: string;
+  label: string;
+};
+
+export type CatalogProduct = {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+  specs: Record<string, string>;
+};
+
+export type CatalogCategoryData = {
+  categoryId: string;
+  title: string;
+  subCategories: CatalogSubCategory[];
+  products: Record<string, CatalogProduct[]>; // Maps subCategoryId to its array of products
+};
+
+export const CATALOG_DATA: Record<string, CatalogCategoryData> = {
+  consumables: {
+    categoryId: "consumables",
+    title: "Consumables",
+    subCategories: [
+      { id: "mig-tig", label: "MIG Wire and TIG Cut Lengths" },
+      { id: "stick", label: "Stick Electrodes" },
+      { id: "gas-flux", label: "Gas Shielded Flux-Cored" },
+      { id: "self-flux", label: "Self Shielded Flux Cored" },
+      { id: "sub-arc", label: "Submerged Arc" },
+      { id: "stainless", label: "Stainless Alloys" },
+    ],
+    products: {
+      "mig-tig": [
+        {
+          id: "mig-1",
+          name: "Metallo MIG-70S",
+          image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&q=80",
+          description: "Premium ER70S-6 solid wire for general fabrication and robotic welding. Offers high deposition efficiency and excellent feedability.",
+          specs: { Classification: "AWS A5.18 ER70S-6", Diameter: "0.8mm - 1.6mm", ShieldingGas: "CO2 / Argon Mix" }
+        },
+        {
+          id: "tig-1",
+          name: "Metallo TIG-316L",
+          image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=500&q=80",
+          description: "Low carbon, stainless steel TIG rod for maximum corrosion resistance in marine and chemical environments.",
+          specs: { Classification: "AWS A5.9 ER316L", Length: "1000mm", Material: "Stainless Steel" }
+        }
+      ],
+      "stick": [
+        {
+          id: "stick-1",
+          name: "Metallo E7018-1 H4R",
+          image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80",
+          description: "Low hydrogen stick electrode for offshore and heavy structural steel. Provides exceptional low-temperature impact toughness.",
+          specs: { Classification: "AWS A5.1 E7018-1 H4R", Position: "All Positions", Current: "DC+ / AC" }
+        }
+      ],
+      "gas-flux": [
+        {
+          id: "gas-flux-1",
+          name: "Metallo FluxCore-71T",
+          image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=500&q=80",
+          description: "Rutile flux-cored wire for high-speed single or multi-pass welding with a smooth arc and low spatter.",
+          specs: { Classification: "AWS A5.20 E71T-1C", Position: "All Positions", ShieldingGas: "100% CO2" }
+        }
+      ],
+      "self-flux": [],
+      "sub-arc": [],
+      "stainless": [],
+    }
+  },
+  automation: {
+    categoryId: "automation",
+    title: "Automation",
+    subCategories: [
+      { id: "robotic-systems", label: "Robotic Welding Systems" },
+      { id: "collab-systems", label: "Collaborative Robotic Systems" },
+      { id: "mechanized", label: "Mechanized Automation" },
+      { id: "robotic-laser", label: "Robotic Laser Systems" },
+      { id: "positioners", label: "Positioners" },
+    ],
+    products: {
+      "robotic-systems": [
+        {
+          id: "robo-1",
+          name: "Metallo AutoCell-600",
+          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80",
+          description: "Turnkey robotic welding cell integrated with advanced pulse tracking and fume extraction.",
+          specs: { Payload: "10kg - 25kg", Reach: "1440mm - 2000mm", "Integration": "Plug & Play" }
+        }
+      ],
+      "collab-systems": [],
+      "mechanized": [],
+      "robotic-laser": [],
+      "positioners": [],
+    }
+  },
+  accessories: {
+    categoryId: "accessories",
+    title: "Accessories & Tools",
+    subCategories: [
+      { id: "equip-acc", label: "Equipment Accessories" },
+      { id: "cutting-acc", label: "Cutting Accessories" },
+      { id: "gun-torch", label: "Gun & Torch Accessories" },
+      { id: "helmet-acc", label: "Helmet Accessories" },
+      { id: "general-acc", label: "General Accessories" },
+    ],
+    products: {
+      "gun-torch": [
+        {
+          id: "gun-1",
+          name: "Metallo ProGrip MIG Torch",
+          image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=500&q=80",
+          description: "Heavy-duty 400A air-cooled MIG torch with ergonomic handle and premium cable assembly.",
+          specs: { Amperage: "400A", Cooling: "Air Cooled", Length: "3m / 4m / 5m" }
+        }
+      ],
+      "equip-acc": [],
+      "cutting-acc": [],
+      "helmet-acc": [],
+      "general-acc": [],
+    }
+  },
+  safety: {
+    categoryId: "safety",
+    title: "Safety & PPE",
+    subCategories: [
+      { id: "hand-body", label: "Hand, Body and Arm" },
+      { id: "respiratory", label: "Personal Respiratory Protection" },
+      { id: "fume", label: "Weld Fume Control" },
+      { id: "head-face", label: "Head, Face and Eye" },
+      { id: "bags", label: "Safety Gear Bags" },
+      { id: "booths", label: "Weld Booths" },
+    ],
+    products: {
+      "head-face": [
+        {
+          id: "helmet-1",
+          name: "Metallo VisionPro Auto-Darkening",
+          image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80",
+          description: "True-color 4-sensor auto-darkening welding helmet with ultra-fast switching time and panoramic view.",
+          specs: { "Optical Class": "1/1/1/1", Shade: "DIN 5-13", "Switch Time": "1/25,000s" }
+        }
+      ],
+      "respiratory": [
+        {
+          id: "papr-1",
+          name: "Metallo PAPR Shield",
+          image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500&q=80",
+          description: "Powered Air Purifying Respirator system integrated into a heavy-duty welding helmet for maximum protection.",
+          specs: { Battery: "8-10 Hours", Filtration: "TH3 P R SL", Flow: "170-210 L/min" }
+        }
+      ],
+      "hand-body": [],
+      "fume": [],
+      "bags": [],
+      "booths": [],
+    }
+  }
+};

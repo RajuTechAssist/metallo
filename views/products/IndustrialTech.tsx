@@ -9,6 +9,7 @@ import {
   ProductQABanner, ProductCTA, CONTAINER, DETAIL_VARIANTS, slugify,
 } from "../../components/product";
 import { PRODUCTS, CATEGORIES, QA_ITEMS, type CategoryKey } from "@/data/industrialTechData";
+import { SITE_IMAGES } from '@/config/images';
 
 const IndustrialTech: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,7 +44,7 @@ const IndustrialTech: React.FC = () => {
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero backgroundImage="/industrialTech/Automation-Technologies.jpg" title="Industrial Tech" subtitle="Smart Automation Solutions." description="PLC systems, VFD drives, sensors, switchgear, and IoT platforms — complete automation and power distribution solutions for Industry 4.0." breadcrumbLabel="Industrial Tech" />
+      <ProductHero backgroundImage={SITE_IMAGES.misc.productHeroes.industrialTech} title="Industrial Tech" subtitle="Smart Automation Solutions." description="PLC systems, VFD drives, sensors, switchgear, and IoT platforms — complete automation and power distribution solutions for Industry 4.0." breadcrumbLabel="Industrial Tech" />
       <ProductCategoryNav categories={CATEGORIES} activeKey={activeCategoryKey} onSelect={selectCategory} certBadge="Authorised Partner" />
 
       <section className="bg-white border-b border-slate-100">

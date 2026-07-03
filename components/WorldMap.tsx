@@ -1,21 +1,5 @@
 "use client";
-import Image from 'next/image';
-import React, { useEffect, useMemo, useState } from 'react';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  ZoomableGroup,
-} from 'react-simple-maps';
-import { feature } from 'topojson-client';
-import {
-  GLOBAL_OFFICES,
-  normalizeGeoId,
-  OFFICE_KIND_LABELS,
-} from '@/lib/mapConstants';
-
-const WORLD_DATA_URL = '/data/world-countries-110m.json';
+import React, { useState } from 'react';
 
 /* ── Country presence list (displayed as bar below title) ── */
 const PRESENCE_COUNTRIES = [
@@ -50,7 +34,7 @@ const coverageCards = [
     kind: 'SALES OFFICE & MFG',
     country: 'India',
     lines: [
-      'HQ: 710, 7th Floor, Tower A,',
+      '710, 7th Floor, Tower A,',
       'Emmar Digital Greens, Gurugram',
       '',
       'Manufacturing Units:',
@@ -70,85 +54,35 @@ const coverageCards = [
   {
     kind: 'SALES OFFICE',
     country: 'Africa',
-    lines: ['Morocco Office'],
+    lines: ['Casablanca, Morocco Office'],
   },
 ];
 
-/* ── All office marker positions for golden blinking dots ── */
-const OFFICE_MARKERS: { id: string; coords: [number, number]; label: string }[] = [
-  { id: 'india', coords: [77.0266, 28.4595], label: 'India (Gurugram)' },
-  { id: 'gujarat', coords: [71.1924, 22.2587], label: 'Gujarat Manufacturing' },
-  { id: 'maharashtra', coords: [75.7139, 19.7515], label: 'Maharashtra Manufacturing' },
-  { id: 'germany', coords: [11.6986, 48.2254], label: 'Germany' },
-  { id: 'hungary', coords: [19.0402, 47.4979], label: 'Hungary' },
-  { id: 'france', coords: [2.3522, 48.8566], label: 'France' },
-  { id: 'spain', coords: [-3.7038, 40.4168], label: 'Spain' },
-  { id: 'turkey', coords: [32.8597, 39.9334], label: 'Turkey' },
-  { id: 'dubai', coords: [55.2708, 25.2048], label: 'Dubai' },
-  { id: 'saudi', coords: [46.6753, 24.7136], label: 'Saudi Arabia' },
-  { id: 'oman', coords: [57.5836, 23.6105], label: 'Oman' },
-  { id: 'china', coords: [116.4074, 39.9042], label: 'China' },
-  { id: 'uk', coords: [-0.1276, 51.5074], label: 'United Kingdom' },
-  { id: 'morocco', coords: [-7.0926, 31.7917], label: 'Morocco' },
-  { id: 'algeria', coords: [3.0588, 36.7538], label: 'Algeria' },
+/*
+ * Office marker positions (x, y) mapped to the SVG viewBox (1362 x 724).
+ */
+const OFFICE_MARKERS: { id: string; x: number; y: number; label: string }[] = [
+  { id: 'india',       x: 928,  y: 350, label: 'Gurugram, India' },
+  { id: 'gujarat',     x: 910,  y: 375, label: 'Gujarat, India' },
+  { id: 'maharashtra', x: 925,  y: 390, label: 'Maharashtra, India' },
+  { id: 'germany',     x: 680,  y: 230, label: 'Germany' },
+  { id: 'hungary',     x: 710,  y: 255, label: 'Hungary' },
+  { id: 'france',      x: 645,  y: 255, label: 'France' },
+  { id: 'spain',       x: 625,  y: 290, label: 'Spain' },
+  { id: 'turkey',      x: 762,  y: 300, label: 'Turkey' },
+  { id: 'dubai',       x: 842,  y: 370, label: 'Dubai' },
+  { id: 'saudi',       x: 810,  y: 370, label: 'Saudi Arabia' },
+  { id: 'oman',        x: 850,  y: 380, label: 'Oman' },
+  { id: 'china',       x: 970, y: 295, label: 'China' },
+  { id: 'uk',          x: 635,  y: 225, label: 'United Kingdom' },
+  { id: 'morocco',     x: 620,  y: 330, label: 'Morocco' },
+  { id: 'algeria',     x: 655,  y: 320, label: 'Algeria' },
 ];
 
 const COLOR_MAP = {
-  landFill: '#E5E7EB',
-  landStroke: '#FFFFFF',
   gold: '#DAA520',
   goldGlow: '#FFD700',
   tooltipBg: '#0F172A',
-};
-
-type GeoProperties = {
-  name?: string;
-};
-
-type GeoFeature = {
-  id?: string | number;
-  rsmKey?: string;
-  properties?: GeoProperties;
-};
-
-type FeatureCollectionLike = {
-  type: 'FeatureCollection';
-  features: GeoFeature[];
-};
-
-type TopologyInput = Parameters<typeof feature>[0];
-type ObjectInput = Parameters<typeof feature>[1];
-
-type CountryObjects = {
-  geometries?: { properties?: GeoProperties }[];
-};
-
-type WorldTopology = {
-  objects: {
-    countries: CountryObjects;
-  };
-};
-
-const toFeatureCollection = (value: unknown): FeatureCollectionLike => {
-  if (
-    value &&
-    typeof value === 'object' &&
-    (value as FeatureCollectionLike).type === 'FeatureCollection'
-  ) {
-    return value as FeatureCollectionLike;
-  }
-
-  return {
-    type: 'FeatureCollection',
-    features: value ? [value as GeoFeature] : [],
-  };
-};
-
-const getCountriesObject = (topology: WorldTopology): ObjectInput => {
-  const topo = topology as unknown as TopologyInput;
-  const objects = topo.objects as Record<string, ObjectInput>;
-
-  return objects.countries;
 };
 
 /* ── SVG icon components for the cards ── */
@@ -192,72 +126,8 @@ const SalesIcon = () => (
 );
 
 const WorldMap: React.FC = () => {
-  const [worldTopology, setWorldTopology] = useState<WorldTopology | null>(null);
   const [tooltipContent, setTooltipContent] = useState('');
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
-  const [isSmallDevice, setIsSmallDevice] = useState(false);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    fetch(WORLD_DATA_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        if (isMounted) {
-          setWorldTopology(data);
-        }
-      })
-      .catch(() => {
-        if (isMounted) {
-          setWorldTopology(null);
-        }
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 640px)');
-    const syncDeviceState = () => setIsSmallDevice(mediaQuery.matches);
-
-    syncDeviceState();
-    mediaQuery.addEventListener('change', syncDeviceState);
-
-    return () => mediaQuery.removeEventListener('change', syncDeviceState);
-  }, []);
-
-  const countryGeographies = useMemo(() => {
-    if (!worldTopology) return null;
-
-    const countries = toFeatureCollection(
-      feature(
-        worldTopology as unknown as TopologyInput,
-        getCountriesObject(worldTopology),
-      ),
-    );
-
-    return {
-      type: 'FeatureCollection' as const,
-      features: countries.features.filter(
-        (geo) => normalizeGeoId(geo.id as string) !== '010',
-      ),
-    };
-  }, [worldTopology]);
-
-  const defaultMapView = isSmallDevice
-    ? { zoom: 1.2, center: [0, 0] as [number, number] }
-    : { zoom: 2, center: [6, 20] as [number, number] };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const filterZoomEvent = (event: any) => {
-    if (event.type === 'wheel') {
-      return Boolean(event.ctrlKey);
-    }
-
-    return true;
-  };
 
   return (
     <section className="bg py-24">
@@ -270,13 +140,6 @@ const WorldMap: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-3">
             Strategic Presence. Limitless Reach.
           </h2>
-          {/* <Image
-            src="/logo-icon.svg"
-            alt="The Metallo Symbol"
-            width={80}
-            height={80}
-            className="object-contain animate-spin-slow transition-transform duration-700"
-          /> */}
         </div>
 
         {/* ── Country presence bar ── */}
@@ -290,9 +153,6 @@ const WorldMap: React.FC = () => {
             </span>
           ))}
         </div>
-
-        {/* ── Horizontal rule ──
-        <hr className="mb-10 border-gray-400" /> */}
 
         <div className="text-gray-600 mb-10 text-justify text-sm md:text-base leading-relaxed max-w-none">
           <p>
@@ -308,104 +168,62 @@ const WorldMap: React.FC = () => {
           </p>
         </div>
 
+        {/* ── Map (flat SVG) ── */}
+        <div className="relative w-full overflow-hidden">
+          <div className="relative w-full">
+            {/* The flat SVG world map */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/data/world-map.svg"
+              alt="World Map — Metallo Global Presence"
+              className="w-full h-auto"
+              draggable={false}
+            />
 
-        {/* ── Map ── */}
-        <div className="relative h-full min-h-[280px] w-full overflow-hidden lg:h-[70vh]">
-          {/* SVG animation for golden pulse */}
-          <svg width="0" height="0" style={{ position: 'absolute' }}>
-            <defs>
-              <style>{`
-                @keyframes goldenPulse {
-                  0%, 100% { opacity: 1; r: 3; }
-                  50% { opacity: 0.3; r: 5; }
-                }
-                @keyframes goldenGlow {
-                  0%, 100% { opacity: 0.6; r: 7; }
-                  50% { opacity: 0; r: 12; }
-                }
-                .golden-dot {
-                  animation: goldenPulse 1.5s ease-in-out infinite;
-                }
-                .golden-glow {
-                  animation: goldenGlow 1.5s ease-in-out infinite;
-                }
-              `}</style>
-            </defs>
-          </svg>
-
-          {countryGeographies ? (
-            <ComposableMap
-              projection="geoEqualEarth"
-              style={{ width: '100%', height: '100%' }}
+            {/* Marker overlay */}
+            <svg
+              viewBox="0 0 1362 724"
+              className="absolute inset-0 w-full h-full pointer-events-none"
+              preserveAspectRatio="xMidYMid meet"
             >
-              <ZoomableGroup
-                zoom={defaultMapView.zoom}
-                minZoom={1}
-                maxZoom={5}
-                center={defaultMapView.center}
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                filterZoomEvent={filterZoomEvent as any}
-              >
-                {/* All countries — no color, just light gray */}
-                <Geographies geography={countryGeographies}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={COLOR_MAP.landFill}
-                        stroke={COLOR_MAP.landStroke}
-                        strokeWidth={0.6}
-                        style={{
-                          default: { outline: 'none' },
-                          hover: { outline: 'none' },
-                          pressed: { outline: 'none' },
-                        }}
-                      />
-                    ))
-                  }
-                </Geographies>
-
-                {/* Golden blinking dots for all office markers */}
-                {OFFICE_MARKERS.map((office, idx) => (
-                  <Marker key={office.id} coordinates={office.coords}>
-                    <g
-                      onMouseEnter={(event) => {
-                        setTooltipContent(office.label);
-                        setTooltipPos({
-                          x: event.clientX,
-                          y: event.clientY,
-                        });
-                      }}
-                      onMouseLeave={() => {
-                        setTooltipContent('');
-                      }}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      {/* Outer glow ring */}
-                      <circle
-                        r={7}
-                        fill={COLOR_MAP.goldGlow}
-                        className="golden-glow"
-                        style={{ animationDelay: `${idx * 0.12}s` }}
-                      />
-                      {/* Inner dot */}
-                      <circle
-                        r={3}
-                        fill={COLOR_MAP.gold}
-                        stroke="#fff"
-                        strokeWidth={0.8}
-                        className="golden-dot"
-                        style={{ animationDelay: `${idx * 0.12}s` }}
-                      />
-                    </g>
-                  </Marker>
-                ))}
-              </ZoomableGroup>
-            </ComposableMap>
-          ) : (
-            <div className="h-full min-h-[280px] w-full animate-pulse rounded-[24px] bg-gray-100 lg:min-h-[70vh]"></div>
-          )}
+              {OFFICE_MARKERS.map((office, idx) => (
+                <g
+                  key={office.id}
+                  className="group"
+                  style={{ cursor: 'pointer', pointerEvents: 'auto' }}
+                  onMouseEnter={(event) => {
+                    setTooltipContent(office.label);
+                    setTooltipPos({
+                      x: event.clientX,
+                      y: event.clientY,
+                    });
+                  }}
+                  onMouseLeave={() => {
+                    setTooltipContent('');
+                  }}
+                >
+                  {/* Invisible larger hit area for easier hovering */}
+                  <circle
+                    cx={office.x}
+                    cy={office.y}
+                    r={15}
+                    fill="transparent"
+                  />
+                  {/* Static Dark Navy Outline Circle with Golden Fill */}
+                  <circle
+                    cx={office.x}
+                    cy={office.y}
+                    r={3}
+                    fill={COLOR_MAP.gold}
+                    stroke="#101C5E"
+                    strokeWidth={0.2}
+                    className="transition-transform group-hover:scale-125 duration-300"
+                    style={{ transformOrigin: `${office.x}px ${office.y}px` }}
+                  />
+                </g>
+              ))}
+            </svg>
+          </div>
 
           {tooltipContent && (
             <div
@@ -468,3 +286,67 @@ const WorldMap: React.FC = () => {
 };
 
 export default WorldMap;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * COMMENTED OUT — Previous react-simple-maps implementation
+ * Kept for reference in case we want to revert.
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * import Image from 'next/image';
+ * import {
+ *   ComposableMap,
+ *   Geographies,
+ *   Geography,
+ *   Marker,
+ *   ZoomableGroup,
+ * } from 'react-simple-maps';
+ * import { feature } from 'topojson-client';
+ * import {
+ *   GLOBAL_OFFICES,
+ *   normalizeGeoId,
+ *   OFFICE_KIND_LABELS,
+ * } from '@/lib/mapConstants';
+ *
+ * const WORLD_DATA_URL = '/data/world-countries-110m.json';
+ *
+ * // OFFICE_MARKERS used [longitude, latitude] coords for react-simple-maps:
+ * // const OFFICE_MARKERS: { id: string; coords: [number, number]; label: string }[] = [
+ * //   { id: 'india',       coords: [77.0266, 28.4595], label: 'India (Gurugram)' },
+ * //   { id: 'gujarat',     coords: [71.1924, 22.2587], label: 'Gujarat Manufacturing' },
+ * //   { id: 'maharashtra', coords: [75.7139, 19.7515], label: 'Maharashtra Manufacturing' },
+ * //   { id: 'germany',     coords: [11.6986, 48.2254], label: 'Germany' },
+ * //   { id: 'hungary',     coords: [19.0402, 47.4979], label: 'Hungary' },
+ * //   { id: 'france',      coords: [2.3522, 48.8566],  label: 'France' },
+ * //   { id: 'spain',       coords: [-3.7038, 40.4168], label: 'Spain' },
+ * //   { id: 'turkey',      coords: [32.8597, 39.9334], label: 'Turkey' },
+ * //   { id: 'dubai',       coords: [55.2708, 25.2048], label: 'Dubai' },
+ * //   { id: 'saudi',       coords: [46.6753, 24.7136], label: 'Saudi Arabia' },
+ * //   { id: 'oman',        coords: [57.5836, 23.6105], label: 'Oman' },
+ * //   { id: 'china',       coords: [116.4074, 39.9042], label: 'China' },
+ * //   { id: 'uk',          coords: [-0.1276, 51.5074], label: 'United Kingdom' },
+ * //   { id: 'morocco',     coords: [-7.0926, 31.7917], label: 'Morocco' },
+ * //   { id: 'algeria',     coords: [3.0588, 36.7538],  label: 'Algeria' },
+ * // ];
+ *
+ * // const COLOR_MAP = {
+ * //   landFill: '#E5E7EB',
+ * //   landStroke: '#FFFFFF',
+ * //   gold: '#DAA520',
+ * //   goldGlow: '#FFD700',
+ * //   tooltipBg: '#0F172A',
+ * // };
+ *
+ * // type definitions, toFeatureCollection, getCountriesObject, etc.
+ * // ... (full old code omitted for brevity)
+ *
+ * // The old component used:
+ * //   <ComposableMap projection="geoMercator" ...>
+ * //     <ZoomableGroup ...>
+ * //       <Geographies geography={countryGeographies}>
+ * //         {({ geographies }) => geographies.map(geo => <Geography ... />)}
+ * //       </Geographies>
+ * //       {OFFICE_MARKERS.map(office => <Marker coordinates={office.coords}>...</Marker>)}
+ * //     </ZoomableGroup>
+ * //   </ComposableMap>
+ *
+ * ═══════════════════════════════════════════════════════════════════════════ */

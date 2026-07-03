@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { SITE_IMAGES } from '@/config/images';
 
 const About: React.FC = () => {
   return (
@@ -84,7 +85,7 @@ const About: React.FC = () => {
             {/* Card 1 — India Entry for Global Manufacturers */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <Image
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=85&auto=format&fit=crop"
+                src={SITE_IMAGES.home.about.globalNetwork}
                 alt="Global Manufacturing Entry point"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -117,7 +118,7 @@ const About: React.FC = () => {
             {/* Card 2 — Global Expansion for Indian Manufacturers */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <Image
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=85&auto=format&fit=crop"
+                src={SITE_IMAGES.home.about.roboticWelding}
                 alt="Global Expansion for Indian Manufacturers"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

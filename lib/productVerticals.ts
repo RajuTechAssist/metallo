@@ -1,3 +1,5 @@
+import { SITE_IMAGES } from "@/config/images";
+
 export interface ProductVerticalConfig {
   key: string;
   name: string;
@@ -21,7 +23,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Steel",
     showcaseSubtitle: "Structural Foundation",
-    showcaseImage: "/industrialTech/steel.png",
+    showcaseImage: SITE_IMAGES.home.verticals.steel,
     showcasePoints: [
       "IS:2062 & ASTM Compliant",
       "Custom Fabricated Spools",
@@ -37,8 +39,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Wire & Cable",
     showcaseSubtitle: "Powering the Grid",
-    showcaseImage:
-      "/industrialTech/wire.png",
+    showcaseImage: SITE_IMAGES.home.verticals.wireCable,
     showcasePoints: [
       "LT Power & Control",
       "HT Power Cable",
@@ -54,8 +55,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Cable Trays",
     showcaseSubtitle: "Cable Management",
-    showcaseImage:
-      "/industrialTech/cable-tray.png",
+    showcaseImage: SITE_IMAGES.home.verticals.cableTrays,
     showcasePoints: [
       "Ladder & Perforated Trays",
       "GI / SS / Aluminium",
@@ -71,8 +71,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Welding Consumables",
     showcaseSubtitle: "Critical Joints",
-    showcaseImage:
-      "/industrialTech/welding.png",
+    showcaseImage: SITE_IMAGES.home.verticals.weldingConsumables,
     showcasePoints: [
       "AWS & ASME Certified",
       "Standardized SOPs",
@@ -88,8 +87,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Industrial Tools",
     showcaseSubtitle: "Heavy-Duty Execution",
-    showcaseImage:
-      "/powerTools/powerTools1.png",
+    showcaseImage: SITE_IMAGES.home.verticals.powerTools,
     showcasePoints: [
       "Industrial Motors",
       "Safety Standards",
@@ -97,15 +95,15 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     ],
   },
   {
-    key: "pipes",
-    name: "Pipes",
-    path: "/products/pipes",
+    key: "processPiping",
+    name: "Process Piping",
+    path: "/products/process-piping",
     icon: "plumbing",
     showInHeader: true,
     showInShowcase: true,
-    showcaseTitle: "Metallo Pipes",
+    showcaseTitle: "Metallo Process Piping",
     showcaseSubtitle: "Process Flow Systems",
-    showcaseImage: "/industrialTech/pipes.png",
+    showcaseImage: SITE_IMAGES.home.verticals.processPiping,
     showcasePoints: [
       "Fabricated Piping Packages",
       "Modular Skids & Bends",
@@ -121,7 +119,7 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
     showInShowcase: true,
     showcaseTitle: "Metallo Fabricated Structures",
     showcaseSubtitle: "Engineered Steel Systems",
-    showcaseImage: "/industrialTech/Fabricated.png",
+    showcaseImage: SITE_IMAGES.home.verticals.fabricatedStructures,
     showcasePoints: [
       "PEB & Framing Systems",
       "Roofing, Cladding & Decking",

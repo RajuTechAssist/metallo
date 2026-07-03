@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { SITE_IMAGES } from '@/config/images';
 
 /* ═══════════════════════════════════════════════════════════════
    WELDING ABOUT — "The Legacy Banner"
@@ -96,7 +97,7 @@ const WeldingAbout: React.FC = () => {
             {/* Card 1 — WB Alloys Integration */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <Image
-                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=85&auto=format&fit=crop"
+                src={SITE_IMAGES.welding.about.mainImage}
                 alt="WB Alloys welding integration"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -129,7 +130,7 @@ const WeldingAbout: React.FC = () => {
             {/* Card 2 — Global Training & Compliance */}
             <div className="group relative rounded-lg overflow-hidden shadow-2xl h-[340px] lg:h-[380px] cursor-pointer">
               <Image
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=85&auto=format&fit=crop"
+                src={SITE_IMAGES.welding.about.secondaryImage}
                 alt="Global welding training and compliance"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

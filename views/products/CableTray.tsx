@@ -301,11 +301,11 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
                 key={`${product.id}-${item.name}`}
                 className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <div className="px-4 py-4 border-t border-slate-200">
@@ -346,11 +346,11 @@ const TrayProductCard: React.FC<{ product: TrayProduct; index: number }> = ({
                 key={`${product.id}-acc-${item.name}`}
                 className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="aspect-[4/3] bg-slate-50 flex items-center justify-center p-6">
+                <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
                 <div className="px-4 py-4 border-t border-slate-200">
@@ -438,12 +438,12 @@ const CableTray: React.FC = () => {
               </h2>
               <div className="w-16 h-1 bg-yellow-500 mt-3 rounded-full" />
             </div>
-            <div className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider bg-white">
-              <span className="material-symbols-outlined text-lg">
+            <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-900 text-slate-900 text-xs font-heading font-bold uppercase tracking-wider hover:bg-yellow-500 hover:text-slate-900 transition-all duration-300 group shrink-0">
+              <span className="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">
                 download
               </span>
-              Download Catalogue
-            </div>
+              Download Technical Catalog
+            </button>
           </div>
 
           <AnimatePresence mode="wait">

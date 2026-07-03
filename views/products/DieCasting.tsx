@@ -9,6 +9,7 @@ import {
   ProductQABanner, ProductCTA, CONTAINER, DETAIL_VARIANTS, slugify,
 } from "../../components/product";
 import { PRODUCTS, CATEGORIES, QA_ITEMS, type CategoryKey, type CastingProduct } from "@/data/dieCastingData";
+import { SITE_IMAGES } from '@/config/images';
 
 const DieCasting: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,7 +44,7 @@ const DieCasting: React.FC = () => {
 
   return (
     <div className="w-full bg-slate-50" style={{ overflowX: "clip" }}>
-      <ProductHero backgroundImage="/diecasting/die-casting-process-foundry.jpg" title="Die Casting" subtitle="Precision Engineered Components." description="Aluminium & zinc die cast components with in-house tooling, CNC machining, and surface finishing — from prototype to mass production." breadcrumbLabel="Die Casting" />
+      <ProductHero backgroundImage={SITE_IMAGES.misc.productHeroes.dieCasting} title="Die Casting" subtitle="Precision Engineered Components." description="Aluminium & zinc die cast components with in-house tooling, CNC machining, and surface finishing — from prototype to mass production." breadcrumbLabel="Die Casting" />
       <ProductCategoryNav categories={CATEGORIES} activeKey={activeCategoryKey} onSelect={selectCategory} certBadge="IATF 16949 Ready" />
 
       <section className="bg-white border-b border-slate-100">
