@@ -121,24 +121,6 @@ const HERO_SLIDES = [
     }
 ] as const;
 
-const HERO_SLIDES = [
-    {
-        image: SITE_IMAGES.industries.railways.hero,
-        category: "Railways & Transit Procurement",
-        title: "Railways & Transit Procurement",
-        highlight: "Infrastructure, Certified.",
-        desc: "Aggregated, audited production for global transit operations. UIC & RDSO‑certified coach frames, sub-assemblies, cable support tracks, signal lines, and high-performance welding materials.",
-        microcopy: "RDSO-aligned SOPs · NDT, PMI, and MTC traceability per batch"
-    },
-    {
-        image: "/indianDefence3.jpg",
-        category: "Defence Engineering Procurement",
-        title: "Defence Engineering Procurement",
-        highlight: "Engineering, Secured.",
-        desc: "Military-grade components engineered for high-integrity missions. Compliant structural chassis, MIL-SPEC cable harnesses, modular tactical shelters, and specialized welding consumables.",
-        microcopy: "DRDO & MIL-SPEC compliant · ISO 9001:2015 · Third-party validated"
-    }
-] as const;
 
 /* ═══════════════════════════════════════════════════════════════
    RAILWAYS & DEFENCE PAGE
