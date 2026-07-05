@@ -473,8 +473,8 @@ const About: React.FC = () => {
                     verified
                   </span>
                   <span className="text-gray-700">
-                    Third-party inspection partners may include agencies such as
-                    DNV, EIL, BHEL, and other certified inspection bodies.
+                    Third-party inspection partners include agencies such as
+                    DNV, TUV, ABS, EL, SGS, EIL and other certified inspection bodies.
                   </span>
                 </li>
               </ul>
