@@ -7,7 +7,7 @@ export const PROCESS_EQUIPMENTS_PAGE_DATA: ConfigurableProductPageData = {
     title: "Metallo Process Equipments",
     subtitle: "EquipWorks Series.",
     description:
-      "High-pressure heat exchangers, process gas waste heat boilers, feedwater heaters, surface condensers, and boiler drums — engineered for refining, petrochemical, fertilizer, and power generation facilities through Metallo's project-driven supply chain.",
+      "High-pressure heat exchangers, pressure vessels, coloumn for process plantss, process gas waste heat boilers, feedwater heaters, surface condensers, and boiler drums — engineesed for refining, oil & gas, refineries, petrochemical, fertilizer, and power generation facilities through Metallo's project-driven supply chain.",
     breadcrumbLabel: "Process Equipments",
   },
   categories: [
@@ -203,6 +203,7 @@ export const PROCESS_EQUIPMENTS_PAGE_DATA: ConfigurableProductPageData = {
       ],
       sourceLabel: "Metallo",
     },
+    /*
     {
       id: "ammonia-synthesis-heat-exchangers",
       category: "Plant Equipment",
@@ -274,6 +275,58 @@ export const PROCESS_EQUIPMENTS_PAGE_DATA: ConfigurableProductPageData = {
         "Best suited for services where fouling or tube vibration limits conventional exchanger run lengths.",
         "Lower pressure drop translates directly to reduced pumping energy costs.",
         "Plug-flow shell-side pattern improves effective temperature difference and heat transfer coefficient.",
+      ],
+      sourceLabel: "Metallo",
+    },
+    */
+
+    {
+      id: "pressure-vessels",
+      category: "Plant Equipment",
+      subCategory: "Pressure Containment",
+      name: "Pressure Vessels",
+      description:
+        "Metallo supplies a comprehensive range of pressure vessels — including high-pressure separators, slug catchers, H₂S absorbers, mercury removal vessels, sieve gas driers, and separator vessels with glass flake or epoxy internal lining. These code-stamped vessels are engineered for safe containment and processing of gases, liquids, and multi-phase fluids across refinery, petrochemical, gas processing, and offshore installations.",
+      image: SITE_IMAGES.processEquipments.products.pressureVessels,
+      applications: ["Oil & Gas Processing", "Refinery Units", "Offshore Platforms", "Gas Treatment Plants", "Petrochemical Complexes"],
+      badges: [{ label: "ASME U/U2 Stamped", tone: "accent" }],
+      specifications: [
+        {
+          label: "Vessel Types",
+          value:
+            "High-pressure separators, slug catchers, absorber columns, mercury removal vessels, gas driers, and lined separator vessels.",
+          icon: "view_in_ar",
+        },
+        {
+          label: "Wall Thickness & Pressure",
+          value:
+            "Wall thicknesses up to 200 mm for design pressures exceeding 200 bar, with PWHT and full volumetric NDE on all critical welds.",
+          icon: "compress",
+        },
+        {
+          label: "Material Grades",
+          value:
+            "Carbon steel (including HIC-resistant grades), clad steel, alloy steel (Cr-Mo), stainless steel (304/316/321), duplex, and nickel alloys.",
+          icon: "layers",
+        },
+        {
+          label: "Internal Linings",
+          value:
+            "Glass flake, epoxy, rubber, and refractory linings applied in-house for corrosion and erosion protection in aggressive service environments.",
+          icon: "shield",
+        },
+        {
+          label: "Design Codes",
+          value:
+            "ASME Section VIII Div. 1 & 2 (U/U2 stamp), PED 2014/68/EU, EN 13445, and client-specific engineering standards.",
+          icon: "gavel",
+        },
+      ],
+      highlights: [
+        "Covers the full spectrum from standard storage vessels to high-pressure, thick-wall process separators.",
+        "HIC-resistant carbon steel capability addresses sour service requirements in oil and gas applications.",
+        "In-house lining application eliminates the need for separate lining subcontractors and reduces delivery schedules.",
+        "Single-source supply of vessels with matched internals, nozzles, saddles, and lifting lugs ready for site installation.",
       ],
       sourceLabel: "Metallo",
     },

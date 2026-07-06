@@ -18,5 +18,6 @@ export const PROCESS_EQUIPMENTS_IMAGES = {
     packinoxServices: '/process-equipments/heat_exchanger.jpg',
     breechLockOverhauling: '/process-equipments/breech_lock_exchanger.jpg',
     materialCapabilities: '/process-equipments/process_equipments_hero.jpg',
+    pressureVessels: '/process-equipments/pressure_vessel.jpg',
   }
 } as const;
