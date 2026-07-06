@@ -38,7 +38,10 @@ const getTransporter = () => {
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } =
     process.env;
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
-    throw new Error(
+    // throw new Error(
+    //   "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
+    // );
+    console.log(
       "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
     );
   }
@@ -101,14 +104,14 @@ const userEmailHtml = (p: EnquiryPayload) => `
   </div>`;
 
 const transporter = getTransporter();
-transporter
-  .verify()
-  .then(() => {
-    console.log("SMTP server is ready");
-  })
-  .catch((err) => {
-    console.log("SMTP configuration error:", err);
-  });
+// transporter
+//   .verify()
+//   .then(() => {
+//     console.log("SMTP server is ready");
+//   })
+//   .catch((err) => {
+//     console.log("SMTP configuration error:", err);
+//   });
 export async function sendEnquiryEmails(payload: EnquiryPayload) {
   const fromAddress = `Metallo Industrial <${process.env.SMTP_USER}>`;
   const ownerTo = process.env.OWNER_EMAIL || process.env.SMTP_USER!;
