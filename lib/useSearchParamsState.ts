@@ -18,6 +18,20 @@ export function useSearchParamsState() {
           : new URLSearchParams(next as Record<string, string>);
       const qs = updated.toString();
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+
+      // Smart scroll alignment to the sticky category navigation
+      setTimeout(() => {
+        const el = document.getElementById("product-category-nav");
+        if (el) {
+          const topOffset = parseInt(window.getComputedStyle(el).top) || 0;
+          const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - topOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     },
     [pathname, router],
   );

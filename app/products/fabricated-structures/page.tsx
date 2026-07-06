@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import FabricatedStructures from "@/views/products/FabricatedStructures";
 
 export const metadata: Metadata = {
@@ -16,5 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FabricatedStructures />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+      <FabricatedStructures />
+    </Suspense>
+  );
 }

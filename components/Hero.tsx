@@ -25,6 +25,14 @@ interface Slide {
 }
 
 const SLIDES: Slide[] = [
+  // {
+  //   id: "01",
+  //   category: "About Metallo",
+  //   title: "Your Global Partner for Industrial Manufacturing.",
+  //   desc: "Metallo Manufacturing Technologies connects global industries with a trusted network of certified manufacturers, delivering engineering excellence, quality assurance, and end-to-end industrial supply solutions across steel, fabrication, piping, welding, and infrastructure products.",
+  //   image: SITE_IMAGES.home.hero.steel,
+  //   link: "/about",
+  // },
   {
     id: "01",
     category: "Steel",
