@@ -22,6 +22,7 @@ import { DIE_CASTING_IMAGES } from './images/dieCasting';
 import { INDUSTRIAL_TECH_IMAGES } from './images/industrialTech';
 import { FABRICATED_STRUCTURES_IMAGES } from './images/fabricated';
 import { PROCESS_EQUIPMENTS_IMAGES } from './images/processEquipments';
+import { FUTURE_ASPECTS_IMAGES } from './images/futureAspects';
 import { CABLE_TRAY_IMAGES } from './images/cableTrays';
 import { WIRE_CABLE_IMAGES } from './images/wireCables';
 
@@ -38,6 +39,7 @@ export const SITE_IMAGES = {
   industrialTech:        INDUSTRIAL_TECH_IMAGES,
   fabricatedStructures:  FABRICATED_STRUCTURES_IMAGES,
   processEquipments:     PROCESS_EQUIPMENTS_IMAGES,
+  futureAspects:         FUTURE_ASPECTS_IMAGES,
   cableTrays:            CABLE_TRAY_IMAGES,
   wireCables:            WIRE_CABLE_IMAGES,
 } as const;

@@ -35,6 +35,14 @@ const SLIDES: Slide[] = [
   // },
   {
     id: "01",
+    category: "Next-Gen Expansion",
+    title: "Next-Gen Industrial Expansion.",
+    desc: "Intelligent robotics, custom aerospace components, and autonomous tactical systems in the defence sector. Engineering the future at Metallo.",
+    image: SITE_IMAGES.futureAspects.banner,
+    link: "/future-aspects",
+  },
+  {
+    id: "02",
     category: "Steel",
     title: "Infinite Capacity. Standardized Quality.",
     desc: "Access India's largest aggregated network of IS:2062 compliant steel mills. Heavy engineering, delivered on demand through our Distributed Manufacturing OS.",
@@ -42,7 +50,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.steel.path,
   },
   {
-    id: "02",
+    id: "03",
     category: "Wire & Cable",
     title: "Powering the National Grid.",
     desc: "A unified manufacturing ecosystem for high-voltage transmission up to 33kV. 100% batch-tested at our Central QC Hub for zero downtime.",
@@ -50,7 +58,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.cables.path,
   },
   {
-    id: "03",
+    id: "04",
     category: "Cable Trays",
     title: "Structural Routing Systems",
     desc: "A unified manufacturing ecosystem for high-voltage transmission and heavy-duty Cable Trays & Supports. 100% batch-tested at our Central QC Hub.",
@@ -58,7 +66,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.cabletray.path,
   },
   {
-    id: "04",
+    id: "05",
     category: "Welding Consumables",
     title: "Mission-Critical Precision.",
     desc: "AWS-certified alloys manufactured across our audited, asset-light network. Strict SOPs deployed for flawless high-stress industrial joints.",
@@ -66,7 +74,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.welding.path,
   },
   {
-    id: "05",
+    id: "06",
     category: "Power Tools",
     title: "Heavy-Duty Execution at Scale.",
     desc: "Industrial-grade tools built for uncompromising safety. Sourced, standardized, and certified through our globally compliant vendor network.",
@@ -74,7 +82,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.tools.path,
   },
   {
-    id: "06",
+    id: "07",
     category: "Process Piping",
     title: "Process Flow Systems.",
     desc: "Fabricated piping packages, modular skids, and bends. Engineered and tested for mission-critical industrial flow networks.",
@@ -82,7 +90,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.processPiping.path,
   },
   {
-    id: "07",
+    id: "08",
     category: "Fabricated Structures",
     title: "Engineered Steel Systems.",
     desc: "From PEB frameworks to heavy workshop fabrication. End-to-end structural solutions built for rapid assembly and lifetime durability.",
@@ -90,7 +98,7 @@ const SLIDES: Slide[] = [
     link: PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path,
   },
   {
-    id: "08",
+    id: "09",
     category: "Process Equipments",
     title: "EquipWorks Series.",
     desc: "High-pressure heat exchangers, waste heat boilers, and custom pressure vessels. Engineered for critical refining, petrochemical, and power applications.",
@@ -244,6 +252,9 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-[1] bg-slate-900/60" />
       {/* Bottom vignette for track nav readability */}
       <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+
+      {/* Clickable background overlay link */}
+      <Link href={slide.link} className="absolute inset-0 z-[3] cursor-pointer" aria-hidden="true" />
 
       {/* ── Content ── */}
       <div className="relative container z-10 flex flex-col justify-center h-full pt-[5%] pb-[10%]">
