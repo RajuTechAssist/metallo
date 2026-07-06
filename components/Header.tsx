@@ -254,7 +254,7 @@ const Header: React.FC = () => {
               </div>
 
               <div className="flex-1 md:border-l md:border-white/10 md:pl-[clamp(2rem,5vw,4rem)] pl-[clamp(0.5rem,2vw,1rem)] pt-[clamp(0.5rem,1.5vw,1rem)] pb-[clamp(1rem,3vw,2rem)]">
-                <h3 className="text-[clamp(0.625rem,0.9vw,0.75rem)] font-bold text-white uppercase tracking-wider mb-[clamp(1rem,3vw,2rem)] font-heading">
+                <h3 className="text-[clamp(0.8125rem,1.1vw,1rem)] font-bold text-white/60 uppercase tracking-widest mb-[clamp(1rem,3vw,2rem)] font-heading">
                   Products
                 </h3>
                 <div className="flex flex-col space-y-[clamp(0.5rem,1.5vw,1rem)]">
