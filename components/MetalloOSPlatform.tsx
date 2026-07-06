@@ -129,7 +129,7 @@ const MetalloOSPlatform: React.FC = () => {
     >
       <div className="container">
         {/* Section Header */}
-        <div className="mb-10 text-center md:text-left">
+        <div className="mb-10 text-left">
           <span className="text-metallo-navy/70 font-bold uppercase tracking-widest text-sm block mb-2 font-heading">
             Metallo AI Platform
           </span>

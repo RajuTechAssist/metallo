@@ -67,7 +67,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer />
               <InquiryBasket />
-              <SocialSidebar />
+              {/* <SocialSidebar /> */}
             </div>
           </Suspense>
         </QuoteProvider>
