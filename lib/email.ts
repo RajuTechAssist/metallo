@@ -101,6 +101,14 @@ const userEmailHtml = (p: EnquiryPayload) => `
   </div>`;
 
 const transporter = getTransporter();
+transporter
+  .verify()
+  .then(() => {
+    console.log("SMTP server is ready");
+  })
+  .catch((err) => {
+    console.error("SMTP configuration error:", err);
+  });
 export async function sendEnquiryEmails(payload: EnquiryPayload) {
   const fromAddress = `Metallo Industrial <${process.env.SMTP_USER}>`;
   const ownerTo = process.env.OWNER_EMAIL || process.env.SMTP_USER!;
