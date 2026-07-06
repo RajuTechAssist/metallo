@@ -2,11 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
+import { CONTAINER } from "../components/product/productLayout";
 
 const MetalloSymbol: React.FC = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden border-t border-slate-200" id="metallo-symbol">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-white overflow-hidden">
+      <div className={CONTAINER}>
         <div className="mb-12">
           <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">
             The Metallo Symbol
@@ -39,8 +40,8 @@ const MetalloSymbol: React.FC = () => {
           <div className="flex-grow">
             <div className="space-y-6 text-gray-600 max-w-3xl">
               <p>
-                At the heart of the Metallo identity lies a simple yet
-                powerful symbol &mdash;{" "}
+                At the heart of the Metallo identity lies a simple yet powerful
+                symbol &mdash;{" "}
                 <strong className="text-metallo-navy font-semibold">
                   the Circular Railway Track.
                 </strong>
@@ -65,9 +66,9 @@ const MetalloSymbol: React.FC = () => {
                   </strong>
                   <span className="text-sm">
                     From raw material sourcing to finished infrastructure,
-                    Metallo supports every stage of the industrial lifecycle &mdash;
-                    creating a complete, end-to-end ecosystem for engineered
-                    metal solutions.
+                    Metallo supports every stage of the industrial lifecycle
+                    &mdash; creating a complete, end-to-end ecosystem for
+                    engineered metal solutions.
                   </span>
                 </li>
                 <li className="bg-gray-50 p-4 rounded border border-gray-100 shadow-sm">
@@ -76,8 +77,8 @@ const MetalloSymbol: React.FC = () => {
                   </strong>
                   <span className="text-sm">
                     Just as a train on a continuous track never stops moving,
-                    Metallo ensures a resilient supply chain that keeps
-                    projects progressing without disruption.
+                    Metallo ensures a resilient supply chain that keeps projects
+                    progressing without disruption.
                   </span>
                 </li>
                 <li className="bg-gray-50 p-4 rounded border border-gray-100 shadow-sm sm:col-span-2">
@@ -87,9 +88,8 @@ const MetalloSymbol: React.FC = () => {
                   <span className="text-sm">
                     Like a railway network connecting cities and industries,
                     Metallo connects multiple industrial verticals &mdash; from
-                    steel and structural components to electrical
-                    infrastructure and industrial tools &mdash; into a unified
-                    platform.
+                    steel and structural components to electrical infrastructure
+                    and industrial tools &mdash; into a unified platform.
                   </span>
                 </li>
               </ul>

@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from "@/lib/useLocation";
 import Hero from '../components/Hero';
 import About from '../components/About';
-import MetalloSymbol from '../components/MetalloSymbol';
 import Verticals from '../components/Verticals';
 import MetalloOSPlatform from '../components/MetalloOSPlatform';
 import WorldMap from '../components/WorldMap';
@@ -31,13 +30,15 @@ const Home: React.FC = () => {
 
   return (
     <>
+      {/* Who we are → What we do → Who we serve → Where we operate → What we
+      manufacture → Why we're different → Contact us. */}
       <Hero />
       <About />
-      <MetalloSymbol />
+      {/* <MetalloSymbol /> */}
       <Industries />
+      <WorldMap />
       <Verticals />
       <MetalloOSPlatform />
-      <WorldMap />
       {/* <Certifications /> */}
     </>
   );

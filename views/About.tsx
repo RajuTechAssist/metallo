@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
 import { SITE_IMAGES } from '@/config/images';
 import MetalloModel from '../components/MetalloModel';
+import MetalloSymbol from "../components/MetalloSymbol";
 
 const About: React.FC = () => {
   return (
@@ -123,7 +124,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
-
+      <MetalloSymbol />
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6: THE METALLO MODEL
           ═══════════════════════════════════════════════════════════ */}
