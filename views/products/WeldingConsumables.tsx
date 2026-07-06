@@ -35,7 +35,21 @@ const WeldingPageContent: React.FC = () => {
     if (id === "overview") {
       router.push("/products/welding", { scroll: true });
     } else {
-      router.push(`/products/welding?category=${id}`, { scroll: true });
+      router.push(`/products/welding?category=${id}`, { scroll: false });
+      
+      // Smart scroll alignment to the sticky category navigation
+      setTimeout(() => {
+        const el = document.getElementById("product-category-nav");
+        if (el) {
+          const topOffset = parseInt(window.getComputedStyle(el).top) || 0;
+          const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - topOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     }
   };
 
@@ -44,7 +58,10 @@ const WeldingPageContent: React.FC = () => {
       <WeldingHero />
 
       {/* ═══ STICKY SECTION NAV ════════════════════════════════════ */}
-      <nav className="sticky top-[30px] lg:top-[50px] z-40 bg-white border-b border-slate-200 shadow-sm">
+      <nav
+        id="product-category-nav"
+        className="sticky top-[30px] lg:top-[50px] z-40 bg-white border-b border-slate-200 shadow-sm"
+      >
         <div className="container">
           <div className="flex items-center justify-between">
             <div
