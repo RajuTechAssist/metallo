@@ -74,11 +74,12 @@ const Footer: React.FC = () => {
     setTimeout(() => setStatus("idle"), 5000);
   };
   const topLinks = [
+    { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
+    // { name: "Certifications", path: "/?section=certifications" },
     { name: "Why Metallo", path: "/why-metallo" },
     { name: "Contact Us", path: "/contact" },
-  ];
-
+  ] as const;
   return (
     <footer className="bg-metallo-navy text-white mt-auto">
       {/* Yellow CTA Strip */}
@@ -260,6 +261,12 @@ const Footer: React.FC = () => {
             <Link href="/about" className="hover:text-white transition-colors">
               About Us
             </Link>
+            {/* <Link
+              href="/?section=certifications"
+              className="hover:text-white transition-colors"
+            >
+              Certifications
+            </Link> */}
             <Link href="/why-metallo" className="hover:text-white transition-colors">
               Why Metallo
             </Link>

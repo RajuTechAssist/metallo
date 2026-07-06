@@ -5,6 +5,7 @@ import { useLocation } from "@/lib/useLocation";
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Verticals from '../components/Verticals';
+import MetalloOSPlatform from '../components/MetalloOSPlatform';
 import WorldMap from '../components/WorldMap';
 import Industries from '../components/Industries';
 import Certifications from '../components/Certifications';
@@ -29,11 +30,15 @@ const Home: React.FC = () => {
 
   return (
     <>
+      {/* Who we are → What we do → Who we serve → Where we operate → What we
+      manufacture → Why we're different → Contact us. */}
       <Hero />
       <About />
+      {/* <MetalloSymbol /> */}
       <Industries />
-      <Verticals />
       <WorldMap />
+      <Verticals />
+      <MetalloOSPlatform />
       {/* <Certifications /> */}
     </>
   );

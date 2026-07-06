@@ -8,6 +8,7 @@ import { HEADER_PRODUCT_VERTICALS } from "@/lib/productVerticals";
 import { SOCIAL_ICONS } from "@/lib/socialIcons";
 
 const TOP_LINKS = [
+  { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   // { name: "Certifications", path: "/?section=certifications" },
   { name: "Why Metallo", path: "/why-metallo" },
@@ -80,7 +81,6 @@ const Header: React.FC = () => {
                       new URLSearchParams(location.search).get("section") ===
                         "certifications"
                     : location.pathname === link.path;
-
                   return (
                     <Link
                       key={link.name}
@@ -235,7 +235,6 @@ const Header: React.FC = () => {
                       new URLSearchParams(location.search).get("section") ===
                         "certifications"
                     : location.pathname === link.path;
-
                   return (
                     <Link
                       key={link.name}
@@ -283,7 +282,7 @@ const Header: React.FC = () => {
 
           <div className="p-[clamp(1rem,3vw,2rem)] md:px-[clamp(2rem,5vw,4rem)] border-t border-white/10 mt-auto bg-metallo-navy z-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-[clamp(1rem,2vw,1.5rem)]">
-              <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
+              {/* <div className="flex gap-[clamp(1rem,2vw,1.5rem)]">
                 <Link
                   href="/contact"
                   onClick={() => setIsMenuOpen(false)}
@@ -291,7 +290,7 @@ const Header: React.FC = () => {
                 >
                   Contact
                 </Link>
-              </div>
+              </div> */}
 
               <div className="flex gap-[clamp(0.5rem,1.5vw,1rem)] items-center">
                 {SOCIAL_ICONS.map((icon) => (

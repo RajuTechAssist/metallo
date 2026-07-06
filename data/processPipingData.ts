@@ -158,9 +158,9 @@ export const PROCESS_PIPING_PAGE_DATA: ConfigurableProductPageData = {
       subCategory: "Large-Diameter Fabrication",
       name: "Facility for Heavy Fabrication",
       description:
-        "Metallo's heavy fabrication facility is dedicated to renewable-power and heavy piping work, producing wind turbine towers, industrial stacks, pressure vessels, steel fabrication, and LSAW pipe structures.",
+        "Metallo's heavy fabrication facility is dedicated to providing comprehensive piping solutions for the oil & gas, petrochemical, power generation, refinery, and MEP industries. Our capabilities include heavy piping fabrication, industrial stacks, pressure vessels, structural steel fabrication, and LSAW pipe structures, delivering engineered solutions for complex industrial projects.",
       image: SITE_IMAGES.processPiping.products.heavyFabrication,
-      applications: ["Renewable Power", "Industrial Stacks", "Pressure Equipment", "Large Pipe Structures"],
+      applications: ["Oil & Gas", "Petrochemical", "Power Plants", "Refineries", "MEP Projects"],
       badges: [{ label: "Large Diameter", tone: "accent" }],
       specifications: [
         {

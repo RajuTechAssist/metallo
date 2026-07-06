@@ -11,6 +11,7 @@ export const HOME_IMAGES = {
     powerTools:          '/powerTools/power_tool.jpg',
     processPiping:       '/pipes/piping_solution4.jpg',
     fabricatedStructures: '/fabricated-structures/fabricated_structure2.png',
+    processEquipments: '/process-equipments/process_equipments_hero.jpg',
     // dieCasting:       '/diecasting/die-casting-process-foundry.jpg',
     // industrialTech:   '/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg',
   },
@@ -30,6 +31,7 @@ export const HOME_IMAGES = {
     powerTools: '/powerTools/powerTools1.png',
     processPiping: '/pipes/piping_solution4.jpg',
     fabricatedStructures: '/Steel/verticals_fabricated_structure1.jpg',
+    processEquipments: '/process-equipments/process_equipments_hero.jpg',
   },
 
   partners: {

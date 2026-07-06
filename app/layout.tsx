@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | METALLO Industrial",
   },
   description:
-    "Industrial manufacturing and supply chain solutions provider. Steel, wire & cables, cable trays, welding consumables, power tools, pipes and fabricated structures.",
+    "Industrial manufacturing and supply chain solutions provider. Steel, wire & cables, cable trays, welding consumables, power tools, pipes, fabricated structures, and process equipments.",
   keywords: [
     "industrial supply",
     "steel manufacturing",
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     "industrial India",
     "global infrastructure",
     "Metallo",
+    "process equipment",
   ],
   authors: [{ name: "Metallo Industrial" }],
   icons: { icon: "/favicon.svg" },
@@ -66,7 +67,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer />
               <InquiryBasket />
-              <SocialSidebar />
+              {/* <SocialSidebar /> */}
             </div>
           </Suspense>
         </QuoteProvider>

@@ -283,4 +283,10 @@ export const VERTICAL_CERT_DATA: Record<string, VerticalCertData> = {
       { name: "JMC Projects", logo: "/partners/jmc-projects.svg" },
     ],
   },
+
+  /* ---- Process Equipments ---- */
+  processEquipments: {
+    certifications: [ASME, ISO_9001, ISO_3834, EN_10204, ISO_14001, ISO_45001],
+    partners: [],
+  },
 };

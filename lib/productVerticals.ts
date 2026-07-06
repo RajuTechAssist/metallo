@@ -126,6 +126,22 @@ export const PRODUCT_VERTICALS: ProductVerticalConfig[] = [
       "Workshop Structural Fabrication",
     ],
   },
+  {
+    key: "processEquipments",
+    name: "Process Equipments",
+    path: "/products/process-equipments",
+    icon: "engineering",
+    showInHeader: true,
+    showInShowcase: true,
+    showcaseTitle: "Metallo Process Equipments",
+    showcaseSubtitle: "Critical Process Solutions",
+    showcaseImage: SITE_IMAGES.home.verticals.processEquipments,
+    showcasePoints: [
+      "High-Pressure Heat Exchangers",
+      "Waste Heat Boilers & Drums",
+      "Power Plant Heat Transfer",
+    ],
+  },
   // {
   //   key: "casting",
   //   name: "Die Casting",
