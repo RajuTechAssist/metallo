@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 export interface EnquiryPayload {
   lookingFor: string;
@@ -16,34 +16,47 @@ export interface EnquiryPayload {
 }
 
 const LOOKING_FOR_LABELS: Record<string, string> = {
-  'structural-steel': 'Structural Steel / TMT',
-  'wire-cable': 'Wire & Cable (Industrial)',
-  'welding': 'Welding Consumables',
-  'power-tools': 'Power Tools',
-  'die-casting': 'Die Casting Services',
-  'tech-automation': 'Tech / Automation',
-  'complete-project': 'Complete Project Supply (Multiple)',
+  "structural-steel": "Structural Steel / TMT",
+  "wire-cable": "Wire & Cable (Industrial)",
+  welding: "Welding Consumables",
+  "power-tools": "Power Tools",
+  "die-casting": "Die Casting Services",
+  "tech-automation": "Tech / Automation",
+  "complete-project": "Complete Project Supply (Multiple)",
 };
 
 const escapeHtml = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+  s.replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ]!,
+  );
 
 const getTransporter = () => {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
-  if (!user || !pass) {
-    throw new Error('Missing GMAIL_USER or GMAIL_APP_PASSWORD environment variables.');
+  const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } =
+    process.env;
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+    throw new Error(
+      "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
+    );
   }
   return nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user, pass },
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT),
+    secure: SMTP_SECURE === "true",
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
   });
 };
 
 const ownerEmailHtml = (p: EnquiryPayload) => {
   const category = LOOKING_FOR_LABELS[p.lookingFor] || p.lookingFor;
   const row = (label: string, value: string) =>
-    `<tr><td style="padding:8px 12px;background:#F8FAFC;font-weight:600;color:#0F172A;width:180px;border-bottom:1px solid #e5e7eb;">${label}</td><td style="padding:8px 12px;color:#334155;border-bottom:1px solid #e5e7eb;">${escapeHtml(value || '—')}</td></tr>`;
+    `<tr><td style="padding:8px 12px;background:#F8FAFC;font-weight:600;color:#0F172A;width:180px;border-bottom:1px solid #e5e7eb;">${label}</td><td style="padding:8px 12px;color:#334155;border-bottom:1px solid #e5e7eb;">${escapeHtml(value || "—")}</td></tr>`;
 
   return `
   <div style="font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:32px;">
@@ -53,31 +66,31 @@ const ownerEmailHtml = (p: EnquiryPayload) => {
         <p style="margin:4px 0 0;color:#EAB308;font-size:13px;letter-spacing:1px;text-transform:uppercase;">Metallo Industrial</p>
       </div>
       <table style="width:100%;border-collapse:collapse;font-size:14px;">
-        ${row('Looking For', category)}
-        ${row('Full Name', p.fullName)}
-        ${row('Company', p.companyName)}
-        ${row('Work Email', p.workEmail)}
-        ${row('Phone', p.phone)}
-        ${row('Project Location', p.projectLocation || '')}
+        ${row("Looking For", category)}
+        ${row("Full Name", p.fullName)}
+        ${row("Company", p.companyName)}
+        ${row("Work Email", p.workEmail)}
+        ${row("Phone", p.phone)}
+        ${row("Project Location", p.projectLocation || "")}
       </table>
-      ${p.message ? `<div style="padding:16px 32px;border-top:1px solid #e5e7eb;"><p style="margin:0 0 8px;font-weight:600;color:#0F172A;">Message</p><p style="margin:0;color:#334155;white-space:pre-wrap;">${escapeHtml(p.message)}</p></div>` : ''}
-      ${p.attachment ? `<div style="padding:12px 32px;border-top:1px solid #e5e7eb;color:#475569;font-size:13px;">📎 Attachment: ${escapeHtml(p.attachment.filename)}</div>` : ''}
+      ${p.message ? `<div style="padding:16px 32px;border-top:1px solid #e5e7eb;"><p style="margin:0 0 8px;font-weight:600;color:#0F172A;">Message</p><p style="margin:0;color:#334155;white-space:pre-wrap;">${escapeHtml(p.message)}</p></div>` : ""}
+      ${p.attachment ? `<div style="padding:12px 32px;border-top:1px solid #e5e7eb;color:#475569;font-size:13px;">📎 Attachment: ${escapeHtml(p.attachment.filename)}</div>` : ""}
     </div>
   </div>`;
 };
-
+const supportEmail = process.env.SUPPORT_EMAIL ?? process.env.SMTP_USER;
 const userEmailHtml = (p: EnquiryPayload) => `
   <div style="font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:32px;">
     <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
       <div style="background:#0F172A;padding:32px;">
-        <h1 style="margin:0;color:#fff;font-size:24px;font-weight:700;">Thank you, ${escapeHtml(p.fullName.split(' ')[0])}.</h1>
+        <h1 style="margin:0;color:#fff;font-size:24px;font-weight:700;">Thank you, ${escapeHtml(p.fullName.split(" ")[0])}.</h1>
         <p style="margin:8px 0 0;color:#EAB308;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;">Enquiry Received</p>
       </div>
       <div style="padding:32px;color:#334155;font-size:15px;line-height:1.6;">
         <p style="margin:0 0 16px;">We have received your enquiry and our technical sales team is reviewing your requirements.</p>
         <p style="margin:0 0 16px;">A member of our team will reach out to you within <strong style="color:#0F172A;">24 hours</strong> with a tailored proposal and next steps.</p>
         <div style="background:#F8FAFC;border-left:3px solid #EAB308;padding:16px 20px;margin:24px 0;border-radius:4px;">
-          <p style="margin:0;font-size:13px;color:#64748b;">In the meantime, if your enquiry is urgent, you can reach us directly at <a href="mailto:sales@metallo.com" style="color:#0F172A;font-weight:600;">sales@metallo.com</a>.</p>
+          <p style="margin:0;font-size:13px;color:#64748b;">In the meantime, if your enquiry is urgent, you can reach us directly at <a href="mailto:${supportEmail}" style="color:#0F172A;font-weight:600;">${supportEmail}</a>.</p>
         </div>
         <p style="margin:0;color:#64748b;font-size:14px;">Best regards,<br/><strong style="color:#0F172A;">The Metallo Team</strong></p>
       </div>
@@ -87,12 +100,18 @@ const userEmailHtml = (p: EnquiryPayload) => `
     </div>
   </div>`;
 
+const transporter = getTransporter();
 export async function sendEnquiryEmails(payload: EnquiryPayload) {
-  const transporter = getTransporter();
-  const fromAddress = `Metallo Industrial <${process.env.GMAIL_USER}>`;
-  const ownerTo = process.env.OWNER_EMAIL || process.env.GMAIL_USER!;
+  const fromAddress = `Metallo Industrial <${process.env.SMTP_USER}>`;
+  const ownerTo = process.env.OWNER_EMAIL || process.env.SMTP_USER!;
   const attachments = payload.attachment
-    ? [{ filename: payload.attachment.filename, content: payload.attachment.content, contentType: payload.attachment.contentType }]
+    ? [
+        {
+          filename: payload.attachment.filename,
+          content: payload.attachment.content,
+          contentType: payload.attachment.contentType,
+        },
+      ]
     : undefined;
 
   await transporter.sendMail({
@@ -107,7 +126,7 @@ export async function sendEnquiryEmails(payload: EnquiryPayload) {
   await transporter.sendMail({
     from: fromAddress,
     to: payload.workEmail,
-    subject: 'We received your enquiry — Metallo Industrial',
+    subject: "We received your enquiry — Metallo Industrial",
     html: userEmailHtml(payload),
   });
 }
