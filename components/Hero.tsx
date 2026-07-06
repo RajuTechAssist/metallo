@@ -89,6 +89,14 @@ const SLIDES: Slide[] = [
     image: SITE_IMAGES.home.hero.fabricatedStructures,
     link: PRODUCT_VERTICAL_BY_KEY.fabricatedStructures.path,
   },
+  {
+    id: "08",
+    category: "Process Equipments",
+    title: "EquipWorks Series.",
+    desc: "High-pressure heat exchangers, waste heat boilers, and custom pressure vessels. Engineered for critical refining, petrochemical, and power applications.",
+    image: SITE_IMAGES.home.hero.processEquipments,
+    link: PRODUCT_VERTICAL_BY_KEY.processEquipments.path,
+  },
   // {
   //   id: "08",
   //   category: "Die Casting",
