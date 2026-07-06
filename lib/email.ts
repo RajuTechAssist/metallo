@@ -107,7 +107,7 @@ transporter
     console.log("SMTP server is ready");
   })
   .catch((err) => {
-    console.error("SMTP configuration error:", err);
+    console.log("SMTP configuration error:", err);
   });
 export async function sendEnquiryEmails(payload: EnquiryPayload) {
   const fromAddress = `Metallo Industrial <${process.env.SMTP_USER}>`;
