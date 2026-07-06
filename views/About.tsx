@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from "next/link";
 import { CONTAINER } from '../components/product/productLayout';
 import { SITE_IMAGES } from '@/config/images';
+import MetalloModel from '../components/MetalloModel';
 
 const About: React.FC = () => {
   return (
@@ -124,106 +125,9 @@ const About: React.FC = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 6: THE METALLO SYMBOL
+          SECTION 6: THE METALLO MODEL
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className={CONTAINER}>
-          <div className="mb-12">
-            <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">
-              The Metallo Symbol
-            </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-2">
-              The Unbroken Loop of Progress
-            </h2>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center gap-16 justify-between">
-            {/* Globe "O" Symbol from Logo */}
-            <div className="flex-shrink-0 relative group flex flex-col items-center md:items-start lg:ml-12">
-              <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-                <Image
-                  src="/logo-icon.svg"
-                  alt="Metallo Globe Symbol"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-contain animate-spin-slow"
-                />
-              </div>
-              <div className="mt-4">
-                <span className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400">
-                  Continuity in Motion
-                </span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div>
-              <div className="space-y-6 text-gray-600">
-                <p>
-                  At the heart of the Metallo identity lies a simple yet
-                  powerful symbol —{" "}
-                  <strong className="text-metallo-navy">
-                    the Circular Railway Track.
-                  </strong>
-                </p>
-                <p>
-                  In heavy infrastructure, a railway track represents strength,
-                  direction, and engineered precision. But a circular track
-                  carries a deeper meaning:{" "}
-                  <strong className="text-metallo-navy">
-                    continuity without interruption.
-                  </strong>
-                </p>
-                <p>
-                  It reflects Metallo's philosophy of delivering 360-degree
-                  industrial solutions, where every stage of the supply chain is
-                  connected, coordinated, and constantly moving forward.
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                  <li className="bg-gray-50 p-4 rounded border border-gray-100 shadow-sm">
-                    <strong className="block text-metallo-navy font-heading uppercase text-sm mb-1">
-                      The Infinite Cycle
-                    </strong>
-                    <span className="text-sm">
-                      From raw material sourcing to finished infrastructure,
-                      Metallo supports every stage of the industrial lifecycle —
-                      creating a complete, end-to-end ecosystem for engineered
-                      metal solutions.
-                    </span>
-                  </li>
-                  <li className="bg-gray-50 p-4 rounded border border-gray-100 shadow-sm">
-                    <strong className="block text-metallo-navy font-heading uppercase text-sm mb-1">
-                      Uninterrupted Momentum
-                    </strong>
-                    <span className="text-sm">
-                      Just as a train on a continuous track never stops moving,
-                      Metallo ensures a resilient supply chain that keeps
-                      projects progressing without disruption.
-                    </span>
-                  </li>
-                  <li className="bg-gray-50 p-4 rounded border border-gray-100 shadow-sm sm:col-span-2">
-                    <strong className="block text-metallo-navy font-heading uppercase text-sm mb-1">
-                      Boundless Connectivity
-                    </strong>
-                    <span className="text-sm">
-                      Like a railway network connecting cities and industries,
-                      Metallo connects multiple industrial verticals — from
-                      steel and structural components to electrical
-                      infrastructure and industrial tools — into a unified
-                      platform.
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-bold text-metallo-navy mt-6">
-                  The Metallo symbol represents our commitment to delivering
-                  seamless, 360-degree solutions that keep industries moving
-                  forward.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MetalloModel />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 3: THE METALLO PLATFORM ADVANTAGE
@@ -979,117 +883,137 @@ const About: React.FC = () => {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 10: LEADERSHIP — Directors
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50 border-t border-slate-200">
         <div className={CONTAINER}>
+          {/* Header block with selected text preserved */}
           <div className="mb-16">
             <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-3 text-sm font-heading block">
               Leadership
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-6">
               Led by Industry Experts
             </h2>
-            <p className="text-gray-600 text-lg mb-4">
-              Metallo is guided by leaders with extensive experience across
-              heavy infrastructure, energy systems, and industrial
-              manufacturing. Having worked directly within high-stakes
-              industries where reliability and precision are critical, our
-              directors built Metallo to solve real supply chain challenges
-              faced by engineers, contractors, and infrastructure developers.
-            </p>
-            <p className="text-gray-600 text-lg">
-              Their combined expertise in engineering, project execution, and
-              industrial procurement shapes Metallo's mission to deliver
-              dependable metal solutions for global infrastructure and
-              manufacturing projects.
-            </p>
+            <div className="space-y-4 text-gray-600 text-base leading-relaxed">
+              <p>
+                Metallo is guided by leaders with extensive experience across
+                heavy infrastructure, energy systems, and industrial
+                manufacturing. Having worked directly within high-stakes
+                industries where reliability and precision are critical, our
+                directors built Metallo to solve real supply chain challenges
+                faced by engineers, contractors, and infrastructure developers.
+              </p>
+              <p>
+                Their combined expertise in engineering, project execution, and
+                industrial procurement shapes Metallo's mission to deliver
+                dependable metal solutions for global infrastructure and
+                manufacturing projects.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-            {/* Leader 1 — Vinay */}
-            <div className="group relative bg-white border border-gray-100 shadow-xl rounded-sm overflow-hidden flex flex-col md:flex-row">
-              <div className="w-full md:w-1/3 bg-gray-200 min-h-[250px] relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1584531979583-18c5c4b25efc?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Vinay"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
-                  <h3 className="text-2xl font-bold font-heading text-white">
-                    Vinay Chadha
-                  </h3>
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/80">
-                    Director
-                  </p>
+          {/* Leadership Layout from Slide 9 */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Left Card: Built for mission-critical industry */}
+            <div className="lg:col-span-1 bg-metallo-navy text-white rounded-3xl p-8 md:p-10 shadow-xl border border-slate-800 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-metallo-gold via-metallo-gold-hover to-metallo-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              
+              <div>
+                {/* Shield Icon */}
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8 border border-white/5">
+                  <span className="material-symbols-outlined text-metallo-gold text-2xl">
+                    security
+                  </span>
                 </div>
+                
+                <h3 className="text-2xl font-bold font-heading text-white mb-4">
+                  Built for mission-critical industry
+                </h3>
+                
+                <p className="text-slate-300 text-sm italic leading-relaxed font-serif mb-8">
+                  "Our leadership stems from Oil &amp; Gas sectors where failure is not an option."
+                </p>
               </div>
-              <div className="p-8 w-full md:w-2/3">
-                <span className="material-symbols-outlined text-4xl text-gray-300 mb-4">
-                  format_quote
+
+              {/* Badges */}
+              <div className="flex flex-wrap gap-2.5 pt-4 border-t border-white/10">
+                <span className="bg-white/5 text-slate-300 border border-white/10 text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full font-heading font-semibold">
+                  Oil &amp; Gas
                 </span>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  With over 15 years of experience in heavy infrastructure and
-                  oil & gas projects, Vinay Chadha brings deep strategic insight
-                  into large-scale industrial operations. His experience across
-                  critical infrastructure sectors has shaped Metallo's vision of
-                  building a resilient and dependable industrial supply network
-                  capable of supporting high-value engineering projects.
-                </p>
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                  Understanding that even a minor delay in sectors like energy
-                  and infrastructure can result in significant financial impact,
-                  he focuses on strengthening Metallo's supply chain reliability
-                  and production scalability.
-                </p>
-                <p className="text-metallo-navy font-bold font-heading text-lg">
-                  "We don't just manufacture products; we engineer certainty for
-                  critical infrastructure."
-                </p>
+                <span className="bg-white/5 text-slate-300 border border-white/10 text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full font-heading font-semibold">
+                  Power &amp; Energy
+                </span>
+                <span className="bg-white/5 text-slate-300 border border-white/10 text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full font-heading font-semibold">
+                  Heavy Manufacturing
+                </span>
+                <span className="bg-white/5 text-slate-300 border border-white/10 text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full font-heading font-semibold">
+                  Global EPC Delivery
+                </span>
               </div>
             </div>
 
-            {/* Leader 2 — Anand Kumar */}
-            <div className="group relative bg-white border border-gray-100 shadow-xl rounded-sm overflow-hidden flex flex-col md:flex-row">
-              <div className="w-full md:w-1/3 bg-gray-200 min-h-[250px] relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1584531979583-18c5c4b25efc?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Anand Kumar"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 z-10">
-                  <h3 className="text-2xl font-bold font-heading text-white">
-                    Anand Kumar
-                  </h3>
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/80">
-                    Director
-                  </p>
+            {/* Right Side: 2x2 Grid of 4 Directors */}
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Leader 1: Vinay Chadha */}
+              <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
+                <div className="relative w-20 h-20 flex items-center justify-center mb-4">
+                  <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
+                  <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
+                    VC
+                  </div>
                 </div>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy mb-1">
+                  Vinay Chadha
+                </h4>
+                <p className="text-xs font-bold text-metallo-gold-hover uppercase tracking-wider">
+                  Founder &amp; Director &middot; Metallo Global
+                </p>
               </div>
-              <div className="p-8 w-full md:w-2/3">
-                <span className="material-symbols-outlined text-4xl text-gray-300 mb-4">
-                  format_quote
-                </span>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  Anand Kumar brings more than 15 years of technical and
-                  operational experience across HVAC and industrial
-                  manufacturing sectors. His deep understanding of material
-                  performance, engineering standards, and industrial fabrication
-                  processes drives Metallo's commitment to precision and product
-                  reliability.
+
+              {/* Leader 2: Anand Kumar */}
+              <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
+                <div className="relative w-20 h-20 flex items-center justify-center mb-4">
+                  <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
+                  <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
+                    AK
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy mb-1">
+                  Anand Kumar
+                </h4>
+                <p className="text-xs font-bold text-metallo-gold-hover uppercase tracking-wider">
+                  Co-Founder &amp; Director &middot; Metallo Global
                 </p>
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                  With expertise spanning material sciences and industrial
-                  engineering, he plays a key role in maintaining the technical
-                  integrity and quality assurance standards that define
-                  Metallo's manufacturing ecosystem.
+              </div>
+
+              {/* Leader 3: Aayuush Ahuja */}
+              <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
+                <div className="relative w-20 h-20 flex items-center justify-center mb-4">
+                  <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
+                  <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
+                    AA
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy mb-1">
+                  Aayuush Ahuja
+                </h4>
+                <p className="text-xs font-bold text-metallo-gold-hover uppercase tracking-wider">
+                  Co-Founder &amp; Director &middot; Metallo India
                 </p>
-                <p className="text-metallo-navy font-bold font-heading text-lg">
-                  "In infrastructure and energy projects, safety and reliability
-                  are non-negotiable. That is the standard we deliver every
-                  day."
+              </div>
+
+              {/* Leader 4: Atul Ahuja */}
+              <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
+                <div className="relative w-20 h-20 flex items-center justify-center mb-4">
+                  <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
+                  <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
+                    TA
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold font-heading text-metallo-navy mb-1">
+                  Atul Ahuja
+                </h4>
+                <p className="text-xs font-bold text-metallo-gold-hover uppercase tracking-wider">
+                  Co-Founder &amp; Director &middot; Metallo India
                 </p>
               </div>
             </div>
