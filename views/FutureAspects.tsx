@@ -127,7 +127,7 @@ const FutureAspects: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
             <span className="block text-metallo-gold-hover font-bold uppercase tracking-[0.2em] mb-4 text-sm font-heading">
               Future Verticals
             </span>
@@ -200,7 +200,7 @@ const FutureAspects: React.FC = () => {
                       {product.icon}
                     </span>
                     <span className="text-metallo-gold-hover font-bold uppercase tracking-[0.2em] text-xs font-heading">
-                      Future Aspect {index + 1}
+                      Growth & Innovation {index + 1}
                     </span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-heading font-bold text-metallo-navy mb-2 leading-tight">
@@ -269,7 +269,7 @@ const FutureAspects: React.FC = () => {
           ═══════════════════════════════════════════════════════════ */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-metallo-navy z-0" />
-        <div className="container mx-auto px-4 relative z-10 max-w-4xl text-left">
+        <div className="container mx-auto px-4 relative z-10 max-w-5xl text-left">
           <span className="block text-metallo-gold font-bold uppercase tracking-[0.2em] mb-4 text-sm font-heading">
             Partner With Us
           </span>
@@ -277,7 +277,7 @@ const FutureAspects: React.FC = () => {
             Ready to Build the{" "}
             <span className="text-metallo-gold">Next Generation?</span>
           </h2>
-          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-10 max-w-3xl">
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-10 max-w-5xl">
             Metallo collaborates with defence contractors, aerospace firms, and
             advanced manufacturing plants to design, test, and scale
             next-generation components and robotic automation suites. Share your

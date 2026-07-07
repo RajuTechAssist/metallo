@@ -1007,7 +1007,7 @@ const About: React.FC = () => {
                 <div className="relative w-20 h-20 flex items-center justify-center mb-4">
                   <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
                   <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
-                    TA
+                    AA
                   </div>
                 </div>
                 <h4 className="text-lg font-bold font-heading text-metallo-navy mb-1">

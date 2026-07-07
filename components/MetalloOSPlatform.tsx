@@ -136,7 +136,7 @@ const MetalloOSPlatform: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-metallo-navy mb-3">
             Intelligent Tech Behind Every Transaction
           </h2>
-          <p className="text-gray-600 text-base max-w-3xl">
+          <p className="text-gray-600 text-base max-w-5xl">
             Our proprietary Manufacturing OS standardizes distributed industrial
             assets, enabling Tier-1 procurement with real-time tracking, quality
             assurance, and direct transparency.

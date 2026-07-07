@@ -207,11 +207,11 @@ const Footer: React.FC = () => {
               </form>
             )}
 
-            <div className="text-sm text-gray-400">
+            {/* <div className="text-sm text-gray-400">
               <p className="font-bold text-white mb-1">Registered Office:</p>
               <p>710, Tower A, Emaar Digital Greens,</p>
               <p>Sector 61, Gurgaon, Haryana, India, 122101</p>
-            </div>
+            </div> */}
           </div>
           <div className="grid grid-cols-2 gap-12 justify-between md:gap-20">
             {/* Manufacturer & Supplier of */}
