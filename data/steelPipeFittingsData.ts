@@ -6,7 +6,7 @@ import {
   formatSteelList,
 } from "./steelCatalogUtils";
 
-const STEEL_PIPE_FITTING_IMAGE_DIR = "/Steel/pipe-fittings";
+const STEEL_PIPE_FITTING_IMAGE_DIR = "/products/steel/pipe-fittings";
 
 
 
@@ -45,7 +45,7 @@ const STEEL_PIPE_FITTING_SOURCES: SteelPipeFittingSource[] = [
     slug: "butt-weld",
     name: "Butt Weld Pipe Fittings",
     subCategory: "Butt Weld Fittings",
-    thumbnail: "/Steel/pipe-fittings/butt-weld-fittings-banner.jpg",
+    thumbnail: "/products/steel/pipe-fittings/butt-weld-fittings-banner.jpg",
     sourceUrl: "https://www.sotco.in/pipe-fittings.html",
     descriptionParagraphs: [
       "Metallo's butt weld pipe fitting range is built for permanent piping connections where flow path continuity, weld integrity, and broad material coverage are essential. The sourced family is organized around ASME B16.9 geometry and includes elbows, tees, reducers, bends, stub ends, caps, and crosses for carbon, stainless, alloy, and high-yield service.",
@@ -121,7 +121,7 @@ const STEEL_PIPE_FITTING_SOURCES: SteelPipeFittingSource[] = [
     slug: "forged",
     name: "Forged Pipe Fittings",
     subCategory: "Forged Fittings",
-    thumbnail: "/Steel/pipe-fittings/forged-fittings.jpg",
+    thumbnail: "/products/steel/pipe-fittings/forged-fittings.jpg",
     sourceUrl: "https://www.sotco.in/forged-fittings.html",
     descriptionParagraphs: [
       "Metallo supplies forged pipe fittings for small-bore, high-pressure piping where dense grain flow, compact geometry, and robust threaded or socket-weld connections are required. The sourced range is aligned with ASME B16.11 service and covers elbows, tees, crosses, couplings, caps, unions, plugs, bushings, and swage nipples.",

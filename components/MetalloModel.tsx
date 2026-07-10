@@ -53,7 +53,7 @@ const MetalloModel: React.FC = () => {
             The Distributed Manufacturing OS
           </h2>
           <p className="text-gray-600 text-base max-w-3xl leading-relaxed">
-            We don't build factories &mdash; we orchestrate a borderless network into Tier-1 certified output, on demand.
+            We don&apos;t build factories &mdash; we orchestrate a borderless network into Tier-1 certified output, on demand.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ const MetalloModel: React.FC = () => {
                       {/* Spinning Logo Icon (Large, Dark Navy, matches Metallo Symbol exactly) */}
                       <div className="w-[140px] h-[140px] relative z-10 flex items-center justify-center logo-spin">
                         <img
-                          src="/logo-icon.svg"
+                          src="/brand/logo-icon.svg"
                           alt="Metallo OS Core"
                           className="w-full h-full object-contain"
                         />

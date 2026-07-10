@@ -3,8 +3,15 @@
    Comprehensive product data for Welding Consumables
    ═══════════════════════════════════════════════════════════════ */
 
-import { GAS_SHIELDED_PRODUCTS, SUBMERGED_ARC_PRODUCTS, STAINLESS_PRODUCTS, NICKEL_PRODUCTS } from "./fillerMetalsBatch2";
-import { HARDFACING_PRODUCTS, ALUMINUM_PRODUCTS, CHROME_MOLY_PRODUCTS } from "./fillerMetalsBatch3";
+import {
+  GAS_SHIELDED_PRODUCTS,
+  SUBMERGED_ARC_PRODUCTS,
+  STAINLESS_PRODUCTS,
+  NICKEL_PRODUCTS,
+  HARDFACING_PRODUCTS,
+  ALUMINUM_PRODUCTS,
+  CHROME_MOLY_PRODUCTS,
+} from "./filler-metals";
 
 export interface ConformanceEntry {
   org: string;

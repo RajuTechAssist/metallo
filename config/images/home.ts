@@ -4,16 +4,16 @@ export const HOME_IMAGES = {
 
   /* Hero carousel slides */
   hero: {
-    steel:               '/Steel/oil_industry1.jpg',
-    wireCable:           '/wire&cable/smart_city1.jpg',
-    cableTrays:          '/cable Trays/cable_tray3.jpg',
-    weldingConsumables:  '/Welding Consumables/welding_allied1.jpg',
-    powerTools:          '/powerTools/power_tool.jpg',
-    processPiping:       '/pipes/piping_solution4.jpg',
-    fabricatedStructures: '/fabricated-structures/fabricated_structure2.png',
-    processEquipments: '/process-equipments/process_equipments_hero.jpg',
-    // dieCasting:       '/diecasting/die-casting-process-foundry.jpg',
-    // industrialTech:   '/industrialTech/IIoT-applications-industrial-IoT-applications-robot.jpeg',
+    steel:               '/products/steel/oil_industry1.jpg',
+    wireCable:           '/products/wire-cables/smart_city1.jpg',
+    cableTrays:          '/products/cable-trays/cable_tray3.jpg',
+    weldingConsumables:  '/products/welding/welding_allied1.jpg',
+    powerTools:          '/products/tools/power_tool.jpg',
+    processPiping:       '/products/process-piping/piping_solution4.jpg',
+    fabricatedStructures: '/products/fabricated-structures/fabricated_structure2.png',
+    processEquipments: '/products/process-equipments/process_equipments_hero.jpg',
+    // dieCasting:       '/products/die-casting/die-casting-process-foundry.jpg',
+    // industrialTech:   '/products/industrial-tech/IIoT-applications-industrial-IoT-applications-robot.jpeg',
   },
 
   /* Home About section */
@@ -24,14 +24,14 @@ export const HOME_IMAGES = {
 
   /* Product Verticals showcase section */
   verticals: {
-    steel: '/pipes/piping_solution3.jpg',
-    wireCable: '/vertical_wire_cable.jpg',
-    cableTrays: '/cable Trays/cable_tray2.jpg',
-    weldingConsumables: '/Welding Consumables/welding_allied.jpg',
-    powerTools: '/powerTools/powerTools1.png',
-    processPiping: '/pipes/piping_solution4.jpg',
-    fabricatedStructures: '/Steel/verticals_fabricated_structure1.jpg',
-    processEquipments: '/process-equipments/process_equipments_hero.jpg',
+    steel: '/products/process-piping/piping_solution3.jpg',
+    wireCable: '/home/vertical_wire_cable.jpg',
+    cableTrays: '/products/cable-trays/cable_tray2.jpg',
+    weldingConsumables: '/products/welding/welding_allied.jpg',
+    powerTools: '/products/tools/powerTools1.png',
+    processPiping: '/products/process-piping/piping_solution4.jpg',
+    fabricatedStructures: '/products/steel/verticals_fabricated_structure1.jpg',
+    processEquipments: '/products/process-equipments/process_equipments_hero.jpg',
   },
 
   partners: {

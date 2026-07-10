@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +9,6 @@ import { SOCIAL_ICONS } from "@/lib/socialIcons";
 const TOP_LINKS = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  // { name: "Certifications", path: "/?section=certifications" },
   { name: "Why Metallo", path: "/why-metallo" },
   { name: "Growth & Innovation", path: "/future-aspects" },
   { name: "Contact Us", path: "/contact" },
@@ -79,18 +77,17 @@ const Header: React.FC = () => {
                   const isCertificationsLink = (link.name as string) === "Certifications";
                   const isActive = isCertificationsLink
                     ? location.pathname === "/" &&
-                      new URLSearchParams(location.search).get("section") ===
-                        "certifications"
+                    new URLSearchParams(location.search).get("section") ===
+                    "certifications"
                     : location.pathname === link.path;
                   return (
                     <Link
                       key={link.name}
                       href={link.path}
-                      className={`uppercase transition-colors ${
-                        isActive
-                          ? "text-metallo-navy font-bold"
-                          : "hover:text-metallo-navy"
-                      }`}
+                      className={`uppercase transition-colors ${isActive
+                        ? "text-metallo-navy font-bold"
+                        : "hover:text-metallo-navy"
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -115,7 +112,7 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center">
               <Link href="/" className="flex items-center group" title="METALLO MANUFACTURING TECHNOLOGIES GmbH">
                 <Image
-                  src="/logo.svg"
+                  src="/brand/logo.svg"
                   alt="METALLO MANUFACTURING TECHNOLOGIES GmbH"
                   width={600}
                   height={150}
@@ -154,11 +151,10 @@ const Header: React.FC = () => {
         ) : null}
         <div
           ref={verticalNavRef}
-          className={`hidden md:block w-full bg-white transition-all ${
-            isVerticalNavPinned
-              ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
-              : "relative"
-          }`}
+          className={`hidden md:block w-full bg-white transition-all ${isVerticalNavPinned
+            ? "fixed inset-x-0 top-0 z-50 border-b border-gray-200 shadow-md"
+            : "relative"
+            }`}
         >
           <div className="container">
             <div className="flex justify-between items-center h-[clamp(2.5rem,4vw,3.5rem)]">
@@ -173,11 +169,10 @@ const Header: React.FC = () => {
                     <Link
                       key={vertical.key}
                       href={vertical.path}
-                      className={`whitespace-nowrap text-[clamp(0.6rem,0.72vw,0.72rem)] font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${
-                        isActive
-                          ? "text-metallo-gold underline"
-                          : "text-metallo-navy hover:text-metallo-gold hover:underline"
-                      }`}
+                      className={`whitespace-nowrap text-[clamp(0.6rem,0.72vw,0.72rem)] font-extrabold font-serif uppercase tracking-wider transition-all decoration-2 underline-offset-4 ${isActive
+                        ? "text-metallo-gold underline"
+                        : "text-metallo-navy hover:text-metallo-gold hover:underline"
+                        }`}
                     >
                       {vertical.name}
                     </Link>
@@ -201,9 +196,8 @@ const Header: React.FC = () => {
       </header>
 
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
@@ -233,19 +227,18 @@ const Header: React.FC = () => {
                   const isCertificationsLink = (link.name as string) === "Certifications";
                   const isActive = isCertificationsLink
                     ? location.pathname === "/" &&
-                      new URLSearchParams(location.search).get("section") ===
-                        "certifications"
+                    new URLSearchParams(location.search).get("section") ===
+                    "certifications"
                     : location.pathname === link.path;
                   return (
                     <Link
                       key={link.name}
                       href={link.path}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`text-[clamp(1rem,2.5vw,1.25rem)] md:text-[clamp(1.25rem,2vw,1.5rem)] font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${
-                        isActive
-                          ? "text-metallo-gold border-b-2 border-metallo-gold"
-                          : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
-                      }`}
+                      className={`text-[clamp(1rem,2.5vw,1.25rem)] md:text-[clamp(1.25rem,2vw,1.5rem)] font-bold font-heading uppercase tracking-wide w-fit pb-1 transition-colors ${isActive
+                        ? "text-metallo-gold border-b-2 border-metallo-gold"
+                        : "text-white hover:text-metallo-gold border-b-2 border-transparent hover:border-metallo-gold"
+                        }`}
                     >
                       {link.name}
                     </Link>
@@ -266,11 +259,10 @@ const Header: React.FC = () => {
                         key={vertical.key}
                         href={vertical.path}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${
-                          isActive
-                            ? "text-metallo-gold border-metallo-gold"
-                            : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
-                        }`}
+                        className={`text-base font-sans pb-1 block w-fit transition-all duration-300 border-b ${isActive
+                          ? "text-metallo-gold border-metallo-gold"
+                          : "text-gray-300 hover:text-white hover:translate-x-2 border-transparent hover:border-metallo-gold"
+                          }`}
                       >
                         {vertical.name}
                       </Link>

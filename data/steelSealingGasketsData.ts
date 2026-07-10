@@ -7,7 +7,7 @@ import {
   normalizeSteelList,
 } from "./steelCatalogUtils";
 
-const STEEL_GASKET_IMAGE_DIR = "/Steel/sealing-gaskets";
+const STEEL_GASKET_IMAGE_DIR = "/products/steel/sealing-gaskets";
 const gasketImage = (slug: string) => `${STEEL_GASKET_IMAGE_DIR}/${slug}.png`;
 const typeGallery = (
   title: string,

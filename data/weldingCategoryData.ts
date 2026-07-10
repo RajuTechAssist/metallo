@@ -45,52 +45,52 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB100S-G",
             certifications: ["AWS A5.28: ER100S-G", "BS EN 16834-A: G 62 4 M21 Mn3NiCrMo"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB100S-G.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB100S-G.pdf"
           },
           {
             name: "WB120S-G",
             certifications: ["AWS A5.28: ER120S-G", "BS EN 16834-A: G 89 4 M21 Mn4Ni2CrMo"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB120S-G.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB120S-G.pdf"
           },
           {
             name: "WB6000",
             certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 14341-A: G 46 4 M21 3Si1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6000.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6000.pdf"
           },
           {
             name: "WB6002",
             certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 14341-A: G 46 5 M21 4Si1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6002.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6002.pdf"
           },
           {
             name: "WB6012M",
             certifications: ["AWS A5.28: ER80S-G"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6012M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6012M.pdf"
           },
           {
             name: "WB6013",
             certifications: ["AWS A5.28: ER80S-Ni1", "BS EN ISO 14341-A: G 46 6 M 3 Ni1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6013.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6013.pdf"
           },
           {
             name: "WB6040",
             certifications: ["AWS A5.28: ER80S-Ni2 B", "BS EN ISO 14341-A: G 50 6 M 2 Ni2"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6040.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6040.pdf"
           },
           {
             name: "WB6041E",
             certifications: ["AWS A5.28: ER80S-D2/ER90S-D2", "BS EN ISO 14341-A: G 50 5 M21 4Mo"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6041E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6041E.pdf"
           },
           {
             name: "WB6042",
             certifications: ["AWS A5.28: ER80S-B2", "BS EN ISO 21952-A: G CrMo1Si"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6042.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6042.pdf"
           },
           {
             name: "WB6047P",
             certifications: ["AWS A5.28: ER100S-G"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Steel_Non_&_Low_Alloyed/WB6047P.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/steel-non-low-alloyed/WB6047P.pdf"
           },
         ]
       },
@@ -100,62 +100,62 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB17-4PH",
             certifications: ["AWS A5.9: ER630"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB 17-4PH.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB 17-4PH.pdf"
           },
           {
             name: "WB22-9-3LM",
             certifications: ["AWS A5.9: ER2209", "BS EN ISO 14343-A: G 22 9 3 NL"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB22-9-3LM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB22-9-3LM.pdf"
           },
           {
             name: "WB25-9-3LM",
             certifications: ["AWS A5.9: ER2594", "BS EN ISO 14343-A: G 25 9 4 NL"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB25-9-3LM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB25-9-3LM.pdf"
           },
           {
             name: "WB308HM",
             certifications: ["AWS A5.9: ER308H", "BS EN ISO 14343-A: G 19 9 H"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB308HM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB308HM.pdf"
           },
           {
             name: "WB308LM",
             certifications: ["AWS A5.9: ER308LSi", "BS EN ISO 14343-A: G 19 9 LSi"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB308LM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB308LM.pdf"
           },
           {
             name: "WB309LM",
             certifications: ["AWS A5.9: ER309LSi", "BS EN ISO 14343-A: G 23 12 L Si"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309LM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB309LM.pdf"
           },
           {
             name: "WB309L",
             certifications: ["AWS A5.9: ER309L", "BS EN ISO 14343-A: G 23 12 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309L.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB309L.pdf"
           },
           {
             name: "WB309LMo-M",
             certifications: ["AWS A5.9: ER309LMo", "BS EN ISO 14343-A: G 23 12 2 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB309LMo-M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB309LMo-M.pdf"
           },
           {
             name: "WB310M",
             certifications: ["AWS A5.9: ER310", "BS EN ISO 14343-A: G 25 20"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB310M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB310M.pdf"
           },
           {
             name: "WB316HM",
             certifications: ["AWS A5.9: ER316H", "BS EN ISO 14343-A: G 19 12 3 H"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316HM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB316HM.pdf"
           },
           {
             name: "WB316LM",
             certifications: ["AWS A5.9: ER316LSi", "BS EN 14343-A: G 19 12 3 LSi"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316LM.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB316LM.pdf"
           },
           {
             name: "WB316L",
             certifications: ["AWS A5.9: ER316L", "BS EN 14343-A: G 19 12 3 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Stainless_Steel/WB316L.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/stainless-steel/WB316L.pdf"
           },
         ]
       },
@@ -165,37 +165,37 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB59M",
             certifications: ["AWS A5.14: ERNiCrMo-13", "BS EN ISO 18274: NiCr23Mo16"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB59M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB59M.pdf"
           },
           {
             name: "WB61M",
             certifications: ["AWS A5.14: ERNi-1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB61M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB61M.pdf"
           },
           {
             name: "WB67M",
             certifications: ["AWS A5.7: ERCuNi"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB67M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB67M.pdf"
           },
           {
             name: "WB718M",
             certifications: ["AWS A5.14/A5.14M: ERNiFeCr-2 UNS: N07718"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB718M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB718M.pdf"
           },
           {
             name: "WB82M",
             certifications: ["AWS A5.14: ERNiCr-3", "BS EN ISO 18274: NiCr20Mn3Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB82M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB82M.pdf"
           },
           {
             name: "WB625M",
             certifications: ["AWS A5.14: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WB625M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WB625M.pdf"
           },
           {
             name: "WBC26M",
             certifications: ["AWS A5.7: ERCuNiAl", "BS EN ISO 24373: CuAl9Ni5Fe3Mn2"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MIG_WELDING_WIRE(GMAW)/Nickel_&_Copper_Alloy/WBC26M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mig-gmaw/nickel-copper-alloy/WBC26M.pdf"
           },
         ]
       },
@@ -217,62 +217,62 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB6121",
             certifications: ["AWS A5.29: E81T1-Ni1M/C-JH4", "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5", "AWS A5.36: E81T1-M21A8-Ni1 H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Cu.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6121-Cu.pdf"
           },
           {
             name: "WB6121-SR",
             certifications: ["AWS A5.29: E81T1-Ni1M/C-JH4", "BS EN ISO 17632-A: T50 6 1Ni P M21 1 H5", "AWS A5.36: E81T1-M21A8-Ni1 H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121SR.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6121SR.pdf"
           },
           {
             name: "WB6111E-NG",
             certifications: ["AWS A5.20: E71T-8", "AWS A5.36/A5.36M: E71T8-A2"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6111E-NG.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6111E-NG.pdf"
           },
           {
             name: "WB6111E",
             certifications: ["AWS A5.20-95: E71T1-M/T9M/T-12M JDH4", "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/E71T-1- M WB6111E.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/E71T-1- M WB6111E.pdf"
           },
           {
             name: "WB6114",
             certifications: ["AWS A5.20: E71T1-M/T9M/T-12M JDH4", "E71T1C/T-9C/T-12C DH4", "AWS A5.36: E71T1-M21A4-CS1-DH4 / E71T1-C1A2-C S1-DH4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6114.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6114.pdf"
           },
           {
             name: "WB6121-Mo",
             certifications: ["AWS A5.29: E101T1-K2M-JH4", "BS EN ISO 18276-A: T62 4 Mn1.5Ni P M21 1 H5", "AWS A5.36: E81T1-M21A4-G-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Mo.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6121-Mo.pdf"
           },
           {
             name: "WB6121-Cu",
             certifications: ["AWS A5.29: E81T1-WGM-H4", "BS EN ISO 17632-A: T46 4 Z P M21 1 H5", "AWS A5.36: E81T1-M21A4-G-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6121-Cu.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6121-Cu.pdf"
           },
           {
             name: "WB6123",
             certifications: ["AWS A5.29: E81T1-Ni2M/C-JH4", "BS EN ISO 17632-A: T50 6 2Ni P M21 1 H5", "AWS A5.36: E71T5-M21-A4-CS1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6123.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6123.pdf"
           },
           {
             name: "WB6130",
             certifications: ["AWS A5.20: E71T5-M/C-JH4", "BS EN ISO 17632-A: T42 4 B M21 1 H5", "AWS A5.36: E71T5-M21-A4-CS1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6130.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6130.pdf"
           },
           {
             name: "WB6131",
             certifications: ["AWS A5.36: E91-T5-K4", "BS EN ISO 17632-A: T42 4 B M21 1 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6131.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6131.pdf"
           },
           {
             name: "WB6132",
             certifications: ["AWS A5.29: E110T5-K4M-H4", "BS EN ISO 18276-A: T69 6 Mn2NiCrMo B 4 2 H5", "AWS A5.36: E110T5-M21A8-K4-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6132.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6132.pdf"
           },
           {
             name: "WB6132-R",
             certifications: ["AWS A5.29: E111T1-GM-JH4", "EN ISO 18276-A: T69 6 Mn2NiMo P M21 1 H5", "AWS A5.36: E111T1-M21A8-K3-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Flux_Cored_Non_&_Low_Alloyed/WB6132-R.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/flux-cored-non-low-alloyed/WB6132-R.pdf"
           },
         ]
       },
@@ -282,37 +282,37 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB6105",
             certifications: ["AWS A5.18: E70C-6M-H4", "BS EN ISO 17632-A: T46 6 M M21 1 H5", "AWS A5.36: E70T15-M21A8-CS1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6105.pdf"
           },
           {
             name: "6105-Ni1",
             certifications: ["AWS A5.28: E80C-Ni1H4", "BS EN ISO 17632-A: T50 6 1Ni M M21 1 H5", "AWS A5.36: E80T15-M21A8-Ni1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB Alloys 6105-Ni1.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB Alloys 6105-Ni1.pdf"
           },
           {
             name: "WB6105-NiCu",
             certifications: ["AWS A5.28: E80C-GH4", "BS EN ISO 17632-A: T46 6 Z M M21 1 H5", "AWS A5.36: E81T15-M21A8-GH4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105-NiCu.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6105-NiCu.pdf"
           },
           {
             name: "WB6105-NiMo",
             certifications: ["AWS A5.28: E90C-K3H4", "BS EN ISO 18276-A: T55 6 1NiMo M M21 1 H5", "AWS A5.36: E91T15-M21A8-K1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6105-NiMo.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6105-NiMo.pdf"
           },
           {
             name: "WB6132-MC",
             certifications: ["AWS A5.28: E110C-K4H4", "EN ISO 18276-A: T69 6 Mn2NiCrMo M M21 1 H5", "AWS A5.36: E110T15-M21A8-K4-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6132-MC.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6132-MC.pdf"
           },
           {
             name: "WB6134-MC",
             certifications: ["AWS A5.28: E120C-GH4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6134-MC.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6134-MC.pdf"
           },
           {
             name: "WB6154-MC",
             certifications: ["DIN 8555-83: MSG6-60 + MF10-GF-65-GR"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Metal_Cored_Non_&_Low_Alloyed/WB6154-MC.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/metal-cored-non-low-alloyed/WB6154-MC.pdf"
           },
         ]
       },
@@ -322,32 +322,32 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB6P91",
             certifications: ["AWS A5.29: E91T1-B9MH4", "BS EN ISO 17634-B: T69T1-1M-9C1MV-H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6P91.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WB6P91.pdf"
           },
           {
             name: "WB6602",
             certifications: ["AWS A5.29: E80T5-GM-H4", "BS EN ISO 17634-A: T46 CrMo1 B M21 4 H5", "AWS A5.36: E80T5-G-M21-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6602.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WB6602.pdf"
           },
           {
             name: "WB6602ER",
             certifications: ["AWS A5.29: E81T1-B2M-H4", "BS EN ISO 17634-A: T CrMo1 P M21 1 H5", "AWS A5.36: E81T1-B3C-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6602ER.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WB6602ER.pdf"
           },
           {
             name: "WB6603ER",
             certifications: ["AWS A5.29: E91T1-B3M-H4", "BS EN ISO 17634-A: T CrMo2 P M21 1 H5", "AWS A5.36: E91T1-B3C-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6603ER.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WB6603ER.pdf"
           },
           {
             name: "WB6615ER",
             certifications: ["AWS A5.36: E81T1-B2M"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WB6615ER.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WB6615ER.pdf"
           },
           {
             name: "WBP91-MC",
             certifications: ["AWS A5.28: E90C-B9MH4", "BS EN ISO 17634-B: T69T15-0M-9C1MV-H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Cored_Wire_Creep_Resisting_Steel/WBP91MC.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/cored-wire-creep-resisting-steel/WBP91MC.pdf"
           },
         ]
       },
@@ -357,92 +357,92 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB6308H",
             certifications: ["AWS A5.22: E308HT0-4", "BS EN ISO 17633-A: T 19 9 H"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308H.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6308H.pdf"
           },
           {
             name: "WB6308HP",
             certifications: ["AWS A5.22: E308HT1-1/4", "BS EN ISO 17633-A: T 19 9 H P M21 1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308HP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6308HP.pdf"
           },
           {
             name: "WB6308L",
             certifications: ["AWS A5.22: E308LTO-1/4", "BS EN ISO 17633-A: T 19 9 L R M21 3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308L.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6308L.pdf"
           },
           {
             name: "WB6308LP",
             certifications: ["AWS A5.22: E308LT1-1/4", "BS EN ISO 17633-A: T 19 9 L P M1/C 1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6308LP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6308LP.pdf"
           },
           {
             name: "WB6309L",
             certifications: ["AWS A5.22: E309LTO-1/4", "BS EN ISO 17633-A: T 23 12 L R M21 3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309L.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6309L.pdf"
           },
           {
             name: "WB6309LP",
             certifications: ["AWS A5.22: E309LT1-1/4", "BS EN ISO 17633-A: T 23 12 L P M1/C 1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309LP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6309LP.pdf"
           },
           {
             name: "WB6309LMoP",
             certifications: ["AWS A5.22: E309LMoT1-1/4", "BS EN ISO 17633-A: T 23 12 2 L P M1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6309LMoP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6309LMoP.pdf"
           },
           {
             name: "WB6310",
             certifications: ["AWS A5.22: E310T0-1/4", "BS EN ISO 17633-A: T 25 20 R C1/M21 3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6310.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6310.pdf"
           },
           {
             name: "WB6316HP",
             certifications: ["AWS A5.22: E316T1-1/4", "BS EN ISO 17633-A: T 19 12 3 H P M21 1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316HP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6316HP.pdf"
           },
           {
             name: "WB6316L",
             certifications: ["AWS A5.22: E316LTO-1/4", "BS EN ISO 17633-A: T 19 12 3 L R M3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316L.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6316L.pdf"
           },
           {
             name: "WB6316LP",
             certifications: ["AWS A5.22: E316LT1-1/4", "BS EN ISO 17633-A: T 19 12 3 L P M1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6316LP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6316LP.pdf"
           },
           {
             name: "WB6347",
             certifications: ["AWS A5.22: E347T0-1/4", "BS EN ISO 17633-A: T 19 9 Nb R M3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6347.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6347.pdf"
           },
           {
             name: "WB6347P",
             certifications: ["AWS A5.22: E347T1-1/4", "BS EN ISO 17633-A: T 19 9 Nb P M1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6347P.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6347P.pdf"
           },
           {
             name: "WB6410NiMo",
             certifications: ["AWS A5.22: E410NiMoT0-1/4", "BS EN ISO 17633-A: T 13 4 M M3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6410NiMo.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6410NiMo.pdf"
           },
           {
             name: "WB6410NiMoP",
             certifications: ["AWS A5.22: E410NiMoT1-1/4", "BS EN ISO 17633-A: T 13 4 R C/M1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6410NiMoP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6410NiMoP.pdf"
           },
           {
             name: "WB6625-P",
             certifications: ["BS EN ISO 12153: T Ni6625 P M 2", "AWS A5.34: ENiCrMo3T1-1/4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB6625-P.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB6625-P.pdf"
           },
           {
             name: "WB62293L",
             certifications: ["AWS A5.22: E2209T0-1/4", "BS EN ISO 17633-A: T 22 9 3 N L R"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB62293L.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB62293L.pdf"
           },
           {
             name: "WB62293LP",
             certifications: ["AWS A5.22-95: E2209T1-1/4", "BS EN ISO 17633-A: T 22 9 3 N L P"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/FLUX_CORE_WIRE_WELDING(FCAW)/Stainless_Steel_Cored_Wires/WB62293LP.pdf"
+            datasheetUrl: "/products/welding/datasheets/fcaw/stainless-steel-cored-wires/WB62293LP.pdf"
           },
           {
             name: "WB62593L",
@@ -472,52 +472,52 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB6500",
             certifications: ["AWS A5.18: ER70S-6", "BS EN ISO 636-A: W42 3 W3Si1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6500.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6500.pdf"
           },
           {
             name: "WB6510",
             certifications: ["AWS A5.18: ER70S-2"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6510.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6510.pdf"
           },
           {
             name: "WB6513",
             certifications: ["AWS A5.28: ER80S-Ni1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6513.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6513.pdf"
           },
           {
             name: "WB6541",
             certifications: ["AWS A5.28: ER80S-G (A1)", "BS EN ISO 21952-A: G MoSi"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6541.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6541.pdf"
           },
           {
             name: "WB6541E",
             certifications: ["AWS A5.28: ER80S-D2 / ER90S-D2"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6541E.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6541E.pdf"
           },
           {
             name: "WB6542T",
             certifications: ["AWS A5.28: ER80S-B2", "BS EN ISO 21952-A: W CrMo1Si"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/Wb6542.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/Wb6542.pdf"
           },
           {
             name: "WB6545",
             certifications: ["AWS A5.28: ER90S-B9", "BS EN ISO 21952-A: W CrMo91"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6545.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6545.pdf"
           },
           {
             name: "WB6546",
             certifications: ["AWS A5.28: ER80S-B8"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6546.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6546.pdf"
           },
           {
             name: "WB6547P",
             certifications: ["AWS A5.28: ER100S-G"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6547P.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6547P.pdf"
           },
           {
             name: "WB6591",
             certifications: ["AWS A5.28: ER90S-G"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Non_&_Low_Alloy_Steel/WB6591.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/non-low-alloy-steel/WB6591.pdf"
           },
         ]
       },
@@ -527,72 +527,72 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB17-4PH",
             certifications: ["AWS A5.9: ER630", "BS EN ISO 636-A: W42 3 W3Si1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB 17-4PH.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB 17-4PH.pdf"
           },
           {
             name: "WB22-9-3LT",
             certifications: ["AWS A5.9: ER2209", "BS EN ISO 14343-A: W 22 9 3 N L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB22-9-3LT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB22-9-3LT.pdf"
           },
           {
             name: "WB25-9-3LT",
             certifications: ["AWS A5.9: ER2594", "BS EN ISO 14343-A: W 25 9 4 N L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB25-9-3LT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB25-9-3LT.pdf"
           },
           {
             name: "WB308HT",
             certifications: ["AWS A5.9: ER308H", "BS EN ISO 14343-A: W 19 9 H"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB308HT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB308HT.pdf"
           },
           {
             name: "WB308LT",
             certifications: ["AWS A5.9: ER308L", "BS EN ISO 14343-A: W 19 9 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB308LT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB308LT.pdf"
           },
           {
             name: "WB309LMoT",
             certifications: ["AWS A5.9: ER309LMo", "BS EN ISO 14343-A: W 23 12 2 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB309LMoT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB309LMoT.pdf"
           },
           {
             name: "WB309LT",
             certifications: ["AWS A5.9: ER309L", "BS EN ISO 14343-A: W 23 12 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB309LT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB309LT.pdf"
           },
           {
             name: "WB310T",
             certifications: ["AWS A5.9: ER310", "BS EN ISO 14343-A: W 25 20"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB310T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB310T.pdf"
           },
           {
             name: "WB316HT",
             certifications: ["AWS A5.9: ER316H", "BS EN ISO 14343-A: W 19 12 3 H"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB316HT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB316HT.pdf"
           },
           {
             name: "WB316LT",
             certifications: ["AWS A5.9: ER316L", "BS EN ISO 14343-A: W 19 12 3 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB316LT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB316LT.pdf"
           },
           {
             name: "WB409NbT",
             certifications: ["AWS A5.9/A5.9M: ER409Nb", "ASME SFA-5.9: ER409Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB409NbT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB409NbT.pdf"
           },
           {
             name: "WB410NiMoT",
             certifications: ["AWS A5.9: ER410NiMo", "BS EN ISO 14343-A: W 13 4 L"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB410NiMoT.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB410NiMoT.pdf"
           },
           {
             name: "WB800H",
             certifications: ["BS EN ISO 14343-A: W 21 33 Mn Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB800H.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB800H.pdf"
           },
           {
             name: "WB625T",
             certifications: ["AWS A5.14/A5.14M: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB625T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB625T.pdf"
           },
         ]
       },
@@ -602,52 +602,52 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB59T",
             certifications: ["AWS A5.14: ERNiCrMo-13"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB59T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB59T.pdf"
           },
           {
             name: "WB61T",
             certifications: ["AWS A5.14: ERNi-1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB61T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB61T.pdf"
           },
           {
             name: "WB617T",
             certifications: ["AWS A5.14: ERNiCoMo-1", "BS EN ISO 18274-A: NiCr22Co12Mo9"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB617T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB617T.pdf"
           },
           {
             name: "WB67T",
             certifications: ["AWS A5.7: ERCuNi"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB67T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB67T.pdf"
           },
           {
             name: "WB718T",
             certifications: ["AWS A5.14/A5.14M: ERNiFeCr-2", "UNS: N07718"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB718T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB718T.pdf"
           },
           {
             name: "WB82T",
             certifications: ["AWS A5.14: ERNiCr-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB82T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB82T.pdf"
           },
           {
             name: "WB90-10CuNi",
             certifications: ["AWS A5.7: ERCuNi10Fe"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WB90_10CuNi.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WB90_10CuNi.pdf"
           },
           {
             name: "WB625T",
             certifications: ["AWS A5.14/A5.14M: ERNiCrMo-3", "BS EN ISO 18274: NiCr22Mo9Nb"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Stainless_Steel_TiG_Wires/WB625T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/stainless-steel-wires/WB625T.pdf"
           },
           {
             name: "WBC27T",
             certifications: ["BS EN ISO 24373: Cu 5410 (CuSn12P)", "EN 14640: CuSn12P"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WBC27T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WBC27T.pdf"
           },
           {
             name: "WBNiCu-7T",
             certifications: ["AWS A5.14: ERNiCu-7", "ASME SFA 5.14"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/TIG_WELDING_(GTAW)/Nickel_&_Copper_Alloy_TIG_Wires/WBNiCu-7T.pdf"
+            datasheetUrl: "/products/welding/datasheets/tig-gtaw/nickel-copper-alloy-wires/WBNiCu-7T.pdf"
           },
         ]
       },
@@ -669,102 +669,102 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "H8",
             certifications: ["AWS A5.5: E11018-G MOD 769", "EN ISO 18275-A: E692ZB3 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/H8.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/H8.pdf"
           },
           {
             name: "WB56S",
             certifications: ["AWS A5.1: E7016-1 H4 R", "BS EN ISO 2560-A: E 42 5 B1 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB56S.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB56S.pdf"
           },
           {
             name: "WB76S",
             certifications: ["AWS A5.5: E7018-G H4R", "BS EN ISO 2560-A: E 50 6 Mn1Ni B 3 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB76S.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB76S.pdf"
           },
           {
             name: "WB2000E",
             certifications: ["AWS A5.1-04: E6013", "BSEN 499-95: E42 AR 1 2 LRS: GRADE 1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2000E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB2000E.pdf"
           },
           {
             name: "WB2024E",
             certifications: ["AWS A5.1: E6013 B", "BS EN ISO 2560-A: E 42 2R12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2024E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB2024E.pdf"
           },
           {
             name: "WB2218E",
             certifications: ["AWS A5.5: E8018-G H4R RCC-M", "MIL-11018-M", "MIL-E-222000/1"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2218E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB2218E.pdf"
           },
           {
             name: "WB2318E",
             certifications: ["AWS A5.5: E9018-M"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2318E AWS ISO[86].pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB2318E AWS ISO[86].pdf"
           },
           {
             name: "WB2518E",
             certifications: ["AWS A5.5: E11018-M H4R", "EN ISO 2560A: E465B32H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB2518E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB2518E.pdf"
           },
           {
             name: "WB7018-1",
             certifications: ["AWS A5.1: E7018-1H4R", "ABS: 4Y", "DNV: 4Y 40H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB7018-1 VP ABS 2025.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB7018-1 VP ABS 2025.pdf"
           },
           {
             name: "WB7018-A1",
             certifications: ["AWS A5.1: E7018-1 H4R", "EN ISO 2560A: E46 2 Mo B3 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB7018-A1.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB7018-A1.pdf"
           },
           {
             name: "WB8016-G",
             certifications: ["AWS A5.5: E8016-G", "BS EN ISO 2560-A: E 50 6 Mn1Ni B 12 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8016-G r1.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB8016-G r1.pdf"
           },
           {
             name: "WB8018-B2",
             certifications: ["AWS A5.5: E8018-B2", "BS EN ISO 3580-A: ECrMo1 B 3 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-B2.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB8018-B2.pdf"
           },
           {
             name: "WB8018-C1",
             certifications: ["AWS A5.5: E8018-C1-H4"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-C1.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB8018-C1.pdf"
           },
           {
             name: "WB8018-C3",
             certifications: ["AWS A5.5: E8018-C3", "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-C3.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB8018-C3.pdf"
           },
           {
             name: "WB8018-W2",
             certifications: ["AWS A5.5: E8018-W2", "BS EN ISO 2560-A: E 46 4 1Ni B 3 2H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB8018-W2.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB8018-W2.pdf"
           },
           {
             name: "WB9018-G",
             certifications: ["AWS A5.5: E9018-G", "BS EN 14700: EFe6 Hv700"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB9018-G.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB9018-G.pdf"
           },
           {
             name: "WB9119E",
             certifications: ["BS EN 14700: EFe6 Hv700"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB9119E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB9119E.pdf"
           },
           {
             name: "WB10018-D2",
             certifications: ["AWS A5.5: E10018-D2-H4 R", "BS EN ISO 18275: E625 MnMo BT 3 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB10018-D2 - 2024.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB10018-D2 - 2024.pdf"
           },
           {
             name: "WB12018-G",
             certifications: ["AWS A5.5: E12018-G", "BS EN ISO 18275: E79 4 Mn3.5Ni1CrMo B 4 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB12018-G.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB12018-G.pdf"
           },
           {
             name: "WB12018-M",
             certifications: ["AWS A5.5: E12018-M", "BS EN ISO 18275: E79 4 Mn2Ni1CrMo B 4 2 H5"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Non_&_Low_Alloyed_welding_Electrodes/WB12018-M.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/non-low-alloyed-electrodes/WB12018-M.pdf"
           },
         ]
       },
@@ -774,22 +774,22 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB4404E",
             certifications: ["AWS A5.4: E308L-17", "BS EN ISO 3581-A: E199LR12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4404E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4404E.pdf"
           },
           {
             name: "WB4414E",
             certifications: ["AWS A5.4: E308H-17", "BS EN ISO 3581: E199HR12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4414E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4414E.pdf"
           },
           {
             name: "WB4444E",
             certifications: ["AWS A5.4: E2594-16", "BS EN ISO 3581: E2594NLR"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4444E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4444E.pdf"
           },
           {
             name: "WB4445E",
             certifications: ["AWS A5.4: E2595-16", "BS EN ISO 3581: E2595NLR"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4445E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4445E.pdf"
           },
           {
             name: "WB4405E",
@@ -798,32 +798,32 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB4545E",
             certifications: ["AWS A5.4: E2209-17", "BS EN ISO 3581-A: E2293NLR"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4545E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4545E.pdf"
           },
           {
             name: "WB4545E-15",
             certifications: ["AWS A5.4: E2209-15", "BS EN ISO 3581-A: E2293NLB"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4545E-15.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4545E-15.pdf"
           },
           {
             name: "WB4555E",
             certifications: ["AWS A5.4: E309L-16", "BS EN ISO 3581-A: E2312LR12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4555E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4555E.pdf"
           },
           {
             name: "WB4560E",
             certifications: ["AWS A5.4: E309MoL-17", "BS EN ISO 3581-A: E23122LR12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4560E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4560E.pdf"
           },
           {
             name: "WB4606E",
             certifications: ["AWS A5.4: E312-17", "BS EN ISO 3581-A: E299R12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4606E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4606E.pdf"
           },
           {
             name: "WB4707E",
             certifications: ["AWS A5.4: E310-17", "BS EN ISO 3581: E2520R12"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB4707E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB4707E.pdf"
           },
         ]
       },
@@ -833,12 +833,12 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WB5505E",
             certifications: ["AWS A5.11: ENiCrFe-3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB5505E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB5505E.pdf"
           },
           {
             name: "WB5535E",
             certifications: ["AWS A5.11: ENiCrMo-3", "BS EN ISO 14172: E Ni 6625 (NiCr22Mo9Nb)"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/MMA_Welding(STICK_WELDING)/Stainless_Steel_MMA_Electrodes/WB5535E.pdf"
+            datasheetUrl: "/products/welding/datasheets/mma-stick/stainless-steel-electrodes/WB5535E.pdf"
           },
         ]
       },
@@ -860,27 +860,27 @@ export const CONSUMABLE_CATEGORIES: WeldingMainCategory[] = [
           {
             name: "WBSAWF-B1",
             certifications: ["AWS A5.17: F7A2-EM12K", "AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "DIN 32 522: B FB 165 AC 12", "MHP5 EN760: A AB 167ACH5", "WBS1: AWS A5.17 F7A2-EL12 / BSEN 14171-A: S1", "WBS15Si: AWS A5.17 F7A2-EL12K / BSEN 14171-A: S1Si", "WBS2Si: AWS A5.17 F7A2-EM12K / BSEN 14171-A: S2Si", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B1.pdf"
+            datasheetUrl: "/products/welding/datasheets/saw/wire-and-flux/WBSAWF-B1.pdf"
           },
           {
             name: "WBSAWF-B3",
             certifications: ["AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "AWS A5.23: F7 A10-E Ni1 - Ni1", "F8 A6 - F8 P6 - EA3 - A3", "F8 A2 - F7 P4 - EB2 - B2", "F9P0-EB2-B2, F7P15-ENi3", "F9P2-EG-B3, EB9", "EF5", "F7A4-EM12K", "F7A5-EM12K", "F7A2-EM12K", "DIN 32 522: B FB 155 AC 10 MHP5", "EN 14171: A FB 1 55 AC H 5", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS3 NiCrMo: AWS A5.23: EF5", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3", "WBS2-Ni-3: AWS A5.23: F7P15-ENi3", "WBS2Ni1C: AWS A5.23: EG", "WB5Cr ER50: AWS A5.28: ER80S-B8", "WB9Cr ER50: AWS A5.28: ER90S-B9", "WB9Cr (mod): AWS A5.23: EB91"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B3.pdf"
+            datasheetUrl: "/products/welding/datasheets/saw/wire-and-flux/WBSAWF-B3.pdf"
           },
           {
             name: "WBSAWF-B3SR",
             certifications: ["AWS A5.17: F6 A4 - EM12", "F7 A8 - F7 P8 - EH12K", "AWS A5.23: F7 A10-E Ni1 - Ni1", "F8 A6 - F8 P6 - EA3 - A3", "F8 A2 - F7 P4 - EB2 - B2", "F9P0-EB2-B2, F7P15-ENi3", "F9P2-EG-B3, EB9", "EF5", "F7A4-EM12K", "F7A5-EM12K", "F7A2-EM12K", "DIN 32 522: B FB 155 AC 10 MHP5", "EN 14171: A FB 1 55 AC H 5", "WBS3Si: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD2 1Ni: AWS A5.23: ENi1 F8P6ENi1", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS3 NiCrMo: AWS A5.23: EF5", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3", "WBS2-Ni-3: AWS A5.23: F7P15-ENi3", "WBSONITCu: AWS A5.23: EG", "WB5Cr ER502: AWS A5.28: ER80S-B8", "WB9Cr ER505: AWS A5.28: ER90S-B9", "WB9Cr: AWS A5.23: EB91"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B3SR.pdf"
+            datasheetUrl: "/products/welding/datasheets/saw/wire-and-flux/WBSAWF-B3SR.pdf"
           },
           {
             name: "WBSAWF-B4",
             certifications: ["AWS A5.17: F7 AP8 - EH12K", "AWS A5.23: F8 AP4-EA2-A2", "F8 AP8-EG-G", "F8P2-EB2-B2", "F8P4-EB3-B3", "EN 14174: SA FB 1 55 AC H5", "EN 14171: S 46 6 FB S3S", "S 50 4 FB S2 Mo", "S 50 6 FB S0", "WBSD3: AWS A5.23 F7A8-EG-G, F7P8-EG-G", "WBSD3 1Ni 1/4Mo: AWS A5.23: F8A10-EG-G, F8P10-EG-G", "WBSD3 1Ni 1/2Mo: AWS A5.23: F9A6-EG-G, F9P6-EG-G", "WBSD3Mo: AWS A5.23 F8A6-EG-A4, F8P6EGA4", "WBSD2 1NiCrMo: AWS A5.23: F1-P4-EG-G", "WBS2-1/2Cr1Mo: AWS A5.23: F9P0-EB2-B2", "WBS2-2 1/2Cr1Mo: AWS A5.23: F9P2-EG-B3"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-B4.pdf"
+            datasheetUrl: "/products/welding/datasheets/saw/wire-and-flux/WBSAWF-B4.pdf"
           },
           {
             name: "WBSAWF-SSCR",
             certifications: ["BS EN 14174: S A AF 2 5644 DC H5 TUV /CE", "WB308L-SAW: AWS A5.9: ER308L", "WB253MA-SAW: AWS A5.9: EG", "WB347H-SAW: AWS A5.9: ER347H", "WB316L-SAW: AWS A5.9: ER316L", "WB309L-SAW: AWS A5.9: ER309L", "WB309LMo-SAW: AWS A5.9: ER309LMo", "WB22-9-3L-SAW: AWS A5.9: ER2209", "WB25-9-3L-SAW: AWS A5.9: ER2594"],
-            datasheetUrl: "/Welding Consumables/Consumables_dataSheets/SUBMERGED_ARC_WELDING(SAW)/SAW_WIRE_AND_FLUX/WBSAWF-SSCR.pdf"
+            datasheetUrl: "/products/welding/datasheets/saw/wire-and-flux/WBSAWF-SSCR.pdf"
           },
         ]
       },

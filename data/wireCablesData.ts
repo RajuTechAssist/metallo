@@ -12,7 +12,7 @@ import type { WireCableProduct } from "./wireCablesTypes";
 const LT_CATEGORY = "LT Power & Control Cable";
 const HT_CATEGORY = "HT Power Cable";
 
-const wireImage = (asset: string) => `/wire&cable/${asset}`;
+const wireImage = (asset: string) => `/products/wire-cables/${asset}`;
 export const CATALOGUE_DOWNLOAD = "https://1urnlf5q52zhr3wc.public.blob.vercel-storage.com/Metallo%20Cables%20And%20Wires%20Catalogue.pdf";
 
 const spec = (
@@ -220,8 +220,8 @@ const ltPowerProduct = (input: LTPowerProductOptions): WireCableProduct =>
       routeText: input.routeText,
       protectionText: input.protectionText,
     }),
-    panelImage: `/wire&cable/metallo_cables/${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
-    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
+    panelImage: `/products/wire-cables/metallo_cables/${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
+    thumbnail: `/products/wire-cables/metallo_cables/Cross_Section_${input.name.replace(" & ", "&").replace(/ /g, "_")}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: input.ratedVoltage,
@@ -247,8 +247,8 @@ const ltControlProduct = (input: LTControlProductOptions): WireCableProduct =>
       conductorSize: input.conductorSize,
       armoured: input.armoured,
     }),
-    panelImage: `/wire&cable/metallo_cables/${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
-    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
+    panelImage: `/products/wire-cables/metallo_cables/${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
+    thumbnail: `/products/wire-cables/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}${input.conductorSize === "2.5 sq mm" ? "1" : ""}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: "0.6/1 kV",
@@ -277,8 +277,8 @@ const htProduct = (input: HTProductOptions): WireCableProduct =>
       ratedVoltage: input.ratedVoltage,
       coreFamily: input.coreFamily,
     }),
-    panelImage: `/wire&cable/metallo_cables/${input.name.replace(/ /g, "_")}.png`,
-    thumbnail: `/wire&cable/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}.png`,
+    panelImage: `/products/wire-cables/metallo_cables/${input.name.replace(/ /g, "_")}.png`,
+    thumbnail: `/products/wire-cables/metallo_cables/Cross_Section_${input.name.replace(/ /g, "_")}.png`,
     technicalSpecifications: technicalDetails({
       typeOfCable: input.typeOfCable,
       ratedVoltage: input.ratedVoltage,

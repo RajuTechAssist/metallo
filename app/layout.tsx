@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     title: "METALLO — Powering Global Infrastructure",
     description:
       "Industrial manufacturing and supply chain solutions provider.",
-    images: ["/banner1.jpg"],
+    images: ["/home/banner1.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "METALLO — Powering Global Infrastructure",
     description:
       "Industrial manufacturing and supply chain solutions provider.",
-    images: ["/banner1.jpg"],
+    images: ["/home/banner1.jpg"],
   },
   robots: { index: true, follow: true },
 };

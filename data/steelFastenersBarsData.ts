@@ -6,7 +6,7 @@ import {
   formatSteelList,
 } from "./steelCatalogUtils";
 
-const STEEL_FASTENER_IMAGE_DIR = "/Steel/fasteners-bars";
+const STEEL_FASTENER_IMAGE_DIR = "/products/steel/fasteners-bars";
 
 
 

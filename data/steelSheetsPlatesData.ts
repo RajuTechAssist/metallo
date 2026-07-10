@@ -6,7 +6,7 @@ import {
   formatSteelList,
 } from "./steelCatalogUtils";
 
-const STEEL_SHEETS_PLATES_IMAGE_DIR = "/Steel/sheets-plates/shared";
+const STEEL_SHEETS_PLATES_IMAGE_DIR = "/products/steel/sheets-plates/shared";
 
 
 

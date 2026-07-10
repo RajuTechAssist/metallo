@@ -429,15 +429,15 @@ const InfrastructureConstruction: React.FC = () => {
                             whileInView="visible"
                             viewport={{ once: true, margin: '-40px' }}
                             variants={fadeUp}
-                            className="group rounded-xl overflow-hidden bg-gradient-to-br from-yellow-500 to-yellow-600 shadow-lg h-[360px] flex flex-col items-center justify-center text-center p-8 cursor-pointer hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
+                            className="group rounded-xl overflow-hidden bg-linear-to-br from-yellow-500 to-yellow-600 shadow-lg h-[360px] flex flex-col items-center justify-center text-center p-8 cursor-pointer hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
                         >
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">inventory_2</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Need Something<br />Specific?</h3>
                             <p className="text-sm text-metallo-navy/70 font-sans mb-6">Upload your BOM or drawings and we'll map capacity across our audited partner network.</p>
-                            <button className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
+                            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
                                 Request Custom Quote
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
@@ -650,14 +650,14 @@ const InfrastructureConstruction: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
-                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-white leading-tight mb-6">
                         Ready to streamline your<br />infrastructure procurement?
                     </h2>
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From BOM upload to site delivery — one audited manufacturing ecosystem for your entire project material chain.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                    <Link href="/contact" className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">request_quote</span>
                             Get a Project Quote
@@ -666,7 +666,7 @@ const InfrastructureConstruction: React.FC = () => {
                             <span className="material-symbols-outlined text-xl">fact_check</span>
                             Request Vendor Audit
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

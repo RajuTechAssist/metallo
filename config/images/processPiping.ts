@@ -1,16 +1,16 @@
 /* ─── PROCESS PIPING IMAGES ──────────────────────────────────── */
 
 export const PROCESS_PIPING_IMAGES = {
-  hero: '/pipes/piping_hero1.png',
+  hero: '/products/process-piping/piping_hero1.png',
   products: {
-    shopFabricatedPiping: '/pipes/Shop_Fabricated_Piping1.png',
-    skidModularPiping: '/pipes/skid-modular-piping1.png',
-    inductionBending: '/pipes/induction-bending1.jpg',
-    heavyFabrication: '/pipes/heavy-fabrication1.jpg',
-    pipeFittings: '/pipes/pipe-fittings.jpg',
-    engineeringServices: '/pipes/engineering-services1.jpg',
-    pilotPlant: '/pipes/pilot-plant1.png',
-    qualityControl: '/pipes/quality-control1.jpg',
-    packagingShipping: '/pipes/packaging-shipping1.png',
+    shopFabricatedPiping: '/products/process-piping/Shop_Fabricated_Piping1.png',
+    skidModularPiping: '/products/process-piping/skid-modular-piping1.png',
+    inductionBending: '/products/process-piping/induction-bending1.jpg',
+    heavyFabrication: '/products/process-piping/heavy-fabrication1.jpg',
+    pipeFittings: '/products/process-piping/pipe-fittings.jpg',
+    engineeringServices: '/products/process-piping/engineering-services1.jpg',
+    pilotPlant: '/products/process-piping/pilot-plant1.png',
+    qualityControl: '/products/process-piping/quality-control1.jpg',
+    packagingShipping: '/products/process-piping/packaging-shipping1.png',
   }
 } as const;

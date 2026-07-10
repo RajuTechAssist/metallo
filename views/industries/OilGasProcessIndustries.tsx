@@ -439,10 +439,10 @@ const OilGasProcessIndustries: React.FC = () => {
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">oil_barrel</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Custom Process<br />Equipment?</h3>
                             <p className="text-sm text-metallo-navy/70 font-sans mb-6 max-w-md">Upload your P&ID, isometric drawings, or BOM and we'll map capacity across our audited pipe mills, fabricators, and machining partners.</p>
-                            <button className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
+                            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
                                 Request Custom Quote
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
@@ -646,13 +646,13 @@ const OilGasProcessIndustries: React.FC = () => {
             {/* ═══ 8. FINAL CTA ═══════════════════════════════════════════ */}
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
-                  <Image
-                    src={SITE_IMAGES.industries.oilGas.cta}
-                    alt="Oil refinery at night"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                  />
+                    <Image
+                        src={SITE_IMAGES.industries.oilGas.cta}
+                        alt="Oil refinery at night"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
@@ -663,7 +663,7 @@ const OilGasProcessIndustries: React.FC = () => {
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From P&ID to site delivery — ASME/API certified pipelines, fittings, skids, and assemblies from one audited manufacturing ecosystem.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                    <Link href="/contact" className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">request_quote</span>
                             Get a Project Quote
@@ -672,7 +672,7 @@ const OilGasProcessIndustries: React.FC = () => {
                             <span className="material-symbols-outlined text-xl">fact_check</span>
                             Request Vendor Audit
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

@@ -38,12 +38,12 @@ const getTransporter = () => {
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } =
     process.env;
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
-    // throw new Error(
-    //   "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
-    // );
-    console.log(
+    throw new Error(
       "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
     );
+    // console.log(
+    //   "Missing SMTP_HOST, SMTP_PORT, SMTP_USER or SMTP_PASS environment variables.",
+    // );
   }
   return nodemailer.createTransport({
     host: SMTP_HOST,
@@ -53,6 +53,10 @@ const getTransporter = () => {
       user: SMTP_USER,
       pass: SMTP_PASS,
     },
+    name: "metallo-mt.com",
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 20000,
   });
 };
 
@@ -81,7 +85,8 @@ const ownerEmailHtml = (p: EnquiryPayload) => {
     </div>
   </div>`;
 };
-const supportEmail = process.env.SUPPORT_EMAIL ?? process.env.SMTP_USER;
+const supportEmail = process.env.SUPPORT_EMAIL ?? process.env.SMTP_USER ?? "support@example.com";
+
 const userEmailHtml = (p: EnquiryPayload) => `
   <div style="font-family:Inter,Arial,sans-serif;background:#F8FAFC;padding:32px;">
     <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
@@ -104,14 +109,6 @@ const userEmailHtml = (p: EnquiryPayload) => `
   </div>`;
 
 const transporter = getTransporter();
-// transporter
-//   .verify()
-//   .then(() => {
-//     console.log("SMTP server is ready");
-//   })
-//   .catch((err) => {
-//     console.log("SMTP configuration error:", err);
-//   });
 export async function sendEnquiryEmails(payload: EnquiryPayload) {
   const fromAddress = `Metallo Industrial <${process.env.SMTP_USER}>`;
   const ownerTo = process.env.OWNER_EMAIL || process.env.SMTP_USER!;
@@ -125,19 +122,21 @@ export async function sendEnquiryEmails(payload: EnquiryPayload) {
       ]
     : undefined;
 
-  await transporter.sendMail({
-    from: fromAddress,
-    to: ownerTo,
-    replyTo: payload.workEmail,
-    subject: `New Enquiry: ${payload.companyName} — ${LOOKING_FOR_LABELS[payload.lookingFor] || payload.lookingFor}`,
-    html: ownerEmailHtml(payload),
-    attachments,
-  });
+  await Promise.all([
+    transporter.sendMail({
+      from: fromAddress,
+      to: ownerTo,
+      replyTo: payload.workEmail,
+      subject: `New Enquiry: ${payload.companyName} — ${LOOKING_FOR_LABELS[payload.lookingFor] || payload.lookingFor}`,
+      html: ownerEmailHtml(payload),
+      attachments,
+    }),
 
-  await transporter.sendMail({
-    from: fromAddress,
-    to: payload.workEmail,
-    subject: "We received your enquiry — Metallo Industrial",
-    html: userEmailHtml(payload),
-  });
+    transporter.sendMail({
+      from: fromAddress,
+      to: payload.workEmail,
+      subject: "We received your enquiry — Metallo Industrial",
+      html: userEmailHtml(payload),
+    }),
+  ]);
 }

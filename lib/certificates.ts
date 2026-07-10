@@ -73,8 +73,8 @@ export const CERTIFICATE_ARCHIVE: CertificateArchiveItem[] = [
     systemTitle: "ISO 9001:2015",
     systemFocus: "Quality management system",
     fileName: "SCAN0169.PDF",
-    previewImage: "/metallo_certificates/scan0169-preview.jpg",
-    pdfUrl: "/metallo_certificates/SCAN0169.PDF",
+    previewImage: "/certificates/scan0169-preview.jpg",
+    pdfUrl: "/certificates/SCAN0169.PDF",
     summary:
       "One-page archived original surfaced for procurement and compliance review.",
   },
@@ -84,8 +84,8 @@ export const CERTIFICATE_ARCHIVE: CertificateArchiveItem[] = [
     systemTitle: "ISO 14001:2015",
     systemFocus: "Environmental management system",
     fileName: "SCAN0170.PDF",
-    previewImage: "/metallo_certificates/scan0170-preview.jpg",
-    pdfUrl: "/metallo_certificates/SCAN0170.PDF",
+    previewImage: "/certificates/scan0170-preview.jpg",
+    pdfUrl: "/certificates/SCAN0170.PDF",
     summary:
       "Direct PDF evidence from Metallo's public certification archive.",
   },
@@ -95,8 +95,8 @@ export const CERTIFICATE_ARCHIVE: CertificateArchiveItem[] = [
     systemTitle: "ISO 45001:2018",
     systemFocus: "Occupational health and safety system",
     fileName: "SCAN0171.PDF",
-    previewImage: "/metallo_certificates/scan0171-preview.jpg",
-    pdfUrl: "/metallo_certificates/SCAN0171.PDF",
+    previewImage: "/certificates/scan0171-preview.jpg",
+    pdfUrl: "/certificates/SCAN0171.PDF",
     summary:
       "Ready for buyer due diligence, tender support, and internal vendor review.",
   },

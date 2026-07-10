@@ -6,10 +6,10 @@ import {
   formatSteelList,
 } from "./steelCatalogUtils";
 
-const STEEL_PIPE_TUBE_IMAGE_DIR = "/Steel/pipes-tubes";
+const STEEL_PIPE_TUBE_IMAGE_DIR = "/products/steel/pipes-tubes";
 
 
-const steelImage = (fileName: string) => `/Steel/${fileName}`;
+const steelImage = (fileName: string) => `/products/steel/${fileName}`;
 const pipeTubeTypeImage = (slug: string, fileName: string) =>
   `${STEEL_PIPE_TUBE_IMAGE_DIR}/types/${slug}/${fileName}`;
 

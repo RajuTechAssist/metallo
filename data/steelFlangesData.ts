@@ -2,7 +2,7 @@ import { SITE_IMAGES } from '@/config/images';
 import type { SteelProduct } from "./steelTypes";
 import { formatSteelList } from "./steelCatalogUtils";
 
-const STEEL_FLANGE_IMAGE_DIR = "/Steel/flanges";
+const STEEL_FLANGE_IMAGE_DIR = "/products/steel/flanges";
 
 
 

@@ -112,7 +112,7 @@ const HERO_SLIDES = [
         microcopy: "RDSO-aligned SOPs · NDT, PMI, and MTC traceability per batch"
     },
     {
-        image: "/indianDefence3.jpg",
+        image: "/industries/indianDefence3.jpg",
         category: "Defence Engineering Procurement",
         title: "Defence Engineering Procurement",
         highlight: "Engineering, Secured.",
@@ -217,7 +217,7 @@ const RailwaysDefence: React.FC = () => {
                     style={{ opacity: heroOpacity }}
                 >
                     <div className="max-w-3xl bg-slate-900/80 pt-8 pb-8 pl-8 pr-8 rounded-lg border border-white/10 backdrop-blur-sm shadow-2xl relative overflow-hidden">
-                        
+
                         {/* Slide Selector Tabs */}
                         <div className="flex gap-4 mb-4 border-b border-white/10 pb-3">
                             {HERO_SLIDES.map((s, idx) => (
@@ -227,11 +227,10 @@ const RailwaysDefence: React.FC = () => {
                                         setCurrentSlide(idx);
                                         setSlideProgressKey((k) => k + 1);
                                     }}
-                                    className={`text-xs font-bold font-heading uppercase tracking-wider pb-1 transition-all ${
-                                        idx === currentSlide 
-                                            ? "text-yellow-500 border-b-2 border-yellow-500" 
-                                            : "text-slate-400 hover:text-white"
-                                    }`}
+                                    className={`text-xs font-bold font-heading uppercase tracking-wider pb-1 transition-all ${idx === currentSlide
+                                        ? "text-yellow-500 border-b-2 border-yellow-500"
+                                        : "text-slate-400 hover:text-white"
+                                        }`}
                                 >
                                     {s.category}
                                 </button>
@@ -272,7 +271,7 @@ const RailwaysDefence: React.FC = () => {
                                 </div>
                             </motion.div>
                         </AnimatePresence>
-                        
+
                         {/* Slide Navigation Buttons */}
                         <div className="absolute right-6 bottom-6 flex gap-2">
                             <button
@@ -580,10 +579,10 @@ const RailwaysDefence: React.FC = () => {
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">build</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Custom Rail / Defence<br />Component?</h3>
                             <p className="text-sm text-metallo-navy/70 font-sans mb-6 max-w-md">Upload drawings and BOM — we'll map capacity across audited global manufacturing partners and deliver a globally-compliant, project-ready quote.</p>
-                            <button className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
+                            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
                                 Request Project Quote
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
@@ -787,13 +786,13 @@ const RailwaysDefence: React.FC = () => {
             {/* ═══ 8. FINAL CTA ═══════════════════════════════════════════ */}
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
-                  <Image
-                    src={SITE_IMAGES.industries.railways.cta}
-                    alt="Railway infrastructure manufacturing"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                  />
+                    <Image
+                        src={SITE_IMAGES.industries.railways.cta}
+                        alt="Railway infrastructure manufacturing"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
@@ -804,7 +803,7 @@ const RailwaysDefence: React.FC = () => {
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From coach assemblies and signal cables to defence structural fabrications — Metallo delivers UIC, MIL-SPEC, and RDSO/DRDO‑certified manufacturing from an audited, borderless manufacturing network.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                    <Link href="/contact" className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">description</span>
                             Request a Rail / Defence Quote
@@ -813,7 +812,7 @@ const RailwaysDefence: React.FC = () => {
                             <span className="material-symbols-outlined text-xl">fact_check</span>
                             Schedule Vendor Audit
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

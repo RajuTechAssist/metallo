@@ -17,7 +17,7 @@ export const INDUSTRY_IMAGES = {
 
   /* ── Heavy Engineering ──────────────────────────────────── */
   heavyEngineering: {
-    hero:        '/heavy_eng.jpg',
+    hero:        '/industries/heavy_eng.jpg',
     cta:         'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&auto=format&fit=crop',
     products: {
       heavyStructural:  'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
@@ -43,7 +43,7 @@ export const INDUSTRY_IMAGES = {
 
   /* ── Oil, Gas & Process Industries ──────────────────────── */
   oilGas: {
-    hero:        '/oil_gas_banner2.jpg',
+    hero:        '/industries/oil_gas_banner2.jpg',
     cta:         'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1400&q=80&auto=format&fit=crop',
     products: {
       refineryAerial:   'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=80&auto=format&fit=crop',
@@ -56,7 +56,7 @@ export const INDUSTRY_IMAGES = {
 
   /* ── Power & Transmission ───────────────────────────────── */
   powerTransmission: {
-    hero:        '/power_trans.jpg',
+    hero:        '/industries/power_trans.jpg',
     cta:         'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1400&q=80&auto=format&fit=crop',
     products: {
       solarField:      'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80&auto=format&fit=crop',
@@ -68,7 +68,7 @@ export const INDUSTRY_IMAGES = {
 
   /* ── Railways & Defence ─────────────────────────────────── */
   railways: {
-    hero:        '/railway_defense6.jpg',
+    hero:        '/industries/railway_defense6.jpg',
     cta:         'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1400&q=80&auto=format&fit=crop',
     products: {
       trainStation:    'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80&auto=format&fit=crop',
@@ -81,7 +81,7 @@ export const INDUSTRY_IMAGES = {
 
   /* ── Smart Cities ───────────────────────────────────────── */
   smartCities: {
-    hero:        '/smart_city6.jpg',
+    hero:        '/industries/smart_city6.jpg',
     cta:         'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80&auto=format&fit=crop',
     products: {
       heavyConstruction:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop',
@@ -95,11 +95,11 @@ export const INDUSTRY_IMAGES = {
   /* ── Industry grid cards (home page Industries section) ── */
   grid: {
     infrastructure:    '/industries/infrastructure-construction.jpg',
-    powerTransmission: '/wire&cable/wire&cable_page_image1.jpg',
-    oilGas:            '/oil_gas_banner3.jpg',
-    heavyEngineering:  '/heavy_eng1.jpg',
-    railways:          '/railway_defense.jpg', 
-    smartCities:       '/smart_city_wb.jpg',
+    powerTransmission: '/products/wire-cables/wire&cable_page_image1.jpg',
+    oilGas:            '/industries/oil_gas_banner3.jpg',
+    heavyEngineering:  '/industries/heavy_eng1.jpg',
+    railways:          '/industries/railway_defense.jpg', 
+    smartCities:       '/industries/smart_city_wb.jpg',
   },
 
 } as const;

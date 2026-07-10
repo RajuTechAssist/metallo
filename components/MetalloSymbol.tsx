@@ -22,7 +22,7 @@ const MetalloSymbol: React.FC = () => {
           <div className="flex-shrink-0 relative group flex flex-col items-center md:items-start lg:ml-12">
             <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
               <Image
-                src="/logo-icon.svg"
+                src="/brand/logo-icon.svg"
                 alt="Metallo Globe Symbol"
                 width={320}
                 height={320}
@@ -55,7 +55,7 @@ const MetalloSymbol: React.FC = () => {
                 </strong>
               </p>
               <p>
-                It reflects Metallo's philosophy of delivering 360-degree
+                It reflects Metallo&apos;s philosophy of delivering 360-degree
                 industrial solutions, where every stage of the supply chain is
                 connected, coordinated, and constantly moving forward.
               </p>

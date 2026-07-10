@@ -488,10 +488,10 @@ const HeavyEngineering: React.FC = () => {
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">build</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Custom Heavy<br />Fabrication?</h3>
                             <p className="text-sm text-metallo-navy/70 font-sans mb-6 max-w-md">Upload drawings and BOM — we'll map capacity across audited heavy‑fabrication partners and deliver a project‑ready quote.</p>
-                            <button className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
+                            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-metallo-navy text-white text-xs font-heading font-bold uppercase tracking-wider hover:bg-metallo-navy/90 transition-colors rounded-sm">
                                 Request Project Quote
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>
@@ -695,13 +695,13 @@ const HeavyEngineering: React.FC = () => {
             {/* ═══ 8. FINAL CTA ═══════════════════════════════════════════ */}
             <section className="relative py-20 lg:py-28 overflow-hidden">
                 <div className="absolute inset-0">
-                  <Image
-                    src={SITE_IMAGES.industries.heavyEngineering.cta}
-                    alt="Heavy engineering fabrication"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                  />
+                    <Image
+                        src={SITE_IMAGES.industries.heavyEngineering.cta}
+                        alt="Heavy engineering fabrication"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-metallo-navy/90" />
 
@@ -712,7 +712,7 @@ const HeavyEngineering: React.FC = () => {
                     <p className="text-lg text-slate-300 font-sans max-w-2xl mb-10">
                         From pressure vessels and bridge girders to modular plant modules — Metallo delivers certified heavy fabrications from an audited, borderless manufacturing network.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                    <Link href="/contact" className="flex flex-col sm:flex-row gap-4 justify-start">
                         <button className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-500 text-metallo-navy text-sm font-heading font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300">
                             <span className="material-symbols-outlined text-xl">description</span>
                             Request a Project Quote
@@ -721,7 +721,7 @@ const HeavyEngineering: React.FC = () => {
                             <span className="material-symbols-outlined text-xl">fact_check</span>
                             Schedule Vendor Audit
                         </button>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

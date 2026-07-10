@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center group cursor-pointer" title="METALLO MANUFACTURING TECHNOLOGIES GmbH">
             <Image
-              src="/logo-white.svg"
+              src="/brand/logo-white.svg"
               alt="METALLO MANUFACTURING TECHNOLOGIES GmbH"
               width={600}
               height={150}

@@ -2,27 +2,27 @@
 
 export const DIE_CASTING_IMAGES = {
   hpdc: {
-    motorHousing: '/diecasting/die-casting-process-foundry.jpg',
-    electricalEnclosure: '/diecasting/die-casting-process-foundry.jpg',
-    automotiveComponents: '/diecasting/Die-casting-technology-in-action.webp',
+    motorHousing: '/products/die-casting/die-casting-process-foundry.jpg',
+    electricalEnclosure: '/products/die-casting/die-casting-process-foundry.jpg',
+    automotiveComponents: '/products/die-casting/Die-casting-technology-in-action.webp',
   },
   gravity: {
-    valveBodies: '/diecasting/die-casting-process-foundry.jpg',
-    pumpHousings: '/diecasting/Die-casting-technology-in-action.webp',
-    structuralBrackets: '/diecasting/die-casting-process-foundry.jpg',
+    valveBodies: '/products/die-casting/die-casting-process-foundry.jpg',
+    pumpHousings: '/products/die-casting/Die-casting-technology-in-action.webp',
+    structuralBrackets: '/products/die-casting/die-casting-process-foundry.jpg',
   },
   zinc: {
-    lockMechanism: '/diecasting/Die-casting-technology-in-action.webp',
-    decorativeHardware: '/diecasting/die-casting-process-foundry.jpg',
-    miniatureConnectors: '/diecasting/Die-casting-technology-in-action.webp',
+    lockMechanism: '/products/die-casting/Die-casting-technology-in-action.webp',
+    decorativeHardware: '/products/die-casting/die-casting-process-foundry.jpg',
+    miniatureConnectors: '/products/die-casting/Die-casting-technology-in-action.webp',
   },
   cnc: {
-    millingDrilling: '/diecasting/die-casting-process-foundry.jpg',
-    surfaceTreatment: '/diecasting/Die-casting-technology-in-action.webp',
+    millingDrilling: '/products/die-casting/die-casting-process-foundry.jpg',
+    surfaceTreatment: '/products/die-casting/Die-casting-technology-in-action.webp',
   },
   tooling: {
-    dieDesign: '/diecasting/die-casting-process-foundry.jpg',
-    dieManufacturing: '/diecasting/Die-casting-technology-in-action.webp',
+    dieDesign: '/products/die-casting/die-casting-process-foundry.jpg',
+    dieManufacturing: '/products/die-casting/Die-casting-technology-in-action.webp',
   },
-  processFoundry: '/diecasting/die-casting-process-foundry.jpg',
+  processFoundry: '/products/die-casting/die-casting-process-foundry.jpg',
 } as const;

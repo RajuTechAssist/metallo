@@ -214,7 +214,7 @@ const WhyMetallo: React.FC = () => {
                 {/* Central Hub */}
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <div className="w-32 h-32 bg-metallo-gold rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(234,179,8,0.3)] animate-pulse p-5">
-                    <Image src="/logo-icon.svg" alt="Metallo" width={128} height={128} className="w-full h-full object-contain animate-spin-slow" />
+                    <Image src="/brand/logo-icon.svg" alt="Metallo" width={128} height={128} className="w-full h-full object-contain animate-spin-slow" />
                   </div>
                 </div>
 
