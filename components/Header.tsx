@@ -196,14 +196,14 @@ const Header: React.FC = () => {
       </header>
 
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-90 transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
       <div
         className={`
-        fixed inset-y-0 z-[100] bg-metallo-navy text-white
+        fixed inset-y-0 z-100 bg-metallo-navy text-white
         w-[85vw] md:w-1/2 lg:w-1/2
         shadow-2xl overflow-hidden
         transform transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]

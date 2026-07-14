@@ -193,7 +193,7 @@ const PowerTransmission: React.FC = () => {
                     </div>
                 </motion.div>
 
-                <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
+                <div className="absolute bottom-0 inset-x-0 h-1 bg-linear-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
             </section>
 
             {/* ═══ STICKY SECTION NAV ══════════════════════════════════ */}
@@ -389,7 +389,7 @@ const PowerTransmission: React.FC = () => {
                                     className="object-cover opacity-40 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy via-metallo-navy/60 to-transparent" />
+                                <div className="absolute inset-0 bg-linear-to-t from-metallo-navy via-metallo-navy/60 to-transparent" />
 
                                 <div className="relative z-10 flex flex-col justify-end h-full p-7">
                                     <div className="mb-auto pt-1">
@@ -419,7 +419,7 @@ const PowerTransmission: React.FC = () => {
                             whileInView="visible"
                             viewport={{ once: true, margin: '-40px' }}
                             variants={fadeUp}
-                            className="group rounded-xl overflow-hidden bg-gradient-to-br from-yellow-500 to-yellow-600 shadow-lg h-[360px] flex flex-col items-center justify-center text-center p-8 cursor-pointer hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 md:col-span-2"
+                            className="group rounded-xl overflow-hidden bg-linear-to-br from-yellow-500 to-yellow-600 shadow-lg h-[360px] flex flex-col items-center justify-center text-center p-8 cursor-pointer hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 md:col-span-2"
                         >
                             <span className="material-symbols-outlined text-5xl text-metallo-navy mb-4">bolt</span>
                             <h3 className="text-2xl font-heading font-extrabold text-metallo-navy mb-3">Need a Custom<br />Power Solution?</h3>

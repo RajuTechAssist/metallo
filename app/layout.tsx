@@ -64,7 +64,7 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <div className="flex flex-col min-h-screen text-metallo-navy font-sans">
               <Header />
-              <main className="flex-grow">{children}</main>
+              <main className="grow">{children}</main>
               <Footer />
               <InquiryBasket />
               {/* <SocialSidebar /> */}

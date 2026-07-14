@@ -241,12 +241,12 @@ const Hero: React.FC = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 z-[1] bg-slate-900/60" />
+      <div className="absolute inset-0 z-1 bg-slate-900/60" />
       {/* Bottom vignette for track nav readability */}
-      <div className="absolute inset-x-0 bottom-0 h-[40%] z-[2] bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[40%] z-2 bg-linear-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
 
       {/* Clickable background overlay link */}
-      <Link href={slide.link} className="absolute inset-0 z-[3] cursor-pointer" aria-hidden="true" />
+      <Link href={slide.link} className="absolute inset-0 z-3 cursor-pointer" aria-hidden="true" />
 
       {/* ── Content ── */}
       <div className="relative container z-10 flex flex-col justify-center h-full pt-[5%] pb-[10%]">

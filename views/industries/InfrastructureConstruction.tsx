@@ -199,7 +199,7 @@ const InfrastructureConstruction: React.FC = () => {
                     </div>
                 </motion.div>
 
-                <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
+                <div className="absolute bottom-0 inset-x-0 h-1 bg-linear-to-r from-yellow-500 via-yellow-500/60 to-transparent z-10" />
             </section>
 
             {/* ═══ STICKY SECTION NAV ══════════════════════════════════ */}
@@ -398,7 +398,7 @@ const InfrastructureConstruction: React.FC = () => {
                                     className="object-cover opacity-40 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-metallo-navy via-metallo-navy/60 to-transparent" />
+                                <div className="absolute inset-0 bg-linear-to-t from-metallo-navy via-metallo-navy/60 to-transparent" />
 
                                 {/* Content */}
                                 <div className="relative z-10 flex flex-col justify-end h-full p-7">

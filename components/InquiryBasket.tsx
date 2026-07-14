@@ -199,7 +199,7 @@ const InquiryBasket: React.FC = () => {
       {!basketOpen && items.length > 0 && !submitted && (
         <button
           onClick={openBasket}
-          className="fixed bottom-6 right-6 z-[150] flex items-center gap-2.5 px-5 py-3.5 bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-wider text-sm hover:bg-metallo-gold-hover transition-all group"
+          className="fixed bottom-6 right-6 z-150 flex items-center gap-2.5 px-5 py-3.5 bg-metallo-gold text-metallo-navy font-bold font-heading uppercase tracking-wider text-sm hover:bg-metallo-gold-hover transition-all group"
           style={{ boxShadow: '0 8px 32px rgba(234, 179, 8, 0.35)' }}
         >
           <span className="material-symbols-outlined text-xl">shopping_cart</span>
@@ -212,7 +212,7 @@ const InquiryBasket: React.FC = () => {
 
       {/* ── Overlay ── */}
       <div
-        className={`fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-200 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
           basketOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={submitted ? resetQuote : closeBasket}
@@ -220,7 +220,7 @@ const InquiryBasket: React.FC = () => {
 
       {/* ── Sidebar Panel ── */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white z-[201] shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white z-201 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
           basketOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

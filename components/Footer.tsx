@@ -170,7 +170,7 @@ const Footer: React.FC = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
-                    className="flex-grow px-4 py-3 text-gray-900 bg-gray-50 focus:outline-none placeholder-gray-500 rounded-sm sm:rounded-r-none w-full border-transparent focus:border-metallo-gold focus:ring-1 focus:ring-metallo-gold transition-all"
+                    className="grow px-4 py-3 text-gray-900 bg-gray-50 focus:outline-none placeholder-gray-500 rounded-sm sm:rounded-r-none w-full border-transparent focus:border-metallo-gold focus:ring-1 focus:ring-metallo-gold transition-all"
                   />
                   <button
                     type="submit"

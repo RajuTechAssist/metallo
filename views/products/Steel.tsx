@@ -239,7 +239,7 @@ const Steel: React.FC = () => {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 380px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/30 via-transparent to-transparent" />
                   </div>
 
                   <div className="flex-1 min-w-0 p-6 md:p-8">
@@ -381,7 +381,7 @@ const Steel: React.FC = () => {
                           key={`${product["Product Name"]}-${item.name}`}
                           className="bg-white border border-slate-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow"
                         >
-                          <div className="aspect-[4/3] relative bg-slate-50 overflow-hidden">
+                          <div className="aspect-4/3 relative bg-slate-50 overflow-hidden">
                             <Image
                               src={item.image}
                               alt={item.name}
