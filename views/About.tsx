@@ -917,7 +917,7 @@ const About: React.FC = () => {
             {/* Left Card: Built for mission-critical industry */}
             <div className="lg:col-span-1 bg-metallo-navy text-white rounded-3xl p-8 md:p-10 shadow-xl border border-slate-800 flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-metallo-gold via-metallo-gold-hover to-metallo-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              
+
               <div>
                 {/* Shield Icon */}
                 <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8 border border-white/5">
@@ -925,11 +925,11 @@ const About: React.FC = () => {
                     security
                   </span>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold font-heading text-white mb-4">
                   Built for mission-critical industry
                 </h3>
-                
+
                 <p className="text-slate-300 text-sm italic leading-relaxed font-serif mb-8">
                   "Our leadership stems from Oil &amp; Gas sectors where failure is not an option."
                 </p>
@@ -955,7 +955,7 @@ const About: React.FC = () => {
             {/* Right Side: 2x2 Grid of 4 Directors */}
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Leader 1: Vinay Chadha */}
-              <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
+              {/* <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
                 <div className="relative w-20 h-20 flex items-center justify-center mb-4">
                   <div className="absolute inset-0 border border-dashed border-metallo-gold/40 rounded-full animate-[spin_40s_linear_infinite]" />
                   <div className="w-16 h-16 bg-metallo-navy rounded-full flex items-center justify-center text-white text-lg font-heading font-extrabold shadow-sm">
@@ -968,7 +968,7 @@ const About: React.FC = () => {
                 <p className="text-xs font-bold text-metallo-gold-hover uppercase tracking-wider">
                   Founder &amp; Director &middot; Metallo Global
                 </p>
-              </div>
+              </div> */}
 
               {/* Leader 2: Anand Kumar */}
               <div className="bg-white border border-slate-200/80 shadow-sm rounded-3xl p-6 md:p-8 flex flex-col items-center text-center justify-center transition-all duration-300 hover:shadow-md hover:border-metallo-gold/30">
