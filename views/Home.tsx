@@ -9,6 +9,7 @@ import MetalloOSPlatform from '../components/MetalloOSPlatform';
 import WorldMap from '../components/WorldMap';
 import Industries from '../components/Industries';
 import Certifications from '../components/Certifications';
+import HelpSection from '../components/HelpSection';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -39,6 +40,10 @@ const Home: React.FC = () => {
       <WorldMap />
       <Verticals />
       <MetalloOSPlatform />
+      <HelpSection
+        title="How can our global manufacturing network advance your enterprise operations today?"
+        subtitle="Select your engagement pathway below for factory-direct procurement, strategic vendor integration, or executive career opportunities within the Metallo ecosystem."
+      />
       {/* <Certifications /> */}
     </>
   );
