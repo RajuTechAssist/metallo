@@ -60,10 +60,10 @@ export const GLOBAL_OFFICES: GlobalOffice[] = [
     title: "Corporate Headquarters",
     entity: "Metallo Manufacturing Technologies GmbH",
     region: "Europe commercial presence and buyer coordination",
-    addressLines: ["Reichenbachstrasse 1", "85737 Ismaning, Germany"],
+    addressLines: ["Maximilianstraße 27", "80539 München, Germany"],
     kind: "registered-office",
     marker: [11.6986, 48.2254],
-    mapQuery: "Reichenbachstrasse 1, 85737 Ismaning, Germany",
+    mapQuery: "Maximilianstraße 27, 80539 München, Germany",
   },
 ];
 

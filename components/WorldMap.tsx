@@ -23,7 +23,7 @@ const coverageCards = [
   {
     kind: "HEAD OFFICE",
     country: "Europe & UK",
-    lines: ["Reichenbachstraße 1,", "85737 Ismaning, Germany"],
+    lines: ["Maximilianstraße 27", "80539 München, Germany"],
   },
   {
     kind: "SALES OFFICE",
@@ -142,7 +142,7 @@ const OFFICE_MARKERS: OfficeMarker[] = [
     detail: {
       kind: "HEAD OFFICE",
       country: "Europe & UK",
-      lines: ["Reichenbachstraße 1,", "85737 Ismaning, Germany"],
+      lines: ["Maximilianstraße 27", "80539 München, Germany"],
     },
   },
   { id: "hungary", x: 710, y: 255, label: "Hungary", type: "sales" },
